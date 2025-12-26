@@ -1,0 +1,36 @@
+# Obsidian設定ファイル
+.obsidian/
+.cursor/
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 一時ファイル
+*.tmp
+*.log
+*.swp
+*~
+
+# Python関連（必要に応じて）
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# 個人情報や機密情報を含む可能性のあるファイル
+*_tokens.txt
+*_tokens.json
+*.key
+*.pem
+
+# 大きなデータファイル（必要に応じて調整）
+*.txt
+!requirements.txt
+
