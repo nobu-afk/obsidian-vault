@@ -1,0 +1,122 @@
+/*!
+ * Gravity Orbit LP 専用スタイル（v3 幹部育成全振り版）
+ * 組織軸（青）アクセント色／hero／3つのやること／KPI／プラン／フロー／ペルソナ／FAQ等
+ * 共通基盤：tokens.css + lp-base.css
+ */
+
+/* Skip link（アクセシビリティ・画面外に退避） */
+.b-skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 10000; }
+.b-skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; padding: 10px 16px; background: #0f172a; color: #fff; text-decoration: none; font-weight: 700; border-radius: 4px; }
+
+/* Sticky header anchor offset */
+[id] { scroll-margin-top: 80px; }
+
+.orbit-hero { padding: 80px 0 60px; text-align: center; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); border-bottom: 1px solid #e2e8f0; }
+.orbit-hero-eyebrow { display: inline-block; font-size: 11px; letter-spacing: 0.2em; font-weight: 700; color: #1e40af; margin-bottom: 22px; }
+.orbit-hero h1 { font-size: clamp(22px, 5vw, 48px); font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 28px; color: #0f172a; word-break: keep-all; overflow-wrap: anywhere; }
+.hero-eyebrow { word-break: keep-all; overflow-wrap: anywhere; }
+.orbit-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
+.orbit-hero-tagline { font-size: clamp(16px, 2.4vw, 20px); font-weight: 800; color: #0f172a; letter-spacing: 0.02em; margin-bottom: 20px; }
+.orbit-hero-sub { font-size: clamp(14px, 2vw, 16px); line-height: 2; color: #475569; margin-bottom: 28px; max-width: 680px; margin-left: auto; margin-right: auto; }
+.orbit-hero-meta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 0; font-size: 12px; color: #64748b; }
+.orbit-hero-meta-badge { background: #f1f5f9; padding: 6px 16px; border-radius: 100px; font-weight: 700; }
+
+.orbit-section { padding: 80px 0; }
+.orbit-section-alt { background: #f8fafc; }
+.orbit-section-dark { background: #0f172a; color: #ffffff; }
+.orbit-section-dark h2 { color: #ffffff; }
+.orbit-section-dark .orbit-label { color: #1e40af; }
+.orbit-label { display: inline-block; font-size: 11px; letter-spacing: 0.2em; font-weight: 700; color: #1e40af; margin-bottom: 16px; }
+.orbit-section h2 { font-size: clamp(22px, 3.6vw, 32px); font-weight: 900; line-height: 1.4; margin-bottom: 24px; letter-spacing: -0.01em; color: #0f172a; }
+.orbit-section h2 em { font-style: normal; background: linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
+.orbit-lead { font-size: 15px; line-height: 2; color: #334155; margin-bottom: 24px; }
+.orbit-section-dark .orbit-lead { color: #cbd5e1; }
+
+/* Problem (意外性) */
+.problem-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 28px 32px; margin: 24px 0; }
+.problem-a { font-size: 13px; color: #64748b; margin-bottom: 6px; letter-spacing: 0.06em; font-weight: 700; }
+.problem-b { font-size: 17px; color: #0f172a; font-weight: 800; line-height: 1.7; margin-bottom: 14px; }
+.problem-divider { width: 48px; height: 2px; background: #1e40af; margin: 16px 0; }
+.problem-c { font-size: 13px; color: #64748b; margin-bottom: 6px; letter-spacing: 0.06em; font-weight: 700; }
+.problem-d { font-size: 16px; color: #0f172a; font-weight: 800; line-height: 1.7; }
+
+/* 3 つのやること */
+.three-things { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 28px 0; }
+@media (min-width: 720px) { .three-things { grid-template-columns: repeat(3, 1fr); } }
+.thing-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 28px 24px; }
+.thing-num { font-size: 12px; font-weight: 900; color: #1e40af; letter-spacing: 0.18em; margin-bottom: 10px; }
+.thing-ttl { font-size: 17px; font-weight: 900; color: #0f172a; margin-bottom: 10px; line-height: 1.55; }
+.thing-desc { font-size: 13.5px; color: #475569; line-height: 1.9; }
+.thing-time { font-size: 12px; color: #1e40af; font-weight: 700; letter-spacing: 0.06em; margin-top: 12px; padding-top: 12px; border-top: 1px solid #f1f5f9; }
+
+/* KPI table */
+.kpi-table { width: 100%; border-collapse: collapse; margin: 24px 0; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+.kpi-table th, .kpi-table td { padding: 14px 18px; text-align: left; font-size: 13.5px; border-bottom: 1px solid #e2e8f0; }
+.kpi-table th { background: #f8fafc; font-weight: 800; color: #0f172a; font-size: 12px; letter-spacing: 0.06em; }
+.kpi-table tr:last-child td { border-bottom: none; }
+.kpi-table .kpi-num { font-weight: 900; color: #0f172a; }
+.kpi-table .kpi-arrow { color: #1e40af; font-weight: 900; padding: 0 6px; }
+.kpi-table .kpi-goal { font-weight: 900; color: #0f172a; }
+@media (max-width: 640px) { .kpi-table th, .kpi-table td { padding: 10px 12px; font-size: 12.5px; } }
+
+/* Plan comparison */
+.plan-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 28px 0; }
+@media (min-width: 720px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
+.plan-cta { display: inline-block; margin-top: 18px; padding: 11px 24px; background: #0f172a; color: #fff !important; text-decoration: none; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; border-radius: 4px; transition: background 0.2s; }
+.plan-cta:hover { background: #1e293b; }
+.plan-card-pro .plan-cta { background: #1e40af; color: #fff !important; }
+.plan-card-pro .plan-cta:hover { background: #1e3a8a; }
+.plan-card { background: #fff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 32px 28px; }
+.plan-card-pro { border-color: #0f172a; background: linear-gradient(to bottom, #f8fafc 0%, #fff 100%); position: relative; padding-top: 48px; }
+.plan-card-pro::before { content: "推奨"; position: absolute; top: 14px; right: 18px; background: #1e40af; color: #fff; font-size: 10.5px; font-weight: 900; padding: 4px 14px; border-radius: 100px; letter-spacing: 0.1em; }
+.plan-name { font-size: 12px; font-weight: 900; letter-spacing: 0.16em; color: #1e40af; margin-bottom: 8px; }
+.plan-price { font-size: clamp(30px, 5vw, 40px); font-weight: 900; color: #0f172a; margin-bottom: 4px; letter-spacing: 0; }
+.plan-price small { font-size: 0.4em; font-weight: 700; color: #64748b; margin-left: 4px; }
+.plan-unit { font-size: 12px; color: #64748b; margin-bottom: 18px; }
+.plan-sub { font-size: 14px; font-weight: 800; color: #0f172a; margin: 16px 0 12px; padding-top: 16px; border-top: 1px solid #f1f5f9; }
+.plan-features { list-style: none; padding: 0; font-size: 13.5px; line-height: 1.9; color: #334155; }
+.plan-features li { padding: 6px 0 6px 24px; position: relative; }
+.plan-features li::before { content: "✓"; color: #1e40af; position: absolute; left: 0; top: 6px; font-weight: 900; }
+.plan-features li strong { color: #0f172a; }
+
+/* Price breakdown */
+.price-breakdown { background: #f8fafc; border-left: 3px solid #1e40af; border-radius: 6px; padding: 20px 24px; margin: 24px 0; }
+.price-breakdown-ttl { font-size: 12px; font-weight: 900; color: #1e40af; letter-spacing: 0.14em; margin-bottom: 10px; }
+.price-breakdown-line { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 13.5px; color: #334155; line-height: 1.7; border-bottom: 1px dotted #e2e8f0; }
+.price-breakdown-line:last-child { border-bottom: none; font-weight: 800; color: #0f172a; padding-top: 10px; border-top: 1px solid #1e40af; border-bottom: none; margin-top: 6px; }
+
+/* Shift → Orbit flow */
+.flow-steps { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0; }
+@media (min-width: 720px) { .flow-steps { grid-template-columns: repeat(4, 1fr); } }
+.flow-step { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 22px 20px; text-align: center; position: relative; }
+.flow-step-stage { font-size: 10.5px; font-weight: 900; color: #1e40af; letter-spacing: 0.16em; margin-bottom: 8px; }
+.flow-step-ttl { font-size: 14.5px; font-weight: 900; color: #0f172a; margin-bottom: 8px; line-height: 1.5; }
+.flow-step-desc { font-size: 12px; color: #64748b; line-height: 1.7; }
+
+/* Persona check */
+.persona-check { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 28px 32px; margin: 24px 0; }
+.persona-check-ttl { font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+.persona-list { list-style: none; padding: 0; }
+.persona-list li { padding: 10px 0 10px 32px; position: relative; font-size: 14px; line-height: 1.75; color: #334155; border-bottom: 1px solid #f1f5f9; }
+.persona-list li:last-child { border-bottom: none; }
+.persona-list li::before { content: "□"; color: #1e40af; position: absolute; left: 0; top: 10px; font-size: 16px; font-weight: 900; }
+.persona-check-result { font-size: 13px; color: #0f172a; font-weight: 800; margin-top: 16px; padding: 14px 16px; background: #f8fafc; border-left: 3px solid #1e40af; border-radius: 4px; line-height: 1.7; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid #e2e8f0; padding: 16px 0; }
+.faq-item summary { font-size: 15px; font-weight: 800; color: #0f172a; cursor: pointer; list-style: none; padding-right: 24px; position: relative; }
+.faq-item summary::after { content: "＋"; position: absolute; right: 0; top: 0; font-weight: 900; color: #1e40af; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-answer { margin-top: 12px; font-size: 13.5px; line-height: 1.9; color: #475569; padding-left: 2px; }
+.faq-answer strong { color: #0f172a; }
+.faq-answer a { color: #0f172a; border-bottom: 1px solid #0f172a; }
+
+/* Final CTA */
+.orbit-cta-section { padding: 96px 0; text-align: center; background: #0f172a; color: #ffffff; }
+.orbit-cta-section h2 { color: #ffffff; margin-bottom: 20px; }
+.orbit-cta-section .orbit-label { color: #1e40af; }
+.orbit-cta-lead { font-size: 15px; color: #cbd5e1; line-height: 2; margin-bottom: 28px; max-width: 640px; margin-left: auto; margin-right: auto; }
+.orbit-cta-proof { display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; font-size: 12px; color: #cbd5e1; margin-bottom: 28px; }
+.orbit-cta-proof span { color: #1e40af; }
+
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }

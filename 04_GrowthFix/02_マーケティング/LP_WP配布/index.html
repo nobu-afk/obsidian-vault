@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事業の勝ち筋ループの作り方 | 無料ホワイトペーパー | GrowthFix</title>
+  <meta name="description" content="50以上の事業・組織と向き合って導き出した、事業の成長パターン。「組織を変えるな。引力を作れ。」──16ページの無料ホワイトペーパーをダウンロード。">
+  <meta property="og:title" content="事業の勝ち筋ループの作り方 | 無料ホワイトペーパー">
+  <meta property="og:description" content="50以上の事業・組織と向き合って導き出した、事業の成長パターン。16ページの無料ホワイトペーパー。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://growthfix.jp/whitepaper/">
+  <meta property="og:image" content="https://growthfix.jp/whitepaper/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><text x='50' y='72' text-anchor='middle' font-family='system-ui' font-size='64' font-weight='900' fill='white'>G</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="/assets/js/tracking.js" defer></script>
+  <style>
+    :root {
+      --text: #1e293b;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-dark: #0f172a;
+      --border: #e2e8f0;
+      --accent: #0f172a;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.85;
+      -webkit-font-smoothing: antialiased; font-feature-settings: "palt";
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(640px, 92%); margin: 0 auto; }
+    .container-wide { width: min(960px, 92%); margin: 0 auto; }
+
+    /* === Hero === */
+    .hero {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 36px;
+    }
+    .hero-cover {
+      max-width: 240px;
+      margin: 0 auto 32px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: left;
+    }
+    .hero-cover-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .hero-cover-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .hero-cover-divider {
+      width: 32px;
+      height: 2px;
+      background: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .hero-cover-subtitle {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+
+    /* === Value Section === */
+    .value-section {
+      padding: 64px 0;
+      background: var(--bg);
+    }
+    .value-section h2 {
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+    .value-list {
+      display: grid;
+      gap: 20px;
+    }
+    .value-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .value-item-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+    .value-item-content h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .value-item-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* === Author Section === */
+    .author-section {
+      padding: 48px 0;
+      background: var(--bg-alt);
+    }
+    .author-quote {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.8;
+      padding: 20px 24px;
+      border-left: 4px solid var(--text);
+      background: var(--bg);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 20px;
+    }
+    .author-name {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .author-title {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .author-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* === Form Section === */
+    .form-section {
+      padding: 64px 0 80px;
+      background: var(--bg);
+    }
+    .form-section h2 {
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .form-section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .form-container {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+    .form-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
+    form div {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-required {
+      display: inline-block;
+      font-size: 10px;
+      color: #dc2626;
+      background: #fef2f2;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 700;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      background: var(--bg);
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, input[type="email"]:focus {
+      outline: none;
+      border-color: var(--text);
+    }
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover {
+      opacity: 0.9;
+    }
+    .form-note {
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+    .form-privacy {
+      text-align: center;
+      margin-top: 12px;
+    }
+    .form-privacy a {
+      font-size: 12px;
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+    .utage-iframe {
+      display: none;
+    }
+
+    /* === FAQ === */
+    .faq-section {
+      padding: 48px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+    details.faq-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    details.faq-item summary {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 16px 20px;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+      position: relative;
+      padding-right: 40px;
+    }
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    details.faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-light);
+      transition: transform 0.2s;
+    }
+    details.faq-item[open] summary::after {
+      content: '−';
+    }
+    details.faq-item p {
+      padding: 0 20px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* === Footer === */
+    .footer {
+      padding: 32px 0;
+      background: var(--bg-dark);
+      color: #94a3b8;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 11px;
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .footer-copy {
+      font-size: 10px;
+      color: #64748b;
+      letter-spacing: 0.05em;
+    }
+
+    /* === Mobile === */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0 60px; }
+      .hero h1 { font-size: 24px; }
+      .hero-sub { font-size: 14px; margin-bottom: 28px; }
+      .hero-cover { max-width: 200px; padding: 24px 18px; }
+      .hero-cover-title { font-size: 16px; }
+      .value-section { padding: 48px 0; }
+      .value-section h2 { font-size: 20px; margin-bottom: 28px; }
+      .value-item { padding: 16px 18px; gap: 12px; }
+      .value-item-num { font-size: 22px; min-width: 32px; }
+      .value-item-content h3 { font-size: 14px; }
+      .form-section { padding: 48px 0 60px; }
+      .form-section h2 { font-size: 20px; }
+      .form-container { padding: 24px 20px; }
+      .faq-section { padding: 32px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">GROWTHFIX WHITE PAPER #01</span>
+      <h1>
+        事業の勝ち筋ループの<br>作り方
+      </h1>
+      <p class="hero-sub">組織を変えるな。引力を作れ。</p>
+
+      <div class="hero-cover">
+        <div class="hero-cover-label">WHITE PAPER | GROWTHFIX</div>
+        <div class="hero-cover-title">事業の勝ち筋ループの作り方</div>
+        <div class="hero-cover-divider"></div>
+        <div class="hero-cover-subtitle">50以上の事業・組織と向き合って導き出した、事業の成長パターン</div>
+      </div>
+
+      <p class="hero-meta">無料｜PDF 16ページ｜メール登録で即ダウンロード</p>
+    </div>
+  </section>
+
+  <!-- Value -->
+  <section class="value-section">
+    <div class="container">
+      <h2>このホワイトペーパーで得られる、4つの視点</h2>
+      <div class="value-list">
+
+        <div class="value-item">
+          <div class="value-item-num">01</div>
+          <div class="value-item-content">
+            <h3>事業の伸ばし方は4パターンしかない</h3>
+            <p>50以上の事業を見てきて導き出した「Gravityマップ」で、あなたの会社の現在地が一目で分かる。</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-num">02</div>
+          <div class="value-item-content">
+            <h3>一番多い「人力拡大」の罠</h3>
+            <p>人は増やせた、でも楽にならない。❷人力拡大の経営者の90%が、自社を❹グラビティ型成長と誤認している。</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-num">03</div>
+          <div class="value-item-content">
+            <h3>勝ち筋ループという新しい視点</h3>
+            <p>組織ではなく事業の構造から逆算する。5つのループ型と、社長が詰まっている工程の見つけ方。</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-num">04</div>
+          <div class="value-item-content">
+            <h3>明日からできる「最初の一手」</h3>
+            <p>社長の判断を組織に渡す4ステップと、❷→❹に進んだ会社の3事例を具体的に解説。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Author -->
+  <section class="author-section">
+    <div class="container">
+      <blockquote class="author-quote">
+        「50以上の事業・組織と向き合う中で気づいたのは、事業の伸び方には明確なパターンがあるということ。<br>
+        本書はそのパターンを初めて言語化したものです。」
+      </blockquote>
+      <div class="author-name">石井 伸幸</div>
+      <div class="author-title">GrowthFix 代表｜元 DMM.com・MOON-X｜人事歴15年</div>
+      <p class="author-body">
+        ミナジン（現Kubellグループ）執行役員としてコンサル事業を立ち上げた後、DMM.comで全社人事企画として50事業に関与。MOON-Xでは人事責任者として、34名から120名への組織拡大を牽引。独立後はGrowthFixを設立し、「Gravityマップ」「勝ち筋ループ」などのフレームワークを開発。
+      </p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="form-section" id="download">
+    <div class="container">
+      <h2>無料ダウンロード</h2>
+      <p class="form-section-sub">メールアドレスを入力すると、すぐにPDFが届きます</p>
+
+      <div class="form-container">
+        <div class="form-badges">
+          <span class="form-badge"><i class="ri-check-line"></i> PDF 16ページ</span>
+          <span class="form-badge"><i class="ri-check-line"></i> 即ダウンロード</span>
+          <span class="form-badge"><i class="ri-check-line"></i> 完全無料</span>
+        </div>
+
+        <iframe name="utage-iframe" class="utage-iframe" aria-hidden="true"></iframe>
+        <!-- ⚠️ DEPLOY BLOCKER: Utage商品URL未設定。本番デプロイ前にYOUR_UTAGE_ID_HEREを実URLに差し替えること。差し替え忘れると全フォーム送信が404になる。README_デプロイ手順.md参照。 -->
+        <form action="https://utage-system.com/r/YOUR_UTAGE_ID_HERE/store" method="post" target="utage-iframe" id="wp-form">
+          <div>
+            <label for="wp-name">お名前 <span class="form-required">必須</span></label>
+            <input id="wp-name" type="text" name="name" required placeholder="山田 太郎" autocomplete="name">
+          </div>
+          <div>
+            <label for="wp-company">会社名</label>
+            <input id="wp-company" type="text" name="company" placeholder="株式会社〇〇" autocomplete="organization">
+          </div>
+          <div>
+            <label for="wp-email">メールアドレス <span class="form-required">必須</span></label>
+            <input id="wp-email" type="email" name="mail" required placeholder="example@company.com" autocomplete="email" inputmode="email">
+          </div>
+          <button type="submit" class="btn-submit">
+            無料でダウンロードする
+          </button>
+          <p class="form-note">入力30秒｜登録後すぐにPDFをお送りします</p>
+          <p class="form-privacy"><a href="/privacy-policy/">プライバシーポリシー</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>よくある質問</h2>
+
+      <details class="faq-item">
+        <summary>どんな人向けのホワイトペーパーですか？</summary>
+        <p>社員5〜100名規模の中小企業・スタートアップの経営者向けです。「人を増やしたのに、社長が楽にならない」という状況にいる方に特に刺さる内容です。</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>本当に無料ですか？</summary>
+        <p>はい、完全無料です。メールアドレスを登録いただくと、すぐにPDFがダウンロードできます。</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>メールアドレスは何に使われますか？</summary>
+        <p>ダウンロード後、事業成長に役立つ情報を不定期にお送りします（週1-2通程度）。配信停止はいつでも可能です。</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>PDFはどのくらいのボリュームですか？</summary>
+        <p>A4・全16ページです。15-20分で読み切れる分量で、読後すぐに自社に当てはめて考えられる実用的な内容です。</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>内容をもっと深く相談したい場合は？</summary>
+        <p>ダウンロード後のメールで、無料の体験セッション（30分・Zoom）をご案内します。押し売りはしません。</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-wide">
+      <div class="footer-logo">GrowthFix</div>
+      <div class="footer-tagline">社長の限界を、事業の限界にしない</div>
+      <div class="footer-links">
+        <a href="https://growthfix.jp/gravity/">Gravity</a>
+        <a href="https://growthfix.jp/gravity-shift/">Shift</a>
+        <a href="https://growthfix.jp/gravity-scan/">Scan</a>
+        <a href="https://growthfix.jp/gravity-orbit/">Orbit</a>
+        <a href="https://growthfix.jp/gravity-coaching/">Coaching</a>
+        <a href="https://growthfix.jp/gravity-code/">CODE</a>
+        <a href="https://growthfix.jp/privacy-policy/">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 GrowthFix. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

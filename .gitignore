@@ -1,7 +1,31 @@
-# Obsidian設定ファイル
+# Obsidian / IDE 設定ファイル
 .obsidian/
 .cursor/
 .vscode/
+.claude/
+
+# FTP / 認証情報の単一情報源（git に含めない）
+06_開発/開発ツール/FTP情報_メインFTPアカウント.md
+
+# API キーを含む設定ファイル群（260502 GitHub Push Protection で発覚）
+**/config.php
+06_開発/scripts/config_*.json
+06_開発/scripts/code_diagnosis_server.py
+
+# アーカイブ（過去の構成・サービス全般 ── 履歴は disk のみ）
+_archive/
+**/_archive/
+
+# secrets が混入しがちな ipynb / token 系
+*.ipynb_checkpoints
+*_token.txt
+*_token.json
+.env
+.env.*
+!.env.example
+
+# 偶発的な空ファイル
+Untitled
 
 # macOS
 .DS_Store

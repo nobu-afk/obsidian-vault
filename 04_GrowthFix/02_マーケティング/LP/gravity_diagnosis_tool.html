@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>組織の停滞度診断 | Gravity</title>
+  <style>
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background: #F7F5F2;
+      color: #2D2D2D;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .screen.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================
+       HEADER / PROGRESS
+       ============================================ */
+    .header {
+      background: #1B2A4A;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .header-progress {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    .progress-bar-wrap {
+      background: #1B2A4A;
+      padding: 0 0 12px;
+    }
+    .progress-bar-bg {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .progress-bar-track {
+      height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #C49A6C;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* ============================================
+       INTRO SCREEN
+       ============================================ */
+    .intro {
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .intro-badge {
+      display: inline-block;
+      background: #1B2A4A;
+      color: #C49A6C;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .intro h1 {
+      font-size: 28px;
+      line-height: 1.5;
+      color: #1B2A4A;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .intro h1 span {
+      display: inline;
+      background: linear-gradient(transparent 60%, rgba(196,154,108,0.25) 60%);
+    }
+    .intro-lead {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.9;
+    }
+    .intro-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: #888;
+    }
+    .intro-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ============================================
+       QUESTION SCREEN
+       ============================================ */
+    .question-screen { padding: 32px 0 80px; }
+
+    .question-area-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #C49A6C;
+      background: rgba(196,154,108,0.1);
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .question-number {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .question-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .question-text {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .options { display: flex; flex-direction: column; gap: 12px; }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #fff;
+      border: 2px solid #E8E4DF;
+      border-radius: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #2D2D2D;
+    }
+    .option-btn:hover {
+      border-color: #C49A6C;
+      background: #FFFDF9;
+    }
+    .option-btn.selected {
+      border-color: #1B2A4A;
+      background: #F0F2F7;
+    }
+    .option-label {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #E8E4DF;
+      color: #888;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .option-btn.selected .option-label {
+      background: #1B2A4A;
+      color: #fff;
+    }
+
+    /* ============================================
+       NAVIGATION BUTTONS
+       ============================================ */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: #1B2A4A;
+      color: #fff;
+      flex: 1;
+    }
+    .btn-primary:hover:not(:disabled) { background: #263B63; }
+
+    .btn-secondary {
+      background: transparent;
+      color: #888;
+      border: 1px solid #DDD;
+    }
+    .btn-secondary:hover { background: #F0EEEB; }
+
+    .btn-accent {
+      background: #C49A6C;
+      color: #fff;
+      font-size: 16px;
+      padding: 16px 40px;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .btn-accent:hover:not(:disabled) { background: #B38A5C; }
+
+    .btn-start {
+      background: #1B2A4A;
+      color: #fff;
+      font-size: 16px;
+      padding: 18px 48px;
+      border-radius: 10px;
+    }
+    .btn-start:hover { background: #263B63; }
+
+    /* ============================================
+       EMAIL SCREEN
+       ============================================ */
+    .email-screen {
+      padding: 60px 0 80px;
+      text-align: center;
+    }
+    .email-screen h2 {
+      font-size: 22px;
+      color: #1B2A4A;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .email-lead {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .email-form-group {
+      max-width: 400px;
+      margin: 0 auto 16px;
+    }
+    .email-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #E8E4DF;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .email-input:focus { border-color: #C49A6C; }
+    .email-input.error { border-color: #E53935; }
+
+    .email-error {
+      color: #E53935;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+    .email-error.show { display: block; }
+
+    .email-submit-wrap {
+      max-width: 400px;
+      margin: 24px auto 0;
+    }
+
+    .privacy-note {
+      font-size: 12px;
+      color: #AAA;
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       LOADING SCREEN
+       ============================================ */
+    .loading-screen {
+      padding: 120px 0;
+      text-align: center;
+    }
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #E8E4DF;
+      border-top-color: #1B2A4A;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 24px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 15px;
+      color: #888;
+    }
+
+    /* ============================================
+       RESULT SCREEN
+       ============================================ */
+    .result-screen { padding: 40px 0 80px; }
+
+    .result-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .result-level-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .level-mild    { background: #E8F5E9; color: #2E7D32; }
+    .level-moderate { background: #FFF3E0; color: #E65100; }
+    .level-severe  { background: #FBE9E7; color: #D84315; }
+    .level-critical { background: #FFEBEE; color: #C62828; }
+
+    .result-total-score {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1B2A4A;
+      line-height: 1;
+    }
+    .result-total-score small {
+      font-size: 18px;
+      font-weight: 400;
+      color: #999;
+    }
+    .result-level-label {
+      font-size: 14px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* Area Scores */
+    .result-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .result-card h3 {
+      font-size: 14px;
+      color: #888;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .area-score-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+    .area-score-row:last-child { margin-bottom: 0; }
+    .area-label {
+      width: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #555;
+      flex-shrink: 0;
+    }
+    .area-bar-wrap {
+      flex: 1;
+      height: 10px;
+      background: #F0EEEB;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .area-bar {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.8s ease;
+    }
+    .area-bar.high    { background: #4CAF50; }
+    .area-bar.mid     { background: #FF9800; }
+    .area-bar.low     { background: #E53935; }
+    .area-score-value {
+      width: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Type Result */
+    .type-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .type-badge {
+      background: #1B2A4A;
+      color: #C49A6C;
+      font-size: 16px;
+      font-weight: 800;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .type-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1B2A4A;
+      line-height: 1.4;
+    }
+    .type-oneliner {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: #F7F5F2;
+      border-radius: 10px;
+      border-left: 4px solid #C49A6C;
+    }
+
+    .result-section { margin-bottom: 20px; }
+    .result-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #EDEBE8;
+    }
+    .result-section p,
+    .result-section li {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .result-section ul {
+      padding-left: 20px;
+    }
+    .result-section li { margin-bottom: 6px; }
+
+    /* Recommended Actions */
+    .action-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #F0EEEB;
+    }
+    .action-item:last-child { border-bottom: none; }
+    .action-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #C49A6C;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .action-text {
+      font-size: 14px;
+      color: #2D2D2D;
+      line-height: 1.7;
+    }
+    .action-text strong { color: #1B2A4A; }
+
+    /* CTA Section */
+    .cta-section {
+      background: #1B2A4A;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .cta-section h3 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .cta-details {
+      text-align: left;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .cta-detail-item {
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      padding: 4px 0;
+      line-height: 1.7;
+    }
+    .cta-detail-item strong {
+      color: #C49A6C;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 480px) {
+      .intro h1 { font-size: 24px; }
+      .intro-meta { flex-direction: column; gap: 8px; align-items: center; }
+      .question-title { font-size: 18px; }
+      .option-btn { padding: 14px 16px; font-size: 13px; }
+      .result-total-score { font-size: 40px; }
+      .area-label { width: 80px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <div class="header" id="header">
+    <div class="container">
+      <div class="header-logo">Gravity</div>
+      <div class="header-progress" id="headerProgress"></div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap" id="progressBarWrap" style="display:none;">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ==========================================
+         SCREEN 1: INTRO
+         ========================================== -->
+    <div class="screen active" id="screenIntro">
+      <div class="intro">
+        <div class="intro-badge">無料診断</div>
+        <h1>あなたの会社の<br><span>「組織の停滞度」</span>を<br>診断します</h1>
+        <p class="intro-lead">
+          事業は伸びているのに、組織がついてこない。<br>
+          採用・評価・マネジメント・組織設計の4領域から、<br>
+          あなたの組織の停滞ポイントを特定します。
+        </p>
+        <div class="intro-meta">
+          <div class="intro-meta-item">&#9201; 所要時間 3〜5分</div>
+          <div class="intro-meta-item">&#9997; 全12問</div>
+        </div>
+        <button class="btn btn-start" onclick="startDiagnosis()">診断を始める</button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SCREEN 2: QUESTIONS
+         ========================================== -->
+    <div class="screen" id="screenQuestion">
+      <div class="question-screen">
+        <div class="question-area-label" id="questionArea"></div>
+        <div class="question-number" id="questionNumber"></div>
+        <h2 class="question-title" id="questionTitle"></h2>
+        <p class="question-text" id="questionText"></p>
+        <div class="options" id="optionsContainer"></div>
+        <div class="nav-buttons">
+          <button class="btn btn-secondary" id="btnPrev" onclick="prevQuestion()">戻る</button>
+          <button class="btn btn-primary" id="btnNext" onclick="nextQuestion()" disabled>次へ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SCREEN 3: EMAIL INPUT
+         ========================================== -->
+    <div class="screen" id="screenEmail">
+      <div class="email-screen">
+        <h2>診断結果をお送りします</h2>
+        <p class="email-lead">
+          メールアドレスを入力してください。<br>
+          診断結果と、課題に応じた改善のヒントをお届けします。
+        </p>
+        <div class="email-form-group">
+          <input type="email" class="email-input" id="emailInput" placeholder="example@company.co.jp">
+          <div class="email-error" id="emailError">有効なメールアドレスを入力してください</div>
+        </div>
+        <div class="email-submit-wrap">
+          <button class="btn btn-accent" onclick="submitEmail()">結果を見る</button>
+        </div>
+        <p class="privacy-note">
+          ※ ご入力いただいた情報は、診断結果の送付および関連情報のご案内にのみ使用します。<br>
+          ※ いつでも配信を停止できます。
+        </p>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SCREEN 4: LOADING
+         ========================================== -->
+    <div class="screen" id="screenLoading">
+      <div class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">診断結果を分析中...</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SCREEN 5: RESULT
+         ========================================== -->
+    <div class="screen" id="screenResult">
+      <div class="result-screen">
+        <!-- 総合スコア -->
+        <div class="result-header">
+          <div class="result-level-badge" id="resultLevelBadge"></div>
+          <div class="result-total-score" id="resultTotalScore"></div>
+          <div class="result-level-label" id="resultLevelLabel"></div>
+        </div>
+
+        <!-- 領域別スコア -->
+        <div class="result-card">
+          <h3>領域別スコア</h3>
+          <div id="areaScores"></div>
+        </div>
+
+        <!-- タイプ診断結果 -->
+        <div class="result-card" id="typeResultCard"></div>
+
+        <!-- CTA -->
+        <div class="cta-section" id="ctaSection"></div>
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+
+  <!-- ==============================================
+       UTAGE連携用：隠しフォーム
+       ==============================================
+       以下のフォームは画面に表示されません。
+       JavaScriptが診断結果を隠しフィールドにセットし、
+       メールアドレス入力時にUTAGEへ送信します。
+
+       ★ UTAGEでの設定手順：
+       1. UTAGEでフォームを作成し、以下のフィールドを追加
+          - メールアドレス（必須）
+          - diagnosis_type（隠しフィールド）: A / B / C / D / E
+          - diagnosis_score（隠しフィールド）: 総合スコア
+          - diagnosis_level（隠しフィールド）: 軽度 / 中度 / 重度 / 深刻
+          - score_hiring（隠しフィールド）: 採用スコア
+          - score_evaluation（隠しフィールド）: 評価・報酬スコア
+          - score_management（隠しフィールド）: マネジメントスコア
+          - score_organization（隠しフィールド）: 組織設計スコア
+       2. フォームのアクションURL を下のUTAGE_CONFIG.formActionUrl に設定
+       3. フィールド名がUTAGE側と一致するように調整
+       ============================================== -->
+  <form id="utageForm" style="display:none;" method="POST">
+    <input type="hidden" name="email" id="utageEmail">
+    <input type="hidden" name="diagnosis_type" id="utageDiagType">
+    <input type="hidden" name="diagnosis_score" id="utageDiagScore">
+    <input type="hidden" name="diagnosis_level" id="utageDiagLevel">
+    <input type="hidden" name="score_hiring" id="utageScoreHiring">
+    <input type="hidden" name="score_evaluation" id="utageScoreEvaluation">
+    <input type="hidden" name="score_management" id="utageScoreManagement">
+    <input type="hidden" name="score_organization" id="utageScoreOrganization">
+  </form>
+
+
+  <script>
+  /* ==============================================
+     UTAGE設定
+     ============================================== */
+  const UTAGE_CONFIG = {
+    // ★ UTAGEのフォームアクションURLをここに設定
+    formActionUrl: '',
+
+    // ★ UTAGEのフィールド名（UTAGE側の設定に合わせて変更）
+    fieldNames: {
+      email: 'email',
+      diagnosisType: 'diagnosis_type',
+      diagnosisScore: 'diagnosis_score',
+      diagnosisLevel: 'diagnosis_level',
+      scoreHiring: 'score_hiring',
+      scoreEvaluation: 'score_evaluation',
+      scoreManagement: 'score_management',
+      scoreOrganization: 'score_organization'
+    }
+  };
+
+
+  /* ==============================================
+     設問データ（12問・4領域）
+     ============================================== */
+  const QUESTIONS = [
+    // ─── 領域①：採用 ───
+    {
+      id: 1, area: 'hiring', areaLabel: '領域① 採用',
+      title: '採用の判断軸',
+      question: '「この人を採るべきか」の最終判断で、迷うことはありますか？',
+      options: [
+        { label: 'A', text: '採用基準が言語化されており、基準に照らして判断できている', score: 3 },
+        { label: 'B', text: 'なんとなくの基準はあるが、最終的には直感で決めている', score: 2 },
+        { label: 'C', text: '毎回迷う。基準がなく、面接のたびに判断がブレる', score: 1 }
+      ]
+    },
+    {
+      id: 2, area: 'hiring', areaLabel: '領域① 採用',
+      title: '面接の設計',
+      question: '面接で「何を見るか」「どう評価するか」は、面接官の間で統一されていますか？',
+      options: [
+        { label: 'A', text: '評価基準と質問設計があり、面接官によるブレが少ない', score: 3 },
+        { label: 'B', text: '大まかな方針はあるが、面接官ごとに見るポイントが異なる', score: 2 },
+        { label: 'C', text: '面接官に任せきり。何を基準に評価しているか把握していない', score: 1 }
+      ]
+    },
+    {
+      id: 3, area: 'hiring', areaLabel: '領域① 採用',
+      title: '採用のミスコスト',
+      question: '直近1年で、「この採用は失敗だった」と感じた経験はありますか？',
+      options: [
+        { label: 'A', text: 'ない、または1年以上前の話', score: 3 },
+        { label: 'B', text: '1回ある。振り返ると判断基準の問題だった', score: 2 },
+        { label: 'C', text: '複数回ある。同じパターンで失敗を繰り返している', score: 1 }
+      ]
+    },
+    // ─── 領域②：評価・報酬 ───
+    {
+      id: 4, area: 'evaluation', areaLabel: '領域② 評価・報酬',
+      title: '評価基準の存在',
+      question: '社員の「何を」「どう」評価するかは、ドキュメントとして存在していますか？',
+      options: [
+        { label: 'A', text: '評価基準が文書化され、全社員に共有されている', score: 3 },
+        { label: 'B', text: '基準はあるが曖昧。運用されていない部分がある', score: 2 },
+        { label: 'C', text: '評価基準がない。昇給・昇格は社長の判断で決めている', score: 1 }
+      ]
+    },
+    {
+      id: 5, area: 'evaluation', areaLabel: '領域② 評価・報酬',
+      title: 'フィードバックの実施',
+      question: '社員に対して、定期的に評価のフィードバック面談を実施していますか？',
+      options: [
+        { label: 'A', text: '半期or四半期に1回以上、全社員に実施している', score: 3 },
+        { label: 'B', text: '一部の社員にはしているが、全社的には不定期', score: 2 },
+        { label: 'C', text: 'フィードバック面談をほぼ実施していない', score: 1 }
+      ]
+    },
+    {
+      id: 6, area: 'evaluation', areaLabel: '領域② 評価・報酬',
+      title: '報酬への不満',
+      question: '給与・評価に関する社員の不満や疑問を感じることはありますか？',
+      options: [
+        { label: 'A', text: '不満は少ない。報酬の決定根拠を説明できている', score: 3 },
+        { label: 'B', text: 'たまに不満を聞く。説明はしているが納得感が薄い', score: 2 },
+        { label: 'C', text: '不満が溜まっている気配がある。または給与の話が「空気」になっている', score: 1 }
+      ]
+    },
+    // ─── 領域③：マネジメント ───
+    {
+      id: 7, area: 'management', areaLabel: '領域③ マネジメント',
+      title: 'マネージャーの機能',
+      question: 'マネージャー（中間管理職）は、あなたの代わりにチームをマネジメントできていますか？',
+      options: [
+        { label: 'A', text: 'マネージャーに任せており、自分が現場に出る必要がほぼない', score: 3 },
+        { label: 'B', text: 'マネージャーはいるが、結局自分が判断・指示している場面が多い', score: 2 },
+        { label: 'C', text: 'マネージャーが機能していない、またはマネージャーポジション自体がない', score: 1 }
+      ]
+    },
+    {
+      id: 8, area: 'management', areaLabel: '領域③ マネジメント',
+      title: '1on1・対話の仕組み',
+      question: 'マネージャーとメンバー間、またはあなたとメンバー間の定期的な1on1を実施していますか？',
+      options: [
+        { label: 'A', text: '全社的に定期実施しており、質も担保されている', score: 3 },
+        { label: 'B', text: '一部では実施しているが、形骸化している or 不定期', score: 2 },
+        { label: 'C', text: '1on1の仕組みがない。問題が起きたときだけ個別に話す', score: 1 }
+      ]
+    },
+    {
+      id: 9, area: 'management', areaLabel: '領域③ マネジメント',
+      title: '権限委譲',
+      question: '現場の判断を、あなた以外のメンバーに任せられていますか？',
+      options: [
+        { label: 'A', text: '権限の範囲を明確にし、任せている。自分は最終判断のみ', score: 3 },
+        { label: 'B', text: '任せたつもりだが、気づくと自分が巻き取っている', score: 2 },
+        { label: 'C', text: 'ほぼすべての判断を自分がしている。任せる仕組みがない', score: 1 }
+      ]
+    },
+    // ─── 領域④：組織設計 ───
+    {
+      id: 10, area: 'organization', areaLabel: '領域④ 組織設計',
+      title: '役割定義',
+      question: '社員一人ひとりの「役割」「責任範囲」は明確になっていますか？',
+      options: [
+        { label: 'A', text: '全員の役割が言語化・共有されている', score: 3 },
+        { label: 'B', text: '大まかには決まっているが、曖昧な部分が多い', score: 2 },
+        { label: 'C', text: '「誰が何をやるか」が場当たり的。人によって認識がズレている', score: 1 }
+      ]
+    },
+    {
+      id: 11, area: 'organization', areaLabel: '領域④ 組織設計',
+      title: 'オンボーディング',
+      question: '新しく入社した人が「立ち上がる」までの支援の仕組みはありますか？',
+      options: [
+        { label: 'A', text: 'オンボーディングプログラムがあり、定着率も良い', score: 3 },
+        { label: 'B', text: '最低限の案内はあるが、「見て覚えて」に近い', score: 2 },
+        { label: 'C', text: '入社後の支援がほぼない。即戦力を期待して放置しがち', score: 1 }
+      ]
+    },
+    {
+      id: 12, area: 'organization', areaLabel: '領域④ 組織設計',
+      title: 'カルチャー・MVV',
+      question: '自社の価値観・行動指針は言語化され、社員に浸透していますか？',
+      options: [
+        { label: 'A', text: 'MVV（ミッション・ビジョン・バリュー）が言語化され、日常的に参照されている', score: 3 },
+        { label: 'B', text: '一応あるが、形骸化している。新入社員は知らないかもしれない', score: 2 },
+        { label: 'C', text: '言語化されていない。「うちの文化」は社長の頭の中にしかない', score: 1 }
+      ]
+    }
+  ];
+
+
+  /* ==============================================
+     結果タイプ定義（5タイプ）
+     ============================================== */
+  const RESULT_TYPES = {
+    A: {
+      label: 'タイプA',
+      name: '採用停滞型',
+      oneliner: '判断軸のない採用が、組織の停滞を生んでいます',
+      structure: '採用の判断基準が曖昧なまま、人数だけが増えている状態です。「この人を採るべきか」の最終判断が毎回直感になっており、採用のたびにCEOが迷い、消耗しています。\n\n採用のミスは1名あたり250万円以上の損失（採用コスト＋立ち上がり＋機会損失）を生みます。しかし問題は金額だけではありません。「合わない人が組織にいる」ことで、既存メンバーのパフォーマンスも下がり、離職の連鎖が起きやすくなります。',
+      costs: [
+        '採用ミス1名 = 250万円〜の損失（年2回のミス採用で500万円超）',
+        '既存メンバーへの悪影響（モチベーション低下・離職）',
+        'CEOの採用判断にかかる時間 = 本来使うべき売上創出の時間'
+      ],
+      actions: [
+        { title: '採用基準の言語化', desc: '「何ができる人」ではなく「どんな判断をする人」を定義する' },
+        { title: '採用スコアカードの作成', desc: '面接で見るべき項目と評価基準を統一する' },
+        { title: '面接設計の標準化', desc: '面接官によるブレをなくす質問・評価シートを作る' }
+      ],
+      cta: '採用の判断軸を作るのは、実は1-2回のセッションで初稿ができます。60分の体験セッションで、あなたの会社の「採用スコアカード」の叩き台を一緒に作りませんか？\n\nセッション後には、明日から使える採用判断の軸が手元に残ります。'
+    },
+    B: {
+      label: 'タイプB',
+      name: '評価不在型',
+      oneliner: '評価基準がないまま組織が成長し、"空気"が悪くなり始めています',
+      structure: '社員の評価基準が存在しない、または形骸化している状態です。昇給・昇格がCEOの主観で決まっているため、社員にとって「何をすれば評価されるか」が分かりません。\n\nこの状態が続くと、優秀な人ほど「ここにいても報われない」と感じて離職します。逆に、成果を出さなくても居心地がいい人が残り、組織の戦力が低下していきます。',
+      costs: [
+        '優秀な人材の離職（採用・育成コストが無駄になる）',
+        '給与・評価への不満が組織文化を蝕む',
+        'CEOが毎回0から評価を考える時間的コスト',
+        '昇給交渉のたびに場当たり的な対応を強いられる'
+      ],
+      actions: [
+        { title: '評価基準の言語化', desc: '役割ごとに「期待される成果」と「行動基準」を文書にする' },
+        { title: 'フィードバック面談の仕組み化', desc: '半期or四半期に1回、全員に実施する体制を作る' },
+        { title: '報酬決定のロジック明文化', desc: '「なぜこの金額なのか」を説明できる基準を持つ' }
+      ],
+      cta: '評価基準は「完璧なもの」を作ろうとして止まるケースがほとんどです。60分の体験セッションで、あなたの会社に合った「60点の評価基準」の初稿を一緒に作りませんか？\n\nまず1枚の基準があるだけで、社員の納得感は大きく変わります。'
+    },
+    C: {
+      label: 'タイプC',
+      name: 'マネジメント空洞型',
+      oneliner: 'マネジメント層が機能せず、すべての判断がCEOに集中しています',
+      structure: 'マネージャーがいない、またはいても機能していない状態です。全員がCEOに直接報告し、CEOがすべての判断を下す「ハブ&スポーク型」の組織構造になっています。\n\nこの構造では、組織が15名を超えたあたりからCEOの処理能力が限界を迎えます。結果、現場に張り付く時間が増え、本来CEOがやるべき経営判断・売上創出の時間が消えていきます。',
+      costs: [
+        'CEOの経営判断の時間が消失（週10時間以上が現場対応に消える）',
+        '社員の自律性が育たない（指示待ちが固定化する）',
+        'CEOの不在時に組織が止まる（属人化の極地）',
+        '組織拡大のボトルネックがCEO自身になる'
+      ],
+      actions: [
+        { title: 'マネージャーへの期待値を明文化', desc: '「何を任せるか」「どこまで判断していいか」を言語化する' },
+        { title: '1on1の導入', desc: 'マネージャー⇔メンバー間の対話を仕組み化する' },
+        { title: '権限委譲の設計', desc: '段階的に判断を渡す範囲と基準を決める' }
+      ],
+      cta: '「任せたいのに任せられない」は、仕組みの問題です。60分の体験セッションで、あなたの会社の権限設計の全体像を一緒に整理しませんか？\n\n「何を任せ、何を自分に残すか」が明確になるだけで、翌週から行動が変わります。'
+    },
+    D: {
+      label: 'タイプD',
+      name: '組織設計未着手型',
+      oneliner: '役割も文化も言語化されておらず、"なんとなく"で組織が回っています',
+      structure: '「誰が何をやるか」が曖昧なまま、人が増えた状態です。役割定義がないため業務の抜け漏れや重複が発生し、新入社員は「見て覚えて」方式で放置されがちです。\n\nさらに、創業期のカルチャーが言語化されていないため、人数が増えるにつれて「うちの会社っぽくない人」が増え、組織の一体感が薄れていきます。',
+      costs: [
+        '業務の抜け漏れ・重複による非効率（一人あたり生産性の低下）',
+        '新入社員の立ち上がりが遅い（オンボーディング不在による戦力化の遅延）',
+        'カルチャーの希薄化（「何を大事にする会社なのか」が伝わらない）',
+        '「なぜこの会社で働くのか」の理由が見えず、離職につながる'
+      ],
+      actions: [
+        { title: '役割定義の作成', desc: '全員の「ミッション」「責任範囲」「期待される成果」を1枚にまとめる' },
+        { title: 'オンボーディングの設計', desc: '入社後30-60-90日で何を覚え、何ができるようになるかをプログラム化する' },
+        { title: 'MVVの言語化', desc: '採用にも評価にも使える「自社の軸」を持つ' }
+      ],
+      cta: '組織設計は「大きな会社がやること」ではなく、10-30名のフェーズで着手すべきことです。60分の体験セッションで、あなたの会社の「組織の全体設計図」を一緒に描きませんか？\n\n今の組織の状態を俯瞰するだけで、次にやるべきことが見えてきます。'
+    },
+    E: {
+      label: 'タイプE',
+      name: '全方位停滞型',
+      oneliner: 'すべてが止まっています。でも、だからこそ"最初の一手"が決まれば一気に動き出します',
+      structure: '採用・評価・マネジメント・組織設計、4つの領域すべてで仕組みが不在、または機能していない状態です。\n\nこれは珍しいことではありません。年商1〜3億・10〜30名規模の企業が「事業成長に集中してきた結果、組織設計を後回しにしてきた」典型的なパターンです。\n\n問題は、4つが同時に止まっていると「どこから手をつけていいかわからない」状態になること。そしてCEOの時間と判断力の大半が、この組織課題に奪われていることです。',
+      costs: [
+        'CEO自身の経営判断の質が下がっている（組織課題に思考が消費される）',
+        '「すべてが中途半端」のまま、課題が複利で拡大する',
+        '採用ミス・離職・生産性低下が同時進行する',
+        '1年後に取り返すコストが、今動くコストの3-5倍になる'
+      ],
+      actions: [
+        { title: 'CEOの時間を最も奪っている課題を特定する', desc: '＝最初にクリアすべき課題' },
+        { title: 'その1領域だけに集中して、60点の仕組みを作る', desc: '完璧は不要' },
+        { title: '1つ動けば、他の領域も連鎖的に動き始める', desc: '' }
+      ],
+      cta: '全部が止まっているとき、一番難しいのは「どこから手をつけるか」の判断です。60分の体験セッションで、あなたの会社の最初の一手を一緒に特定しませんか？\n\n石井が過去に支援してきた企業の多くが、この状態からスタートしています。最初の1つが動けば、組織は驚くほど変わります。'
+    }
+  };
+
+
+  /* ==============================================
+     STATE
+     ============================================== */
+  let currentQuestion = 0;
+  let answers = new Array(QUESTIONS.length).fill(null);
+
+
+  /* ==============================================
+     NAVIGATION FUNCTIONS
+     ============================================== */
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function startDiagnosis() {
+    document.getElementById('progressBarWrap').style.display = 'block';
+    showScreen('screenQuestion');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = QUESTIONS[currentQuestion];
+    const total = QUESTIONS.length;
+
+    // Header progress
+    document.getElementById('headerProgress').textContent = `${currentQuestion + 1} / ${total}`;
+
+    // Progress bar
+    const pct = ((currentQuestion + 1) / total) * 100;
+    document.getElementById('progressBarFill').style.width = pct + '%';
+
+    // Question content
+    document.getElementById('questionArea').textContent = q.areaLabel;
+    document.getElementById('questionNumber').textContent = `Q${q.id}`;
+    document.getElementById('questionTitle').textContent = q.title;
+    document.getElementById('questionText').textContent = q.question;
+
+    // Options
+    const container = document.getElementById('optionsContainer');
+    container.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn' + (answers[currentQuestion] === i ? ' selected' : '');
+      btn.innerHTML = `
+        <span class="option-label">${opt.label}</span>
+        <span>${opt.text}</span>
+      `;
+      btn.addEventListener('click', () => selectOption(i));
+      container.appendChild(btn);
+    });
+
+    // Nav buttons
+    document.getElementById('btnPrev').style.visibility = currentQuestion === 0 ? 'hidden' : 'visible';
+    const btnNext = document.getElementById('btnNext');
+    btnNext.disabled = answers[currentQuestion] === null;
+    btnNext.textContent = currentQuestion === total - 1 ? '結果を見る' : '次へ';
+  }
+
+  function selectOption(index) {
+    answers[currentQuestion] = index;
+    document.querySelectorAll('.option-btn').forEach((btn, i) => {
+      btn.classList.toggle('selected', i === index);
+    });
+    document.getElementById('btnNext').disabled = false;
+  }
+
+  function nextQuestion() {
+    if (answers[currentQuestion] === null) return;
+    if (currentQuestion < QUESTIONS.length - 1) {
+      currentQuestion++;
+      showScreen('screenQuestion');
+      renderQuestion();
+    } else {
+      // All questions answered → email screen
+      document.getElementById('progressBarWrap').style.display = 'none';
+      document.getElementById('headerProgress').textContent = '';
+      showScreen('screenEmail');
+    }
+  }
+
+  function prevQuestion() {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      showScreen('screenQuestion');
+      renderQuestion();
+    }
+  }
+
+
+  /* ==============================================
+     EMAIL SUBMISSION
+     ============================================== */
+  function submitEmail() {
+    const input = document.getElementById('emailInput');
+    const error = document.getElementById('emailError');
+    const email = input.value.trim();
+
+    // Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      input.classList.add('error');
+      error.classList.add('show');
+      return;
+    }
+    input.classList.remove('error');
+    error.classList.remove('show');
+
+    // Calculate result
+    const result = calculateResult();
+
+    // Populate UTAGE hidden form
+    populateUtageForm(email, result);
+
+    // Submit to UTAGE (if configured)
+    submitToUtage();
+
+    // Show loading → result
+    showScreen('screenLoading');
+    setTimeout(() => {
+      renderResult(result);
+      showScreen('screenResult');
+    }, 2000);
+  }
+
+
+  /* ==============================================
+     SCORING LOGIC（設計書準拠）
+     ============================================== */
+  function calculateResult() {
+    // 1. Calculate area scores
+    const areas = {
+      hiring:       { label: '採用',       questions: [0, 1, 2],  score: 0 },
+      evaluation:   { label: '評価・報酬', questions: [3, 4, 5],  score: 0 },
+      management:   { label: 'マネジメント', questions: [6, 7, 8],  score: 0 },
+      organization: { label: '組織設計',   questions: [9, 10, 11], score: 0 }
+    };
+
+    for (const key in areas) {
+      areas[key].score = areas[key].questions.reduce((sum, qi) => {
+        return sum + QUESTIONS[qi].options[answers[qi]].score;
+      }, 0);
+    }
+
+    // 2. Total score
+    const totalScore = Object.values(areas).reduce((sum, a) => sum + a.score, 0);
+
+    // 3. Stagnation level
+    let level, levelClass;
+    if (totalScore >= 31) { level = '軽度'; levelClass = 'level-mild'; }
+    else if (totalScore >= 25) { level = '中度'; levelClass = 'level-moderate'; }
+    else if (totalScore >= 18) { level = '重度'; levelClass = 'level-severe'; }
+    else { level = '深刻'; levelClass = 'level-critical'; }
+
+    // 4. Determine type
+    // Step 1: Check Type E first (all areas ≤ 5)
+    const allAreasLow = Object.values(areas).every(a => a.score <= 5);
+    let type;
+
+    if (allAreasLow) {
+      type = 'E';
+    } else {
+      // Step 2: Find lowest area with tie-breaking priority
+      // Priority: management > hiring > evaluation > organization
+      const priority = ['management', 'hiring', 'evaluation', 'organization'];
+      let lowestScore = 10;
+      let lowestArea = '';
+
+      for (const key of priority) {
+        if (areas[key].score < lowestScore) {
+          lowestScore = areas[key].score;
+          lowestArea = key;
+        }
+      }
+
+      // Step 3: Map area to type
+      const areaToType = {
+        hiring: 'A',
+        evaluation: 'B',
+        management: 'C',
+        organization: 'D'
+      };
+      type = areaToType[lowestArea];
+    }
+
+    return { areas, totalScore, level, levelClass, type };
+  }
+
+
+  /* ==============================================
+     UTAGE FORM POPULATION & SUBMISSION
+     ============================================== */
+  function populateUtageForm(email, result) {
+    document.getElementById('utageEmail').value = email;
+    document.getElementById('utageDiagType').value = result.type;
+    document.getElementById('utageDiagScore').value = result.totalScore;
+    document.getElementById('utageDiagLevel').value = result.level;
+    document.getElementById('utageScoreHiring').value = result.areas.hiring.score;
+    document.getElementById('utageScoreEvaluation').value = result.areas.evaluation.score;
+    document.getElementById('utageScoreManagement').value = result.areas.management.score;
+    document.getElementById('utageScoreOrganization').value = result.areas.organization.score;
+  }
+
+  function submitToUtage() {
+    const form = document.getElementById('utageForm');
+    if (!UTAGE_CONFIG.formActionUrl) {
+      console.log('[Gravity Diagnosis] UTAGE form URL not configured. Skipping form submission.');
+      console.log('[Gravity Diagnosis] Form data:', {
+        email: document.getElementById('utageEmail').value,
+        type: document.getElementById('utageDiagType').value,
+        score: document.getElementById('utageDiagScore').value,
+        level: document.getElementById('utageDiagLevel').value,
+        hiring: document.getElementById('utageScoreHiring').value,
+        evaluation: document.getElementById('utageScoreEvaluation').value,
+        management: document.getElementById('utageScoreManagement').value,
+        organization: document.getElementById('utageScoreOrganization').value
+      });
+      return;
+    }
+
+    // UTAGE form submission via fetch (background)
+    const formData = new FormData(form);
+    fetch(UTAGE_CONFIG.formActionUrl, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).catch(err => {
+      console.error('[Gravity Diagnosis] UTAGE submission error:', err);
+    });
+  }
+
+
+  /* ==============================================
+     RESULT RENDERING
+     ============================================== */
+  function renderResult(result) {
+    const typeData = RESULT_TYPES[result.type];
+
+    // Total score & level
+    document.getElementById('resultLevelBadge').className = 'result-level-badge ' + result.levelClass;
+    document.getElementById('resultLevelBadge').textContent = '停滞度：' + result.level;
+    document.getElementById('resultTotalScore').innerHTML = result.totalScore + '<small> / 36点</small>';
+    document.getElementById('resultLevelLabel').textContent = getLevelDescription(result.level);
+
+    // Area scores
+    const areaContainer = document.getElementById('areaScores');
+    areaContainer.innerHTML = '';
+    const areaOrder = ['hiring', 'evaluation', 'management', 'organization'];
+    for (const key of areaOrder) {
+      const area = result.areas[key];
+      const pct = (area.score / 9) * 100;
+      let barClass = 'high';
+      if (area.score <= 4) barClass = 'low';
+      else if (area.score <= 6) barClass = 'mid';
+
+      areaContainer.innerHTML += `
+        <div class="area-score-row">
+          <div class="area-label">${area.label}</div>
+          <div class="area-bar-wrap">
+            <div class="area-bar ${barClass}" style="width: ${pct}%"></div>
+          </div>
+          <div class="area-score-value">${area.score}/9</div>
+        </div>
+      `;
+    }
+
+    // Type result card
+    const card = document.getElementById('typeResultCard');
+    let actionsHtml = typeData.actions.map((a, i) => `
+      <div class="action-item">
+        <div class="action-num">${i + 1}</div>
+        <div class="action-text"><strong>${a.title}</strong>${a.desc ? '：' + a.desc : ''}</div>
+      </div>
+    `).join('');
+
+    let costsHtml = typeData.costs.map(c => `<li>${c}</li>`).join('');
+
+    card.innerHTML = `
+      <div class="type-header">
+        <div class="type-badge">${typeData.label.replace('タイプ', '')}</div>
+        <div class="type-name">${typeData.label}：${typeData.name}</div>
+      </div>
+      <div class="type-oneliner">${typeData.oneliner}</div>
+
+      <div class="result-section">
+        <h4>あなたの停滞の構造</h4>
+        <p>${typeData.structure.replace(/\n/g, '<br>')}</p>
+      </div>
+
+      <div class="result-section">
+        <h4>放置コスト</h4>
+        <ul>${costsHtml}</ul>
+      </div>
+
+      <div class="result-section">
+        <h4>推奨アクション</h4>
+        ${actionsHtml}
+      </div>
+    `;
+
+    // CTA section
+    const ctaSection = document.getElementById('ctaSection');
+    ctaSection.innerHTML = `
+      <h3>60分の体験セッションで<br>「最初の一手」を見つけませんか？</h3>
+      <p>${typeData.cta.replace(/\n/g, '<br>')}</p>
+      <div class="cta-details">
+        <div class="cta-detail-item"><strong>&#9201; 所要時間：</strong>60分</div>
+        <div class="cta-detail-item"><strong>&#128176; 費用：</strong>無料</div>
+        <div class="cta-detail-item"><strong>&#128187; 形式：</strong>オンライン（Zoom）</div>
+        <div class="cta-detail-item"><strong>&#128100; 担当：</strong>石井 伸幸</div>
+      </div>
+      <a href="#" class="btn btn-accent" id="sessionBookingLink" onclick="trackBooking()">
+        体験セッションを予約する
+      </a>
+    `;
+
+    // ★ 体験セッション予約リンクをここに設定
+    // document.getElementById('sessionBookingLink').href = 'https://your-booking-url.com';
+  }
+
+  function getLevelDescription(level) {
+    const desc = {
+      '軽度': '仕組みは概ね整っています。微調整フェーズです',
+      '中度': '部分的に仕組みがありますが、穴があります。放置すると拡大します',
+      '重度': '複数領域で仕組みが不在です。CEOの時間が組織に奪われています',
+      '深刻': 'ほぼ全領域が未整備です。経営判断に支障が出ている可能性があります'
+    };
+    return desc[level] || '';
+  }
+
+  function trackBooking() {
+    // ★ Meta Pixel: 体験セッション予約クリック
+    if (typeof fbq === 'function') {
+      fbq('track', 'Schedule');
+    }
+  }
+  </script>
+</body>
+</html>

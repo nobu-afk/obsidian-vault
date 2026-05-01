@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity CODE 診断｜あなたの隠れた才能を可視化する</title>
+<meta name="description" content="60分の対話から、肩書きや役割の奥にある行動パターンを可視化し「才能の取扱説明書」を作成します。">
+<meta property="og:title" content="Gravity CODE 診断｜才能の取扱説明書">
+<meta property="og:description" content="60分の対話から、あなたの隠れた才能を可視化する。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthfix.jp/gravity-code/diagnose/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://growthfix.jp/gravity-code/diagnose/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<link rel="stylesheet" href="style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5W5H4SYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HZ5W5H4SYJ');
+  gtag('config', 'GT-5D48K35Z');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3958421771147615');
+fbq('track', 'PageView');
+</script>
+</head>
+<body>
+
+<!-- ===== INTRO ===== -->
+<div id="screen-intro" class="screen active">
+  <div class="intro-container">
+    <span class="badge">GRAVITY CODE</span>
+    <h1>才能の取扱説明書</h1>
+    <p class="intro-subtitle">コーチ支援セッション</p>
+    <div class="intro-desc">
+      <p>60分の対話から、クライアントの隠れた才能——<br>
+      肩書きや役割の奥にある、変わらない行動パターンを可視化します。</p>
+      <ul>
+        <li>所要時間：約60分（対話） + レポート生成2-3分</li>
+        <li>Part 1：選択式7問（クライアントに一緒に回答）</li>
+        <li>Part 2：対話後、録音のトランスクリプトを貼り付けてレポート生成</li>
+        <li>対話の中でエピソードを具体的に引き出すほど、隠れた才能の精度が上がります</li>
+      </ul>
+    </div>
+    <button class="btn-primary" onclick="App.start()">セッションを開始する</button>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="screen-quiz" class="screen">
+  <div class="quiz-header">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+      <div class="progress-text" id="progress-text" style="margin-top:0;">1 / 8</div>
+      <button onclick="App.clearAll()" style="font-size:11px;color:#94a3b8;background:none;border:none;cursor:pointer;padding:4px 8px;">入力をクリア</button>
+    </div>
+  </div>
+  <div class="quiz-container">
+    <div class="quiz-section-label" id="section-label"></div>
+    <h2 class="quiz-question" id="question-text"></h2>
+    <div class="quiz-options" id="options-container"></div>
+    <div class="quiz-nav">
+      <button class="btn-secondary" id="btn-back" onclick="App.back()">戻る</button>
+      <button class="btn-primary" id="btn-next" onclick="App.next()" disabled>次へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOADING ===== -->
+<div id="screen-loading" class="screen">
+  <div class="loading-container">
+    <span class="badge">GRAVITY CODE</span>
+    <div class="loading-spinner"></div>
+    <h2>才能の構造を分析中...</h2>
+    <p class="loading-sub">セッションデータから行動パターンを抽出しています</p>
+    <div class="loading-steps" id="loading-steps">
+      <div class="loading-step" data-step="1">回答データの構造化</div>
+      <div class="loading-step" data-step="2">行動パターンの抽出</div>
+      <div class="loading-step" data-step="3">才能のエンジン特定</div>
+      <div class="loading-step" data-step="4">相性マップ解析</div>
+      <div class="loading-step" data-step="5">取扱説明書の生成</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REPORT ===== -->
+<div id="screen-report" class="screen">
+  <div class="report-container" id="report-container"></div>
+</div>
+
+<!-- ===== ERROR ===== -->
+<div id="screen-error" class="screen">
+  <div class="error-container">
+    <span class="badge">GRAVITY CODE</span>
+    <h2>解析に失敗しました</h2>
+    <p id="error-message">エラーが発生しました。再度お試しください。</p>
+    <button class="btn-primary" onclick="App.submit()">再送信する</button>
+    <button class="btn-secondary" onclick="App.retry()" style="margin-top:12px;">最初からやり直す</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>App.init();</script>
+</body>
+</html>

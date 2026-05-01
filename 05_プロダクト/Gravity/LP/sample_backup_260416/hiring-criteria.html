@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用基準書 | 株式会社〇〇（サンプル）</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0f1e;
+            --accent: #1e40af;
+            --accent-light: rgba(30, 64, 175, 0.08);
+            --text: #1a202c;
+            --text-light: #5a6478;
+            --border: #dfe3ea;
+            --bg: #f7f8fa;
+            --white: #ffffff;
+            --success: #059669;
+            --success-light: rgba(5, 150, 105, 0.08);
+            --warning: #d97706;
+            --warning-light: rgba(217, 119, 6, 0.08);
+            --danger: #dc2626;
+            --danger-light: rgba(220, 38, 38, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            font-feature-settings: "palt";
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            padding: 48px 56px;
+            background: var(--white);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* ===== Cover ===== */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: calc(297mm - 96px);
+            position: relative;
+        }
+        .cover-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(30, 64, 175, 0.04);
+            letter-spacing: 0.2em;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .cover-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 8px 24px;
+            border-radius: 4px;
+            border: 1px solid rgba(30, 64, 175, 0.12);
+            margin-bottom: 32px;
+            text-transform: uppercase;
+        }
+        .cover h1 {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .cover-sub {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 48px;
+        }
+        .cover-meta {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 2.2;
+        }
+        .cover-meta strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .cover-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 56px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== Section Headers ===== */
+        .section-label {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 5px 14px;
+            border-radius: 4px;
+            border: 1px solid rgba(30, 64, 175, 0.12);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .section-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        /* ===== Common Components ===== */
+        .card {
+            padding: 28px 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        .card-icon--accent { background: var(--accent-light); color: var(--accent); }
+        .card-icon--success { background: var(--success-light); color: var(--success); }
+        .card-icon--warning { background: var(--warning-light); color: var(--warning); }
+        .card-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== Hiring Criteria Table ===== */
+        .criteria-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .criteria-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+        }
+        .criteria-table th:first-child { border-radius: 8px 0 0 0; }
+        .criteria-table th:last-child { border-radius: 0 8px 0 0; }
+        .criteria-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.7;
+        }
+        .criteria-table tr:last-child td { border-bottom: none; }
+        .criteria-table tr:nth-child(even) td { background: #fafbfc; }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+        }
+        .badge--must { background: rgba(220, 38, 38, 0.1); color: var(--danger); }
+        .badge--want { background: rgba(217, 119, 6, 0.1); color: var(--warning); }
+        .badge--plus { background: rgba(5, 150, 105, 0.1); color: var(--success); }
+
+        /* ===== Scorecard ===== */
+        .scorecard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .scorecard-item {
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+        }
+        .scorecard-axis {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .scorecard-question {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .scorecard-guide {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .scorecard-scale {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .scorecard-scale-item {
+            flex: 1;
+            text-align: center;
+            padding: 6px 4px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+        }
+        .scorecard-scale-item--active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* ===== Interview Flow ===== */
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+        .flow-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            position: relative;
+        }
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 56px;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        .flow-step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 900;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .flow-step-content {
+            flex: 1;
+        }
+        .flow-step-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .flow-step-detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .flow-step-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        .flow-step-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            background: #f0f2f5;
+            border-radius: 50px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* ===== Decision Matrix ===== */
+        .decision-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .decision-matrix th {
+            background: var(--bg);
+            font-weight: 700;
+            padding: 10px 14px;
+            text-align: center;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-size: 12px;
+        }
+        .decision-matrix td {
+            padding: 10px 14px;
+            text-align: center;
+            border: 1px solid var(--border);
+            vertical-align: middle;
+        }
+        .decision-matrix td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        .verdict {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .verdict--go { background: var(--success-light); color: var(--success); }
+        .verdict--hold { background: var(--warning-light); color: var(--warning); }
+        .verdict--no { background: var(--danger-light); color: var(--danger); }
+
+        /* ===== Culture Fit ===== */
+        .culture-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .culture-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .culture-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        .culture-text strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .culture-text span {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== Note Box ===== */
+        .note-box {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, #f8f9fb, #f0f2f5);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin-top: 28px;
+        }
+        .note-box-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .note-box p {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        /* ===== Print ===== */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .print-btn:hover {
+            background: #1e3a8a;
+            transform: translateY(-1px);
+        }
+
+        @media print {
+            body { background: white; }
+            .page { box-shadow: none; margin: 0; padding: 36px 40px; }
+            .print-btn { display: none; }
+            @page { size: A4; margin: 0; }
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 800px) {
+            .page { width: 100%; padding: 32px 24px; margin: 0; }
+            .cover h1 { font-size: 28px; }
+            .scorecard { grid-template-columns: 1fr; }
+            .cover-footer { padding: 16px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">PDFで保存</button>
+
+<!-- ===== Cover Page ===== -->
+<div class="page cover">
+    <div class="cover-watermark">SAMPLE</div>
+    <div class="cover-label">GRAVITY DELIVERABLE</div>
+    <h1>採用基準書</h1>
+    <p class="cover-sub">Hiring Criteria Document</p>
+    <div class="cover-meta">
+        <strong>株式会社〇〇</strong>（SaaS事業 / 社員22名）<br>
+        対象ポジション：事業開発マネージャー（1名）<br>
+        作成日：2026年2月<br>
+        作成：GrowthFix Gravity プログラム
+    </div>
+    <div class="cover-footer">
+        <span>Confidential</span>
+        <span>GrowthFix Gravity</span>
+    </div>
+</div>
+
+<!-- ===== Page 1: Purpose & Position Definition ===== -->
+<div class="page">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">この採用基準書の目的</h2>
+    <p class="section-desc">「この人を採るべきか」で迷わなくなるための判断軸をまとめたドキュメントです。<br>面接に入る全員がこの基準書を読み、同じ軸で評価することで、採用判断のブレをなくします。</p>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--accent">01</div>
+            <div>
+                <div class="card-title">採用背景</div>
+            </div>
+        </div>
+        <p>〇〇社は現在、プロダクトの市場適合（PMF）を確認し、ARR 1億円を突破したフェーズ。代表の佐藤が事業開発・営業・CS・採用を兼務しており、事業成長のボトルネックが「代表の時間」になっている。</p>
+        <p style="margin-top: 12px;">事業開発マネージャーを採用し、<strong>「新規顧客開拓」と「大手企業へのアップセル」を任せられる状態</strong>を作る。代表は、プロダクト戦略と資金調達に集中できるようにする。</p>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--accent">02</div>
+            <div>
+                <div class="card-title">ポジション定義</div>
+            </div>
+        </div>
+        <table class="criteria-table">
+            <tr><td style="width:140px; font-weight:700;">ポジション名</td><td>事業開発マネージャー</td></tr>
+            <tr><td style="font-weight:700;">レポートライン</td><td>代表取締役 佐藤に直接報告</td></tr>
+            <tr><td style="font-weight:700;">ミッション</td><td>ARR 1億→3億の成長を牽引する事業開発体制の構築</td></tr>
+            <tr><td style="font-weight:700;">想定年収</td><td>700万〜900万円（ストックオプション別途）</td></tr>
+            <tr><td style="font-weight:700;">チーム構成</td><td>入社後3ヶ月はプレイヤーとして稼働 → 半年後に2名のチーム組成を想定</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--accent">03</div>
+            <div>
+                <div class="card-title">入社後6ヶ月のゴール</div>
+            </div>
+        </div>
+        <table class="criteria-table">
+            <tr>
+                <th style="width:100px;">時期</th>
+                <th>ゴール</th>
+                <th style="width:200px;">成功の定義</th>
+            </tr>
+            <tr>
+                <td><strong>Month 1</strong></td>
+                <td>プロダクト理解・既存顧客ヒアリング・営業プロセスの把握</td>
+                <td>既存顧客5社にヒアリング完了</td>
+            </tr>
+            <tr>
+                <td><strong>Month 2-3</strong></td>
+                <td>新規リード獲得の型をつくり、自分で商談を回す</td>
+                <td>月10件の商談を自走で創出</td>
+            </tr>
+            <tr>
+                <td><strong>Month 4-6</strong></td>
+                <td>大手企業へのアプローチ開始 + チーム採用の設計</td>
+                <td>大手2社のパイプライン構築 + 採用計画策定</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- ===== Page 2: 3-Axis Criteria ===== -->
+<div class="page">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">採用基準：3軸評価</h2>
+    <p class="section-desc">「スキル」「カルチャー」「ポテンシャル」の3軸で評価します。<br>どれか1軸だけが突出していても採用しません。3軸のバランスが採用判断の鍵です。</p>
+
+    <!-- Skill Axis -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--accent">S</div>
+            <div>
+                <div class="card-title">スキル軸</div>
+                <div class="card-subtitle">この仕事に必要な実務能力</div>
+            </div>
+        </div>
+        <table class="criteria-table">
+            <tr>
+                <th style="width:80px;">重要度</th>
+                <th style="width:200px;">項目</th>
+                <th>判断基準</th>
+            </tr>
+            <tr>
+                <td><span class="badge badge--must">MUST</span></td>
+                <td><strong>法人営業の実績</strong></td>
+                <td>SaaS or IT商材で、新規開拓→クロージングまでを一人で回した経験が2年以上ある</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge--must">MUST</span></td>
+                <td><strong>仮説構築力</strong></td>
+                <td>「なぜこの企業にアプローチするか」をデータや市場構造から説明できる</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge--want">WANT</span></td>
+                <td><strong>大手企業への営業経験</strong></td>
+                <td>従業員1,000名以上の企業に対して、決裁ラインを特定しながら提案した経験がある</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge--want">WANT</span></td>
+                <td><strong>チームマネジメント</strong></td>
+                <td>2名以上のメンバーを持ち、目標達成に向けてマネジメントした経験がある</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge--plus">PLUS</span></td>
+                <td><strong>スタートアップ経験</strong></td>
+                <td>シリーズA〜Bのスタートアップで、曖昧な環境下で仕組みを作った経験がある</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Culture Axis -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--success">C</div>
+            <div>
+                <div class="card-title">カルチャー軸</div>
+                <div class="card-subtitle">〇〇社の行動指針との適合度</div>
+            </div>
+        </div>
+        <div class="culture-list">
+            <div class="culture-item">
+                <div class="culture-num">1</div>
+                <div class="culture-text">
+                    <strong>「まずやる、あとで直す」を地で行ける</strong>
+                    <span>完璧を求めて動かないより、70%で走り出して修正できる人。スピードを妥協しない</span>
+                </div>
+            </div>
+            <div class="culture-item">
+                <div class="culture-num">2</div>
+                <div class="culture-text">
+                    <strong>「自分の領域」を決めない</strong>
+                    <span>「それは自分の仕事じゃない」と言わない。事業のために必要なことは何でもやる</span>
+                </div>
+            </div>
+            <div class="culture-item">
+                <div class="culture-num">3</div>
+                <div class="culture-text">
+                    <strong>率直に言い合える</strong>
+                    <span>問題を感じたら、相手が誰であっても遠慮なく伝える。空気を読んで黙らない</span>
+                </div>
+            </div>
+            <div class="culture-item">
+                <div class="culture-num">4</div>
+                <div class="culture-text">
+                    <strong>数字で語る</strong>
+                    <span>感覚ではなくファクトで判断する。「なんとなく良い」を許さない</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Potential Axis -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon card-icon--warning">P</div>
+            <div>
+                <div class="card-title">ポテンシャル軸</div>
+                <div class="card-subtitle">入社後に伸びる可能性の見極め</div>
+            </div>
+        </div>
+        <table class="criteria-table">
+            <tr>
+                <th style="width:200px;">観点</th>
+                <th>見極めのポイント</th>
+            </tr>
+            <tr>
+                <td><strong>学習速度</strong></td>
+                <td>過去のキャリアで、未経験領域に入ってから成果を出すまでのスピード。「3ヶ月で○○を立ち上げた」などの具体例があるか</td>
+            </tr>
+            <tr>
+                <td><strong>構造化力</strong></td>
+                <td>経験を「再現可能な型」に落とし込めるか。「前職でうまくいった理由」を構造的に説明できるか</td>
+            </tr>
+            <tr>
+                <td><strong>内発的動機</strong></td>
+                <td>「なぜこの仕事をしたいのか」の回答に、外発的要因（給与・タイトル）ではなく内発的要因（課題解決・成長）が含まれているか</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- ===== Page 3: Interview Design ===== -->
+<div class="page">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">面接設計</h2>
+    <p class="section-desc">全3回の面接で、3軸をすべて評価します。<br>各面接の目的・評価軸・質問を事前に決めておくことで、面接官による評価のブレをなくします。</p>
+
+    <div class="flow-steps">
+        <div class="flow-step">
+            <div class="flow-step-num">1</div>
+            <div class="flow-step-content">
+                <div class="flow-step-title">カジュアル面談</div>
+                <div class="flow-step-detail">
+                    <strong>目的：</strong>相互理解 + カルチャー軸の一次スクリーニング<br>
+                    <strong>面接官：</strong>代表 佐藤<br>
+                    <strong>評価軸：</strong>カルチャー適合度 / 内発的動機の有無<br>
+                    <strong>質問例：</strong><br>
+                    ・「前職で一番手応えを感じた仕事は何ですか？その理由は？」<br>
+                    ・「仕事で『これは違う』と感じて自分から変えたことはありますか？」<br>
+                    ・「うちの会社のどこに興味を持ちましたか？」
+                </div>
+                <div class="flow-step-meta">
+                    <span>60分</span>
+                    <span>オンライン</span>
+                    <span>通過率目安 50%</span>
+                </div>
+            </div>
+        </div>
+        <div class="flow-step">
+            <div class="flow-step-num">2</div>
+            <div class="flow-step-content">
+                <div class="flow-step-title">スキル面接</div>
+                <div class="flow-step-detail">
+                    <strong>目的：</strong>スキル軸 + ポテンシャル軸の深掘り<br>
+                    <strong>面接官：</strong>代表 佐藤 + COO 田中<br>
+                    <strong>評価軸：</strong>実績の再現性 / 仮説構築力 / 学習速度<br>
+                    <strong>質問例：</strong><br>
+                    ・「前職で最も大きな案件を獲得したプロセスを教えてください」<br>
+                    ・「当社のプロダクトを、あなたならどの業界に売りますか？その理由は？」（ケーススタディ）<br>
+                    ・「新しい市場に入るとき、最初の1ヶ月で何をしますか？」
+                </div>
+                <div class="flow-step-meta">
+                    <span>60分</span>
+                    <span>オンライン or 対面</span>
+                    <span>通過率目安 40%</span>
+                </div>
+            </div>
+        </div>
+        <div class="flow-step">
+            <div class="flow-step-num">3</div>
+            <div class="flow-step-content">
+                <div class="flow-step-title">最終面接 + オファー面談</div>
+                <div class="flow-step-detail">
+                    <strong>目的：</strong>意思決定の最終確認 + 条件のすり合わせ<br>
+                    <strong>面接官：</strong>代表 佐藤<br>
+                    <strong>評価軸：</strong>覚悟 / 期待値の一致 / 懸念点の解消<br>
+                    <strong>質問例：</strong><br>
+                    ・「入社後3ヶ月で、自分がどういう状態になっていたいですか？」<br>
+                    ・「この仕事で一番しんどそうだと思うことは何ですか？」<br>
+                    ・「他に検討している選択肢はありますか？最終的に何で決めますか？」
+                </div>
+                <div class="flow-step-meta">
+                    <span>45分</span>
+                    <span>対面推奨</span>
+                    <span>オファー率 70%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== Page 4: Scorecard & Decision ===== -->
+<div class="page">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">面接評価シート（スコアカード）</h2>
+    <p class="section-desc">各面接後、面接官はこのスコアカードに記入します。<br>5段階で評価し、面接官同士の認識をすり合わせた上で合否を判断します。</p>
+
+    <div class="scorecard">
+        <div class="scorecard-item">
+            <div class="scorecard-axis">SKILL</div>
+            <div class="scorecard-question">法人営業の実績</div>
+            <div class="scorecard-guide">新規開拓→クロージングを一人で回した実績があるか</div>
+            <div class="scorecard-scale">
+                <div class="scorecard-scale-item">1<br><span style="font-size:9px;">不足</span></div>
+                <div class="scorecard-scale-item">2</div>
+                <div class="scorecard-scale-item scorecard-scale-item--active">3<br><span style="font-size:9px;">基準</span></div>
+                <div class="scorecard-scale-item">4</div>
+                <div class="scorecard-scale-item">5<br><span style="font-size:9px;">卓越</span></div>
+            </div>
+        </div>
+        <div class="scorecard-item">
+            <div class="scorecard-axis">SKILL</div>
+            <div class="scorecard-question">仮説構築力</div>
+            <div class="scorecard-guide">なぜその企業にアプローチするかを論理的に説明できるか</div>
+            <div class="scorecard-scale">
+                <div class="scorecard-scale-item">1<br><span style="font-size:9px;">不足</span></div>
+                <div class="scorecard-scale-item">2</div>
+                <div class="scorecard-scale-item scorecard-scale-item--active">3<br><span style="font-size:9px;">基準</span></div>
+                <div class="scorecard-scale-item">4</div>
+                <div class="scorecard-scale-item">5<br><span style="font-size:9px;">卓越</span></div>
+            </div>
+        </div>
+        <div class="scorecard-item">
+            <div class="scorecard-axis">CULTURE</div>
+            <div class="scorecard-question">カルチャー適合度</div>
+            <div class="scorecard-guide">4つの行動指針に対する適合度</div>
+            <div class="scorecard-scale">
+                <div class="scorecard-scale-item">1<br><span style="font-size:9px;">不足</span></div>
+                <div class="scorecard-scale-item">2</div>
+                <div class="scorecard-scale-item scorecard-scale-item--active">3<br><span style="font-size:9px;">基準</span></div>
+                <div class="scorecard-scale-item">4</div>
+                <div class="scorecard-scale-item">5<br><span style="font-size:9px;">卓越</span></div>
+            </div>
+        </div>
+        <div class="scorecard-item">
+            <div class="scorecard-axis">POTENTIAL</div>
+            <div class="scorecard-question">学習速度 / 成長余地</div>
+            <div class="scorecard-guide">未経験領域に入ってから成果を出すまでのスピード</div>
+            <div class="scorecard-scale">
+                <div class="scorecard-scale-item">1<br><span style="font-size:9px;">不足</span></div>
+                <div class="scorecard-scale-item">2</div>
+                <div class="scorecard-scale-item scorecard-scale-item--active">3<br><span style="font-size:9px;">基準</span></div>
+                <div class="scorecard-scale-item">4</div>
+                <div class="scorecard-scale-item">5<br><span style="font-size:9px;">卓越</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 36px;">
+        <div class="section-label">DECISION RULE</div>
+        <h2 class="section-title" style="font-size: 20px;">合否判断の基準</h2>
+        <p class="section-desc">スコアだけで判断しません。以下のルールに基づいて最終判断します。</p>
+
+        <table class="decision-matrix">
+            <tr>
+                <th style="width:220px;">条件</th>
+                <th style="width:120px;">判定</th>
+                <th>備考</th>
+            </tr>
+            <tr>
+                <td>MUST項目がすべて3以上 + カルチャー4以上</td>
+                <td><span class="verdict verdict--go">GO</span></td>
+                <td style="text-align:left; font-size:12px;">即オファー。条件面談へ進む</td>
+            </tr>
+            <tr>
+                <td>MUST項目がすべて3以上 + カルチャー3</td>
+                <td><span class="verdict verdict--hold">HOLD</span></td>
+                <td style="text-align:left; font-size:12px;">2次面接で深掘り。他候補者との比較で判断</td>
+            </tr>
+            <tr>
+                <td>MUST項目に2以下がある</td>
+                <td><span class="verdict verdict--no">NO GO</span></td>
+                <td style="text-align:left; font-size:12px;">他の軸がどれだけ高くても採用しない</td>
+            </tr>
+            <tr>
+                <td>カルチャー軸が2以下</td>
+                <td><span class="verdict verdict--no">NO GO</span></td>
+                <td style="text-align:left; font-size:12px;">スキルが高くてもカルチャー不適合は採用しない</td>
+            </tr>
+        </table>
+
+        <div class="note-box">
+            <div class="note-box-title">運用上の注意</div>
+            <p>・面接官は面接直後（30分以内）にスコアカードを記入する。時間が経つと印象がぼやける<br>
+            ・面接官同士は、スコアカード記入前にお互いの評価を共有しない（アンカリング防止）<br>
+            ・「この人は良い人だけど…」で迷ったら、採用しない。迷いは「NO」のサイン<br>
+            ・逆に「懸念はあるけど、この部分がすごい」で迷ったら、懸念を具体化して3次面接で検証する</p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== Page 5: Red Flags & Appendix ===== -->
+<div class="page">
+    <div class="section-label">SECTION 05</div>
+    <h2 class="section-title">レッドフラグ（即NG判定）</h2>
+    <p class="section-desc">以下のいずれかに該当した場合、他の評価に関係なく不採用とします。</p>
+
+    <div class="card" style="border-left: 4px solid var(--danger);">
+        <table class="criteria-table">
+            <tr>
+                <th style="width:220px;">レッドフラグ</th>
+                <th>具体的なシグナル</th>
+            </tr>
+            <tr>
+                <td><strong style="color: var(--danger);">前職の批判が止まらない</strong></td>
+                <td>「前の会社は○○がダメだった」という発言が3回以上。環境を変えても同じパターンを繰り返す可能性</td>
+            </tr>
+            <tr>
+                <td><strong style="color: var(--danger);">実績を数字で語れない</strong></td>
+                <td>「頑張りました」「貢献しました」ばかりで、具体的な数字（売上、件数、達成率）が出てこない</td>
+            </tr>
+            <tr>
+                <td><strong style="color: var(--danger);">質問に質問で返す</strong></td>
+                <td>核心的な質問を避け、はぐらかすパターン。意思決定から逃げる傾向のサイン</td>
+            </tr>
+            <tr>
+                <td><strong style="color: var(--danger);">条件ファースト</strong></td>
+                <td>初回面談から年収・タイトル・リモート条件の話ばかり。事業やミッションへの関心が薄い</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <div class="section-label">APPENDIX</div>
+        <h2 class="section-title" style="font-size: 20px;">求人設計への接続</h2>
+        <p class="section-desc">この採用基準書をもとに、以下の求人原稿を作成しています。</p>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon card-icon--accent">→</div>
+                <div>
+                    <div class="card-title">求人原稿で使うべきキーワード</div>
+                </div>
+            </div>
+            <table class="criteria-table">
+                <tr>
+                    <th style="width:140px;">ターゲット属性</th>
+                    <th>刺さる言葉</th>
+                    <th>避ける言葉</th>
+                </tr>
+                <tr>
+                    <td><strong>スタートアップ経験者</strong></td>
+                    <td>「ARR 1億→3億を一緒に作る」「代表直下で事業を設計する」</td>
+                    <td>「急成長中」「裁量が大きい」（ありふれていて刺さらない）</td>
+                </tr>
+                <tr>
+                    <td><strong>大手出身の挑戦者</strong></td>
+                    <td>「型を作る側に回る」「0→1の営業組織を設計する」</td>
+                    <td>「ベンチャーマインド」「スピード感」（抽象的で不安を煽る）</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="note-box" style="margin-top: 40px;">
+        <div class="note-box-title">この採用基準書の使い方</div>
+        <p>
+            <strong>1. 面接前に全員が読む</strong> ── 面接官全員がこの基準書を読んでから面接に入る<br>
+            <strong>2. 面接直後にスコアカードを記入</strong> ── 感覚ではなく、基準に沿って評価する<br>
+            <strong>3. 面接官同士ですり合わせ</strong> ── スコアカードを突き合わせ、認識のズレを議論する<br>
+            <strong>4. 3ヶ月ごとに基準を更新</strong> ── 採用してみて分かったことを反映し、基準を磨き続ける
+        </p>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center;">
+        <p style="font-size: 13px; color: var(--text-light); line-height: 1.8;">
+            本ドキュメントは <strong>GrowthFix Gravity</strong> プログラムのセッションを通じて作成されました<br>
+            内容に関するご質問・更新のご要望は、Slackチャンネルにてご連絡ください
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

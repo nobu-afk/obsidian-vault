@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity Shift - 幹部ヒアリング</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: #f0f2f5; color: #1a1a2e; line-height: 1.7;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; }
+.header { text-align: center; margin-bottom: 28px; }
+.badge {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  color: #fff; background: #334155; padding: 4px 16px; border-radius: 100px; margin-bottom: 12px;
+}
+.header h1 { font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 6px; line-height: 1.5; }
+.header p { font-size: 13px; color: #64748b; }
+.progress-wrap { margin-bottom: 28px; }
+.progress-steps {
+  display: flex; gap: 4px; margin-bottom: 8px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; padding-bottom: 4px;
+}
+.progress-step {
+  flex: 1; min-width: 0; text-align: center; font-size: 9px; font-weight: 600;
+  color: #94a3b8; padding: 6px 2px; border-radius: 6px; cursor: default;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.2s;
+}
+.progress-step.completed { color: #0f172a; cursor: pointer; }
+.progress-step.completed:hover { background: #e2e8f0; }
+.progress-step.active { color: #0f172a; font-weight: 800; }
+.progress-bar-track { height: 4px; background: #e2e8f0; border-radius: 100px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: #334155; border-radius: 100px; transition: width 0.3s ease; }
+.progress-label { font-size: 12px; color: #64748b; margin-top: 6px; text-align: center; }
+.card {
+  background: #fff; border-radius: 16px; padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px;
+}
+@media (max-width: 480px) { .card { padding: 24px 18px; } }
+.step-section { display: none; }
+.step-section.active { display: block; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: #64748b;
+  text-transform: uppercase; margin-bottom: 20px; text-align: center;
+}
+.question-block { margin-bottom: 28px; }
+.question-block:last-of-type { margin-bottom: 16px; }
+.q-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 24px; background: #334155; color: #fff;
+  font-size: 10px; font-weight: 700; border-radius: 6px; margin-bottom: 8px;
+}
+.q-text { font-size: 15px; font-weight: 600; color: #1e293b; margin-bottom: 10px; line-height: 1.6; }
+.q-textarea {
+  width: 100%; min-height: 80px; padding: 12px 14px; border: 2px solid #e2e8f0;
+  border-radius: 10px; font-size: 14px; font-family: inherit; color: #1e293b;
+  background: #fff; outline: none; transition: border-color 0.2s; resize: none;
+  overflow: hidden; line-height: 1.7;
+}
+.q-textarea:focus { border-color: #94a3b8; }
+.q-textarea::placeholder { color: #94a3b8; }
+.memo-wrap { margin-top: 8px; }
+.memo-label { font-size: 11px; color: #94a3b8; font-style: italic; margin-bottom: 4px; }
+.memo-textarea {
+  width: 100%; min-height: 60px; padding: 10px 12px; border: 1.5px solid #e2e8f0;
+  border-radius: 8px; font-size: 13px; font-family: inherit; color: #64748b;
+  background: #f8fafc; outline: none; transition: border-color 0.2s; resize: none;
+  overflow: hidden; line-height: 1.6;
+}
+.memo-textarea:focus { border-color: #94a3b8; }
+.memo-textarea::placeholder { color: #cbd5e1; }
+.domain-memo { margin-top: 24px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+.domain-memo-label { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.domain-memo-textarea {
+  width: 100%; min-height: 80px; padding: 12px 14px; border: 2px solid #e2e8f0;
+  border-left: 4px solid #334155; border-radius: 10px; font-size: 14px;
+  font-family: inherit; color: #1e293b; background: #f8fafc; outline: none;
+  transition: border-color 0.2s; resize: none; overflow: hidden; line-height: 1.7;
+}
+.domain-memo-textarea:focus { border-color: #94a3b8; }
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 4px; display: block; }
+.form-input {
+  width: 100%; padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 10px;
+  font-size: 14px; font-family: inherit; color: #1e293b; background: #fff;
+  outline: none; transition: border-color 0.2s;
+}
+.form-input:focus { border-color: #94a3b8; }
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+@media (max-width: 480px) { .form-row { flex-direction: column; gap: 0; } }
+.nav-buttons { display: flex; gap: 12px; margin-top: 24px; }
+.btn {
+  flex: 1; padding: 14px 16px; border: none; border-radius: 10px;
+  font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s;
+  font-family: inherit;
+}
+.btn-next { background: #334155; color: #fff; }
+.btn-next:hover { opacity: 0.85; }
+.btn-back { background: #e2e8f0; color: #334155; }
+.btn-back:hover { opacity: 0.75; }
+.completion-icon {
+  width: 64px; height: 64px; margin: 0 auto 20px; background: #334155;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.completion-icon svg { width: 32px; height: 32px; }
+.completion-title { font-size: 22px; font-weight: 800; color: #0f172a; text-align: center; margin-bottom: 8px; }
+.completion-subtitle { font-size: 14px; color: #64748b; text-align: center; margin-bottom: 28px; }
+.completion-summary { background: #f8fafc; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+.completion-summary-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-size: 14px;
+}
+.completion-summary-item:last-child { border-bottom: none; }
+.completion-summary-label { color: #64748b; font-weight: 600; font-size: 13px; }
+.completion-summary-value { color: #1e293b; font-weight: 700; }
+.completion-count { text-align: center; margin-bottom: 28px; font-size: 14px; color: #64748b; }
+.completion-count strong { color: #0f172a; font-size: 18px; }
+.btn-analyze {
+  display: block; width: 100%; padding: 18px 16px; border: none; border-radius: 12px;
+  font-size: 16px; font-weight: 800; cursor: pointer; transition: opacity 0.2s;
+  font-family: inherit; background: #334155; color: #fff; text-align: center;
+  text-decoration: none;
+}
+.btn-analyze:hover { opacity: 0.85; }
+.footer { text-align: center; padding: 24px 0 8px; font-size: 11px; color: #94a3b8; }
+.toast {
+  position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%);
+  background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 10px;
+  font-size: 13px; font-weight: 600; z-index: 9999; transition: bottom 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); white-space: nowrap;
+}
+.toast.show { bottom: 24px; }
+.toast.error { background: #991b1b; }
+.global-save-status {
+  position: fixed; top: 12px; right: 16px; font-size: 11px; color: #22c55e;
+  font-weight: 600; z-index: 9999; opacity: 0; transition: opacity 0.3s;
+}
+.global-save-status.visible { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <span class="badge">GRAVITY SHIFT - EXEC HEARING</span>
+    <h1 id="page-title">幹部ヒアリング</h1>
+    <p id="header-info">全9ステップ（戦略9問＋深層5問＋BP意見＋締め） -- 幹部視点の組織診断</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-steps" id="progress-steps"></div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label"></div>
+  </div>
+
+  <!-- STEP 0: 基本情報 -->
+  <div class="step-section active" data-step="0">
+    <div class="card">
+      <div class="section-label">STEP 0 -- 回答者情報</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">回答者名</label>
+          <input type="text" class="form-input" data-key="name" placeholder="氏名">
+        </div>
+        <div class="form-group">
+          <label class="form-label">役職</label>
+          <input type="text" class="form-input" data-key="role_title" placeholder="営業部長 / CTO 等">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">ヒアリング日</label>
+        <input type="date" class="form-input" data-key="hearing_date">
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-next" onclick="App.goTo(1)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: 冒頭 -->
+  <div class="step-section" data-step="1">
+    <div class="card">
+      <div class="section-label">STEP 1 -- 冒頭</div>
+      <div class="question-block">
+        <div class="q-text">今、組織の中で一番課題だと感じていることは何ですか？</div>
+        <textarea class="q-textarea" data-key="opening_answer" placeholder="回答を記入..."></textarea>
+        <div class="memo-wrap">
+          <div class="memo-label">コンサルタントメモ</div>
+          <textarea class="memo-textarea" data-key="opening_memo" placeholder="構造的な所感を記入..."></textarea>
+        </div>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(0)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(2)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: 採用（幹部視点） -->
+  <div class="step-section" data-step="2">
+    <div class="card">
+      <div class="section-label">STEP 2 -- 領域1：採用（現場視点）</div>
+      <div class="question-block"><span class="q-badge">Q1</span><div class="q-text">直近入社したメンバーは期待通りに機能していますか？採用時の現場要望は反映されていますか？</div><textarea class="q-textarea" data-key="q1_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q1_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q2</span><div class="q-text">採用最終判断は誰が、どんな基準でしていると見えますか？基準は言語化されていますか？</div><textarea class="q-textarea" data-key="q2_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q2_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q3</span><div class="q-text">今のチームに一番足りていないのはどんなスキル・役割の人ですか？</div><textarea class="q-textarea" data-key="q3_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q3_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="domain-memo"><div class="domain-memo-label">採用領域の構造的所感</div><textarea class="domain-memo-textarea" data-key="domain_hiring_memo" placeholder="採用領域全体を通じた構造的な所感を記入..."></textarea></div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(1)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(3)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: 評価・報酬（幹部視点） -->
+  <div class="step-section" data-step="3">
+    <div class="card">
+      <div class="section-label">STEP 3 -- 領域2：評価・報酬（現場視点）</div>
+      <div class="question-block"><span class="q-badge">Q4</span><div class="q-text">評価と報酬はどう決まっていますか？制度・基準はありますか？納得感は？</div><textarea class="q-textarea" data-key="q4_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q4_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q5</span><div class="q-text">「もっと評価されるべき人」「評価が実態と合っていない人」はいますか？</div><textarea class="q-textarea" data-key="q5_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q5_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="domain-memo"><div class="domain-memo-label">評価・報酬領域の構造的所感</div><textarea class="domain-memo-textarea" data-key="domain_evaluation_memo" placeholder="評価・報酬領域全体を通じた構造的な所感を記入..."></textarea></div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(2)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(4)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: マネジメント（幹部視点） -->
+  <div class="step-section" data-step="4">
+    <div class="card">
+      <div class="section-label">STEP 4 -- 領域3：マネジメント・権限移譲（現場視点）</div>
+      <div class="question-block"><span class="q-badge">Q6</span><div class="q-text">社長にしかできない判断は何だと思いますか？逆に任せるべき領域は？</div><textarea class="q-textarea" data-key="q6_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q6_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q7</span><div class="q-text">社長から求められていることと、自分（幹部）側から社長に求めていることは何ですか？</div><textarea class="q-textarea" data-key="q7_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q7_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="domain-memo"><div class="domain-memo-label">マネジメント・権限移譲の構造的所感</div><textarea class="domain-memo-textarea" data-key="domain_management_memo" placeholder="マネジメント・権限移譲全体を通じた構造的な所感を記入..."></textarea></div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(3)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(5)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: 組織設計（幹部視点） -->
+  <div class="step-section" data-step="5">
+    <div class="card">
+      <div class="section-label">STEP 5 -- 領域4：組織設計・カルチャー（現場視点）</div>
+      <div class="question-block"><span class="q-badge">Q8</span><div class="q-text">会社の意思決定プロセスは現場から見て機能していますか？「会社らしさ」を一言で言うと？</div><textarea class="q-textarea" data-key="q8_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q8_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q9</span><div class="q-text">いま組織で「ここが詰まっている／変えたい」と感じる部分は？半年後、組織がどうなっていたら理想ですか？</div><textarea class="q-textarea" data-key="q9_answer" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ</div><textarea class="memo-textarea" data-key="q9_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="domain-memo"><div class="domain-memo-label">組織設計・カルチャーの構造的所感</div><textarea class="domain-memo-textarea" data-key="domain_culture_memo" placeholder="組織設計・カルチャー全体を通じた構造的な所感を記入..."></textarea></div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(4)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(6)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: 翻訳マップ実装確認3問＋BP意見（260422 Shift v2仕様） -->
+  <div class="step-section" data-step="6">
+    <div class="card">
+      <div class="section-label">STEP 6 -- 領域5：翻訳マップ実装確認（3問・20分）＋BP意見（任意・10分）</div>
+      <div class="domain-memo" style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px 16px;margin-bottom:20px;font-size:13px;line-height:1.6;">
+        <strong>翻訳マップ実装確認：</strong>事前に共有されたBP v6.0レポートの翻訳マップ（個人引力 Why × 才能 × 偏愛 → 採用 4 軸：採用基準・面接プロセス・採用後評価軸・幹部役割分担）と面接ブループリント 5 要素を幹部に見てもらい、組織の現場で「実装されている／ズレている／漏れている」のどれかを証言してもらう。3パターン判定で実装ギャップを可視化。幹部の回答は社長には共有されない旨を事前に伝える。
+      </div>
+      <div class="question-block"><span class="q-badge">Q10</span><div class="q-text">【Why→採用基準/採用後評価軸】社長のBP翻訳マップでは、Why（○○）が採用基準・採用後評価軸に○○のように翻訳されるとあります。これは組織の採用基準・採用後評価軸に実装されていますか？実装状況は「整合（実装済み）／ズレ（仮説と実態が違う）／漏れ（まだ実装されていない）」のどれですか？具体例と共に。</div><textarea class="q-textarea" data-key="q10_why_to_mission" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ（整合/ズレ/漏れ判定・構造的理由）</div><textarea class="memo-textarea" data-key="q10_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q11</span><div class="q-text">【才能→面接プロセス/幹部役割分担】社長の才能（自然な動きと発火環境）が面接プロセス・幹部役割分担にどう翻訳されるかがBPに描かれています。実際の面接設計・幹部役割分担にこの翻訳が反映されていますか？整合／ズレ／漏れのどれ？</div><textarea class="q-textarea" data-key="q11_verb_to_function" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ（整合/ズレ/漏れ判定・構造的理由）</div><textarea class="memo-textarea" data-key="q11_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="question-block"><span class="q-badge">Q12</span><div class="q-text">【偏愛→採用判断軸/組織カルチャー】社長の偏愛（譲れない好み・絶対に選ばない嫌い）が採用判断軸・組織カルチャーにどう翻訳されるかがBPに描かれています。実際の採用判断・組織カルチャーにこれが反映されていますか？整合／ズレ／漏れのどれ？</div><textarea class="q-textarea" data-key="q12_env_to_structure" placeholder="回答を記入..."></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ（整合/ズレ/漏れ判定・構造的理由）</div><textarea class="memo-textarea" data-key="q12_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="domain-memo"><div class="domain-memo-label">翻訳マップ実装ギャップの総合所感（3要素の優先順位・構造的ボトルネック）</div><textarea class="domain-memo-textarea" data-key="domain_impl_memo" placeholder="幹部の回答から、3要素のどれが最優先ボトルネックかを記入..."></textarea></div>
+      <div class="question-block" style="margin-top:24px;border-top:1px dashed #cbd5e1;padding-top:20px;"><div class="q-text" style="color:#64748b;font-size:14px;">【BP翻訳マップへの意見（任意・10分）】社長のBP v6.0レポート全体（翻訳マップ＋面接ブループリント 5 要素）を見た上で、幹部としてどう感じるか／日常で感じている社長像とのズレや補足はあるか。</div><textarea class="q-textarea" data-key="bp_feedback" placeholder="任意・回答不要ならスキップ" style="min-height:120px;"></textarea><div class="memo-wrap"><div class="memo-label">コンサルタントメモ（BP翻訳マップへの幹部反応・追加発見）</div><textarea class="memo-textarea" data-key="bp_feedback_memo" placeholder="所感を記入..."></textarea></div></div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(5)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(7)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: 締め -->
+  <div class="step-section" data-step="7">
+    <div class="card">
+      <div class="section-label">STEP 7 -- 締め</div>
+      <div class="question-block">
+        <span class="q-badge">Q15</span>
+        <div class="q-text">今日話してみて、自分でも気づいていなかったことはありましたか？</div>
+        <textarea class="q-textarea" data-key="closing_answer" placeholder="回答を記入..."></textarea>
+        <div class="memo-wrap">
+          <div class="memo-label">コンサルタントメモ</div>
+          <textarea class="memo-textarea" data-key="closing_memo" placeholder="構造的な所感を記入..."></textarea>
+        </div>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-back" onclick="App.goTo(6)">戻る</button>
+        <button class="btn btn-next" onclick="App.goTo(8)">次へ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 8: 完了 -->
+  <div class="step-section" data-step="8">
+    <div class="card">
+      <div class="completion-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#fff"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+      </div>
+      <div class="completion-title">幹部ヒアリングが完了しました</div>
+      <div class="completion-subtitle">お疲れさまでした。データはサーバーに保存されています。</div>
+      <div class="completion-summary" id="completion-summary"></div>
+      <div class="completion-count" id="completion-count"></div>
+      <a class="btn-analyze" id="btn-to-analyze">分析・レポート生成へ</a>
+      <div style="text-align:center;margin-top:16px;">
+        <a href="#" id="btn-to-dashboard" style="font-size:14px;color:#64748b;">ダッシュボードに戻る</a>
+      </div>
+      <div class="nav-buttons" style="margin-top:16px;">
+        <button class="btn btn-back" onclick="App.goTo(7)">戻る</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">GrowthFix - Gravity Shift</div>
+</div>
+<div class="global-save-status" id="global-save-status"></div>
+
+<script>
+const STEP_NAMES = ['回答者情報','冒頭','採用','評価・報酬','マネジメント','カルチャー','翻訳マップ実装確認+BP意見','締め','完了'];
+const TOTAL_STEPS = 9;
+const ANSWER_KEYS = [
+  'opening_answer',
+  'q1_answer','q2_answer','q3_answer',
+  'q4_answer','q5_answer',
+  'q6_answer','q7_answer',
+  'q8_answer','q9_answer',
+  'q10_why_to_mission','q11_verb_to_function','q12_env_to_structure',
+  'bp_feedback',
+  'closing_answer'
+];
+
+const App = {
+  currentStep: 0,
+  data: {},
+  projectId: null,
+  execNum: null,
+  saveTimer: null,
+
+  init() {
+    const params = new URLSearchParams(window.location.search);
+    this.projectId = params.get('project');
+    this.execNum = params.get('exec') || '1';
+
+    if (!this.projectId) {
+      this.showToast('プロジェクトIDが指定されていません', true);
+      setTimeout(() => window.location.href = 'index.html', 1500);
+      return;
+    }
+
+    document.getElementById('btn-to-analyze').href =
+      `analyze.html?project=${this.projectId}&role=exec&exec=${this.execNum}`;
+    document.getElementById('btn-to-dashboard').href =
+      `index.html`;
+
+    this.loadFromServer();
+  },
+
+  async loadFromServer() {
+    try {
+      const res = await fetch(`api/hearing.php?project=${this.projectId}&role=exec&exec=${this.execNum}`);
+      const result = await res.json();
+      if (result.success && result.data) {
+        this.data = result.data;
+      }
+    } catch(e) {
+      console.error('Failed to load:', e);
+      this.showToast('データの読み込みに失敗しました。ページを再読み込みしてください。', true);
+    }
+
+    if (!this.data.hearing_date) {
+      this.data.hearing_date = new Date().toISOString().split('T')[0];
+    }
+
+    // Load project info
+    try {
+      const res = await fetch(`api/project.php?id=${this.projectId}`);
+      const result = await res.json();
+      if (result.success) {
+        const p = result.project;
+        const execName = (p.exec_names && p.exec_names[parseInt(this.execNum) - 1]) || '';
+        if (execName && !this.data.name) {
+          this.data.name = execName;
+        }
+        document.getElementById('header-info').textContent =
+          `${p.company_name} - 幹部${this.execNum}${this.data.name ? '（' + this.data.name + '）' : ''}`;
+        document.getElementById('page-title').textContent =
+          `幹部${this.execNum} ヒアリング`;
+      }
+    } catch(e) {}
+
+    // Restore fields
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (this.data[key] !== undefined) el.value = this.data[key];
+    });
+
+    // Bind events
+    document.addEventListener('input', (e) => {
+      const key = e.target.getAttribute('data-key');
+      if (key) {
+        this.data[key] = e.target.value;
+        this.debounceSave();
+      }
+      if (e.target.tagName === 'TEXTAREA') this.autoResize(e.target);
+    });
+
+    document.querySelectorAll('textarea').forEach(ta => {
+      if (ta.value) this.autoResize(ta);
+    });
+
+    this.renderProgress();
+  },
+
+  autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+  },
+
+  debounceSave() {
+    clearTimeout(this.saveTimer);
+    this.saveTimer = setTimeout(() => this.saveToServer(), 1000);
+  },
+
+  async saveToServer() {
+    try {
+      const res = await fetch(`api/hearing.php?project=${this.projectId}&role=exec&exec=${this.execNum}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.data),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error || '保存エラー');
+      const el = document.getElementById('global-save-status');
+      if (el) {
+        el.textContent = '保存しました';
+        el.classList.add('visible');
+        clearTimeout(this._saveStatusTimer);
+        this._saveStatusTimer = setTimeout(() => el.classList.remove('visible'), 2000);
+      }
+    } catch(e) {
+      this.showToast('保存に失敗しました', true);
+      console.error('Save failed:', e);
+    }
+  },
+
+  showToast(msg, isError = false) {
+    let t = document.getElementById('app-toast');
+    if (!t) { t = document.createElement('div'); t.id = 'app-toast'; t.className = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    requestAnimationFrame(() => t.classList.add('show'));
+    setTimeout(() => t.classList.remove('show'), 3000);
+  },
+
+  goTo(step) {
+    if (step < 0 || step >= TOTAL_STEPS) return;
+
+    // Update status before saving（Step 8=完了画面に到達したときのみ completed）
+    if (step === 8) {
+      this.data.status = 'completed';
+    } else if (this.data.status !== 'completed') {
+      this.data.status = 'in_progress';
+    }
+    this.saveToServer();
+
+    document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-step="${step}"]`).classList.add('active');
+    this.currentStep = step;
+    this.renderProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (step === 8) {
+      this.buildCompletion();
+    }
+
+    setTimeout(() => {
+      document.querySelector(`[data-step="${step}"]`).querySelectorAll('textarea').forEach(ta => {
+        if (ta.value) this.autoResize(ta);
+      });
+    }, 50);
+  },
+
+  renderProgress() {
+    const stepsEl = document.getElementById('progress-steps');
+    stepsEl.innerHTML = '';
+    for (let i = 0; i < TOTAL_STEPS; i++) {
+      const div = document.createElement('div');
+      div.className = 'progress-step';
+      if (i < this.currentStep) { div.classList.add('completed'); div.onclick = () => this.goTo(i); }
+      if (i === this.currentStep) div.classList.add('active');
+      div.textContent = STEP_NAMES[i];
+      stepsEl.appendChild(div);
+    }
+    const pct = (this.currentStep / (TOTAL_STEPS - 1)) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent =
+      'Step ' + (this.currentStep + 1) + ' / ' + TOTAL_STEPS + ' - ' + STEP_NAMES[this.currentStep];
+  },
+
+  buildCompletion() {
+    const g = (k) => this.esc(this.data[k] || '-');
+    document.getElementById('completion-summary').innerHTML = `
+      <div class="completion-summary-item"><div class="completion-summary-label">回答者名</div><div class="completion-summary-value">${g('name')}</div></div>
+      <div class="completion-summary-item"><div class="completion-summary-label">役職</div><div class="completion-summary-value">${g('role_title')}</div></div>
+      <div class="completion-summary-item"><div class="completion-summary-label">ヒアリング日</div><div class="completion-summary-value">${g('hearing_date')}</div></div>
+    `;
+    const filled = ANSWER_KEYS.filter(k => this.data[k] && this.data[k].trim()).length;
+    document.getElementById('completion-count').innerHTML =
+      `回答済み: <strong>${filled}</strong> / ${ANSWER_KEYS.length} 問`;
+  },
+};
+
+App.esc = function(str) { const d = document.createElement('div'); d.textContent = str || ''; return d.innerHTML; };
+
+window.addEventListener('beforeunload', (e) => {
+  if (App.data.status === 'in_progress') { e.preventDefault(); }
+});
+
+document.addEventListener('DOMContentLoaded', () => App.init());
+</script>
+</body>
+</html>

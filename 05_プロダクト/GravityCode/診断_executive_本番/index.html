@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity CODE｜YOUR GRAVITY CODE ── あなたの引力の暗号</title>
+<meta name="description" content="あなたの引力は、どこから来ているのか。60分の対話から経営者の引力タイプ・源泉・死角を解読し「YOUR GRAVITY CODE」を生成します。">
+<meta property="og:title" content="Gravity CODE｜YOUR GRAVITY CODE ── あなたの引力の暗号">
+<meta property="og:description" content="経営者を、本来の自分に戻す。60分であなたの引力の暗号を解読する。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthfix.jp/gravity-code/executive/">
+<meta property="og:image" content="https://growthfix.jp/gravity-code/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://growthfix.jp/gravity-code/ogp.png">
+<link rel="canonical" href="https://growthfix.jp/gravity-code/executive/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<link rel="stylesheet" href="style.css">
+<!-- GA4 + GTM + Meta Pixel via /assets/js/tracking.js -->
+<script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
+<!-- 共通モバイル最適化パッチ（260427）-->
+<link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260428c">
+  <script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
+  <script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- ===== STEP 1: 痛み選択画面（外的フック・260430 5層モデル v6.0） ===== -->
+<!-- ============================================================== -->
+<div id="screen-pain" class="screen active">
+  <div class="intro-container">
+    <span class="badge">STEP 1 ／ 4 — 現場の痛みを選ぶ</span>
+    <h1 style="font-size:28px;line-height:1.55;">あなたが今、<br>最も苦しんでいる現場の痛みは？</h1>
+    <p class="intro-subtitle">該当するもの 1 つを選んでください（30 秒）</p>
+
+    <div id="pain-options" style="margin:32px 0;text-align:left;">
+      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+        <input type="radio" name="pain" value="A5_面接で口説けない" style="margin-right:10px;accent-color:#0f172a;">
+        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">面接で 30 分話しても、候補者の目に火が点かない</span>
+      </label>
+      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+        <input type="radio" name="pain" value="D5_経営合宿で響かない" style="margin-right:10px;accent-color:#0f172a;">
+        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">経営合宿でビジョンを語ったが、自分でも響かなかった</span>
+      </label>
+      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+        <input type="radio" name="pain" value="CODE主訴_自分の勝負1行" style="margin-right:10px;accent-color:#0f172a;">
+        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">自分が何で勝負しているのか、1 行で言えない</span>
+      </label>
+      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+        <input type="radio" name="pain" value="A6_採用基準曖昧" style="margin-right:10px;accent-color:#0f172a;">
+        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">採用基準が社内で 3 回揉めた</span>
+      </label>
+      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
+        <input type="radio" name="pain" value="D5_輸入語化" style="margin-right:10px;accent-color:#0f172a;">
+        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">自分の言葉が、いつの間にかコンサルの輸入語になっている</span>
+      </label>
+    </div>
+
+    <button class="btn-primary" id="btn-pain-next" onclick="App.proceedToBridge()" disabled style="opacity:0.5;cursor:not-allowed;">次へ進む</button>
+    <p style="font-size:12px;color:#94a3b8;margin-top:14px;line-height:1.7;">どれもしっくりこない場合は、最も近いものを 1 つ選んでください。<br>選んだ痛みは、レポートで「あなたの引力源がどう解決するか」と接続されます。</p>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- ===== STEP 2: 外→内転換ブリッジ画面（260430 5層モデル v6.0） ===== -->
+<!-- ============================================================== -->
+<div id="screen-bridge" class="screen">
+  <div class="intro-container">
+    <span class="badge">STEP 2 ／ 4 — 痛みの本当の原因</span>
+    <h1 style="font-size:28px;line-height:1.55;">これは、<br>採用力の問題ではない。</h1>
+
+    <div style="background:#0f172a;color:#fff;padding:32px 36px;border-radius:12px;margin:32px 0;text-align:left;">
+      <p style="font-family:'Noto Serif JP',serif;font-size:18px;line-height:1.7;color:#fff;font-weight:800;margin:0 0 16px;letter-spacing:0.02em;">
+        あなたが選んだ痛みの<br>本当の原因は何か。
+      </p>
+      <p style="font-size:13px;line-height:1.95;color:#cbd5e1;margin:0 0 18px;">
+        対面で経営者と「自分の Why」を言語化する現場で、何度も見てきたのは、ある構造でした。<br><br>
+        経営者は組織を動かすために、社員に「分かりやすい言葉」を選び続ける。その繰り返しで、<strong style="color:#fff;">自分の本当の Why（根源動機）が、誰かに伝えるための「翻訳された Why」に上書きされていく</strong>。
+      </p>
+      <p style="font-size:13px;line-height:1.95;color:#cbd5e1;margin:0;">
+        結果、経営合宿でビジョンを語っても、自分自身に響かない。面接で口説いても、候補者の目に火が点かない。<br><br>
+        原因は採用力ではなく、<strong style="color:#fbbf24;">経営者個人の引力源（Why × 才能 × 偏愛）が言語化されていない</strong>こと。
+      </p>
+    </div>
+
+    <p style="font-size:14.5px;line-height:1.85;color:#0f172a;margin:0 0 28px;">
+      これから 60 分で、あなたの引力源を解剖します。<br>
+      <strong>「自分の言葉」を取り戻す入口セッション</strong>へ、お進みください。
+    </p>
+
+    <button class="btn-primary" onclick="App.proceedToIntro()">60 分の解剖を始める</button>
+    <button class="btn-secondary" onclick="App.showScreen('screen-pain')" style="margin-top:12px;display:block;width:100%;">痛みの選択に戻る</button>
+  </div>
+</div>
+
+<!-- ===== STEP 3 INTRO ===== -->
+<div id="screen-intro" class="screen">
+  <div class="intro-container">
+    <span class="badge">GRAVITY CODE</span>
+    <h1>YOUR GRAVITY CODE</h1>
+    <p class="intro-subtitle">あなたの引力の暗号を、60分で解読する</p>
+
+    <!-- 外的フック（260430・5層モデル接続装置） -->
+    <div style="background:#0f172a;color:#fff;padding:28px 32px;border-radius:12px;margin:28px 0;text-align:left;">
+      <p style="font-family:'Noto Serif JP',serif;font-size:20px;line-height:1.65;color:#fff;font-weight:800;margin:0 0 16px;letter-spacing:0.02em;">
+        優秀な経営者ほど、<br>自分の Why が分かっていない。
+      </p>
+      <p style="font-size:13px;line-height:1.85;color:#cbd5e1;margin:0;">
+        対面で経営者と「自分の Why」を言語化する現場で、何度も見てきたのは、<strong style="color:#fff;">自分の Why を書いた経営者の 7 割が、半年後には違うことを言っている</strong>という事実だった。原因は採用力ではなく、経営者個人の引力源（Why × 才能 × 偏愛）が言語化されていないこと。<br><br>
+        CODE は、その個人引力を 60 分の対話で解剖し、「自分の言葉」を取り戻す入口セッション。
+      </p>
+    </div>
+
+    <div class="intro-desc">
+      <p>これは、あなたの引力タイプを解剖する診断です。</p>
+      <p style="margin-top:16px;">まずは<strong>5つの問いに答えてください（2-3分）</strong>。<br>
+      その後、<strong>60分のコーチセッション</strong>で一緒に検証・深掘りします。</p>
+      <p style="margin-top:16px;">最終レポートには、<br>
+      あなたの引力タイプ／矛盾／盲点／次の一手が記されます。</p>
+    </div>
+
+    <div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:12px;padding:20px 24px;margin:28px 0;text-align:left;">
+      <div style="font-size:11px;letter-spacing:0.12em;color:#92400e;font-weight:700;margin-bottom:10px;">📌 開始前に1つだけお願い</div>
+      <p style="font-size:14px;line-height:1.85;color:#78350f;margin:0 0 10px;">
+        診断を始める前に、以下を<strong>心の中で1つ</strong>思い浮かべてください：
+      </p>
+      <p style="font-size:15px;font-weight:700;color:#78350f;margin:0 0 10px;padding:12px 14px;background:#fff;border-radius:8px;line-height:1.6;">
+        「あなたを最も<span style="background:linear-gradient(transparent 60%, #fde68a 60%);">『あなたらしく』</span>表すと思う過去の出来事を1つ」
+      </p>
+      <p style="font-size:12.5px;line-height:1.75;color:#78350f;margin:0;">
+        経営者になる前の出来事でも構いません。<br>
+        言葉にまとめる必要はありません。思い浮かんだら、下のボタンで診断を開始してください。
+      </p>
+    </div>
+
+    <button class="btn-primary" onclick="App.start()">診断を開始する</button>
+  </div>
+</div>
+
+<!-- ===== SESSION PREVIEW (after 5 questions・その場でセッション開始) ===== -->
+<div id="screen-preview" class="screen">
+  <div class="intro-container" style="max-width:720px;">
+    <span class="badge">STEP 2 — セッション開始準備</span>
+    <h1 style="font-size:26px;">選択式ありがとうございました</h1>
+    <p class="intro-subtitle">このあと、コーチと60分のセッションに入ります</p>
+
+    <div id="preview-summary" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:24px 28px;margin:28px 0;text-align:left;">
+      <div style="font-size:11px;letter-spacing:0.12em;color:#64748b;font-weight:700;margin-bottom:12px;">あなたの選択の要約</div>
+      <ul id="preview-summary-list" style="list-style:none;padding:0;margin:0;"></ul>
+    </div>
+
+    <div style="background:#fff;border:2px solid #0f172a;border-radius:12px;padding:28px;margin:28px 0;text-align:left;">
+      <h3 style="font-size:16px;font-weight:800;color:#0f172a;margin:0 0 16px;">これからコーチと一緒に扱う 5 つの観点</h3>
+      <ol style="padding-left:20px;font-size:14px;line-height:1.9;color:#334155;margin:0;">
+        <li><strong>Why</strong> ── あなたの経営の根源にある衝動</li>
+        <li><strong>才能</strong> ── 自然にできてしまう動詞と、それが発火する環境</li>
+        <li><strong>偏愛</strong> ── 譲れない好みと、絶対に選ばない嫌い</li>
+        <li><strong>矛盾と have to</strong> ── 本音と行動のズレ</li>
+        <li><strong>時間軸と象徴エピソード</strong> ── あなたを最も表す過去の出来事</li>
+      </ol>
+      <p style="font-size:12.5px;color:#64748b;margin:16px 0 0;line-height:1.75;">
+        コーチがあなたの回答と冒頭で思い浮かべた象徴エピソードを起点に、対話を進めます。
+      </p>
+    </div>
+
+    <button class="btn-primary" onclick="App.showTranscriptInput()">セッション終了後、トランスクリプトを貼り付けに進む</button>
+    <p style="font-size:12px;color:#94a3b8;margin-top:12px;">※ コーチセッションが終わったら、このボタンからトランスクリプト画面へ進んでください。</p>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="screen-quiz" class="screen">
+  <div class="quiz-header">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+      <div class="progress-text" id="progress-text" style="margin-top:0;">1 / 8</div>
+      <button onclick="App.clearAll()" style="font-size:11px;color:#94a3b8;background:none;border:none;cursor:pointer;padding:4px 8px;">入力をクリア</button>
+    </div>
+  </div>
+  <div class="quiz-container">
+    <div class="quiz-section-label" id="section-label"></div>
+    <h2 class="quiz-question" id="question-text"></h2>
+    <div class="quiz-options" id="options-container"></div>
+    <div class="quiz-nav">
+      <button class="btn-secondary" id="btn-back" onclick="App.back()">戻る</button>
+      <button class="btn-primary" id="btn-next" onclick="App.next()" disabled>次へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOADING ===== -->
+<div id="screen-loading" class="screen">
+  <div class="loading-container">
+    <span class="badge">GRAVITY CODE</span>
+    <div class="loading-spinner"></div>
+    <h2>あなたの引力の暗号を解読中...</h2>
+    <p class="loading-sub">セッションデータから引力タイプを抽出しています</p>
+    <div class="loading-steps" id="loading-steps">
+      <div class="loading-step" data-step="1">才能（自然な動き）の抽出</div>
+      <div class="loading-step" data-step="2">偏愛（譲れない好み）の検出</div>
+      <div class="loading-step" data-step="3">Why と引力タイプの特定</div>
+      <div class="loading-step" data-step="4">have to（借り物）の分離</div>
+      <div class="loading-step" data-step="5">YOUR GRAVITY CODE の生成</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REPORT ===== -->
+<div id="screen-report" class="screen">
+  <div class="report-container" id="report-container"></div>
+</div>
+
+<!-- ===== ERROR ===== -->
+<div id="screen-error" class="screen">
+  <div class="error-container">
+    <span class="badge">GRAVITY CODE</span>
+    <h2>解析に失敗しました</h2>
+    <p id="error-message">エラーが発生しました。再度お試しください。</p>
+    <button class="btn-primary" onclick="App.submit()">再送信する</button>
+    <button class="btn-secondary" onclick="App.retry()" style="margin-top:12px;">最初からやり直す</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  App.init();
+  // v6.0 260430: Step 1 痛み選択画面のセットアップ
+  if (App.setupPainScreen) App.setupPainScreen();
+</script>
+</body>
+</html>

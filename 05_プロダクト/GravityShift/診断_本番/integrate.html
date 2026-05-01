@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity Shift - 認識ギャップ分析</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: #f0f2f5; color: #1a1a2e; line-height: 1.7;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; }
+.header { text-align: center; margin-bottom: 28px; }
+.badge {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  color: #fff; background: #0f172a; padding: 4px 16px; border-radius: 100px; margin-bottom: 12px;
+}
+.header h1 { font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 6px; line-height: 1.5; }
+.header p { font-size: 13px; color: #64748b; }
+.card {
+  background: #fff; border-radius: 16px; padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px;
+}
+@media (max-width: 480px) { .card { padding: 24px 18px; } }
+
+/* Phases */
+.phase { display: none; }
+.phase.active { display: block; }
+
+/* Confirm Phase */
+.participant-list { margin: 16px 0; }
+.participant-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid #f0f2f5;
+}
+.participant-item:last-child { border-bottom: none; }
+.participant-name { font-size: 14px; font-weight: 600; color: #0f172a; }
+.participant-role { font-size: 12px; color: #64748b; }
+.participant-scores { font-size: 11px; color: #94a3b8; }
+.btn-generate {
+  display: block; width: 100%; padding: 18px 16px; border: none; border-radius: 12px;
+  font-size: 16px; font-weight: 800; cursor: pointer; transition: opacity 0.2s;
+  font-family: inherit; background: #0f172a; color: #fff; text-align: center;
+}
+.btn-generate:hover { opacity: 0.85; }
+
+/* Loading */
+.loading-card { text-align: center; padding: 48px 28px; }
+.loading-spinner { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; }
+.loading-spinner .dot {
+  width: 10px; height: 10px; border-radius: 50%; background: #0f172a;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.loading-spinner .dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-spinner .dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+.loading-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+.loading-sub { font-size: 13px; color: #64748b; margin-bottom: 28px; }
+.loading-steps { text-align: left; max-width: 360px; margin: 0 auto; }
+.loading-step {
+  display: flex; align-items: center; gap: 10px; padding: 8px 0;
+  font-size: 13px; color: #94a3b8; transition: color 0.3s;
+}
+.loading-step.active { color: #0f172a; font-weight: 600; }
+.loading-step.done { color: #64748b; }
+.loading-step-icon { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.loading-step.done .loading-step-icon::after { content: "\2713"; color: #22c55e; font-weight: 700; }
+.loading-step.active .loading-step-icon::after { content: ""; display: block; width: 8px; height: 8px; border-radius: 50%; background: #0f172a; animation: pulse 1s ease-in-out infinite; }
+.loading-step:not(.active):not(.done) .loading-step-icon::after { content: ""; display: block; width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; }
+.api-error { background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 20px; margin-top: 20px; text-align: center; }
+.api-error-text { font-size: 14px; color: #991b1b; margin-bottom: 12px; }
+.btn-retry {
+  padding: 10px 24px; border: 2px solid #0f172a; border-radius: 10px;
+  background: #fff; color: #0f172a; font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+.btn-retry:hover { background: #0f172a; color: #fff; }
+
+/* Report styles */
+.report-container { max-width: 210mm; margin: 0 auto; padding: 0 20px 100px; }
+.toolbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+  background: #fff; border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08); padding: 12px 20px;
+}
+.toolbar-inner {
+  max-width: 720px; margin: 0 auto;
+  display: flex; gap: 10px; align-items: center; justify-content: center;
+}
+.toolbar-btn {
+  padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: inherit; transition: all 0.2s; border: none;
+  text-decoration: none;
+}
+.toolbar-btn-primary { background: #0f172a; color: #fff; }
+.toolbar-btn-primary:hover { opacity: 0.85; }
+.toolbar-btn-secondary { background: #e2e8f0; color: #334155; }
+.toolbar-btn-secondary:hover { opacity: 0.75; }
+
+.footer { text-align: center; padding: 24px 0 8px; font-size: 11px; color: #94a3b8; }
+
+/* ===== GAP REPORT CSS ===== */
+@page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+.report-body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 10.5pt; line-height: 1.8; color: #1a1a2e;
+  background: #fff; max-width: 210mm; margin: 0 auto;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; page-break-after: always; position: relative; padding: 60px 40px; }
+.cover::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #0f172a, #1e40af); }
+.cover-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: #fff; background: #0f172a; padding: 6px 24px; border-radius: 100px; margin-bottom: 40px; }
+.cover-title { font-size: 28pt; font-weight: 800; color: #0f172a; letter-spacing: 0.06em; margin-bottom: 12px; }
+.cover-subtitle { font-size: 12pt; color: #64748b; letter-spacing: 0.06em; margin-bottom: 60px; }
+.cover-meta { width: 100%; max-width: 440px; text-align: left; border-top: 2px solid #0f172a; padding-top: 24px; }
+.cover-meta table { width: 100%; border-collapse: collapse; }
+.cover-meta td { padding: 6px 0; font-size: 10pt; vertical-align: top; }
+.cover-meta td:first-child { width: 120px; color: #64748b; font-weight: 500; }
+.cover-meta td:last-child { color: #0f172a; font-weight: 600; }
+.cover-footer { position: absolute; bottom: 40px; font-size: 9pt; color: #94a3b8; }
+.page { padding: 48px 56px; }
+.page-break { page-break-before: always; }
+.section { page-break-inside: avoid; margin-bottom: 36px; }
+.section-num { display: inline-block; font-size: 9pt; font-weight: 700; color: #fff; background: #0f172a; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%; margin-right: 10px; vertical-align: middle; }
+.section-title { display: inline; font-size: 16pt; font-weight: 800; color: #0f172a; letter-spacing: 0.04em; vertical-align: middle; }
+.section-line { height: 2px; background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%); margin: 12px 0 28px; }
+.report-body h3 { font-size: 12pt; font-weight: 700; color: #0f172a; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+.report-body p { margin: 0 0 14px; }
+.core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
+.report-body table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 10pt; }
+.report-body thead th { background: #0f172a; color: #fff; font-weight: 600; font-size: 9pt; letter-spacing: 0.06em; padding: 10px 14px; text-align: left; }
+.report-body tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.report-body tbody tr:nth-child(even) { background: #f8fafc; }
+.report-body .td-label { width: 140px; color: #64748b; font-weight: 600; font-size: 9pt; }
+.severity { display: inline-flex; align-items: center; gap: 2px; }
+.severity-dot { width: 10px; height: 10px; border-radius: 50%; background: #0f172a; }
+.severity-dot.empty { background: #e2e8f0; }
+
+/* Gap-specific styles */
+.gap-badge {
+  display: inline-block; font-size: 9pt; font-weight: 700; padding: 3px 12px;
+  border-radius: 100px; white-space: nowrap;
+}
+.gap-match { background: #dcfce7; color: #166534; }
+.gap-diverge { background: #fef3c7; color: #92400e; }
+.gap-critical { background: #fecaca; color: #991b1b; }
+.blind-spot-card {
+  background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid #ef4444;
+  border-radius: 12px; padding: 20px 24px; margin: 16px 0; page-break-inside: avoid;
+}
+.blind-spot-type { font-size: 10pt; font-weight: 700; color: #ef4444; margin-bottom: 8px; }
+.blind-spot-content { font-size: 10pt; color: #1e293b; margin-bottom: 12px; line-height: 1.8; }
+.blind-spot-evidence { background: #f8fafc; border-radius: 8px; padding: 12px 16px; font-size: 9.5pt; }
+.evidence-ceo { color: #0f172a; margin-bottom: 6px; }
+.evidence-exec { color: #334155; }
+.compare-table th:first-child { width: 120px; }
+.compare-table td:nth-child(2) { color: #0f172a; }
+.compare-table td:nth-child(3) { color: #334155; }
+
+/* Existing report classes */
+.issue-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin: 20px 0; page-break-inside: avoid; }
+.issue-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.issue-badge { display: inline-block; font-size: 9pt; font-weight: 700; color: #fff; background: #0f172a; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+.issue-title { font-size: 12pt; font-weight: 700; color: #0f172a; }
+.issue-analysis { margin-top: 16px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 10pt; line-height: 1.9; color: #334155; }
+.priority-row { display: flex; align-items: flex-start; gap: 16px; margin: 16px 0; page-break-inside: avoid; }
+.priority-num { flex-shrink: 0; width: 36px; height: 36px; line-height: 36px; text-align: center; border-radius: 50%; background: #0f172a; color: #fff; font-size: 14pt; font-weight: 800; }
+.priority-content { flex: 1; padding-top: 4px; }
+.priority-label { font-size: 11pt; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+.priority-reason { font-size: 9.5pt; color: #64748b; line-height: 1.7; }
+.action-box { border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin: 16px 0; page-break-inside: avoid; }
+.action-box h4 { font-size: 11pt; font-weight: 700; color: #0f172a; margin-bottom: 14px; }
+.action-box ul { padding-left: 20px; margin: 0; }
+.action-box li { font-size: 10pt; line-height: 1.8; margin-bottom: 6px; color: #334155; }
+.action-box p { font-size: 10pt; color: #334155; }
+.action-box--gravity { background: #f8fafc; border-color: #0f172a; }
+.loop-box { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px 28px; margin: 20px 0; font-family: "SF Mono", "Menlo", monospace; font-size: 9.5pt; line-height: 2; white-space: pre-wrap; color: #334155; }
+.disclaimer { background: #f8fafc; border-radius: 8px; padding: 20px 24px; margin: 28px 0; page-break-inside: avoid; }
+.disclaimer h4 { font-size: 10pt; font-weight: 700; color: #64748b; margin-bottom: 10px; }
+.disclaimer ul { padding-left: 18px; margin: 0; }
+.disclaimer li { font-size: 9pt; color: #64748b; line-height: 1.8; margin-bottom: 4px; }
+.report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
+.report-footer strong { color: #0f172a; font-size: 10pt; }
+
+@media print {
+  html { background: #fff; }
+  body { background: #fff; font-size: 10pt; }
+  .toolbar { display: none !important; }
+  .report-container { padding: 0; max-width: none; }
+  .report-body { max-width: none; box-shadow: none; margin: 0; }
+  .page { padding: 0; }
+  .cover { min-height: auto; height: 100vh; }
+  .page-break { page-break-before: always; }
+  .issue-card, .priority-row, .action-box, .blind-spot-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Phase 1: Confirm & Generate -->
+<div class="phase active" id="phase1">
+  <div class="container">
+    <div class="header">
+      <span class="badge">GRAVITY SHIFT</span>
+      <h1>認識ギャップ分析</h1>
+      <p id="phase1-info">経営者と幹部の認識ギャップを構造的に分析します</p>
+    </div>
+    <div class="card">
+      <div style="font-size:16px;font-weight:800;color:#0f172a;margin-bottom:4px;">参加者一覧</div>
+      <div style="font-size:13px;color:#64748b;margin-bottom:16px;">以下のヒアリングデータを統合してギャップ分析を行います</div>
+      <div class="participant-list" id="participant-list"></div>
+    </div>
+    <button class="btn-generate" id="btn-generate" onclick="Gap.startGeneration()">認識ギャップ分析レポートを生成</button>
+    <div style="text-align:center;margin-top:16px;">
+      <a href="index.html" style="font-size:13px;color:#64748b;">ダッシュボードに戻る</a>
+    </div>
+    <div class="footer">GrowthFix - Gravity Shift</div>
+  </div>
+</div>
+
+<!-- Phase 2: Loading -->
+<div class="phase" id="phase2">
+  <div class="container">
+    <div class="header">
+      <span class="badge">GRAVITY SHIFT</span>
+      <h1>ギャップ分析レポート生成中</h1>
+    </div>
+    <div class="card loading-card">
+      <div class="loading-spinner"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="loading-title">認識ギャップ分析レポートを生成しています...</div>
+      <div class="loading-sub">全ヒアリングデータを統合分析中です（60-120秒）</div>
+      <div class="loading-steps" id="loading-steps">
+        <div class="loading-step active" data-lstep="0"><div class="loading-step-icon"></div><span>CEOヒアリングデータを読み込み中...</span></div>
+        <div class="loading-step" data-lstep="1"><div class="loading-step-icon"></div><span>幹部ヒアリングデータを統合中...</span></div>
+        <div class="loading-step" data-lstep="2"><div class="loading-step-icon"></div><span>認識ギャップを分析中...</span></div>
+        <div class="loading-step" data-lstep="3"><div class="loading-step-icon"></div><span>盲点を特定中...</span></div>
+        <div class="loading-step" data-lstep="4"><div class="loading-step-icon"></div><span>レポートを構成中...</span></div>
+      </div>
+      <div id="api-error-area"></div>
+    </div>
+    <div class="footer">GrowthFix - Gravity Shift</div>
+  </div>
+</div>
+
+<!-- Phase 3: Report -->
+<div class="phase" id="phase3">
+  <div class="report-container">
+    <div class="report-body" id="report-output"></div>
+  </div>
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <button class="toolbar-btn toolbar-btn-primary" onclick="window.print()">PDFで保存</button>
+      <a class="toolbar-btn toolbar-btn-secondary" href="index.html" style="text-decoration:none;">ダッシュボードへ</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const Gap = {
+  projectId: null,
+  project: null,
+  stepTimer: null,
+  isGenerating: false,
+
+  async init() {
+    const params = new URLSearchParams(window.location.search);
+    this.projectId = params.get('project');
+    const regenerate = params.get('regenerate');
+
+    if (!this.projectId) {
+      window.location.href = 'index.html';
+      return;
+    }
+
+    // Load project
+    try {
+      const res = await fetch(`api/project.php?id=${this.projectId}`);
+      const r = await res.json();
+      if (r.success) {
+        this.project = r.project;
+        document.getElementById('phase1-info').textContent = this.project.company_name;
+        this.renderParticipants();
+      }
+    } catch(e) {
+      console.error(e);
+    }
+
+    // Check for existing report (unless regenerate)
+    if (!regenerate && this.project?.has_gap_report) {
+      try {
+        const gapRes = await fetch(`api/hearing.php?project=${this.projectId}&role=gap`);
+        if (gapRes.ok) {
+          const gapResult = await gapRes.json();
+          if (gapResult.success && gapResult.data?.report_html) {
+            this.showReport(gapResult.data.report_html);
+            return;
+          }
+        }
+      } catch(e) {}
+    }
+  },
+
+  renderParticipants() {
+    const p = this.project;
+    const h = p.hearings || {};
+    let html = '';
+    let allComplete = true;
+
+    // CEO
+    const ceoScores = h.ceo?.status === 'completed' ? '' : '(未完了)';
+    if (h.ceo?.status !== 'completed' || !h.ceo?.has_report) allComplete = false;
+    html += `
+      <div class="participant-item">
+        <div>
+          <span class="participant-name">${this.esc(p.ceo_name)}</span>
+          <span class="participant-role"> (CEO)</span>
+        </div>
+        <span class="participant-scores">${h.ceo?.has_report ? 'レポート済' : ceoScores}</span>
+      </div>`;
+
+    const execCount = p.exec_count || 3;
+    for (let i = 1; i <= execCount; i++) {
+      const info = h['exec_' + i] || {};
+      if (info.status !== 'completed' || !info.has_report) allComplete = false;
+      const name = (p.exec_names && p.exec_names[i-1]) || info.name || '幹部' + i;
+      html += `
+        <div class="participant-item">
+          <div>
+            <span class="participant-name">${this.esc(name)}</span>
+            <span class="participant-role"> (幹部${i})</span>
+          </div>
+          <span class="participant-scores">${info.has_report ? 'レポート済' : (info.status === 'completed' ? '完了' : '未完了')}</span>
+        </div>`;
+    }
+
+    document.getElementById('participant-list').innerHTML = html;
+
+    // Disable generation button if not all complete
+    const btn = document.getElementById('btn-generate');
+    if (!allComplete) {
+      btn.disabled = true;
+      btn.style.opacity = '0.35';
+      btn.style.cursor = 'not-allowed';
+      btn.textContent = '全員のレポート生成が完了するとギャップ分析が可能になります';
+      btn.onclick = null;
+    }
+  },
+
+  showPhase(num) {
+    document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+    document.getElementById('phase' + num).classList.add('active');
+    window.scrollTo({ top: 0 });
+  },
+
+  startGeneration() {
+    if (this.isGenerating) return;
+    this.isGenerating = true;
+    this.showPhase(2);
+    document.getElementById('api-error-area').innerHTML = '';
+
+    let step = 0;
+    this.updateLoadingStep(step);
+    this.stepTimer = setInterval(() => {
+      step++;
+      if (step < 5) this.updateLoadingStep(step);
+      else clearInterval(this.stepTimer);
+    }, 12000);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 200000);
+
+    fetch('api/generate-gap.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ project_id: this.projectId }),
+      signal: controller.signal,
+    })
+    .then(res => res.json())
+    .then(data => {
+      clearTimeout(timeoutId);
+      clearInterval(this.stepTimer);
+      if (data.success && data.report_html) {
+        this.isGenerating = false;
+        for (let i = 0; i < 5; i++) this.markStepDone(i);
+        setTimeout(() => this.showReport(data.report_html), 800);
+      } else {
+        throw new Error(data.error || 'レポート生成に失敗しました');
+      }
+    })
+    .catch(err => {
+      clearTimeout(timeoutId);
+      clearInterval(this.stepTimer);
+      const msg = err.name === 'AbortError' ? 'リクエストがタイムアウトしました。再試行してください。' : err.message;
+      this.isGenerating = false;
+      document.getElementById('api-error-area').innerHTML = `
+        <div class="api-error">
+          <div class="api-error-text">${this.esc(msg)}</div>
+          <button class="btn-retry" onclick="Gap.startGeneration()">再試行する</button>
+        </div>`;
+    });
+  },
+
+  updateLoadingStep(idx) {
+    document.querySelectorAll('#loading-steps .loading-step').forEach((s, i) => {
+      s.classList.remove('active', 'done');
+      if (i < idx) s.classList.add('done');
+      else if (i === idx) s.classList.add('active');
+    });
+  },
+
+  markStepDone(idx) {
+    const s = document.querySelectorAll('#loading-steps .loading-step')[idx];
+    if (s) { s.classList.remove('active'); s.classList.add('done'); }
+  },
+
+  showReport(html) {
+    document.getElementById('report-output').innerHTML = html;
+    this.showPhase(3);
+  },
+
+  esc(str) {
+    const div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  },
+};
+
+document.addEventListener('DOMContentLoaded', () => Gap.init());
+</script>
+</body>
+</html>

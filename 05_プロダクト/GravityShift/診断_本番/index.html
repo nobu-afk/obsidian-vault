@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity Shift - ダッシュボード</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: #f0f2f5; color: #1a1a2e; line-height: 1.7;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 32px 20px 60px; }
+
+/* --- Header --- */
+.header { text-align: center; margin-bottom: 28px; }
+.badge {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  color: #fff; background: #0f172a; padding: 4px 16px; border-radius: 100px; margin-bottom: 12px;
+}
+.header h1 { font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 6px; line-height: 1.5; }
+.header p { font-size: 13px; color: #64748b; }
+
+/* --- Card --- */
+.card {
+  background: #fff; border-radius: 16px; padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px;
+}
+@media (max-width: 480px) { .card { padding: 24px 18px; } }
+
+/* --- Form --- */
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 13px; font-weight: 600; color: #334155; margin-bottom: 4px; display: block; }
+.form-input, .form-select {
+  width: 100%; padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 10px;
+  font-size: 14px; font-family: inherit; color: #1e293b; background: #fff;
+  outline: none; transition: border-color 0.2s;
+}
+.form-input:focus, .form-select:focus { border-color: #94a3b8; }
+.form-row { display: flex; gap: 12px; }
+.form-row .form-group { flex: 1; }
+@media (max-width: 480px) { .form-row { flex-direction: column; gap: 0; } }
+
+/* --- Exec Names --- */
+.exec-names { margin-top: 8px; }
+.exec-name-row {
+  display: flex; gap: 8px; align-items: center; margin-bottom: 8px;
+}
+.exec-name-row .form-input { flex: 1; }
+.exec-name-label {
+  font-size: 12px; font-weight: 600; color: #64748b; min-width: 48px; text-align: center;
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 14px 24px; border: none; border-radius: 10px;
+  font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s;
+  font-family: inherit;
+}
+.btn-primary { background: #0f172a; color: #fff; width: 100%; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn-sm {
+  padding: 8px 16px; font-size: 13px; border-radius: 8px;
+}
+.btn-outline {
+  background: #fff; color: #0f172a; border: 2px solid #e2e8f0;
+}
+.btn-outline:hover { border-color: #94a3b8; }
+.btn-danger { background: #fff; color: #ef4444; border: 2px solid #fecaca; }
+.btn-danger:hover { background: #fef2f2; }
+
+/* --- Project List --- */
+.project-list { margin-top: 20px; }
+.project-card {
+  background: #fff; border-radius: 12px; padding: 20px 24px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04); margin-bottom: 12px;
+  border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.15s;
+}
+.project-card:hover { border-color: #94a3b8; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.project-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.project-company { font-size: 16px; font-weight: 700; color: #0f172a; }
+.project-date { font-size: 11px; color: #94a3b8; }
+.project-info { display: flex; gap: 16px; font-size: 12px; color: #64748b; margin-bottom: 12px; }
+.project-progress { display: flex; gap: 6px; align-items: center; }
+.progress-pip {
+  width: 24px; height: 6px; border-radius: 3px; background: #e2e8f0;
+}
+.progress-pip.done { background: #0f172a; }
+.progress-pip.gap-done { background: #22c55e; }
+.progress-label { font-size: 11px; color: #64748b; margin-left: 4px; }
+
+/* --- Empty State --- */
+.empty-state {
+  text-align: center; padding: 48px 20px; color: #94a3b8;
+}
+.empty-state-icon { font-size: 48px; margin-bottom: 16px; }
+.empty-state-text { font-size: 14px; }
+
+/* --- Modal Overlay --- */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); z-index: 1000;
+  justify-content: center; align-items: center; padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: #fff; border-radius: 16px; padding: 32px 28px;
+  max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto;
+}
+.modal-title { font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+.modal-subtitle { font-size: 13px; color: #64748b; margin-bottom: 24px; }
+
+/* --- Footer --- */
+.footer {
+  text-align: center; padding: 24px 0 8px; font-size: 11px; color: #94a3b8;
+}
+.toast {
+  position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%);
+  background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 10px;
+  font-size: 13px; font-weight: 600; z-index: 9999; transition: bottom 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); white-space: nowrap;
+}
+.toast.show { bottom: 24px; }
+.toast.error { background: #991b1b; }
+
+/* --- Detail View --- */
+.detail-view { display: none; }
+.detail-view.active { display: block; }
+.list-view.hidden { display: none; }
+.back-link {
+  font-size: 13px; color: #64748b; cursor: pointer; margin-bottom: 16px;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.back-link:hover { color: #0f172a; }
+
+/* --- Hearing List --- */
+.hearing-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid #f0f2f5;
+}
+.hearing-item:last-child { border-bottom: none; }
+.hearing-info { flex: 1; }
+.hearing-name { font-size: 14px; font-weight: 600; color: #0f172a; }
+.hearing-role { font-size: 12px; color: #64748b; }
+.hearing-status {
+  font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px;
+}
+.status-not-started { background: #f1f5f9; color: #94a3b8; }
+.status-in-progress { background: #fef3c7; color: #92400e; }
+.status-completed { background: #dcfce7; color: #166534; }
+.hearing-actions { display: flex; gap: 8px; align-items: center; margin-left: 12px; }
+
+/* --- Gap Section --- */
+.gap-section {
+  margin-top: 24px; padding-top: 20px; border-top: 2px solid #0f172a;
+}
+.gap-title { font-size: 16px; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+.gap-subtitle { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <span class="badge">GRAVITY SHIFT</span>
+    <h1>プロジェクトダッシュボード</h1>
+    <p>経営者の組織診断・経営幹部との認識ギャップ分析</p>
+  </div>
+
+  <!-- ===== LIST VIEW ===== -->
+  <div class="list-view" id="list-view">
+    <button class="btn btn-primary" onclick="Dashboard.showCreateModal()" style="margin-bottom: 20px;">
+      + 新規プロジェクト作成
+    </button>
+
+    <div id="project-list" class="project-list">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-state-icon">&#9900;</div>
+        <div class="empty-state-text">プロジェクトがまだありません</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DETAIL VIEW ===== -->
+  <div class="detail-view" id="detail-view">
+    <div class="back-link" onclick="Dashboard.showList()">&#8592; プロジェクト一覧に戻る</div>
+
+    <div class="card" id="detail-card">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <div class="footer">GrowthFix - Gravity Shift</div>
+</div>
+
+<!-- ===== CREATE MODAL ===== -->
+<div class="modal-overlay" id="create-modal">
+  <div class="modal">
+    <div class="modal-title">新規プロジェクト作成</div>
+    <div class="modal-subtitle">クライアント情報と参加幹部を入力してください</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">会社名 *</label>
+        <input type="text" class="form-input" id="new-company" placeholder="株式会社○○">
+      </div>
+      <div class="form-group">
+        <label class="form-label">経営者名 *</label>
+        <input type="text" class="form-input" id="new-ceo" placeholder="山田 太郎">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">社員数</label>
+        <input type="number" class="form-input" id="new-employees" placeholder="30">
+      </div>
+      <div class="form-group">
+        <label class="form-label">業種</label>
+        <input type="text" class="form-input" id="new-industry" placeholder="IT / 製造 / サービス等">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">参加幹部数</label>
+      <select class="form-select" id="new-exec-count" onchange="Dashboard.updateExecNames()">
+        <option value="0" selected>0名（CEO単独診断）</option>
+        <option value="2">2名</option>
+        <option value="3">3名</option>
+        <option value="4">4名</option>
+        <option value="5">5名</option>
+      </select>
+    </div>
+    <div class="form-group" id="exec-names-group" style="display:none;">
+      <label class="form-label">幹部名（任意）</label>
+      <div class="exec-names" id="exec-names-inputs">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+
+    <!-- BP受講済み確認（260421要件定義・BP必須前提） -->
+    <div class="form-group" style="margin-top:16px;padding:14px 16px;background:#fef3c7;border-left:4px solid #f59e0b;border-radius:8px;">
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;">
+        <input type="checkbox" id="new-bp-received" style="margin-top:4px;" onchange="Dashboard.toggleBpSection()">
+        <span style="font-size:13px;line-height:1.6;">
+          <strong>BP受講済み（必須）</strong><br>
+          Shiftは Gravity Scan 受講済みの経営者のみを対象とするサービスです。BP翻訳マップがShift Week 1-2 組織実装整合診断の参照データとして使用されます。
+        </span>
+      </label>
+    </div>
+    <div id="bp-results-section" style="display:none;margin-top:12px;padding:16px;background:#f8fafc;border-radius:10px;">
+      <div style="font-size:12px;font-weight:700;color:#334155;margin-bottom:12px;letter-spacing:0.04em;">📋 BP v6.0 レポート（翻訳マップ／ボトルネック／面接ブループリント 5 要素）</div>
+      <div class="form-group">
+        <label class="form-label">BP結果URL（推奨）</label>
+        <input type="url" class="form-input" id="new-bp-url" placeholder="https://growthfix.jp/gravity-scan/diagnose/generate.php?report=...">
+        <div style="font-size:11px;color:#64748b;margin-top:4px;">BP生成レポートのURLを貼付すると、Week 1-2診断時に翻訳マップ・ボトルネック・設計図を自動参照できます</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">BP結果 HTML全文（URL無しの場合・代替）</label>
+        <textarea class="form-input" id="new-bp-html" rows="6" placeholder="BPレポートのHTMLソースを貼り付け（右クリック→ページのソースを表示→全選択してコピー）"></textarea>
+        <div style="font-size:11px;color:#64748b;margin-top:4px;">URL貼付が優先。URLが無い場合のみHTMLを貼り付けてください</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">CODE 4型判定（任意・分析重点化に使用）</label>
+        <select class="form-input" id="new-code-type">
+          <option value="">選択なし</option>
+          <option value="整合型">整合型（翻訳マップ安定）</option>
+          <option value="才能ズレ型">才能ズレ型（才能の発火環境→組織の実装ギャップ多発）</option>
+          <option value="Whyズレ型">Whyズレ型（BP再診推奨）</option>
+          <option value="偏愛ズレ型">偏愛ズレ型（偏愛→判断軸の実装齟齬）</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">BPセッション実施日（任意）</label>
+        <input type="date" class="form-input" id="new-bp-date">
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 12px; margin-top: 24px;">
+      <button class="btn btn-outline" style="flex:1;" onclick="Dashboard.hideCreateModal()">キャンセル</button>
+      <button class="btn btn-primary" style="flex:1;" id="btn-create" onclick="Dashboard.createProject()">作成</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADD EXEC MODAL ===== -->
+<div class="modal-overlay" id="add-exec-modal">
+  <div class="modal">
+    <div class="modal-title">幹部を追加</div>
+    <div class="modal-subtitle">追加する幹部の人数と名前を入力してください</div>
+
+    <div class="form-group">
+      <label class="form-label">追加する幹部数</label>
+      <select class="form-select" id="add-exec-count" onchange="Dashboard.updateAddExecNames()">
+        <option value="1">1名</option>
+        <option value="2">2名</option>
+        <option value="3" selected>3名</option>
+        <option value="4">4名</option>
+        <option value="5">5名</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">幹部名（任意）</label>
+      <div class="exec-names" id="add-exec-names-inputs"></div>
+    </div>
+
+    <div style="display: flex; gap: 12px; margin-top: 24px;">
+      <button class="btn btn-outline" style="flex:1;" onclick="Dashboard.hideAddExecModal()">キャンセル</button>
+      <button class="btn btn-primary" style="flex:1;" onclick="Dashboard.addExecs()">追加</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API_BASE = 'api';
+
+const Dashboard = {
+  projects: [],
+  currentProject: null,
+  isSubmitting: false,
+
+  async init() {
+    await this.loadProjects();
+    this.updateExecNames();
+  },
+
+  async loadProjects() {
+    try {
+      const res = await fetch(`${API_BASE}/project.php`);
+      const data = await res.json();
+      if (data.success) {
+        this.projects = data.projects;
+        this.renderList();
+      }
+    } catch(e) {
+      console.error('Failed to load projects:', e);
+    }
+  },
+
+  renderList() {
+    const container = document.getElementById('project-list');
+    const empty = document.getElementById('empty-state');
+
+    if (this.projects.length === 0) {
+      container.innerHTML = '';
+      container.appendChild(empty);
+      empty.style.display = 'block';
+      return;
+    }
+
+    empty.style.display = 'none';
+    container.innerHTML = this.projects.map(p => {
+      const total = p.total_hearings || 0;
+      const completed = p.completed_hearings || 0;
+      let pips = '';
+      for (let i = 0; i < total; i++) {
+        pips += `<div class="progress-pip ${i < completed ? 'done' : ''}"></div>`;
+      }
+      if (p.has_gap_report) {
+        pips += `<div class="progress-pip gap-done"></div>`;
+      }
+      return `
+        <div class="project-card" onclick="Dashboard.showDetail('${p.id}')">
+          <div class="project-card-header">
+            <span class="project-company">${this.esc(p.company_name)}</span>
+            <span class="project-date">${(p.created_at || '').split(' ')[0]}</span>
+          </div>
+          <div class="project-info">
+            <span>CEO: ${this.esc(p.ceo_name || '-')}</span>
+            <span>${p.exec_count > 0 ? '幹部: ' + p.exec_count + '名' : 'CEO単独'}</span>
+            <span>${p.employee_count || '-'}名</span>
+          </div>
+          <div class="project-progress">
+            ${pips}
+            <span class="progress-label">${completed}/${total} 完了${p.has_gap_report ? ' + ギャップ分析済' : ''}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  },
+
+  async showDetail(id) {
+    try {
+      const res = await fetch(`${API_BASE}/project.php?id=${id}`);
+      const data = await res.json();
+      if (!data.success) { this.showToast(data.error, true); return; }
+      this.currentProject = data.project;
+      this.renderDetail();
+      document.getElementById('list-view').classList.add('hidden');
+      document.getElementById('detail-view').classList.add('active');
+      window.scrollTo({ top: 0 });
+    } catch(e) {
+      console.error(e);
+    }
+  },
+
+  renderDetail() {
+    const p = this.currentProject;
+    const h = p.hearings || {};
+    const execCount = p.exec_count || 0;
+
+    // Check completion status
+    const ceoStatus = h.ceo?.status || 'not_started';
+    const ceoComplete = ceoStatus === 'completed';
+    let allExecComplete = true;
+
+    let hearingsHtml = '';
+
+    // CEO row
+    hearingsHtml += this.renderHearingRow('CEO', p.ceo_name, ceoStatus, h.ceo?.has_report,
+      `hearing-ceo.html?project=${p.id}`,
+      `analyze.html?project=${p.id}&role=ceo`);
+
+    // Exec rows
+    for (let i = 1; i <= execCount; i++) {
+      const key = 'exec_' + i;
+      const info = h[key] || {};
+      const execName = (p.exec_names && p.exec_names[i-1]) || info.name || '幹部' + i;
+      const status = info.status || 'not_started';
+      if (status !== 'completed') allExecComplete = false;
+
+      hearingsHtml += this.renderHearingRow('幹部' + i, execName, status, info.has_report,
+        `hearing-exec.html?project=${p.id}&exec=${i}`,
+        `analyze.html?project=${p.id}&role=exec&exec=${i}`);
+    }
+
+    // Add exec button
+    let addExecHtml = `
+      <div style="margin-top:16px;">
+        <button class="btn btn-outline btn-sm" onclick="Dashboard.showAddExecModal()">+ 幹部を追加</button>
+      </div>
+    `;
+
+    // Gap section (only show when exec_count > 0)
+    let gapHtml = '';
+    if (execCount > 0) {
+      const allComplete = ceoComplete && allExecComplete;
+      if (allComplete) {
+        gapHtml = `
+          <div class="gap-section">
+            <div class="gap-title">統合ギャップ分析</div>
+            <div class="gap-subtitle">全員のヒアリングが完了しました。認識ギャップ分析レポートを生成できます。</div>
+            ${p.has_gap_report
+              ? `<div style="display:flex;gap:12px;">
+                  <a href="integrate.html?project=${p.id}" class="btn btn-primary btn-sm" style="text-decoration:none;text-align:center;flex:1;">ギャップ分析レポートを見る</a>
+                  <a href="integrate.html?project=${p.id}&regenerate=1" class="btn btn-outline btn-sm" style="text-decoration:none;text-align:center;">再生成</a>
+                 </div>`
+              : `<a href="integrate.html?project=${p.id}" class="btn btn-primary btn-sm" style="text-decoration:none;display:block;text-align:center;">ギャップ分析レポートを生成</a>`
+            }
+          </div>
+        `;
+      } else {
+        gapHtml = `
+          <div class="gap-section" style="border-top-color:#e2e8f0;">
+            <div class="gap-title" style="color:#94a3b8;">統合ギャップ分析</div>
+            <div class="gap-subtitle">全員のヒアリングとレポート生成が完了すると、ギャップ分析レポートを生成できます。</div>
+          </div>
+        `;
+      }
+    }
+
+    const execLabel = execCount > 0 ? `幹部: ${execCount}名 / ` : '';
+
+    document.getElementById('detail-card').innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+        <div>
+          <div style="font-size:20px;font-weight:800;color:#0f172a;">${this.esc(p.company_name)}</div>
+          <div style="font-size:13px;color:#64748b;">CEO: ${this.esc(p.ceo_name)} / ${execLabel}${p.employee_count || '-'}名 / ${this.esc(p.industry || '-')}</div>
+        </div>
+        <button class="btn btn-danger btn-sm" onclick="Dashboard.deleteProject('${p.id}')">削除</button>
+      </div>
+      <div style="font-size:14px;font-weight:700;color:#0f172a;margin-bottom:12px;">ヒアリング一覧</div>
+      ${hearingsHtml}
+      ${addExecHtml}
+      ${gapHtml}
+    `;
+  },
+
+  renderHearingRow(role, name, status, hasReport, hearingUrl, analyzeUrl) {
+    const statusClass = status === 'completed' ? 'status-completed'
+      : status === 'in_progress' ? 'status-in-progress' : 'status-not-started';
+    const statusLabel = status === 'completed' ? '完了'
+      : status === 'in_progress' ? '進行中' : '未開始';
+
+    let actions = '';
+    if (status === 'not_started' || status === 'in_progress') {
+      actions = `<a href="${hearingUrl}" class="btn btn-outline btn-sm" style="text-decoration:none;">${status === 'in_progress' ? '再開' : '開始'}</a>`;
+    } else if (status === 'completed') {
+      if (hasReport) {
+        actions = `<a href="${analyzeUrl}&view=1" class="btn btn-outline btn-sm" style="text-decoration:none;">レポート</a>`;
+      } else {
+        actions = `<a href="${analyzeUrl}" class="btn btn-primary btn-sm" style="text-decoration:none;">レポート生成</a>`;
+      }
+      actions += ` <a href="${hearingUrl}" class="btn btn-outline btn-sm" style="text-decoration:none;font-size:11px;">再編集</a>`;
+    }
+
+    return `
+      <div class="hearing-item">
+        <div class="hearing-info">
+          <span class="hearing-name">${this.esc(name)}</span>
+          <span class="hearing-role"> (${this.esc(role)})</span>
+        </div>
+        <span class="hearing-status ${statusClass}">${statusLabel}</span>
+        <div class="hearing-actions">${actions}</div>
+      </div>
+    `;
+  },
+
+  showList() {
+    document.getElementById('detail-view').classList.remove('active');
+    document.getElementById('list-view').classList.remove('hidden');
+    this.loadProjects();
+  },
+
+  showCreateModal() {
+    document.getElementById('create-modal').classList.add('active');
+  },
+
+  hideCreateModal() {
+    document.getElementById('create-modal').classList.remove('active');
+  },
+
+  updateExecNames() {
+    const count = parseInt(document.getElementById('new-exec-count').value);
+    const container = document.getElementById('exec-names-inputs');
+    const group = document.getElementById('exec-names-group');
+    if (count === 0) {
+      group.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+    group.style.display = 'block';
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+      html += `
+        <div class="exec-name-row">
+          <span class="exec-name-label">幹部${i}</span>
+          <input type="text" class="form-input" id="exec-name-${i}" placeholder="氏名（任意）">
+        </div>
+      `;
+    }
+    container.innerHTML = html;
+  },
+
+  toggleBpSection() {
+    const checked = document.getElementById('new-bp-received').checked;
+    document.getElementById('bp-results-section').style.display = checked ? 'block' : 'none';
+  },
+
+  async createProject() {
+    const company = document.getElementById('new-company').value.trim();
+    const ceo = document.getElementById('new-ceo').value.trim();
+    const employees = document.getElementById('new-employees').value.trim();
+    const industry = document.getElementById('new-industry').value.trim();
+    const execCount = parseInt(document.getElementById('new-exec-count').value);
+    const bpReceived = document.getElementById('new-bp-received').checked;
+
+    if (this.isSubmitting) return;
+    if (!company) { this.showToast('会社名を入力してください', true); return; }
+    if (!ceo) { this.showToast('経営者名を入力してください', true); return; }
+    if (!bpReceived) {
+      this.showToast('Shift は Gravity Scan 受講済みの経営者のみが対象です。BP受講済みにチェックを入れてください', true);
+      return;
+    }
+    this.isSubmitting = true;
+    document.getElementById('btn-create').disabled = true;
+
+    const execNames = [];
+    for (let i = 1; i <= execCount; i++) {
+      const el = document.getElementById('exec-name-' + i);
+      execNames.push(el ? el.value.trim() : '');
+    }
+
+    const bpReference = {
+      bp_received: true,
+      bp_date: document.getElementById('new-bp-date').value || '',
+      bp_url: document.getElementById('new-bp-url').value.trim(),
+      bp_html: document.getElementById('new-bp-html').value.trim(),
+      code_type: document.getElementById('new-code-type').value,
+    };
+
+    try {
+      const res = await fetch(`${API_BASE}/project.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          company_name: company,
+          ceo_name: ceo,
+          employee_count: employees,
+          industry: industry,
+          exec_count: execCount,
+          exec_names: execNames,
+          bp_reference: bpReference,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        this.hideCreateModal();
+        document.getElementById('new-company').value = '';
+        document.getElementById('new-ceo').value = '';
+        document.getElementById('new-employees').value = '';
+        document.getElementById('new-industry').value = '';
+        document.getElementById('new-bp-received').checked = false;
+        document.getElementById('new-bp-date').value = '';
+        ['new-bp-url','new-bp-html','new-code-type'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+        this.toggleBpSection();
+        await this.loadProjects();
+        this.showDetail(data.project.id);
+      } else {
+        this.showToast(data.error || 'エラーが発生しました', true);
+      }
+    } catch(e) {
+      this.showToast('通信エラーが発生しました', true);
+      console.error(e);
+    } finally {
+      this.isSubmitting = false;
+      document.getElementById('btn-create').disabled = false;
+    }
+  },
+
+  async deleteProject(id) {
+    if (!confirm('このプロジェクトを削除しますか？この操作は取り消せません。')) return;
+    try {
+      const res = await fetch(`${API_BASE}/project.php?id=${id}`, { method: 'DELETE' });
+      const data = await res.json();
+      if (data.success) {
+        this.showList();
+      } else {
+        this.showToast(data.error || 'エラーが発生しました', true);
+      }
+    } catch(e) {
+      this.showToast('通信エラーが発生しました', true);
+    }
+  },
+
+  showAddExecModal() {
+    this.updateAddExecNames();
+    document.getElementById('add-exec-modal').classList.add('active');
+  },
+
+  hideAddExecModal() {
+    document.getElementById('add-exec-modal').classList.remove('active');
+  },
+
+  updateAddExecNames() {
+    const count = parseInt(document.getElementById('add-exec-count').value);
+    const currentExecCount = this.currentProject?.exec_count || 0;
+    const container = document.getElementById('add-exec-names-inputs');
+    let html = '';
+    for (let i = 1; i <= count; i++) {
+      const num = currentExecCount + i;
+      html += `
+        <div class="exec-name-row">
+          <span class="exec-name-label">幹部${num}</span>
+          <input type="text" class="form-input" id="add-exec-name-${i}" placeholder="氏名（任意）">
+        </div>
+      `;
+    }
+    container.innerHTML = html;
+  },
+
+  async addExecs() {
+    const p = this.currentProject;
+    if (!p || this.isSubmitting) return;
+    this.isSubmitting = true;
+
+    const addCount = parseInt(document.getElementById('add-exec-count').value);
+    const currentCount = p.exec_count || 0;
+    const newTotal = currentCount + addCount;
+
+    // Gather new names
+    const newNames = [];
+    for (let i = 1; i <= addCount; i++) {
+      const el = document.getElementById('add-exec-name-' + i);
+      newNames.push(el ? el.value.trim() : '');
+    }
+
+    // Merge with existing names
+    const existingNames = p.exec_names || [];
+    const allNames = [...existingNames, ...newNames];
+
+    try {
+      const res = await fetch(`${API_BASE}/project.php?id=${p.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          exec_count: newTotal,
+          exec_names: allNames,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        this.hideAddExecModal();
+        await this.showDetail(p.id);
+      } else {
+        this.showToast(data.error || 'エラーが発生しました', true);
+      }
+    } catch(e) {
+      this.showToast('通信エラーが発生しました', true);
+      console.error(e);
+    } finally {
+      this.isSubmitting = false;
+    }
+  },
+
+  showToast(msg, isError = false) {
+    let t = document.getElementById('app-toast');
+    if (!t) { t = document.createElement('div'); t.id = 'app-toast'; t.className = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    requestAnimationFrame(() => t.classList.add('show'));
+    setTimeout(() => t.classList.remove('show'), 3000);
+  },
+
+  esc(str) {
+    const div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  },
+};
+
+// Close modals on backdrop click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.remove('active');
+  });
+});
+// Close modals on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => Dashboard.init());
+</script>
+</body>
+</html>

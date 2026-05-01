@@ -1,0 +1,140 @@
+/*!
+ * GrowthFix Site Chrome 共通スタイル
+ * site-chrome.js が動的に header / overlay / footer を挿入する際に使う共通CSS
+ * 各ページで個別に <link> を貼る必要はなく、site-chrome.js が自動で読み込む
+ */
+
+.b-footer-tagline {
+  font-size: 13px;
+  color: #1b1b1b;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.b-footer-tagline-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.b-footer-profile {
+  margin: 20px 0;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.04);
+  border-radius: 6px;
+}
+
+.b-footer-profile-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.b-footer-profile-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.b-footer-profile-link {
+  font-size: 12px;
+  margin: 0;
+}
+
+.b-footer-profile-link a {
+  color: #64748b;
+}
+
+.b-footer-col-label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.b-footer-copy {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.sp-menu-item {
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* ============================================================
+   ハンバーガーメニュー表示制御（260427）
+   - WPテーマでは .menu-overlay.change で transform スライドイン
+   - .menu-overlay 自体はWPテーマで display: none → SPでblock化
+   - ハンバーガー位置は絶対配置で右端固定＋ロゴと垂直中央揃え
+   ============================================================ */
+@media (max-width: 1020px) {
+  /* PC用ナビを隠す */
+  .header .link {
+    display: none !important;
+  }
+  /* SP用ハンバーガー（body直下にinline styleで位置固定済） */
+  body > .sp-menu {
+    display: flex !important;
+  }
+  /* オーバーレイ：レンダリングはするが平常時はクリック奪取しない */
+  /* WPテーマで display: none のため block 化、.change で表示有効化 */
+  .menu-overlay {
+    display: block !important;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .menu-overlay.change {
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+/* PC（1021px以上）ではSPハンバーガーを非表示 */
+@media (min-width: 1021px) {
+  body > .sp-menu {
+    display: none !important;
+  }
+}
+
+/* オーバーレイ内のリンクスタイル（site-chrome.jsが挿入する .overlay-links）*/
+.menu-overlay .overlay-links {
+  padding: 24px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.menu-overlay .overlay-links__group {
+  display: flex;
+  flex-direction: column;
+}
+.menu-overlay .overlay-links__lead {
+  display: block;
+  padding: 18px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 1px solid #e5e7eb;
+  letter-spacing: 0.04em;
+}
+.menu-overlay .overlay-links__contact {
+  margin-top: 28px;
+  text-align: center;
+}
+.menu-overlay .overlay-links__contact .l-header__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: #0f172a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}

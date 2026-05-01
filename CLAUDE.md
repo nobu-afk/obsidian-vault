@@ -1,0 +1,80 @@
+# GrowthFix Vault — Claude 指示書
+
+GrowthFix（石井伸幸・引力経営の会社）の Obsidian Vault。詳細プロファイル・プロジェクト状態・フィードバックは `memory/MEMORY.md` 経由で自動参照される。本ファイルは **Vault 全体に常時効く実行ルール**のみを記述する。
+
+---
+
+## 業務系タスク実行時：09_会社OS Part 3 を参照（260429 採用・260501 効率化）
+
+各 MD の **Part 3 ハーネス層**には合格基準／NG 例／実行時テストが記載。**プロトコル：** タスク前に該当 Part 3 を Read → アウトプット → セルフチェック報告。
+
+### Part 3 マッピング（タスク種別 → 参照 MD）
+
+| タスク | Part 3 参照（パスは `09_会社OS/...` 配下）|
+|---|---|
+| Note／FB／WP／対外コピー | culture.md ＋ 発信.md ＋ **接続装置.md** |
+| LP／コーポレート HTML | design.md ＋ **接続装置.md** |
+| 営業・商談・見積 | 営業.md ＋ 商品.md |
+| 採用・業務委託 | 採用.md |
+| 顧客対応・コーチング | カスタマー.md |
+| AI 生成物全般 | AI.md |
+| 投資・大型支出・撤退判断 | 判断基準.md ＋ 社長.md |
+| 翻訳の出力 | 翻訳.md |
+| 接続装置整備 | **接続装置.md** Part 1-3 |
+
+### Read 効率化ルール（260501 確立・トークン肥大化対策）
+
+1. **ピンポイント Read**：Part 3 のみ必要な時は `Read offset=<Part3行> limit=<必要行数>` で読む。MD 全文 Read は避ける（AI.md / 営業.md / 商品.md は 500 行超）
+2. **同セッション再 Read 不要**：1 セッション内で同 MD の Part 3 を一度読んだら、追加の業務タスクで再 Read しない（context に既存）
+3. **trivial 免除**：以下は Part 3 Read 免除
+   - 誤字・変数名・スペル修正
+   - 単純な 1 行差し替え（思想に触れない）
+   - 機械的な lint 修正・SSOT 用語置換
+   - 既存ファイルのフォーマット整形のみ
+4. **疑わしきは読む**：「軽微っぽいが思想・対外発信に影響しそう」と感じた時は Read する（省略癖はハーネスを腐らせる）
+
+### 業務系タスクの認識基準（Read 必要）
+
+- 対外発信物の作成・編集（思想変更を伴う）
+- 営業・商談・見積・契約・適合判定
+- 採用・業務委託・顧客対応
+- 投資・大型支出・撤退・新サービス検討
+- 5 サービスの設計・改訂
+
+### 補助フレーム
+
+- **ハーネスエンジニアリング 3 層**（コア／ハーネス／実行エージェント）：詳細は `harness.md`（260501 分離）／ `memory/project_harness_engineering_260429.md`
+- **思想層 2 サブ層**：経営思想（会社／Why／引力／参謀）＋接続装置。詳細：`09_会社OS/00_README.md`
+- **5 層モデル**（接続装置）：内的コンセプト直接打ち禁則／外的で集めて内的で磁化。詳細：`接続装置.md` Part 1
+
+---
+
+## SSOT 整合（LP / コピー / 提案書 / 見積書）
+
+- 単一情報源：`05_プロダクト/_共通/SSOT_用語と定義.md`（5サービス・参謀名・価格・期間・3要素）
+- 編集後の検証：`bash 06_開発/scripts/lint_consistency.sh` を実行
+
+## LP 編集時の自動機械チェック
+
+`05_プロダクト/` 配下 HTML を編集したら、**ユーザーに言われなくても以下を実行する**：
+- `python3 06_開発/scripts/audit_mobile_sync.py`
+- 必要に応じて `bash 06_開発/scripts/verify_deployment.sh`（デプロイ後）
+
+詳細：`memory/feedback_lp_mobile_audit_required.md` ／ `memory/reference_audit_mobile_sync_workflow.md`
+
+## 「変わっていない／おかしい」報告時の原則
+
+ビジュアル系不具合の報告は、**仮説修正を走らせる前にスクショを依頼する**。仕様認識違いと実装違いを区別するため。詳細：`memory/feedback_screenshot_first_before_fix.md`
+
+---
+
+## トークン経済（経営指標）
+
+AI 費用は経営戦略指標として扱う。月次 retail 換算コストは `06_開発/scripts/token_usage.py` で集計。`/daily` skill が STEP 4.7 で自動取得する。詳細：`memory/reference_token_usage_script.md`
+
+## 主要原則（Vault 全体）
+
+- **主軸先行**：AI に「ブレストして」と先に投げない。主軸 → AI 相談 → 検証 の順序（`memory/feedback_ai_brainstorm_individuality.md`）
+- **時間制約タスク**：目的 1 行 → 問い 3-5 / 決定 3-5 / 指標 3-5 で止める。網羅報告は禁則（`memory/feedback_session_purpose_first.md`）
+- **Skill 実行後は Diff 提示**：iran-update / daily 等は前日との差分箇条書きを必ず出す（`memory/feedback_post_skill_diff_summary.md`）
+- **モデル選択**：戦略判断・壁打ちは Opus、レポート生成・実装は Sonnet（`memory/feedback_model_selection_sonnet.md`）

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ソースコード解析レポート｜Gravity CODE</title>
+<style>
+  /* ========================================
+     Gravity CODE Report — Print-ready Design
+     ======================================== */
+
+  @page {
+    size: A4;
+    margin: 20mm 18mm 24mm 18mm;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    background: #e8e8e8;
+  }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.8;
+    color: #1a1a2e;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    max-width: 210mm;
+    margin: 0 auto;
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  }
+
+  /* --- Page wrapper for screen --- */
+  .page {
+    padding: 48px 56px;
+  }
+
+  /* --- PDF Button --- */
+  .pdf-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 9999;
+    letter-spacing: 0.04em;
+  }
+  .pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .pdf-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+  @media print {
+    html { background: #fff; }
+    body { max-width: none; box-shadow: none; margin: 0; }
+    .page { padding: 0; }
+    .pdf-btn { display: none; }
+  }
+
+  /* --- Cover Page --- */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    page-break-after: always;
+    position: relative;
+    padding: 60px 40px;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0f172a, #334155);
+  }
+  .cover-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background: #0f172a;
+    padding: 6px 24px;
+    border-radius: 100px;
+    margin-bottom: 40px;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    color: #64748b;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .cover-tagline {
+    font-size: 10.5pt;
+    color: #94a3b8;
+    margin-bottom: 60px;
+  }
+  .cover-meta {
+    width: 100%;
+    max-width: 440px;
+    text-align: left;
+    border-top: 2px solid #0f172a;
+    padding-top: 24px;
+  }
+  .cover-meta table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cover-meta td {
+    padding: 6px 0;
+    font-size: 10pt;
+    vertical-align: top;
+  }
+  .cover-meta td:first-child {
+    width: 120px;
+    color: #64748b;
+    font-weight: 500;
+  }
+  .cover-meta td:last-child {
+    color: #0f172a;
+    font-weight: 600;
+  }
+  .cover-sample {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 80pt;
+    font-weight: 900;
+    color: rgba(15, 23, 42, 0.04);
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 9pt;
+    color: #94a3b8;
+  }
+
+  /* --- Section Headers --- */
+  .section {
+    page-break-inside: avoid;
+    margin-bottom: 36px;
+  }
+  .section-num {
+    display: inline-block;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #fff;
+    background: #0f172a;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .section-title {
+    display: inline;
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+  .section-line {
+    height: 2px;
+    background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%);
+    margin: 12px 0 28px;
+  }
+
+  /* --- Subsection --- */
+  h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 28px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #334155;
+    margin: 20px 0 10px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  /* --- Quote box (core definition) --- */
+  .core-quote {
+    background: #f8fafc;
+    border-left: 4px solid #0f172a;
+    padding: 20px 24px;
+    margin: 20px 0 28px;
+    font-size: 11pt;
+    line-height: 1.9;
+    color: #1e293b;
+  }
+
+  /* --- Verb chain --- */
+  .verb-chain {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin: 16px 0 24px;
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* --- Tables --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 10pt;
+  }
+  thead th {
+    background: #0f172a;
+    color: #fff;
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  .td-label {
+    width: 140px;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 9pt;
+  }
+
+  /* --- Numbered list --- */
+  .numbered-list {
+    counter-reset: nlist;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 24px;
+  }
+  .numbered-list li {
+    counter-increment: nlist;
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 14px;
+    font-size: 10pt;
+    line-height: 1.8;
+  }
+  .numbered-list li::before {
+    content: counter(nlist);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background: #0f172a;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 9pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Filter grid --- */
+  .filter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .filter-col {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  .filter-col h4 {
+    margin: 0 0 12px;
+    font-size: 10pt;
+    text-transform: none;
+  }
+  .filter-high { background: rgba(15,23,42,0.02); }
+  .filter-low { background: rgba(220,38,38,0.02); }
+  .filter-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .filter-col li {
+    font-size: 10pt;
+    line-height: 1.8;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .filter-col li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+  .filter-high li::before { background: #0f172a; }
+  .filter-low li::before { background: #dc2626; opacity: 0.5; }
+
+  /* --- have to card --- */
+  .haveto-card {
+    background: #fef2f2;
+    border-left: 3px solid #dc2626;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    page-break-inside: avoid;
+  }
+  .haveto-tag {
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #dc2626;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .haveto-card p {
+    font-size: 10pt;
+    line-height: 1.8;
+    color: #334155;
+  }
+
+  /* --- Process grid --- */
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0 24px;
+  }
+  .process-item {
+    padding: 14px 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    page-break-inside: avoid;
+  }
+  .process-verb {
+    font-size: 10pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .process-item p {
+    font-size: 9pt;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  /* --- Strength/Weakness boxes --- */
+  .scenario-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    page-break-inside: avoid;
+  }
+  .scenario-box h4 {
+    margin: 0 0 10px;
+    text-transform: none;
+  }
+  .scenario-box ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+  .scenario-box li {
+    font-size: 10pt;
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+
+  /* --- Manual grid --- */
+  .manual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .manual-col {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  .manual-do { background: rgba(15,23,42,0.02); }
+  .manual-dont { background: rgba(220,38,38,0.02); }
+  .manual-col h4 {
+    margin: 0 0 12px;
+    text-transform: none;
+  }
+
+  /* --- Path cards --- */
+  .path-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0 24px;
+  }
+  .path-card {
+    padding: 18px 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .path-card--recommended {
+    border-color: #0f172a;
+    background: rgba(15,23,42,0.02);
+  }
+  .path-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    background: #0f172a;
+    color: #fff;
+    border-radius: 4px;
+  }
+  .path-card h4 {
+    margin: 0 0 6px;
+    font-size: 11pt;
+    text-transform: none;
+    color: #0f172a;
+  }
+  .path-card p {
+    font-size: 9.5pt;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  /* --- Analyst Note --- */
+  .analyst-note {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 28px 0;
+    font-size: 10pt;
+    font-style: italic;
+    line-height: 1.9;
+    color: #475569;
+    page-break-inside: avoid;
+  }
+  .analyst-note strong {
+    color: #0f172a;
+    font-style: normal;
+  }
+
+  /* --- Footer --- */
+  .report-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid #0f172a;
+    text-align: center;
+    font-size: 9pt;
+    color: #64748b;
+    page-break-inside: avoid;
+  }
+  .report-footer strong {
+    color: #0f172a;
+    font-size: 10pt;
+  }
+
+  /* --- Page break --- */
+  .page-break { page-break-before: always; }
+
+  /* --- Paragraph --- */
+  p { margin: 0 0 14px; }
+
+  /* --- Print overrides --- */
+  @media print {
+    body { font-size: 10pt; }
+    .cover { min-height: auto; height: 100vh; }
+    .filter-grid, .process-grid, .manual-grid { break-inside: avoid; }
+    .haveto-card, .path-card, .scenario-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-sample">SAMPLE</div>
+  <span class="cover-badge">GRAVITY CODE</span>
+  <h1 class="cover-title">ソースコード解析レポート</h1>
+  <p class="cover-subtitle">Source Code Analysis Report</p>
+  <p class="cover-tagline">あなたのソースコードを読み解く</p>
+
+  <div class="cover-meta">
+    <table>
+      <tr><td>対象者</td><td>石井 伸幸</td></tr>
+      <tr><td>現在の役割</td><td>GrowthFix 代表</td></tr>
+      <tr><td>入力データ</td><td>自伝的note記事（約30,000字）</td></tr>
+      <tr><td>セッション日</td><td>2026-03-01</td></tr>
+      <tr><td>レポート納品日</td><td>2026-03-11</td></tr>
+      <tr><td>担当</td><td>石井 伸幸（GrowthFix）</td></tr>
+    </table>
+  </div>
+
+  <p class="cover-footer">Confidential — For personal use only</p>
+</div>
+
+<!-- ===== 1. SUMMARY ===== -->
+<div class="page">
+<div class="section">
+  <div>
+    <span class="section-num">1</span>
+    <h2 class="section-title">サマリー</h2>
+  </div>
+  <div class="section-line"></div>
+
+  <div class="core-quote">
+    <strong>石井伸幸とは、「カオスを検知し、ゼロから構造を立ち上げ、自走させた瞬間に次のカオスへ移動する」構造構築システムである。</strong>
+  </div>
+
+  <p>動詞で記述すると：</p>
+
+  <div class="verb-chain">
+    検知する → 没入する → 収集する → 構造化する → 立ち上げる → 巻き込む → 軌道に乗せる → 手放す
+  </div>
+
+  <p>このシステムは「改善する」「維持する」機能を持たない。対象が構造化された時点でエネルギー供給が停止し、次の構造不在を探索し始める。これは意志や性格ではなく、動作原理である。</p>
+
+  <p>ドメインは「遊び→スポーツ→コンサル→人事→事業開発→コーチング」と変遷したが、実行されている動詞は30年以上一度もブレていない。「コンサルタント」「人事責任者」「コーチ」という肩書きは、このシステムがどの領域で稼働したかのログに過ぎない。</p>
+</div>
+</div><!-- /page -->
+
+<!-- ===== 2. ENGINE ===== -->
+<div class="page-break"></div>
+<div class="page">
+<div class="section">
+  <div>
+    <span class="section-num">2</span>
+    <h2 class="section-title">駆動源</h2>
+  </div>
+  <div class="section-line"></div>
+
+  <h3>エンジンの正体</h3>
+
+  <div class="core-quote">
+    「まだ誰も構造化していない混沌を見つけると、秩序を立ち上げずにはいられない」——これがこのシステムの駆動衝動である。
+  </div>
+
+  <p>「改善したい」「貢献したい」という動機ではない。既に構造化された対象には一切反応しない。混沌そのものが燃料であり、「無から有を立ち上げる」動作の実行中にのみ最大出力を返す。幼少期、自然の中で「まだ見つけられていない対象」を探索することに没頭していた時点で、このエンジンは既に稼働していた。対象が「昆虫」から「事業構造」に変わっただけである。</p>
+
+  <h3>発火条件</h3>
+  <ol class="numbered-list">
+    <li><strong>構造不在のカオスであること。</strong> 仕組みがない、前例がない、正解がない——この3条件でエンジンが点火する。マニュアルが整備された環境では出力がゼロに近づく。</li>
+    <li><strong>「駅伝的構造」があること。</strong> 共通ゴールに全員が本気で走る場で最大出力が発生する。単独でも動くが、チームが持ち場で全力を出す構造がトリガーになる。</li>
+    <li><strong>自分の現在地を破壊する「格上」に触れること。</strong> キャリアの転換点はすべて、圧倒的に上の基準を持つ人間との出会いから始まっている。この衝撃が自己像を破壊し、次のステージへの没入を発火させる。</li>
+  </ol>
+
+  <h3>停止条件</h3>
+  <ol class="numbered-list">
+    <li><strong>運用フェーズに入った時。</strong> 「回す」フェーズになった途端、エネルギー供給が急速に低下する。怠慢ではなくシステム仕様。複数の環境で同一パターンが反復確認されている。</li>
+    <li><strong>ゴールが消失した時。</strong> 「全ての景色が灰色に見える」——ゴール不在はこのシステムにとって酸素の遮断に等しい。「何を目指すか」が空白になった瞬間、全プロセスが停止する。</li>
+    <li><strong>外部から動作を強制された時。</strong> 興味のない対象を「やれ」と指示された瞬間、即シャットダウンする。幼少期から一貫しており、意志でコントロールできない。強制下での辻褄合わせは自己欺瞞を蓄積させ、システム全体を劣化させる。</li>
+  </ol>
+</div>
+</div><!-- /page -->
+
+<!-- ===== 3. FILTER ===== -->
+<div class="page-break"></div>
+<div class="page">
+<div class="section">
+  <div>
+    <span class="section-num">3</span>
+    <h2 class="section-title">フィルター</h2>
+  </div>
+  <div class="section-line"></div>
+
+  <div class="filter-grid">
+    <div class="filter-col filter-high">
+      <h4>適合度が高い環境</h4>
+      <ul>
+        <li><strong>0→1フェーズの組織・事業。</strong> 仕組みが存在しない場で最大出力が出る。</li>
+        <li><strong>複数領域を同時並行で走らせられる構造。</strong> 異なるドメインの並走が相互作用を生み、出力を押し上げる。</li>
+        <li><strong>率直なフィードバックと高い基準がある場。</strong> 忖度のない指摘がエンジンのターボモードを点火させる。</li>
+        <li><strong>意思決定のスピードが速い組織。</strong> 「考えながら走る」が基本動作。</li>
+      </ul>
+    </div>
+    <div class="filter-col filter-low">
+      <h4>適合度が低い環境</h4>
+      <ul>
+        <li><strong>既存の仕組みを守り・改善する役割。</strong> 構造が完成した時点で「燃料切れ」になる。</li>
+        <li><strong>合意形成に時間がかかる大組織。</strong> エンジンの回転数とギアが噛み合わず摩耗する。</li>
+        <li><strong>ゴールが曖昧なまま走る環境。</strong> 「とりあえず現状維持」が長期化するとシステムクラッシュを引き起こす。</li>
+        <li><strong>裁量のない環境。</strong> 外部から動作を規定された瞬間に起動すらしない。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>have toの検出</h3>
+
+  <div class="haveto-card">
+    <div class="haveto-tag">検出 1</div>
+    <p><strong>「人事の専門家」という名詞的自己定義。</strong> キャリアの蓄積から「人事のプロ」という自己像が形成されていたが、本質は「構造不在にゼロから仕組みを立ち上げる」動詞であり、人事である必然性はない。名詞が、ドメインを超えた転用を無意識に制限していた。<br><strong>剥がした先：</strong>「人事の専門家」→「構造不在を検知し秩序を立ち上げるシステム」。</p>
+  </div>
+
+  <div class="haveto-card">
+    <div class="haveto-tag">検出 2</div>
+    <p><strong>「優等生であるべき」というバックグラウンドプロセス。</strong> 幼少期にインストールされた「模範行動を自動実行する」プログラム。作動するとwant toではなく「求められている行動」が優先され、辻褄合わせの動作が発生する。ソースコードとは無関係な動作のため、出力精度が著しく低下する。<br><strong>剥がした先：</strong>「優等生」→「エンジンが反応する対象にだけ全力を注ぐ」。</p>
+  </div>
+
+  <div class="haveto-card">
+    <div class="haveto-tag">検出 3</div>
+    <p><strong>親由来の経済的ブロック。</strong> 幼少期に内面化した「お金に関する否定的な言葉」が、価格設定や収益構造の設計で無意識の制限として作動。本人が自覚的に検知し、解除プロセスを実行済み。<br><strong>剥がした先：</strong>「お金を稼ぐ＝悪」→ 経済的価値の生成はシステムの出力指標の一つに過ぎない。</p>
+  </div>
+</div>
+</div><!-- /page -->
+
+<!-- ===== 4. EXECUTION PATTERN ===== -->
+<div class="page-break"></div>
+<div class="page">
+<div class="section">
+  <div>
+    <span class="section-num">4</span>
+    <h2 class="section-title">実行パターン</h2>
+  </div>
+  <div class="section-line"></div>
+
+  <h3>コアプロセス</h3>
+
+  <div class="verb-chain">
+    検知する → 没入する → 収集する → 構造化する → 立ち上げる → 巻き込む → 軌道に乗せる → 手放す → 次のカオスを検知する
+  </div>
+
+  <div class="process-grid">
+    <div class="process-item">
+      <div class="process-verb">検知する</div>
+      <p>「まだ構造化されていない領域」を自動的に嗅ぎ取る。本人が意識的に「見つけた」のではなく、システムが勝手に検知している。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">没入する</div>
+      <p>検知した瞬間にエンジンが自動全開になる。「頑張っている」のではなく、時間感覚が消失する没入状態。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">収集する</div>
+      <p>書籍、人、現場——ソースを選ばず大量に高速インプットし、短期間で全体像を把握する。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">構造化する</div>
+      <p>大量の情報を独自のフレームワークに変換する。既存フレームの流用ではなく、自分のOSで再解釈して新しい構造を生成する。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">立ち上げる</div>
+      <p>ゼロから仕組みを実装する。設計だけでなく、自ら手を動かして形にするまでが1セット。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">巻き込む</div>
+      <p>自分より優秀なメンバーを配置し、構造の耐久性を上げる。全部やるのではなく、任せる。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">軌道に乗せる</div>
+      <p>仕組みが自走する状態——自分が抜けても回る状態——まで持っていく。ここが「完成」の定義。</p>
+    </div>
+    <div class="process-item">
+      <div class="process-verb">手放す</div>
+      <p>軌道に乗った瞬間にエネルギーが停止し、次のゼロへ移動する。「飽きっぽい」のではなく動作仕様。</p>
+    </div>
+  </div>
+
+  <div class="scenario-box">
+    <h4>強みが最大化する場面</h4>
+    <ul>
+      <li>「何もない」状態から短期間で仕組みの骨格を立ち上げる場面。ミナジンでのコンサル事業立ち上げ、GrowthFixの創業がこのパターン</li>
+      <li>複数の異なる領域を同時並行で走らせ、それぞれの学びを相互に転用する場面。人事×事業開発×コーチングの並走がシナジーを生んでいる</li>
+      <li>大量情報の高速処理と構造化が求められる場面。DMMでの50事業横断のHRBP統括はこの能力が最も発揮された事例</li>
+      <li>「正解がない問い」に対して仮説を立て、高速で検証→修正を回す場面</li>
+    </ul>
+  </div>
+
+  <div class="scenario-box">
+    <h4>精度が落ちる場面</h4>
+    <ul>
+      <li>構造が完成した後の運用・保守フェーズ。エネルギーが急速に低下し、本来の出力の20%以下になる</li>
+      <li>自分が構造の設計権を持てない状況。他者が設計した構造の中で「パーツ」として動くことはこのOSでは不可能</li>
+      <li>自己欺瞞（have toによる上書き）が蓄積した状態。「本当はやりたくないのにやっている」状態が続くと、全プロセスが汚染されて停止する</li>
+      <li>単一領域に長期間閉じ込められた時。並走する領域がないと、相互作用が発生せず出力が単調になる</li>
+    </ul>
+  </div>
+</div>
+</div><!-- /page -->
+
+<!-- ===== 5. MANUAL ===== -->
+<div class="page-break"></div>
+<div class="page">
+<div class="section">
+  <div>
+    <span class="section-num">5</span>
+    <h2 class="section-title">取扱説明書</h2>
+  </div>
+  <div class="section-line"></div>
+
+  <div class="manual-grid">
+    <div class="manual-col manual-do">
+      <h4>やるべきこと</h4>
+      <ol class="numbered-list">
+        <li><strong>「次のゼロ」を常に仕込んでおく。</strong> エンジンが停止する前に次の燃料を投下する。完了してから探すのでは遅い。</li>
+        <li><strong>最低3領域を常に並走させる。</strong> 単一領域では演算資源が余る。異なるドメインの並走が相互転用を生み、出力を最大化する。</li>
+        <li><strong>「格上の基準」に定期的に触れる。</strong> 自己完結状態が続くとエンジンの回転数が低下する。現在地を破壊する接点を意図的に設計する。</li>
+        <li><strong>「手放し」を初期設計に組み込む。</strong> プロジェクト開始時点で「自分が抜けても回る状態」を完了条件に設定する。</li>
+        <li><strong>have toの蓄積を定期的にリセットする。</strong> 「優等生プログラム」が走り出すとソースコードが汚染される。定期的な点検と解除が必要。</li>
+      </ol>
+    </div>
+    <div class="manual-col manual-dont">
+      <h4>やってはいけないこと</h4>
+      <ol class="numbered-list">
+        <li><strong>「運用の達人」を目指してはいけない。</strong> このシステムは「立ち上げ」特化型。運用は別のOSを持つ人間に委ねる対象である。</li>
+        <li><strong>ゴールなしで走り続けてはいけない。</strong> 現状維持はこのシステムにとって酸素の遮断。景色が灰色になったらゴール消失の証拠。</li>
+        <li><strong>辻褄合わせの行動をしてはいけない。</strong> 「期待に応える」「体裁を保つ」動作はhave to作動の証拠。この動作の成果は必ず脆い。</li>
+        <li><strong>「自分がやった方が早い」で抱え込んではいけない。</strong> 「巻き込む」をスキップすると自走状態に到達しない。</li>
+        <li><strong>「名詞」で自分を定義してはいけない。</strong> 「人事の専門家」「コーチ」はドメインラベルであり、ソースコードではない。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RECOMMENDED PATH ===== -->
+<div class="section">
+  <h3>推奨パス</h3>
+  <p>ソースコードの解析結果に基づき、次のステップを3つの選択肢から提案します。</p>
+
+  <div class="path-cards">
+    <div class="path-card">
+      <h4>Gravity Coaching</h4>
+      <p>have toが意思決定を歪めている場合に推奨。本ケースでは3件検出されたが、いずれも自覚的に解除済みのため緊急性は低い。ただし検出2「優等生OS」は環境変化時に再起動するリスクがあり、定期モニタリングは推奨。</p>
+    </div>
+    <div class="path-card">
+      <h4>Gravity Scan</h4>
+      <p>事業にまだ伸びしろがあると感じている場合に推奨。60分の対話で、事業に隠された伸びしろを丸裸にする。本ケースでは創業者として自ら組織を設計する立場にあり、組織が10名を超えたフェーズで再検討の価値あり。</p>
+    </div>
+    <div class="path-card path-card--recommended">
+      <span class="path-badge">推奨</span>
+      <h4>CODE 単独完結</h4>
+      <p>ソースコードが明快で動詞連鎖が30年間ブレていない。have toは自覚的に解除済み。本レポートとプロンプト集を使い、自走で精度を上げていくことが最も合理的。「次のゼロ」を検知するたびに本レポートと照合することを推奨。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ANALYST NOTE ===== -->
+<div class="analyst-note">
+  <strong>Analyst's Note：</strong>
+  解析難易度は低い。動詞連鎖が30年間ブレておらず、ドメインが変遷しても実行される関数は同一である。<br><br>
+  最大のリスクは2つ。第一に、ソースコードを「名詞」で上書きすること——ドメインラベルはシステムの転用可能性を殺す。第二に、「手放し」の失敗。構造完成後も運用に留まると、エネルギー低下→自己欺瞞蓄積→システム劣化のループに入る。「手放す」はこのソースコードにおいて最も重要かつ最も難易度の高い関数である。
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="report-footer">
+  <p><strong>Gravity CODE｜GrowthFix</strong></p>
+  <p>あなたのソースコードを読み解く</p>
+  <p>https://growthfix.jp/gravity-code/</p>
+</div>
+
+</div><!-- /page -->
+
+<button class="pdf-btn" onclick="window.print()">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+  PDFで保存
+</button>
+
+</body>
+</html>

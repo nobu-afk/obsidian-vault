@@ -1,0 +1,28 @@
+<!--
+  site-header テンプレート（個別LP用：CODE / Scan / Scan DEEP / Coaching / Shift / Orbit）
+  プレースホルダ：
+    {{PRODUCT_NAME}}   : 例「Gravity Code」「Gravity Scan」
+    {{LOGO_HREF}}      : 例「#」「#main」
+    {{NAV_ITEMS}}      : <a href="#section">ラベル</a> を3-4個並べる
+    {{CTA_LABEL}}      : 例「申し込む」「体験する」
+    {{CTA_ANCHOR}}     : 例「#apply」「#trial」
+    {{MOBILE_NAV_ITEMS}}: <a href="#section">ラベル</a>... + CTA
+-->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="{{LOGO_HREF}}" class="logo">{{PRODUCT_NAME}}</a>
+    <div class="header-right">
+      <nav class="nav" aria-label="メインナビゲーション">
+        {{NAV_ITEMS}}
+      </nav>
+      <a class="btn btn-primary btn-sm" href="{{CTA_ANCHOR}}">{{CTA_LABEL}} <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" aria-hidden="true">
+    {{MOBILE_NAV_ITEMS}}
+    <a class="btn btn-primary" href="{{CTA_ANCHOR}}">{{CTA_LABEL}} <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+  </div>
+</header>

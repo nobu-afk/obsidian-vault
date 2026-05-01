@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GrowthFix のサービス一覧。優秀人材が躍動する会社をつくる Gravity シリーズ（CODE / Scan / Coaching / Shift R / Shift A / Orbit）で、経営者の引力を採用と組織に翻訳します。診断から実装、継続運用まで。">
+    <title>サービス｜GrowthFix</title>
+    <meta property="og:title" content="サービス｜GrowthFix ── Gravityシリーズ 5 サービス" />
+    <meta property="og:description" content="診断・実装・継続運用まで。経営者の引力を組織の求心力に翻訳する 5 つのサービス。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://growthfix.jp/service/" />
+    <link rel="canonical" href="https://growthfix.jp/service/">
+    <link rel="icon" href="https://growthfix.jp/wp-content/uploads/2025/06/cropped-ファビコン-2-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://growthfix.jp/wp-content/uploads/2025/06/cropped-ファビコン-2-192x192.png" sizes="192x192" />
+    <!-- GA4 + GTM + Meta Pixel via /assets/js/tracking.js -->
+    <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
+    <link rel="stylesheet" href="https://growthfix.jp/assets/css/wp-theme-purged.css?v=20260425a">
+    <link rel="stylesheet" href="https://growthfix.jp/gravity/styles.css?v=20260424">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .sv-hero { padding: 88px 0 48px; text-align: center; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); border-bottom: 1px solid #e5e7eb; }
+        .sv-hero .eyebrow { font-size: 13px; font-weight: 700; color: #64748b; letter-spacing: 0.18em; margin-bottom: 14px; }
+        .sv-hero h1 { font-size: 32px; font-weight: 900; color: #0f172a; letter-spacing: 0.02em; margin: 0 0 18px; line-height: 1.4; word-break: keep-all; overflow-wrap: anywhere; }
+        .sv-hero .lead { font-size: 15.5px; color: #475569; line-height: 1.9; max-width: 640px; margin: 0 auto; }
+        .breadcrumb { padding: 16px 0; font-size: 12px; color: #94a3b8; letter-spacing: 0.04em; }
+        .breadcrumb a { color: #64748b; text-decoration: none; }
+
+        /* === 全体像マップ === */
+        .sv-map-section { padding: 72px 0 40px; }
+        .sv-map-title { font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.2em; text-align: center; margin: 0 0 28px; }
+        .sv-map { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 120px 1fr 1fr; gap: 12px; }
+        .sv-map-head { font-size: 12px; font-weight: 800; color: #0f172a; text-align: center; letter-spacing: 0.08em; padding: 12px 0; }
+        .sv-map-head--empty { background: transparent; }
+        .sv-map-row-label { font-size: 13px; font-weight: 800; color: #0f172a; letter-spacing: 0.02em; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.55; padding: 0 8px; background: #f8fafc; border-radius: 4px; }
+        .sv-map-cell { display: flex; flex-direction: column; justify-content: center; padding: 22px 20px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; text-align: center; }
+        .sv-map-cell:hover { border-color: #0f172a; transform: translateY(-2px); }
+        .sv-map-cell-ttl { font-size: 14.5px; font-weight: 900; color: #0f172a; letter-spacing: 0.02em; margin: 0 0 6px; }
+        .sv-map-cell-desc { font-size: 11.5px; color: #64748b; line-height: 1.7; margin: 0; }
+        .sv-map-cell-price { font-size: 12px; font-weight: 700; color: #b8a88a; letter-spacing: 0.04em; }
+
+        /* === 5サービスカード（詳細） === */
+        .sv-cards-section { padding: 56px 0 72px; background: #f8fafc; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+        .sv-label { font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.16em; text-align: center; margin: 0 0 6px; }
+        .sv-section-ttl { font-size: 24px; font-weight: 900; color: #0f172a; letter-spacing: 0.01em; text-align: center; margin: 0 0 32px; }
+        .sv-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1080px; margin: 0 auto; }
+        .sv-card { padding: 24px 22px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+        .sv-card:hover { border-color: #0f172a; transform: translateY(-3px); }
+        .sv-card-axis { display: inline-block; padding: 3px 10px; background: #f1f5f9; color: #475569; border-radius: 2px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; margin: 0 0 12px; align-self: flex-start; }
+        .sv-card-name { font-size: 17px; font-weight: 900; color: #0f172a; letter-spacing: 0.02em; margin: 0 0 4px; }
+        .sv-card-tagline { font-size: 12.5px; color: #64748b; line-height: 1.7; margin: 0 0 14px; }
+        .sv-card-price { font-size: 14px; font-weight: 800; color: #0f172a; margin: 0 0 14px; }
+        .sv-card-desc { font-size: 12.5px; color: #475569; line-height: 1.85; margin: 0 0 16px; flex-grow: 1; }
+        .sv-card-more { font-size: 11.5px; font-weight: 700; color: #1b1b1b; letter-spacing: 0.06em; }
+
+        /* === 初めての方の3ステップ === */
+        .sv-steps-section { padding: 80px 0; }
+        .sv-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; position: relative; }
+        .sv-step { padding: 28px 24px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center; position: relative; }
+        .sv-step-num { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 36px; height: 36px; background: #0f172a; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; letter-spacing: 0.02em; }
+        .sv-step-ttl { font-size: 15px; font-weight: 900; color: #0f172a; margin: 12px 0 8px; letter-spacing: 0.02em; }
+        .sv-step-meta { font-size: 11.5px; font-weight: 700; color: #b8a88a; letter-spacing: 0.08em; margin: 0 0 12px; }
+        .sv-step-desc { font-size: 12.5px; color: #475569; line-height: 1.85; margin: 0 0 16px; }
+        .sv-step-link { font-size: 12px; font-weight: 700; color: #1b1b1b; text-decoration: none; }
+        .sv-step-link:hover { text-decoration: underline; }
+
+        /* === ハブLPへの誘導 === */
+        .sv-hub-section { padding: 48px 0 72px; text-align: center; }
+        .sv-hub-cta { display: inline-block; padding: 14px 36px; background: transparent; color: #0f172a; border: 1px solid #0f172a; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; transition: all 0.2s; }
+        .sv-hub-cta:hover { background: #0f172a; color: #ffffff; }
+
+        /* === 会社紹介（普及・理論） 小さく === */
+        .sv-about-section { padding: 64px 0 80px; background: #0f172a; color: #ffffff; }
+        .sv-about-section .sv-label { color: #b8a88a; }
+        .sv-about-section .sv-section-ttl { color: #ffffff; }
+        .sv-about-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+        .sv-about-card { padding: 20px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; }
+        .sv-about-ttl { font-size: 13.5px; font-weight: 800; color: #ffffff; margin: 0 0 6px; letter-spacing: 0.02em; }
+        .sv-about-meta { font-size: 10.5px; font-weight: 700; color: #b8a88a; letter-spacing: 0.08em; margin: 0 0 10px; }
+        .sv-about-desc { font-size: 12px; color: #cbd5e1; line-height: 1.8; margin: 0; }
+
+        /* === Final CTA === */
+        .sv-cta-section { padding: 72px 0 88px; text-align: center; }
+        .sv-cta-inner { max-width: 720px; margin: 0 auto; }
+        .sv-cta-ttl { font-size: 22px; font-weight: 900; color: #0f172a; letter-spacing: 0.02em; line-height: 1.5; margin: 0 0 16px; }
+        .sv-cta-desc { font-size: 13.5px; color: #475569; line-height: 1.9; margin: 0 0 28px; }
+        .sv-cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .sv-cta-btn { display: inline-block; padding: 13px 26px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; transition: all 0.2s; }
+        .sv-cta-btn-primary { background: #0f172a; color: #ffffff; }
+        .sv-cta-btn-primary:hover { background: #1e293b; }
+        .sv-cta-btn-ghost { background: transparent; color: #0f172a; border: 1px solid #0f172a; }
+        .sv-cta-btn-ghost:hover { background: #0f172a; color: #ffffff; }
+
+        @media (max-width: 900px) {
+            .sv-map { grid-template-columns: 100px 1fr 1fr; gap: 8px; }
+            .sv-map-head, .sv-map-row-label { font-size: 11px; padding: 10px 4px; }
+            .sv-map-cell { padding: 16px 12px; }
+            .sv-cards, .sv-steps, .sv-about-grid { grid-template-columns: 1fr; }
+            .sv-about-grid { gap: 12px; }
+        }
+        @media (max-width: 640px) {
+            .sv-hero { padding: 56px 0 36px; }
+            .sv-hero h1 { font-size: 24px; }
+            .sv-section-ttl { font-size: 20px; }
+        }
+    </style>
+<!-- 共通モバイル最適化パッチ（260427）-->
+<link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260428c">
+  <script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
+  <script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
+</head>
+<body>
+</div>
+    </div>
+
+    <main id="main">
+        <section class="sv-hero">
+            <div class="container">
+                <p class="eyebrow">SERVICE</p>
+                <h1>経営者の引力を、採用と組織に翻訳する。</h1>
+                <p class="lead">Gravity シリーズ 5 サービスで、診断から実装、継続運用まで伴走します。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <p class="breadcrumb"><a href="https://growthfix.jp/">ホーム</a> ／ サービス</p>
+        </div>
+
+        <!-- ===== 0. 主訴別入口診断（260430・5層モデル接続装置） ===== -->
+        <section style="padding: 60px 24px; background: #ffffff; border-bottom: 1px solid #e5e7eb;">
+          <div class="container" style="max-width: 880px;">
+            <p style="font-size:11px;letter-spacing:0.3em;color:#94a3b8;margin-bottom:16px;font-weight:700;text-align:center;">WE SOLVE THESE</p>
+            <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(22px,4vw,28px);font-weight:900;color:#0f172a;text-align:center;margin-bottom:36px;line-height:1.55;">これらの課題、<br>Gravity シリーズで解決します。</h2>
+            <p style="font-size:13px;color:#64748b;margin-bottom:32px;text-align:center;letter-spacing:0.02em;">該当する課題から、適したサービスをご案内します（30 秒）</p>
+            <div style="display:grid;grid-template-columns:1fr;gap:14px;">
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">採用が決まらない／優秀な人材が応募してこない</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ CODE / Scan / Shift</p>
+              </div>
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">優秀な幹部から、なぜか先に辞めていく</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ Scan / Shift</p>
+              </div>
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">組織が冷えている／会議で意見が出ない</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ Scan / Shift</p>
+              </div>
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">経営者個人として疲れている／演じる疲れ</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ CODE / Coaching</p>
+              </div>
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">経営から手を引きたいが、引いた瞬間に組織が止まる</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ Orbit / Coaching</p>
+              </div>
+              <div style="padding:18px 22px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;">
+                <p style="margin:0;font-size:14.5px;color:#0f172a;font-weight:600;line-height:1.65;">AI 時代に何が残るか不安</p>
+                <p style="margin:0;font-size:12px;color:#64748b;font-weight:700;letter-spacing:0.04em;white-space:nowrap;">→ CODE / セミナー</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 1. 全体像マップ ===== -->
+        <section class="sv-map-section">
+            <div class="container">
+                <p class="sv-map-title">── SERVICE MAP ──</p>
+                <p style="text-align:center;font-size:13px;color:#64748b;margin:-8px auto 24px;line-height:1.7;max-width:640px;">入口は <strong style="color:#0f172a;">CODE</strong>（任意・5 万）または <strong style="color:#0f172a;">Scan</strong>（必須・10 万）。<br>Coaching / Shift R（採用基盤）／ Shift A（躍動組織）／ Orbit は伴走サービスです。</p>
+
+                <div class="sv-map">
+                    <div class="sv-map-head--empty"></div>
+                    <div class="sv-map-head">まず知る（診断）</div>
+                    <div class="sv-map-head">一緒に変える（伴走）</div>
+
+                    <div class="sv-map-row-label">経営者<br>自身</div>
+                    <a href="https://growthfix.jp/gravity-code/" class="sv-map-cell">
+                        <p class="sv-map-cell-ttl">Gravity CODE</p>
+                        <p class="sv-map-cell-desc">引力タイプを解剖する</p>
+                    </a>
+                    <a href="https://growthfix.jp/gravity-coaching/" class="sv-map-cell">
+                        <p class="sv-map-cell-ttl">Gravity Coaching</p>
+                        <p class="sv-map-cell-desc">月次コーチングで並走</p>
+                    </a>
+
+                    <div class="sv-map-row-label">組織<br>（経営者 × 組織）</div>
+                    <a href="https://growthfix.jp/gravity-scan/" class="sv-map-cell">
+                        <p class="sv-map-cell-ttl">Gravity Scan</p>
+                        <p class="sv-map-cell-desc">組織の引力を設計する</p>
+                    </a>
+                    <a href="https://growthfix.jp/gravity-shift/" class="sv-map-cell">
+                        <p class="sv-map-cell-ttl">Gravity Shift R / A</p>
+                        <p class="sv-map-cell-desc">採用基盤 or 躍動組織を 3 ヶ月で実装</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. 5サービス詳細 ===== -->
+        <section class="sv-cards-section">
+            <div class="container">
+                <p class="sv-label">5 SERVICES</p>
+                <h2 class="sv-section-ttl">サービス詳細</h2>
+
+                <div class="sv-cards">
+                    <a href="https://growthfix.jp/gravity-code/" class="sv-card">
+                        <span class="sv-card-axis">経営者自身 ／ 診断</span>
+                        <p class="sv-card-name">Gravity CODE</p>
+                        <p class="sv-card-tagline">引力の参謀 ── 引力タイプを解剖する</p>
+                        <p class="sv-card-desc">経営者の Why × 才能 × 偏愛から、4 型の引力タイプを診断。自分の核を言語化する任意の入口。</p>
+                        <span class="sv-card-more">詳細を見る →</span>
+                    </a>
+
+                    <a href="https://growthfix.jp/gravity-scan/" class="sv-card">
+                        <span class="sv-card-axis">組織 ／ 診断 ／ 必須入口</span>
+                        <p class="sv-card-name">Gravity Scan</p>
+                        <p class="sv-card-tagline">引力の参謀（組織軸）── 組織の引力タイプ診断 60 分（Pre-Shift 適合診断）</p>
+                        <p class="sv-card-desc">経営者の個人引力を、組織の言葉・判断基準に翻訳するマップを 1 セッションで作成。組織軸サービスの入口。</p>
+                        <span class="sv-card-more">詳細を見る →</span>
+                    </a>
+
+                    <a href="https://growthfix.jp/gravity-coaching/" class="sv-card">
+                        <span class="sv-card-axis">経営者自身 ／ 伴走</span>
+                        <p class="sv-card-name">Gravity Coaching</p>
+                        <p class="sv-card-tagline">心の参謀 ── 経営者の判断軸を整える継続対話</p>
+                        <p class="sv-card-desc">経営者個人への継続コーチング。引力源の深化と意思決定の並走を、月次のセッションでサポートし続ける。</p>
+                        <span class="sv-card-more">詳細を見る →</span>
+                    </a>
+
+                    <a href="https://growthfix.jp/gravity-shift/" class="sv-card">
+                        <span class="sv-card-axis">組織 ／ 伴走 ／ 主力（採用基盤）</span>
+                        <p class="sv-card-name">Gravity Shift R</p>
+                        <p class="sv-card-tagline">変革の参謀（採用基盤）── 3 ヶ月で人が集まる仕組みを実装</p>
+                        <p class="sv-card-desc">採用基準・面接プロセス・候補者口説き・オンボーディング・最初の 3 ヶ月離脱予防。優秀人材が殺到する採用基盤を 3 ヶ月で組織に実装。80 万円。</p>
+                        <span class="sv-card-more">詳細を見る →</span>
+                    </a>
+
+                    <a href="https://growthfix.jp/gravity-shift-a/" class="sv-card">
+                        <span class="sv-card-axis">組織 ／ 伴走 ／ 主力（躍動組織）</span>
+                        <p class="sv-card-name">Gravity Shift A</p>
+                        <p class="sv-card-tagline">変革の参謀（躍動組織）── 3 ヶ月で人が活きる仕組みを実装</p>
+                        <p class="sv-card-desc">評価制度・1on1・サーベイ・人事データ・マネジメント育成。優秀人材が躍動する組織基盤を 3 ヶ月で実装。80 万円。R + A 両方は Shift Full（6 ヶ月・150 万）。<br><br><span style="color:#64748b;font-size:13px;">※ Shift R / A / Full 完了後は <strong style="color:#0f172a;">Gravity Orbit（月額 15 万円〜）</strong>で継続運用伴走をご用意しています。詳細は商談時にご案内します。</span></p>
+                        <span class="sv-card-more">詳細を見る →</span>
+                    </a>
+
+                    <a href="https://growthfix.jp/gravity/" class="sv-card" style="background: #0f172a; color: #ffffff; border-color: #0f172a;">
+                        <span class="sv-card-axis" style="background: rgba(255,255,255,0.12); color: #ffffff;">シリーズ TOP</span>
+                        <p class="sv-card-name" style="color: #ffffff;">Gravity シリーズ</p>
+                        <p class="sv-card-tagline" style="color: #cbd5e1;">5 サービスの全体像</p>
+                        <p class="sv-card-price" style="color: #b8a88a;">Hub LP</p>
+                        <p class="sv-card-desc" style="color: #cbd5e1;">5 サービスがどう繋がるか、Gravity シリーズ全体の思想と導線を解説する Hub ページ。</p>
+                        <span class="sv-card-more" style="color: #b8a88a;">シリーズ TOP を見る →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. 初めての方の3ステップ ===== -->
+        <section class="sv-steps-section">
+            <div class="container">
+                <p class="sv-label">FIRST STEP</p>
+                <h2 class="sv-section-ttl">初めての方へ ── 3 ステップで始められます</h2>
+
+                <div class="sv-steps">
+                    <div class="sv-step">
+                        <div class="sv-step-num">1</div>
+                        <p class="sv-step-ttl">全体像を知る</p>
+                        <p class="sv-step-desc">『引力経営』25 ページの無料 WhitePaper で、50 社診断から辿り着いた全体像を把握。</p>
+                        <a href="https://growthfix.jp/whitepaper/" class="sv-step-link">White Paper を読む →</a>
+                    </div>
+                    <div class="sv-step">
+                        <div class="sv-step-num">2</div>
+                        <p class="sv-step-ttl">60 分で診断する</p>
+                        <p class="sv-step-desc">組織の引力 7 項目スコア × 4 型診断（整合 / 拡散 / 渇望 / 不毛）で症状の根が R か A か Full かを 60 分で確定する Pre-Shift 適合診断。組織軸の必須入口。</p>
+                        <a href="https://growthfix.jp/gravity-scan/" class="sv-step-link">Scan を見る →</a>
+                    </div>
+                    <div class="sv-step">
+                        <div class="sv-step-num">3</div>
+                        <p class="sv-step-ttl">3 ヶ月で実装する</p>
+                        <p class="sv-step-desc">4 型判定をもとに Shift R（採用基盤・80 万）または Shift A（躍動組織・80 万）または両方（Shift Full・6 ヶ月・150 万）で組織に実装。完了後は Orbit で月次運用に移行。</p>
+                        <a href="https://growthfix.jp/gravity-shift/" class="sv-step-link">Shift R を見る →</a>
+                        <a href="https://growthfix.jp/gravity-shift-a/" class="sv-step-link">Shift A を見る →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. シリーズ TOP への誘導 ===== -->
+        <section class="sv-hub-section">
+            <div class="container">
+                <a href="https://growthfix.jp/gravity/" class="sv-hub-cta">Gravity シリーズの全体像をもっと見る →</a>
+            </div>
+        </section>
+
+        <!-- ===== 5. 会社紹介（小） ===== -->
+        <section class="sv-about-section">
+            <div class="container">
+                <p class="sv-label">BEYOND SERVICES</p>
+                <h2 class="sv-section-ttl">書籍・連載・セミナーも</h2>
+
+                <div class="sv-about-grid">
+                    <div class="sv-about-card">
+                        <p class="sv-about-ttl">書籍『引力経営』</p>
+                        <p class="sv-about-meta">2026 年 出版準備中</p>
+                        <p class="sv-about-desc">50 社診断と経営思想の系譜を統合した 1 冊。</p>
+                    </div>
+                    <div class="sv-about-card">
+                        <p class="sv-about-ttl">Note 連載</p>
+                        <p class="sv-about-meta">3 テーマ ／ 連載中</p>
+                        <p class="sv-about-desc">引力経営／組織の引力設計／事業中心人事。</p>
+                    </div>
+                    <a href="https://growthfix.jp/seminar/acting/" class="sv-about-card" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+                        <p class="sv-about-ttl">無料セミナー</p>
+                        <p class="sv-about-meta">5/15（金）12:00-13:00 ／ 申込受付中</p>
+                        <p class="sv-about-desc">仕事ができる経営者ほど、幹部が"話を合わせる"理由。 →</p>
+                    </a>
+                    <div class="sv-about-card">
+                        <p class="sv-about-ttl">Gravity アカデミー</p>
+                        <p class="sv-about-meta">2027 年 4 月 開講予定</p>
+                        <p class="sv-about-desc">認定コーチ制度で引力経営を全国へ。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6. Final CTA ===== -->
+        <section class="sv-cta-section">
+            <div class="sv-cta-inner">
+                <h2 class="sv-cta-ttl">まず、あなたの組織の引力を見てみませんか</h2>
+                <p class="sv-cta-desc">無料の WhitePaper で全体像を掴むか、60 分の Scan 診断から。</p>
+                <div class="sv-cta-btns">
+                    <a class="sv-cta-btn sv-cta-btn-primary" href="https://growthfix.jp/whitepaper/">White Paper を読む（無料）</a>
+                    <a class="sv-cta-btn sv-cta-btn-ghost" href="https://growthfix.jp/gravity-scan/">Scan 診断（10 万）</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://growthfix.jp/gravity/site-chrome.js?v=20260427g" defer></script>
+    <script src="https://growthfix.jp/gravity/script.js?v=20260409" defer></script>
+</body>
+</html>

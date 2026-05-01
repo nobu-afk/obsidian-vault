@@ -1,0 +1,102 @@
+
+/* ==========================================
+   Service Matrix（4象限サービス全体図）
+   ========================================== */
+.service-matrix {
+  display: flex; flex-direction: column; gap: 12px;
+  margin: 32px 0 20px;
+}
+.service-matrix-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.service-matrix-cell {
+  padding: 24px 24px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--bg);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.service-matrix-cell--1 { border-left: 3px solid #475569; }
+.service-matrix-cell--2 { border-left: 3px solid var(--accent); }
+.service-matrix-cell--3 { border-left: 3px solid var(--accent); background: rgba(30,64,175,0.02); }
+.service-matrix-cell--4 { border-left: 3px solid #059669; }
+.sm-quadrant {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+  color: var(--text-muted); text-transform: uppercase;
+}
+.sm-service-name {
+  font-size: 20px; font-weight: 800; color: var(--text);
+  letter-spacing: -0.02em; margin-top: 2px;
+}
+.sm-service-price {
+  font-size: 13px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.sm-service-desc {
+  font-size: 13px; color: var(--text-muted); line-height: 1.8; margin-top: 4px;
+}
+.service-matrix-footer {
+  text-align: center; font-size: 14px; color: var(--text);
+  line-height: 2; margin: 24px 0 0; padding: 20px;
+  background: rgba(15,23,42,0.03); border-radius: var(--radius);
+}
+.service-matrix-footer strong {
+  color: var(--accent); font-size: 15px;
+}
+@media (max-width: 640px) {
+  .service-matrix-row { grid-template-columns: 1fr; gap: 8px; }
+  .service-matrix-cell { padding: 18px 20px; }
+  .sm-service-name { font-size: 17px; }
+}
+
+/* ==========================================
+   Service Connect Band（ヒーロー直後の5サービス接続）
+   ========================================== */
+.service-connect-band {
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.04) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.service-connect-lead {
+  text-align: center; font-size: 14px; font-weight: 700;
+  color: var(--text); letter-spacing: 0.02em; margin-bottom: 20px;
+}
+.service-connect-row {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+}
+.service-connect-item {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 10px 14px; border-radius: 8px;
+  background: #fff; border: 1px solid var(--border);
+  min-width: 80px;
+}
+.service-connect-item--highlight {
+  background: var(--text); border-color: var(--text);
+}
+.service-connect-item--highlight .service-connect-name,
+.service-connect-item--highlight .service-connect-tag {
+  color: #fff;
+}
+.service-connect-name {
+  font-size: 13px; font-weight: 800; color: var(--text); letter-spacing: 0.02em;
+}
+.service-connect-tag {
+  font-size: 10px; color: var(--text-muted); margin-top: 2px;
+}
+.service-connect-arrow {
+  font-size: 14px; color: var(--text-muted); font-weight: 700;
+}
+.service-connect-arrow--or {
+  font-size: 12px; color: #cbd5e1; font-weight: 500;
+}
+.service-connect-note {
+  text-align: center; font-size: 12px; color: var(--text-muted);
+  line-height: 1.7; margin: 0;
+}
+@media (max-width: 640px) {
+  .service-connect-row { gap: 4px; }
+  .service-connect-item { padding: 8px 10px; min-width: 64px; }
+  .service-connect-name { font-size: 11px; }
+  .service-connect-tag { font-size: 9px; }
+  .service-connect-arrow { font-size: 12px; }
+}

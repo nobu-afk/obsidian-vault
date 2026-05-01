@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>セミナー Acting バナー 1:1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1080px; height: 1080px; overflow: hidden; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #0a0f1e; }
+
+    .banner {
+        width: 1080px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        background-color: #0a0f1e;
+        background-image:
+            radial-gradient(ellipse at 25% 25%, rgba(251, 191, 36, 0.10) 0%, transparent 50%),
+            radial-gradient(ellipse at 75% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+            radial-gradient(circle at 50% 50%, #0f172a 0%, #050810 85%);
+    }
+
+    /* 星々 */
+    .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(255,255,255,0.6); }
+
+    /* 引力の求心ライン（薄く） */
+    .gravity-rays { position: absolute; inset: 0; opacity: 0.12; pointer-events: none; }
+    .gravity-rays::before,
+    .gravity-rays::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 1400px; height: 1400px;
+        border-radius: 50%;
+        border: 1px solid rgba(184, 168, 138, 0.35);
+        transform: translate(-50%, -50%);
+    }
+    .gravity-rays::after { width: 1900px; height: 1900px; opacity: 0.5; }
+
+    /* コンテンツ */
+    .inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 88px 96px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* 上部：ラベル */
+    .label-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .live-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #ef4444;
+        border-radius: 50%;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.7);
+    }
+    .label {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #cbd5e1;
+    }
+
+    /* 中央：タイトル */
+    .title-block {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 40px 0;
+    }
+    h1 {
+        font-size: 62px;
+        font-weight: 900;
+        line-height: 1.55;
+        letter-spacing: 0;
+        color: #ffffff;
+        word-break: keep-all;
+        overflow-wrap: normal;
+    }
+    h1 em {
+        font-style: normal;
+        color: #fbbf24;
+    }
+
+    /* 下部：日時ブロック */
+    .date-block {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        padding-top: 36px;
+        border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .date-main {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+    }
+    .date-num {
+        font-size: 110px;
+        font-weight: 900;
+        color: #fbbf24;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+    .date-day {
+        font-size: 30px;
+        font-weight: 700;
+        color: #cbd5e1;
+        letter-spacing: 0.12em;
+    }
+    .date-time {
+        font-size: 44px;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: 0.02em;
+        margin-left: auto;
+    }
+
+    /* meta */
+    .meta-row {
+        margin-top: 24px;
+        font-size: 24px;
+        font-weight: 600;
+        color: #94a3b8;
+        letter-spacing: 0.06em;
+    }
+
+    /* GrowthFix */
+    .brand {
+        position: absolute;
+        bottom: 36px;
+        right: 96px;
+        font-size: 20px;
+        font-weight: 800;
+        color: #94a3b8;
+        letter-spacing: 0.18em;
+    }
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="gravity-rays"></div>
+    <div class="stars" id="stars"></div>
+    <div class="inner">
+        <div class="label-row">
+            <span class="live-dot"></span>
+            <span class="label">LIVE WEBINAR ／ 無料</span>
+        </div>
+
+        <div class="title-block">
+            <h1>仕事ができる経営者ほど、<br>幹部が<em>"話を合わせる"</em>理由。</h1>
+        </div>
+
+        <div>
+            <div class="date-block">
+                <div class="date-main">
+                    <span class="date-num">5.15</span>
+                    <span class="date-day">FRI</span>
+                </div>
+                <span class="date-time">12:00 — 13:00</span>
+            </div>
+            <p class="meta-row">Zoom Webinar ／ 定員 10 名・先着順</p>
+        </div>
+    </div>
+    <div class="brand">GrowthFix</div>
+</div>
+
+<script>
+// 星をランダム配置
+const stars = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.width = s.style.height = size + 'px';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.opacity = Math.random() * 0.7 + 0.3;
+    stars.appendChild(s);
+}
+</script>
+</body>
+</html>
