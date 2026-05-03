@@ -50,6 +50,11 @@ MSG="auto: ${TS} (${STAGED} files: ${TOP_DIRS})"
 
 git commit -m "$MSG" 2>&1 | tail -1
 
-# push は意図的にしない（認証エラーで loop 化防止）
-echo "💾 auto_commit: ${STAGED} files committed. Manual push required: git push origin main" >&2
+# 自動 push（260503 追加・Stop hook は単発発火のため loop 化しない）
+# 失敗時は警告のみ（exit 0 で hook を阻害しない・GitHub Push Protection が secrets 二重防御）
+if git push origin main 2>&1 | tail -3; then
+    echo "✅ auto_commit + push 成功: ${STAGED} files (${MSG})" >&2
+else
+    echo "⚠️  push 失敗（手動実行: cd Vault && git push origin main）: ${STAGED} files は commit 済" >&2
+fi
 exit 0
