@@ -32,7 +32,7 @@
 | **B3** | Recruit | 優秀な人が吸い寄せられる会社を、3 ヶ月でつくる。 | なぜ、施策を全部入れた会社ほど、優秀な人を逃すのか。 | `/gravity-recruit/` |
 | **B4** | Activate | 優秀な人が躍動する土壌を、3 ヶ月でつくる。 | なぜ、施策を全部入れた会社ほど、優秀層が先に辞めるのか。 | `/gravity-activate/` |
 | **B5** | Shift（minimal）| 採用 × 躍動の両軸を、6 ヶ月で複合実装する。 | ―― | `/gravity-shift/` |
-| **B6** | Coaching（minimal）| 自分を取り戻すと、人生が動き出す。 ⚠️ C4 と二重表記・統一保留 | ―― | `/gravity-coaching/` |
+| **B6** | Coaching（minimal）| 自分を取り戻すと、人生が動き出す。 ✅ 260504 確定 | ―― | `/gravity-coaching/` |
 | **B7** | Orbit（minimal）| Shift 後の継続運用伴走サービス | ―― | `/gravity-orbit/` |
 
 ### C. Profile／個人軸層
@@ -42,7 +42,7 @@
 | **C1** | Profile 肩書き（メイン）| **引力経営提唱者 ／ 引力の参謀** | profile h1／自己紹介 SSOT（260430 確定）|
 | **C2** | Profile 肩書き（サブ）| AI ネイティブ経営者 | profile h1 サブ |
 | **C3** | Profile 自己紹介 | 30 年以上、組織の引力（＝集客力）を設計してきた | profile Introduction h2 |
-| **C4** | Profile 使命 | 自分を取り戻すと、組織が動き出す。 ⚠️ B6 と二重表記・統一保留 | profile Mission blockquote |
+| **C4** | Profile 使命 | 自分を取り戻すと、組織が動き出す。 ※ B6 と並列運用（Coaching = 人生軸／Profile 使命 = 組織軸 = 引力経営思想接続）| profile Mission blockquote |
 
 ### D. 例外運用枠
 
@@ -59,7 +59,7 @@
 - **D 層は時限的**。期限切れ後は廃止語へ移動
 - **コーポレート TOP（A1）と Gravity TOP（A2）で明確に使い分ける**。Gravity TOP は h1=A1／サブ=A3 の二段構成
 - **「自分を取り戻すと、組織が動き出す」(C4) は Coaching 系・footer のサブ思想語として残置可**（B6 と並列）
-- **B6 と C4 の二重表記**：260503 夜に B6（Hero）を「人生が動き出す」に対象拡大、C4（Profile 使命）は旧表記「組織が動き出す」のまま。統一方針は次セッションで決定（推奨：「組織が動き出す」に寄せる ── 個人 → 組織波及の構造を保つため）
+- **B6 と C4 の運用**（260504 確定）：B6 Coaching Hero は **「人生が動き出す」確定**（個人軸・対象拡大）／C4 Profile 使命は **「組織が動き出す」のまま並列運用**（組織軸・引力経営思想と接続）。Coaching ＝ 個人軸／Profile ＝ 組織波及軸の **意図的な使い分け**として SSOT に固定
 
 ### 廃止語
 
