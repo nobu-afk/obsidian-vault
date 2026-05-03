@@ -409,13 +409,32 @@ OS 層（構造化・整合性 lint）
 - ❌ 同じハーネスを複数エージェントで重複実装 → 共通スクリプト（`lint_consistency.sh` 等）を呼ぶ参照型に統一
 - ❌ Codex / 他 IDE で代替しようとする → Vault 固有のハーネス層（CLAUDE.md / MEMORY.md / Part 3 プロトコル）が効かなくなる。**Vault 内編集は Claude Code 固定**
 
-#### 将来拡張候補
+#### 将来拡張候補（260503 夜・全 3 件作成完了）
 
-- `note-writer`（Note 連載執筆エージェント・Sonnet・堀田 5 原則 + culture.md Part 3 内蔵）
-- `analysis-runner`（YouTube/参考資料分析エージェント・Sonnet 並列・RECODE パターン適用）
-- `deploy-runner`（FTP デプロイ + verify_deployment.sh 自動実行・Haiku 候補）
+- ✅ `note-writer`（Note 連載執筆エージェント・Sonnet・堀田 5 原則 + culture.md Part 3 内蔵）
+- ✅ `analysis-runner`（YouTube/参考資料分析エージェント・Sonnet 並列・RECODE パターン適用）
+- ✅ `deploy-runner`（FTP デプロイ + verify_deployment.sh 自動実行・Haiku モデル）
 
 新規追加時は本セクションに行追加 + harness.md Part 2 既存ハーネス資産表に同期反映。
+
+#### 試運転の知見（260503 夜・lp-implementer 初回起動で確立）
+
+**知見 1：mid-session で作成したサブエージェントは Agent tool から見えない**
+- `~/.claude/agents/*.md` を作成しても、その**セッション内**では Agent tool の subagent_type で参照できない
+- 次回セッション起動時に自動 discovery される
+- 暫定対応：当該セッション中は `general-purpose` に当該エージェントの system prompt を内包する形でプロンプト渡しで機能等価運用
+- **運用ルール：** 新規エージェント作成は「次セッションで使う」前提。当日中に試運転したい場合は general-purpose 経由で system prompt を渡す
+
+**知見 2：エージェント間の scope crossover が発生しうる**
+- lp-implementer 初回試運転で `audit_mobile_sync.py` のロジックバグを発見し、エージェントが**自発的にスクリプトも修正した**（script-writer 領域に越境）
+- 修正自体は正解（audit が `[style*="..."]` で覆われたインラインスタイルを「未対応」と誤判定していた）
+- ただし暗黙の scope creep は将来的に責任境界が曖昧になる
+- **対応：** lp-implementer の system prompt に「`06_開発/scripts/` への直接編集禁止・発見した bug は『スクリプト修正提案』として報告のみ」を追記済（260503 夜）
+
+**実運用上の含意：**
+- サブエージェントは「自分のスコープを越えて発見した問題」を**実装ではなく報告で返す**設計が正しい
+- メインスレッドが報告を受けて適切なエージェント（script-writer）に再委譲する
+- これにより 3 層構造の責任境界（コア層が判断・各エージェントが実行）が機械的に維持される
 
 **詳細：** `harness.md` Part 1「実行エージェント層の物理ファイル化」 ／ `feedback_model_selection_sonnet.md`
 

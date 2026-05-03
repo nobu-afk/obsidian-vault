@@ -294,6 +294,40 @@ def analyze_inline_style(style: str, tag: str):
     return concerns
 
 
+def is_inline_style_covered(concern: dict, tag: str, covered_selectors: set) -> bool:
+    """mobile.css の属性セレクタで当該インラインスタイル懸念がカバー済みか判定。
+
+    判定対象セレクタパターン（mobile.css に追加された形式）:
+      - tag[style*="font-size: Npx"]
+      - tag[style*="font-size:Npx"]
+      - [style*="font-size: Npx"]   （汎用）
+      - [style*="font-size:Npx"]    （汎用）
+
+    font-size 以外の type（large_padding, fixed_width 等）は現状スキップしない。
+    """
+    if concern.get('type') != 'large_font_size':
+        return False
+
+    # 検出された "font-size: Npx" から "Npx" を取り出す
+    detected = concern.get('detected', '')  # e.g. "font-size: 28px"
+    m = re.search(r'font-size:\s*(\d+(?:\.\d+)?px)', detected)
+    if not m:
+        return False
+    size_str = m.group(1)  # e.g. "28px"
+
+    # チェックするセレクタパターン（スペースあり・なしの両方）
+    candidates = [
+        f'{tag}[style*="font-size: {size_str}"]',
+        f'{tag}[style*="font-size:{size_str}"]',
+        f'[style*="font-size: {size_str}"]',
+        f'[style*="font-size:{size_str}"]',
+    ]
+    for sel in candidates:
+        if sel in covered_selectors:
+            return True
+    return False
+
+
 # ============================================================
 # 監査本体
 # ============================================================
@@ -353,6 +387,11 @@ def audit(severity_filter=None, lp_filter=None):
                 concerns = analyze_inline_style(el['style'], el['tag'])
                 for concern in concerns:
                     if severity_filter and concern['severity'] != severity_filter:
+                        continue
+                    # mobile.css の属性セレクタで対処済みかチェック
+                    # 例: h1[style*="font-size:28px"] や [style*="font-size: 28px"] が
+                    # covered_selectors にあれば解消済みとみなしスキップ
+                    if is_inline_style_covered(concern, el['tag'], covered['selectors']):
                         continue
                     results['inline_concerns'].append({
                         'lp': rel_path,

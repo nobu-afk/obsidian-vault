@@ -113,6 +113,33 @@ img, video, iframe {
     font-size: clamp(14px, 3.9vw, 16px) !important;
   }
 
+  /* ── HIGH audit 対策（260503 audit_mobile_sync.py 検出 8 件）──
+     h1/h2 のインラインスタイル font-size 固定値を clamp に上書き。
+     375px ブロックにも同ルールあり（≤375px 専用）。
+     本ブロックで 376px-768px の端末をカバー。
+     属性セレクタ [style*="..."] はインラインスタイルより低優先度だが
+     !important で上回る。tag + [style] 複合で specificity を強化。 */
+  h1[style*="font-size: 32px"], h1[style*="font-size:32px"],
+  h2[style*="font-size: 32px"], h2[style*="font-size:32px"] {
+    font-size: clamp(27px, 8.6vw, 32px) !important;
+  }
+  h1[style*="font-size: 28px"], h1[style*="font-size:28px"],
+  h2[style*="font-size: 28px"], h2[style*="font-size:28px"] {
+    font-size: clamp(23px, 7.6vw, 28px) !important;
+  }
+  h1[style*="font-size: 26px"], h1[style*="font-size:26px"],
+  h2[style*="font-size: 26px"], h2[style*="font-size:26px"] {
+    font-size: clamp(22px, 7.0vw, 26px) !important;
+  }
+  h1[style*="font-size: 24px"], h1[style*="font-size:24px"],
+  h2[style*="font-size: 24px"], h2[style*="font-size:24px"] {
+    font-size: clamp(20px, 6.5vw, 24px) !important;
+  }
+  h1[style*="font-size: 36px"], h1[style*="font-size:36px"],
+  h2[style*="font-size: 36px"], h2[style*="font-size:36px"] {
+    font-size: clamp(30px, 9.7vw, 36px) !important;
+  }
+
   /* テーブル */
   td, th {
     font-size: clamp(14px, 3.9vw, 16px) !important;
