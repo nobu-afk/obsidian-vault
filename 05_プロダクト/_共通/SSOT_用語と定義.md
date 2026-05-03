@@ -1,6 +1,6 @@
 # SSOT ── 用語と定義の単一情報源
 
-最終更新: 2026-05-03（B 案二層命名運用 + Gravity Shift minimal LP 化 + Coaching minimal LP 化（Pull 型・記載あり/リンクなし運用）+ Coaching Hero タグライン「自分を取り戻すと、人生が動き出す」へ対象拡大）
+最終更新: 2026-05-03（B 案二層命名運用 + Gravity Shift / Coaching minimal LP 化 + Coaching Hero タグライン更新 + Gravity マップ 4 象限の旧表記廃止 + minimal-lp.css / site-chrome-footer.css 共通 CSS 化）
 
 新規コピー作成時・LP 編集時は**必ず本ファイルを参照**してから着手すること。
 変更時は本ファイルを先に更新し、その後 LP に展開する。
@@ -447,6 +447,11 @@ LP の hero-eyebrow / コーポレートのカードは「**{参謀名} ── {
 | **Gravity Shift R**（対外正式名）| 260503 二層命名運用 | **Gravity Recruit** |
 | **Gravity Shift A**（対外正式名）| 260503 二層命名運用 | **Gravity Activate** |
 | **Gravity Shift Full**（対外正式名）| 260503 二層命名運用 | **Gravity Shift** |
+| **Shift（主戦場）**（Gravity マップ ❷ 人力拡大象限）| 260503 旧表記廃止・象限の主軸サービス変更 | **Recruit（採用基盤・主戦場）**（人力拡大段階で「人を増やす」軸の主軸が採用基盤に確定）|
+| **Shift（吸収）**（Gravity マップ ❸ 施策先行象限）| 260503 旧表記廃止・象限の主軸サービス変更 | **Activate（躍動軸）**（施策先行で「制度入れすぎ→引力ない」状態には躍動組織の OS 書き換えが効く）|
+| **→ CODE / Scan / Shift**（service ページ課題マッピング・採用問題）| 260503 旧表記廃止 | **→ CODE / Scan / Recruit**（採用問題は採用基盤実装軸）|
+| **→ Scan / Shift**（service ページ課題マッピング・優秀層離脱／組織冷え）| 260503 旧表記廃止 | **→ Scan / Activate**（離脱・組織冷えは躍動組織軸）|
+| **CODE → BP → Shift → Orbit**（5 サービス構造の旧表記）| 260503 廃止（BP は 260430 廃止・Shift は単一表記から R/A 分割）| **CODE → Scan → Recruit ／ Activate → Orbit**（260503 確定の正規動線）|
 | **「強い経営者」を演じている社長**（Coaching LP Hero）| 260503 夜 対象拡大判断・Hero タグラインから撤去 | **自分を取り戻すと、人生が動き出す**（対象を狭めない普遍的タグライン）／ペルソナ「強い経営者を演じている経営者」表現は内部分析・WHO 記述では残置可 |
 
 ---
@@ -474,6 +479,27 @@ LP の hero-eyebrow / コーポレートのカードは「**{参謀名} ── {
 - [ ] `python3 06_開発/scripts/audit_mobile_sync.py` でモバイル監査
 - [ ] FTP デプロイ後にライブで反映確認
 - [ ] WP HTML 変更時は PDF も再生成（`reference_whitepaper_pdf_regen.md` 参照）
+
+---
+
+## 共通 CSS 運用ルール（260503 整理 / Phase 10 simplify 結果）
+
+LP / コーポレート系で重複していた CSS を単一情報源化：
+
+| ファイル | 配信パス | 対象 LP | 役割 |
+|---|---|---|---|
+| **minimal-lp.css** | `https://growthfix.jp/assets/css/minimal-lp.css` | GravityCoaching / GravityShift（minimal LP） | minimal-container / pricing-box / feature-grid / access-section 等 約 25 ルール統一 |
+| **site-chrome-footer.css** | `https://growthfix.jp/gravity/site-chrome-footer.css` | LP 系全 9 ページ（site-chrome.js footer-only モード経由）| b-footer 系 footer 専用スタイル（LP 既存 CSS 非干渉設計）|
+| **site-chrome.css** | `https://growthfix.jp/gravity/site-chrome.css` | コーポレート系（top / service / profile 等 9 ページ）| 既存・full モード用 chrome 共通スタイル |
+| **mobile.css** | `https://growthfix.jp/assets/css/mobile.css` | 全 LP / コーポレート | SP 最適化共通パッチ |
+| **site-chrome.js** | `https://growthfix.jp/gravity/site-chrome.js` | 全 14+ ページ | footer SSOT 注入装置（data-mode="footer" で LP 系・無指定でコーポレート系）|
+
+**運用ルール：**
+- **minimal LP の追加時**：`<link rel="stylesheet" href="https://growthfix.jp/assets/css/minimal-lp.css?v=20260503a">` 1 行で参照（独自 `<style>` ブロック禁止）
+- **footer 内容変更**：`06_開発/site-chrome/site-chrome.js` の FOOTER 変数 1 箇所修正 → FTP デプロイで 14+ ページ自動反映
+- **Orbit minimal LP**：独立 dark トーン（#1b1b1b 系）維持・minimal-lp.css に統合しない（意図的差別化）
+
+詳細：`memory/project_naming_two_layer_260503.md` ／ `09_会社OS/公開/文化/判断基準.md` § minimal LP 戦略選択原則
 
 ---
 
