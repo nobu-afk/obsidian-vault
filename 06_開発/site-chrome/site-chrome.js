@@ -10,6 +10,7 @@
   'use strict';
 
   var STYLE_HREF = 'https://growthfix.jp/gravity/site-chrome.css?v=20260427g';
+  var FOOTER_STYLE_HREF = 'https://growthfix.jp/gravity/site-chrome-footer.css?v=20260503a';
 
   var MAIL_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none"><g clip-path="url(#clip0_0_116)"><path d="M15.5176 0H0.482376C0.35438 0.00018278 0.231688 0.0524685 0.141244 0.145374C0.0508 0.23828 -1.24026e-07 0.36421 0 0.495507L0 1.46974L8 6.96883L16 1.46905V0.495507C16 0.36421 15.9492 0.23828 15.8588 0.145374C15.7683 0.0524685 15.6456 0.00018278 15.5176 0Z" fill="white"/><path d="M5.21272e-08 3.50028V10.02C-5.88738e-05 10.2801 0.0498413 10.5376 0.146849 10.7779C0.243857 11.0182 0.38607 11.2365 0.565363 11.4204C0.744655 11.6043 0.957513 11.7501 1.19177 11.8495C1.42603 11.949 1.6771 12.0001 1.93062 12H14.0694C14.3229 12.0001 14.574 11.949 14.8082 11.8495C15.0425 11.7501 15.2553 11.6043 15.4346 11.4204C15.6139 11.2365 15.7561 11.0182 15.8532 10.7779C15.9502 10.5376 16.0001 10.2801 16 10.02V3.49959L8 8.99937L5.21272e-08 3.50028Z" fill="white"/></g><defs><clipPath id="clip0_0_116"><rect width="16" height="12" fill="white"/></clipPath></defs></svg>';
 
@@ -68,7 +69,7 @@
           '<span class="b-footer-tagline-sub">組織に、引力を。</span>' +
         '</div>' +
         '<div class="b-footer-profile">' +
-          '<p class="b-footer-profile-name"><strong>石井伸幸</strong> ── 組織の引力研究の人</p>' +
+          '<p class="b-footer-profile-name"><strong>石井伸幸</strong> ── 引力経営提唱者 ／ 引力の参謀</p>' +
           '<p class="b-footer-profile-desc">人事16年（DMM50事業／MOON-X 30→120人）× プロコーチ（MCA 2期）× Claude Code開発実装（AIで、チーム8人分の仕事を1人で回している・2026年4月実績）</p>' +
           '<p class="b-footer-profile-link"><a href="https://growthfix.jp/profile/">プロフィール詳細 →</a></p>' +
         '</div>' +
@@ -76,19 +77,20 @@
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">個人軸（経営者自身）</p>' +
             '<a href="https://growthfix.jp/gravity-code/">Gravity CODE</a>' +
-            '<a href="https://growthfix.jp/gravity-coaching/">Gravity Coaching</a>' +
+            '<span class="footer-disabled" style="color:#64748b;cursor:default;" title="関係構築前提・商談時案内">Gravity Coaching</span>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">組織軸（経営者×組織）</p>' +
             '<a href="https://growthfix.jp/gravity-scan/">Gravity Scan</a>' +
-            '<a href="https://growthfix.jp/gravity-shift/">Gravity Shift R</a>' +
-            '<a href="https://growthfix.jp/gravity-shift-a/">Gravity Shift A</a>' +
+            '<a href="https://growthfix.jp/gravity-recruit/">Gravity Recruit</a>' +
+            '<a href="https://growthfix.jp/gravity-activate/">Gravity Activate</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">その他</p>' +
             '<a href="https://growthfix.jp/gravity/">シリーズTOP</a>' +
-            '<a href="https://growthfix.jp/">運営会社</a>' +
+            '<a href="https://growthfix.jp/whitepaper/">WhitePaper</a>' +
             '<a href="https://growthfix.jp/profile/">プロフィール</a>' +
+            '<a href="https://growthfix.jp/contact/">お問い合わせ</a>' +
             '<a href="https://growthfix.jp/privacy-policy/">プライバシーポリシー</a>' +
           '</div>' +
         '</div>' +
@@ -96,15 +98,32 @@
       '</div>' +
     '</footer>';
 
+  // 260503 footer-only モード追加：data-mode="footer" 属性で footer のみ注入
+  // - コーポレート系（top/service/profile/news/achievement/whitepaper-optin/knowledge/privacy/contact）：full chrome（header + overlay + sp-menu + footer）
+  // - LP 系（Gravity hub + 各 Gravity LP）：footer-only（独自 header 維持）
+  function getMode() {
+    var script = document.currentScript || document.querySelector('script[src*="site-chrome.js"]');
+    return script && script.getAttribute('data-mode') === 'footer' ? 'footer' : 'full';
+  }
+
+  function loadStylesheet(href) {
+    if (document.querySelector('link[href="' + href + '"]')) return;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
   function mount() {
-    if (!document.querySelector('link[href="' + STYLE_HREF + '"]')) {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = STYLE_HREF;
-      document.head.appendChild(link);
+    var mode = getMode();
+    // footer-only モード（LP 系）：site-chrome-footer.css のみ読み込み（LP 既存 CSS 非干渉）
+    if (mode === 'footer') {
+      loadStylesheet(FOOTER_STYLE_HREF);
+      document.body.insertAdjacentHTML('beforeend', FOOTER);
+      return;
     }
-    // DOM挿入は2回にまとめる（reflow削減）
-    // SPハンバーガーは body 直下で position:fixed が確実に効くよう beforeend に
+    // full モード（コーポレート系）：site-chrome.css 読み込み + header / overlay / sp-menu / footer 全注入
+    loadStylesheet(STYLE_HREF);
     document.body.insertAdjacentHTML('afterbegin', OVERLAY + HEADER);
     document.body.insertAdjacentHTML('beforeend', FOOTER + SP_MENU);
 

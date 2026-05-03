@@ -1,0 +1,136 @@
+/*!
+ * Site Chrome Footer 専用 CSS（260503 新設・footer-only モード用）
+ * site-chrome.js の data-mode="footer" 経由で LP 系（Hub + 各 LP 8 ページ）に動的読み込まれる
+ * 配信パス：https://growthfix.jp/gravity/site-chrome-footer.css
+ *
+ * 設計思想：
+ *   - LP 系の独自レイアウト CSS（gravity-shift-page.css 等）と干渉しないよう、b-footer 配下のみ対象
+ *   - 外部 CSS 化により IDE シンタックス補完・gzip キャッシュ・lint 対応
+ *   - full モード（コーポレート系）は site-chrome.css で定義済（重複定義の二重メンテは避ける運用）
+ */
+
+.b-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 60px 24px 40px;
+  margin-top: 80px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.b-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.b-footer .b-brand {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.b-footer-tagline {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.b-footer-tagline-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.b-footer-profile {
+  margin: 20px 0;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+
+.b-footer-profile-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.b-footer-profile-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.b-footer-profile-link {
+  font-size: 12px;
+  margin: 0;
+}
+
+.b-footer-profile-link a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.b-footer-profile-link a:hover {
+  color: #fff;
+}
+
+.b-footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 24px 0;
+}
+
+@media (max-width: 640px) {
+  .b-footer-links {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.b-footer-col-label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.b-footer-col a {
+  display: block;
+  font-size: 13px;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 4px 0;
+  letter-spacing: 0.02em;
+}
+
+.b-footer-col a:hover {
+  color: #fff;
+}
+
+/* footer-disabled: Pull 型 minimal LP の「記載あり/リンクなし」表記 */
+.b-footer-col .footer-disabled {
+  display: block;
+  font-size: 13px;
+  padding: 4px 0;
+  letter-spacing: 0.02em;
+  color: #64748b;
+  cursor: default;
+}
+
+.b-footer-copy {
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}

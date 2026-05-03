@@ -13,7 +13,7 @@
 
 ---
 
-## 構造（4カテゴリ × 2層 = 17ファイル・260430 接続装置サブ層追加）
+## 構造（4カテゴリ × 2層 = 18ファイル・260502 バランスホイール SSOT 昇格）
 
 ```
 09_会社OS/
@@ -37,7 +37,8 @@
 │       └── 発信.md        広報5軸・Note連載・SNS方針
 └── 非公開/                （内部運用専用）
     ├── 経営層/
-    │   └── 社長.md        石井さんの判断軸の生情報
+    │   ├── 社長.md            石井さんの判断軸の生情報
+    │   └── バランスホイール.md  【★260502 新規】個人軸 8 領域ゴール SSOT（仕事/ファイナンス/健康/知性/趣味/人間関係/家族/社会貢献）× 2026年末 / 2028年 / 2033年
     ├── 機能/
     │   ├── 法務.md        契約パターン
     │   ├── 採用.md        業務委託パートナー基準
@@ -207,6 +208,81 @@ T4 ハーネス層（各 MD の Part 3）
 **Phase 8 で持ち越し（5/8 モニター後の最終仕様で反映）：**
 - 商品.md：Shift A シャープ版（躍動 3 点セット 27p + 1 文 + 標準化+OJT 構造）反映 → 5/9-5/15 計画
 - 発信.md：Meta 広告 R/A 分離戦略 + 5/15 セミナータイトル整合性 → 5/4-5/16 段階反映
+
+### Phase 9（260502 朝・/sharpen × 5 サービス完遂 + Shift R/A 2 LP 物理分割 + 廃止用語完全消滅 + git 履歴復活 + auto_commit hook）
+
+**260502 朝〜午後の戦略確定：**
+
+1. **/sharpen × 5 サービス全完遂**：CODE / Scan / Coaching / Shift R / Shift A の 1 文 SSOT 確定 + 49 質問削ぎ落とし版作成 + LP/SSOT/商品.md/営業.md 整合
+2. **Shift R/A 2 LP 物理分割**：既存 /gravity-shift/ → Shift R 専用化 + /gravity-shift-a/ 新規作成（260501 Phase 8 確定の運用実装）
+3. **20 LP 横断監査 + 廃止用語完全消滅**：採用 4 軸（5 件）／面接ブループリント（2 件）／ブループリント（2 件）が gravity-hub と service の 2 ページに集中残存していたのを完全クリーン化
+4. **サービス軸性質判定（Push vs Pull）原則確立**：CODE/Scan/Shift R/A は Push 型（採用接地統一）／Coaching は唯一 Pull 型（「売り言葉にしない」原則）
+5. **ハイブリッド配置パターン標準化**：軸 B（市場接地）Hero 主軸 + 軸 A（既存軸）Sub Hero + 軸 C（構造起点）Pricing 補強の 3 軸ハイブリッド
+6. **funnel 全体採用接地統一**：CODE → Scan → Shift R 連続 Hero が採用接地で言語的に統一 → 経営者の「自分の話」感を全段階で維持
+7. **ブラッシュアップの境界線確立（WhitePaper LP 事故教訓）**：思想書 vs 採用ペイン具体起点・LP の役割別に軸を分ける判定ルール
+8. **git 履歴復活 + auto_commit hook 実装**：5 ヶ月放置事故対策。Stop event hook で自動 commit + secrets 検出ガード + GitHub Push Protection 三層防御
+
+| MD | ステータス | 主参照 |
+|---|:-:|---|
+| 商品.md | ✅ CODE / Scan / Coaching セクション 1 文 SSOT + 配分 15-25-20 + ハイブリッド配置追記 | `260502_*_シャープ版_1文_5論点確定.md` |
+| SSOT_用語と定義.md | ✅ CODE / Scan / Coaching スコープ詳細セクション新規 | 同上 |
+| 営業.md | ✅ funnel diagram [2][3][4] 全更新（CODE/Scan 60 分配分 + Coaching Pull 性質）| 同上 |
+| Scan generate.php / CODE generate.php | ✅ PART タイミング 15-25-20 化 + LP 分離 URL 振り分けルール | 同上 |
+| **判断基準.md** | ✅ サービス軸性質判定（Push vs Pull）+ ブラッシュアップ境界線 + git 履歴運用追記（260502 朝）| `260502_Coaching_シャープ版_1文_5論点確定.md` ／ `feedback_coaching_not_frontline_word.md` |
+| **AI.md** | ✅ secrets 防御パターン + auto_commit hook（ハーネスエンジニアリング実装事例）追記（260502 朝）| 本セッション・GitHub Push Protection 事故対応 |
+| **接続装置.md** | ✅ ハイブリッド配置パターン標準化 + funnel 全体軸統一原則追記（260502 朝）| `260502_*_シャープ版_1文_5論点確定.md` |
+
+**主参照ファイル：**
+- 1 文 SSOT × 5：`04_GrowthFix/01_サービス設計/260502_{CODE,Scan,Coaching}_シャープ版_1文_5論点確定.md` ／ `260501_Shift_{R,A}_*`
+- 49 質問削ぎ落とし版 × 5：上記同フォルダ `260502_*_49質問_削ぎ落とし版.md` ／ `260501_Shift_*_49質問_削ぎ落とし版.md`
+- 20 LP 監査結果：`04_GrowthFix/04_デイリーログ/260502_daily.md`
+- auto_commit hook：`06_開発/scripts/hooks/auto_commit.sh`
+
+### Phase 10（260503・二層命名運用 B 案 + Gravity Shift minimal LP 化（Orbit パターン汎用化）+ Gravity Succession 骨子確定）
+
+**260503 朝〜夜の戦略確定：**
+
+1. **B 案二層命名運用確定**：内的 Shift R/A/Full ／ 外的 Gravity Recruit/Activate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
+2. **β 並列型 URL 構造確定**：`/gravity-recruit/` `/gravity-activate/` `/gravity-shift/` の 3 並列・既存 Code/Scan/Coaching/Orbit と完全対称
+3. **Gravity Shift minimal LP 化（Orbit パターン汎用化）**：5/1 で Orbit を minimal LP 化した運用が、5/3 で Shift にも適用 → 2 例で汎用パターン化。Hub/コーポレート/各 LP フッターから Shift カード/リンク撤去・Recruit/Activate の pricing 欄では言及保持
+4. **Scan 4 型推奨フロー更新**：「不毛型 → Shift Full」→「不毛型 → Recruit + Activate 順次（商談時に Shift 提案）」に統一
+5. **Gravity Succession 骨子確定（構想段階）**：引力経営 3 軸目（採用×躍動×承継）。S-3 PMI 統合実装が主軸候補・3 点セット 78p（Shift R/A 完全対称）・6 ヶ月伴走・規模別 1,000-3,000 万 + 成功報酬。本格化は 2027〜・第 1 フェーズ Shift R 集中軸を侵食しない制約遵守
+6. **lint_consistency.sh [5.5] 機械チェック新設**：minimal LP 運用違反（Hub/コーポレート/Footer に Shift カード/リンク残存）を自動検出
+7. **18 ファイル本番デプロイ完遂**：Phase 1（新規 LP + .htaccess redirect）+ Phase 2（既存 9 LP cross-link 一斉更新）+ minimal LP 化再デプロイの 3 段階を 1 セッションで完遂
+
+| MD | ステータス | 主参照 |
+|---|:-:|---|
+| **SSOT_用語と定義.md** | ✅ §0.5 命名二層運用ルール新設 + Gravity Shift minimal LP 運用ルール + 7 項目最終整合（動線/Scan 4 型/組織の引力 4 型表/Shift Full スコープ詳細/Coaching 並走表記/Section 8 廃止用語/関連メモリ） | `project_naming_two_layer_260503.md` |
+| **商品.md** | ✅ 二層命名運用バナー追加 + 4 型 → URL β 並列型化 + 営業時パッケージ外的呼称化 + Part 3 NG 例に二層命名違反追加 | 同上 |
+| **接続装置.md** | ✅ 商品名・サービス名の二段運用拡張（260503 サービス名にも拡張）+ funnel 連続 Hero 例外的呼称化 | 同上 |
+| **営業.md** | ✅ 二層命名運用バナー + 4 型 → 推奨 URL β 並列型化 | 同上 |
+| **カスタマー.md / 採用.md / 発信.md** | ✅ 二層命名運用バナー追加 | 同上 |
+| **判断基準.md** | ✅ ★ minimal LP 戦略選択原則（Orbit パターン汎用化・260503 確立）追加 + Part 3 ハーネス層 NG 例 1 件・合格基準 1 件追加 | `project_naming_two_layer_260503.md` |
+
+**主参照ファイル：**
+- B 案二層命名運用 SSOT：`memory/project_naming_two_layer_260503.md`
+- Succession 骨子：`04_GrowthFix/01_サービス設計/260503_GravitySuccession_シャープ版_1文_5論点確定_概念フェーズ.md`
+- minimal LP 実装：`05_プロダクト/GravityShift/LP/index.html`（130 行・1 ページ完結）
+- W18 週次クローズ：`04_GrowthFix/04_デイリーログ/260501_weekly_close.md`
+
+**Phase 10 で持ち越し（W19 / 5/4-5/10）：**
+- AI.md 反映：perl lookahead パターン + auto_commit hook ハーネス事例追記
+- 発信.md 反映：命名運用変更の対外発信物への影響・Note Vol.2 接続
+- WhitePaper PDF 再生成（HTML 更新済・PDF 古いまま）
+- 5/8 長谷さんモニター実施 → Gravity 受注 1 件目判断
+- アウトバウンド母数復活（朝のリーチルーティン毎日実行・W19 月から再開）
+
+**Phase 9 で持ち越し（5/8 モニター後 or 余力時）：**
+- 5 サービス × 5 層整合の最終確認（5/8 モニター反応反映）
+- 価格見直し（Lean MVP 原則・モニター後判断）：CODE 5 万 → 7-10 万 ／ Scan 10 万 → 12-15 万
+- gravity-code-executive LP の Footer 組織軸列に Shift R/A 追加（5/8 後別ペルソナ判断）
+- design.md Part 3 に「20 LP 横断監査ハーネス」セクション追加（時間あれば）
+
+**新規メモリ候補（5/2 で永続化された SSOT・コード）：**
+- `auto_commit.sh`（hook ハーネス装置）
+- `.gitignore` 拡張パターン（secrets 防御）
+- 判断基準.md「サービス軸性質判定（Push vs Pull）」原則
+- 接続装置.md「ハイブリッド配置パターン」標準化
 - 接続装置.md：言語マップ R/A 別ペインカテゴリ分離 → 5/16 以降
 - 採用.md：業務委託パートナー組成 Phase 1 採用基準詳細化 → 次の weekly-close でまとめて
 

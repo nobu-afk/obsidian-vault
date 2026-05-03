@@ -1,0 +1,272 @@
+/*!
+ * Gravity Minimal LP 共通スタイル（260503 確立）
+ * 対象 LP（Pull/Push 型 minimal LP）：
+ *   - GravityCoaching/LP（Pull 型・記載あり/リンクなし）
+ *   - GravityShift/LP（Push 型・R+A 複合パッケージ）
+ * 既存 LP との一貫性のため Orbit は別系統（#1b1b1b 系 dark）として独立維持
+ *
+ * 配信パス：https://growthfix.jp/assets/css/minimal-lp.css
+ * 各 LP では <link rel="stylesheet" href="https://growthfix.jp/assets/css/minimal-lp.css?v=20260503a"> で参照
+ */
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.85;
+  color: #0f172a;
+  background: #fff;
+  margin: 0;
+}
+
+.minimal-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.minimal-header {
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+
+.minimal-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #64748b;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.minimal-header h1 {
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.55;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.minimal-sub {
+  font-size: 15px;
+  color: #475569;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  margin: 48px 0 16px;
+  color: #0f172a;
+  border-left: 4px solid #C5A880;
+  padding-left: 12px;
+}
+
+.minimal-container p {
+  font-size: 15px;
+  line-height: 1.95;
+  color: #1e293b;
+  margin: 0 0 16px;
+}
+
+.minimal-container ul {
+  font-size: 14.5px;
+  line-height: 1.95;
+  color: #1e293b;
+  padding-left: 22px;
+  margin: 0 0 16px;
+}
+
+.minimal-container ul li {
+  margin-bottom: 8px;
+}
+
+/* ───── Pricing Box（dark theme・主要価格カード）───── */
+.pricing-box {
+  background: #0f172a;
+  color: #fff;
+  padding: 32px 28px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+
+.pricing-box h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.pricing-box .price {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 8px 0 4px;
+}
+
+.pricing-box .price small {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pricing-box .note,
+.pricing-box .discount {
+  font-size: 13px;
+  color: #C5A880;
+  margin-top: 8px;
+}
+
+.pricing-box ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #d7dde6;
+}
+
+.pricing-box ul li {
+  margin-bottom: 6px;
+}
+
+/* ───── Pricing Secondary（beige tone・補助カード）───── */
+.pricing-secondary {
+  background: #fff8ea;
+  border: 2px solid #C5A880;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px 0;
+}
+
+.pricing-secondary h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.pricing-secondary p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0;
+}
+
+/* ───── Feature Grid（Coaching 7 特徴等）───── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 13.5px;
+}
+
+.feature-grid > div {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.feature-grid strong {
+  color: #0f172a;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13.5px;
+}
+
+@media (max-width: 600px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ───── Access / CTA Section（関係構築入口・商談誘導）───── */
+.access-section,
+.cta-section {
+  text-align: center;
+  margin: 56px 0 32px;
+  padding: 32px 24px;
+  background: #fff8ea;
+  border: 2px solid #C5A880;
+  border-radius: 8px;
+}
+
+.access-section h3,
+.cta-section h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  margin: 0 0 16px;
+  color: #0f172a;
+}
+
+.access-section p,
+.cta-section p {
+  font-size: 14.5px;
+  line-height: 1.95;
+  margin: 0 0 12px;
+}
+
+.access-link {
+  display: inline-block;
+  margin: 8px 8px 0 0;
+  padding: 10px 18px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.access-link:hover {
+  background: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #0f172a;
+  color: #fff;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+/* ───── Single Axis Links（Shift LP の Recruit/Activate 誘導）───── */
+.single-axis-links {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.single-axis-links h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.single-axis-links a {
+  display: inline-block;
+  margin-right: 16px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.single-axis-links a:hover {
+  background: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
