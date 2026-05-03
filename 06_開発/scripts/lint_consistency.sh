@@ -260,37 +260,11 @@ done
 [ "$shift_minimal_clean" -eq 1 ] && echo -e "${GRN}✓${NC} Gravity Shift は全 LP / コーポレートで minimal LP 運用整合"
 
 # ----------------------------------------------------------------------
-# 5.6 Gravity Coaching Pull 型 minimal 運用チェック（260503 確立・記載あり/リンクなし）
-# Hub / コーポレート / Footer に Coaching への <a href> リンクが残ったら警告
-# CODE/Scan LP 内のコンテキストリンクは許可（Pull 型の自然導線）
+# 5.6 廃止（260503 夜・Pull 型 minimal → funnel 内側型 minimal に統合）
+# Coaching は R/A と同じ funnel 内側型 minimal（記載あり/リンクあり）に統合
+# Push 営業防止は LP 内容（Hero + 「商談時にご案内」明記）で担保
+# 詳細：判断基準.md § minimal LP 戦略選択原則（260503 夜 アップデート）
 # ----------------------------------------------------------------------
-echo ""
-echo "[5.6] Gravity Coaching Pull 型 minimal 運用（Hub/コーポレート/Footer に href リンク禁止）"
-
-check_coaching_no_link() {
-  local file="$1"
-  local label="$2"
-  local count
-  count=$(grep -cE 'href="https://growthfix\.jp/gravity-coaching/"' "$ROOT/$file" 2>/dev/null)
-  count=${count:-0}
-  if [ "$count" -gt 0 ]; then
-    printf "${YEL}⚠${NC} %s に Coaching への <a href> リンクが %s 件残存（Pull 型 minimal 運用違反・記載のみ可）\n" "$label" "$count"
-    WARNINGS=$((WARNINGS + 1))
-    return 1
-  fi
-  return 0
-}
-
-coaching_pull_clean=1
-# Hub / コーポレート / WP V9 はリンク禁止
-for entry in "Gravity/LP/index.html|Hub /gravity/" "top_本番/index.html|コーポレート top" "service_本番/index.html|コーポレート service" "WhitePaper/V9/index.html|WhitePaper V9"; do
-  IFS='|' read -r f label <<< "$entry"
-  check_coaching_no_link "$f" "$label" || coaching_pull_clean=0
-done
-# 各 LP の Footer 組織軸セクション（CODE/Scan/Coaching/Recruit/Activate/Orbit/Shift）はリンク禁止
-# ただし、CODE/Scan/Coaching/Recruit/Activate/Shift LP 内のコンテキスト（4型推奨/FAQ等）はリンク OK
-# Footer のみのチェックは複雑なため、本セクションは Hub/コーポレート/WP のみに絞り、LP 内 Footer は手動チェック
-[ "$coaching_pull_clean" -eq 1 ] && echo -e "${GRN}✓${NC} Gravity Coaching は Hub/コーポレート/WP V9 で Pull 型 minimal 運用整合（記載あり/リンクなし）"
 
 # ----------------------------------------------------------------------
 # 6. コーポレート（top/service/news）参謀名展開チェック
