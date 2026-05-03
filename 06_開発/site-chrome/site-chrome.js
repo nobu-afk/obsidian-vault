@@ -77,7 +77,7 @@
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">個人軸（経営者自身）</p>' +
             '<a href="https://growthfix.jp/gravity-code/">Gravity CODE</a>' +
-            '<span class="footer-disabled" style="color:#64748b;cursor:default;" title="関係構築前提・商談時案内">Gravity Coaching</span>' +
+            '<a href="https://growthfix.jp/gravity-coaching/">Gravity Coaching</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">組織軸（経営者×組織）</p>' +
