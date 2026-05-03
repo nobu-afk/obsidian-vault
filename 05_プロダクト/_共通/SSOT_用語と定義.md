@@ -31,7 +31,7 @@
 | **B2** | Scan | 自社の引力タイプを、60 分で丸裸にする。 | 組織の引力タイプは、採用・育成・離職対策のすべてを変える。 | `/gravity-scan/` |
 | **B3** | Recruit | 優秀人材が吸い寄せられる会社を、3 ヶ月で実装する。 | 優秀人材は、施策ではなく組織の引力源にしか反応しない。 | `/gravity-recruit/` |
 | **B4** | Activate | 優秀人材が躍動する土壌を、3 ヶ月で実装する。 | 優秀人材は、施策ではなく躍動できる土壌にしか反応しない。 | `/gravity-activate/` |
-| **B5** | Shift（minimal）| 採用 × 躍動の両軸を、6 ヶ月で複合実装する。 | ―― | `/gravity-shift/` |
+| **B5** | Shift（minimal）| 優秀人材が吸い寄せられ、躍動し続ける会社を、6 ヶ月で実装する。 | Gravity Recruit + Gravity Activate の複合パッケージ・10 万円割引（150 万円）| `/gravity-shift/` |
 | **B6** | Coaching（minimal）| 自分を取り戻すと、人生が動き出す。 ✅ 260504 確定 | ―― | `/gravity-coaching/` |
 | **B7** | Orbit（minimal）| Shift 後の継続運用伴走サービス | ―― | `/gravity-orbit/` |
 
@@ -350,7 +350,7 @@ LP の hero-eyebrow / コーポレートのカードは「**{参謀名} ── {
 | **Gravity Recruit** | Shift R | 変革の参謀（採用基盤）── 優秀人材が吸い寄せられる会社を、3 ヶ月で実装する |
 | **Gravity Activate** | Shift A | 変革の参謀（躍動組織）── 優秀人材が躍動する土壌を、3 ヶ月で実装する（既整合）|
 | **Gravity Activate + Coaching 並走パッケージ**（260501 新規）| Shift A + Coaching | 変革の参謀＋心の参謀 ── 躍動する土壌 × 経営者の引力源を、6 ヶ月で同時に整える ／ 10 万 + 80 万 + 38 万 = **128 万**（C-5 中判定経営者の標準）|
-| **Gravity Shift**（R+A 複合）| Shift Full | 変革の参謀（両軸）── 優秀な人が吸い寄せられ、躍動し続ける会社を、6 ヶ月でつくる |
+| **Gravity Shift**（R+A 複合）| Shift Full | 変革の参謀（両軸）── 優秀人材が吸い寄せられ、躍動し続ける会社を、6 ヶ月で実装する |
 | Gravity Orbit | Orbit | 共鳴の参謀 ── 集まる × 躍動する を月次で維持する継続運用 |
 
 ### 組織の引力 4 型（Scan・260430 リブート／260503 minimal LP 整合）
