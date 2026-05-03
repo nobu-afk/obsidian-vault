@@ -258,15 +258,17 @@ T4 ハーネス層（各 MD の Part 3）
 | **営業.md** | ✅ 二層命名運用バナー + 4 型 → 推奨 URL β 並列型化 | 同上 |
 | **カスタマー.md / 採用.md / 発信.md** | ✅ 二層命名運用バナー追加 | 同上 |
 | **判断基準.md** | ✅ ★ minimal LP 戦略選択原則（Orbit パターン汎用化・260503 確立）追加 + Part 3 ハーネス層 NG 例 1 件・合格基準 1 件追加 | `project_naming_two_layer_260503.md` |
+| **AI.md**（260503 夜追記） | ✅ サブエージェント分離パターン新設（モデル選択経済表に lp-implementer / script-writer 行追加 + 専用 ★ セクション「サブエージェント分離パターン」+ 言葉・語彙 3 件追加 + Part 3 機械チェック対応に `~/.claude/agents/*.md` 追加） | `feedback_model_selection_sonnet.md` |
+| **harness.md**（260503 夜追記） | ✅ 3 層構造 [3] 実行エージェント層に「物理ファイル化（260503 確立）」サブセクション新設 + Part 2 既存ハーネス資産表にサブエージェント定義 + auto_commit hook 行追加 | 同上 |
 
 **主参照ファイル：**
 - B 案二層命名運用 SSOT：`memory/project_naming_two_layer_260503.md`
 - Succession 骨子：`04_GrowthFix/01_サービス設計/260503_GravitySuccession_シャープ版_1文_5論点確定_概念フェーズ.md`
 - minimal LP 実装：`05_プロダクト/GravityShift/LP/index.html`（130 行・1 ページ完結）
 - W18 週次クローズ：`04_GrowthFix/04_デイリーログ/260501_weekly_close.md`
+- サブエージェント定義：`~/.claude/agents/lp-implementer.md` ／ `~/.claude/agents/script-writer.md`（260503 夜・実行エージェント層の物理ファイル化第 1 弾）
 
 **Phase 10 で持ち越し（W19 / 5/4-5/10）：**
-- AI.md 反映：perl lookahead パターン + auto_commit hook ハーネス事例追記
 - 発信.md 反映：命名運用変更の対外発信物への影響・Note Vol.2 接続
 - WhitePaper PDF 再生成（HTML 更新済・PDF 古いまま）
 - 5/8 長谷さんモニター実施 → Gravity 受注 1 件目判断
