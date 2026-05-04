@@ -126,29 +126,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <!-- 次回セミナー告知バー -->
 
         <!-- 3 Twist 連発セクション（260430・5層モデル外的フック） -->
-        <section style="padding: 80px 24px; background: #f8fafc; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">
-          <div style="max-width: 880px; margin: 0 auto;">
-            <p style="font-size:11px;letter-spacing:0.3em;color:#94a3b8;margin-bottom:32px;text-align:center;font-weight:700;">UNCOMFORTABLE TRUTHS</p>
-            <div style="display: flex; flex-direction: column; gap: 36px;">
-              <p style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+        <section class="uncomfortable-truths" style="padding: 80px 24px; background: #f8fafc; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">
+          <div class="uncomfortable-truths-inner" style="max-width: 880px; margin: 0 auto;">
+            <p class="uncomfortable-truths-eyebrow" style="font-size:11px;letter-spacing:0.3em;color:#94a3b8;margin-bottom:32px;text-align:center;font-weight:700;">UNCOMFORTABLE TRUTHS</p>
+            <div class="uncomfortable-truths-list" style="display: flex; flex-direction: column; gap: 36px;">
+              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
                 「正しい施策」を全部入れた会社で、<br>なぜか優秀な人ほど先に辞めていく。
               </p>
-              <p style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
                 「強い経営者」を演じれば演じるほど、<br>組織は弱くなる。
               </p>
-              <p style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
                 権限委譲した瞬間、組織が止まる。
               </p>
             </div>
-            <p style="font-size:13px;color:#64748b;margin-top:48px;text-align:center;letter-spacing:0.04em;line-height:1.85;">
+            <p class="uncomfortable-truths-credit" style="font-size:13px;color:#64748b;margin-top:48px;text-align:center;letter-spacing:0.04em;line-height:1.85;">
               ── 16 年の組織人事と 50 社診断で見えた、不都合な構造。
             </p>
-            <div style="margin-top: 36px; padding: 24px 28px; background: #f8fafc; border-left: 3px solid #b8a88a; border-radius: 2px;">
+            <div class="uncomfortable-truths-box" style="margin-top: 36px; padding: 24px 28px; background: #f8fafc; border-left: 3px solid #b8a88a; border-radius: 2px;">
               <p style="font-size:14.5px;color:#334155;margin:0;line-height:1.95;">
-                引力経営は、経営者個人の引力（Why × 才能 × 偏愛）を、<strong style="color:#0f172a;">採用と組織への集客力に翻訳する</strong>経営手法です。
+                引力経営は、経営者個人の引力（Why × 才能 × 偏愛）を、<strong style="color:#0f172a;">人が集まり・躍動し・留まる組織に翻訳する</strong>経営手法です。
               </p>
             </div>
-            <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+            <div class="uncomfortable-truths-cta" style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
               <a href="https://growthfix.jp/whitepaper/" style="display:inline-block;background:#0f172a;color:#fff;padding:12px 24px;text-decoration:none;font-size:13px;letter-spacing:0.04em;border-radius:2px;">無料 PDF『引力経営』25 ページをダウンロード ▶</a>
               <a href="https://growthfix.jp/service/" style="display:inline-block;background:#fff;color:#0f172a;border:1px solid #0f172a;padding:12px 24px;text-decoration:none;font-size:13px;letter-spacing:0.04em;border-radius:2px;">5 サービスを見る ▶</a>
             </div>
@@ -426,7 +426,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <link rel="stylesheet" href="https://growthfix.jp/gravity/styles.css?v=20260424">
     <!-- 共通モバイル最適化パッチ（260427）— styles.cssの後に置いて最終勝者にする -->
-    <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260502a">
+    <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260504a">
     <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/growth/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>

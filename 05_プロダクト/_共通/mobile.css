@@ -507,3 +507,71 @@ img, video, iframe {
   [style*="font-size: 36px"],
   [style*="font-size:36px"] { font-size: clamp(30px, 9.7vw, 36px) !important; }
 }
+
+/* ============================================================
+   UNCOMFORTABLE TRUTHS セクション（top_本番・260504 追加）
+   インラインスタイルで構築されているため SP では !important で上書き
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .uncomfortable-truths {
+    padding: 56px 16px !important;
+  }
+
+  .uncomfortable-truths-eyebrow {
+    margin-bottom: 24px !important;
+  }
+
+  .uncomfortable-truths-list {
+    gap: 28px !important;
+  }
+
+  .uncomfortable-truths-item {
+    font-size: clamp(17px, 5.2vw, 22px) !important;
+    line-height: 1.6 !important;
+  }
+
+  .uncomfortable-truths-item br {
+    display: none;
+  }
+
+  .uncomfortable-truths-credit {
+    margin-top: 32px !important;
+    font-size: 12px !important;
+    line-height: 1.75 !important;
+  }
+
+  .uncomfortable-truths-box {
+    margin-top: 28px !important;
+    padding: 18px 20px !important;
+  }
+
+  .uncomfortable-truths-box p {
+    font-size: 13.5px !important;
+    line-height: 1.85 !important;
+  }
+
+  .uncomfortable-truths-cta {
+    margin-top: 24px !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .uncomfortable-truths-cta a {
+    display: block !important;
+    text-align: center !important;
+    padding: 14px 16px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .uncomfortable-truths {
+    padding: 44px 14px !important;
+  }
+
+  .uncomfortable-truths-item {
+    font-size: clamp(16px, 5.0vw, 20px) !important;
+  }
+}
