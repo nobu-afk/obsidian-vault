@@ -242,10 +242,10 @@ T4 ハーネス層（各 MD の Part 3）
 
 **260503 朝〜夜の戦略確定：**
 
-1. **B 案二層命名運用確定**：内的 Shift R/A/Full ／ 外的 Gravity Recruit/Activate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
-2. **β 並列型 URL 構造確定**：`/gravity-recruit/` `/gravity-activate/` `/gravity-shift/` の 3 並列・既存 Code/Scan/Coaching/Orbit と完全対称
-3. **Gravity Shift minimal LP 化（Orbit パターン汎用化）**：5/1 で Orbit を minimal LP 化した運用が、5/3 で Shift にも適用 → 2 例で汎用パターン化。Hub/コーポレート/各 LP フッターから Shift カード/リンク撤去・Recruit/Activate の pricing 欄では言及保持
-4. **Scan 4 型推奨フロー更新**：「不毛型 → Shift Full」→「不毛型 → Recruit + Activate 順次（商談時に Shift 提案）」に統一
+1. **B 案二層命名運用確定**：内的 Shift R/A/Full ／ 外的 Gravity Recruit/Cultivate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
+2. **β 並列型 URL 構造確定**：`/gravity-recruit/` `/gravity-cultivate/` `/gravity-shift/` の 3 並列・既存 Code/Scan/Coaching/Orbit と完全対称
+3. **Gravity Shift minimal LP 化（Orbit パターン汎用化）**：5/1 で Orbit を minimal LP 化した運用が、5/3 で Shift にも適用 → 2 例で汎用パターン化。Hub/コーポレート/各 LP フッターから Shift カード/リンク撤去・Recruit/Cultivate の pricing 欄では言及保持
+4. **Scan 4 型推奨フロー更新**：「不毛型 → Shift Full」→「不毛型 → Recruit + Cultivate 順次（商談時に Shift 提案）」に統一
 5. **Gravity Succession 骨子確定（構想段階）**：引力経営 3 軸目（採用×躍動×承継）。S-3 PMI 統合実装が主軸候補・3 点セット 78p（Shift R/A 完全対称）・6 ヶ月伴走・規模別 1,000-3,000 万 + 成功報酬。本格化は 2027〜・第 1 フェーズ Shift R 集中軸を侵食しない制約遵守
 6. **lint_consistency.sh [5.5] 機械チェック新設**：minimal LP 運用違反（Hub/コーポレート/Footer に Shift カード/リンク残存）を自動検出
 7. **18 ファイル本番デプロイ完遂**：Phase 1（新規 LP + .htaccess redirect）+ Phase 2（既存 9 LP cross-link 一斉更新）+ minimal LP 化再デプロイの 3 段階を 1 セッションで完遂

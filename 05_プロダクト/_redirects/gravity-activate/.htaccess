@@ -1,0 +1,12 @@
+# 260505 Gravity Activate → Gravity Cultivate 命名変更に伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/gravity-activate/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-activate/
+# 新 URL: https://growthfix.jp/gravity-cultivate/
+#
+# 経緯：思想整合（Hero「躍動する土壌を実装する」の主動詞は土壌づくり＝Cultivate）
+# SSOT: 05_プロダクト/_共通/SSOT_用語と定義.md §0.5
+# memory: project_naming_two_layer_260503.md 決定 1.1
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity-cultivate/$1 [R=301,L]
