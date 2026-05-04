@@ -188,35 +188,35 @@ T4 ハーネス層（各 MD の Part 3）
 ### Phase 8（260501 夜・シャープ化哲学 + Lean MVP コンセプトテスト + AI Agent 並列実行 + ウニ丼進化反映）
 
 **260501 夜の戦略確定：**
-1. **シャープ化哲学**（モリモリ → 1 文）：49 質問テンプレ運用 + ★/⚪/△ 削ぎ落としマークで Shift R/A を「1 文で説明できる状態」まで研ぎ澄ます（Shift R = 「採用コスト悪循環を断つ」/ Shift A = 「制度疲弊からの解放」）
-2. **Lean MVP コンセプトテスト原則**：1 サービスのモニターを「実証 → 3 案 × N サービス = N×3 VP コンセプトテスト」に転換（5/8 長谷さんモニターで R/A 6 VP テスト実施予定）
-3. **LP 構成判断の見直し**（260430 LP 単一化原則 → 260501 実運用検証で見直し）：Gravity マップで R/A が別象限ターゲット（人力拡大 vs 施策先行）の場合は 2 枚分割を優先（Shift R 専用化 + Shift A 専用 LP 新規・5/2-5/14 段階移行）
+1. **シャープ化哲学**（モリモリ → 1 文）：49 質問テンプレ運用 + ★/⚪/△ 削ぎ落としマークで Shift R/C を「1 文で説明できる状態」まで研ぎ澄ます（Shift R = 「採用コスト悪循環を断つ」/ Shift C = 「制度疲弊からの解放」）
+2. **Lean MVP コンセプトテスト原則**：1 サービスのモニターを「実証 → 3 案 × N サービス = N×3 VP コンセプトテスト」に転換（5/8 長谷さんモニターで R/C 6 VP テスト実施予定）
+3. **LP 構成判断の見直し**（260430 LP 単一化原則 → 260501 実運用検証で見直し）：Gravity マップで R/C が別象限ターゲット（人力拡大 vs 施策先行）の場合は 2 枚分割を優先（Shift R 専用化 + Shift C 専用 LP 新規・5/2-5/14 段階移行）
 4. **RECODE Agent 並列実行パターン**：Sonnet × 6 並列で 33 ファイル / 6,571 行を約 10-15 分で 278 発見抽出
 5. **ウニ丼理論の進化**：標準化 = AI（70-75%）/ トレーニング = 人間（35-40%）の時系列実装
 
 | MD | ステータス | 主参照メモリ |
 |---|:-:|---|
-| 判断基準.md | ✅ シャープ化哲学 + Lean MVP コンセプトテスト + LP 構成判断見直し追記（260501 夜）| `project_shift_ra_specs_260501` `project_shift_ra_field_validation_260501` |
-| AI.md | ✅ RECODE Agent 並列実行パターン + ウニ丼理論進化 + 6 セッション連続稼働パターン追記（260501 夜）| `project_shift_ra_field_validation_260501` `project_harness_engineering_260429` |
+| 判断基準.md | ✅ シャープ化哲学 + Lean MVP コンセプトテスト + LP 構成判断見直し追記（260501 夜）| `project_shift_rc_specs_260501` `project_shift_rc_field_validation_260501` |
+| AI.md | ✅ RECODE Agent 並列実行パターン + ウニ丼理論進化 + 6 セッション連続稼働パターン追記（260501 夜）| `project_shift_rc_field_validation_260501` `project_harness_engineering_260429` |
 
 **主参照ファイル：**
 - 1 文 SSOT（Shift R）：`04_GrowthFix/01_サービス設計/260501_Shift_R_49質問_削ぎ落とし版.md`
-- 1 文 SSOT（Shift A）：`04_GrowthFix/01_サービス設計/260501_Shift_A_シャープ版_1文_5論点確定.md` ／ `260501_Shift_A_49質問_削ぎ落とし版.md`
-- 5/8 R/A 統合 6 VP 資料：`04_GrowthFix/01_サービス設計/260508_長谷さんモニター_R_A統合_6VPテスト資料一式.md`
+- 1 文 SSOT（Shift C）：`04_GrowthFix/01_サービス設計/260501_Shift_A_シャープ版_1文_5論点確定.md` ／ `260501_Shift_A_49質問_削ぎ落とし版.md`
+- 5/8 R/C 統合 6 VP 資料：`04_GrowthFix/01_サービス設計/260508_長谷さんモニター_R_A統合_6VPテスト資料一式.md`
 - A4 1 枚サマリー：`04_GrowthFix/01_サービス設計/260501_Shift全体像_A4一枚_本日確定版.md`
 
 **Phase 8 で持ち越し（5/8 モニター後の最終仕様で反映）：**
-- 商品.md：Shift A シャープ版（躍動 3 点セット 27p + 1 文 + 標準化+OJT 構造）反映 → 5/9-5/15 計画
-- 発信.md：Meta 広告 R/A 分離戦略 + 5/15 セミナータイトル整合性 → 5/4-5/16 段階反映
+- 商品.md：Shift C シャープ版（躍動 3 点セット 27p + 1 文 + 標準化+OJT 構造）反映 → 5/9-5/15 計画
+- 発信.md：Meta 広告 R/C 分離戦略 + 5/15 セミナータイトル整合性 → 5/4-5/16 段階反映
 
-### Phase 9（260502 朝・/sharpen × 5 サービス完遂 + Shift R/A 2 LP 物理分割 + 廃止用語完全消滅 + git 履歴復活 + auto_commit hook）
+### Phase 9（260502 朝・/sharpen × 5 サービス完遂 + Shift R/C 2 LP 物理分割 + 廃止用語完全消滅 + git 履歴復活 + auto_commit hook）
 
 **260502 朝〜午後の戦略確定：**
 
-1. **/sharpen × 5 サービス全完遂**：CODE / Scan / Coaching / Shift R / Shift A の 1 文 SSOT 確定 + 49 質問削ぎ落とし版作成 + LP/SSOT/商品.md/営業.md 整合
-2. **Shift R/A 2 LP 物理分割**：既存 /gravity-shift/ → Shift R 専用化 + /gravity-shift-a/ 新規作成（260501 Phase 8 確定の運用実装）
+1. **/sharpen × 5 サービス全完遂**：CODE / Scan / Coaching / Shift R / Shift C の 1 文 SSOT 確定 + 49 質問削ぎ落とし版作成 + LP/SSOT/商品.md/営業.md 整合
+2. **Shift R/C 2 LP 物理分割**：既存 /gravity-shift/ → Shift R 専用化 + /gravity-shift-a/ 新規作成（260501 Phase 8 確定の運用実装）
 3. **20 LP 横断監査 + 廃止用語完全消滅**：採用 4 軸（5 件）／面接ブループリント（2 件）／ブループリント（2 件）が gravity-hub と service の 2 ページに集中残存していたのを完全クリーン化
-4. **サービス軸性質判定（Push vs Pull）原則確立**：CODE/Scan/Shift R/A は Push 型（採用接地統一）／Coaching は唯一 Pull 型（「売り言葉にしない」原則）
+4. **サービス軸性質判定（Push vs Pull）原則確立**：CODE/Scan/Shift R/C は Push 型（採用接地統一）／Coaching は唯一 Pull 型（「売り言葉にしない」原則）
 5. **ハイブリッド配置パターン標準化**：軸 B（市場接地）Hero 主軸 + 軸 A（既存軸）Sub Hero + 軸 C（構造起点）Pricing 補強の 3 軸ハイブリッド
 6. **funnel 全体採用接地統一**：CODE → Scan → Shift R 連続 Hero が採用接地で言語的に統一 → 経営者の「自分の話」感を全段階で維持
 7. **ブラッシュアップの境界線確立（WhitePaper LP 事故教訓）**：思想書 vs 採用ペイン具体起点・LP の役割別に軸を分ける判定ルール
@@ -242,11 +242,11 @@ T4 ハーネス層（各 MD の Part 3）
 
 **260503 朝〜夜の戦略確定：**
 
-1. **B 案二層命名運用確定**：内的 Shift R/A/Full ／ 外的 Gravity Recruit/Cultivate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
+1. **B 案二層命名運用確定**：内的 Shift R/C/Full ／ 外的 Gravity Recruit/Cultivate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
 2. **β 並列型 URL 構造確定**：`/gravity-recruit/` `/gravity-cultivate/` `/gravity-shift/` の 3 並列・既存 Code/Scan/Coaching/Orbit と完全対称
 3. **Gravity Shift minimal LP 化（Orbit パターン汎用化）**：5/1 で Orbit を minimal LP 化した運用が、5/3 で Shift にも適用 → 2 例で汎用パターン化。Hub/コーポレート/各 LP フッターから Shift カード/リンク撤去・Recruit/Cultivate の pricing 欄では言及保持
 4. **Scan 4 型推奨フロー更新**：「不毛型 → Shift Full」→「不毛型 → Recruit + Cultivate 順次（商談時に Shift 提案）」に統一
-5. **Gravity Succession 骨子確定（構想段階）**：引力経営 3 軸目（採用×躍動×承継）。S-3 PMI 統合実装が主軸候補・3 点セット 78p（Shift R/A 完全対称）・6 ヶ月伴走・規模別 1,000-3,000 万 + 成功報酬。本格化は 2027〜・第 1 フェーズ Shift R 集中軸を侵食しない制約遵守
+5. **Gravity Succession 骨子確定（構想段階）**：引力経営 3 軸目（採用×躍動×承継）。S-3 PMI 統合実装が主軸候補・3 点セット 78p（Shift R/C 完全対称）・6 ヶ月伴走・規模別 1,000-3,000 万 + 成功報酬。本格化は 2027〜・第 1 フェーズ Shift R 集中軸を侵食しない制約遵守
 6. **lint_consistency.sh [5.5] 機械チェック新設**：minimal LP 運用違反（Hub/コーポレート/Footer に Shift カード/リンク残存）を自動検出
 7. **18 ファイル本番デプロイ完遂**：Phase 1（新規 LP + .htaccess redirect）+ Phase 2（既存 9 LP cross-link 一斉更新）+ minimal LP 化再デプロイの 3 段階を 1 セッションで完遂
 
@@ -277,7 +277,7 @@ T4 ハーネス層（各 MD の Part 3）
 **Phase 9 で持ち越し（5/8 モニター後 or 余力時）：**
 - 5 サービス × 5 層整合の最終確認（5/8 モニター反応反映）
 - 価格見直し（Lean MVP 原則・モニター後判断）：CODE 5 万 → 7-10 万 ／ Scan 10 万 → 12-15 万
-- gravity-code-executive LP の Footer 組織軸列に Shift R/A 追加（5/8 後別ペルソナ判断）
+- gravity-code-executive LP の Footer 組織軸列に Shift R/C 追加（5/8 後別ペルソナ判断）
 - design.md Part 3 に「20 LP 横断監査ハーネス」セクション追加（時間あれば）
 
 **新規メモリ候補（5/2 で永続化された SSOT・コード）：**
@@ -285,13 +285,13 @@ T4 ハーネス層（各 MD の Part 3）
 - `.gitignore` 拡張パターン（secrets 防御）
 - 判断基準.md「サービス軸性質判定（Push vs Pull）」原則
 - 接続装置.md「ハイブリッド配置パターン」標準化
-- 接続装置.md：言語マップ R/A 別ペインカテゴリ分離 → 5/16 以降
+- 接続装置.md：言語マップ R/C 別ペインカテゴリ分離 → 5/16 以降
 - 採用.md：業務委託パートナー組成 Phase 1 採用基準詳細化 → 次の weekly-close でまとめて
 
 | MD | 更新内容 | 主参照メモリ |
 |---|---|---|
-| **会社.md（260430 戦略反映版）**| アンブレラタグライン「優秀人材が躍動する会社をつくる」追加・6 サービス体系（Shift R/A/Full）・識学対比に「野心商材 vs コンプレックス商材」軸追加・進化軌跡第 5 期追加・得意技 2 軸の戦略判断基準追加 | **🔥 `project_strategy_lock_260430.md`**（最重要 SSOT）|
-| **商品.md（260430 戦略反映版）**| 6 サービス体系・組織の引力タイプ診断化・Shift R/A/Full 詳細スコープ・公開語彙 Why × 才能 × 偏愛 統一・4 型 A' 案・廃止用語 8 件追加・営業時パッケージ Shift R/A 対応 | **🔥 `project_strategy_lock_260430.md`** ＋ SSOT |
+| **会社.md（260430 戦略反映版）**| アンブレラタグライン「優秀人材が躍動する会社をつくる」追加・6 サービス体系（Shift R/C/Full）・識学対比に「野心商材 vs コンプレックス商材」軸追加・進化軌跡第 5 期追加・得意技 2 軸の戦略判断基準追加 | **🔥 `project_strategy_lock_260430.md`**（最重要 SSOT）|
+| **商品.md（260430 戦略反映版）**| 6 サービス体系・組織の引力タイプ診断化・Shift R/C/Full 詳細スコープ・公開語彙 Why × 才能 × 偏愛 統一・4 型 A' 案・廃止用語 8 件追加・営業時パッケージ Shift R/C 対応 | **🔥 `project_strategy_lock_260430.md`** ＋ SSOT |
 
 
 
