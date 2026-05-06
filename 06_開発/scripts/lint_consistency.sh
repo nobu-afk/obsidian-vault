@@ -158,6 +158,17 @@ check_forbidden_warning "Gravity Activate" "260505 外的命名変更（Activate
 check_forbidden_warning "/gravity-activate/" "260505 外的命名変更（URL 変更・旧 URL は 301 リダイレクト）" "/gravity-cultivate/"
 check_forbidden_warning "Activate" "260505 外的命名変更（介入主義 Activate を撤廃・思想整合は Cultivate）" "Cultivate"
 
+# 260506 P0-4 機能配分 v1.0 §6.2 追加：内的呼称 Shift A の対外残存検出（260505 Cultivate 命名変更で内的呼称も Shift C に統一済）
+check_forbidden_warning "Shift A" "260505 内的呼称も Shift C に統一済（Cultivate 命名変更時）" "Shift C（社内）or Gravity Cultivate（対外）"
+# Scan LP で発見した「Gravity Recruit／A（躍動組織）」型の残存（260506 修正済・再発防止）
+check_forbidden "／A（躍動" "260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）" "／Gravity Cultivate（躍動組織）"
+check_forbidden "／ A（躍動" "260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）" "／ Gravity Cultivate（躍動組織）"
+
+# 260506 P0-3 ペルソナ v1.0 §「適合外（明示的に避けるペルソナ）」由来：
+# 不適合ペルソナ語彙（ジャイアニズム × バキバキ × カリスマ採用型）の対外露出は禁則
+check_forbidden_warning "ジャイアニズム" "P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）" "（対外コピーから削除）"
+check_forbidden_warning "カリスマ採用" "P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）" "（対外コピーから削除）"
+
 [ "$WARNINGS" -eq 0 ] && echo -e "${GRN}✓${NC} 移行期警告なし"
 
 # ----------------------------------------------------------------------
