@@ -306,6 +306,55 @@ done
 [ "$corporate_missing" -eq 0 ] && echo -e "${GRN}✓${NC} 3 参謀名（CODE/Scan の『引力の参謀』・心・変革）が top / service / news に展開済み（Orbit『共鳴の参謀』は継続運用サービスのため意図的に除外）"
 
 # ----------------------------------------------------------------------
+# 7. 自己紹介ストーリー SSOT 整合（260506 P2 物語アーク統一）
+# ----------------------------------------------------------------------
+# SSOT: memory/user_self_intro_attractor_designer_260430.md（260504 進化版）
+# - 核心の一行：「30 年以上、組織の引力 ── 人が集まり、活きる力を [追いかけてきた|設計してきた]」
+# - 役割肩書き：「引力経営提唱者」「引力の参謀」
+echo ""
+echo "[7] 自己紹介ストーリー SSOT 整合（260506 P2 物語アーク統一）"
+
+# 7.1 旧自虐軸文体検出（260506 P2 で B 版に統合済・コーポレート Profile セクション）
+check_forbidden_warning "他人の組織のことしか考えていない" "P2 旧自己紹介文体（260506 B 版に統合済）" "30 年以上、組織の引力 ── 人が集まり、活きる力を追いかけてきた"
+check_forbidden_warning "本音で生きられていない自分に絶望した。<br>その原体験" "P2 旧自己紹介文体（260506 B 版本文と原体験 1 行に統合済）" "B 版 + 原体験 1 行（260506 SSOT 整合形）"
+
+# 7.2 自己紹介核心キーワード密度（profile / 6 サービス LP / WP）
+check_intro_keywords() {
+  local lp_path="$1"
+  local lp_name="$2"
+  local f="$ROOT/$lp_path"
+  if [ ! -f "$f" ]; then
+    return
+  fi
+  local kw_30years
+  kw_30years=$(grep -cE "30 ?年以上" "$f" 2>/dev/null)
+  local kw_gravity
+  kw_gravity=$(grep -c "組織の引力" "$f" 2>/dev/null)
+  local kw_lifeforce
+  kw_lifeforce=$(grep -c "人が集まり" "$f" 2>/dev/null)
+  local kw_role
+  kw_role=$(grep -cE "引力経営提唱者|引力の参謀" "$f" 2>/dev/null)
+  local total=$((kw_30years + kw_gravity + kw_lifeforce + kw_role))
+  if [ "$total" -lt 3 ]; then
+    printf "${YEL}⚠ %s 自己紹介核心キーワード不足${NC}（30年以上 %d / 組織の引力 %d / 人が集まり %d / 役割肩書き %d ＝計 %d ／ 推奨: 3+ 件）\n" \
+      "$lp_name" "$kw_30years" "$kw_gravity" "$kw_lifeforce" "$kw_role" "$total"
+    WARNINGS=$((WARNINGS + 1))
+  else
+    printf "${GRN}✓${NC} %s 自己紹介 SSOT 整合（30年以上 %d / 組織の引力 %d / 人が集まり %d / 肩書き %d ＝計 %d）\n" \
+      "$lp_name" "$kw_30years" "$kw_gravity" "$kw_lifeforce" "$kw_role" "$total"
+  fi
+}
+
+check_intro_keywords "profile_本番/index.html" "profile（A 版）"
+check_intro_keywords "top_本番/index.html" "コーポレート（B 版）"
+check_intro_keywords "GravityCode/LP/index.html" "CODE（B 版）"
+check_intro_keywords "GravityScan/LP/index.html" "Scan（B 版）"
+check_intro_keywords "GravityRecruit/LP/index.html" "Recruit（B 版）"
+check_intro_keywords "GravityCultivate/LP/index.html" "Cultivate（B 版）"
+check_intro_keywords "WhitePaper/V9/index.html" "WP V9（A 版）"
+# minimal LP（Shift / Coaching / Orbit）は SPEAKER セクション無のため対象外（仕様通り）
+
+# ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
 echo ""
