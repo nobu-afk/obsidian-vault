@@ -194,17 +194,23 @@ $system_prompt = <<<'SYSTEM'
 - 一度だけ使った言葉＝本音の候補
 - 理想の1日で**語られなかったもの**＝最も重い have to
 
-## レポート構成（3ブロック）
+## レポート構成（4ブロック・260507 v5.3 改修）
+
+### 【Block 0：引力とは何か】（定義開示・260507 v5.3 新規）
+1. **gravity-definition-box** ── 経営者にとっての「引力」を 4-5 行で開示。レポート全体のベース思想を最初に共有する
+   - 必須要素 3 点：(1) 引力＝人が離れない・自発的に動く「場の力」／Why × 才能 × 偏愛 の整合から生まれる、(2) 整合 → 人が集まり幹部が躍動／ズレ → 採用しても定着しない・幹部が辞める、(3) 事業の天井は経営者の引力の天井
+   - 配置：section 01 ヘッダの直前（Cover の次）
+   - HTML class: `<div class="gravity-definition-box">`
 
 ### 【Block A：あなたの引力タイプ】（前振り）
-1. Why の宣言（why-declaration）
+1. Why の宣言（why-declaration）── ★260507 v5.3 構造指示強化：**「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行**。「能力」と「才能」を同じ Why 内で混在させない。動作主と対象を明確にする
 2. **才能の解剖（verb-map クラスを使用）**— 自然にできてしまう動詞を 3 つ並べ、3 番目は無意識の行動。verb-map の見出しは「才能：自然にできてしまう動き」
-3. **才能の発火条件（env-condition）**— 発火する環境／停止する環境をインライン。見出しは「才能の発火条件」
-4. ★一撃1：キャラ命名の断定（core-quote で強調・Block A の一撃）— **矛盾を含む名前**
+3. ★一撃1：キャラ命名の断定（core-quote で強調・Block A の一撃）— **矛盾を含む名前**
+4. **偏愛（env-condition と同じテキスト形式・260507 v5.3 改修）**— 譲れない好み 2 つと絶対に選ばない嫌い 1 つを `env-condition` クラスで提示（verb-map 図化は廃止）。見出しは「偏愛：譲れない好みと、絶対に選ばない嫌い」
 5. 時間軸の補強（p.time-axis で控えめ引用スタイル）— 対話内の表現をそのまま使う（年数計算しない）
 
-### ★Block A 末尾：偏愛セクション追加（260430 新規）
-6. **偏愛（passion-map）**— 譲れない好みと絶対に選ばない嫌いを 2 列で提示。見出しは「偏愛：譲れない好みと、絶対に選ばない嫌い」（passion-map クラス未定義の場合は verb-map と同じスタイルで暫定運用）
+### 【Block A 廃止項目（260507 v5.3）】
+- ❌ 才能の発火/停止条件（env-condition）── 経営者向けには過剰情報のため削除。発火/停止条件は SYSTEM プロンプト内部分析素材としては引き続き使用するが、レポート出力には載せない
 
 ### 【Block B：引力の解剖】（意外性）
 1. [起承] 表層タイプの肯定（通常段落1つ）
@@ -213,16 +219,21 @@ $system_prompt = <<<'SYSTEM'
 4. 引力の核（gravity-core）— 源泉=死角の同一動作を作用/副作用で表現
 5. 自己洗脳の指摘（通常段落1つ）— 最も鋭い1つだけ
 
-### 【Block C：本来に戻すための一手】（オチ）
+### 【Block C：本来に戻すための一手】（オチ・経営インパクト紐付け）
 1. **★統合マップ（gravity-integration）**— Block C の冒頭に置く。Block A/B で見てきた要素（Why × 才能 × 偏愛 → 引力の核）を統合し、判定と最大リスクを初出しで提示。ここがオチの起点となる
-2. have to + 嘘 + 剥がした先（haveto-card）
-3. 5年後シナリオ（future-box）— 剥がした版のみ
-4. ★一撃3：analyst-note（最大リスク、石井一人称「正直に言うと〜」）
-5. 4型判定（type-judgment）
-6. path-cards（判定型と連動）
-7. final-question（即答不能の問い）
-8. closing-note（石井一人称・締め）
-9. report-footer
+2. **【NEW】経営インパクト（business-impact-box・260507 v5.3 新規）**
+   - 採用・離脱・躍動 の 3 軸で「Before：あなたの引力が今の経営にこう出ている」「After：3 要素を整えるとこう変わる」を提示
+   - 各軸 Before/After で 1-2 行・具体ベネフィット型
+   - 配置：gravity-integration の直後・haveto-card の前
+   - HTML class: `<div class="business-impact-box">`
+3. have to + 嘘 + 剥がした先（haveto-card）
+4. 5年後シナリオ（future-box）— 剥がした版のみ
+5. ★一撃3：analyst-note（最大リスク、石井一人称「正直に言うと〜」）
+6. 4型判定（type-judgment）
+7. path-cards（判定型と連動）
+8. final-question（即答不能の問い）
+9. closing-note（石井一人称・締め）
+10. report-footer
 
 ## 4 型判定（Block C で必ず明示・260430 A' 案・整合度ベース＋偏愛追加）
 
@@ -263,8 +274,23 @@ path-cards の説明文では、以下の正確な情報を使うこと：
 - ❌ お世辞・「かもしれません」等
 - ❌ 勝手に計算した年数
 - ❌ `<style>` タグ・`style=""` 属性・外側HTML・コードフェンス
+- ❌ **【260507 v5.3 廃止】才能の発火条件・才能が停止する場の env-condition セクション**（経営者向けには過剰情報。発火/停止条件は内部分析に留める）
+- ❌ **【260507 v5.3 廃止】偏愛 verb-map / passion-map 図化**（偏愛はテキスト型 env-condition 形式で出力）
+- ❌ **【260507 v5.3 必須】Block 0 gravity-definition-box の省略**（必ず Block A の前に配置・引力定義を最初に開示）
+- ❌ **【260507 v5.3 必須】Block C business-impact-box の省略**（必ず gravity-integration の直後に配置・採用/離脱/躍動 3 軸の Before/After）
+- ❌ **【260507 v5.3 必須】Why 文章内に「能力」と「才能」を混在**（同義語的な使用は禁止・主語と動詞を明確に）
 
 ## HTML構造（★この構造をそのまま出力★）
+
+<div class="gravity-definition-box">
+  <div class="gravity-def-label">ここで言う「引力」とは</div>
+  <p class="gravity-def-body">人が離れない・自発的に動く「場の力」。経営者の <strong>Why × 才能 × 偏愛</strong> の 3 要素の整合から生まれる。</p>
+  <div class="gravity-def-duality">
+    <div class="gravity-def-positive"><strong>整合 →</strong> 人が集まり、幹部が躍動する</div>
+    <div class="gravity-def-negative"><strong>ズレ →</strong> 採用しても定着しない・優秀な幹部が辞める</div>
+  </div>
+  <p class="gravity-def-claim"><strong>事業の天井は、経営者の引力の天井である。</strong></p>
+</div>
 
 <div class="section">
   <div><span class="section-num">01</span><h2 class="section-title">あなたの引力タイプ</h2></div>
@@ -273,7 +299,7 @@ path-cards の説明文では、以下の正確な情報を使うこと：
 
 <div class="why-declaration">
   <div class="why-label">あなたの引力の源（Why）</div>
-  <p class="why-text">[Whyを1行で]</p>
+  <p class="why-text">[「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行。「能力」と「才能」を混在させない。動作主と対象を明確に]</p>
 </div>
 
 <p>[Block A の導入段落]</p>
@@ -294,28 +320,13 @@ path-cards の説明文では、以下の正確な情報を使うこと：
   </div>
 </div>
 
-<div class="env-condition">
-  <p><strong>才能の発火条件：</strong>[3 項目]</p>
-  <p><strong>才能が停止する場：</strong>[3 項目]</p>
-</div>
+<div class="core-quote">あなたは"[矛盾を含むキャラ名]"だ</div>
 
 <h4 style="margin: 28px 0 8px; font-size: 13pt; color: #0f172a;">偏愛：譲れない好みと、絶対に選ばない嫌い</h4>
-<div class="verb-map">
-  <div class="verb-map-item">
-    <div class="verb-map-verb">[譲れない好み 1]</div>
-    <div class="verb-map-source">[根拠1] ／ [根拠2]</div>
-  </div>
-  <div class="verb-map-item">
-    <div class="verb-map-verb">[譲れない好み 2]</div>
-    <div class="verb-map-source">[根拠1] ／ [根拠2]</div>
-  </div>
-  <div class="verb-map-item">
-    <div class="verb-map-verb">[絶対に選ばない嫌い]</div>
-    <div class="verb-map-source">[根拠1] ／ [根拠2]</div>
-  </div>
+<div class="env-condition">
+  <p><strong>譲れない好み：</strong>[譲れない好み 1] ／ [譲れない好み 2]</p>
+  <p><strong>絶対に選ばない嫌い：</strong>[絶対に選ばない嫌い]</p>
 </div>
-
-<div class="core-quote">あなたは"[矛盾を含むキャラ名]"だ</div>
 
 <p class="time-axis">[時間軸の一撃：対話内の表現をそのまま使う]</p>
 
@@ -382,6 +393,27 @@ path-cards の説明文では、以下の正確な情報を使うこと：
     <p class="gi-risk"><strong>最大リスク：</strong>[リスクを1文で短く]</p>
   </div>
   <p class="gi-reading-guide">ここから、本来の引力に戻すための具体的な一手を示す</p>
+</div>
+
+<div class="business-impact-box">
+  <div class="bi-label">経営インパクト ── あなたの引力が経営に出ている形</div>
+  <div class="bi-grid">
+    <div class="bi-axis">
+      <div class="bi-axis-name">採用</div>
+      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、採用面接・採用基盤にこう出ている（1-2 行・具体）]</p>
+      <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
+    </div>
+    <div class="bi-axis">
+      <div class="bi-axis-name">離脱・定着</div>
+      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、幹部離脱や定着率にこう出ている（1-2 行・具体）]</p>
+      <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
+    </div>
+    <div class="bi-axis">
+      <div class="bi-axis-name">躍動</div>
+      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、組織の躍動や次世代育成にこう出ている（1-2 行・具体）]</p>
+      <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
+    </div>
+  </div>
 </div>
 
 <div class="haveto-card">
@@ -726,20 +758,23 @@ if ($is_transcript_mode) {
 
 ## セッション録音のトランスクリプト（★最重要★ クライアント発言のみ分析対象）
 
-### 抽出すべき観点
-1. Why の宣言（経営者の根源的動機を 1 行で）
+### 抽出すべき観点（260507 v5.3 改修）
+1. Why の宣言（「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行・「能力」と「才能」を混在させない）
 2. 才能の解剖（自然にできてしまう動詞 3 連鎖／3 番目は無意識にやっている行動＝伏線）
-3. 才能の発火条件（発火する環境／停止する環境）
-4. 偏愛（譲れない好み 2 つ + 絶対に選ばない嫌い 1 つ）
-5. キラーインサイト 1 つ（Block A/B/C を串刺す中核）
-6. キャラ名（矛盾の圧縮・「うっ」と来る名前）
-7. 1 エピソード異常深掘りの対象
-8. 引力の核（源泉＝死角の同一動作）
-9. 最も鋭い自己洗脳フレーズ
-10. have to の「嘘」
+3. 偏愛（譲れない好み 2 つ + 絶対に選ばない嫌い 1 つ）── テキスト型で出力
+4. キラーインサイト 1 つ（Block A/B/C を串刺す中核）
+5. キャラ名（矛盾の圧縮・「うっ」と来る名前）
+6. 1 エピソード異常深掘りの対象
+7. 引力の核（源泉＝死角の同一動作）
+8. 最も鋭い自己洗脳フレーズ
+9. have to の「嘘」
+10. **【v5.3 新規】経営インパクト 3 軸（採用 / 離脱・定着 / 躍動 × Before/After）**── 解剖した引力の核が、現在の経営に「採用面接・離脱率・組織の躍動度」にどう出ているか、3 要素を整えるとどう変わるかを各軸 1-2 行で具体化
 11. 4 型判定（整合型／Why ズレ型／才能ズレ型／偏愛ズレ型）
 12. 最大リスク
 13. final-question
+
+★内部分析素材として使うが**レポートには出力しない**項目（260507 v5.3 廃止）：
+- 才能の発火条件・才能が停止する場（経営者向けには過剰情報・分析の判断材料としては保持）
 
 ### トランスクリプト全文
 {$freetext_text}
@@ -927,11 +962,14 @@ $report_html = <<<HTML
   p { margin: 0 0 14px; }
   .core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
   .verb-chain { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 24px; margin: 16px 0 24px; font-size: 11pt; font-weight: 700; color: #0f172a; letter-spacing: 0.02em; text-align: center; line-height: 1.8; }
-  .verb-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 0; margin: 20px 0 28px; padding: 28px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
-  .verb-map-item { flex: 0 1 auto; min-width: 130px; max-width: 180px; text-align: center; padding: 0 18px 0 0; position: relative; }
-  .verb-map-item:not(:last-child)::after { content: '→'; position: absolute; right: -2px; top: 14px; font-size: 16pt; font-weight: 700; color: #0f172a; line-height: 1; }
-  .verb-map-verb { display: inline-block; font-size: 11pt; font-weight: 800; color: #0f172a; background: #fff; border: 2px solid #0f172a; border-radius: 10px; padding: 10px 18px; margin-bottom: 10px; white-space: nowrap; letter-spacing: 0.02em; }
-  .verb-map-source { font-size: 9pt; color: #64748b; line-height: 1.6; padding: 0 4px; }
+  /* 【260507 v5.3 改修】verb-map 縦並びフロー化（横並び破綻 + テキスト切れの解消） */
+  .verb-map { display: flex; flex-direction: column; gap: 36px; margin: 20px 0 28px; padding: 24px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; counter-reset: verb-num; }
+  .verb-map-item { width: 100%; padding: 18px 22px; background: #fff; border: 2px solid #0f172a; border-radius: 10px; text-align: left; position: relative; counter-increment: verb-num; }
+  .verb-map-item::before { content: counter(verb-num, decimal-leading-zero); position: absolute; top: -10px; left: 16px; background: #0f172a; color: #fff; font-size: 9pt; font-weight: 700; padding: 2px 10px; border-radius: 100px; letter-spacing: 0.08em; }
+  .verb-map-item:nth-child(3)::before { content: counter(verb-num, decimal-leading-zero) " ・ UNCONSCIOUS"; background: #dc2626; }
+  .verb-map-item:not(:last-child)::after { content: '↓'; position: absolute; left: 50%; bottom: -32px; transform: translateX(-50%); font-size: 18pt; font-weight: 700; color: #0f172a; line-height: 1; }
+  .verb-map-verb { display: block; font-size: 13pt; font-weight: 800; color: #0f172a; background: transparent; border: none; padding: 0; margin: 4px 0 10px; white-space: normal; letter-spacing: 0.02em; line-height: 1.5; }
+  .verb-map-source { font-size: 9.5pt; color: #475569; line-height: 1.7; padding: 0; text-align: left; }
   .verb-map-arrow { display: none; }
   .numbered-list { counter-reset: nlist; list-style: none; padding: 0; margin: 12px 0 24px; }
   .numbered-list li, .numbered-list > div { counter-increment: nlist; position: relative; padding-left: 32px; margin-bottom: 14px; font-size: 10pt; line-height: 1.8; }
@@ -1008,6 +1046,30 @@ $report_html = <<<HTML
   .env-condition p:last-child { margin-bottom: 0; }
   .env-condition strong { color: #0f172a; }
 
+  /* 【260507 v5.3 新規】Block 0 引力定義ボックス（レポート冒頭・思想開示） */
+  .gravity-definition-box { background: #fffbeb; border: 2px solid #d97706; border-radius: 12px; padding: 24px 28px; margin: 0 0 36px; page-break-inside: avoid; }
+  .gravity-def-label { font-size: 10pt; font-weight: 700; color: #92400e; letter-spacing: 0.1em; margin-bottom: 12px; }
+  .gravity-def-body { font-size: 11pt; line-height: 1.9; color: #78350f; margin: 0 0 16px; }
+  .gravity-def-body strong { color: #d97706; }
+  .gravity-def-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .gravity-def-positive, .gravity-def-negative { background: #fff; padding: 12px 16px; border-radius: 6px; font-size: 10pt; line-height: 1.7; color: #1a1a2e; }
+  .gravity-def-positive { border-left: 3px solid #059669; }
+  .gravity-def-positive strong { color: #047857; }
+  .gravity-def-negative { border-left: 3px solid #dc2626; }
+  .gravity-def-negative strong { color: #991b1b; }
+  .gravity-def-claim { font-size: 11.5pt; font-weight: 700; color: #78350f; text-align: center; margin: 12px 0 0; padding-top: 12px; border-top: 1px dashed #d97706; }
+
+  /* 【260507 v5.3 新規】Block C 経営インパクトボックス（採用/離脱/躍動 3 軸 × Before/After） */
+  .business-impact-box { background: #eff6ff; border: 2px solid #1e40af; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
+  .bi-label { font-size: 10pt; font-weight: 700; color: #1e3a8a; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .bi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .bi-axis { background: #fff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 16px 20px; }
+  .bi-axis-name { display: inline-block; font-size: 10pt; font-weight: 800; color: #fff; background: #1e40af; padding: 3px 12px; border-radius: 100px; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .bi-before, .bi-after { font-size: 10pt; line-height: 1.75; margin: 0 0 6px; color: #1e293b; }
+  .bi-before:last-child, .bi-after:last-child { margin-bottom: 0; }
+  .bi-before strong { color: #991b1b; }
+  .bi-after strong { color: #047857; }
+
   .gravity-core { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 24px; margin: 28px 0; page-break-inside: avoid; }
   .gravity-core h4 { color: #991b1b; margin: 0 0 16px; font-size: 11pt; }
   .core-action { font-size: 11pt; font-weight: 700; color: #991b1b; background: #fff; border-left: 4px solid #dc2626; padding: 12px 16px; margin: 0 0 16px; }
@@ -1045,11 +1107,12 @@ $report_html = <<<HTML
     h3 { font-size: 15px; }
     .core-quote { padding: 16px 18px; font-size: 14px; }
     .verb-chain { padding: 14px 16px; font-size: 13px; }
-    .verb-map { padding: 20px 12px; gap: 20px 0; }
-    .verb-map-item { min-width: 110px; max-width: 150px; padding: 0 14px 0 0; }
-    .verb-map-item:not(:last-child)::after { font-size: 13pt; top: 10px; }
-    .verb-map-verb { font-size: 10.5pt; padding: 8px 14px; margin-bottom: 8px; }
-    .verb-map-source { font-size: 8.5pt; line-height: 1.55; }
+    /* 【260507 v5.3 改修】モバイルも縦並びフロー継承 */
+    .verb-map { padding: 20px 14px; gap: 30px; }
+    .verb-map-item { padding: 16px 18px; }
+    .verb-map-item:not(:last-child)::after { font-size: 16pt; bottom: -27px; }
+    .verb-map-verb { font-size: 12pt; line-height: 1.5; }
+    .verb-map-source { font-size: 9pt; line-height: 1.65; }
     .filter-grid, .manual-grid { grid-template-columns: 1fr; gap: 12px; }
     .process-grid { grid-template-columns: 1fr; gap: 8px; }
     .core-duality { grid-template-columns: 1fr; gap: 10px; }
