@@ -408,6 +408,72 @@ if [ "$WARNINGS" -eq 0 ] && [ "$ERRORS" -eq 0 ]; then
   printf "${GRN}✓${NC} 正本パターン違反なし\n"
 fi
 
+echo ""
+echo "[9] 09_会社OS 膨張抑制ルール B 違反検知（260507 追加・Phase 9 計画化）"
+
+# 思想層 MD（300 行ルール）：Why.md / 引力.md / 会社.md / 参謀.md / 接続装置.md / culture.md
+# 機能系 MD（500 行ルール）：商品.md / 営業.md / 採用.md / カスタマー.md / 法務.md / 社長.md /
+#   バランスホイール.md / AI.md / 発信.md / harness.md / 判断基準.md / design.md / 翻訳.md / 00_README.md
+
+OS_ROOT="/Users/ishiinobuyuki/Documents/Obsidian Vault/09_会社OS"
+SIZE_VIOLATIONS=0
+
+# 9.1 思想層 MD（300 行ルール）
+THOUGHT_MDS=(
+  "公開/経営思想/Why.md"
+  "公開/経営思想/引力.md"
+  "公開/経営思想/会社.md"
+  "公開/経営思想/参謀.md"
+  "公開/経営思想/接続装置.md"
+  "公開/文化/culture.md"
+)
+for md_rel in "${THOUGHT_MDS[@]}"; do
+  md="$OS_ROOT/$md_rel"
+  [ -f "$md" ] || continue
+  lines=$(wc -l < "$md" | tr -d ' ')
+  if [ "$lines" -gt 300 ]; then
+    over=$((lines - 300))
+    printf "${YEL}⚠${NC} 思想層 MD サイズ超過: %s（%d 行・300 行ルール +%d）\n" "$md_rel" "$lines" "$over"
+    WARNINGS=$((WARNINGS + 1))
+    SIZE_VIOLATIONS=$((SIZE_VIOLATIONS + 1))
+  fi
+done
+
+# 9.2 機能系 MD（500 行ルール）
+FUNC_MDS=(
+  "公開/ガイドライン/商品.md"
+  "公開/ガイドライン/design.md"
+  "公開/ガイドライン/翻訳.md"
+  "公開/文化/判断基準.md"
+  "公開/発信・AI/AI.md"
+  "公開/発信・AI/発信.md"
+  "公開/発信・AI/harness.md"
+  "非公開/機能/営業.md"
+  "非公開/機能/採用.md"
+  "非公開/機能/法務.md"
+  "非公開/ガイド/カスタマー.md"
+  "非公開/経営層/社長.md"
+  "非公開/経営層/バランスホイール.md"
+  "00_README.md"
+)
+for md_rel in "${FUNC_MDS[@]}"; do
+  md="$OS_ROOT/$md_rel"
+  [ -f "$md" ] || continue
+  lines=$(wc -l < "$md" | tr -d ' ')
+  if [ "$lines" -gt 500 ]; then
+    over=$((lines - 500))
+    printf "${YEL}⚠${NC} 機能系 MD サイズ超過: %s（%d 行・500 行ルール +%d）\n" "$md_rel" "$lines" "$over"
+    WARNINGS=$((WARNINGS + 1))
+    SIZE_VIOLATIONS=$((SIZE_VIOLATIONS + 1))
+  fi
+done
+
+if [ "$SIZE_VIOLATIONS" -eq 0 ]; then
+  printf "${GRN}✓${NC} 09_会社OS サイズ違反なし\n"
+else
+  printf "  → 詳細・分割計画：04_GrowthFix/02_マーケティング/260508_Phase9_09会社OS分割計画.md\n"
+fi
+
 # ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
