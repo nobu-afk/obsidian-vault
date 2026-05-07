@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRAVITY SCAN｜組織の引力の解剖</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  @page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #e8e8e8; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 15px; line-height: 1.8; color: #1a1a2e; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    max-width: 760px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  }
+  .page { padding: 48px 56px; }
+  .pdf-btn {
+    position: fixed; bottom: 32px; right: 32px; display: flex; align-items: center; gap: 8px;
+    background: #0f172a; color: #fff; font-size: 14px; font-weight: 600;
+    padding: 14px 28px; border: none; border-radius: 100px; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: opacity 0.2s, transform 0.2s;
+    z-index: 9999; letter-spacing: 0.04em;
+  }
+  .pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .pdf-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  @media print {
+    html { background: #fff; }
+  }
+  .section { page-break-inside: avoid; margin-bottom: 36px; }
+  .section-num {
+    display: inline-block; font-size: 9pt; font-weight: 700; color: #fff;
+    background: #0f172a; width: 28px; height: 28px; line-height: 28px;
+    text-align: center; border-radius: 50%; margin-right: 10px; vertical-align: middle;
+  }
+  .section-title {
+    display: inline; font-size: 16pt; font-weight: 800; color: #0f172a;
+    letter-spacing: 0.04em; vertical-align: middle;
+  }
+  .section-line { height: 2px; background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%); margin: 12px 0 28px; }
+  h3 { font-size: 12pt; font-weight: 700; color: #0f172a; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+  h4 { font-size: 10.5pt; font-weight: 700; color: #334155; margin: 20px 0 10px; letter-spacing: 0.02em; }
+  p { margin: 0 0 14px; }
+  .core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
+  .verb-chain { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 24px; margin: 16px 0 24px; font-size: 11pt; font-weight: 700; color: #0f172a; letter-spacing: 0.02em; text-align: center; line-height: 1.8; }
+  /* 勝ち筋ループ図 — ループ感を視覚化 */
+  .loop-chain { background: #f8fafc; border-radius: 16px; padding: 24px 20px 16px; margin: 20px 0 28px; text-align: center; page-break-inside: avoid; }
+  .loop-chain-label { display: inline-block; background: #0f172a; color: #fff; font-size: 9pt; font-weight: 800; letter-spacing: 0.15em; padding: 4px 16px; border-radius: 100px; margin-bottom: 16px; }
+  .loop-chain-circle { position: relative; width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 1; }
+  .loop-chain-arrows { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+  .loop-chain-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #0f172a; color: #fff; font-size: 9pt; font-weight: 700; padding: 16px; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.5; z-index: 2; }
+  .loop-chain-node { position: absolute; background: #0f172a; color: #fff; padding: 8px 14px; border-radius: 8px; width: 180px; text-align: center; z-index: 2; }
+  .loop-chain-node-title { font-size: 9pt; font-weight: 800; margin-bottom: 1px; letter-spacing: 0.02em; line-height: 1.3; white-space: nowrap; }
+  .loop-chain-node-detail { font-size: 7pt; color: #94a3b8; line-height: 1.3; }
+  .loop-chain-top { top: 8%; left: 50%; transform: translateX(-50%); }
+  .loop-chain-right { top: 50%; right: 2%; transform: translateY(-50%); }
+  .loop-chain-bottom { bottom: 8%; left: 50%; transform: translateX(-50%); }
+  .loop-chain-left { top: 50%; left: 2%; transform: translateY(-50%); }
+  .loop-chain-ceo { margin-top: 16px; font-size: 9.5pt; font-weight: 600; color: #dc2626; letter-spacing: 0.02em; }
+  @media screen and (max-width: 500px) {
+    .loop-chain-circle { max-width: 320px; }
+    .loop-chain-node { min-width: 100px; max-width: 120px; padding: 8px 10px; }
+    .loop-chain-node-title { font-size: 8.5pt; }
+    .loop-chain-node-detail { font-size: 7pt; }
+    .loop-chain-center { width: 80px; height: 80px; font-size: 8pt; padding: 12px; }
+  }
+  .numbered-list { counter-reset: nlist; list-style: none; padding: 0; margin: 12px 0 24px; }
+  .numbered-list li { counter-increment: nlist; position: relative; padding-left: 32px; margin-bottom: 14px; font-size: 10pt; line-height: 1.8; }
+  .numbered-list li::before { content: counter(nlist); position: absolute; left: 0; top: 2px; width: 22px; height: 22px; background: #0f172a; color: #fff; border-radius: 50%; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+  .filter-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .filter-col h4 { margin: 0 0 12px; font-size: 10pt; text-transform: none; }
+  .filter-high { background: rgba(15,23,42,0.02); }
+  .filter-low { background: rgba(220,38,38,0.02); }
+  .filter-col ul { list-style: none; padding: 0; }
+  .filter-col li { font-size: 10pt; line-height: 1.8; padding-left: 16px; position: relative; margin-bottom: 6px; }
+  .filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
+  .filter-high li::before { background: #0f172a; }
+  .filter-low li::before { background: #dc2626; opacity: 0.5; }
+  .haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
+  .haveto-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 4px; }
+  .haveto-card p { font-size: 10pt; line-height: 1.8; color: #334155; }
+  /* 構造的課題カード */
+  .issue { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin: 16px 0; page-break-inside: avoid; border-left: 4px solid #0f172a; }
+  .issue h3 { font-size: 12pt; font-weight: 800; color: #0f172a; margin: 0 0 16px; padding: 0; border: none; }
+  .issue p { font-size: 10pt; line-height: 1.8; margin: 0 0 12px; }
+  .issue p:last-child { margin-bottom: 0; }
+  .issue strong { color: #0f172a; }
+  /* アクションリスト */
+  .actions { margin: 16px 0; }
+  .actions h3 { font-size: 11pt; }
+  .actions ol, .actions ul { padding-left: 20px; }
+  .actions li { font-size: 10pt; line-height: 1.8; margin-bottom: 8px; }
+  /* 次のステップ */
+  .next-intro { font-size: 10.5pt; line-height: 1.9; color: #475569; margin-bottom: 20px; }
+  .next-steps { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 24px; }
+  .step-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; }
+  .step-card h4 { font-size: 11pt; font-weight: 700; color: #0f172a; margin: 0 0 6px; }
+  .step-card p { font-size: 9.5pt; color: #64748b; line-height: 1.7; }
+  .step-card--recommended { border-color: #0f172a; background: rgba(15,23,42,0.02); }
+  .scenario-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
+  .scenario-box h4 { margin: 0 0 10px; text-transform: none; }
+  .scenario-box ul { list-style: disc; padding-left: 20px; }
+  .scenario-box li { font-size: 10pt; line-height: 1.8; margin-bottom: 4px; }
+  .manual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+  .manual-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .manual-do { background: rgba(15,23,42,0.02); }
+  .manual-dont { background: rgba(220,38,38,0.02); }
+  .manual-col h4 { margin: 0 0 12px; text-transform: none; }
+  .path-cards { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 24px; }
+  .path-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; position: relative; }
+  .path-card--recommended { border-color: #0f172a; background: rgba(15,23,42,0.02); }
+  .path-badge { position: absolute; top: 14px; right: 14px; font-size: 8pt; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; background: #0f172a; color: #fff; border-radius: 4px; }
+  .path-card h4 { margin: 0 0 6px; font-size: 11pt; text-transform: none; color: #0f172a; }
+  .path-card p { font-size: 9.5pt; color: #64748b; line-height: 1.7; }
+  /* 3つの箱（パーフェクトな意思決定） */
+  .dbox { margin: 20px 0; page-break-inside: avoid; }
+  .dbox-h { color: #fff; padding: 12px 18px; border-radius: 8px 8px 0 0; font-weight: 700; font-size: 11pt; }
+  .dbox-imm .dbox-h { background: #0f172a; }
+  .dbox-info .dbox-h { background: #475569; }
+  .dbox-deadline .dbox-h { background: #94a3b8; }
+  .dbox-b { background: #f8fafc; padding: 16px 20px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px; }
+  .dbox-b > p { font-size: 10pt; line-height: 1.7; margin: 0 0 10px; color: #475569; }
+  .dbox-b ul { margin: 0; padding-left: 20px; }
+  .dbox-b li { font-size: 10pt; line-height: 1.8; margin-bottom: 8px; }
+  .dbox-kpi { color: #64748b; font-size: 9pt; }
+  .analyst-note { background: #f8fafc; border-radius: 8px; padding: 24px 28px; margin: 28px 0; font-size: 10pt; font-style: italic; line-height: 1.9; color: #475569; page-break-inside: avoid; }
+  .analyst-note strong { color: #0f172a; font-style: normal; }
+  /* v5.3 Scan：翻訳マップ（表）・優先順位付きissue・設計図 */
+  .analyst-intro { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border-left: 4px solid #0f172a; padding: 22px 26px; margin: 0 0 28px; font-style: italic; color: #334155; }
+  .analyst-intro p { margin: 0; font-size: 11pt; line-height: 1.8; }
+  .gravity-map-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
+  .gravity-map-box h4 { color: #78350f; font-size: 12pt; margin: 0 0 16px; text-align: center; letter-spacing: 0.04em; }
+  .gravity-map-box > p { font-size: 10.5pt; line-height: 1.9; color: #78350f; margin: 0 0 12px; padding: 10px 14px; background: #fff; border-radius: 6px; }
+  .gravity-map-box > p:last-child { margin-bottom: 0; }
+  .gravity-map-box strong { color: #92400e; }
+  .gi-summary { font-size: 13pt !important; font-weight: 700; color: #78350f; padding: 16px 20px !important; background: #fff; border-left: 4px solid #f59e0b !important; border-radius: 6px; margin: 0 0 20px !important; line-height: 1.7; }
+  /* v1.1（260508）：テーブルの縦書き化を防ぐため table-layout: fixed + 明示的な width 配分 */
+  .gi-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; margin: 0; table-layout: fixed; word-wrap: break-word; }
+  .gi-table thead { background: #fef3c7; }
+  .gi-table th { padding: 10px 12px; font-size: 9.5pt; font-weight: 800; color: #78350f; text-align: left; letter-spacing: 0.04em; vertical-align: middle; }
+  .gi-table td { padding: 12px; font-size: 9.5pt; line-height: 1.6; color: #334155; border-top: 1px solid #fde68a; vertical-align: top; background: #fff; word-break: normal; overflow-wrap: anywhere; }
+  /* type-matrix-box の 4 象限テーブル：3 列・第 1 列ヘッダー + 第 2 列 △ + 第 3 列 ◎ */
+  .type-matrix-box .gi-table th:nth-child(1) { width: 18%; }
+  .type-matrix-box .gi-table th:nth-child(2),
+  .type-matrix-box .gi-table th:nth-child(3) { width: 41%; text-align: center; }
+  .type-matrix-box .gi-table td:nth-child(1) { width: 18%; font-weight: 700; vertical-align: middle; }
+  .type-matrix-box .gi-table td:nth-child(2),
+  .type-matrix-box .gi-table td:nth-child(3) { width: 41%; vertical-align: middle; line-height: 1.5; }
+  /* pulse-7-table の 5 列：# / 項目 / 軸 / スコア / 根拠 */
+  .pulse-7-table .gi-table th:nth-child(1) { width: 5%; }
+  .pulse-7-table .gi-table th:nth-child(2) { width: 18%; }
+  .pulse-7-table .gi-table th:nth-child(3) { width: 8%; text-align: center; }
+  .pulse-7-table .gi-table th:nth-child(4) { width: 9%; text-align: center; }
+  .pulse-7-table .gi-table th:nth-child(5) { width: 60%; }
+  .pulse-7-table .gi-table td:nth-child(1) { width: 5%; text-align: center; font-weight: 700; }
+  .pulse-7-table .gi-table td:nth-child(2) { width: 18%; font-weight: 700; color: #92400e; }
+  .pulse-7-table .gi-table td:nth-child(3) { width: 8%; text-align: center; }
+  .pulse-7-table .gi-table td:nth-child(4) { width: 9%; text-align: center; font-size: 14pt; font-weight: 700; color: #f59e0b; }
+  .pulse-7-table .gi-table td:nth-child(5) { width: 60%; }
+  .gi-table td strong { color: #92400e; font-size: 9pt; letter-spacing: 0.04em; display: block; margin-bottom: 4px; }
+  /* v1.1（260508）：「組織の引力とは」定義ボックス（Block A 最初） */
+  .gravity-definition-box { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0284c7; border-radius: 12px; padding: 22px 26px; margin: 0 0 24px; page-break-inside: avoid; }
+  .gravity-definition-box h4 { color: #075985; font-size: 11.5pt; margin: 0 0 14px; text-align: center; letter-spacing: 0.06em; font-weight: 800; }
+  .gravity-definition-box p { font-size: 10pt; line-height: 1.85; color: #0c4a6e; margin: 0 0 10px; }
+  .gravity-definition-box p:last-child { margin-bottom: 0; }
+  .gravity-definition-box strong { color: #075985; font-weight: 800; }
+  /* issue 優先順位付き */
+  .issue { background: #fff; border-left: 3px solid #cbd5e1; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 14px 0; page-break-inside: avoid; position: relative; }
+  .issue h3 { margin: 0 0 12px; font-size: 11pt; color: #0f172a; padding: 0; border: none; }
+  .issue p { margin: 0 0 8px; font-size: 10pt; line-height: 1.8; color: #334155; }
+  .issue p:last-child { margin-bottom: 0; }
+  .issue strong { color: #0f172a; }
+  .issue--primary { border-left-width: 5px; border-left-color: #dc2626; background: #fef2f2; padding-top: 32px; }
+  .issue--secondary { background: #f8fafc; padding: 14px 18px; }
+  .issue--secondary h3 { font-size: 10.5pt; color: #475569; margin-bottom: 8px; }
+  .issue--secondary p { font-size: 9.5pt; }
+  .issue-priority { position: absolute; top: 10px; left: 22px; font-size: 8pt; font-weight: 800; letter-spacing: 0.1em; padding: 3px 10px; background: #dc2626; color: #fff; border-radius: 4px; text-transform: uppercase; }
+  /* gravity-design-box 優先順位付き */
+  .gravity-design-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin: 14px 0; page-break-inside: avoid; }
+  .gravity-design-box h4 { font-size: 11pt; margin: 0 0 12px; color: #0f172a; }
+  .gravity-design-box p { margin: 0 0 8px; font-size: 10pt; line-height: 1.8; color: #334155; }
+  .gravity-design-box strong { color: #0f172a; }
+  .gravity-design-box--primary { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; padding-top: 36px; position: relative; }
+  .gravity-design-box--primary h4 { color: #78350f; font-size: 12pt; }
+  .gravity-design-box--primary p { color: #78350f; }
+  .gravity-design-box--primary strong { color: #92400e; }
+  .gravity-design-box--secondary { background: #f8fafc; padding: 14px 20px; }
+  .gravity-design-box--secondary h4 { color: #475569; font-size: 10.5pt; margin: 0 0 8px; }
+  .gravity-design-box--secondary p { font-size: 9.5pt; line-height: 1.7; color: #475569; }
+  .gd-priority { position: absolute; top: 12px; left: 24px; font-size: 8pt; font-weight: 800; letter-spacing: 0.1em; padding: 3px 10px; background: #f59e0b; color: #fff; border-radius: 4px; text-transform: uppercase; }
+  /* Scan v6.1（260501 Scan リブート版）: 新クラス名エイリアス */
+  .type-matrix-box, .pulse-7-table, .axis-score-box, .gravity-gap-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
+  .type-matrix-box h4, .pulse-7-table h4, .axis-score-box h4, .gravity-gap-box h4 { color: #78350f; font-size: 12pt; margin: 0 0 16px; text-align: center; letter-spacing: 0.04em; }
+  .type-matrix-box > p, .pulse-7-table > p, .axis-score-box > p, .gravity-gap-box > p { font-size: 10.5pt; line-height: 1.9; color: #78350f; margin: 0 0 12px; padding: 10px 14px; background: #fff; border-radius: 6px; }
+  .type-matrix-box > p:last-child, .pulse-7-table > p:last-child, .axis-score-box > p:last-child, .gravity-gap-box > p:last-child { margin-bottom: 0; }
+  .type-matrix-box strong, .pulse-7-table strong, .axis-score-box strong, .gravity-gap-box strong { color: #92400e; }
+  .gi-rationale { font-size: 10pt !important; color: #78350f; padding: 10px 14px !important; background: #fff !important; border-radius: 6px; margin-top: 16px !important; line-height: 1.7; }
+  .axis-score-box { background: #fffbeb; border: 1px solid #f59e0b; padding: 18px 24px; }
+  .axis-score-box p { background: transparent; padding: 6px 0; font-weight: 600; }
+  .gravity-gap-box { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 2px solid #0f172a; }
+  .gravity-gap-box h4 { color: #0f172a; }
+  .gravity-gap-box > p { color: #334155; }
+  .gravity-gap-box strong { color: #0f172a; }
+  .shift-fit-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin: 14px 0; page-break-inside: avoid; }
+  .shift-fit-box h4 { font-size: 11pt; margin: 0 0 12px; color: #0f172a; }
+  .shift-fit-box p { margin: 0 0 8px; font-size: 10pt; line-height: 1.8; color: #334155; }
+  .shift-fit-box strong { color: #0f172a; }
+  .shift-fit-box--primary { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; padding-top: 36px; position: relative; }
+  .shift-fit-box--primary h4 { color: #78350f; font-size: 12pt; }
+  .shift-fit-box--primary p { color: #78350f; }
+  .shift-fit-box--primary strong { color: #92400e; }
+  .roadmap-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin: 14px 0; page-break-inside: avoid; }
+  .roadmap-box h4 { font-size: 11pt; margin: 0 0 12px; color: #0f172a; }
+  .roadmap-box p { margin: 0 0 10px; font-size: 10pt; line-height: 1.8; color: #334155; padding: 8px 12px; background: #fff; border-left: 3px solid #f59e0b; border-radius: 4px; }
+  .roadmap-box strong { color: #92400e; }
+  .path-card-meta { font-size: 9.5pt; color: #64748b; margin: 0 0 10px !important; letter-spacing: 0.02em; font-weight: 600; }
+  .path-card--small { padding: 12px 16px; font-size: 9.5pt; color: #475569; background: #f8fafc; border-color: #e2e8f0; }
+  .path-card--small strong { color: #0f172a; }
+  .closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 22px 26px; margin: 28px 0; font-style: italic; color: #334155; page-break-inside: avoid; }
+  .closing-note p { margin: 0 0 10px; font-size: 10.5pt; line-height: 1.9; }
+  .closing-note p:last-child { margin-bottom: 0; }
+
+  /* === 問い直し装置（CODE/Scan 共通） === */
+.final-question, .analyst-question-block {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #fff;
+  border-radius: 12px;
+  page-break-inside: avoid;
+  text-align: center;
+}
+.final-question {
+  padding: 32px 36px;
+  margin: 32px 0 24px;
+}
+.analyst-question-block {
+  padding: 28px 32px;
+  margin: 28px 0 32px;
+}
+.analyst-question-divider {
+  width: 40px;
+  height: 2px;
+  background: #94a3b8;
+  margin: 0 auto 16px;
+}
+.final-question-label, .analyst-question-label {
+  display: inline-block;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+.analyst-question-label {
+  border: none;
+  padding: 0;
+  margin-bottom: 14px;
+}
+.final-question-text, .analyst-question-text {
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+}
+.final-question-text {
+  font-size: 13pt;
+  line-height: 1.7;
+}
+.analyst-question-text {
+  font-size: 12pt;
+  line-height: 1.9;
+}
+.analyst-question-text strong {
+  color: #fbbf24;
+  font-weight: 800;
+}
+.final-question-caveat, .analyst-question-caveat {
+  font-size: 10pt;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+.final-question-caveat {
+  margin-bottom: 22px;
+  font-style: normal;
+}
+.final-question-cta {
+  display: inline-block;
+  background: #fff;
+  color: #0f172a;
+  font-size: 11pt;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.final-question-cta:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@media screen and (max-width: 800px) {
+  .final-question, .analyst-question-block {
+    padding: 24px 20px;
+    margin: 24px 0 20px;
+  }
+  .final-question-text, .analyst-question-text {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .final-question-caveat, .analyst-question-caveat {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .final-question-cta {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+}
+
+@media print {
+  .final-question, .analyst-question-block {
+    break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .final-question-cta {
+    background: #0f172a !important;
+    color: #fff !important;
+    border: 2px solid #fff;
+  }
+}
+  .report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
+  .report-footer strong { color: #0f172a; font-size: 10pt; }
+  .page-break { page-break-before: always; }
+  /* スクリーン表示のレスポンシブ */
+  @media screen and (max-width: 800px) {
+    body { max-width: 100%; box-shadow: none; font-size: 14px; }
+    .page { padding: 24px 20px; }
+    .section-title { font-size: 18px; }
+    h3 { font-size: 15px; }
+    .core-quote { padding: 16px 18px; font-size: 14px; }
+    .verb-chain { padding: 14px 16px; font-size: 13px; }
+    .filter-grid, .manual-grid { grid-template-columns: 1fr; gap: 12px; }
+    .path-cards { gap: 10px; }
+    .analyst-note { padding: 18px 20px; }
+    .issue { padding: 18px 20px; }
+    .step-card { padding: 14px 18px; }
+    .pdf-btn { bottom: 16px; right: 16px; padding: 10px 20px; font-size: 13px; }
+  }
+  @media screen and (min-width: 801px) {
+    body { max-width: 760px; }
+  }
+  @media print {
+    body { font-size: 10pt; visibility: visible !important; max-width: none; box-shadow: none; margin: 0; }
+    .page { padding: 0; }
+    .pdf-btn { display: none; }
+    .filter-grid, .manual-grid { break-inside: avoid; }
+    .haveto-card, .path-card, .scenario-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()">
+  <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm2-4v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z"/></svg>
+  PDF保存
+</button>
+<div class="section">
+<div>
+<span class="section-num">01</span>
+<h2 class="section-title">組織の引力タイプ判定</h2>
+</div>
+<div class="section-line"></div>
+</div>
+
+<div class="gravity-definition-box">
+<h4>組織の引力とは</h4>
+<p>組織の引力＝人が離れない・自発的に集まり躍動する「場の力」。経営者個人の引力（CODE = Why × 才能 × 偏愛）が、組織への翻訳を経て立ち上がる。</p>
+<p><strong>集まる軸</strong>（採用パイプ・最終辞退率・自覚度）× <strong>躍動軸</strong>（定着率・幹部発話・エンゲージメント・離脱予兆）の 2 マトリクスで 4 型に分類される。</p>
+<p><strong>事業の天井は、組織の引力の天井である。</strong>このレポートは、あなたの組織の引力タイプを判定し、Pre-Shift 適合パッケージ（Gravity Recruit／Gravity Cultivate／Gravity Shift）を示す。</p>
+</div>
+
+<div class="core-quote">あなたの組織は「拡散型」だ。集まる軸 ◎ × 躍動軸 △ ── 応募はあるが定着しない・優秀幹部が離脱する</div>
+
+<div class="type-matrix-box">
+<h4>組織の引力タイプ（集まる × 躍動 2 マトリクス）</h4>
+<p class="gi-summary">あなたの組織は「拡散型」── 集まる軸 ◎ × 躍動軸 △ の組み合わせ</p>
+<table class="gi-table">
+<thead>
+<tr>
+<th></th>
+<th>集まる軸 △</th>
+<th>集まる軸 ◎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>躍動軸 ◎</strong></td>
+<td>渇望型：既存活きるが採用詰まり → Gravity Recruit</td>
+<td>整合型：両軸機能 → Gravity Orbit 直接</td>
+</tr>
+<tr>
+<td><strong>躍動軸 △</strong></td>
+<td>不毛型：両軸停滞 → Gravity Shift</td>
+<td><strong>拡散型：応募あるが定着せず → Gravity Cultivate</strong></td>
+</tr>
+</tbody>
+</table>
+<p class="gi-rationale"><strong>判定根拠：</strong>採用パイプライン（月 20-30 応募・面接通過率 30%・最終辞退ほぼゼロ）で集まる軸 ◎。一方、過去 2 年で優秀層 2 名離脱・幹部発話ほぼゼロ・エンゲージメント 4.5/7 の横ばい・離脱予兆 1 名で躍動軸 △。</p>
+</div>
+
+<div class="gravity-gap-box">
+<h4>個人引力（CODE） × 組織引力（Scan）のギャップ</h4>
+<p><strong>経営者個人の引力タイプ：</strong>才能ズレ型「任せられない建築家」── Why × 偏愛は機能するが、才能「先回りして答えを準備する」が組織に翻訳されない</p>
+<p><strong>組織の引力タイプ：</strong>拡散型 ── 集まる軸 ◎ × 躍動軸 △</p>
+<p><strong>ギャップの意味：</strong>あなたの才能「先回りして答えを準備する」は、採用面接では発火する（候補者を口説く力＝集まる軸 ◎）。しかし入社後の組織では「正解者がいる場」を生み、メンバーが自分で考える筋肉を育てない構造を作っている（躍動軸 △）。採用力と躍動力のギャップは、あなたの才能が採用と組織運営で正反対の結果を生んでいることに起因する。</p>
+</div>
+
+<div class="page-break"></div>
+
+<div class="section">
+<div>
+<span class="section-num">02</span>
+<h2 class="section-title">引力 7 項目スコアリング</h2>
+</div>
+<div class="section-line"></div>
+</div>
+
+<div class="pulse-7-table">
+<h4>引力 7 項目スコアリング</h4>
+<table class="gi-table">
+<thead>
+<tr>
+<th>#</th>
+<th>項目</th>
+<th>軸</th>
+<th>スコア</th>
+<th>根拠（対話の数値・エピソード）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>採用パイプライン</td>
+<td>集まる</td>
+<td>◎</td>
+<td>エージェント経由で年 3-4 名決定。月 20-30 応募・面接通過率 30%・最終辞退ほぼゼロ。社長自身が最終面接に必ず出る構造で内定承諾率高。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>最終面接辞退率</td>
+<td>集まる</td>
+<td>◎</td>
+<td>最終面接到達後の辞退ほぼゼロ。社長が面接に出続ける口説きで辞退を防いでいる。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>優秀人材定着率</td>
+<td>躍動</td>
+<td>△</td>
+<td>過去 2 年で優秀層 2 名離脱（創業時メンバー 1 名・入社 1 年目シニアマネージャー 1 名）。フェーズ移行についていけず離脱。「社長が先に答えを持っているように感じる」が退職理由。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>幹部発話量</td>
+<td>躍動</td>
+<td>△</td>
+<td>経営会議で幹部 3 名の発議はほぼゼロ。社長が発議し、幹部は方針確認に時間を使う構造。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>エンゲージメント</td>
+<td>躍動</td>
+<td>△</td>
+<td>年 2 回サーベイ実施。スコア 7 段階中 4.5。改善傾向なし。1on1・OKR・識学・人事制度を入れても数値が動かない。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>離脱予兆</td>
+<td>躍動</td>
+<td>△</td>
+<td>直近で 1on1 のトーンが変わった幹部 1 名。次四半期の離脱可能性あり。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>採用最大壁の自覚度</td>
+<td>集まる</td>
+<td>◎</td>
+<td>「私が面接に出続けないと決まらない構造そのものが壁。スケールしない」と経営者本人が言語化できる。採用費 1,000 万 / 年 vs 昇給原資 540 万 / 年の倍率 1.85 倍も把握済。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="axis-score-box">
+<p><strong>集まる軸（1, 2, 7）：</strong>◎ ── 応募・面接通過率・最終辞退率・内定承諾率の全領域で数値が立っている。社長が採用面接に出続ける口説き力で集まる軸を単独で支える。</p>
+<p><strong>躍動軸（3, 4, 5, 6）：</strong>△ ── 優秀層の離脱・幹部発議ゼロ・エンゲージメント横ばい・離脱予兆の 4 項目全てで躍動の欠損が顕在化。1on1・OKR・識学・人事制度・サーベイを全部入れても躍動軸が立ち上がらない。</p>
+</div>
+
+<div class="issue issue--primary">
+<div class="issue-priority">最優先</div>
+<h3>幹部発話量：社長が「正解者」として機能し、幹部が考える筋肉を育てない構造</h3>
+<p><strong>現状：</strong>経営会議で幹部 3 名の発議はほぼゼロ。社長が先回りして答えを準備し、幹部は方針確認に時間を使う。入社 1 年目のシニアマネージャーが「社長が先に答えを持っているように感じる」と退職面談で発言。</p>
+<p><strong>引力欠損の構造：</strong>CODE で特定された才能「先回りして答えを準備する」が、採用面接では口説き力（集まる軸 ◎）を生むが、組織内では「正解者がいる場」を作ってしまう。社長が先回りすることで、幹部が自分で考える必要がなくなり、自律判断の筋肉が萎縮する。1on1・OKR・識学・人事制度といった制度を入れても、制度の外側で社長が「答えを準備する」動きを止めない限り、幹部発話量は増えない。</p>
+<p><strong>結果：</strong>幹部発話量ゼロ → 優秀人材が「自分の役割が分からなくなった」と離脱 → エンゲージメント横ばい → 離脱予兆 1 名。躍動軸の全項目が連鎖的に悪化する。社長が答えを準備し続ける限り、採用力（集まる軸 ◎）と躍動力（躍動軸 △）のギャップは広がり続ける。</p>
+</div>
+
+<div class="issue issue--secondary">
+<h3>副次：優秀人材定着率 ── フェーズ移行時に社長依存が顕在化</h3>
+<p>過去 2 年で優秀層 2 名が「組織のフェーズが変わって自分の役割が分からなくなった」と離脱。創業時は社長の先回りが有効だったが、組織が 30 名を超えると社長の「答えを準備する」が機能不全を起こす。フェーズ移行時に本人が自分で考える筋肉がないことが露呈し、離脱が連鎖する。</p>
+</div>
+
+<div class="page-break"></div>
+
+<div class="section">
+<div>
+<span class="section-num">03</span>
+<h2 class="section-title">Pre-Shift 適合診断＋ 3 ヶ月着手ロードマップ</h2>
+</div>
+<div class="section-line"></div>
+</div>
+
+<div class="shift-fit-box shift-fit-box--primary">
+<div class="gd-priority">推奨</div>
+<h4>Pre-Shift 適合診断：Gravity Cultivate + Coaching 並走パッケージ 128 万・6 ヶ月</h4>
+<p><strong>推奨理由：</strong>組織の引力タイプは拡散型（集まる軸 ◎ × 躍動軸 △）。引力欠損ポイントは「幹部発話量ゼロ」── 社長が先回りして答えを準備する才能が、組織内では「正解者がいる場」を生み、躍動を殺している。Gravity Cultivate（80 万・3 ヶ月）で躍動組織を実装しながら、Gravity Coaching（38 万・6 ヶ月）並走で社長個人の「先回りモード」を「答えのない時間を待つモード」に転換する統合パッケージが標準推奨。C-5 ネガティブ・ケイパビリティ第 1 次判定では「答えのない問題に結論を出さずに留まる」具体例を出せず、C-5 中判定。才能ズレ型の社長が「先回りしない」モードに入るには、組織変革（Gravity Cultivate）と個人整備（Coaching）の並走が必須。</p>
+<p><strong>価格・期間：</strong>Gravity Cultivate + Coaching 並走パッケージ 128 万・6 ヶ月（Scan 10 万 + Cultivate 80 万 + Coaching 38 万）。Coaching 6 ヶ月のうち最初の 3 ヶ月は Gravity Cultivate と並走 → 後半 3 ヶ月は Coaching 単独着地。</p>
+<p><strong>Week 1-2 標準納品物の事前告知：</strong>「3 ヶ月予言の書（躍動組織）」（A/B/C 気づき事前確定・80 万円の理論的根拠）＋「組織 OS 診断書 6 章」（B-21 AI ガラス張り → B-11 バイネーム熱量 → B-1 文化 3 層 → B-2 8 類型 → B-22 組織学習障害診断（4 壁モデル + タスクアセスメント三角形）→ B-10 ペイン・プレジャー）を 12 営業日で共同制作（A4 35-40 ページ・PDF + Notion）。</p>
+<p><strong>C-5 第 2 次判定の事前告知：</strong>Week 1 キックオフで予言の書草稿を読み合わせ「3 ヶ月、答えのない状況を待てるか」を再確認。答えを出さずに留まれない場合は返金 or Coaching 単独転換。</p>
+</div>
+
+<div class="roadmap-box">
+<h4>3 ヶ月着手ロードマップ（Gravity Cultivate + Coaching 並走パッケージの場合）</h4>
+<p><strong>Week 1-2：</strong>「3 ヶ月予言の書（躍動組織）」＋「組織 OS 診断書 6 章」を共同制作。幹部発話量ゼロの構造的原因（社長の「先回りモード」が幹部の自律判断を阻害）を B-22 組織学習障害診断で可視化。Coaching 第 1 回（90 分）で「先回りしない」モードへの転換方法を設計。</p>
+<p><strong>Week 3-6：</strong>躍動施策の優先 2-3 件を実装。①経営会議で社長発議を月 1 回に制限し、幹部発議枠を月 5 回設定。②幹部 1on1 で「答えのない問いを共有して、幹部が自分で答えを出すのを待つ」運用を導入。③離脱予兆幹部 1 名の役割再定義。Coaching 第 2-3 回（90 分 × 2）で社長の「待つ」姿勢を伴走。</p>
+<p><strong>Week 7-12：</strong>躍動 KPI モニタリング（幹部発話量・エンゲージメント・離脱予兆）。ドラムビート 4 周期表（Weekly/Monthly/Quarterly/Annual）を共同設計し、社長が「先回りしない」ルーティンを組織に埋め込む。予言の書 A/B/C 最終採点＋ Gravity Orbit 移行判断。Coaching 第 4-6 回（90 分 × 3）で社長の C-5（答えのない状況に留まる力）を育成しながら、Gravity Orbit 継続運用への移行方針を確定。</p>
+</div>
+
+<div class="future-box">
+<h4>3 ヶ月後、Gravity Cultivate + Coaching 並走実装後の組織像</h4>
+<p><strong>集まる軸の変化：</strong>採用パイプライン（月 20-30 応募・面接通過率 30%・最終辞退ほぼゼロ）は維持。エージェント費 1,000 万 / 年は横ばいだが、社長が面接に出る頻度を月 8 → 月 5 に削減し、幹部が最終面接に同席する構造を導入。採用費 / 昇給原資の倍率 1.85 倍は 1.5 倍以下を目標。</p>
+<p><strong>躍動軸の変化：</strong>幹部発話量を月 0 → 月 5 件に。エンゲージメントを 4.5/7 → 5.5/7 に。離脱予兆の幹部 1 名の役割再定義で離脱を回避。次の四半期の離脱予兆ゼロ。1on1・OKR・識学・人事制度・サーベイの制度群を「社長が先回りしない」運用に書き換え、制度の外側の社長の動きを構造で止める。</p>
+<p><strong>経営者の変化：</strong>才能「先回りして答えを準備する」を採用面接（集まる軸）では発火させ、組織運営（躍動軸）では封印する使い分けを習得。Coaching 6 ヶ月で C-5（答えのない状況に留まる力）を育成し、「幹部が自分で答えを出すのを待つ」姿勢を体得。社長が「待つ」ことで、幹部が考える筋肉を取り戻す組織に転換。</p>
+</div>
+
+<div class="analyst-note">
+<p><strong>最大リスク：</strong>正直に言うと、この拡散型判定を Gravity Cultivate + Coaching 並走に繋げないままだと、組織の引力は「拡散型」のまま固定され、幹部発話量ゼロ（最低スコア項目）が悪化していく。次の四半期で幹部 1 名が離脱し、エンゲージメントは 4.5 → 4.0 に下がる。採用パイプライン（集まる軸 ◎）は機能し続けるが、入った人が活きない構造は変わらない。1on1・OKR・識学・人事制度・サーベイを 10 個入れても、制度の外側であなたが「先回りして答えを準備する」動きを止めない限り、躍動軸は立ち上がらない。Scan が示したのは方角だけだ。次の 3 ヶ月で実装するかどうかは、あなた次第だ。</p>
+</div>
+
+<div class="path-cards">
+<div class="path-card path-card--recommended">
+<span class="path-badge">RECOMMENDED</span>
+<h4>Gravity Cultivate + Coaching 並走パッケージ</h4>
+<p class="path-card-meta">128 万・6 ヶ月（Scan 10 + Cultivate 80 + Coaching 38）</p>
+<p>あなたの組織は拡散型（集まる軸 ◎ × 躍動軸 △）。採用面接では才能「先回りして答えを準備する」が発火するが、組織内では「正解者がいる場」を生んで躍動を殺している。Gravity Cultivate（躍動組織実装）と Coaching（C-5 育成）の並走で、社長個人の「先回りモード」を「答えのない時間を待つモード」に転換しながら、組織の躍動を 3 ヶ月で立ち上げる。</p>
+</div>
+<div class="path-card path-card--small"><strong>Gravity Cultivate 単独（80 万・3 ヶ月）：</strong>C-5（答えのない状況に留まる力）が既に高い経営者向け。社長が「待つ」姿勢を単独で実装できる場合は Coaching 並走なしで躍動組織を実装できる。</div>
+<div class="path-card path-card--small"><strong>Gravity Orbit（月 15 万・継続運用）：</strong>Gravity Cultivate 3 ヶ月完走後、躍動軸が △ → ○ に改善した場合の継続運用。月次 5 KPI レポート（採用パイプ・幹部発話量・エンゲージメント・離脱予兆・採用費 / 昇給原資倍率）で組織の引力を維持。</div>
+</div>
+
+<div class="final-question">
+<div class="final-question-label">最後の問い</div>
+<p class="final-question-text">あなたの組織の躍動の不在は、「人が悪い」のではなく、「あなたが躍動を設計していない」からだとしたら、どうしますか？</p>
+<p class="final-question-caveat">この問いに 30 秒で即答できない場合、組織の引力タイプは固定されている可能性があります。</p>
+<a href="https://growthfix.jp/gravity-cultivate/#pricing" class="final-question-cta">Gravity Cultivate + Coaching 並走パッケージ 体験セッション 30 分無料 →</a>
+</div>
+
+<div class="closing-note">
+<p>私が 50 社診てきて確信したのは、組織の引力タイプは「拡散型」のままでは絶対に変わらないということだ。</p>
+<p>「拡散型」だった会社が、Gravity Cultivate で躍動組織を 3 ヶ月実装した結果、幹部発話量が月 0 → 月 7 件に、エンゲージメントが 4.2/7 → 5.8/7 に、離脱予兆がゼロになった。社長が「先回りして答えを準備する」モードを封印し、「答えのない時間を共有して、幹部が自分で答えを出すのを待つ」モードに転換した結果、優秀人材が活きる組織に変わった。</p>
+<p>あなたの組織にも、同じ道がある。才能「先回りして答えを準備する」を採用面接（集まる軸 ◎）では発火させ、組織運営（躍動軸 △ → ○）では封印する。この使い分けを習得すれば、採用力と躍動力が両立する組織になる。</p>
+</div>
+
+<div class="report-footer">
+<p><strong>GRAVITY SCAN</strong> — 組織の引力タイプ診断・Pre-Shift 適合診断</p>
+</div>
+<div class="report-footer">
+  <p><strong>GRAVITY SCAN</strong> — 組織の引力の解剖</p>
+</div>
+</body>
+</html>
