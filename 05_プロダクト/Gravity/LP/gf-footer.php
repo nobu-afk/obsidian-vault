@@ -40,7 +40,7 @@
                 <ul class="menu_list head">
                     <li class="menu_link">組織軸（経営者×組織）</li>
                     <li class="menu_link">
-                        <a href="<?php echo home_url() ?>/gravity-blueprint/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Blueprint</a>
+                        <a href="<?php echo home_url() ?>/gravity-scan/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Scan</a>
                     </li>
                     <li class="menu_link">
                         <a href="<?php echo home_url() ?>/gravity-scan/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Scan</a>
