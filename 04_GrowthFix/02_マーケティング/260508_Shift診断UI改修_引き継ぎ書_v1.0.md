@@ -1,5 +1,14 @@
 # Shift 診断 UI 改修 引き継ぎ書 v1.0
 
+> **🔴 STATUS: クローズ（2026-05-08 夜）— 改修ではなく廃止に方針転換**
+> 上位 SSOT 検証で「Shift 診断 UI 自体が SSOT 不整合」と判明。
+> Scan = Pre-Shift 適合診断 が SSOT 確定済（260430）／ Shift R/C Week 1-2 は共同制作プロセスであり UI ではない（260501）。
+> よって `/gravity-shift/diagnose/` は **全面廃止 → /gravity-scan/ へ 301 統合**を実施した。
+> **廃止経緯 SSOT：** `memory/project_shift_diagnose_ui_abolished_260508.md`
+> **本書（改修プラン §1-§8）は歴史記録として保存**。今後 Shift 診断 UI を再構築する場合のみ参照。
+
+---
+
 > **ミッション：** Gravity Shift 診断 UI（`/gravity-shift/diagnose/`）を、260430 Scan リブート + 採用基盤実装書 12 要素 SSOT に整合させる。
 > **発生経緯：** 2026-05-07 夜の LP SSOT 整合チェック（13 LP 並列実装）で、診断 UI のみ機械的修正不可レベル（構造変更）と判定されエスカレーション。本セッションで Step A/B（軽微 + リライト）は処理済み、本書は Step C 専用。
 > **位置付け：** 引き継ぎ書 v1.0（既存・19 タスク）の **TASK-2 R/C 営業資料 v0.2** の関連タスク。診断 UI は Shift R/C/Full 受講前提のオペレーション基盤で、Phase 1 採用市場集中軸の根幹。

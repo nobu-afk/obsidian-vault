@@ -128,7 +128,9 @@ GrowthFix のデザインは、**経営者を引き止める引力場**として
 
 **適用ページ（19 本）：** コーポレート 11（top / service / profile / contact / knowledge / news / news/gravity-release / news/site-renewal / privacy-policy / achievement / whitepaper）／LP 6（gravity / code / blueprint / coaching / shift / orbit）／診断 UI 2（CODE/executive・Scan/diagnose）
 
-**適用対象外：** `gravity-code/diagnose/`（CODE 診断システム）／`gravity-shift/diagnose/`（Shift 内部ダッシュボード）── 独自 UI のため
+**適用対象外：** `gravity-code/diagnose/`（CODE 診断システム）── 独自 UI のため
+
+**廃止履歴：** `gravity-shift/diagnose/` は 260508 廃止 → `/gravity-scan/` へ 301 統合。詳細：`memory/project_shift_diagnose_ui_abolished_260508.md`
 
 **設計方針：**
 - 768px 以下：見出し clamp 化、container 強制 100% 幅、横並び縦積み化
