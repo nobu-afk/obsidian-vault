@@ -1,5 +1,17 @@
 # Gravity Shift v2 要件定義（260422・SCAN統合版）
 
+> **🔴 STATUS: 歴史的設計書（前提崩壊済）**
+> 本書の前提は以下で複数回上書きされている：
+> - 260430 夕：Scan リブート（Pre-Shift 適合診断・組織引力 4 型）── SCAN 独立廃止判断を取消
+> - 260501：Shift R/C/Full 分割確定（採用基盤 12 要素 + 躍動診断 5 件納品物）
+> - 260508：`/gravity-shift/diagnose/` 全面廃止 → /gravity-scan/ へ 301 統合
+>
+> **現行 SSOT：** `memory/project_strategy_lock_260430.md` / `memory/project_scan_reboot_260430.md` / `memory/project_shift_rc_specs_260501.md` / `memory/project_shift_diagnose_ui_abolished_260508.md`
+>
+> **本書は歴史記録として保存。新規参照は現行 SSOT を優先。**
+
+---
+
 > **確定日：** 2026-04-22（水）夜
 > **起点：** SCAN v5壁打ち後にSCAN独立サービス廃止を決定。Shift を「Week 1-2 組織実装整合診断＋Week 3-12 実装伴走」の3ヶ月2フェーズ構造に再設計
 
