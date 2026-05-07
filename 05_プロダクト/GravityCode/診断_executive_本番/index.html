@@ -25,61 +25,24 @@
 <body>
 
 <!-- ============================================================== -->
-<!-- ===== STEP 1: 痛み選択画面（外的フック・260430 5層モデル v6.0） ===== -->
+<!-- ===== STEP 1: 接続装置ブリッジ画面（260507 v5.3.4 改修・痛み選択廃止で初期 active 化） ===== -->
 <!-- ============================================================== -->
-<div id="screen-pain" class="screen active">
+<div id="screen-bridge" class="screen active">
   <div class="intro-container">
-    <span class="badge">STEP 1 ／ 4 — 現場の痛みを選ぶ</span>
-    <h1 style="font-size:28px;line-height:1.55;">あなたが今、<br>最も苦しんでいる現場の痛みは？</h1>
-    <p class="intro-subtitle">該当するもの 1 つを選んでください（30 秒）</p>
-
-    <div id="pain-options" style="margin:32px 0;text-align:left;">
-      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
-        <input type="radio" name="pain" value="A5_面接で口説けない" style="margin-right:10px;accent-color:#0f172a;">
-        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">面接で 30 分話しても、候補者の目に火が点かない</span>
-      </label>
-      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
-        <input type="radio" name="pain" value="D5_経営合宿で響かない" style="margin-right:10px;accent-color:#0f172a;">
-        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">経営合宿でビジョンを語ったが、自分でも響かなかった</span>
-      </label>
-      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
-        <input type="radio" name="pain" value="CODE主訴_自分の勝負1行" style="margin-right:10px;accent-color:#0f172a;">
-        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">自分が何で勝負しているのか、1 行で言えない</span>
-      </label>
-      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
-        <input type="radio" name="pain" value="A6_採用基準曖昧" style="margin-right:10px;accent-color:#0f172a;">
-        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">採用基準が社内で 3 回揉めた</span>
-      </label>
-      <label class="pain-option" style="display:block;padding:18px 22px;margin-bottom:12px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all 0.15s;">
-        <input type="radio" name="pain" value="D5_輸入語化" style="margin-right:10px;accent-color:#0f172a;">
-        <span style="font-size:14.5px;color:#0f172a;line-height:1.65;">自分の言葉が、いつの間にかコンサルの輸入語になっている</span>
-      </label>
-    </div>
-
-    <button class="btn-primary" id="btn-pain-next" onclick="App.proceedToBridge()" disabled style="opacity:0.5;cursor:not-allowed;">次へ進む</button>
-    <p style="font-size:12px;color:#94a3b8;margin-top:14px;line-height:1.7;">どれもしっくりこない場合は、最も近いものを 1 つ選んでください。<br>選んだ痛みは、レポートで「あなたの引力源がどう解決するか」と接続されます。</p>
-  </div>
-</div>
-
-<!-- ============================================================== -->
-<!-- ===== STEP 2: 外→内転換ブリッジ画面（260430 5層モデル v6.0） ===== -->
-<!-- ============================================================== -->
-<div id="screen-bridge" class="screen">
-  <div class="intro-container">
-    <span class="badge">STEP 2 ／ 4 — 痛みの本当の原因</span>
-    <h1 style="font-size:28px;line-height:1.55;">これは、<br>採用力の問題ではない。</h1>
+    <span class="badge">STEP 1 ／ 3 — なぜ「自分の言葉」が借り物になるのか</span>
+    <h1 style="font-size:28px;line-height:1.55;">採用も、組織も、発信も。<br>すべての答えは、経営者個人にある。</h1>
 
     <div style="background:#0f172a;color:#fff;padding:32px 36px;border-radius:12px;margin:32px 0;text-align:left;">
       <p style="font-family:'Noto Serif JP',serif;font-size:18px;line-height:1.7;color:#fff;font-weight:800;margin:0 0 16px;letter-spacing:0.02em;">
-        あなたが選んだ痛みの<br>本当の原因は何か。
+        経営者が直面する痛みの<br>本当の原因は何か。
       </p>
       <p style="font-size:13px;line-height:1.95;color:#cbd5e1;margin:0 0 18px;">
         対面で経営者と「自分の Why」を言語化する現場で、何度も見てきたのは、ある構造でした。<br><br>
         経営者は組織を動かすために、社員に「分かりやすい言葉」を選び続ける。その繰り返しで、<strong style="color:#fff;">自分の本当の Why（根源動機）が、誰かに伝えるための「翻訳された Why」に上書きされていく</strong>。
       </p>
       <p style="font-size:13px;line-height:1.95;color:#cbd5e1;margin:0;">
-        結果、経営合宿でビジョンを語っても、自分自身に響かない。面接で口説いても、候補者の目に火が点かない。<br><br>
-        原因は採用力ではなく、<strong style="color:#fbbf24;">経営者個人の引力源（Why × 才能 × 偏愛）が言語化されていない</strong>こと。
+        結果、経営合宿でビジョンを語っても、自分自身に響かない。面接で口説いても、候補者の目に火が点かない。組織は経営者の言葉を待つだけになる。<br><br>
+        原因は採用力でも組織力でも発信力でもなく、<strong style="color:#fbbf24;">経営者個人の引力源（Why × 才能 × 偏愛）が言語化されていない</strong>こと。
       </p>
     </div>
 
@@ -89,14 +52,13 @@
     </p>
 
     <button class="btn-primary" onclick="App.proceedToIntro()">60 分の解剖を始める</button>
-    <button class="btn-secondary" onclick="App.showScreen('screen-pain')" style="margin-top:12px;display:block;width:100%;">痛みの選択に戻る</button>
   </div>
 </div>
 
-<!-- ===== STEP 3 INTRO ===== -->
+<!-- ===== STEP 2 INTRO（260507 v5.3.4 改修・STEP 番号変更） ===== -->
 <div id="screen-intro" class="screen">
   <div class="intro-container">
-    <span class="badge">GRAVITY CODE</span>
+    <span class="badge">STEP 2 ／ 3 — 診断の準備</span>
     <h1>YOUR GRAVITY CODE</h1>
     <p class="intro-subtitle">あなたの引力の暗号を、60分で解読する</p>
 
@@ -140,7 +102,7 @@
 <!-- ===== SESSION PREVIEW (after 5 questions・その場でセッション開始) ===== -->
 <div id="screen-preview" class="screen">
   <div class="intro-container" style="max-width:720px;">
-    <span class="badge">STEP 2 — セッション開始準備</span>
+    <span class="badge">STEP 3 ／ 3 — セッション開始準備</span>
     <h1 style="font-size:26px;">選択式ありがとうございました</h1>
     <p class="intro-subtitle">このあと、コーチと60分のセッションに入ります</p>
 
@@ -224,8 +186,6 @@
 <script src="app.js"></script>
 <script>
   App.init();
-  // v6.0 260430: Step 1 痛み選択画面のセットアップ
-  if (App.setupPainScreen) App.setupPainScreen();
 </script>
 </body>
 </html>

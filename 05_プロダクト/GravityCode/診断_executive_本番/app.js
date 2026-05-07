@@ -106,65 +106,12 @@ const App = {
   currentIndex: 0,
   answers: new Array(QUESTIONS.length).fill(null),
   coverageChecks: [false, false, false, false, false],
-  painSelection: null,  // v6.0 260430: Step 1 で選択された外的痛み
   isSubmitting: false,
   _autoAdvanceTimer: null,
 
-  // v6.0 260430: Step 1 痛み選択画面のラジオハンドラ
-  setupPainScreen() {
-    const radios = document.querySelectorAll('input[name="pain"]');
-    const btn = document.getElementById('btn-pain-next');
-    radios.forEach(r => {
-      r.addEventListener('change', (e) => {
-        if (e.target.checked) {
-          this.painSelection = e.target.value;
-          if (btn) {
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            btn.style.cursor = 'pointer';
-          }
-          // ラジオボタンの選択状態をビジュアル化
-          document.querySelectorAll('.pain-option').forEach(label => {
-            const input = label.querySelector('input[type="radio"]');
-            if (input && input.checked) {
-              label.style.background = '#0f172a';
-              label.style.color = '#fff';
-              label.style.borderColor = '#0f172a';
-              const span = label.querySelector('span');
-              if (span) span.style.color = '#fff';
-            } else {
-              label.style.background = '#fff';
-              label.style.color = '';
-              label.style.borderColor = '#e2e8f0';
-              const span = label.querySelector('span');
-              if (span) span.style.color = '#0f172a';
-            }
-          });
-        }
-      });
-    });
-    // ラジオラベルにホバーエフェクト
-    document.querySelectorAll('.pain-option').forEach(label => {
-      label.addEventListener('mouseenter', () => {
-        const input = label.querySelector('input[type="radio"]');
-        if (input && !input.checked) label.style.background = '#f8fafc';
-      });
-      label.addEventListener('mouseleave', () => {
-        const input = label.querySelector('input[type="radio"]');
-        if (input && !input.checked) label.style.background = '#fff';
-      });
-    });
-  },
+  // 260507 v5.3.4 改修：STEP 1 痛み選択廃止に伴い setupPainScreen / proceedToBridge / painSelection を撤去。
+  // ブリッジ画面（screen-bridge）が初期 active になり、ユーザーは「60 分の解剖を始める」ボタンで proceedToIntro へ進む
 
-  // v6.0 260430: Step 1 → Step 2 ブリッジ画面へ
-  proceedToBridge() {
-    if (!this.painSelection) return;
-    this.track('diagnosis_pain_selected', { pain: this.painSelection });
-    this.showScreen('screen-bridge');
-    window.scrollTo(0, 0);
-  },
-
-  // v6.0 260430: Step 2 → Step 3 既存の screen-intro へ
   proceedToIntro() {
     this.showScreen('screen-intro');
     window.scrollTo(0, 0);
