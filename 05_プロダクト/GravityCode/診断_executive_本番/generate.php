@@ -219,21 +219,21 @@ $system_prompt = <<<'SYSTEM'
 4. 引力の核（gravity-core）— 源泉=死角の同一動作を作用/副作用で表現
 5. 自己洗脳の指摘（通常段落1つ）— 最も鋭い1つだけ
 
-### 【Block C：本来に戻すための一手】（オチ・経営インパクト紐付け）
-1. **★統合マップ（gravity-integration）**— Block C の冒頭に置く。Block A/B で見てきた要素（Why × 才能 × 偏愛 → 引力の核）を統合し、判定と最大リスクを初出しで提示。ここがオチの起点となる
-2. **【NEW】経営インパクト（business-impact-box・260507 v5.3 新規）**
-   - 採用・離脱・躍動 の 3 軸で「Before：あなたの引力が今の経営にこう出ている」「After：3 要素を整えるとこう変わる」を提示
-   - 各軸 Before/After で 1-2 行・具体ベネフィット型
-   - 配置：gravity-integration の直後・haveto-card の前
-   - HTML class: `<div class="business-impact-box">`
-3. have to + 嘘 + 剥がした先（haveto-card）
-4. 5年後シナリオ（future-box）— 剥がした版のみ
-5. ★一撃3：analyst-note（最大リスク、石井一人称「正直に言うと〜」）
-6. 4型判定（type-judgment）
-7. path-cards（判定型と連動）
+### 【Block C：本来に戻すための一手】（オチ・経営インパクト紐付け・260507 v5.3.1 順序再構築）
+1. **★統合マップ（gravity-integration）**— Block C の冒頭。3 要素整合解剖と引力の核・判定・最大リスクを初出しで提示
+2. **【NEW】経営インパクト（business-impact-box・★商品.md SSOT 整合）**
+   - **採用 / 組織 / 発信 の 3 軸**（商品.md 1 文 SSOT 整合）
+   - 各軸 Before（現状）/ After（整合後）で 1-2 行・具体ベネフィット型
+3. **★一撃3：analyst-note（最大リスク・石井一人称「正直に言うと〜」）**── ★260507 v5.3.1 順序変更：haveto-card の前に移動。「現状把握 → 警告」の流れを作る
+4. **have to + 嘘 + 剥がした先（haveto-card）**── analyst-note の警告を受けた具体的な剥がし方
+5. **5年後シナリオ（future-box）**── 剥がした先のビジョン（剥がし版のみ）。Block C 後半をポジティブで締める
+6. 4型判定（type-judgment）── 推奨型確定
+7. path-cards（判定型と連動）── 次の一手
 8. final-question（即答不能の問い）
 9. closing-note（石井一人称・締め）
 10. report-footer
+
+**Block C 流れ（260507 v5.3.1）：**「整理（統合）→ 現状（経営インパクト）→ 警告（analyst-note）→ 解決（haveto-card）→ 未来（future-box）→ 推奨（type-judgment + path-cards）→ 問い（final-question）→ 締め（closing-note）」── 感情カーブ：解剖完了 → 客観把握 → 危機感 → 解決策 → 希望 → 行動 → 余韻
 
 ## 4 型判定（Block C で必ず明示・260430 A' 案・整合度ベース＋偏愛追加）
 
@@ -404,16 +404,20 @@ path-cards の説明文では、以下の正確な情報を使うこと：
       <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
     </div>
     <div class="bi-axis">
-      <div class="bi-axis-name">離脱・定着</div>
-      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、幹部離脱や定着率にこう出ている（1-2 行・具体）]</p>
+      <div class="bi-axis-name">組織</div>
+      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、幹部離脱・定着・組織運営にこう出ている（1-2 行・具体）]</p>
       <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
     </div>
     <div class="bi-axis">
-      <div class="bi-axis-name">躍動</div>
-      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、組織の躍動や次世代育成にこう出ている（1-2 行・具体）]</p>
+      <div class="bi-axis-name">発信</div>
+      <p class="bi-before"><strong>Before：</strong>[現状の引力の使い方が、経営者の発信・言語化・対外メッセージにこう出ている（1-2 行・具体）]</p>
       <p class="bi-after"><strong>After：</strong>[3 要素を整えるとこう変わる（1-2 行・具体）]</p>
     </div>
   </div>
+</div>
+
+<div class="analyst-note">
+  <p><strong>最大リスク：</strong>正直に言うと、あなたの引力が最も殺される環境は○○だ。今の経営にその兆候がある。このレポートが見つけた矛盾には、もう1層深い理由がある。それは60分では辿り着けなかった。</p>
 </div>
 
 <div class="haveto-card">
@@ -426,10 +430,6 @@ path-cards の説明文では、以下の正確な情報を使うこと：
 <div class="future-box">
   <h4>5年後、引力を取り戻したあなた</h4>
   <p>[具体的で魅力的な1段落]</p>
-</div>
-
-<div class="analyst-note">
-  <p><strong>最大リスク：</strong>正直に言うと、あなたの引力が最も殺される環境は○○だ。今の経営にその兆候がある。このレポートが見つけた矛盾には、もう1層深い理由がある。それは60分では辿り着けなかった。</p>
 </div>
 
 <div class="type-judgment">
@@ -768,7 +768,7 @@ if ($is_transcript_mode) {
 7. 引力の核（源泉＝死角の同一動作）
 8. 最も鋭い自己洗脳フレーズ
 9. have to の「嘘」
-10. **【v5.3 新規】経営インパクト 3 軸（採用 / 離脱・定着 / 躍動 × Before/After）**── 解剖した引力の核が、現在の経営に「採用面接・離脱率・組織の躍動度」にどう出ているか、3 要素を整えるとどう変わるかを各軸 1-2 行で具体化
+10. **【v5.3 新規・商品.md SSOT 整合】経営インパクト 3 軸（採用 / 組織 / 発信 × Before/After）**── 解剖した引力の核が、現在の経営に「採用面接・組織運営・経営者の発信や言葉」にどう出ているか、3 要素を整えるとどう変わるかを各軸 1-2 行で具体化
 11. 4 型判定（整合型／Why ズレ型／才能ズレ型／偏愛ズレ型）
 12. 最大リスク
 13. final-question
@@ -1018,8 +1018,9 @@ $report_html = <<<HTML
   /* 統合マップ（gravity-integration）— Block C冒頭：Block A/Bを統合してオチの起点にする */
   .gravity-integration { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 2px solid #0f172a; border-radius: 12px; padding: 28px 24px; margin: 32px 0 20px; page-break-inside: avoid; }
   .gravity-integration h4 { color: #0f172a; font-size: 11.5pt; margin: 0 0 20px; text-align: center; letter-spacing: 0.02em; }
-  .gi-formula { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 16px 0 24px; }
-  .gi-element { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px 16px; min-width: 130px; max-width: 180px; text-align: center; }
+  /* 【260507 v5.3.1 改修】3 要素を 3 列固定で折り返し回避 */
+  .gi-formula { display: flex; align-items: stretch; gap: 8px; flex-wrap: nowrap; justify-content: center; margin: 16px 0 24px; }
+  .gi-element { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px 14px; flex: 1 1 0; min-width: 0; max-width: none; text-align: center; }
   .gi-label { display: block; font-size: 8.5pt; color: #64748b; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 6px; }
   .gi-value { display: block; font-size: 11pt; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 4px; }
   .gi-status { display: block; font-size: 9pt; font-style: italic; color: #64748b; margin-top: 4px; }
@@ -1046,18 +1047,16 @@ $report_html = <<<HTML
   .env-condition p:last-child { margin-bottom: 0; }
   .env-condition strong { color: #0f172a; }
 
-  /* 【260507 v5.3 新規】Block 0 引力定義ボックス（レポート冒頭・思想開示） */
-  .gravity-definition-box { background: #fffbeb; border: 2px solid #d97706; border-radius: 12px; padding: 24px 28px; margin: 0 0 36px; page-break-inside: avoid; }
-  .gravity-def-label { font-size: 10pt; font-weight: 700; color: #92400e; letter-spacing: 0.1em; margin-bottom: 12px; }
-  .gravity-def-body { font-size: 11pt; line-height: 1.9; color: #78350f; margin: 0 0 16px; }
-  .gravity-def-body strong { color: #d97706; }
-  .gravity-def-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
-  .gravity-def-positive, .gravity-def-negative { background: #fff; padding: 12px 16px; border-radius: 6px; font-size: 10pt; line-height: 1.7; color: #1a1a2e; }
-  .gravity-def-positive { border-left: 3px solid #059669; }
+  /* 【260507 v5.3.1 改修】Block 0 引力定義ボックス（過剰装飾削除・左帯アクセントのみ） */
+  .gravity-definition-box { background: transparent; border: none; border-left: 4px solid #0f172a; border-radius: 0; padding: 6px 22px 8px; margin: 0 0 36px; page-break-inside: avoid; }
+  .gravity-def-label { font-size: 10pt; font-weight: 700; color: #0f172a; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .gravity-def-body { font-size: 11pt; line-height: 1.9; color: #1a1a2e; margin: 0 0 12px; }
+  .gravity-def-body strong { color: #0f172a; }
+  .gravity-def-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin: 8px 0 12px; }
+  .gravity-def-positive, .gravity-def-negative { background: transparent; padding: 4px 0; border-radius: 0; border: none; font-size: 10pt; line-height: 1.7; color: #1a1a2e; }
   .gravity-def-positive strong { color: #047857; }
-  .gravity-def-negative { border-left: 3px solid #dc2626; }
   .gravity-def-negative strong { color: #991b1b; }
-  .gravity-def-claim { font-size: 11.5pt; font-weight: 700; color: #78350f; text-align: center; margin: 12px 0 0; padding-top: 12px; border-top: 1px dashed #d97706; }
+  .gravity-def-claim { font-size: 11.5pt; font-weight: 700; color: #0f172a; text-align: left; margin: 4px 0 0; padding-top: 0; border-top: none; }
 
   /* 【260507 v5.3 新規】Block C 経営インパクトボックス（採用/離脱/躍動 3 軸 × Before/After） */
   .business-impact-box { background: #eff6ff; border: 2px solid #1e40af; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
