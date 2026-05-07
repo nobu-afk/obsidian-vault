@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR GRAVITY CODE｜あなたの引力の暗号</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  @page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #e8e8e8; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 15px; line-height: 1.8; color: #1a1a2e; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    max-width: 760px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  }
+  .page { padding: 48px 56px; }
+  .pdf-btn {
+    position: fixed; bottom: 32px; right: 32px; display: flex; align-items: center; gap: 8px;
+    background: #0f172a; color: #fff; font-size: 14px; font-weight: 600;
+    padding: 14px 28px; border: none; border-radius: 100px; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: opacity 0.2s, transform 0.2s;
+    z-index: 9999; letter-spacing: 0.04em;
+  }
+  .pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .pdf-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  @media print {
+    html { background: #fff; }
+  }
+  .section { page-break-inside: avoid; margin-bottom: 36px; }
+  .section-num {
+    display: inline-block; font-size: 9pt; font-weight: 700; color: #fff;
+    background: #0f172a; width: 28px; height: 28px; line-height: 28px;
+    text-align: center; border-radius: 50%; margin-right: 10px; vertical-align: middle;
+  }
+  .section-title {
+    display: inline; font-size: 16pt; font-weight: 800; color: #0f172a;
+    letter-spacing: 0.04em; vertical-align: middle;
+  }
+  .section-line { height: 2px; background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%); margin: 12px 0 28px; }
+  h3 { font-size: 12pt; font-weight: 700; color: #0f172a; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+  h4 { font-size: 10.5pt; font-weight: 700; color: #334155; margin: 20px 0 10px; letter-spacing: 0.02em; }
+  p { margin: 0 0 14px; }
+  .core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
+  .verb-chain { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 24px; margin: 16px 0 24px; font-size: 11pt; font-weight: 700; color: #0f172a; letter-spacing: 0.02em; text-align: center; line-height: 1.8; }
+  .verb-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 0; margin: 20px 0 28px; padding: 28px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
+  .verb-map-item { flex: 0 1 auto; min-width: 130px; max-width: 180px; text-align: center; padding: 0 18px 0 0; position: relative; }
+  .verb-map-item:not(:last-child)::after { content: '→'; position: absolute; right: -2px; top: 14px; font-size: 16pt; font-weight: 700; color: #0f172a; line-height: 1; }
+  .verb-map-verb { display: inline-block; font-size: 11pt; font-weight: 800; color: #0f172a; background: #fff; border: 2px solid #0f172a; border-radius: 10px; padding: 10px 18px; margin-bottom: 10px; white-space: nowrap; letter-spacing: 0.02em; }
+  .verb-map-source { font-size: 9pt; color: #64748b; line-height: 1.6; padding: 0 4px; }
+  .verb-map-arrow { display: none; }
+  .numbered-list { counter-reset: nlist; list-style: none; padding: 0; margin: 12px 0 24px; }
+  .numbered-list li, .numbered-list > div { counter-increment: nlist; position: relative; padding-left: 32px; margin-bottom: 14px; font-size: 10pt; line-height: 1.8; }
+  .numbered-list li::before, .numbered-list > div::before { content: counter(nlist); position: absolute; left: 0; top: 2px; width: 22px; height: 22px; background: #0f172a; color: #fff; border-radius: 50%; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+  .filter-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .filter-col h4 { margin: 0 0 12px; font-size: 10pt; text-transform: none; }
+  .filter-high { background: rgba(15,23,42,0.02); }
+  .filter-low { background: rgba(220,38,38,0.02); }
+  .filter-col ul { list-style: none; padding: 0; }
+  .filter-col li { font-size: 10pt; line-height: 1.8; padding-left: 16px; position: relative; margin-bottom: 6px; }
+  .filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
+  .filter-high li::before { background: #0f172a; }
+  .filter-low li::before { background: #dc2626; opacity: 0.5; }
+  .haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; page-break-inside: avoid; }
+  .haveto-tag { display: inline-block; font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 6px; }
+  .haveto-card h4 { margin: 0 0 12px; color: #991b1b; font-size: 11.5pt; }
+  .haveto-card p { font-size: 10pt; line-height: 1.8; color: #334155; margin-bottom: 10px; }
+  .haveto-card p:last-child { margin-bottom: 0; }
+  .haveto-card strong { color: #991b1b; }
+  .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 24px; }
+  .process-item { padding: 14px 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; }
+  .process-verb { font-size: 10pt; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+  .process-item p { font-size: 9pt; color: #64748b; line-height: 1.7; }
+  .scenario-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
+  .scenario-box h4 { margin: 0 0 10px; text-transform: none; }
+  .scenario-box ul { list-style: disc; padding-left: 20px; }
+  .scenario-box li { font-size: 10pt; line-height: 1.8; margin-bottom: 4px; }
+  .manual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+  .manual-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .manual-do { background: rgba(15,23,42,0.02); }
+  .manual-dont { background: rgba(220,38,38,0.02); }
+  .manual-col h4 { margin: 0 0 12px; text-transform: none; }
+  .path-cards { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 28px; }
+  .path-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; position: relative; background: #fff; }
+  .path-card--recommended { border-color: #0f172a; border-width: 2px; background: rgba(15,23,42,0.04); padding-top: 38px; }
+  .path-badge { position: absolute; top: 12px; left: 20px; font-size: 8pt; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; background: #0f172a; color: #fff; border-radius: 4px; }
+  .path-card h4 { margin: 0 0 8px; font-size: 11.5pt; text-transform: none; color: #0f172a; }
+  .path-card p { font-size: 10pt; color: #334155; line-height: 1.7; margin: 0; }
+  .analyst-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 24px 28px; margin: 28px 0; font-size: 10pt; font-style: italic; line-height: 1.9; color: #475569; page-break-inside: avoid; }
+  .analyst-note strong { color: #0f172a; font-style: normal; }
+
+  /* v5.1: 新要素CSS（Why宣言・環境条件・引力の核・5年後・4型判定・締め・小型path） */
+  .time-axis { font-style: italic; color: #64748b; margin: 16px 0 28px; padding-left: 16px; border-left: 2px solid #cbd5e1; font-size: 11pt; line-height: 1.8; }
+
+  /* 統合マップ（gravity-integration）— Block C冒頭：Block A/Bを統合してオチの起点にする */
+  .gravity-integration { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 2px solid #0f172a; border-radius: 12px; padding: 28px 24px; margin: 32px 0 20px; page-break-inside: avoid; }
+  .gravity-integration h4 { color: #0f172a; font-size: 11.5pt; margin: 0 0 20px; text-align: center; letter-spacing: 0.02em; }
+  .gi-formula { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 16px 0 24px; }
+  .gi-element { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px 16px; min-width: 130px; max-width: 180px; text-align: center; }
+  .gi-label { display: block; font-size: 8.5pt; color: #64748b; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .gi-value { display: block; font-size: 11pt; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 4px; }
+  .gi-status { display: block; font-size: 9pt; font-style: italic; color: #64748b; margin-top: 4px; }
+  .gi-operator { font-size: 18pt; font-weight: 800; color: #0f172a; flex: 0 0 auto; }
+  .gi-result { text-align: center; margin: 20px 0 16px; }
+  .gi-arrow { display: block; font-size: 18pt; color: #0f172a; margin: 8px 0; line-height: 1; font-weight: 700; }
+  .gi-core { background: #fff; border-left: 4px solid #dc2626; padding: 14px 20px; margin: 10px auto 0; max-width: 560px; font-size: 11pt; color: #0f172a; text-align: left; }
+  .gi-core strong { color: #991b1b; }
+  .gi-judgment { text-align: center; margin: 16px 0 0; }
+  .gi-type, .gi-risk { background: #fff; padding: 10px 18px; margin: 8px auto; max-width: 560px; border-radius: 6px; font-size: 10.5pt; color: #0f172a; text-align: left; line-height: 1.7; }
+  .gi-type { border-left: 4px solid #3b82f6; }
+  .gi-type strong { color: #1e40af; }
+  .gi-risk { border-left: 4px solid #0f172a; }
+  .gi-reading-guide { font-size: 9.5pt; color: #64748b; text-align: center; margin: 20px 0 0; font-style: italic; padding-top: 14px; border-top: 1px dashed #cbd5e1; }
+
+  .path-card-meta { font-size: 9.5pt; color: #64748b; margin: 0 0 10px !important; letter-spacing: 0.02em; font-weight: 600; }
+
+  .why-declaration { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px 24px; margin: 24px 0 32px; }
+  .why-label { font-size: 9pt; letter-spacing: 0.12em; color: #92400e; font-weight: 700; margin-bottom: 8px; }
+  .why-text { font-size: 13pt; font-weight: 700; color: #78350f; margin: 0; }
+
+  .env-condition { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 16px 0 28px; }
+  .env-condition p { margin: 0 0 8px; font-size: 10pt; line-height: 1.8; }
+  .env-condition p:last-child { margin-bottom: 0; }
+  .env-condition strong { color: #0f172a; }
+
+  .gravity-core { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 24px; margin: 28px 0; page-break-inside: avoid; }
+  .gravity-core h4 { color: #991b1b; margin: 0 0 16px; font-size: 11pt; }
+  .core-action { font-size: 11pt; font-weight: 700; color: #991b1b; background: #fff; border-left: 4px solid #dc2626; padding: 12px 16px; margin: 0 0 16px; }
+  .core-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .core-effect, .core-sideeffect { background: #fff; padding: 14px 16px; border-radius: 6px; border: 1px solid #fecaca; font-size: 10pt; line-height: 1.7; }
+  .core-effect strong, .core-sideeffect strong { display: block; font-size: 9pt; letter-spacing: 0.05em; color: #991b1b; margin-bottom: 6px; text-transform: uppercase; }
+  .core-summary { margin: 0; font-size: 10pt; line-height: 1.8; color: #991b1b; font-weight: 600; }
+
+  .future-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px 24px; margin: 24px 0; page-break-inside: avoid; }
+  .future-box h4 { color: #065f46; margin-top: 0; margin-bottom: 12px; }
+  .future-box p { font-size: 10.5pt; line-height: 1.9; color: #064e3b; margin: 0; }
+
+  .type-judgment { background: #eff6ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 22px 26px; margin: 28px 0; page-break-inside: avoid; }
+  .type-label { font-size: 9pt; letter-spacing: 0.12em; color: #1e40af; font-weight: 700; margin-bottom: 6px; }
+  .type-name { font-size: 15pt; color: #1e3a8a; margin: 0 0 12px; border: none; padding: 0; }
+  .type-reason { margin: 0 0 12px; color: #334155; font-size: 10pt; line-height: 1.8; }
+  .type-prescription { margin: 0; font-weight: 700; color: #1e40af; font-size: 11pt; }
+
+  .path-card--small { padding: 12px 16px; font-size: 9.5pt; color: #475569; background: #f8fafc; border-color: #e2e8f0; }
+  .path-card--small strong { color: #0f172a; }
+
+  .closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 22px 26px; margin: 28px 0; font-style: italic; color: #334155; page-break-inside: avoid; }
+  .closing-note p { margin: 0 0 10px; font-size: 10.5pt; line-height: 1.9; }
+  .closing-note p:last-child { margin-bottom: 0; }
+
+  /* === 問い直し装置（CODE/Scan 共通） === */
+.final-question, .analyst-question-block {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #fff;
+  border-radius: 12px;
+  page-break-inside: avoid;
+  text-align: center;
+}
+.final-question {
+  padding: 32px 36px;
+  margin: 32px 0 24px;
+}
+.analyst-question-block {
+  padding: 28px 32px;
+  margin: 28px 0 32px;
+}
+.analyst-question-divider {
+  width: 40px;
+  height: 2px;
+  background: #94a3b8;
+  margin: 0 auto 16px;
+}
+.final-question-label, .analyst-question-label {
+  display: inline-block;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  border: 1px solid #475569;
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+.analyst-question-label {
+  border: none;
+  padding: 0;
+  margin-bottom: 14px;
+}
+.final-question-text, .analyst-question-text {
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+}
+.final-question-text {
+  font-size: 13pt;
+  line-height: 1.7;
+}
+.analyst-question-text {
+  font-size: 12pt;
+  line-height: 1.9;
+}
+.analyst-question-text strong {
+  color: #fbbf24;
+  font-weight: 800;
+}
+.final-question-caveat, .analyst-question-caveat {
+  font-size: 10pt;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+.final-question-caveat {
+  margin-bottom: 22px;
+  font-style: normal;
+}
+.final-question-cta {
+  display: inline-block;
+  background: #fff;
+  color: #0f172a;
+  font-size: 11pt;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.final-question-cta:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@media screen and (max-width: 800px) {
+  .final-question, .analyst-question-block {
+    padding: 24px 20px;
+    margin: 24px 0 20px;
+  }
+  .final-question-text, .analyst-question-text {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .final-question-caveat, .analyst-question-caveat {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .final-question-cta {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+}
+
+@media print {
+  .final-question, .analyst-question-block {
+    break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .final-question-cta {
+    background: #0f172a !important;
+    color: #fff !important;
+    border: 2px solid #fff;
+  }
+}
+  .report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
+  .report-footer strong { color: #0f172a; font-size: 10pt; }
+  .page-break { page-break-before: always; }
+  /* スクリーン表示のレスポンシブ */
+  @media screen and (max-width: 800px) {
+    body { max-width: 100%; box-shadow: none; font-size: 14px; }
+    .page { padding: 24px 20px; }
+    .section-title { font-size: 18px; }
+    h3 { font-size: 15px; }
+    .core-quote { padding: 16px 18px; font-size: 14px; }
+    .verb-chain { padding: 14px 16px; font-size: 13px; }
+    .verb-map { padding: 20px 12px; gap: 20px 0; }
+    .verb-map-item { min-width: 110px; max-width: 150px; padding: 0 14px 0 0; }
+    .verb-map-item:not(:last-child)::after { font-size: 13pt; top: 10px; }
+    .verb-map-verb { font-size: 10.5pt; padding: 8px 14px; margin-bottom: 8px; }
+    .verb-map-source { font-size: 8.5pt; line-height: 1.55; }
+    .filter-grid, .manual-grid { grid-template-columns: 1fr; gap: 12px; }
+    .process-grid { grid-template-columns: 1fr; gap: 8px; }
+    .core-duality { grid-template-columns: 1fr; gap: 10px; }
+    .path-cards { gap: 10px; }
+    .analyst-note { padding: 18px 20px; }
+    .haveto-card, .future-box, .type-judgment, .closing-note { padding: 16px 18px; margin: 20px 0; }
+    .gravity-core { padding: 18px 20px; }
+    .why-declaration { padding: 16px 18px; }
+    .why-text { font-size: 15px; }
+    .path-card--recommended { padding-top: 32px; }
+    .gravity-integration { padding: 20px 16px; }
+    .gi-formula { flex-direction: column; gap: 8px; }
+    .gi-operator { transform: rotate(90deg); }
+    .gi-element { min-width: 100%; max-width: 100%; }
+    .pdf-btn { bottom: 16px; right: 16px; padding: 10px 20px; font-size: 13px; }
+  }
+  @media screen and (min-width: 801px) {
+    body { max-width: 760px; }
+  }
+  @media print {
+    body { font-size: 10pt; visibility: visible !important; max-width: none; box-shadow: none; margin: 0; }
+    .page { padding: 0; }
+    .pdf-btn { display: none; }
+    .filter-grid, .process-grid, .manual-grid { break-inside: avoid; }
+    .haveto-card, .path-card, .scenario-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()">
+  <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm2-4v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z"/></svg>
+  PDF保存
+</button>
+<div class="page">
+<div class="section">
+  <div><span class="section-num">01</span><h2 class="section-title">あなたの引力タイプ</h2></div>
+  <div class="section-line"></div>
+</div>
+
+<div class="why-declaration">
+  <div class="why-label">あなたの引力の源（Why）</div>
+  <p class="why-text">能力があるのに発揮されない才能を、解放する場を作り続ける</p>
+</div>
+
+<p>あなたは中学の文化祭で、全校を巻き込んだ企画長として「何もないところから構造を作って人を動かす」経験を刻み込んだ。しかし後夜祭で離れて立っていたあの感覚は、今もそのまま残っている。皆と一緒にいる感覚ではなく、皆を見ている感覚。14歳のあなたは、誇らしさと寂しさの両方を抱えたまま、「俺はやる側の人間だ」と誓った。それ以来、あなたは組織の中で死んでいく能力を見過ごせなくなった。</p>
+
+<h4>才能：自然にできてしまう動き</h4>
+<div class="verb-map">
+  <div class="verb-map-item">
+    <div class="verb-map-verb">全体構造を整理する</div>
+    <div class="verb-map-source">新規事業ラインの立ち上げで、A軸・B軸・優先順位を提示した瞬間 ／ 経営会議で皆が「なるほど」となる構造化</div>
+  </div>
+  <div class="verb-map-item">
+    <div class="verb-map-verb">違和感を察知する</div>
+    <div class="verb-map-source">会議で誰も気づいていない矛盾を発見する ／ 「あれ、この話さっきのAさんの話と矛盾してない？」が勝手に出る</div>
+  </div>
+  <div class="verb-map-item">
+    <div class="verb-map-verb">先回りして答えを準備する</div>
+    <div class="verb-map-source">聞かれる前に答えを用意している ／ 「多分これ聞かれるな」と思ったら、もう頭の中で準備完了している</div>
+  </div>
+</div>
+
+<div class="env-condition">
+  <p><strong>才能の発火条件：</strong>何もない状態からゼロイチで構造を組み立てる場 ／ 全体を俯瞰して優先順位を決める経営判断の場 ／ 誰も気づいていない違和感を言語化できる場</p>
+  <p><strong>才能が停止する場：</strong>同じ話を繰り返す場面（採用最終面接の説明など） ／ 運用フェーズで決まった型を回すだけの場 ／ 自分の解像度を渡しきれない相手に教える時間</p>
+</div>
+
+<h4>偏愛：譲れない好みと、絶対に選ばない嫌い</h4>
+<div class="verb-map">
+  <div class="verb-map-item">
+    <div class="verb-map-verb">誰も気づいていない違和感を察知して構造化する</div>
+    <div class="verb-map-source">会議で矛盾を発見すると気づかないと気持ち悪い ／ 全体構造を整理して優先順位を決める瞬間が一番自分らしい</div>
+  </div>
+  <div class="verb-map-item">
+    <div class="verb-map-verb">育てた人が別の場で羽ばたく瞬間を見る</div>
+    <div class="verb-map-source">自分が育てた人が別の会社で大きく活躍していると聞いた時が一番嬉しい ／ 売上や規模よりこちらの動機が強い</div>
+  </div>
+  <div class="verb-map-item">
+    <div class="verb-map-verb">指示待ちで自分で考えない人</div>
+    <div class="verb-map-source">能力があるのに発揮しない人に腹が立つ ／ 組織の中で死んでいる先輩を見て「生き方として違うだろ」と思った</div>
+  </div>
+</div>
+
+<div class="core-quote">あなたは"任せられない建築家"だ</div>
+
+<p class="time-axis">中学の文化祭から今まで、「全体を見て、構造を作って、人を動かす」動きは変わらない。ただし、文化祭の時は皆と一緒に作った感覚があった。今は、自分が作って皆を動かしている感覚になっている。後夜祭で一人だけ離れて立っていたあの感覚が、今も経営の中に残っている。</p>
+
+<div class="page-break"></div>
+
+<div class="section">
+  <div><span class="section-num">02</span><h2 class="section-title">引力の解剖</h2></div>
+  <div class="section-line"></div>
+</div>
+
+<p>表面的には、あなたは「ゼロから構造を作り、全体を動かす建築家型の経営者」に見える。実際、新規事業ラインの立ち上げで全体構造を整理し、A軸・B軸・優先順位を提示して皆を納得させる瞬間に、あなたは最も自分らしく動けている。この構造化能力は、14歳の文化祭で企画長として何もない状態から全校を巻き込んだ原体験から、一貫して続いている。</p>
+
+<p><strong>しかし、あなたが語った「採用面接がしんどい」「ナンバー2候補に教えても結局自分が決める」「教えても意味ないって思ってる」を並べると、別の姿が見える。あなたは「組織を作る人」だと思っている。しかし実際は「自分の解像度を誰にも渡せない人」だ。</strong></p>
+
+<p>特に象徴的なのは、あなたが「先回りして答えを準備する」という無意識の動きを語った瞬間だ。聞かれる前に答えを用意している。この動きは、あなたが「相手が追いつく前に先に終わらせてしまう」ことを意味する。つまり、あなたは育てようとしながら、同時に、相手が自力で答えに辿り着く余白を奪っている。中学の生徒会で「後ろから足を引っ張られた」あの傷が、今も「任せる=リスク」という認知を作り続けている。あなたは信頼できる人は限られると決めた14歳のまま、経営している。</p>
+
+<div class="gravity-core">
+  <h4>あなたの引力の核</h4>
+  <p class="core-action">同じ動作：「先回りして構造を完成させる」</p>
+  <div class="core-duality">
+    <div class="core-effect"><strong>作用</strong>全体を俯瞰して優先順位を決め、組織を前に進める建築家として人を惹きつける</div>
+    <div class="core-sideeffect"><strong>副作用</strong>同時に、相手が自力で答えに辿り着く余白を奪い、育つ前に完成させてしまう一人作業者として人を離す</div>
+  </div>
+  <p class="core-summary">同じ動作が引力にも引力漏れにも両方なっている。</p>
+</div>
+
+<p>あなたが最も繰り返している言葉は「絶対に言い訳をしない。やるべきことをやる。背中で見せる」だ。これは14歳の後夜祭で一人だった時に、自分に誓った言葉だ。しかし、この言葉の裏には「誰かに頼る=言い訳」という認知が隠れている。あなたは「背中で見せる」と言いながら、実際には「誰にも渡さない」を選び続けている。本当に育てたいなら、背中ではなく、余白を見せる必要がある。</p>
+
+<div class="page-break"></div>
+
+<div class="section">
+  <div><span class="section-num">03</span><h2 class="section-title">本来に戻すための一手</h2></div>
+  <div class="section-line"></div>
+</div>
+
+<div class="gravity-integration">
+  <h4>ここまでの統合：あなたの引力の構造</h4>
+  <div class="gi-formula">
+    <div class="gi-element">
+      <span class="gi-label">WHY</span>
+      <span class="gi-value">能力を発揮する場を作る</span>
+      <span class="gi-status">整合</span>
+    </div>
+    <span class="gi-operator">×</span>
+    <div class="gi-element">
+      <span class="gi-label">才能</span>
+      <span class="gi-value">先回りして構造を完成させる</span>
+      <span class="gi-status">整合</span>
+    </div>
+    <span class="gi-operator">×</span>
+    <div class="gi-element">
+      <span class="gi-label">偏愛</span>
+      <span class="gi-value">違和感を構造化する</span>
+      <span class="gi-status">整合</span>
+    </div>
+  </div>
+  <div class="gi-result">
+    <span class="gi-arrow">↓</span>
+    <p class="gi-core"><strong>引力の核：</strong>先回りして構造を完成させる（作用=組織を前に進める／副作用=相手の余白を奪う）</p>
+  </div>
+  <div class="gi-judgment">
+    <span class="gi-arrow">↓</span>
+    <p class="gi-type"><strong>判定：</strong>【整合型】</p>
+    <p class="gi-risk"><strong>最大リスク：</strong>「育てる」と言いながら、相手が自力で辿り着く前に先回りして完成させてしまい、結果的に誰も育たない組織を作り続ける</p>
+  </div>
+  <p class="gi-reading-guide">ここから、本来の引力に戻すための具体的な一手を示す</p>
+</div>
+
+<div class="haveto-card">
+  <span class="haveto-tag">HAVE TO</span>
+  <h4>自分の解像度を全部渡さなければならない</h4>
+  <p><strong>あなたが自分についている嘘：</strong>ナンバー2候補に教える時間は、組織を前に進めるために必要だ。教えないと組織が止まる。だから、自分の解像度を全部渡すまで、教え続けなければならない。しかし本音では「教えても意味がない」と思っている。なぜなら、相手が自分の頭の中の解像度に追いつかないからだ。</p>
+  <p><strong>剥がした先：</strong>自分の解像度を全部渡そうとするのをやめる。7割合う型を作り、採用面接を任せる。完璧に渡すことを諦め、相手が自力で残り3割を埋める余白を残す。あなたの引力は「完成させること」ではなく「構造を示すこと」にある。完成は、相手に任せろ。</p>
+</div>
+
+<div class="future-box">
+  <h4>5年後、引力を取り戻したあなた</h4>
+  <p>採用最終面接に、あなたはもう出ていない。ナンバー2が7割合う型で回し、あなたは新規事業ラインの構造を組み立てることだけに集中している。月に一度、経営会議で全体構造を整理し、優先順位を示す。その瞬間だけ、皆が「なるほど」となる。それ以外の時間は、あなたが育てた人たちが別の会社で活躍している報告を聞いている。後夜祭で一人だったあの感覚は消えた。今は、離れて立っているのではなく、余白を渡した先で人が動いているのを見ている。</p>
+</div>
+
+<div class="analyst-note">
+  <p><strong>最大リスク：</strong>正直に言うと、あなたの引力が最も殺される環境は「育てようとして、先回りして完成させてしまう場」だ。今の経営にその兆候がある。このレポートが見つけた矛盾には、もう1層深い理由がある。それは「任せる=リスク」という14歳の傷が、今も経営判断を支配していることだ。これは60分では辿り着けなかった。</p>
+</div>
+
+<div class="type-judgment">
+  <div class="type-label">あなたの引力タイプ判定</div>
+  <h3 class="type-name">【整合型】</h3>
+  <p class="type-reason">Why（能力を発揮する場を作る）× 才能（先回りして構造を完成させる）× 偏愛（違和感を構造化する）の3要素は整合している。しかし、整合しているからこそ、引力の核が「作用=組織を前に進める」と「副作用=相手の余白を奪う」の両方を同時に生んでいる。あなたの課題は、要素のズレではなく、引力の使い方だ。</p>
+  <p class="type-prescription">→ あなたに最適な次の一手は【Gravity Scan】</p>
+</div>
+
+<div class="path-cards">
+  <div class="path-card path-card--recommended">
+    <span class="path-badge">RECOMMENDED</span>
+    <h4>Gravity Scan</h4>
+    <p class="path-card-meta">60分対面セッション／10万円／組織の引力タイプを4型判定し、Shift R／A／Fullのどれが効くかを示すPre-Shift適合診断</p>
+    <p>あなたの場合、個人の引力（Why × 才能 × 偏愛）は整合している。次に診断すべきは「組織の引力タイプ」だ。採用面接を任せられない、ナンバー2に教えても意味がないと感じる背景には、組織全体の引力構造（集まる × 躍動のマトリクス）の診断が必要だ。Scanで組織の引力タイプを判定し、Shift R（採用基盤）／A（躍動組織）／Full（統合）のどれから着手すべきかを明確にする。</p>
+  </div>
+  <div class="path-card path-card--small"><strong>Gravity Coaching：</strong>90分 × 月1回 × 6ヶ月（全6回）／38万円（税込・6ヶ月一括・Gravity CODE付き）／「任せる=リスク」という14歳の傷を継続対話で剥がし、本来の判断軸を取り戻す</div>
+  <div class="path-card path-card--small"><strong>セルフリファイン：</strong>このレポートを定期的に見返し、Why × 才能 × 偏愛の整合性を自己チェックする。特に「先回りして完成させる」動きが発火した瞬間に、相手の余白を奪っていないかを問う。</div>
+</div>
+
+<div class="final-question">
+  <div class="final-question-label">最後の問い</div>
+  <p class="final-question-text">あなたが育てたいのは、あなたの解像度に追いつく人か、あなたの解像度を超える人か。</p>
+  <p class="final-question-caveat">この問いに30秒で即答できない場合、その盲点はすでに日常に溶け込んでいます。</p>
+  <a href="https://growthfix.jp/gravity-coaching/" class="final-question-cta">Coaching体験セッション 30分無料 →</a>
+</div>
+
+<div class="closing-note">
+  <p>私が見てきた経営者の中で、あなたのパターンは「構造を作る才能がある人ほど、任せられない」というジレンマに最も近い。</p>
+  <p>その人たちは、「完成させること」を手放したとき、本来の引力を取り戻した。</p>
+  <p>あなたも、同じ道を歩めるはずだ。</p>
+</div>
+
+<div class="report-footer"><p><strong>YOUR GRAVITY CODE</strong> — あなたの引力の暗号</p></div>
+</div>
+</body>
+</html>
