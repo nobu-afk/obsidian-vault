@@ -194,15 +194,14 @@ $system_prompt = <<<'SYSTEM'
 - 一度だけ使った言葉＝本音の候補
 - 理想の1日で**語られなかったもの**＝最も重い have to
 
-## レポート構成（4ブロック・260507 v5.3 改修）
+## レポート構成（3ブロック・260507 v5.3.2 改修・引力定義は Cover Page に移管）
 
-### 【Block 0：引力とは何か】（定義開示・260507 v5.3 新規）
-1. **gravity-definition-box** ── 経営者にとっての「引力」を 4-5 行で開示。レポート全体のベース思想を最初に共有する
-   - 必須要素 3 点：(1) 引力＝人が離れない・自発的に動く「場の力」／Why × 才能 × 偏愛 の整合から生まれる、(2) 整合 → 人が集まり幹部が躍動／ズレ → 採用しても定着しない・幹部が辞める、(3) 事業の天井は経営者の引力の天井
-   - 配置：section 01 ヘッダの直前（Cover の次）
-   - HTML class: `<div class="gravity-definition-box">`
+### 【Cover Page（P0）：引力定義は表紙に固定配置・サーバ側で包装】
+- ★260507 v5.3.2：Block 0 を廃止し、引力定義は Cover Page（表紙）に移管。
+- AI（あなた）は Cover Page を出力しない。サーバ側で自動付与される。
+- AI 側は Block A から出力を開始する（`<div class="section">` から）
 
-### 【Block A：あなたの引力タイプ】（前振り）
+### 【Block A：あなたの引力タイプ】（前振り・レポート本文の起点）
 1. Why の宣言（why-declaration）── ★260507 v5.3 構造指示強化：**「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行**。「能力」と「才能」を同じ Why 内で混在させない。動作主と対象を明確にする
 2. **才能の解剖（verb-map クラスを使用）**— 自然にできてしまう動詞を 3 つ並べ、3 番目は無意識の行動。verb-map の見出しは「才能：自然にできてしまう動き」
 3. ★一撃1：キャラ命名の断定（core-quote で強調・Block A の一撃）— **矛盾を含む名前**
@@ -276,21 +275,14 @@ path-cards の説明文では、以下の正確な情報を使うこと：
 - ❌ `<style>` タグ・`style=""` 属性・外側HTML・コードフェンス
 - ❌ **【260507 v5.3 廃止】才能の発火条件・才能が停止する場の env-condition セクション**（経営者向けには過剰情報。発火/停止条件は内部分析に留める）
 - ❌ **【260507 v5.3 廃止】偏愛 verb-map / passion-map 図化**（偏愛はテキスト型 env-condition 形式で出力）
-- ❌ **【260507 v5.3 必須】Block 0 gravity-definition-box の省略**（必ず Block A の前に配置・引力定義を最初に開示）
+- ❌ **【260507 v5.3.2 改修】gravity-definition-box の本文出力**（引力定義は Cover Page に移管・サーバ側で自動付与・AI 出力には含めない）
 - ❌ **【260507 v5.3 必須】Block C business-impact-box の省略**（必ず gravity-integration の直後に配置・採用/離脱/躍動 3 軸の Before/After）
 - ❌ **【260507 v5.3 必須】Why 文章内に「能力」と「才能」を混在**（同義語的な使用は禁止・主語と動詞を明確に）
 
-## HTML構造（★この構造をそのまま出力★）
+## HTML構造（★この構造をそのまま出力★・260507 v5.3.2：Block A から開始）
 
-<div class="gravity-definition-box">
-  <div class="gravity-def-label">ここで言う「引力」とは</div>
-  <p class="gravity-def-body">人が離れない・自発的に動く「場の力」。経営者の <strong>Why × 才能 × 偏愛</strong> の 3 要素の整合から生まれる。</p>
-  <div class="gravity-def-duality">
-    <div class="gravity-def-positive"><strong>整合 →</strong> 人が集まり、幹部が躍動する</div>
-    <div class="gravity-def-negative"><strong>ズレ →</strong> 採用しても定着しない・優秀な幹部が辞める</div>
-  </div>
-  <p class="gravity-def-claim"><strong>事業の天井は、経営者の引力の天井である。</strong></p>
-</div>
+★ Cover Page（表紙＋引力定義）はサーバ側で自動付与されるため、AI は出力しない。
+★ AI 出力の最初の文字は `<div class="section">`（Block A 冒頭）から始める。
 
 <div class="section">
   <div><span class="section-num">01</span><h2 class="section-title">あなたの引力タイプ</h2></div>
@@ -1047,16 +1039,26 @@ $report_html = <<<HTML
   .env-condition p:last-child { margin-bottom: 0; }
   .env-condition strong { color: #0f172a; }
 
-  /* 【260507 v5.3.1 改修】Block 0 引力定義ボックス（過剰装飾削除・左帯アクセントのみ） */
-  .gravity-definition-box { background: transparent; border: none; border-left: 4px solid #0f172a; border-radius: 0; padding: 6px 22px 8px; margin: 0 0 36px; page-break-inside: avoid; }
-  .gravity-def-label { font-size: 10pt; font-weight: 700; color: #0f172a; letter-spacing: 0.08em; margin-bottom: 10px; }
-  .gravity-def-body { font-size: 11pt; line-height: 1.9; color: #1a1a2e; margin: 0 0 12px; }
-  .gravity-def-body strong { color: #0f172a; }
-  .gravity-def-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin: 8px 0 12px; }
-  .gravity-def-positive, .gravity-def-negative { background: transparent; padding: 4px 0; border-radius: 0; border: none; font-size: 10pt; line-height: 1.7; color: #1a1a2e; }
-  .gravity-def-positive strong { color: #047857; }
-  .gravity-def-negative strong { color: #991b1b; }
-  .gravity-def-claim { font-size: 11.5pt; font-weight: 700; color: #0f172a; text-align: left; margin: 4px 0 0; padding-top: 0; border-top: none; }
+  /* 【260507 v5.3.2 新規】Cover Page（P0・表紙＋引力定義） */
+  .cover-page { min-height: calc(100vh - 96px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; page-break-after: always; }
+  .cover-page .cover-badge { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.3em; color: #fff; background: #0f172a; padding: 8px 24px; border-radius: 100px; margin-bottom: 32px; }
+  .cover-page .cover-title { font-size: 32pt; font-weight: 800; color: #0f172a; letter-spacing: 0.04em; margin: 0 0 12px; line-height: 1.3; border: none; padding: 0; }
+  .cover-page .cover-subtitle { font-size: 10pt; color: #64748b; letter-spacing: 0.2em; margin-bottom: 32px; }
+  .cover-page .cover-divider { width: 60px; height: 2px; background: #0f172a; margin: 0 auto 40px; }
+  .cover-gravity-def { max-width: 580px; width: 100%; text-align: left; margin-bottom: 48px; }
+  .cover-gravity-label { font-size: 11pt; font-weight: 800; color: #0f172a; letter-spacing: 0.08em; text-align: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #cbd5e1; }
+  .cover-gravity-body { font-size: 12pt; line-height: 2.0; color: #1a1a2e; text-align: center; margin: 0 0 24px; }
+  .cover-gravity-body strong { color: #0f172a; font-weight: 800; }
+  .cover-gravity-duality { display: flex; flex-direction: column; gap: 12px; margin: 24px 0 28px; }
+  .cover-gravity-positive, .cover-gravity-negative { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; }
+  .cover-gravity-positive { background: rgba(16, 185, 129, 0.06); border-left: 3px solid #059669; }
+  .cover-gravity-negative { background: rgba(239, 68, 68, 0.06); border-left: 3px solid #dc2626; }
+  .cover-gravity-positive .cgd-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.1em; color: #047857; padding: 3px 10px; background: #fff; border-radius: 4px; flex-shrink: 0; }
+  .cover-gravity-negative .cgd-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.1em; color: #991b1b; padding: 3px 10px; background: #fff; border-radius: 4px; flex-shrink: 0; }
+  .cgd-arrow { font-size: 11pt; font-weight: 700; color: #64748b; flex-shrink: 0; }
+  .cgd-text { color: #1a1a2e; }
+  .cover-gravity-claim { font-size: 13pt; font-weight: 800; color: #0f172a; text-align: center; margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #cbd5e1; line-height: 1.6; }
+  .cover-page .cover-meta { font-size: 9pt; color: #94a3b8; letter-spacing: 0.15em; margin-top: 24px; }
 
   /* 【260507 v5.3 新規】Block C 経営インパクトボックス（採用/離脱/躍動 3 軸 × Before/After） */
   .business-impact-box { background: #eff6ff; border: 2px solid #1e40af; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
@@ -1146,6 +1148,25 @@ $report_html = <<<HTML
   PDF保存
 </button>
 <div class="page">
+<div class="cover-page">
+  <div class="cover-badge">YOUR GRAVITY CODE</div>
+  <h1 class="cover-title">あなたの引力の暗号</h1>
+  <div class="cover-subtitle">SOURCE CODE ANALYSIS REPORT</div>
+  <div class="cover-divider"></div>
+
+  <div class="cover-gravity-def">
+    <div class="cover-gravity-label">ここで言う「引力」とは</div>
+    <p class="cover-gravity-body">人が離れない・自発的に動く「場の力」。<br>経営者の <strong>Why × 才能 × 偏愛</strong> の 3 要素の整合から生まれる。</p>
+    <div class="cover-gravity-duality">
+      <div class="cover-gravity-positive"><span class="cgd-tag">整合</span><span class="cgd-arrow">→</span><span class="cgd-text">人が集まり、幹部が躍動する</span></div>
+      <div class="cover-gravity-negative"><span class="cgd-tag">ズレ</span><span class="cgd-arrow">→</span><span class="cgd-text">採用しても定着しない・優秀な幹部が辞める</span></div>
+    </div>
+    <p class="cover-gravity-claim">事業の天井は、経営者の引力の天井である。</p>
+  </div>
+
+  <div class="cover-meta">Gravity CODE｜GrowthFix</div>
+</div>
+<div class="page-break"></div>
 {$report_body}
 </div>
 </body>
