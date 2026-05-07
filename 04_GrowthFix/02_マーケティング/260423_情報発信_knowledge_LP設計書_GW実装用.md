@@ -1,5 +1,14 @@
 # /knowledge/ 3テーマLP 設計書（B' 案・GW 5/3-5/6 実装）
 
+> **🔴 STATUS: 歴史記録（260422-23 Blueprint/Shift 旧設計時代の文書）**
+> 本書は Blueprint v6.0 商品名・申込 CTA 前提で書かれており、260430 で Scan にリブート済。
+> サービス体系も Shift R/C/Full 分割（260501）+ Shift 診断 UI 廃止（260508）を経て更新済。
+>
+> **現行 SSOT：** `memory/project_strategy_lock_260430.md` ／ `memory/project_scan_reboot_260430.md` ／ `memory/project_shift_rc_specs_260501.md`
+> **本書は歴史記録として保存。/knowledge/ 改修時は現行 SSOT 優先。**
+
+---
+
 > **目的：** 「引力経営」で Google 検索 1 位を取る SEO 資産を HP 側に構築する。
 > **段階：** Phase 1（4/24 A案バナー）→ **Phase 2（GW B' 軽量LP）** → Phase 3（7月 書籍連動 大幅リニューアル）
 > **実装：** 2026 年 5/3-5/6 の 4 日間で完了
