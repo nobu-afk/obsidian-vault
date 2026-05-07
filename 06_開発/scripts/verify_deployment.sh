@@ -119,11 +119,11 @@ echo ""
 # 3. mobile.css バージョン整合性
 echo "🔢 mobile.css バージョン整合性"
 versions=$(for url in "${LPS[@]}"; do
-  curl -s "$url" 2>/dev/null | grep -oE "mobile\.css\?v=[0-9]+[a-z]" | head -1
+  curl -s "$url" 2>/dev/null | grep -oE "mobile\.css\?v=[0-9a-z]+" | head -1
 done | sort -u | wc -l | tr -d ' ')
 
 if [[ "$versions" == "1" ]]; then
-  one_version=$(curl -s "${LPS[0]}" 2>/dev/null | grep -oE "mobile\.css\?v=[0-9]+[a-z]" | head -1)
+  one_version=$(curl -s "${LPS[0]}" 2>/dev/null | grep -oE "mobile\.css\?v=[0-9a-z]+" | head -1)
   echo "  ✅ 全 20 LP で同一バージョン ($one_version)"
   PASS=$((PASS+1))
 else
