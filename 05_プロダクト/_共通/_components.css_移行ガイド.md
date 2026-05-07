@@ -34,7 +34,7 @@
 
   <!-- 共通基盤 -->
   <link rel="stylesheet" href="https://growthfix.jp/assets/css/components.css?v=20260429a">
-  <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260428c">
+  <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260507">
 
   <!-- 計測・テスト・告知 -->
   <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
