@@ -257,6 +257,62 @@ LP 編集後の必須シーケンス：
 2. 仕様認識違いか実装違いかを判定
 3. 認識違いなら仕様確認・実装違いなら修正
 
+### 正本ファイル運用ルール（260507 確立・本番事故再発防止）
+
+**Why（経緯）：** 2026-05-07 夕方、Blueprint legacy 一掃 Phase 1+2 で `TrueFit/LP/coaching/index.html`（別商品 TRUE FIT Coaching の試作 LP）を `/gravity-coaching/` に誤デプロイし、約 6 時間別商品が本番表示された事故が発生。原因は「ディレクトリ名一致での推測」と「正本ディレクトリ外の古いコピー残置」。再発防止のため運用ルールを SSOT 化。
+
+#### 正本ディレクトリパターン（13 LP・絶対パス）
+
+```
+ローカル正本                                           本番 URL
+──────────────────────────────────────────────────────────────────
+05_プロダクト/top_本番/index.html                      /
+05_プロダクト/Gravity/LP/index.html                    /gravity/
+05_プロダクト/GravityCode/LP/index.html                /gravity-code/
+05_プロダクト/GravityCode/LP/sample-report.html        /gravity-code/sample-report.html
+05_プロダクト/GravityCode/診断_executive_本番/         /gravity-code/executive/（CODE 診断 UI）
+05_プロダクト/GravityScan/LP/index.html                /gravity-scan/
+05_プロダクト/GravityScan/診断_本番/generate.php       /gravity-scan/diagnose/generate.php
+05_プロダクト/GravityCoaching/LP/index.html            /gravity-coaching/  ← 正本（事故起因）
+05_プロダクト/GravityRecruit/LP/index.html             /gravity-recruit/
+05_プロダクト/GravityCultivate/LP/index.html           /gravity-cultivate/
+05_プロダクト/GravityOrbit/LP/index.html               /gravity-orbit/
+05_プロダクト/WhitePaper/V9/index.html                 /whitepaper-read/
+05_プロダクト/Gravity/LP/seminar-acting.html           /seminar/acting/
+05_プロダクト/service_本番/index.html                  /service/
+──────────────────────────────────────────────────────────────────
+```
+
+**命名規則（正本判定ルール）：**
+
+1. **`{Service名}_本番/`** または **`Gravity{Service名}/LP/`** が正本ディレクトリ
+2. ディレクトリ名にサービス名が含まれていても、上記パターンと一致しないものは正本ではない
+3. 「ペンディング・廃止・試作・古いコピー・バックアップ」は `_archive/` に物理隔離する
+
+#### 正本外ファイルの禁則
+
+`05_プロダクト/` 配下で正本ディレクトリの外にある HTML/PHP は **本番デプロイ対象外**。具体的に以下は禁則：
+
+- ❌ `Gravity/LP/growthfix-*-index.html` などの古いコーポレートコピー → `_archive/` 行き
+- ❌ `TrueFit/`・`GravityXxx_廃止/` などペンディング/廃止サービス → `_archive/` 行き
+- ❌ `GravityCode/診断_本番/` （正本は `診断_executive_本番/`） → 素性確認後 archive 化判断
+- ❌ ディレクトリ直下の古い設計メモ MD（`260227_*` `260330_*` `260414_*` など完了済タスクメモ）→ archive 化
+
+#### lp-implementer プロンプト運用ルール（事故再発防止）
+
+1. **デプロイマッピングは Opus メインスレッドが SSOT 照合済の状態で確定し、lp-implementer に渡す**
+2. **lp-implementer に「ディレクトリ名から推測してデプロイ先を決めてください」と書かない**
+3. lp-implementer が SSOT に存在しないファイルに遭遇したら **Opus にエスカレーション**
+4. 大規模 grep ベース置換タスク（Blueprint legacy 一掃のような汚染除去）では、grep ヒット = 正本ではないことを必ず疑う
+
+#### 機械チェック対応
+
+- `lint_consistency.sh` セクション [8]「正本パターン違反検出」（260507 追加）── 正本外 HTML/PHP の有無を検出
+- 四半期 1 度の `/company-os-review` で `_archive/` 候補を棚卸し
+- 発見次第 `_archive/` に即移動 + `_廃止_YYMMDD_README.md` で経緯記録
+
+**詳細：** `memory/feedback_lp_deployment_path_ssot_check.md`
+
 ### 機械チェック対応
 
 | スクリプト | 対象 |

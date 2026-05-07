@@ -363,6 +363,51 @@ check_intro_keywords "GravityCultivate/LP/index.html" "Cultivate（B 版）"
 check_intro_keywords "WhitePaper/V9/index.html" "WP V9（A 版）"
 # minimal LP（Shift / Coaching / Orbit）は SPEAKER セクション無のため対象外（仕様通り）
 
+echo ""
+echo "[8] 正本パターン違反検出（260507 追加・本番事故再発防止）"
+
+# 8.1 Gravity/LP/ 許可ファイル外 HTML 検出
+GRAVITY_LP_DIR="$ROOT/Gravity/LP"
+if [ -d "$GRAVITY_LP_DIR" ]; then
+  for f in "$GRAVITY_LP_DIR"/*.html; do
+    [ -f "$f" ] || continue
+    basename=$(basename "$f")
+    case "$basename" in
+      index.html|seminar-acting.html) ;;  # 正本（許可）
+      *)
+        printf "${YEL}⚠${NC} 正本外 HTML: %s（_archive/ 移動推奨）\n" "$f"
+        WARNINGS=$((WARNINGS + 1))
+        ;;
+    esac
+  done
+fi
+
+# 8.2 各 Gravity{Service}/ 直下の古い設計メモ MD 検出（YYMMDD_ パターン）
+for dir in "$ROOT"/Gravity*/; do
+  [ -d "$dir" ] || continue
+  for md in "$dir"*.md; do
+    [ -f "$md" ] || continue
+    basename=$(basename "$md")
+    if echo "$basename" | grep -qE "^26[0-9]{4}_"; then
+      printf "${YEL}⚠${NC} 古い設計メモ残置: %s（archive 化推奨）\n" "$md"
+      WARNINGS=$((WARNINGS + 1))
+    fi
+  done
+done
+
+# 8.3 廃止/ペンディングサービスディレクトリ検出（archive 必須）
+SUSPICIOUS_DIRS=("$ROOT/TrueFit" "$ROOT/GravityFit" "$ROOT/GravityBlueprint")
+for d in "${SUSPICIOUS_DIRS[@]}"; do
+  if [ -d "$d" ]; then
+    printf "${RED}❌${NC} 廃止/ペンディングサービス残置: %s（_archive/ 移動必須）\n" "$d"
+    ERRORS=$((ERRORS + 1))
+  fi
+done
+
+if [ "$WARNINGS" -eq 0 ] && [ "$ERRORS" -eq 0 ]; then
+  printf "${GRN}✓${NC} 正本パターン違反なし\n"
+fi
+
 # ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
