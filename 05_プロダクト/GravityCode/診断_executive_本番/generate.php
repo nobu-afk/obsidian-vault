@@ -1039,26 +1039,34 @@ $report_html = <<<HTML
   .env-condition p:last-child { margin-bottom: 0; }
   .env-condition strong { color: #0f172a; }
 
-  /* 【260507 v5.3.2 新規】Cover Page（P0・表紙＋引力定義） */
-  .cover-page { min-height: calc(100vh - 96px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; page-break-after: always; }
-  .cover-page .cover-badge { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.3em; color: #fff; background: #0f172a; padding: 8px 24px; border-radius: 100px; margin-bottom: 32px; }
-  .cover-page .cover-title { font-size: 32pt; font-weight: 800; color: #0f172a; letter-spacing: 0.04em; margin: 0 0 12px; line-height: 1.3; border: none; padding: 0; }
-  .cover-page .cover-subtitle { font-size: 10pt; color: #64748b; letter-spacing: 0.2em; margin-bottom: 32px; }
-  .cover-page .cover-divider { width: 60px; height: 2px; background: #0f172a; margin: 0 auto 40px; }
-  .cover-gravity-def { max-width: 580px; width: 100%; text-align: left; margin-bottom: 48px; }
-  .cover-gravity-label { font-size: 11pt; font-weight: 800; color: #0f172a; letter-spacing: 0.08em; text-align: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #cbd5e1; }
-  .cover-gravity-body { font-size: 12pt; line-height: 2.0; color: #1a1a2e; text-align: center; margin: 0 0 24px; }
-  .cover-gravity-body strong { color: #0f172a; font-weight: 800; }
-  .cover-gravity-duality { display: flex; flex-direction: column; gap: 12px; margin: 24px 0 28px; }
-  .cover-gravity-positive, .cover-gravity-negative { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; }
-  .cover-gravity-positive { background: rgba(16, 185, 129, 0.06); border-left: 3px solid #059669; }
-  .cover-gravity-negative { background: rgba(239, 68, 68, 0.06); border-left: 3px solid #dc2626; }
-  .cover-gravity-positive .cgd-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.1em; color: #047857; padding: 3px 10px; background: #fff; border-radius: 4px; flex-shrink: 0; }
-  .cover-gravity-negative .cgd-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.1em; color: #991b1b; padding: 3px 10px; background: #fff; border-radius: 4px; flex-shrink: 0; }
-  .cgd-arrow { font-size: 11pt; font-weight: 700; color: #64748b; flex-shrink: 0; }
-  .cgd-text { color: #1a1a2e; }
-  .cover-gravity-claim { font-size: 13pt; font-weight: 800; color: #0f172a; text-align: center; margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #cbd5e1; line-height: 1.6; }
-  .cover-page .cover-meta { font-size: 9pt; color: #94a3b8; letter-spacing: 0.15em; margin-top: 24px; }
+  /* 【260507 v5.3.3 刷新】Cover Page ── WP V9 風ダークモード（ネイビー全面 + 円形リング + 左帯アクセント） */
+  .cover-page { background: #0f172a; color: #fff; padding: 56px 48px 40px; position: relative; overflow: hidden; page-break-after: always; box-sizing: border-box; }
+  .cover-page::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border: 36px solid rgba(71, 85, 105, 0.3); border-radius: 50%; pointer-events: none; }
+  .cover-page::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 200px; height: 200px; border: 22px solid rgba(197, 168, 128, 0.12); border-radius: 50%; pointer-events: none; }
+  .cover-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; padding-top: 16px; }
+
+  .cover-badge { display: inline-block; font-size: 9pt; font-weight: 700; letter-spacing: 0.3em; color: #94a3b8; border: 1px solid #334155; padding: 5px 14px; border-radius: 2px; margin-bottom: 28px; text-transform: uppercase; }
+
+  .cover-main-title { font-size: 48pt; font-weight: 900; line-height: 1.05; color: #fff; border-left: 6px solid #C5A880; padding: 0 0 0 24px; margin: 0 0 28px; letter-spacing: 0.02em; border-bottom: none; }
+
+  .cover-divider { width: 72px; height: 3px; background: #C5A880; margin: 0 0 36px 24px; }
+
+  .cover-gravity-def { background: rgba(255, 255, 255, 0.04); padding: 24px 28px; border-radius: 4px; border-left: 3px solid #C5A880; margin-bottom: 28px; }
+  .cover-gravity-label { font-size: 10pt; font-weight: 700; letter-spacing: 0.2em; color: #C5A880; margin-bottom: 14px; text-transform: uppercase; }
+  .cover-gravity-body { font-size: 11pt; line-height: 1.85; color: #d7dde6; margin: 0 0 18px; }
+  .cover-gravity-body strong { color: #fff; font-weight: 800; }
+  .cover-gravity-duality { display: flex; flex-direction: column; gap: 6px; margin: 14px 0 18px; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .cover-gravity-positive, .cover-gravity-negative { display: flex; align-items: center; gap: 12px; font-size: 10pt; line-height: 1.5; color: #d7dde6; padding: 4px 0; }
+  .cgd-tag { font-size: 8pt; font-weight: 800; letter-spacing: 0.15em; padding: 3px 10px; border-radius: 2px; flex-shrink: 0; }
+  .cover-gravity-positive .cgd-tag { color: #6EE7B7; background: rgba(110, 231, 183, 0.08); border: 1px solid rgba(110, 231, 183, 0.35); }
+  .cover-gravity-negative .cgd-tag { color: #FCA5A5; background: rgba(252, 165, 165, 0.06); border: 1px solid rgba(252, 165, 165, 0.35); }
+  .cgd-arrow { color: #64748b; font-weight: 700; flex-shrink: 0; }
+  .cgd-text { color: #d7dde6; }
+  .cover-gravity-claim { font-size: 11.5pt; font-weight: 800; color: #fff; margin: 16px 0 0; padding: 0; border: none; line-height: 1.55; }
+
+  .cover-meta { display: flex; align-items: center; gap: 14px; font-size: 9pt; color: #475569; letter-spacing: 0.18em; margin-top: 28px; padding-top: 20px; border-top: 1px solid #1e293b; }
+  .cover-meta strong { color: #94a3b8; font-weight: 700; }
+  .cm-divider { color: #334155; }
 
   /* 【260507 v5.3 新規】Block C 経営インパクトボックス（採用/離脱/躍動 3 軸 × Before/After） */
   .business-impact-box { background: #eff6ff; border: 2px solid #1e40af; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
@@ -1147,26 +1155,26 @@ $report_html = <<<HTML
   <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm2-4v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z"/></svg>
   PDF保存
 </button>
-<div class="page">
 <div class="cover-page">
-  <div class="cover-badge">YOUR GRAVITY CODE</div>
-  <h1 class="cover-title">あなたの引力の暗号</h1>
-  <div class="cover-subtitle">SOURCE CODE ANALYSIS REPORT</div>
-  <div class="cover-divider"></div>
+  <div class="cover-inner">
+    <div class="cover-badge">SOURCE CODE ANALYSIS REPORT</div>
+    <h1 class="cover-main-title">YOUR<br>GRAVITY<br>CODE</h1>
+    <div class="cover-divider"></div>
 
-  <div class="cover-gravity-def">
-    <div class="cover-gravity-label">ここで言う「引力」とは</div>
-    <p class="cover-gravity-body">人が離れない・自発的に動く「場の力」。<br>経営者の <strong>Why × 才能 × 偏愛</strong> の 3 要素の整合から生まれる。</p>
-    <div class="cover-gravity-duality">
-      <div class="cover-gravity-positive"><span class="cgd-tag">整合</span><span class="cgd-arrow">→</span><span class="cgd-text">人が集まり、幹部が躍動する</span></div>
-      <div class="cover-gravity-negative"><span class="cgd-tag">ズレ</span><span class="cgd-arrow">→</span><span class="cgd-text">採用しても定着しない・優秀な幹部が辞める</span></div>
+    <div class="cover-gravity-def">
+      <div class="cover-gravity-label">ここで言う「引力」とは</div>
+      <p class="cover-gravity-body">人が離れない・自発的に動く「場の力」。<br>経営者の <strong>Why × 才能 × 偏愛</strong> の 3 要素の整合から生まれる。</p>
+      <div class="cover-gravity-duality">
+        <div class="cover-gravity-positive"><span class="cgd-tag">整合</span><span class="cgd-arrow">→</span><span class="cgd-text">人が集まり、幹部が躍動する</span></div>
+        <div class="cover-gravity-negative"><span class="cgd-tag">ズレ</span><span class="cgd-arrow">→</span><span class="cgd-text">採用しても定着しない・優秀な幹部が辞める</span></div>
+      </div>
+      <p class="cover-gravity-claim">事業の天井は、経営者の引力の天井である。</p>
     </div>
-    <p class="cover-gravity-claim">事業の天井は、経営者の引力の天井である。</p>
-  </div>
 
-  <div class="cover-meta">Gravity CODE｜GrowthFix</div>
+    <div class="cover-meta"><strong>Gravity CODE</strong><span class="cm-divider">／</span>GrowthFix</div>
+  </div>
 </div>
-<div class="page-break"></div>
+<div class="page">
 {$report_body}
 </div>
 </body>
