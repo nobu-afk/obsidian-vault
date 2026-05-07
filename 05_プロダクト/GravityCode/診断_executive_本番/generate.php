@@ -1100,12 +1100,13 @@ $report_html = <<<HTML
   .path-card--small { padding: 12px 16px; font-size: 9.5pt; color: #475569; background: #f8fafc; border-color: #e2e8f0; }
   .path-card--small strong { color: #0f172a; }
 
-  .closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 22px 26px; margin: 28px 0; font-style: italic; color: #334155; page-break-inside: avoid; }
-  .closing-note p { margin: 0 0 10px; font-size: 10.5pt; line-height: 1.9; }
+  .closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 20px 0 12px; font-style: italic; color: #334155; page-break-inside: avoid; }
+  .closing-note p { margin: 0 0 8px; font-size: 10.5pt; line-height: 1.85; }
   .closing-note p:last-child { margin-bottom: 0; }
 
   {$question_block_css}
-  .report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
+  /* 【260507 v5.3.4 改修】report-footer 圧縮で P9 単独白ページ解消 */
+  .report-footer { margin-top: 20px; padding-top: 10px; border-top: 1px solid #cbd5e1; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; page-break-before: avoid; }
   .report-footer strong { color: #0f172a; font-size: 10pt; }
   .page-break { page-break-before: always; }
   /* スクリーン表示のレスポンシブ */
