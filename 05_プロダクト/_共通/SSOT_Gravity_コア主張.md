@@ -1,9 +1,11 @@
-# SSOT：Gravity のコア主張（Phase 1・260508 夜）
+# SSOT：Gravity のコア主張（Phase 1 → 260509 拡張）
 
-> **目的：** Gravity シリーズ（CODE / Scan / Recruit / Cultivate / Shift / Coaching / Orbit）の **思想的・理論的なコア主張 10 件**を 1 ファイルに集約。今後の論文リサーチ（Phase 2-5）の出発点・LP / WhitePaper / 書籍 2027 / 認定コーチ研修教材の SSOT。
-> **作成：** 2026-05-08（金）夜
+> **目的：** Gravity シリーズ（CODE / Scan / Recruit / Cultivate / Shift / Coaching / Orbit）の **思想的・理論的なコア主張 12 件**を 1 ファイルに集約。今後の論文リサーチ（Phase 2-5）の出発点・LP / WhitePaper / 書籍 2027 / 認定コーチ研修教材の SSOT。
+> **作成：** 2026-05-08（金）夜（v1.0・10 件）／ **拡張：** 2026-05-09（土）（v1.1・JAFCO 反映で #11 中間経営職 + #12 採用 PMF + 採用接続資産 を追加 + 全主張に学術領域マッピング併記）
 > **背景：** 260508 長谷さんモニターで「どういう理論をベースに作ってるか見えるとよい」というフィードバックを受領。レポート theory-background-box（5 項目固定）で初期対応 → Phase 2-5 で世界中の論文を引いて権威性訴求を完成させる前段の SSOT 化。
 > **位置付け：** 「現場 60% : 論文 40%」原則の **現場 60% 側の言語化**。論文リサーチで肉付けする土台。
+
+> **三段検証プロトコル整合（260508 引き継ぎ書）：** 各主張の学術領域マッピングは「主軸領域 / 接続領域 / 反論論文の主軸」3 段構成で記述。Opus 自身の知識で確証できない論文・概念には **[Speculative]** プレフィックスを付与（捏造防止）。Phase 3 で Elicit / Semantic Scholar により実在確認 → 三段クリアした論文のみ引用可。
 
 ---
 
@@ -39,6 +41,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - García & Miralles（Ikigai 関連）
 - Maslow（自己実現・peak experience）
 
+**学術領域マッピング：**
+- **主軸領域：** Self-Determination Theory（Deci & Ryan, 1985 / 2000）── 内発的動機と自律性が個人パフォーマンスを決める
+- **接続領域：** Authentic Leadership（Bill George, 2003）/ フロー理論（Csikszentmihalyi, 1990）/ Ikigai 研究（García & Miralles, 2017）
+- **反論論文の主軸：** 「Why は後付けである」論（Behavioral Economics 系・**[Speculative]** Daniel Pink 系統への批判論文）/ 「内発的動機は外発的動機で代替可能」論（行動経済学・Ariely 系）
+
 ---
 
 ### コア主張 #2：組織引力の 4 型診断（集まる軸 × 躍動軸）
@@ -59,6 +66,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - Edmondson（Psychological Safety）
 - O'Reilly & Chatman（Organizational Culture Profile）
 
+**学術領域マッピング：**
+- **主軸領域：** ASA Framework（Schneider, 1987 / 1995）── 組織は経営者の引力で人を引き寄せ・選別し・離脱させる動的プロセス
+- **接続領域：** Competing Values Framework（Quinn & Rohrbaugh, 1983）/ Person-Organization Fit（Cable & Judge, 1996）/ Organizational Culture Profile（O'Reilly, Chatman & Caldwell, 1991）
+- **反論論文の主軸：** 「組織文化の 4 型分類は単純化しすぎ」論（Schein 系統・組織文化は階層構造で 4 マトリクスでは捉えられない）/ 「P-O Fit は採用バイアスを正当化する」論（Diversity 研究側からの批判）
+
 ---
 
 ### コア主張 #3：個人引力 → 組織引力の翻訳機構
@@ -76,6 +88,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - Hambrick & Mason（Upper Echelon Theory）
 - Schein（Organizational Culture）
 - Beckman & Burton（Founder Effect on Organization）
+
+**学術領域マッピング：**
+- **主軸領域：** Sensemaking Theory（Karl Weick, 1995）── 経営者の認知が言語化され組織の解釈枠組みに翻訳されるプロセス
+- **接続領域：** Symbolic Interactionism（Blumer, 1969）/ Upper Echelon Theory（Hambrick & Mason, 1984）/ Founder Imprinting 研究（Beckman & Burton, 2008）
+- **反論論文の主軸：** 「組織文化は創業者と独立に進化する」論（Institutional Theory 系・**[Speculative]** DiMaggio & Powell 1983 の同型化論への接続）/ Founder Effect 過大評価への批判（後継世代でリセットされる実証）
 
 ---
 
@@ -97,6 +114,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - 上野山勝也（NeuralPocket）の AI 経営論
 - 谷井等（AI ネイティブ経営）
 
+**学術領域マッピング：**
+- **主軸領域：** Competing in the Age of AI（Iansiti & Lakhani, 2020）── AI 時代の競争原理が指数関数的になる経営戦略論
+- **接続領域：** Diffusion of Innovations（Rogers, 1962 / 2003 第 5 版）/ Organizational Ambidexterity（Tushman & O'Reilly, 1996）/ Brynjolfsson による AI 経済学（**[Speculative]** Productivity J-curve 論文）
+- **反論論文の主軸：** 「AI 楽観論への批判」（Daron Acemoglu, 2024 等の労働置換懸念論文）/ 意思決定速度向上は組織アジリティで解決可能論（**[Speculative]** Holacracy 系）
+
 ---
 
 ### コア主張 #5：能力の輪（マンガー）の応用
@@ -116,6 +138,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - Kahneman（Thinking Fast and Slow）
 - Dunning & Kruger（Unskilled and Unaware）
 - Ericsson（Deliberate Practice）
+
+**学術領域マッピング：**
+- **主軸領域：** Domain Expertise 研究（Ericsson, 1993・Deliberate Practice）── 領域専門性の構造と境界
+- **接続領域：** Charlie Munger Mental Models（Poor Charlie's Almanack, 2005）/ Dunning-Kruger 効果（Kruger & Dunning, 1999）/ Metacognition 研究（Flavell, 1979）
+- **反論論文の主軸：** 「能力の輪は固定的ではなく拡張可能」論（Carol Dweck の Growth Mindset, 2006）/ T 字型人材論（**[Speculative]** IDEO 系の T-shaped skill 研究）
 
 ---
 
@@ -138,6 +165,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - Robert French（Leadership and Negative Capability）
 - 帚木蓬生『ネガティブ・ケイパビリティ』（日本語普及書）
 
+**学術領域マッピング：**
+- **主軸領域：** Negative Capability（John Keats, 1817 letter / Wilfred Bion, 1970 精神分析応用）── 答えのない時間に留まる力をリーダーシップに展開
+- **接続領域：** Tolerance for Ambiguity 研究（Frenkel-Brunswik, 1949）/ Leadership and Negative Capability（Robert French, 2001）/ 帚木蓬生（2017 日本語普及書）
+- **反論論文の主軸：** 「不確実性下では迅速な意思決定が優位」論（OODA Loop 系 / Decision-Making under Uncertainty・Heath & Heath, Decisive 2013）/ ネガティブ・ケイパビリティは精神分析臨床外で実証困難という方法論批判（**[Speculative]**）
+
 ---
 
 ### コア主張 #7：have to の検出と本来に戻す一手
@@ -157,6 +189,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - Steven Hayes（ACT・Acceptance and Commitment Therapy）
 - Daniel Pink（Drive：内発的動機の科学）
 - Carol Dweck（Mindset・Fixed vs Growth）
+
+**学術領域マッピング：**
+- **主軸領域：** Acceptance and Commitment Therapy（Steven Hayes, 1999 / 2011）── 認知的フュージョン解体と価値志向への戻りのプロセス
+- **接続領域：** Self-Determination Theory（Deci & Ryan, 2000・外発的 vs 内発的動機の連続体）/ ナラティブセラピー（White & Epston, 1990）/ Polyvagal Theory（**[Speculative]** Stephen Porges, 2011・社会的期待による神経系凍結応答）
+- **反論論文の主軸：** 「社会的期待（have to）は社会化に必要」論（社会化研究・Mead 系統）/ 「want to / have to の二項対立は単純化」論（Self-Determination の自律性連続体は 4 段階で二項ではない）
 
 ---
 
@@ -178,6 +215,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - ICF（International Coaching Federation・Core Competencies）
 - Peter Levine（Somatic Experiencing）
 - Eugene Gendlin（Focusing：身体感覚の言語化）
+
+**学術領域マッピング：**
+- **主軸領域：** Embodied Cognition（Lakoff & Johnson, 1999 Philosophy in the Flesh）── 認知は身体経験に基盤を持つという認知科学の枠組み
+- **接続領域：** Somatic Experiencing（Peter Levine, 1997 Waking the Tiger）/ Focusing 理論（Eugene Gendlin, 1978）/ GROW Model（John Whitmore, 1992）
+- **反論論文の主軸：** 「コーチングは介入として効果が実証困難」論（**[Speculative]** Coaching Outcome Research の方法論批判系統）/ ソマティクス系手法はエビデンス不足という臨床心理学側からの批判
 
 ---
 
