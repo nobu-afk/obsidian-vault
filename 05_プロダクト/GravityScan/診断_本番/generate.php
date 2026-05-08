@@ -1293,6 +1293,13 @@ $report_body = preg_replace('/、(\s*、)+/u', '、', $report_body);
 $report_body = preg_replace('/（\s*）/u', '', $report_body);
 $report_body = preg_replace('/  +/u', ' ', $report_body);
 
+// --- ★ 期間表現の冗長重複除去（260508 追加・置換結果の二段冗長を圧縮）---
+// 例：「3 ヶ月予言の書」→「3 ヶ月後の到達ゴール書」置換時に、元文に前置き「3ヶ月」がある場合「3ヶ月3 ヶ月後の到達ゴール書」になる現象に対応
+// 「N ヶ月 N ヶ月」のパターン（半角空白・全角空白あり/なし両対応）を「N ヶ月」1 つに圧縮
+$report_body = preg_replace('/(\d+)\s*ヶ月\s*\1\s*ヶ月/u', '$1 ヶ月', $report_body);
+// 「3 ヶ月後の N ヶ月後」のような重複は最初を残す
+$report_body = preg_replace('/(\d+\s*ヶ月後の)(\s*\d+\s*ヶ月後の)/u', '$1', $report_body);
+
 // --- divタグの自動修復 ---
 $open_divs = preg_match_all('/<div[\s>]/i', $report_body);
 $close_divs = preg_match_all('/<\/div>/i', $report_body);
