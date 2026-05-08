@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gravity Coaching（心の参謀）| 自分を取り戻すと、人生が動き出す</title>
+    <title>Gravity Coaching（心の参謀）| 自分を取り戻すと、人生が動き出す。</title>
     <meta
       name="description"
-      content="Gravity Coaching は経営者個人の継続コーチング。自分を取り戻すと、人生が動き出す。月 1 × 90 分 × 6 ヶ月で本来の判断軸（Why × 才能 × 偏愛）を取り戻す。38 万円（税込・CODE 付）。Gravity Cultivate 並走 128 万あり。本サービスは関係構築前提（CODE 受講後・セミナー参加後の商談）でご案内します。"
+      content="経営者個人の継続コーチング。月 1 × 90 分 × 6 ヶ月で本来の判断軸（Why × 才能 × 偏愛）を取り戻す心の参謀。38 万円（税込・CODE 付）。本サービスは関係構築前提（CODE 受講後・引力経営セミナー参加後の商談）でご案内します。"
     />
-    <meta property="og:title" content="Gravity Coaching（心の参謀）| 自分を取り戻すと、人生が動き出す" />
+    <meta property="og:title" content="Gravity Coaching（心の参謀）| 自分を取り戻すと、人生が動き出す。" />
     <meta
       property="og:description"
-      content="自分を取り戻すと、人生が動き出す。経営者個人の継続コーチング・月 1 × 90 分 × 6 ヶ月・38 万円（CODE 付）。商談時にご案内します。"
+      content="自分を取り戻すと、人生が動き出す。経営者個人の継続コーチング・月 1 × 90 分 × 6 ヶ月・38 万円（CODE 付）。商談時にご案内。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://growthfix.jp/gravity-coaching/" />
@@ -23,10 +23,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/tokens.css?v=20260414c" />
     <link rel="stylesheet" href="/assets/css/lp-base.css?v=20260414c" />
+    <link rel="stylesheet" href="/assets/css/gravity-shift-page.css?v=20260504a" />
     <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260507">
-    <link rel="stylesheet" href="https://growthfix.jp/assets/css/minimal-lp.css?v=20260503a">
+    <script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
+    <script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
 
     <!-- Service Schema (Schema.org) -->
     <script type="application/ld+json">
@@ -35,7 +38,7 @@
   "@type": "Service",
   "name": "Gravity Coaching",
   "alternateName": "心の参謀",
-  "description": "Gravity Coaching は経営者個人の継続コーチング。自分を取り戻すと、人生が動き出す。月 1 × 90 分 × 6 ヶ月で本来の判断軸（Why × 才能 × 偏愛）を取り戻す心の参謀。コーチング × コンサル × ソマティックの 3 モード切替。本サービスは関係構築前提（Gravity CODE 受講後・引力経営セミナー参加後の商談）でご案内します。LP 経由の直接申込は受け付けていません。",
+  "description": "経営者個人の継続コーチング。月 1 × 90 分 × 6 ヶ月で社会から埋め込まれた『have to』を抜き、本来の判断軸（Why × 才能 × 偏愛）を取り戻す心の参謀。コーチング × コンサル × ソマティックの 3 モード切替。本サービスは関係構築前提（CODE 受講後・引力経営セミナー参加後の商談）でご案内します。",
   "url": "https://growthfix.jp/gravity-coaching/",
   "provider": {
     "@type": "Organization",
@@ -55,84 +58,209 @@
     </script>
   </head>
   <body>
-    <div class="minimal-container">
-      <div class="minimal-header">
-        <p class="minimal-eyebrow">GRAVITY COACHING ── 心の参謀</p>
-        <h1>自分を取り戻すと、<br>人生が動き出す。</h1>
-        <p class="minimal-sub">経営者個人の継続コーチング・月 1 × 90 分 × 6 ヶ月・38 万円（CODE 付）。本サービスは <strong>関係構築前提</strong> です。LP からの直接申込は受け付けていません。CODE 受講後・引力経営セミナー参加後の商談時にご案内します。</p>
+    <a class="skip-link" href="#main">メインコンテンツへ</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#" class="logo">Gravity Coaching</a>
+        <div class="header-right">
+          <nav class="nav" aria-label="メインナビゲーション">
+            <a href="#offer">オファー</a>
+            <a href="#deliverables">納品物</a>
+            <a href="#process">6 ヶ月の流れ</a>
+            <a href="#pricing">料金</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+          <a class="btn btn-primary btn-sm" href="#access">関係構築の入口 <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
+          <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-
-      <h2>サービス内容</h2>
-      <p>
-        経営者個人を月 1 × 90 分 × 6 ヶ月の継続対話で伴走し、社会から埋め込まれた "have to" を抜いて、本来の判断軸（<strong>Why × 才能 × 偏愛</strong>）を取り戻す心の参謀。
-      </p>
-      <ul>
-        <li><strong>月 1 × 90 分セッション × 6 ヶ月</strong>（80 分対話 + 10 分固化フェーズ）</li>
-        <li><strong>3 モード切替対話</strong>：コーチング × コンサル × ソマティック</li>
-        <li><strong>Slack サポート</strong>：期間中の実装ブロッカー相談</li>
-        <li><strong>固化フェーズ運用</strong>：3 行要約 + 5 決定 + 次回問い 1-2 個（24 時間以内 Slack 送付）</li>
-        <li><strong>Gravity CODE 付属</strong>（個人引力タイプの 4 型解読・60 分セッション 5 万円相当）</li>
-        <li><strong>7 ヶ月目以降は月 5 万円</strong>で継続可能（既存 3 名運用パターン）</li>
-      </ul>
-
-      <h2>料金</h2>
-
-      <div class="pricing-box">
-        <h3>Gravity Coaching（標準）</h3>
-        <div class="price">38<small>万円／6 ヶ月（税込）</small></div>
-        <p class="note">▶ Gravity CODE 5 万円分込み（実質 33 万円）／ 7 ヶ月目以降 月 5 万円</p>
-        <ul>
-          <li>月 1 × 90 分セッション × 6 回</li>
-          <li>Slack サポート（期間中）</li>
-          <li>3 モード切替対話 + 10 分固化フェーズ</li>
-          <li>個別事前分析設計（次セッションまでの内省素材）</li>
-        </ul>
+      <div class="mobile-nav" aria-hidden="true">
+        <a href="#offer">オファー</a>
+        <a href="#deliverables">納品物</a>
+        <a href="#process">6 ヶ月の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#access">関係構築の入口 <i class="ri-arrow-right-s-line" aria-hidden="true"></i></a>
       </div>
+    </header>
 
-      <div class="pricing-secondary">
-        <h4>Gravity Cultivate + Coaching 並走パッケージ（128 万円）</h4>
-        <p>
-          Scan「拡散型」+ C-5 中判定（経営者の "覚悟" 中位）の経営者向け。<br>
-          <strong>Gravity Scan 10 万 + Gravity Cultivate 80 万 + Gravity Coaching 38 万 = 128 万円</strong>。<br>
-          社長 Coaching（個人軸 6 ヶ月）× 役員 Cultivate（躍動組織 3 ヶ月集中）の 3 チーム並走モデル。
+    <main id="main">
+
+      <!-- 1. HERO -->
+      <section class="shift-v2-hero">
+        <div class="container-narrow">
+          <p class="hero-eyebrow" style="font-size:14px;font-weight:800;color:#1b1b1b;letter-spacing:0.04em;margin-bottom:16px;">心の参謀 ── 経営者個人を 6 ヶ月伴走する</p>
+          <h1>
+            自分を<em>取り戻す</em>と、<br />人生が<em>動き出す</em>。
+          </h1>
+          <p class="shift-v2-hero-sub">
+            社会から埋め込まれた "have to" を抜き、本来の判断軸を取り戻す 6 ヶ月。
+          </p>
+          <div class="shift-v2-hero-meta">
+            <span class="shift-v2-hero-meta-badge">月 1 × 90 分 × 6 ヶ月</span>
+            <span class="shift-v2-hero-meta-badge">38 万円（税込・CODE 付）</span>
+            <span class="shift-v2-hero-meta-badge">関係構築前提（直接申込不可）</span>
+          </div>
+          <a class="btn btn-primary btn-lg" href="#access">
+            関係構築の入口へ<i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. THE OFFER -->
+      <section class="shift-v2-section" id="offer">
+        <div class="container-narrow">
+          <span class="shift-v2-label">THE OFFER</span>
+          <h2>「強い経営者」を演じる疲れから、<br /><em>本音で考える時間</em>を取り戻す 6 ヶ月。</h2>
+          <p style="font-size:16px;line-height:1.95;color:#334155;">
+            経営者個人を <strong>月 1 × 90 分 × 6 ヶ月の継続対話</strong>で伴走し、社会から埋め込まれた "have to" を抜いて、本来の判断軸（<strong>Why × 才能 × 偏愛</strong>）を取り戻す。<br />
+            「頭が良い × 顔色が悪い」経営者・本音を話せる相手がいない経営者の <strong>心の参謀</strong>として並走します。
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. DELIVERABLES -->
+      <section class="shift-v2-section" id="deliverables" style="background:#fafafa;">
+        <div class="container-narrow">
+          <span class="shift-v2-label">DELIVERABLES</span>
+          <h2>サービス内容</h2>
+          <ul style="font-size:15px;line-height:1.95;color:#334155;padding-left:20px;">
+            <li style="margin-bottom:14px;"><strong>月 1 × 90 分セッション × 6 ヶ月（全 6 回）</strong>── 80 分対話 + <strong>10 分固化フェーズ</strong>（3 行要約 + 5 決定 + 次回問い 1-2 個）</li>
+            <li style="margin-bottom:14px;"><strong>3 モード切替対話</strong>── コーチング × コンサル × ソマティックを場面別に切り替えて深掘り</li>
+            <li style="margin-bottom:14px;"><strong>事前分析設計</strong>── セッション前に経営者の発話傾向を分析・次セッションの内省素材を準備</li>
+            <li style="margin-bottom:14px;"><strong>Slack サポート</strong>── 期間中の実装ブロッカー相談</li>
+            <li style="margin-bottom:14px;"><strong>Gravity CODE 付属</strong>── 個人引力タイプの 4 型解読（60 分セッション・5 万円相当）</li>
+            <li style="margin-bottom:14px;"><strong>24 時間以内 Slack 送付</strong>── 各セッション後の固化メモを Slack で共有・次回までの内省素材に</li>
+          </ul>
+          <p style="font-size:14px;color:#6b6b6b;margin-top:20px;">★ サービス詳細・1 文 SSOT・契約条件は <strong>関係構築後の商談時</strong>に口頭でご案内します。</p>
+        </div>
+      </section>
+
+      <!-- 4. PROCESS -->
+      <section class="shift-v2-section" id="process">
+        <div class="container-narrow">
+          <span class="shift-v2-label">PROCESS</span>
+          <h2>6 ヶ月の進行</h2>
+          <ul style="font-size:15px;line-height:1.95;color:#334155;padding-left:20px;">
+            <li style="margin-bottom:12px;"><strong>Month 1</strong>：CODE 4 型解読 ＋ 6 ヶ月のテーマ設定（経営者の Why × 才能 × 偏愛 の現在地確認）</li>
+            <li style="margin-bottom:12px;"><strong>Month 2-3</strong>：have to の解体（社会的期待・演じる疲れ・休めない構造の言語化）</li>
+            <li style="margin-bottom:12px;"><strong>Month 4-5</strong>：本来の判断軸の取り戻し（カラフル vs 灰色・自己主権の再確立）</li>
+            <li style="margin-bottom:12px;"><strong>Month 6</strong>：6 ヶ月総括 ＋ 継続判断（7 ヶ月目以降 月 5 万円で継続可能・既存 3 名運用パターン）</li>
+          </ul>
+          <p style="font-size:14px;color:#6b6b6b;margin-top:20px;">★ 全セッションは <strong>土曜午前</strong>枠で実施（既存 3 名運用パターン・自己主権の最適化）。</p>
+        </div>
+      </section>
+
+      <!-- 5. PRICING & 7 特徴 -->
+      <section class="shift-v2-section" id="pricing" style="background:#fafafa;">
+        <div class="container-narrow">
+          <span class="shift-v2-label">PRICING</span>
+          <h2>料金</h2>
+          <ul style="font-size:15px;line-height:1.95;color:#334155;padding-left:20px;">
+            <li style="margin-bottom:12px;"><strong>Gravity Coaching 標準：38 万円（税込・6 ヶ月一括）</strong>── Gravity CODE 5 万円分込み（実質 33 万円）／ 7 ヶ月目以降 月 5 万円で継続可能</li>
+            <li style="margin-bottom:12px;">★ <strong>Gravity Cultivate + Coaching 並走パッケージ 128 万・6 ヶ月</strong>（Scan 10 ＋ Cultivate 80 ＋ Coaching 38）── Scan「拡散型」＋ C-5 中判定経営者の標準。社長 Coaching（個人軸 6 ヶ月）× 役員 Cultivate（躍動組織 3 ヶ月集中）の 3 チーム並走モデル。</li>
+          </ul>
+
+          <h3 style="margin-top:36px;font-size:18px;color:#0f172a;">対象となる経営者</h3>
+          <ul style="font-size:15px;line-height:1.85;color:#334155;padding-left:20px;">
+            <li>「強い経営者」を演じている経営者・「頭が良い × 顔色が悪い」経営者</li>
+            <li>本音を話せる相手がいない経営者</li>
+            <li>Gravity CODE 4 型で <strong>Why ／ 才能 ／ 偏愛 ズレ型</strong>と判定された経営者</li>
+            <li>Gravity Scan で C-5 中判定（覚悟が中位・並走伴走推奨）と判定された経営者</li>
+          </ul>
+
+          <h3 style="margin-top:36px;font-size:18px;color:#0f172a;">石井コーチング 7 特徴</h3>
+          <ul style="font-size:14px;line-height:1.85;color:#334155;padding-left:20px;">
+            <li><strong>① 問題の再定義力</strong>── 表面の問題から経営者本人の判断軸ズレへの言語化</li>
+            <li><strong>② フレームワーク地図的提供</strong>── 適切なフレームを場面別に渡す</li>
+            <li><strong>③ 3 モード切替</strong>── コーチング × コンサル × ソマティック</li>
+            <li><strong>④ 事前分析設計</strong>── セッション前に経営者の発話傾向を分析</li>
+            <li><strong>⑤ 90 分深掘り型</strong>── 表面で終わらない構造解読</li>
+            <li><strong>⑥ 認知構造コード化</strong>── 判断軸の言語化と再現</li>
+            <li><strong>⑦ 固化フェーズ運用</strong>── 10 分で要約 ＋ 5 決定 ＋ 次回問い</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. FAQ -->
+      <section class="shift-v2-section" id="faq">
+        <div class="container-narrow">
+          <span class="shift-v2-label">FAQ</span>
+          <h2>よくある質問</h2>
+          <div class="shift-faq-list" style="margin-top:28px;">
+            <details class="faq-item">
+              <summary>なぜ LP 経由の直接申込を受け付けていないのですか？</summary>
+              <div class="faq-answer">Gravity Coaching は <strong>「Coaching is not frontline」原則</strong>（260429 確立）に基づき、Push 型の売り言葉ではなく Pull 型のサービスとして運用しています。経営者と石井の <strong>関係構築（CODE 受講・引力経営セミナー参加・Note 連載読了）</strong>を経て、商談時に 1 文 SSOT・サービス詳細・契約条件を口頭でご案内します。既存 3 名（森・長谷・長島）も紹介・知人ルートで自然発火しています。</div>
+            </details>
+            <details class="faq-item">
+              <summary>3 モード切替対話とは何ですか？</summary>
+              <div class="faq-answer">セッション中の対話を <strong>コーチング（聴く）× コンサル（提示する）× ソマティック（身体で感じる）</strong>の 3 モードで切り替える石井独自の手法です。表面の問題（コンサルで解決）と深層の判断軸ズレ（コーチング・ソマティックで解読）を 90 分の中で立体的に扱います。</div>
+            </details>
+            <details class="faq-item">
+              <summary>Gravity CODE と Coaching の違いは？</summary>
+              <div class="faq-answer"><a href="https://growthfix.jp/gravity-code/" style="color:#1e40af;text-decoration:underline;">Gravity CODE</a>（5 万円・60 分単発）は個人引力タイプの 4 型解読（整合 / Why ズレ / 才能ズレ / 偏愛ズレ）。Coaching（38 万円・6 ヶ月）は CODE 結果を起点に <strong>have to の解体と本来の判断軸の取り戻し</strong>を 6 ヶ月伴走するサービスです。CODE は Coaching に付属しており、Coaching 申込で実質 33 万円となります。</div>
+            </details>
+            <details class="faq-item">
+              <summary>Cultivate + Coaching 並走パッケージ 128 万とは？</summary>
+              <div class="faq-answer">Scan + Cultivate + Coaching の <strong>6 ヶ月統合パッケージ</strong>（Scan 10 ＋ Cultivate 80 ＋ Coaching 38 ＝ 128 万）。Scan「拡散型」＋ C-5 ネガティブ・ケイパビリティ「中判定」（答えのない時間を待てる力が発展途上）の経営者に標準推奨。<strong>3 ヶ月集中で Cultivate 実装 ＋ 6 ヶ月並走で Coaching</strong>により、躍動組織を実装しながら経営者個人も整える設計です。詳細は <a href="https://growthfix.jp/gravity-cultivate/" style="color:#1e40af;text-decoration:underline;">Gravity Cultivate</a> をご参照ください。</div>
+            </details>
+            <details class="faq-item">
+              <summary>7 ヶ月目以降の継続はどうなりますか？</summary>
+              <div class="faq-answer">7 ヶ月目以降は <strong>月 5 万円で継続可能</strong>です（既存 3 名運用パターン）。継続判断は経営者本人の意向で行い、引き留めはしません（適合判定の延長として尊重）。継続中もセッション形式・ Slack サポートは同じです。</div>
+            </details>
+          </div>
+          <p style="margin-top:24px;font-size:14px;color:#6b6b6b;text-align:center;">CODE・Scan・Recruit・Cultivate・Orbit との違いや組み合わせは <a href="https://growthfix.jp/gravity/#faq" style="color:#1e40af;text-decoration:underline;">Gravity シリーズ TOP のよくある質問</a> をご覧ください。</p>
+        </div>
+      </section>
+
+      <!-- 7. ACCESS（CTA 相当・Pull 型・関係構築前提） -->
+      <section class="shift-cta-section" id="access">
+        <div class="container-narrow">
+          <span class="shift-v2-label" style="color:#1e40af;">PULL-TYPE ACCESS</span>
+          <h2>
+            関係構築を経て、<br /><em>商談時にご案内</em>します。
+          </h2>
+          <p class="shift-cta-lead">
+            本サービスは <strong>LP 経由での直接申込を受け付けていません</strong>。<br />
+            関係構築（CODE 受講・引力経営セミナー参加・Note 連載読了 等）を経て、<br />
+            商談時に 1 文 SSOT・サービス詳細・契約条件を口頭でご案内します。
+          </p>
+
+          <div class="shift-cta-proof">
+            <span>✓ Pull 型（売り言葉なし）</span>
+            <span>✓ 関係構築前提</span>
+            <span>✓ 既存 3 名運用パターン</span>
+            <span>✓ 石井本人が伴走</span>
+          </div>
+
+          <div style="background:#fff;color:#0f172a;margin-top:32px;padding:40px 36px;border-radius:16px;max-width:520px;margin-left:auto;margin-right:auto;text-align:left;">
+            <p style="color:#0f172a;font-weight:700;font-size:15px;margin-bottom:20px;">関係構築の入口（推奨順）：</p>
+            <p style="margin-bottom:16px;">
+              <a href="https://growthfix.jp/gravity-code/" style="display:block;padding:14px 20px;background:#0f172a;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;text-align:center;">① Gravity CODE（5 万円・60 分・個人引力タイプ解読）<i class="ri-arrow-right-s-line"></i></a>
+            </p>
+            <p style="margin-bottom:16px;">
+              <a href="https://growthfix.jp/whitepaper/" style="display:block;padding:14px 20px;background:#fff;color:#0f172a;border:1px solid #0f172a;border-radius:8px;text-decoration:none;font-weight:700;text-align:center;">② WhitePaper（無料 25 ページ・引力経営の処方箋）<i class="ri-arrow-right-s-line"></i></a>
+            </p>
+            <p style="font-size:13px;color:#64748b;margin-top:20px;">
+              ※ 既に CODE 受講済 or 引力経営セミナー参加済の経営者は、商談時に直接ご案内します。Slack でご連絡ください。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature -->
+      <section style="padding:40px 24px 60px;text-align:center;background:#fafafa;border-top:1px solid #e5e7eb;">
+        <p style="font-size:13px;color:#64748b;line-height:1.85;max-width:720px;margin:0 auto;">
+          <strong style="color:#1b1b1b;">石井伸幸</strong>（GrowthFix 代表 ／ <strong>引力経営提唱者 ／ 心の参謀</strong>）<br>
+          <span style="font-size:12.5px;">30 年以上、組織の引力 ── 人が集まり、活きる力を設計してきた。</span><br>
+          <a href="https://growthfix.jp/profile/" style="color:#1e40af;text-decoration:underline;font-size:12.5px;">→ プロフィール詳細</a>
         </p>
-      </div>
+      </section>
 
-      <h2>対象</h2>
-      <ul>
-        <li>「強い経営者」を演じている経営者・「頭が良い × 顔色が悪い」経営者・本音を話せる相手がいない経営者</li>
-        <li>Gravity CODE 4 型で <strong>Why / 才能 / 偏愛 ズレ</strong> と判定された経営者</li>
-        <li>Gravity Scan で C-5 中判定（経営者覚悟が中位・並走伴走推奨）と判定された経営者</li>
-      </ul>
-
-      <h2>石井コーチング 7 特徴</h2>
-      <div class="feature-grid">
-        <div><strong>① 問題の再定義力</strong>表面の問題から経営者本人の判断軸ズレへの言語化</div>
-        <div><strong>② フレームワーク地図的提供</strong>適切なフレームを場面別に渡す</div>
-        <div><strong>③ 3 モード切替</strong>コーチング × コンサル × ソマティック</div>
-        <div><strong>④ 事前分析設計</strong>セッション前に経営者の発話傾向を分析</div>
-        <div><strong>⑤ 90 分深掘り型</strong>表面で終わらない構造解読</div>
-        <div><strong>⑥ 認知構造コード化</strong>判断軸の言語化と再現</div>
-        <div><strong>⑦ 固化フェーズ運用</strong>10 分で要約 + 5 決定 + 次回問い</div>
-      </div>
-
-      <div class="access-section">
-        <h3>Gravity Coaching を受講したい経営者へ</h3>
-        <p>
-          本サービスは <strong>LP 経由での直接申込を受け付けていません</strong>。<br>
-          関係構築（Gravity CODE 受講・引力経営セミナー参加・Note 連載読了 等）を経て、<br>
-          商談時に 1 文 SSOT・サービス詳細・契約条件を口頭でご案内します。
-        </p>
-        <p style="margin-top: 16px;">
-          <strong>関係構築の入口（推奨順）：</strong>
-        </p>
-        <a class="access-link" href="https://growthfix.jp/gravity-code/">① Gravity CODE（5 万円・60 分・個人引力タイプ解読）</a>
-        <a class="access-link" href="https://growthfix.jp/whitepaper/">② WhitePaper（無料 25 ページ・引力経営の処方箋）</a>
-        <p style="margin-top: 20px; font-size: 13px; color: #64748b;">
-          ※ 既に CODE 受講済 or セミナー参加済の経営者は、商談時に直接ご案内します。
-        </p>
-      </div>
-    </div>
+    </main>
     <script src="https://growthfix.jp/gravity/site-chrome.js?v=20260504a" data-mode="footer" defer></script>
-</body>
+  </body>
 </html>
