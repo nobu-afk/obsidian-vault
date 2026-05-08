@@ -241,6 +241,11 @@ Gravity の権威性訴求は以下の 2 階層：
 - David Drake（Narrative Coaching）
 - 河合隼雄（物語療法・日本語）
 
+**学術領域マッピング：**
+- **主軸領域：** Internal Family Systems（Richard Schwartz, 1995）── 一人の人格内に複数の sub-personality（part）が同居する構造論
+- **接続領域：** Sub-personality 理論（Roberto Assagioli, 1965 Psychosynthesis）/ Metaphors We Live By（Lakoff & Johnson, 1980）/ Narrative Coaching（David Drake, 2014）
+- **反論論文の主軸：** 「人格を矛盾形で命名するのはステレオタイプ化のリスク」論（社会心理学・**[Speculative]** Self-Categorization Theory 系）/ ナラティブ的命名は本人の主観に依存しエビデンス困難という批判
+
 ---
 
 ### コア主張 #10：事業中心人事（経営者の Why を起点に組織を再設計）
@@ -261,31 +266,115 @@ Gravity の権威性訴求は以下の 2 階層：
 - Founder-Led Growth 関連の戦略論
 - 識学（戦略 vs 組織論の対比軸）
 
+**学術領域マッピング：**
+- **主軸領域：** Strategic Human Resource Management（Mark Huselid, 1995 / Wright & McMahan, 1992）── 人事制度の戦略的整合性が企業業績を決める
+- **接続領域：** HR Champions（Dave Ulrich, 1997）/ HR-Business Alignment 研究（Becker & Huselid, 2006）/ Founder-Led Growth 研究（OpenView Partners 系）
+- **反論論文の主軸：** 「業界ベンチマーク型 HR は科学的標準である」論（識学的視座 / Best Practice 派の SHRM 論争）/ 創業者依存の人事は scalability に欠ける論（**[Speculative]** Professional Management 移行研究）
+
 ---
 
-## 2. コア主張間の関係性マップ
+## 主張 #11：中間経営職フレーム（260509 JAFCO 反映追加）
+
+### 主張
+
+中間管理職は AI 時代に機能しない。経営者の引力を翻訳して現場に届ける**中間経営職（ミニ CEO）**こそが、採用基盤と躍動土壌を回す経営代行レイヤーである。**4 マネジメント（数字 / 業務 / ピープル / 引力相性）**で運用評価する。
+
+### 詳細
+
+- 中間管理職 = 上位下達 + 結果責任の中継点（識学的視座・AI 時代に機能不全）
+- 中間経営職 = ミニ CEO として事業を動かすミドル・経営者の引力を翻訳して現場に届ける経営代行レイヤー
+- 4 マネジメント：①数字（KPI 握り）/ ②業務（オペレーション設計）/ ③ピープル（1on1・評価・育成）/ ④**引力相性**（採用基準の引力相性軸 + 既存メンバーの躍動土壌維持）
+- ④引力相性軸が GrowthFix 独自再構成（一般的な「リスクマネジメント」軸を不採用）
+- Shift R/C 共通の Week 11-12 骨格・コーポレート LP / Gravity Hub LP の得意技 2 軸セクションでも明示
+
+### 学術領域マッピング
+
+- **主軸領域：** Upper Echelon Theory（Hambrick & Mason, 1984）── 経営層の認知特性・経験・価値観が組織成果を決定するという戦略経営論の中核理論
+- **接続領域：** Middle Manager Theory（Floyd & Wooldridge, 1997 / 1999・中間管理職の戦略的役割）/ Distributed Leadership 研究（Spillane, 2006）/ Founder Imprinting と中間層への引き継ぎ（**[Speculative]** Beckman & Burton 系統の継承研究）
+- **反論論文の主軸：** 「中間管理職は分散型組織では不要」論（Frederic Laloux, 2014 Reinventing Organizations / Holacracy 系・Brian Robertson 2015）/ 「Teal 組織への進化で中間層は消える」論（**[Speculative]** Self-Management Movement 系）
+
+### 三段検証
+
+- **第 1 段（実証研究の存在確認）：** Hambrick 系統 / Floyd & Wooldridge 系統の Middle Manager 戦略貢献論文（Phase 3 Elicit リサーチ対象）
+- **第 2 段（GrowthFix 現場事例）：** Shift R/C 既存クライアント（260509 時点では検証中・5/14 木以降の Week 11-12 反映で検証）
+- **第 3 段（反論論文への応答準備）：** Reinventing Organizations（Laloux 2014）への応答 = 「Teal は文化が成熟した北欧型組織前提・日本 SMB の採用 + 躍動の現実は中間経営職レイヤー必須」という現場論で対峙
+
+### 配置戦略
+
+| 媒体 | 反映内容 |
+|---|---|
+| WhitePaper V10 | 理論ボックス（採用 / 組織変革セクション・Upper Echelon 接続） |
+| Note Vol.12 | 「中間経営職の時代 ── 管理職を経営職に変えると採用が回り始める」（仮称・260509 公開予定） |
+| Shift R/C Week 11-12 | 共通骨格として明示（4 マネジメント運用設計） |
+| コーポレート LP（`/`）/ Gravity Hub LP（`/gravity/`） | 得意技 2 軸セクションに「中間経営職育成」を追加要素として明示 |
+| 認定コーチ研修教材（2027〜） | Q4 2027 開講時の必修トピック |
+
+---
+
+## 主張 #12：採用 PMF + 採用接続資産（260509 JAFCO 反映追加）
+
+### 主張
+
+採用は「**2 段階の PMF**」である。第 1 段階＝採用したい人材プロファイル確定／第 2 段階＝採用市場での獲得動線構築。両段階を支えるのは **採用接続資産**（リファラル × エージェント × SNS × アライアンスの 4 ストック）の棚卸しと打席数測定。
+
+### 詳細
+
+- 従来の採用論：「採用したい人材像」を作って終わり（第 1 段階で停止）
+- GrowthFix 翻訳：採用市場での獲得動線が立ち上がっているか（第 2 段階）まで PMF として点検
+- 採用接続資産 = リファラル / エージェント / SNS / アライアンスの 4 ストック棚卸し
+- 警告フレーズ：「あったらいいよなレベルでは採用できない」「打席に立つ数が足りないと PMF は分からない」
+- LP 主軸への昇格は禁止（VC 用語化を回避・Recruit LP Hero「優秀人材が吸い寄せられる会社を、3 ヶ月で実装する」は維持）
+
+### 学術領域マッピング
+
+- **主軸領域：** Founder-Led Growth（OpenView Partners / Christoph Janz の SaaS 成長段階論）── スタートアップ成長における Founder 関与度が採用 / 営業 / プロダクトの初期 PMF を決定
+- **接続領域：** Product-Market Fit 概念（Marc Andreessen, 2007 ブログ原典 / Eric Ries 2011 Lean Startup）/ Employer Branding 研究（Backhaus & Tikoo, 2004）/ Recruitment Marketing 領域（**[Speculative]** SHRM Foundation の近年研究）
+- **反論論文の主軸：** 「採用は仕組み化で属人性を排除すべき」論（Greg Savage 系・採用テクノロジー楽観論）/ 「PMF は採用領域に転用できない概念」論（**[Speculative]** Talent Acquisition の独自フレーム派・LinkedIn Talent Insights 系統）
+
+### 三段検証
+
+- **第 1 段（学術研究の存在確認）：** Andreessen PMF（2007 ブログは厳密には学術論文ではない・Lean Startup 経由で書籍化）+ Founder-Led Growth（業界研究レベル・学術論文化は限定的）+ Backhaus & Tikoo Employer Branding 論文
+- **第 2 段（一次情報 + 現場事例）：** JAFCO チャンネル トリニティ磨社長 PMF の壁発話（videoId `4njsf9C1gNQ`・260508 JAFCO 30 本横断分析で抽出）+ GrowthFix Shift R 既存クライアント（260509 時点では Week 7-12 補強の検証中）
+- **第 3 段（反論論文への応答準備）：** 採用テクノロジー楽観論への応答 = 「SaaS 型 ATS は第 1 段階の効率化のみ・第 2 段階（接続資産）は属人ストックでテクノロジーで代替不可」という具体応答
+
+### 配置戦略
+
+| 媒体 | 反映内容 |
+|---|---|
+| WhitePaper V10 | 理論ボックス（採用基盤セクション・Founder-Led Growth + PMF 論接続） |
+| Shift R Week 7-10 / 11-12 | 内部運用語として配置（採用 PMF 第 1 / 第 2 段階点検 + 採用接続資産 4 ストック棚卸し） |
+| 営業_運用詳細.md 商談トーク | 「打席に立つ」「あったらいいよなレベルでは採用できない」「採用接続資産」 |
+| 認定コーチ研修教材 | 採用基盤実装書 12 要素の理論前置き |
+| **LP 主軸への昇格は禁止** | Recruit LP Hero は維持・「採用 PMF」は h1/h2 に出さない |
+
+---
+
+## 2. コア主張間の関係性マップ（260509 #11/#12 追加版）
 
 ```
                       [#4 AI 時代の速度非対称性]
                            ↓ 必然性提示
 [#1 個人引力 3 要素整合] → [#3 個人 → 組織翻訳機構] → [#2 組織引力 4 型]
-       ↓                                                ↓
-[#5 能力の輪]                                     [#10 事業中心人事]
-       ↓                                                ↓
-[#7 have to 検出]  ← [#6 ネガティブ・ケイパビリティ]
-       ↓                  ↑
-[#8 コーチング × コンサル × ソマティクス]
+       ↓                          ↓                          ↓
+[#5 能力の輪]              [#11 中間経営職]           [#10 事業中心人事]
+       ↓                          ↓                          ↓
+[#7 have to 検出]         [#12 採用 PMF +            [Shift R/C 12 要素]
+       ↓                  採用接続資産]
+[#8 コーチング ×                  ↑
+コンサル × ソマティクス] ← [#6 ネガティブ・ケイパビリティ]
        ↓
 [#9 キャラ命名手法]
 ```
 
-- **個人軸（CODE）：** #1, #5, #7, #8, #9
-- **組織軸（Scan）：** #2, #3, #10
+- **個人軸（CODE / Coaching）：** #1, #5, #7, #8, #9
+- **組織軸（Scan / Recruit / Cultivate / Shift / Orbit）：** #2, #3, #10, #11, #12
 - **共通基盤：** #4（AI 時代の必然性）, #6（覚悟確認）
+- **採用基盤層（Shift R 中核）：** #11（中間経営職の引力相性軸）, #12（採用 PMF + 接続資産）── 翻訳機構 #3 から組織引力 #2 への接地点
+- **躍動土壌層（Shift C 中核）：** #11（中間経営職の数字 / 業務 / ピープル軸）── 事業中心人事 #10 の運用主体
 
 ---
 
-## 3. レポート / LP / WhitePaper / 書籍での配置戦略
+## 3. レポート / LP / WhitePaper / 書籍での配置戦略（260509 #11/#12 追加反映）
 
 | 媒体 | 含めるコア主張 | 詳細度 |
 |---|---|---|
@@ -293,21 +382,64 @@ Gravity の権威性訴求は以下の 2 階層：
 | **Scan レポート theory-background-box** | #2, #3, #4, #6, #8 を 1 行ずつ | 5 行 |
 | **CODE LP** | #1, #5（深掘り 1 段落ずつ）| 短文 × 2 |
 | **Scan LP** | #2, #3, #6（深掘り 1 段落ずつ）| 短文 × 3 |
-| **WhitePaper V10**（Phase 5 で構築）| 全 10 件を学術論文引用付きで深掘り | 1 章 / 1 主張 |
-| **書籍 2027 Q1 KDP**（11 章構成）| 全 10 件を章として展開（+ 序章 = 11 章）| 1 章 / 1 主張 |
-| **認定コーチ研修教材**（2027〜）| 全 10 件 + 各主張の対話実例 + 論文要約 | 教材ブロック / 1 主張 |
+| **Recruit LP** | #2, #3, #12（採用 PMF + 接続資産は内部運用語のため言及最小限・LP 主軸昇格禁止）| 短文 × 2-3 |
+| **Cultivate LP** | #10, #11（中間経営職）| 短文 × 2 |
+| **コーポレート LP / Gravity Hub LP** | #11（中間経営職育成）を得意技 2 軸セクションに明示 | 短文 × 1 |
+| **WhitePaper V10**（Phase 5 で構築）| 全 12 件を学術論文引用付きで深掘り | 1 章 / 1 主張（計 12 章） |
+| **書籍 2027 Q1 KDP**（13 章構成・260509 拡張）| 全 12 件を章として展開（+ 序章 = 13 章）| 1 章 / 1 主張 |
+| **認定コーチ研修教材**（2027〜）| 全 12 件 + 各主張の対話実例 + 論文要約 | 教材ブロック / 1 主張 |
+| **Note Vol.12（中間経営職の時代）** | #11 単独深掘り | 1 記事 |
 
 ---
 
-## 4. 改訂履歴
+## 4. 学術領域マッピング全体図（260509 追加）
+
+> **目的：** Phase 3 論文リサーチの起点として全 12 主張の学術領域を 1 表で俯瞰。各主張の「主軸 / 接続 / 反論」の 3 軸を Phase 3 Elicit クエリ作成の入力に使う。
+
+| # | 主張 | 主軸学術領域 | 接続領域 | 反論軸 |
+|---|---|---|---|---|
+| #1 | 個人引力 3 要素整合 | Self-Determination Theory（Deci & Ryan）| Authentic Leadership / フロー / Ikigai | 「Why は後付け」論 / 動機外発化論 |
+| #2 | 組織引力 4 型 | ASA Framework（Schneider）| Competing Values / P-O Fit / OCP | 4 型単純化批判 / P-O Fit のバイアス論 |
+| #3 | 個人 → 組織翻訳機構 | Sensemaking Theory（Weick）| Symbolic Interactionism / Upper Echelon / Founder Imprinting | 創業者効果過大評価批判 / Institutional Theory 同型化論 |
+| #4 | AI 速度非対称性 | Competing in Age of AI（Iansiti & Lakhani）| Diffusion of Innovations / Ambidexterity / **[Speculative]** Brynjolfsson | AI 楽観論批判（Acemoglu）/ Holacracy 系 |
+| #5 | 能力の輪 | Domain Expertise（Ericsson）| Munger Mental Models / Dunning-Kruger / Metacognition | Growth Mindset（Dweck）/ T 字型人材論 |
+| #6 | ネガティブ・ケイパビリティ | Negative Capability（Keats / Bion）| Tolerance for Ambiguity / French / 帚木蓬生 | OODA Loop / Decisive 系 / **[Speculative]** 方法論批判 |
+| #7 | have to 検出 | ACT（Steven Hayes）| SDT / ナラティブセラピー / **[Speculative]** Polyvagal Theory | 社会化必要論 / 二項対立単純化批判 |
+| #8 | コーチング × コンサル × ソマティクス | Embodied Cognition（Lakoff & Johnson）| Somatic Experiencing / Focusing / GROW | **[Speculative]** Coaching Outcome 方法論批判 / ソマティクスのエビデンス不足論 |
+| #9 | キャラ命名手法 | Internal Family Systems（Schwartz）| Sub-personality（Assagioli）/ Metaphors We Live By / Narrative Coaching | **[Speculative]** Self-Categorization ステレオタイプ批判 / 主観依存批判 |
+| #10 | 事業中心人事 | Strategic HRM（Huselid / Wright & McMahan）| HR Champions / Becker & Huselid / Founder-Led Growth | Best Practice 派 / Professional Management 移行論 |
+| #11 | 中間経営職フレーム | **Upper Echelon Theory（Hambrick & Mason）** | Middle Manager Theory（Floyd & Wooldridge）/ Distributed Leadership / **[Speculative]** Founder Imprinting 継承研究 | Reinventing Organizations（Laloux）/ Holacracy（Robertson）/ **[Speculative]** Self-Management Movement |
+| #12 | 採用 PMF + 採用接続資産 | **Founder-Led Growth（OpenView）** | Andreessen PMF / Lean Startup / Employer Branding（Backhaus & Tikoo）/ **[Speculative]** SHRM Foundation | Greg Savage 採用テクノロジー楽観論 / **[Speculative]** Talent Acquisition 独自フレーム派 |
+
+### 反論論文サマリ（260509 時点・確証バイアス回避用）
+
+Phase 3 で **5-10 本以上の反論論文を含める原則**（260508 引き継ぎ書）。本表で挙げた反論軸の代表候補：
+
+1. **Frederic Laloux『Reinventing Organizations』（2014）** ── #11 中間経営職への直接反論候補（Teal 進化論）
+2. **Daron Acemoglu の AI 労働置換懸念論文群（2024 等）** ── #4 AI 速度非対称性の楽観論への反論候補
+3. **Carol Dweck『Mindset』（2006・Growth Mindset 論）** ── #5 能力の輪の固定性への反論候補
+4. **Heath & Heath『Decisive』（2013・OODA / 迅速意思決定論）** ── #6 ネガティブ・ケイパビリティへの反論候補
+5. **DiMaggio & Powell（1983 Institutional Isomorphism）** ── #3 創業者効果論への反論候補（**[Speculative]**：論文存在は確実だが #3 への直接反論として整理されているかは Phase 3 確認）
+6. **Greg Savage 系の採用テクノロジー楽観論（業界寄稿）** ── #12 採用接続資産への反論候補（学術論文ではなく業界文献の可能性高）
+7. **Best Practice 派 SHRM 論争（Pfeffer vs Wright 系）** ── #10 事業中心人事への反論候補
+8. **Schein の組織文化階層論（1985 / 2010）** ── #2 組織引力 4 型の単純化批判候補
+9. **Self-Determination の自律性連続体（Deci & Ryan 2000 自律性 4 段階）** ── #7 have to / want to の二項対立への反論候補（自著内部で連続体を提示）
+10. **Polyvagal Theory のエビデンス論争**（**[Speculative]**：Porges 提唱の神経科学的妥当性を巡る論争）── #8 ソマティクス系のエビデンス不足論への接続候補
+
+→ Phase 3 で **5-10 本以上を実在確認**（DOI / arXiv ID / 著者所属）。本表は確証バイアス回避用の起点リスト。
+
+---
+
+## 5. 改訂履歴
 
 | 日付 | バージョン | 内容 |
 |---|---|---|
 | 2026-05-08 | **v1.0** | 初版・Phase 1 成果物。10 件のコア主張 + 学術領域 + 論文リサーチ方向 + 関係性マップ + 配置戦略。論文リサーチ Phase 2-5 の出発点 |
+| 2026-05-09 | **v1.1** | JAFCO 反映決定事項（260509）に基づき #11 中間経営職フレーム（Upper Echelon Theory 主軸）+ #12 採用 PMF + 採用接続資産（Founder-Led Growth 主軸）を新規追加。既存 #1-#10 全主張に「学術領域マッピング」サブセクション併記（主軸 / 接続 / 反論の 3 軸）。学術領域マッピング全体図表 + 反論論文サマリ 10 件追加（確証バイアス回避）。WP V10 / 書籍 13 章構成 / Note Vol.12 への配置戦略を更新 |
 
 ---
 
-## 5. 関連ファイル
+## 6. 関連ファイル
 
 - **論文リサーチ TODO 引き継ぎ書（Phase 2-5）：** `04_GrowthFix/02_マーケティング/260508_論文リサーチプロジェクト_引き継ぎ書_v1.0.md`
 - **CODE レポート theory-background-box 実装：** `05_プロダクト/GravityCode/診断_executive_本番/generate.php` § Block C 9
@@ -316,7 +448,12 @@ Gravity の権威性訴求は以下の 2 階層：
 - **コーチ役割原則 memory：** `memory/feedback_coach_role_material_collection.md`
 - **CODE × Scan 共通対話設計 SSOT：** `05_プロダクト/_共通/SSOT_対話設計_CODE_SCAN.md`
 - **Note 連載マスター表（書籍化計画）：** `03_コンテンツ/260424_Note連載_公開マスター表.md`
+- **JAFCO 反映決定事項（260509・#11/#12 追加の起点）：** `04_GrowthFix/01_サービス設計/260509_JAFCO反映決定事項.md`
+- **論文リサーチ引き継ぎ書（Phase 2-5・三段検証プロトコル）：** `04_GrowthFix/02_マーケティング/260508_論文リサーチプロジェクト_引き継ぎ書_v1.0.md`
+- **SSOT_用語と定義 §10-12（中間経営職 / 採用 PMF / 5 段運用の用語 SSOT）：** `05_プロダクト/_共通/SSOT_用語と定義.md`
 
 ---
 
 > **次のアクション：** Phase 2-5（学術領域特定 → 論文リサーチ → 厳選 → 引用整備 → 配置）は別途 TODO 引き継ぎ書で管理。Q3 着手・Q4 完成・2027 Q1 書籍出版と同期。
+> **Phase 3 Elicit クエリ追加項目（260509 拡張）：** #11 Upper Echelon Theory + Middle Manager Theory（Floyd & Wooldridge）/ #12 Founder-Led Growth + Andreessen PMF + Employer Branding（Backhaus & Tikoo）の検索クエリを Phase 2 学術領域マッピング v0.1（41 クエリ）に追加し v0.2 化する。
+> **WP V10 制作フェーズへの引き継ぎ事項：** ①理論ボックス挿入順序は #4（速度非対称性）→ #2/#3（組織引力）→ #11（中間経営職）→ #12（採用 PMF）の流れで「なぜ AI 時代に引力経営 + 中間経営職 + 採用 PMF が必須か」のロジック導線を作る。②反論論文 10 本のうち #11 への Laloux Reinventing Organizations 直接反論は WP 巻末「誠実な学術姿勢」セクションで明示扱い（確証バイアス回避の象徴的事例として）。
