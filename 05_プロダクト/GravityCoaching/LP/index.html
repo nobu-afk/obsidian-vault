@@ -33,6 +33,14 @@
 
     <!-- 個人軸（CODE/Coaching）= 黒 オーバーライド -->
     <style>
+      :root {
+        --accent: #0f172a;
+        --accent-hover: #1e293b;
+        --accent-light: #f1f5f9;
+        --shadow-accent: 0 12px 30px -10px rgba(15, 23, 42, 0.35);
+      }
+      .btn-primary { background: #0f172a !important; color: #fff !important; }
+      .btn-primary:hover { background: #1e293b !important; box-shadow: 0 16px 35px -10px rgba(15, 23, 42, 0.4) !important; }
       .shift-v2-label { color: #0f172a !important; }
       .shift-cta-section .shift-v2-label { color: #b8a88a !important; }
       .shift-faq-list .faq-item summary::after { color: #0f172a !important; }
