@@ -352,4 +352,7 @@ skill 別・業務別に以下を実行：
 - `project_harness_engineering_260429.md` ── ハーネスエンジニアリング統合フレーム
 - `feedback_ai_brainstorm_individuality.md` ── 主軸先行ルール
 - `feedback_model_selection_sonnet.md` ── コスト最適化
+- 🔴 `feedback_ai_triple_defense_harness.md`（260508 夜）── **AI レポート生成型サービスの三段ハーネス**：入力厳守（SYSTEM プロンプト）+ 公開語彙厳守（社内用語禁止）+ PHP 機械置換 で語彙汚染と空想補完を完全防御。本番前ダミーペイロードテスト必須。CODE / SCAN / 将来診断 UI 全般の標準
+- 🔴 `feedback_coach_role_material_collection.md`（260508 夜）── **AI レポート生成型サービスでのコーチ役割原則**：コーチは判定しない（4 型 / 推奨パッケージ / 覚悟確信度の宣告禁止）→ 深掘り対話で素材収集 → Sonnet が判定 → 読み合わせフェーズで合意取得
+- `feedback_pdf_report_pinpoint_css_compression.md` ── PDF レポート CSS ピンポイント圧縮 trade-off 解消パターン
 - `reference_token_usage_script.md` ── トークン経済集計
