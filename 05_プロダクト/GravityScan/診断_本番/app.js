@@ -43,7 +43,7 @@ const QUESTIONS = [
   // ============================
   {
     text: '採用と離脱の現場で、いま何が起きていますか？',
-    subtext: '該当するものを**すべて**選択してください（最大 3 つ）。経営者の言語マップ A-E カテゴリにマッピングし、組織の引力タイプ判定の素材として使用します。',
+    subtext: '該当するものを選択してください（複数選択可・最大 3 つ）。当てはまるものがない場合は「上記のいずれにも該当しない」を選択し、セッション中に主訴を深掘りします。',
     type: 'multi-choice',
     category: 'recruitment-pain',
     maxSelect: 3,
@@ -54,6 +54,7 @@ const QUESTIONS = [
       { text: '採用基準が社内（経営者・現場・HR）で 3 回以上揉めている', voice: 'A6 採用基準曖昧' },
       { text: 'ビジョンを語っても、幹部が翌日違うことを言い始める', voice: 'C5 言葉が届かない' },
       { text: '1on1・OKR・識学・人事制度・サーベイを入れたが採用力は変わらない', voice: 'D6 施策疲れ' },
+      { text: '上記のいずれにも該当しない／別の主訴がある', voice: 'Z 該当なし', exclusive: true },
     ]
   },
 
@@ -232,19 +233,28 @@ const App = {
 
     const sectionLabel = document.getElementById('section-label');
     if (sectionLabel) {
-      if (q.type === 'transcript') {
-        sectionLabel.textContent = 'STEP 4 — トランスクリプト（5観点チェック）';
-      } else if (q.type === 'code-result') {
-        sectionLabel.textContent = 'STEP 1 — CODE結果の入力';
-      } else if (q.category === 'recruitment-pain') {
-        sectionLabel.textContent = 'STEP 2 — 採用ペイン主訴';
-      } else if (q.category === 'recruitment-episodes') {
-        sectionLabel.textContent = 'STEP 2 — 過去エピソード（v7.0 引力 7 項目スコアリングの素材）';
+      // v7.0 STEP 番号は質問順（1=CODE任意 / 2=組織規模 / 3=採用ペイン主訴 / 4=集まる軸 / 5=躍動軸 / 6=過去エピソード / 7=トランスクリプト）
+      const stepNum = this.currentIndex + 1;
+      const total = QUESTIONS.length;
+      let label = '';
+      if (q.type === 'code-result') {
+        label = 'CODE 結果の入力（任意）';
       } else if (q.category === 'org-size') {
-        sectionLabel.textContent = 'STEP 3 — 組織規模＋幹部数';
+        label = '組織規模＋幹部数';
+      } else if (q.category === 'recruitment-pain') {
+        label = '採用ペイン主訴（複数選択可）';
+      } else if (q.category === 'attract-axis') {
+        label = '集まる軸 自己診断';
+      } else if (q.category === 'thrive-axis') {
+        label = '躍動軸 自己診断';
+      } else if (q.category === 'recruitment-episodes') {
+        label = '過去エピソード + 採用コスト対効果';
+      } else if (q.type === 'transcript') {
+        label = 'トランスクリプト（5 観点チェック）';
       } else {
-        sectionLabel.textContent = `STEP ${this.currentIndex + 1} / ${QUESTIONS.length}`;
+        label = '';
       }
+      sectionLabel.textContent = `STEP ${stepNum} / ${total} — ${label}`;
     }
 
     const qEl = document.getElementById('question-text');
@@ -498,19 +508,36 @@ const App = {
   },
 
   toggleMultiOption(index, maxSelect) {
-    // v7.2（260508）：複数選択型のトグル。autoAdvance なし（手動「次へ」操作）
+    // v7.3（260508）：複数選択型のトグル。autoAdvance なし（手動「次へ」操作）+ exclusive 排他制御
+    const q = QUESTIONS[this.currentIndex];
+    const opts = q.options || [];
+    const targetOpt = opts[index];
     const current = Array.isArray(this.answers[this.currentIndex]) ? [...this.answers[this.currentIndex]] : [];
     const idx = current.indexOf(index);
+
     if (idx >= 0) {
       // 選択中 → 解除
       current.splice(idx, 1);
     } else {
-      // 未選択 → 追加（max チェック）
-      if (current.length >= maxSelect) {
+      // 未選択 → 追加
+      if (targetOpt && targetOpt.exclusive) {
+        // exclusive 選択肢（「該当なし」など）→ 他選択肢を全クリアしてこれだけ選択
+        this.answers[this.currentIndex] = [index];
+        this.saveProgress();
+        this.render();
+        return;
+      }
+      // 通常選択肢を選ぶ → exclusive 選択肢が含まれていたら強制解除
+      const filtered = current.filter(i => !(opts[i] && opts[i].exclusive));
+      if (filtered.length >= maxSelect) {
         this.showToast(`最大 ${maxSelect} つまでです`);
         return;
       }
-      current.push(index);
+      filtered.push(index);
+      this.answers[this.currentIndex] = filtered;
+      this.saveProgress();
+      this.render();
+      return;
     }
     this.answers[this.currentIndex] = current;
     this.saveProgress();
