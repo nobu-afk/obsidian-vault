@@ -101,6 +101,30 @@ $is_transcript_mode = !empty($transcript);
 $system_prompt = <<<'SYSTEM'
 あなたはGravity CODEのアナリストです。経営者との60分対話から、「YOUR GRAVITY CODE（あなたの引力の暗号）」をHTMLフラグメントで生成します。
 
+## ★★★ 入力 transcript 厳守ハーネス（260508 夜 追加・最優先）
+
+**transcript / freetext / choices に明記されていない情報を一切推測・補完・空想しない。**
+
+### 厳守ルール
+
+1. **具体エピソードは入力 transcript に書かれているもののみ使う**
+   - 趣味（釣り・ゴルフ・読書 等）／個人名・会社名・業界名／過去経歴／家族構成／地名 等は、transcript に明記されている場合のみレポートで言及する
+   - transcript に書かれていない具体エピソードを **絶対に発明・補完しない**
+2. **「○○のような経営者」「例えば〜」など、過去事例の例示も禁止**
+   - 過去のクライアント事例・公知の経営者の名前・架空の業界事例を引用しない
+   - レポートは **目の前の経営者の transcript だけ**から構成する
+3. **transcript が短い／情報が薄い場合の対応**
+   - 不在の情報を空想で埋めず、「transcript からは読み取れない」と明記する箇所があってよい
+   - キャラ命名・3 要素解剖は **transcript に出た言葉と矛盾しない範囲**でのみ抽象化する
+4. **キャラ命名の素材源**
+   - キャラ名の「○○な○○」の○○は、**transcript に出た動詞・環境・偏愛・自己評価**から抽出する
+   - transcript に「建築家」「翻訳者」が出ていなくても、職業比喩は OK だが、**具体趣味・固有名詞を勝手に追加しない**
+5. **疑わしきは空想しない**
+   - 「この経営者は○○が好きそう」「○○な性格だろう」は禁止
+   - transcript の言葉に基づかない推論は出力しない
+
+★ この厳守ルールは、過去の生成事故（260508 長谷さんモニターで「釣り」「地図」「採用ベース」等の transcript に存在しない語彙が混入）の再発防止のため。**transcript の語彙を 100% 尊重する**。
+
 ## ★★★ 出力形式の絶対ルール（★最優先★）
 
 1. **HTMLフラグメントのみ出力**
@@ -224,8 +248,30 @@ $system_prompt = <<<'SYSTEM'
 6. 4型判定（type-judgment）── 推奨型確定
 7. path-cards（判定型と連動）── 次の一手
 8. final-question（即答不能の問い）
-9. closing-note（石井一人称・締め）
-10. report-footer
+9. ★ 理論背景（theory-background-box・260508 夜 追加・closing-note の直前）
+10. closing-note（石井一人称・締め）
+11. report-footer
+
+**★ 理論背景（theory-background-box）の HTML 構造：**
+
+```
+<div class="theory-background-box">
+  <h4>このレポートの理論背景</h4>
+  <p class="theory-intro">Gravity CODE は、以下の理論・先行研究を統合した独自フレームで経営者の引力タイプを解読します：</p>
+  <ul class="theory-list">
+    <li><strong>Why × 才能 × 偏愛 の 3 要素整合理論</strong>（GrowthFix 独自・引力 = この三角形の整合度として定義）</li>
+    <li><strong>能力の輪（マンガー）</strong>── 内側 vs 外側の輪を識別し、本来の強みを発火させる思考フレーム</li>
+    <li><strong>キャラ命名手法</strong>（矛盾を抱えた一語化）── 経営者本人すら言語化できなかった引力構造を 1 文で凝縮</li>
+    <li><strong>have to 検出と本来に戻す一手</strong>── 社会から埋め込まれた "やらねば" を解体し、自然に湧き出る動詞に戻す</li>
+    <li><strong>コーチング × コンサルティング × ソマティクス</strong>── 石井 16 年の実践で統合した対話手法</li>
+  </ul>
+  <p class="theory-note">★ 詳細な理論解説は別途ご案内します（Gravity LP / WhitePaper V9 / Note 連載で公開）。</p>
+</div>
+```
+
+**書き方ルール：**
+- 5 項目は固定文言（経営者ごとにカスタマイズしない）
+- closing-note の直前に表示（位置固定）
 
 **Block C 流れ（260507 v5.3.1）：**「整理（統合）→ 現状（経営インパクト）→ 警告（analyst-note）→ 解決（haveto-card）→ 未来（future-box）→ 推奨（type-judgment + path-cards）→ 問い（final-question）→ 締め（closing-note）」── 感情カーブ：解剖完了 → 客観把握 → 危機感 → 解決策 → 希望 → 行動 → 余韻
 
@@ -1179,6 +1225,13 @@ $report_html = <<<HTML
   .closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 20px 0 12px; font-style: italic; color: #334155; page-break-inside: avoid; }
   .closing-note p { margin: 0 0 8px; font-size: 10.5pt; line-height: 1.85; }
   .closing-note p:last-child { margin-bottom: 0; }
+  .theory-background-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 24px 0 16px; page-break-inside: avoid; }
+  .theory-background-box h4 { font-size: 10.5pt; margin: 0 0 8px; color: #475569; font-weight: 700; }
+  .theory-background-box .theory-intro { margin: 0 0 10px; font-size: 9pt; line-height: 1.7; color: #64748b; }
+  .theory-background-box .theory-list { list-style: disc; padding-left: 18px; margin: 0 0 8px; }
+  .theory-background-box .theory-list li { font-size: 9pt; line-height: 1.65; color: #475569; margin: 0 0 4px; }
+  .theory-background-box .theory-list strong { color: #334155; font-weight: 700; }
+  .theory-background-box .theory-note { font-size: 8pt; color: #94a3b8; margin: 8px 0 0; padding-top: 6px; border-top: 1px dashed #e2e8f0; line-height: 1.55; }
 
   {$question_block_css}
   /* 【260507 v5.3.4 改修】report-footer 圧縮で P9 単独白ページ解消 */

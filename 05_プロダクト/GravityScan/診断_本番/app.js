@@ -19,7 +19,7 @@ const QUESTIONS = [
     subtext: '【任意】Gravity CODE（経営者個人の引力タイプ診断・5 万円）を受講済みの場合のみ、結果を入力してください。CODE 結果がある場合は Block A の「個人引力 × 組織引力ギャップ図」を追加生成します。CODE 未受講の方は空欄のまま「次へ」ボタンを押してください（SCAN は単独でも組織の引力タイプ判定として完結します）。',
     type: 'code-result',
     category: 'code-result',
-    placeholder: '【CODE 未受講の方は空欄のまま「次へ」ボタンを押してください】\n\n受講済みの場合：\nCODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n例）キャラ名「任せられない建築家」／4型判定:才能ズレ型／Why:能力があるのに指示待ちで死んでいる人の才能を解放する／才能:先回りして答えを準備する／偏愛:構造から逆算する設計',
+    placeholder: '【CODE 未受講の方は空欄のまま「次へ」ボタンを押してください】\n\n受講済みの場合：\nCODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n・キャラ名：[ あなたの引力キャラ名 ]\n・4型判定：[ 整合 / Why ズレ / 才能ズレ / 偏愛ズレ ]\n・Why：[ あなたの根源的動機 ]\n・才能：[ 自然にできてしまう動詞 ＋ 発火する環境 ]\n・偏愛：[ 譲れない好み ＋ 絶対に選ばない嫌い ]',
   },
 
   // ============================
