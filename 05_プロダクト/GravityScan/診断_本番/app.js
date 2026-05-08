@@ -644,12 +644,13 @@ const App = {
         { label: '採用ペイン主訴', value: recruitmentPainHtml || '（未選択）' },
         { label: '集まる軸 自己診断', value: attractAxis },
         { label: '躍動軸 自己診断', value: thriveAxis },
-        { label: '過去エピソード', value: '<span style="white-space:pre-wrap;">' + (episodeShort || '（未記入）') + '</span>' },
+        { label: '過去エピソード', value: '<span style="white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;">' + (episodeShort || '（未記入）') + '</span>' },
       ];
       items.forEach((item, idx) => {
         const li = document.createElement('li');
         const isLast = idx === items.length - 1;
-        li.style.cssText = 'padding:8px 0;' + (isLast ? '' : 'border-bottom:1px solid #e2e8f0;') + 'font-size:14px;line-height:1.7;color:#334155;';
+        // v7.4（260508）：長文連続英数字でもボックス内で折り返すよう word-break/overflow-wrap を強制
+        li.style.cssText = 'padding:8px 0;' + (isLast ? '' : 'border-bottom:1px solid #e2e8f0;') + 'font-size:14px;line-height:1.7;color:#334155;word-break:break-word;overflow-wrap:anywhere;';
         li.innerHTML = '<strong style="color:#0f172a;display:inline-block;min-width:150px;">' + item.label + '：</strong>' + item.value;
         summaryList.appendChild(li);
       });
