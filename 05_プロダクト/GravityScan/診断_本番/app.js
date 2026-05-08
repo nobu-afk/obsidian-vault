@@ -39,13 +39,14 @@ const QUESTIONS = [
   },
 
   // ============================
-  // Q3（index 2）: 採用ペイン主訴（既存・v6.0 から維持・順序後ろ倒し）
+  // Q3（index 2）: 採用ペイン主訴（v7.2：複数選択可能化・最大 3 つ）
   // ============================
   {
     text: '採用と離脱の現場で、いま何が起きていますか？',
-    subtext: '主訴ペインに最も近いものを選んでください。経営者の言語マップ A-E カテゴリにマッピングし、組織の引力タイプ判定の素材として使用します。',
-    type: 'choice',
+    subtext: '該当するものを**すべて**選択してください（最大 3 つ）。経営者の言語マップ A-E カテゴリにマッピングし、組織の引力タイプ判定の素材として使用します。',
+    type: 'multi-choice',
     category: 'recruitment-pain',
+    maxSelect: 3,
     options: [
       { text: '採用エージェントに年 300 万以上払っているが、思うように決まらない', voice: 'A1 採用費用増' },
       { text: '最終面接まで進んだ候補者から辞退連絡が増えている', voice: 'A2 最終面接辞退' },
@@ -280,6 +281,47 @@ const App = {
         btn.onclick = () => this.selectOption(i);
         container.appendChild(btn);
       });
+    } else if (q.type === 'multi-choice') {
+      // v7.2（260508）：複数選択型（最大 maxSelect 個まで・チェックボックス風 UI）
+      const currentSelected = Array.isArray(this.answers[this.currentIndex]) ? this.answers[this.currentIndex] : [];
+      const maxSelect = q.maxSelect || 3;
+
+      // 上部に選択数カウンター表示
+      const counter = document.createElement('div');
+      counter.style.cssText = 'font-size:13px;color:#0f172a;font-weight:700;margin-bottom:12px;padding:10px 14px;background:#f1f5f9;border-radius:6px;border:1px solid #e2e8f0;';
+      counter.textContent = `${currentSelected.length} / ${maxSelect} 選択中（最低 1 つ・最大 ${maxSelect} つ）`;
+      container.appendChild(counter);
+
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        const isSelected = currentSelected.includes(i);
+        btn.className = 'option-btn' + (isSelected ? ' selected' : '');
+        btn.style.cssText = 'display:flex;align-items:flex-start;gap:12px;text-align:left;';
+
+        // チェックボックス風マーク
+        const checkmark = document.createElement('span');
+        checkmark.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:2px solid ' + (isSelected ? '#0f172a' : '#cbd5e1') + ';border-radius:4px;background:' + (isSelected ? '#0f172a' : '#fff') + ';color:#fff;font-weight:800;font-size:14px;flex-shrink:0;margin-top:2px;';
+        if (isSelected) checkmark.textContent = '✓';
+        btn.appendChild(checkmark);
+
+        // テキスト部
+        const textBox = document.createElement('span');
+        textBox.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:4px;';
+        const mainText = document.createElement('span');
+        mainText.className = 'option-main';
+        mainText.textContent = opt.text;
+        textBox.appendChild(mainText);
+        if (opt.voice) {
+          const voiceText = document.createElement('span');
+          voiceText.className = 'option-voice';
+          voiceText.textContent = opt.voice;
+          textBox.appendChild(voiceText);
+        }
+        btn.appendChild(textBox);
+
+        btn.onclick = () => this.toggleMultiOption(i, maxSelect);
+        container.appendChild(btn);
+      });
     } else if (q.type === 'code-result') {
       const textarea = document.createElement('textarea');
       textarea.className = 'free-text-area';
@@ -447,14 +489,32 @@ const App = {
       if (this._autoAdvanceTimer) clearTimeout(this._autoAdvanceTimer);
       this._autoAdvanceTimer = setTimeout(() => {
         this._autoAdvanceTimer = null;
-        // Q4（org-size）の後はセッション誘導画面へ
-        if (this.currentIndex === 3) {
-          this.showSessionPreview();
-        } else if (this.currentIndex < QUESTIONS.length - 1) {
+        // v7.0：next() 内で currentIndex === 5 の場合のみ showSessionPreview() を呼ぶよう統一済
+        if (this.currentIndex < QUESTIONS.length - 1) {
           this.next();
         }
       }, 800);
     }
+  },
+
+  toggleMultiOption(index, maxSelect) {
+    // v7.2（260508）：複数選択型のトグル。autoAdvance なし（手動「次へ」操作）
+    const current = Array.isArray(this.answers[this.currentIndex]) ? [...this.answers[this.currentIndex]] : [];
+    const idx = current.indexOf(index);
+    if (idx >= 0) {
+      // 選択中 → 解除
+      current.splice(idx, 1);
+    } else {
+      // 未選択 → 追加（max チェック）
+      if (current.length >= maxSelect) {
+        this.showToast(`最大 ${maxSelect} つまでです`);
+        return;
+      }
+      current.push(index);
+    }
+    this.answers[this.currentIndex] = current;
+    this.saveProgress();
+    this.render();
   },
 
   updateNav() {
@@ -469,6 +529,10 @@ const App = {
 
     if (q.type === 'choice') {
       answered = this.answers[this.currentIndex] !== null;
+    } else if (q.type === 'multi-choice') {
+      // v7.2（260508）：複数選択型・最低 1 つ選択で次へ進める
+      const arr = this.answers[this.currentIndex];
+      answered = Array.isArray(arr) && arr.length > 0;
     } else if (q.type === 'code-result') {
       // v7.1（260508）：CODE 受講は任意。未受講者は空欄のまま次へ進めます。入力時のみ URL or 20 文字以上で検証
       const v = (this.answers[this.currentIndex] || '').trim();
@@ -533,9 +597,13 @@ const App = {
       codeRefHtml = '<p style="font-size:13px;color:#64748b;margin:0;">（CODE結果は申込時に記入したテキストを参照してください）</p>';
     }
 
-    // v7.0 採用ペイン情報の要約（新インデックス対応）
+    // v7.2 採用ペイン情報の要約（multi-choice 配列対応）
     const orgSize = QUESTIONS[1].options[this.answers[1]] ? QUESTIONS[1].options[this.answers[1]].text : '';
-    const recruitmentPain = QUESTIONS[2].options[this.answers[2]] ? QUESTIONS[2].options[this.answers[2]].text : '';
+    const painArr = Array.isArray(this.answers[2]) ? this.answers[2] : [];
+    const recruitmentPain = painArr.length > 0
+      ? painArr.map(idx => QUESTIONS[2].options[idx].text).join('<br>・ ')
+      : '';
+    const recruitmentPainHtml = recruitmentPain ? '・ ' + recruitmentPain : '';
     const attractAxis = QUESTIONS[3].options[this.answers[3]] ? QUESTIONS[3].options[this.answers[3]].text : '';
     const thriveAxis = QUESTIONS[4].options[this.answers[4]] ? QUESTIONS[4].options[this.answers[4]].text : '';
     const episodes = (this.answers[5] || '').trim();
@@ -546,7 +614,7 @@ const App = {
       summaryList.innerHTML = '';
       const items = [
         { label: '組織規模＋幹部数', value: orgSize },
-        { label: '採用ペイン主訴', value: recruitmentPain },
+        { label: '採用ペイン主訴', value: recruitmentPainHtml || '（未選択）' },
         { label: '集まる軸 自己診断', value: attractAxis },
         { label: '躍動軸 自己診断', value: thriveAxis },
         { label: '過去エピソード', value: '<span style="white-space:pre-wrap;">' + (episodeShort || '（未記入）') + '</span>' },
@@ -575,11 +643,16 @@ const App = {
   },
 
   getStructuredAnswers() {
-    // v7.0 インデックスマッピング：0=code, 1=org_size, 2=recruitment_pain, 3=attract_axis, 4=thrive_axis, 5=recruitment_episodes, 6=transcript
+    // v7.0 インデックスマッピング：0=code, 1=org_size, 2=recruitment_pain（multi-choice配列）, 3=attract_axis, 4=thrive_axis, 5=recruitment_episodes, 6=transcript
+    const painArr = Array.isArray(this.answers[2]) ? this.answers[2] : [];
+    const recruitmentPainText = painArr.length > 0
+      ? painArr.map(idx => '・' + QUESTIONS[2].options[idx].text).join('\n')
+      : '';
     return {
       code_result: this.answers[0] || '',
       org_size: this.answers[1] !== null ? QUESTIONS[1].options[this.answers[1]].text : '',
-      recruitment_pain: this.answers[2] !== null ? QUESTIONS[2].options[this.answers[2]].text : '',
+      recruitment_pain: recruitmentPainText,
+      recruitment_pain_count: painArr.length,
       attract_axis: this.answers[3] !== null ? QUESTIONS[3].options[this.answers[3]].text : '',
       thrive_axis: this.answers[4] !== null ? QUESTIONS[4].options[this.answers[4]].text : '',
       recruitment_episodes: this.answers[5] || '',
