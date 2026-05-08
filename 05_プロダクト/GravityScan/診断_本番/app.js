@@ -1,11 +1,14 @@
 /* ========================================
-   Gravity Scan — App Logic v6.1（260501 Scan リブート版・組織の引力タイプ診断）
+   Gravity Scan — App Logic v7.0（260508 UI 構造ブラッシュアップ版・レポート v1.5 整合）
    GRAVITY SCAN: 組織の引力タイプ診断・Pre-Shift 適合診断
-   CODE結果＋採用ペイン主訴＋過去エピソード＋組織規模 → セッション誘導 → トランスクリプト 5 観点（引力 7 項目→ 5 トピック集約）チェック
+   v7.0 改修：レポート v1.5 が要求する素材から逆算して 5 問 → 7 問に再設計
+   - Q4 集まる軸の現状自己診断（◎/○/△/× 4 段階）── Block A type-matrix-box 直結
+   - Q5 躍動軸の現状自己診断（◎/○/△/× 4 段階）── Block A type-matrix-box 直結
+   - Q6 過去 2 年エピソード拡張（採用費 vs 昇給原資 倍率ヒント追加）── Block C Recruit 推奨理由
    ======================================== */
 
 const API_URL = 'generate.php';
-const STORAGE_KEY = 'gravity-scan-v60-answers';
+const STORAGE_KEY = 'gravity-scan-v70-answers';
 
 const QUESTIONS = [
   // ============================
@@ -13,14 +16,30 @@ const QUESTIONS = [
   // ============================
   {
     text: 'Gravity CODE の結果をご入力ください',
-    subtext: 'CODE結果URLを貼付すると6点（キャラ名・4型判定・Why・動詞・環境・引力の核）を自動取得します。CODE未受講の場合は概要を自由記入してください（Scan＋CODEセット申込推奨）。',
+    subtext: 'CODE結果URLを貼付するとキャラ名・4型判定・Why・才能・偏愛・引力の核を自動取得します。CODE未受講の場合は概要を自由記入してください（Scan＋CODEセット申込推奨）。',
     type: 'code-result',
     category: 'code-result',
-    placeholder: 'CODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n例）キャラ名「完成恐怖症の翻訳者」／4型判定：環境ズレ型／Why：才能解放／動詞:見抜く・翻訳する・手放す',
+    placeholder: 'CODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n例）キャラ名「任せられない建築家」／4型判定:才能ズレ型／Why:能力があるのに指示待ちで死んでいる人の才能を解放する／才能:先回りして答えを準備する／偏愛:構造から逆算する設計',
   },
 
   // ============================
-  // Q2（index 1）: 採用と離脱の現場で起きていること（v6.0 新規）
+  // Q2（index 1）: 組織規模＋幹部数（v7.0 順序前倒し・マトリクス前提情報）
+  // ============================
+  {
+    text: 'あなたの組織の規模＋幹部数は？',
+    subtext: 'Pre-Shift 適合診断（Recruit/Cultivate/Shift）の判定マトリクスに使用します。',
+    type: 'choice',
+    category: 'org-size',
+    options: [
+      { text: '5名以下（自分含む）／幹部なし', voice: '5以下・幹部0' },
+      { text: '6〜10名／幹部 1-2 名', voice: '10以下・幹部少' },
+      { text: '11〜30名／幹部 2-3 名', voice: '30以下・幹部中' },
+      { text: '31名以上／幹部 3 名以上', voice: '31超・幹部多' },
+    ]
+  },
+
+  // ============================
+  // Q3（index 2）: 採用ペイン主訴（既存・v6.0 から維持・順序後ろ倒し）
   // ============================
   {
     text: '採用と離脱の現場で、いま何が起きていますか？',
@@ -38,38 +57,59 @@ const QUESTIONS = [
   },
 
   // ============================
-  // Q3（index 2）: 過去 2 年の採用・離脱の具体エピソード（v6.0 新規・自由記入）
+  // Q4（index 3）: ★ NEW v7.0 ── 集まる軸の現状自己診断
+  // 引力 7 項目のうち「採用パイプライン・最終面接辞退率・採用最大壁の自覚度」を統合
+  // レポート Block A の type-matrix-box（集まる軸 ◎/△ 判定）の事前材料
   // ============================
   {
-    text: '過去 2 年で「これは痛かった」採用・離脱・辞退のエピソードを 3 件、具体的に教えてください',
-    subtext: 'エージェント費用・最終面接辞退・優秀な幹部の離脱・面接で口説けなかった事例など。具体名・金額・タイミング・頻度をできる限り記入してください（v6.1 引力 7 項目スコアリングの素材）。',
-    type: 'free-text',
-    category: 'recruitment-episodes',
-    placeholder: '例：\n1. 2025年Q3、エージェントに 300 万払って採用したマネージャーが、3 ヶ月で辞めた。理由は「経営の方向性が見えなかった」。\n2. 2025年Q4、最終面接で 3 名連続辞退。経営者が口説いた言葉が候補者に響かなかった可能性。\n3. 2024年、創業期から支えてくれた CFO が突然退職。優秀な人ほど先に辞めていく構造への気づき。',
-  },
-
-  // ============================
-  // Q4（index 3）: 組織規模＋幹部数（推奨マトリクス用）
-  // ============================
-  {
-    text: 'あなたの組織の規模＋幹部数は？',
-    subtext: '推奨サービス（Shift 80万 / Coaching+Shift 並行 / Coaching 単独）の判定マトリクスに使用します。',
+    text: '【集まる軸】採用パイプラインの現状を自己診断すると？',
+    subtext: '採用パイプライン（応募数・通過率・最終辞退率）と「私が面接に出続ければ採用は機能する」自覚度を含めた 4 段階自己診断。レポートの集まる軸（◎/○/△/×）判定に直結します。',
     type: 'choice',
-    category: 'org-size',
+    category: 'attract-axis',
     options: [
-      { text: '5名以下（自分含む）／幹部なし', voice: '5以下・幹部0' },
-      { text: '6〜10名／幹部 1-2 名', voice: '10以下・幹部少' },
-      { text: '11〜30名／幹部 2-3 名', voice: '30以下・幹部中' },
-      { text: '31名以上／幹部 3 名以上', voice: '31超・幹部多' },
+      { text: '◎ 機能している ── 月次応募 10 件超・最終辞退ほぼゼロ・優秀層が継続的に集まる仕組みがある', voice: '集まる◎（整合的）' },
+      { text: '○ 部分機能 ── 社長/HR 自身が面接に出続ければ採れる。但しスケールしない自覚あり', voice: '集まる○（社長依存）' },
+      { text: '△ 詰まっている ── 応募数または最終辞退率が業界平均より悪い・エージェント費が高騰している', voice: '集まる△（採用詰まり）' },
+      { text: '× 機能不全 ── 半年以上、採用したい役職で内定承諾ゼロ。応募が来ない or 来ても通らない', voice: '集まる×（崩壊）' },
     ]
   },
 
   // ============================
-  // Transcript（Q5・index 4）— 5観点チェック + 貼付（v6.1 引力 7 項目→ 5 トピック集約）
+  // Q5（index 4）: ★ NEW v7.0 ── 躍動軸の現状自己診断
+  // 引力 7 項目のうち「優秀人材定着率・幹部発話量・エンゲージメント・離脱予兆」を統合
+  // レポート Block A の type-matrix-box（躍動軸 ◎/△ 判定）の事前材料
   // ============================
   {
-    text: 'Scan 60分対面セッションのトランスクリプトを貼り付けてください。',
-    subtext: '以下 5 観点（v6.1・引力 7 項目を 5 トピックに集約）をカバーしたトランスクリプトであることを確認してから送信します。',
+    text: '【躍動軸】組織内部で優秀人材が躍動できているか自己診断すると？',
+    subtext: '優秀人材定着率（過去 2 年）・幹部発話量（経営会議で幹部発議の有無）・エンゲージメント・離脱予兆の 4 項目を総合した 4 段階自己診断。レポートの躍動軸（◎/○/△/×）判定に直結します。',
+    type: 'choice',
+    category: 'thrive-axis',
+    options: [
+      { text: '◎ 躍動している ── 過去 2 年で優秀層の離脱ゼロ・経営会議で幹部が自律発議する・エンゲージメント上昇傾向', voice: '躍動◎（整合的）' },
+      { text: '○ 部分的に躍動 ── 一部の幹部は自走しているが、社長が先回りすると幹部発話が止まる感覚あり', voice: '躍動○（部分機能）' },
+      { text: '△ 躍動していない ── 過去 2 年で優秀層が 1-2 名離脱・経営会議は社長発議が大半・エンゲージメント横ばい', voice: '躍動△（停滞）' },
+      { text: '× 躍動が立ち上がらない ── 1on1・OKR・識学・人事制度を全部入れたのに数値が動かない・離脱予兆が複数', voice: '躍動×（施策疲れ）' },
+    ]
+  },
+
+  // ============================
+  // Q6（index 5）: 過去 2 年エピソード ★ v7.0 拡張：採用費 vs 昇給原資ヒント追加
+  // Block C の Recruit 推奨理由「採用費 / 昇給原資 倍率」材料 + 引力 7 項目スコアリング材料
+  // ============================
+  {
+    text: '過去 2 年の採用・離脱エピソード 3 件と、年間採用費 vs 年間昇給原資の概算を教えてください',
+    subtext: 'エピソードは具体名・金額・タイミング・頻度を含めて記入。採用費／昇給原資の倍率は Pre-Shift 適合診断（Recruit/Cultivate）の推奨理由として使用します（倍率 2 倍超で「悪循環」判定）。',
+    type: 'free-text',
+    category: 'recruitment-episodes',
+    placeholder: '【エピソード 3 件】\n1. 2025年Q3、エージェントに 300 万払って採用したマネージャーが、3 ヶ月で辞めた。理由は「経営の方向性が見えなかった」。\n2. 2025年Q4、最終面接で 3 名連続辞退。経営者が口説いた言葉が候補者に響かなかった可能性。\n3. 2024年、創業期から支えてくれた CFO が突然退職。優秀な人ほど先に辞めていく構造への気づき。\n\n【採用コスト対効果（任意・推測値で OK）】\n- 年間採用費（エージェント費 + 求人広告 + 紹介報酬）：例）1,000 万円\n- 年間昇給原資（昇給率 × 平均年収 × 人数）：例）540 万円\n- 倍率：例）1.85 倍（悪循環閾値 2 倍に近接）',
+  },
+
+  // ============================
+  // Q7（index 6）: トランスクリプト（v7.0：6 問の事前情報 + 60 分対話の文字起こし）
+  // ============================
+  {
+    text: 'Scan 60 分対面セッションのトランスクリプトを貼り付けてください。',
+    subtext: '事前情報 Q1-Q6（CODE 結果 + 組織規模 + 採用ペイン主訴 + 集まる軸自己診断 + 躍動軸自己診断 + エピソード 3 件 + 採用コスト対効果）と組み合わせて Block A/B/C を生成します。',
     type: 'transcript',
     category: 'transcript',
     placeholder: 'Zoomの文字起こし、またはWhisperの出力テキストをここに貼り付けてください...',
@@ -198,7 +238,7 @@ const App = {
       } else if (q.category === 'recruitment-pain') {
         sectionLabel.textContent = 'STEP 2 — 採用ペイン主訴';
       } else if (q.category === 'recruitment-episodes') {
-        sectionLabel.textContent = 'STEP 2 — 過去エピソード（v6.1 引力 7 項目スコアリングの素材）';
+        sectionLabel.textContent = 'STEP 2 — 過去エピソード（v7.0 引力 7 項目スコアリングの素材）';
       } else if (q.category === 'org-size') {
         sectionLabel.textContent = 'STEP 3 — 組織規模＋幹部数';
       } else {
@@ -308,16 +348,16 @@ const App = {
       const note = document.createElement('div');
       note.style.cssText = 'background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 18px;margin-top:18px;';
       note.innerHTML = '<p style="font-size:12.5px;color:#475569;line-height:1.7;margin:0;">'
-        + '<strong>v6.1 引力 7 項目スコアリングの素材：</strong>過去 2 年の採用・離脱・辞退の具体エピソードを 3 件以上記入することで、引力 7 項目（採用パイプライン／最終面接辞退率／優秀人材定着率／幹部発話量／エンゲージメント／離脱予兆／採用最大壁の自覚度）のスコアリング精度が大幅に上がります。具体名・金額・タイミング・頻度を可能な限り含めてください。'
+        + '<strong>v7.0 引力 7 項目スコアリングの素材：</strong>過去 2 年の採用・離脱・辞退の具体エピソードを 3 件以上記入することで、引力 7 項目（採用パイプライン／最終面接辞退率／優秀人材定着率／幹部発話量／エンゲージメント／離脱予兆／採用最大壁の自覚度）のスコアリング精度が大幅に上がります。具体名・金額・タイミング・頻度を可能な限り含めてください。'
         + '</p>';
       container.appendChild(note);
 
       requestAnimationFrame(() => textarea.focus());
     } else if (q.type === 'transcript') {
-      // 5観点リスト（v6.1・引力 7 項目→ 5 トピック集約）
+      // 5観点リスト（v7.0・引力 7 項目→ 5 トピック集約）
       const observations = document.createElement('div');
       observations.style.cssText = 'background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:18px 22px;margin-bottom:20px;';
-      observations.innerHTML = '<p style="font-size:13px;color:#0f172a;line-height:1.8;margin:0 0 10px;font-weight:700;">AI が対話から抽出する 5 観点（v6.1・引力 7 項目を 5 トピックに集約）：</p>'
+      observations.innerHTML = '<p style="font-size:13px;color:#0f172a;line-height:1.8;margin:0 0 10px;font-weight:700;">AI が対話から抽出する 5 観点（v7.0・引力 7 項目を 5 トピックに集約）：</p>'
         + '<ol style="font-size:12.5px;color:#475569;line-height:1.9;padding-left:22px;margin:0;">'
         + '<li><strong>集まる軸の現状</strong> ── 採用パイプライン（応募数・面接通過率・最終辞退率・内定承諾率）＋採用最大壁の自覚度。具体数値とエピソードで深掘り</li>'
         + '<li><strong>躍動軸の現状</strong> ── 優秀人材定着率（過去 2 年）＋幹部発話量＋エンゲージメント＋離脱予兆。具体数値とエピソードで深掘り</li>'
@@ -355,7 +395,7 @@ const App = {
       const checkHeader = document.createElement('div');
       checkHeader.style.cssText = 'margin-top:28px;padding-top:24px;border-top:1px solid #e2e8f0;';
       checkHeader.innerHTML = '<p style="font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;">送信前チェック（コーチ承認）</p>'
-        + '<p style="font-size:12.5px;color:#64748b;margin:0 0 14px;line-height:1.7;">上記のトランスクリプトが以下 5 観点（v6.1・引力 7 項目を 5 トピックに集約）を対話で含んでいるか、送信前に確認してください。全てチェック後に送信ボタンが有効化されます。</p>';
+        + '<p style="font-size:12.5px;color:#64748b;margin:0 0 14px;line-height:1.7;">上記のトランスクリプトが以下 5 観点（v7.0・引力 7 項目を 5 トピックに集約）を対話で含んでいるか、送信前に確認してください。全てチェック後に送信ボタンが有効化されます。</p>';
       container.appendChild(checkHeader);
 
       const checkLabels = [
@@ -448,7 +488,7 @@ const App = {
     if (isLast) {
       btnNext.textContent = 'レポートを生成する';
       btnNext.style.cssText = answered ? 'background:#0f172a;padding:16px 40px;font-weight:800;' : '';
-    } else if (this.currentIndex === 3) {
+    } else if (this.currentIndex === 5) {
       btnNext.textContent = 'セッション誘導画面へ';
       btnNext.style.cssText = '';
     } else {
@@ -458,7 +498,7 @@ const App = {
   },
 
   next() {
-    if (this.currentIndex === 3) {
+    if (this.currentIndex === 5) {
       this.showSessionPreview();
       return;
     }
@@ -487,27 +527,31 @@ const App = {
       ? '<a href="' + urlMatch[0] + '" target="_blank" rel="noopener" style="display:inline-block;background:#0f172a;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;">CODE結果を別タブで開く ↗</a>'
       : '<p style="font-size:13px;color:#64748b;margin:0;">（CODE結果は申込時に記入したテキストを参照してください）</p>';
 
-    // v6.0 採用ペイン情報の要約
-    const recruitmentPain = QUESTIONS[1].options[this.answers[1]] ? QUESTIONS[1].options[this.answers[1]].text : '';
-    const orgSize = QUESTIONS[3].options[this.answers[3]] ? QUESTIONS[3].options[this.answers[3]].text : '';
-    const episodes = (this.answers[2] || '').trim();
+    // v7.0 採用ペイン情報の要約（新インデックス対応）
+    const orgSize = QUESTIONS[1].options[this.answers[1]] ? QUESTIONS[1].options[this.answers[1]].text : '';
+    const recruitmentPain = QUESTIONS[2].options[this.answers[2]] ? QUESTIONS[2].options[this.answers[2]].text : '';
+    const attractAxis = QUESTIONS[3].options[this.answers[3]] ? QUESTIONS[3].options[this.answers[3]].text : '';
+    const thriveAxis = QUESTIONS[4].options[this.answers[4]] ? QUESTIONS[4].options[this.answers[4]].text : '';
+    const episodes = (this.answers[5] || '').trim();
     const episodeShort = episodes.length > 200 ? episodes.substring(0, 200) + '...' : episodes;
 
     const summaryList = document.getElementById('preview-summary-list');
     if (summaryList) {
       summaryList.innerHTML = '';
-      const li1 = document.createElement('li');
-      li1.style.cssText = 'padding:8px 0;border-bottom:1px solid #e2e8f0;font-size:14px;line-height:1.7;color:#334155;';
-      li1.innerHTML = '<strong style="color:#0f172a;display:inline-block;min-width:150px;">採用ペイン主訴：</strong>' + recruitmentPain;
-      summaryList.appendChild(li1);
-      const li2 = document.createElement('li');
-      li2.style.cssText = 'padding:8px 0;border-bottom:1px solid #e2e8f0;font-size:14px;line-height:1.7;color:#334155;';
-      li2.innerHTML = '<strong style="color:#0f172a;display:inline-block;min-width:150px;">過去エピソード：</strong><span style="white-space:pre-wrap;">' + (episodeShort || '（未記入）') + '</span>';
-      summaryList.appendChild(li2);
-      const li3 = document.createElement('li');
-      li3.style.cssText = 'padding:8px 0;font-size:14px;line-height:1.7;color:#334155;';
-      li3.innerHTML = '<strong style="color:#0f172a;display:inline-block;min-width:150px;">組織規模＋幹部数：</strong>' + orgSize;
-      summaryList.appendChild(li3);
+      const items = [
+        { label: '組織規模＋幹部数', value: orgSize },
+        { label: '採用ペイン主訴', value: recruitmentPain },
+        { label: '集まる軸 自己診断', value: attractAxis },
+        { label: '躍動軸 自己診断', value: thriveAxis },
+        { label: '過去エピソード', value: '<span style="white-space:pre-wrap;">' + (episodeShort || '（未記入）') + '</span>' },
+      ];
+      items.forEach((item, idx) => {
+        const li = document.createElement('li');
+        const isLast = idx === items.length - 1;
+        li.style.cssText = 'padding:8px 0;' + (isLast ? '' : 'border-bottom:1px solid #e2e8f0;') + 'font-size:14px;line-height:1.7;color:#334155;';
+        li.innerHTML = '<strong style="color:#0f172a;display:inline-block;min-width:150px;">' + item.label + '：</strong>' + item.value;
+        summaryList.appendChild(li);
+      });
     }
 
     const codeRefBox = document.getElementById('preview-code-ref');
@@ -525,12 +569,15 @@ const App = {
   },
 
   getStructuredAnswers() {
+    // v7.0 インデックスマッピング：0=code, 1=org_size, 2=recruitment_pain, 3=attract_axis, 4=thrive_axis, 5=recruitment_episodes, 6=transcript
     return {
       code_result: this.answers[0] || '',
-      recruitment_pain: this.answers[1] !== null ? QUESTIONS[1].options[this.answers[1]].text : '',
-      recruitment_episodes: this.answers[2] || '',
-      org_size: this.answers[3] !== null ? QUESTIONS[3].options[this.answers[3]].text : '',
-      transcript: this.answers[4] || '',
+      org_size: this.answers[1] !== null ? QUESTIONS[1].options[this.answers[1]].text : '',
+      recruitment_pain: this.answers[2] !== null ? QUESTIONS[2].options[this.answers[2]].text : '',
+      attract_axis: this.answers[3] !== null ? QUESTIONS[3].options[this.answers[3]].text : '',
+      thrive_axis: this.answers[4] !== null ? QUESTIONS[4].options[this.answers[4]].text : '',
+      recruitment_episodes: this.answers[5] || '',
+      transcript: this.answers[6] || '',
     };
   },
 
@@ -551,8 +598,10 @@ const App = {
     this.track('diagnosis_submit', {
       recruitment_pain: data.recruitment_pain,
       org_size: data.org_size,
+      attract_axis: data.attract_axis,
+      thrive_axis: data.thrive_axis,
       coverage_all_checked: true,
-      version: 'v6.1',
+      version: 'v7.0',
     });
 
     this.isSubmitting = true;
@@ -560,13 +609,15 @@ const App = {
     this.animateLoading();
 
     const payload = {
-      preInfo: '【CODE結果】\n' + data.code_result + '\n\n【採用ペイン主訴】\n' + data.recruitment_pain + '\n\n【過去 2 年の採用・離脱エピソード】\n' + data.recruitment_episodes + '\n\n【組織規模＋幹部数】' + data.org_size,
+      preInfo: '【CODE結果】\n' + data.code_result + '\n\n【組織規模＋幹部数】' + data.org_size + '\n\n【採用ペイン主訴】\n' + data.recruitment_pain + '\n\n【集まる軸 自己診断】\n' + data.attract_axis + '\n\n【躍動軸 自己診断】\n' + data.thrive_axis + '\n\n【過去 2 年の採用・離脱エピソード + 採用コスト対効果】\n' + data.recruitment_episodes,
       choices: [
-        { question: '採用ペイン主訴', selected: data.recruitment_pain },
         { question: '組織規模＋幹部数', selected: data.org_size },
+        { question: '採用ペイン主訴', selected: data.recruitment_pain },
+        { question: '集まる軸 自己診断（採用パイプライン・最終辞退率・自覚度の総合）', selected: data.attract_axis },
+        { question: '躍動軸 自己診断（定着率・幹部発話・エンゲージメント・離脱予兆の総合）', selected: data.thrive_axis },
       ],
       freetext: [
-        { question: '過去 2 年の採用・離脱エピソード', answer: data.recruitment_episodes, hint: 'v6.1 引力 7 項目スコアリングの素材 — 引力欠損ポイント特定に使用' },
+        { question: '過去 2 年の採用・離脱エピソード + 採用コスト対効果', answer: data.recruitment_episodes, hint: 'v7.0 引力 7 項目スコアリング素材 + 採用費／昇給原資倍率（Block C Recruit/Cultivate 推奨理由）' },
       ],
       transcript: data.transcript,
     };
@@ -633,7 +684,7 @@ const App = {
     const url = this._reportUrl || 'generate.php?report=1';
     document.getElementById('report-container').innerHTML =
       '<div style="text-align:center;padding:80px 40px;">' +
-      '<span class="badge" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:#0f172a;padding:5px 20px;border-radius:100px;">GRAVITY SCAN v6.1</span>' +
+      '<span class="badge" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:#0f172a;padding:5px 20px;border-radius:100px;">GRAVITY SCAN v7.0</span>' +
       '<h2 style="font-size:24px;font-weight:800;color:#0f172a;margin:24px 0 12px;">Gravity Scan レポートが生成されました</h2>' +
       '<p style="font-size:15px;color:#64748b;margin-bottom:32px;">新しいタブでレポートが開いています。<br>表示されない場合は下のボタンをクリックしてください。</p>' +
       '<a href="' + url + '" target="_blank" style="display:inline-block;background:#0f172a;color:#fff;font-size:15px;font-weight:700;padding:16px 48px;border-radius:8px;text-decoration:none;letter-spacing:0.04em;">レポートを開く</a>' +
