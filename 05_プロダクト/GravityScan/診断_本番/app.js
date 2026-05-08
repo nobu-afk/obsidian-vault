@@ -15,11 +15,11 @@ const QUESTIONS = [
   // Q1（index 0）: CODE結果（URL貼付 or 自由記入・v5.3 から維持）
   // ============================
   {
-    text: 'Gravity CODE の結果をご入力ください',
-    subtext: 'CODE結果URLを貼付するとキャラ名・4型判定・Why・才能・偏愛・引力の核を自動取得します。CODE未受講の場合は概要を自由記入してください（Scan＋CODEセット申込推奨）。',
+    text: 'Gravity CODE の結果（任意・受講済みの方のみ）',
+    subtext: '【任意】Gravity CODE（経営者個人の引力タイプ診断・5 万円）を受講済みの場合のみ、結果を入力してください。CODE 結果がある場合は Block A の「個人引力 × 組織引力ギャップ図」を追加生成します。CODE 未受講の方は空欄のまま「次へ」ボタンを押してください（SCAN は単独でも組織の引力タイプ判定として完結します）。',
     type: 'code-result',
     category: 'code-result',
-    placeholder: 'CODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n例）キャラ名「任せられない建築家」／4型判定:才能ズレ型／Why:能力があるのに指示待ちで死んでいる人の才能を解放する／才能:先回りして答えを準備する／偏愛:構造から逆算する設計',
+    placeholder: '【CODE 未受講の方は空欄のまま「次へ」ボタンを押してください】\n\n受講済みの場合：\nCODE結果URL（推奨）：https://growthfix.jp/gravity-code/executive/generate.php?report=...\n\nまたは、CODE結果の概要を自由記入：\n例）キャラ名「任せられない建築家」／4型判定:才能ズレ型／Why:能力があるのに指示待ちで死んでいる人の才能を解放する／才能:先回りして答えを準備する／偏愛:構造から逆算する設計',
   },
 
   // ============================
@@ -470,9 +470,10 @@ const App = {
     if (q.type === 'choice') {
       answered = this.answers[this.currentIndex] !== null;
     } else if (q.type === 'code-result') {
+      // v7.1（260508）：CODE 受講は任意。未受講者は空欄のまま次へ進めます。入力時のみ URL or 20 文字以上で検証
       const v = (this.answers[this.currentIndex] || '').trim();
       const isUrl = /https?:\/\/[^\s]*growthfix[^\s]*\/gravity-code\//i.test(v);
-      answered = isUrl || v.length >= 20;
+      answered = v.length === 0 || isUrl || v.length >= 20;
     } else if (q.type === 'free-text') {
       const v = (this.answers[this.currentIndex] || '').trim();
       answered = v.length >= 80;
@@ -520,12 +521,17 @@ const App = {
   },
 
   showSessionPreview() {
-    // CODE結果の表示
+    // v7.1：CODE 受講は任意。空欄なら未受講メッセージを表示
     const codeInput = (this.answers[0] || '').trim();
     const urlMatch = codeInput.match(/https?:\/\/[^\s]*growthfix[^\s]*\/gravity-code\/[^\s]*/i);
-    const codeRefHtml = urlMatch
-      ? '<a href="' + urlMatch[0] + '" target="_blank" rel="noopener" style="display:inline-block;background:#0f172a;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;">CODE結果を別タブで開く ↗</a>'
-      : '<p style="font-size:13px;color:#64748b;margin:0;">（CODE結果は申込時に記入したテキストを参照してください）</p>';
+    let codeRefHtml;
+    if (codeInput.length === 0) {
+      codeRefHtml = '<p style="font-size:13px;color:#64748b;margin:0;line-height:1.7;">CODE 未受講の方として SCAN 単独で進行します。Block A は「個人引力 × 組織引力ギャップ図」を省略し、組織の引力タイプ判定（4 型）+ 引力 7 項目スコアリング + Pre-Shift 適合診断で完結します。</p>';
+    } else if (urlMatch) {
+      codeRefHtml = '<a href="' + urlMatch[0] + '" target="_blank" rel="noopener" style="display:inline-block;background:#0f172a;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;">CODE結果を別タブで開く ↗</a>';
+    } else {
+      codeRefHtml = '<p style="font-size:13px;color:#64748b;margin:0;">（CODE結果は申込時に記入したテキストを参照してください）</p>';
+    }
 
     // v7.0 採用ペイン情報の要約（新インデックス対応）
     const orgSize = QUESTIONS[1].options[this.answers[1]] ? QUESTIONS[1].options[this.answers[1]].text : '';
