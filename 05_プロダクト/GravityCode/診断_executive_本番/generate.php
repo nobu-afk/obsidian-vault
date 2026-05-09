@@ -232,6 +232,40 @@ $system_prompt = <<<'SYSTEM'
 - AI（あなた）は Cover Page を出力しない。サーバ側で自動付与される。
 - AI 側は Block A から出力を開始する（`<div class="section">` から）
 
+### 🔴🔴🔴 必須出力ルール（260510 v0.4 強調・最優先）
+
+**Block A で以下を必ず出力すること。AI が省略・統合・他の表現で代替するのは禁止。**
+
+#### Block A：Why 直下に Job/Career/Calling 副次表示を必ず出力
+- ✅ Why 宣言の **直後**（why-declaration の直下）に **1 段落**で出力：
+  - `<p class="job-career-calling">あなたの今の仕事への関わり方は **[Job 型 / Career 型 / Calling 型]** に近い。理由：[transcript の根拠 1 行]</p>`
+  - **判定ルール（Wrzesniewski et al. 1997）：**
+    - **Job 型**：金銭・必要性中心の語り（「食べるため」「家族のため」「責任だから」）
+    - **Career 型**：昇進・地位・成果中心の語り（「次のステージへ」「もっと上へ」「実績を作る」）
+    - **Calling 型**：意味・社会貢献・天職中心の語り（「使命」「天職」「世の中に届ける」）
+  - transcript からどれが最も濃いかを判定して 1 つ選び、根拠 1 行を添える
+
+#### Block A：偏愛セクションに HP/OP 副次表示を必ず出力
+- ✅ 偏愛（env-condition）セクションの **末尾**に **1 段落**で出力：
+  - `<p class="hp-op-distinction">あなたの偏愛は **[HP / OP]** タイプ。[transcript の根拠 1 行]</p>`
+  - **判定ルール（Vallerand 2003）：**
+    - **HP（調和的情熱・自律的内面化）**：「手放したら自由になる」感覚・健全な適応・偏愛があっても他領域とバランス可
+    - **OP（強迫的情熱・制御的内面化）**：「手放したら自分が崩れる」感覚・否定的感情・頑固な固執・偏愛にロックインされる
+  - transcript の言葉遣い（強迫感・崩壊恐怖の有無）から判定して 1 つ選び、根拠 1 行を添える
+  - **OP 型 → 偏愛ズレ型のサブカテゴリ「OP 型偏愛ズレ」として Block C analyst-note で Coaching 必須シグナル化**
+
+#### Block A：externalization-statement と somatic-resonance-prompt を必ず出力
+- ✅ キャラ命名（core-quote）の **直前**に `<div class="externalization-statement">` を必ず配置
+- ✅ キャラ命名（core-quote）の **直後**に `<div class="somatic-resonance-prompt">` を必ず配置
+
+#### Block C：authentic-leadership-box を必ず出力
+- ✅ type-judgment の **直後**・path-cards の **前**に `<div class="authentic-leadership-box">` を必ず配置
+- 4 型判定（整合 / Why ズレ / 才能ズレ / 偏愛ズレ）に応じて **4 次元のうち最も弱い 1-2 次元を特定**し、各次元に 1 文の介入提案
+
+★ これらを省略した出力は **再生成対象**とみなされる。経営者向けレポートの主成果物として **必ず** 出力すること。
+
+---
+
 ### 【Block A：あなたの引力タイプ】（前振り・レポート本文の起点・260510 v0.4 で Job/Career/Calling + HP/OP + Externalization + Somatic Resonance 追加）
 1. Why の宣言（why-declaration）── ★260507 v5.3 構造指示強化：**「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行**。「能力」と「才能」を同じ Why 内で混在させない。動作主と対象を明確にする
    - **★ 260510 v0.4 新規：Why 直下に「仕事への関わり方 3 分類」（Wrzesniewski et al. 1997）副次表示**：
@@ -1130,6 +1164,10 @@ $report_html = <<<HTML
   .filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
   .filter-high li::before { background: #0f172a; }
   .filter-low li::before { background: #dc2626; opacity: 0.5; }
+  .job-career-calling { background: #f0fdf4; border-left: 3px solid #16a34a; padding: 8px 14px; margin: 8px 0 16px; font-size: 9.5pt; line-height: 1.65; color: #14532d; page-break-inside: avoid; }
+  .job-career-calling strong { color: #166534; font-weight: 700; }
+  .hp-op-distinction { background: #fdf4ff; border-left: 3px solid #a855f7; padding: 8px 14px; margin: 8px 0 16px; font-size: 9.5pt; line-height: 1.65; color: #581c87; page-break-inside: avoid; }
+  .hp-op-distinction strong { color: #6b21a8; font-weight: 700; }
   .externalization-statement { background: #f8fafc; border-left: 3px solid #64748b; padding: 12px 18px; margin: 20px 0 -8px; font-size: 9.5pt; line-height: 1.7; color: #475569; font-style: italic; page-break-inside: avoid; }
   .somatic-resonance-prompt { background: #fef3c7; border-left: 3px solid #b8a88a; padding: 14px 20px; margin: -8px 0 24px; font-size: 9.5pt; line-height: 1.75; color: #78350f; page-break-inside: avoid; }
   .somatic-resonance-prompt strong { color: #7a6234; font-weight: 700; }
