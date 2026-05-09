@@ -118,6 +118,29 @@ GrowthFix のデザインは、**経営者を引き止める引力場**として
 **プレースホルダ：**
 `{{PRODUCT_NAME}}` `{{LOGO_HREF}}` `{{NAV_ITEMS}}` `{{MOBILE_NAV_ITEMS}}` `{{CTA_LABEL}}` `{{CTA_ANCHOR}}` `{{PRODUCT_SLUG}}`
 
+### LP 共通アセット運用標準（260509 確立）
+
+LP 5 ページ（Gravity TOP / CODE / Recruit / Cultivate / Coaching）で重複していた CSS / JS を集約：
+
+| ファイル | 配信パス | 役割 |
+|---|---|---|
+| **lp-icons.css** | `https://growthfix.jp/assets/css/lp-icons.css` | `ri-arrow-right-line` / `ri-arrow-right-s-line` を inline SVG（mask-image + currentColor）化。旧 remixicon CDN（150KB+ font fetch）撤去 |
+| **lp-common.js** | `https://growthfix.jp/assets/js/lp-common.js` | Mobile menu toggle / Smooth scroll / IntersectionObserver / Form submit の共通 JS（Recruit/Cultivate/Shift script.js 完全一致重複の解消）|
+
+**新規 LP 追加時のチェックリスト：**
+- [ ] **remixicon CDN 禁止** → `<link href="https://growthfix.jp/assets/css/lp-icons.css">` を参照
+- [ ] アイコンが lp-icons.css 未収録の場合 → 同 CSS に inline SVG 形式で追記
+- [ ] menu-toggle / smooth-scroll / form-submit を独自実装する前に lp-common.js で十分か検討
+- [ ] **inline style 禁則**：CSS class があるのに `style=""` で上書きしない（class 化を先・inline は最終手段）
+- [ ] **死蔵ファイル退避**：HTML から相対参照ゼロのローカル `script.js` / `styles.css` は `_archive/YYMMDD_LP死蔵ファイル退避/` に退避
+
+**死蔵ファイル退避ルール（260509 H-6 学び）：**
+- ローカル LP ファイル編集前に `grep src="script.js"` で HTML 参照を確認
+- 0 件 = 死蔵 → `_archive/` 退避（5/9 退避実績：5 LP × 2 ファイル / ~190KB）
+- 1 件以上 = 現役 → 編集 OK
+
+詳細：`memory/reference_lp_assets_260509.md` ／ `05_プロダクト/_共通/SSOT_用語と定義.md` § 共通 CSS/JS 運用ルール
+
 ### モバイル最適化（mobile.css 戦略）
 
 **配置：** `05_プロダクト/_共通/mobile.css` → 本番 `https://growthfix.jp/assets/css/mobile.css`
