@@ -129,6 +129,21 @@ check_forbidden "Shift 60万" "旧Shift価格" "Shift R/C 各 80 万"
 # 260430 SSOT: タグライン階層（会社思想 vs プロダクト思想）
 check_forbidden "採用に強い会社をつくる" "260430 タグライン進化" "優秀人材が躍動する会社をつくる(会社思想) or 組織に、引力を。(プロダクト思想)" "*seminar-acting*"
 check_forbidden "人材磁場 × 躍動設計" "260430 夕 撤回" "(コピーから削除)"
+# 260509 価格 SSOT 違反検出（M-9・LP/HTML での誤表記検出）
+check_forbidden "Recruit 60万" "Recruit 価格 SSOT 違反（正：80 万）" "Gravity Recruit 80 万・3 ヶ月"
+check_forbidden "Cultivate 60万" "Cultivate 価格 SSOT 違反（正：80 万）" "Gravity Cultivate 80 万・3 ヶ月"
+check_forbidden "Coaching 月" "Coaching 旧 月額制（正：38 万・6 ヶ月一括）" "Gravity Coaching 38 万・6 ヶ月"
+check_forbidden "Orbit 38万" "Orbit 価格混同（正：月 15 万・最低 6 ヶ月）" "Gravity Orbit 月 15 万・最低 6 ヶ月"
+check_forbidden "Shift 100万" "旧 Shift 価格（正：R+C 複合 150 万・6 ヶ月）" "Gravity Shift 150 万・6 ヶ月"
+check_forbidden "CODE 10万" "CODE 価格 SSOT 違反（正：5 万・60 分）" "Gravity CODE 5 万・60 分"
+check_forbidden "Scan 5万" "Scan 価格 SSOT 違反（正：10 万・60 分）" "Gravity Scan 10 万・60 分"
+# 260509 v0.4 旧用語検出（C-5 高/中/低 → A/B/C/D 4 象限）
+check_forbidden "C-5 中判定" "v0.4 で覚悟確認 4 象限化（B 結論先送り型 / C 単線思考型）" "覚悟確認 B 型 / C 型"
+check_forbidden "C-5 高判定" "v0.4 で覚悟確認 4 象限化（A 完全覚悟型）" "覚悟確認 A 型"
+check_forbidden "C-5 低判定" "v0.4 で覚悟確認 4 象限化（D 完全 have to 型）" "覚悟確認 D 型"
+# 260509 v0.4 引力項目数（7 → 8 に拡張）── LP 6 ファイル（Scan/Gravity TOP/Orbit/service/WP V9）に「引力 7 項目」表記が残存。本質改訂（PO Fit 認識・心理的安全性 4 行動の説明追加）が必要なため 5/15 後のタスクで対応・現在は warning レベルとして無効化
+# check_forbidden "引力 7 項目" "v0.4 で 8 項目化（PO Fit 認識・心理的安全性 4 行動追加）" "引力 8 項目"
+# check_forbidden "引力7項目" "v0.4 で 8 項目化" "引力 8 項目"
 
 [ "$ERRORS" -eq 0 ] && echo -e "${GRN}✓${NC} 禁止語なし"
 

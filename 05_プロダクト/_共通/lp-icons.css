@@ -1,0 +1,28 @@
+/* lp-icons.css — 5 LP（Gravity TOP / CODE / Recruit / Cultivate / Coaching）で実使用する 2 アイコンのみ inline SVG 化 */
+/* 旧 remixicon CDN（150KB+font fetch）を撤去し、本ファイル（~600 byte）に置換 */
+/* 既存 HTML の <i class="ri-arrow-right-line"> / <i class="ri-arrow-right-s-line"> はそのまま維持・class セレクタで currentColor 追従 */
+
+.ri-arrow-right-line,
+.ri-arrow-right-s-line {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  -webkit-mask-image: var(--ri-svg);
+          mask-image: var(--ri-svg);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+}
+
+.ri-arrow-right-line {
+  --ri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m13.172 12-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z'/%3E%3C/svg%3E");
+}
+
+.ri-arrow-right-s-line {
+  --ri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.41 15.59 14 11l-4.59-4.59L8 7.83l3.17 3.17L8 14.17z'/%3E%3C/svg%3E");
+}
