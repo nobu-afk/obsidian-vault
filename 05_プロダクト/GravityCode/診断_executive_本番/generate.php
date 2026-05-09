@@ -257,15 +257,15 @@ $system_prompt = <<<'SYSTEM'
 ```
 <div class="theory-background-box">
   <h4>このレポートの理論背景</h4>
-  <p class="theory-intro">Gravity CODE は、以下の理論・先行研究を統合した独自フレームで経営者の引力タイプを解読します：</p>
+  <p class="theory-intro">Gravity CODE は、GrowthFix の 50 社診断 + 16 年人事キャリアの現場知見と、組織心理学・教育心理学・認知言語学・コーチング研究などの先行研究を編集して構築した独自フレームで経営者の引力タイプを解読します：</p>
   <ul class="theory-list">
-    <li><strong>Why × 才能 × 偏愛 の 3 要素整合理論</strong>（GrowthFix 独自・引力 = この三角形の整合度として定義）</li>
-    <li><strong>能力の輪（マンガー）</strong>── 内側 vs 外側の輪を識別し、本来の強みを発火させる思考フレーム</li>
-    <li><strong>キャラ命名手法</strong>（矛盾を抱えた一語化）── 経営者本人すら言語化できなかった引力構造を 1 文で凝縮</li>
-    <li><strong>have to 検出と本来に戻す一手</strong>── 社会から埋め込まれた "やらねば" を解体し、自然に湧き出る動詞に戻す</li>
-    <li><strong>コーチング × コンサルティング × ソマティクス</strong>── 石井 16 年の実践で統合した対話手法</li>
+    <li><strong>Why × 才能 × 偏愛 の 3 要素整合理論</strong>（GrowthFix 独自・引力 = 三角形の整合度として定義／関連研究：Vansteenkiste &amp; Ryan, 2013 / Di Domenico &amp; Ryan, 2017）</li>
+    <li><strong>能力の輪（マンガー応用）</strong>── 内側 vs 外側の輪を識別し、本来の強みを発火させる思考フレーム（関連研究：Ericsson, 2004 / Baker, Côté &amp; Deakin, 2005）</li>
+    <li><strong>キャラ命名手法</strong>（矛盾を抱えた一語化）── 経営者本人すら言語化できなかった引力構造を 1 文で凝縮（関連研究：Lakoff &amp; Johnson, 1980 / Rakova, 2003）</li>
+    <li><strong>have to 検出と本来に戻す一手</strong>── 社会から埋め込まれた "やらねば" を解体し、自然に湧き出る動詞に戻す（関連研究：Vansteenkiste &amp; Ryan, 2013 / Van den Broeck et al., 2021 メタ分析）</li>
+    <li><strong>コーチング × コンサルティング × ソマティクス</strong>── 石井 16 年の実践で統合した対話手法（関連研究：Jones, Woods &amp; Guillaume, 2015 メタ分析 / Dyrbye et al., 2019 JAMA RCT）</li>
   </ul>
-  <p class="theory-note">★ 詳細な理論解説は別途ご案内します（Gravity LP / WhitePaper V9 / Note 連載で公開）。</p>
+  <p class="theory-note">★ 各論文の詳細・APA フル引用・反論論文への応答は WhitePaper V10（Q4 公開予定）で展開。50 社現場 60% : 学術 40% の比率原則で運用。</p>
 </div>
 ```
 
