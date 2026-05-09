@@ -919,11 +919,17 @@ USER;
 USER;
 }
 
-// --- Claude API 呼び出し ---
+// --- Claude API 呼び出し（SYSTEM プロンプト prompt caching 有効） ---
 $api_body = json_encode([
     'model' => 'claude-sonnet-4-5',
     'max_tokens' => 10000,
-    'system' => $system_prompt,
+    'system' => [
+        [
+            'type' => 'text',
+            'text' => $system_prompt,
+            'cache_control' => ['type' => 'ephemeral'],
+        ],
+    ],
     'messages' => [
         ['role' => 'user', 'content' => $user_prompt],
     ],
@@ -1169,6 +1175,7 @@ $report_html = <<<HTML
   .hp-op-distinction { background: #fdf4ff; border-left: 3px solid #a855f7; padding: 8px 14px; margin: 8px 0 16px; font-size: 9.5pt; line-height: 1.65; color: #581c87; page-break-inside: avoid; }
   .hp-op-distinction strong { color: #6b21a8; font-weight: 700; }
   .externalization-statement { background: #f8fafc; border-left: 3px solid #64748b; padding: 12px 18px; margin: 20px 0 -8px; font-size: 9.5pt; line-height: 1.7; color: #475569; font-style: italic; page-break-inside: avoid; }
+  .externalization-statement strong { color: #1e293b; font-weight: 700; font-style: normal; }
   .somatic-resonance-prompt { background: #fef3c7; border-left: 3px solid #b8a88a; padding: 14px 20px; margin: -8px 0 24px; font-size: 9.5pt; line-height: 1.75; color: #78350f; page-break-inside: avoid; }
   .somatic-resonance-prompt strong { color: #7a6234; font-weight: 700; }
   .authentic-leadership-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 18px; margin: 18px 0; page-break-inside: avoid; }
