@@ -175,10 +175,22 @@ $system_prompt = <<<'SYSTEM'
 
 ## 3つの一撃（★Block A/B/C に各1回配置★）
 
-1. **Block A の一撃：キャラ命名**
+1. **Block A の一撃：キャラ命名（260510 v0.4 で命名前後の Externalization + Somatic Resonance 追加）**
+
+   **【★ 260510 v0.4 新規：命名前の Externalization】**（出典：White & Epston ナラティブセラピー創始 + Hartmann 2017）
+   - キャラ命名の **直前**に 1 文挟む：
+     > 「これからお伝えする名前は、あなた **そのもの**ではない。あなたが今 **抱えているもの**として一旦切り離して受け取ってほしい」
+   - ボックス：`<div class="externalization-statement">` で命名直前に配置
+
+   **【キャラ命名本体】**
    「あなたは"○○な○○"だ」（**矛盾を含む**名前）
-   - 良例：「逃げ足の速い建築家」「優しすぎる独裁者」「完成恐怖症の翻訳者」「整理恐怖症の翻訳者」
+   - 良例：「逃げ足の速い建築家」「優しすぎる独裁者」「完成恐怖症の翻訳者」「整理恐怖症の翻訳者」「言葉を諦めた建築家」
    - 悪例：「情熱的なリーダー」「整理された翻訳者」（褒め系・矛盾不足）
+
+   **【★ 260510 v0.4 新規：命名後の Somatic Resonance】**（出典：Lakoff 神経メタファー理論 + Gendlin Felt Sense）
+   - キャラ命名の **直後**に 1 文挟む：
+     > 「この『○○な○○』という名前を聞いたとき、**身体のどこに反応がありましたか？**　胸が締め付けられた、喉が詰まった、お腹が温かくなった ── 何でもいい。読み合わせフェーズで、その身体反応を一緒に解読しましょう」
+   - ボックス：`<div class="somatic-resonance-prompt">` で命名直後に配置
 
 2. **Block B の一撃：認知OS書き換え（Before→After）**
    「あなたは○○だと思っている。しかし実際は○○だ」
@@ -220,12 +232,23 @@ $system_prompt = <<<'SYSTEM'
 - AI（あなた）は Cover Page を出力しない。サーバ側で自動付与される。
 - AI 側は Block A から出力を開始する（`<div class="section">` から）
 
-### 【Block A：あなたの引力タイプ】（前振り・レポート本文の起点）
+### 【Block A：あなたの引力タイプ】（前振り・レポート本文の起点・260510 v0.4 で Job/Career/Calling + HP/OP + Externalization + Somatic Resonance 追加）
 1. Why の宣言（why-declaration）── ★260507 v5.3 構造指示強化：**「[誰の][何] を、[動詞] するために、[何] を作り続ける」型で 1 行**。「能力」と「才能」を同じ Why 内で混在させない。動作主と対象を明確にする
+   - **★ 260510 v0.4 新規：Why 直下に「仕事への関わり方 3 分類」（Wrzesniewski et al. 1997）副次表示**：
+     - Job 型（金銭のため）／ Career 型（昇進のため）／ Calling 型（意味のため）のどれが最も近いかを transcript から判定
+     - 1 文で「あなたの今の仕事への関わり方は **[Job / Career / Calling]** 型に近い」と表示
+     - **Why ズレ型を Job 型ズレ / Career 型ズレ / Calling 型偽装ズレ**に細分化可能
 2. **才能の解剖（verb-map クラスを使用）**— 自然にできてしまう動詞を 3 つ並べ、3 番目は無意識の行動。verb-map の見出しは「才能：自然にできてしまう動き」
-3. ★一撃1：キャラ命名の断定（core-quote で強調・Block A の一撃）— **矛盾を含む名前**
-4. **偏愛（env-condition と同じテキスト形式・260507 v5.3 改修）**— 譲れない好み 2 つと絶対に選ばない嫌い 1 つを `env-condition` クラスで提示（verb-map 図化は廃止）。見出しは「偏愛：譲れない好みと、絶対に選ばない嫌い」
-5. 時間軸の補強（p.time-axis で控えめ引用スタイル）— 対話内の表現をそのまま使う（年数計算しない）
+3. **★ 260510 v0.4 新規：Externalization 命名前ステップ（externalization-statement）** — キャラ命名の **直前**に「これからお伝えする名前は、あなたそのものではない。あなたが今 抱えているもの として一旦切り離して受け取ってほしい」を 1 文で配置
+4. ★一撃1：キャラ命名の断定（core-quote で強調・Block A の一撃）— **矛盾を含む名前**
+5. **★ 260510 v0.4 新規：Somatic Resonance 命名後ステップ（somatic-resonance-prompt）** — キャラ命名の **直後**に「この『○○な○○』という名前を聞いたとき、身体のどこに反応がありましたか？　胸が締め付けられた / 喉が詰まった / お腹が温かくなった ── 何でもいい。読み合わせフェーズで、その身体反応を一緒に解読しましょう」を 1 段落で配置
+6. **偏愛（env-condition と同じテキスト形式・260507 v5.3 改修・260510 v0.4 で HP/OP 二軸追加）**— 譲れない好み 2 つと絶対に選ばない嫌い 1 つを `env-condition` クラスで提示。見出しは「偏愛：譲れない好みと、絶対に選ばない嫌い」
+   - **★ 260510 v0.4 新規：偏愛の質判定（HP/OP）副次表示**（出典：Vallerand 2003）：
+     - **HP（調和的情熱・自律的内面化）**：その偏愛は「手放したら自由になる」感覚 ／ 健全な適応を促進
+     - **OP（強迫的情熱・制御的内面化）**：その偏愛は「手放したら自分が崩れる」感覚 ／ 否定的感情・頑固な固執を引き起こす
+     - transcript から判定し、1 文で「あなたの偏愛は **[HP / OP]** タイプ」と表示
+     - **OP 型 → 偏愛ズレ型のサブカテゴリ「OP 型偏愛ズレ」として Coaching 必須シグナル**
+7. 時間軸の補強（p.time-axis で控えめ引用スタイル）— 対話内の表現をそのまま使う（年数計算しない）
 
 ### 【Block A 廃止項目（260507 v5.3）】
 - ❌ 才能の発火/停止条件（env-condition）── 経営者向けには過剰情報のため削除。発火/停止条件は SYSTEM プロンプト内部分析素材としては引き続き使用するが、レポート出力には載せない
@@ -237,7 +260,7 @@ $system_prompt = <<<'SYSTEM'
 4. 引力の核（gravity-core）— 源泉=死角の同一動作を作用/副作用で表現
 5. 自己洗脳の指摘（通常段落1つ）— 最も鋭い1つだけ
 
-### 【Block C：本来に戻すための一手】（オチ・経営インパクト紐付け・260507 v5.3.1 順序再構築）
+### 【Block C：本来に戻すための一手】（オチ・経営インパクト紐付け・260507 v5.3.1 順序再構築・260510 v0.4 で 4 次元副次診断追加）
 1. **★統合マップ（gravity-integration）**— Block C の冒頭。3 要素整合解剖と引力の核・判定・最大リスクを初出しで提示
 2. **【NEW】経営インパクト（business-impact-box・★商品.md SSOT 整合）**
    - **採用 / 組織 / 発信 の 3 軸**（商品.md 1 文 SSOT 整合）
@@ -246,11 +269,20 @@ $system_prompt = <<<'SYSTEM'
 4. **have to + 嘘 + 剥がした先（haveto-card）**── analyst-note の警告を受けた具体的な剥がし方
 5. **5年後シナリオ（future-box）**── 剥がした先のビジョン（剥がし版のみ）。Block C 後半をポジティブで締める
 6. 4型判定（type-judgment）── 推奨型確定
-7. path-cards（判定型と連動）── 次の一手
-8. final-question（即答不能の問い）
-9. ★ 理論背景（theory-background-box・260508 夜 追加・closing-note の直前）
-10. closing-note（石井一人称・締め）
-11. report-footer
+7. **★ 260510 v0.4 新規：真正リーダーシップ 4 次元副次診断（authentic-leadership-box）**
+   - 出典：Walumbwa et al. 2008（Journal of Management・3,720+ 引用）
+   - **4 次元のうち、4 型判定（整合 / Why ズレ / 才能ズレ / 偏愛ズレ）に応じて最も弱い 1-2 次元を特定**：
+     - 自己認識（Self-Awareness）── 自分の強み・弱み・価値観・他者への影響を理解する力
+     - 関係透明性（Relational Transparency）── 他者に対して本心を開示する力
+     - バランス処理（Balanced Processing）── 多様な視点を客観的に処理する力
+     - 内在化された道徳観（Internalized Moral Perspective）── 自身の倫理基準で行動する力
+   - **配置：** type-judgment の直後・path-cards の前に小ボックス（10pt 未満・1 段落）として表示
+   - **目的：** 「本来に戻すための一手」を 3 要素整合だけでなく **4 次元のどこに介入するか**で具体化
+8. path-cards（判定型と連動）── 次の一手
+9. final-question（即答不能の問い）
+10. ★ 理論背景（theory-background-box・260508 夜 追加・closing-note の直前）
+11. closing-note（石井一人称・締め）
+12. report-footer
 
 **★ 理論背景（theory-background-box）の HTML 構造：**
 
@@ -1098,6 +1130,14 @@ $report_html = <<<HTML
   .filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
   .filter-high li::before { background: #0f172a; }
   .filter-low li::before { background: #dc2626; opacity: 0.5; }
+  .externalization-statement { background: #f8fafc; border-left: 3px solid #64748b; padding: 12px 18px; margin: 20px 0 -8px; font-size: 9.5pt; line-height: 1.7; color: #475569; font-style: italic; page-break-inside: avoid; }
+  .somatic-resonance-prompt { background: #fef3c7; border-left: 3px solid #b8a88a; padding: 14px 20px; margin: -8px 0 24px; font-size: 9.5pt; line-height: 1.75; color: #78350f; page-break-inside: avoid; }
+  .somatic-resonance-prompt strong { color: #7a6234; font-weight: 700; }
+  .authentic-leadership-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 18px; margin: 18px 0; page-break-inside: avoid; }
+  .authentic-leadership-box h4 { font-size: 10.5pt; margin: 0 0 8px; color: #075985; font-weight: 700; }
+  .authentic-leadership-box p { font-size: 9.5pt; line-height: 1.7; color: #334155; margin: 0 0 6px; }
+  .authentic-leadership-box .dim { padding: 6px 10px; margin: 0 0 4px; background: #fff; border-left: 3px solid #0284c7; border-radius: 4px; font-size: 9pt; line-height: 1.6; color: #475569; }
+  .authentic-leadership-box .dim strong { color: #075985; font-weight: 700; }
   .haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; page-break-inside: avoid; }
   .haveto-tag { display: inline-block; font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 6px; }
   .haveto-card h4 { margin: 0 0 12px; color: #991b1b; font-size: 11.5pt; }
