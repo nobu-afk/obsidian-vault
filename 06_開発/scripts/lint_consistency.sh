@@ -490,6 +490,26 @@ else
 fi
 
 # ----------------------------------------------------------------------
+# [10] 知識連動 audit（260509 Phase 1・memory + SSOT + 会社OS 参照リンク整合）
+# ----------------------------------------------------------------------
+echo ""
+echo "[10] 知識連動 audit（memory ↔ SSOT ↔ 会社OS）"
+VAULT_ROOT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
+audit_output=$(python3 "$VAULT_ROOT/06_開発/scripts/audit_knowledge_sync.py" 2>&1)
+audit_exit=$?
+if echo "$audit_output" | grep -qE "🔴 HIGH"; then
+  high_count=$(echo "$audit_output" | grep -oE "HIGH: [0-9]+" | grep -oE "[0-9]+" | head -1)
+  printf "${RED}❌${NC} 死リンク %s 件（audit_knowledge_sync.py で詳細確認）\n" "$high_count"
+  ERRORS=$((ERRORS + high_count))
+elif echo "$audit_output" | grep -qE "🟡 MEDIUM"; then
+  med_count=$(echo "$audit_output" | grep -oE "MEDIUM: [0-9]+" | grep -oE "[0-9]+" | head -1)
+  printf "${YEL}⚠${NC} 警告 %s 件（孤児 memory / frontmatter 欠損 — audit_knowledge_sync.py で詳細確認）\n" "$med_count"
+  WARNINGS=$((WARNINGS + med_count))
+else
+  printf "${GRN}✓${NC} memory ↔ SSOT ↔ 会社OS 参照リンク整合 OK\n"
+fi
+
+# ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
 echo ""
