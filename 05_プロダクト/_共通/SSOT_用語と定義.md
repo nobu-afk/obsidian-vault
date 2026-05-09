@@ -665,9 +665,73 @@ LP の hero-eyebrow / コーポレートのカードは「**{参謀名} ── {
 
 ---
 
-## 共通 CSS 運用ルール（260503 整理 / Phase 10 simplify 結果）
+## 13. v0.4 論文反映 新語彙（260509 確立・CODE/SCAN 対話設計 SSOT）
 
-LP / コーポレート系で重複していた CSS を単一情報源化：
+> **位置付け：** 22 件論文ベースサービスブラッシュアップで採用された 21 件のうち、CODE/SCAN 対話フレームに反映した 5 要素の **語彙 SSOT**。運用詳細は `SSOT_対話設計_CODE_SCAN.md` § 2/§ 3 を参照。
+
+### 13.1 引力 8 項目（SCAN・v0.4 で 7→8 項目化）
+
+| # | 項目 | 軸 | 出典 |
+|:-:|---|:-:|---|
+| ① | 採用パイプライン | 集まる | 既存 |
+| ② | 最終面接辞退率 | 集まる | 既存 |
+| ③ | 優秀人材定着率 | 躍動 | 既存 |
+| ④ | 幹部発話量 | 躍動 | 既存 |
+| ⑤ | エンゲージメント | 躍動 | 既存 |
+| ⑥ | 離脱予兆 | 躍動 | 既存 |
+| ⑦ | 採用最大壁の自覚度 + **PO Fit 認識** | 集まる | Cable & Judge 1996（v0.4 追加）|
+| ⑧ | **心理的安全性 4 行動** + 採用コスト対効果 | 躍動 | Edmondson 1999（v0.4 追加）|
+
+**集まる軸（①②⑦）= 3 項目 ／ 躍動軸（③④⑤⑥⑧）= 5 項目**
+
+**心理的安全性 4 行動：** ① 失敗を認める発言 ② 異議申し立て ③ 無知の表明 ④ 助けを求める
+
+### 13.2 覚悟確認 4 象限ラベル（SCAN・v0.4 で C-5 高/中/低 → A/B/C/D 化）
+
+Negative Capability（Bion 1962）を 2 構成要素に分離：
+- **軸 1：不確実性耐性**（答えが出ない問題に結論を急がず留まれるか）
+- **軸 2：曖昧さ耐性**（解釈が複数併存する状況で単線思考に逃げないか）
+
+| 象限 | 不確実性耐性 | 曖昧さ耐性 | 標準推奨パッケージ |
+|---|:-:|:-:|---|
+| **A 完全覚悟型** | ◎ | ◎ | Recruit / Cultivate / Shift 直接受講 |
+| **B 結論先送り型** | ◎ | △ | Cultivate + Coaching 並走 128 万 |
+| **C 単線思考型** | △ | ◎ | Cultivate + Coaching 並走 128 万 |
+| **D 完全 have to 型** | △ | △ | Coaching 先行（38 万・6 ヶ月） |
+
+**廃止語：** 「C-5 中判定」「C-5 高判定」「C-5 低判定」（lint で禁止検出）
+
+### 13.3 Job/Career/Calling 型（CODE 観点② Why 副次表示）
+
+仕事への向き合い方の 3 型（Wrzesniewski 1997）：
+- **Job 型**：仕事は生計手段
+- **Career 型**：仕事は階段上昇の手段
+- **Calling 型**：仕事は使命の表現
+
+レポート反映：CODE Block A `.job-career-calling` 副次表示。
+
+### 13.4 HP / OP 偏愛（CODE 観点③ 副次表示）
+
+偏愛の質を 2 型で判別（Vallerand 2003・Dualistic Model of Passion）：
+- **HP（Harmonious Passion・調和的情熱）**：偏愛が他生活領域と統合的に共存
+- **OP（Obsessive Passion・強迫的情熱）**：偏愛が他領域を侵食し、強迫的に従事しないと不安
+
+レポート反映：CODE Block A `.hp-op-distinction` 副次表示。
+
+### 13.5 Externalization / Somatic Resonance（CODE 命名前後スクリプト）
+
+レポート読み合わせフェーズの命名前後で投入する標準スクリプト：
+
+- **Externalization（外在化・White & Epston 1990）**：「あなた = ◯◯」ではなく「あなたが手にしている道具」として才能・Why・偏愛を観察対象化
+- **Somatic Resonance（身体的共鳴・Lakoff 1999 × Gendlin 1978）**：命名後に身体感覚での共鳴を 1 問確認（頭での納得 / 身体での共鳴の区別）
+
+レポート反映：CODE Block A `.externalization-statement` / `.somatic-resonance-prompt`。
+
+---
+
+## 共通 CSS / JS 運用ルール（260503 整理 / Phase 10 simplify 結果 / 260509 lp-icons・lp-common 追加）
+
+LP / コーポレート系で重複していた CSS / JS を単一情報源化：
 
 | ファイル | 配信パス | 対象 LP | 役割 |
 |---|---|---|---|
@@ -676,11 +740,16 @@ LP / コーポレート系で重複していた CSS を単一情報源化：
 | **site-chrome.css** | `https://growthfix.jp/gravity/site-chrome.css` | コーポレート系（top / service / profile 等 9 ページ）| 既存・full モード用 chrome 共通スタイル |
 | **mobile.css** | `https://growthfix.jp/assets/css/mobile.css` | 全 LP / コーポレート | SP 最適化共通パッチ |
 | **site-chrome.js** | `https://growthfix.jp/gravity/site-chrome.js` | 全 14+ ページ | footer SSOT 注入装置（data-mode="footer" で LP 系・無指定でコーポレート系）|
+| **lp-icons.css**（260509 新設） | `https://growthfix.jp/assets/css/lp-icons.css` | Gravity TOP / CODE / Recruit / Cultivate / Coaching | `ri-arrow-right-line` / `ri-arrow-right-s-line` 2 アイコンを inline SVG 化（旧 remixicon CDN 撤去・font fetch 全廃）|
+| **lp-common.js**（260509 新設） | `https://growthfix.jp/assets/js/lp-common.js` | Recruit / Cultivate（将来 Shift も統合）| Mobile menu toggle / Smooth scroll / IntersectionObserver / Form submit の共通 JS（バイト完全一致重複の解消）|
 
 **運用ルール：**
 - **minimal LP の追加時**：`<link rel="stylesheet" href="https://growthfix.jp/assets/css/minimal-lp.css?v=20260503a">` 1 行で参照（独自 `<style>` ブロック禁止）
 - **footer 内容変更**：`06_開発/site-chrome/site-chrome.js` の FOOTER 変数 1 箇所修正 → FTP デプロイで 14+ ページ自動反映
 - **Orbit minimal LP**：独立 dark トーン（#1b1b1b 系）維持・minimal-lp.css に統合しない（意図的差別化）
+- **新規 LP 追加時のアイコン**（260509 追加）：remixicon CDN 禁止 → `lp-icons.css` 参照 + 必要なら同 CSS にアイコンを追記
+- **新規 LP 追加時の共通 JS**（260509 追加）：menu-toggle/smooth-scroll/form-submit を独自実装する前に `lp-common.js` で十分か検討
+- **死蔵ファイル退避**（260509 追加）：HTML から相対参照ゼロのローカル `script.js` / `styles.css` は `_archive/` 配下に退避（H-6 事故再発防止）
 
 詳細：`memory/project_naming_two_layer_260503.md` ／ `09_会社OS/公開/文化/判断基準.md` § minimal LP 戦略選択原則
 
