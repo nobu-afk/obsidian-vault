@@ -1209,7 +1209,7 @@ if (function_exists('fastcgi_finish_request')) {
     fastcgi_finish_request();
 }
 ignore_user_abort(true);
-set_time_limit(600);
+set_time_limit(300);
 
 write_status($job_id, [
     'status' => 'running',

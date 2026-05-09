@@ -50,32 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     );
     document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-    // Roadmap modal
-    var openBtn = document.getElementById('open-roadmap');
-    var modal = document.getElementById('roadmap-modal');
-    if (openBtn && modal) {
-        var overlay = modal.querySelector('.b-roadmap-modal-overlay');
-        var closeBtn = modal.querySelector('.b-roadmap-modal-close');
-
-        function openModal() {
-            modal.classList.add('is-open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        openBtn.addEventListener('click', openModal);
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (overlay) overlay.addEventListener('click', closeModal);
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-        });
-    }
-
     // Form submission via hidden iframe
     var trialForm = document.getElementById('trial-form');
     if (trialForm) {

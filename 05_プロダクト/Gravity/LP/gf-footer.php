@@ -43,10 +43,10 @@
                         <a href="<?php echo home_url() ?>/gravity-scan/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Scan</a>
                     </li>
                     <li class="menu_link">
-                        <a href="<?php echo home_url() ?>/gravity-scan/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Scan</a>
+                        <a href="<?php echo home_url() ?>/gravity-recruit/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Recruit</a>
                     </li>
                     <li class="menu_link">
-                        <a href="<?php echo home_url() ?>/gravity-shift/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Shift</a>
+                        <a href="<?php echo home_url() ?>/gravity-cultivate/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Cultivate</a>
                     </li>
                     <li class="menu_link">
                         <a href="<?php echo home_url() ?>/gravity-orbit/" class="menu_btn" target="_blank" rel="noopener noreferrer">Gravity Orbit</a>
