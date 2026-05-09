@@ -35,6 +35,24 @@ $reports_dir = __DIR__ . '/reports';
 if (!is_dir($reports_dir)) mkdir($reports_dir, 0755, true);
 $REPORT_FILE = $reports_dir . '/report_' . $report_id . '.html';
 
+// --- ジョブステータス ヘルパー（SCAN パターン移植・C-1 fastcgi_finish_request 対応） ---
+function status_file_path($id) {
+    return __DIR__ . '/reports/status_' . $id . '.json';
+}
+function write_status($id, $data) {
+    $existing = read_status($id);
+    if ($existing && isset($existing['created_at'])) {
+        $data['created_at'] = $existing['created_at'];
+    }
+    $data['updated_at'] = time();
+    file_put_contents(status_file_path($id), json_encode($data, JSON_UNESCAPED_UNICODE));
+}
+function read_status($id) {
+    $path = status_file_path($id);
+    if (!file_exists($path)) return null;
+    return json_decode(file_get_contents($path), true);
+}
+
 // --- GET /generate.php?report=REPORT_ID → レポート表示 ---
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['report'])) {
     $req_id = preg_replace('/[^a-f0-9]/', '', $_GET['report']);
@@ -49,7 +67,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['report'])) {
     exit;
 }
 
-// --- POST → レポート生成 ---
+// --- GET /generate.php?job=JOB_ID → ジョブステータス返却 ---
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['job'])) {
+    $req_id = preg_replace('/[^a-f0-9]/', '', $_GET['job']);
+    if (!$req_id || strlen($req_id) !== 16) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid job ID']);
+        exit;
+    }
+    $status = read_status($req_id);
+    if (!$status) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Job not found']);
+        exit;
+    }
+    echo json_encode($status);
+    exit;
+}
+
+// --- POST → レポート生成（非同期ジョブ方式） ---
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
@@ -177,7 +213,7 @@ $system_prompt = <<<'SYSTEM'
 
 1. **Block A の一撃：キャラ命名（260510 v0.4 で命名前後の Externalization + Somatic Resonance 追加）**
 
-   **【★ 260510 v0.4 新規：命名前の Externalization】**（出典：White & Epston ナラティブセラピー創始 + Hartmann 2017）
+   **【命名前の Externalization】**（出典：White & Epston ナラティブセラピー創始 + Hartmann 2017）
    - キャラ命名の **直前**に 1 文挟む：
      > 「これからお伝えする名前は、あなた **そのもの**ではない。あなたが今 **抱えているもの**として一旦切り離して受け取ってほしい」
    - ボックス：`<div class="externalization-statement">` で命名直前に配置
@@ -187,7 +223,7 @@ $system_prompt = <<<'SYSTEM'
    - 良例：「逃げ足の速い建築家」「優しすぎる独裁者」「完成恐怖症の翻訳者」「整理恐怖症の翻訳者」「言葉を諦めた建築家」
    - 悪例：「情熱的なリーダー」「整理された翻訳者」（褒め系・矛盾不足）
 
-   **【★ 260510 v0.4 新規：命名後の Somatic Resonance】**（出典：Lakoff 神経メタファー理論 + Gendlin Felt Sense）
+   **【命名後の Somatic Resonance】**（出典：Lakoff 神経メタファー理論 + Gendlin Felt Sense）
    - キャラ命名の **直後**に 1 文挟む：
      > 「この『○○な○○』という名前を聞いたとき、**身体のどこに反応がありましたか？**　胸が締め付けられた、喉が詰まった、お腹が温かくなった ── 何でもいい。読み合わせフェーズで、その身体反応を一緒に解読しましょう」
    - ボックス：`<div class="somatic-resonance-prompt">` で命名直後に配置
@@ -919,7 +955,30 @@ USER;
 USER;
 }
 
-// --- Claude API 呼び出し（SYSTEM プロンプト prompt caching 有効） ---
+// --- ジョブID即時返却 + fastcgi_finish_request → 背景処理へ（C-1 60s timeout 対策） ---
+$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http')
+    . '://' . $_SERVER['HTTP_HOST'];
+$report_url = $base_url . dirname($_SERVER['REQUEST_URI']) . '/generate.php?report=' . $report_id;
+
+write_status($report_id, [
+    'status' => 'pending',
+    'created_at' => time(),
+]);
+
+echo json_encode(['job_id' => $report_id, 'report_url' => $report_url]);
+
+if (function_exists('fastcgi_finish_request')) {
+    fastcgi_finish_request();
+}
+ignore_user_abort(true);
+set_time_limit(600);
+
+write_status($report_id, [
+    'status' => 'running',
+    'created_at' => time(),
+]);
+
+// --- Claude API 呼び出し（バックグラウンド実行・SYSTEM プロンプト prompt caching 有効） ---
 $api_body = json_encode([
     'model' => 'claude-sonnet-4-5',
     'max_tokens' => 10000,
@@ -955,15 +1014,21 @@ $curl_error = curl_error($ch);
 curl_close($ch);
 
 if ($curl_error) {
-    http_response_code(500);
-    echo json_encode(['error' => 'API通信エラー: ' . $curl_error]);
+    write_status($report_id, [
+        'status' => 'error',
+        'created_at' => time(),
+        'error' => 'API通信エラー: ' . $curl_error,
+    ]);
     exit;
 }
 
 if ($http_code !== 200) {
-    http_response_code(502);
     error_log('Claude API error (HTTP ' . $http_code . '): ' . $response);
-    echo json_encode(['error' => 'レポート生成サービスに一時的な問題が発生しています。しばらく後に再試行してください。']);
+    write_status($report_id, [
+        'status' => 'error',
+        'created_at' => time(),
+        'error' => 'レポート生成サービスに一時的な問題が発生しています。しばらく後に再試行してください。',
+    ]);
     exit;
 }
 
@@ -976,8 +1041,11 @@ foreach (($data['content'] ?? []) as $block) {
 }
 
 if (empty($report_body)) {
-    http_response_code(500);
-    echo json_encode(['error' => 'レポートの生成に失敗しました']);
+    write_status($report_id, [
+        'status' => 'error',
+        'created_at' => time(),
+        'error' => 'レポートの生成に失敗しました',
+    ]);
     exit;
 }
 
@@ -1399,9 +1467,9 @@ HTML;
 // レポートをファイルに保存
 file_put_contents($REPORT_FILE, $report_html);
 
-// レポートURLを返す
-$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http')
-    . '://' . $_SERVER['HTTP_HOST'];
-$report_url = $base_url . dirname($_SERVER['REQUEST_URI']) . '/generate.php?report=' . $report_id;
-
-echo json_encode(['report_url' => $report_url]);
+// ジョブ完了ステータスを書き込む（非同期完了通知・C-1 fastcgi_finish_request 対応）
+write_status($report_id, [
+    'status' => 'done',
+    'created_at' => time(),
+    'report_url' => $report_url,
+]);
