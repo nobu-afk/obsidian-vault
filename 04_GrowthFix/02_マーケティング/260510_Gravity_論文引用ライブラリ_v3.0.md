@@ -351,9 +351,9 @@
 
 ### 3C.2 🟡 中関連（8 件）
 
-#### 🟡 C-14. Succession Experiences in Philippine Family Businesses（2000・引用 55）
+#### ❌ C-14. Succession Experiences in Philippine Family Businesses（2000・引用 55）【スパーリング除外・260510】
 - **APA：** Santiago, A. L. (2000). Succession experiences in Philippine family businesses. *Family Business Review*, 13(1), 15-40. https://doi.org/10.1111/j.1741-6248.2000.00015.x
-- **配置先：** Shift S 概念ペーパー補注（アジア圏同族企業）
+- **除外理由：** アジア圏文脈は別選択肢を探す方針（フィリピン家父長制と日本市場の距離）
 
 #### 🟡 C-15. Rough Family Justice: Equity in Family Business Succession Planning（1990・引用 47）
 - **APA：** Ayres, G. R. (1990). Rough family justice: Equity in family business succession planning. *Family Business Review*, 3(1), 3-22. https://doi.org/10.1111/j.1741-6248.1990.00003.x
@@ -367,9 +367,9 @@
 - **APA：** McGivern, C. (1989). The dynamics of management succession: A model of chief executive succession in the small family firm. *Family Business Review*, 2(4), 401-411. https://doi.org/10.1111/j.1741-6248.1989.tb00007.x
 - **配置先：** Shift S 概念ペーパー補注
 
-#### 🟡 C-18. The Ownership Trust and Succession Paralysis in the Family Business（1992・引用 10）
+#### ❌ C-18. The Ownership Trust and Succession Paralysis in the Family Business（1992・引用 10）【スパーリング除外・260510】
 - **APA：** McCollom, M. (1992). The ownership trust and succession paralysis in the family business. *Family Business Review*, 5(2), 145-159. https://doi.org/10.1111/j.1741-6248.1992.00145.x
-- **配置先：** Shift S 概念ペーパー補注
+- **除外理由：** 構造分析の優先度低・Lansberg C-7「承継の陰謀」で代替可能
 
 #### 🟡 C-19. Ten Most Prevalent Obstacles to Family-Business Succession Planning（1999・引用 21）
 - **APA：** Hubler, T. (1999). Ten most prevalent obstacles to family-business succession planning. *Family Business Review*, 12(2), 117-121. https://doi.org/10.1111/j.1741-6248.1999.00117.x
