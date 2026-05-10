@@ -103,6 +103,29 @@
 → **「なんでもできます」は捨てる**。3 軸（集まる・躍動・留まる）が SSOT。
 → 詳細：`05_プロダクト/_共通/260510_Gravity_3軸_集まる躍動留まる_SSOT_v1.0.md`
 
+### 🔥🔥🔥 個人引力 / 組織引力の正式定義（260510 Phase 11 確定）
+
+> **個人引力・組織引力は石井独自概念。Self-Efficacy / Collective Efficacy とは別概念。混同禁止。**
+
+**個人引力（Personal Gravity）** ──
+> **Authentic Self（Why × 才能 × 偏愛）が Emotional Contagion を通じて他者に伝染した結果生じる「他者を引きつける力」**
+>
+> ⚠️ **個人引力 ≠ Self-Efficacy**。Self-Efficacy は「自分はやれる」信念。個人引力は「他者を引きつける力」。Authentic Self の中に SE 成功体験は含まれるが、個人引力そのものは Authentic Self → Emotional Contagion で発現する独立概念。
+
+**組織引力（Organizational Gravity）** ──
+> **集合的 Authentic Org（集まる × 躍動）が Collective Emotional Contagion を通じて発現した「組織の引きつけ力」（人を引きつけ・躍動させ・留まらせる組織の力）**
+>
+> ⚠️ **組織引力 ≠ Collective Efficacy**。Collective Efficacy は「自分たちはやれる」共同信念。組織引力は「人を引きつけ・躍動させ・留まらせる組織の力」。集合的 Authentic Org の中に CE は含まれるが、組織引力そのものは集合的 Authentic Org → Collective Emotional Contagion で発現する独立概念。
+
+**3 層階層構造（思想層）：**
+- **個人レベル（CODE）：** 個人引力 = Authentic Self → Emotional Contagion
+- **組織レベル（SCAN）：** 組織引力 = 集合的 Authentic Org → Collective Emotional Contagion
+- **コミュニティレベル（思想層）：** 街・地域の引力 = コミュニティ Collective Efficacy（Sampson 1997 Science）
+
+詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md` + `05_プロダクト/_共通/SSOT_Gravity_コア主張.md` コア主張 #1 / #2 / #13
+
+---
+
 ### 🔥 思想層バックボーン（Bandura 効力感理論・260510 Phase 9-10 確定）
 
 > **Gravity = Bandura 効力感理論を企業向けに直接実装する唯一のサービス**

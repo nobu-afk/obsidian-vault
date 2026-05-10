@@ -1267,6 +1267,72 @@ A：契約時に双方向 NDA を締結します（弁護士確認後・5/16 以
 | v0.3 | 2026-05-09 | A-3 媒体配置（v2.0 引用ライブラリ・p.7.5 / p.9.5）+ JAFCO 反映 |
 | **v0.4** | **2026-05-10** | **Phase 8 シャープ化反映**：p.7.5 / p.9.5 に Phase 8 シャープ化 5 件追加 + §Phase 8 識学差別化最終形（4 軸 × 5 系列・7 質問事前診断）追加 |
 | **v0.5** | **2026-05-10 夜** | **Phase 9 Bandura 系列反映**：§Bandura 効力感理論バックボーン（権威性訴求）+ 識学差別化 5 軸化（4 軸 + 思想層バックボーン軸）|
+| **v0.6** | **2026-05-10 夜** | **Phase 11 最終確定反映**：§CODE × SCAN 構造的対称性 + 個人引力 / 組織引力の正式定義（≠ SE / CE 明示）+ 4 型 × Bandura CE パターンマッピング + 識学差別化 6 軸化（+ 個人 → 組織 → コミュニティ 3 層階層軸）|
+
+---
+
+## §CODE × SCAN 構造的対称性（260510 v0.6 追加・Phase 11 確定）
+
+### 個人引力の正式定義（CODE）
+
+> **個人引力 = Authentic Self（Why × 才能 × 偏愛）× Emotional Contagion → 他者を引きつける力**
+>
+> ⚠️ **個人引力 ≠ Self-Efficacy**（石井独自概念として明確に区別）
+
+| 要素 | 学術定義 |
+|---|---|
+| **Why** | Calling（Wrzesniewski 1997）+ Mission（Bill George Authentic Leadership） |
+| **才能** | Innate Talent + Flow（Csikszentmihalyi）+ Self-Efficacy 成功体験（Bandura 1977・49,507c） |
+| **偏愛** | Harmonious Passion（Vallerand 2003）+ Intrinsic Motivation（Deci-Ryan SDT） |
+| **媒介ロジック** | Authentic Leadership（Avolio-Gardner 2005）+ Emotional Contagion（Hatfield 1994 / Barsade 2002） |
+
+### 組織引力の正式定義（SCAN）
+
+> **組織引力 = 集合的 Authentic Org（集まる × 躍動）× Collective Emotional Contagion → 組織の引きつけ力**
+>
+> ⚠️ **組織引力 ≠ Collective Efficacy**（石井独自概念として明確に区別）
+
+| 軸 | 学術定義 |
+|---|---|
+| **集まる軸** | ASA Attraction（Schneider 1987）+ Person-Organization Fit（Cable-Judge） |
+| **躍動軸** | Engagement 2 軸（Saks 2006）+ Collective Efficacy（Bandura 2000）+ 心理的安全性（Edmondson） |
+| **4 型** | 整合 / 拡散 / 渇望 / 不毛（既存温存） |
+
+### 4 型 × Bandura CE パターンマッピング（v0.6 追加）
+
+| 既存ラベル | 学術翻訳 |
+|---|---|
+| 整合型 | High Collective Efficacy Type |
+| 拡散型 | Job-High Org-Low Type / Diffuse Engagement Type |
+| 渇望型 | Resource-Starved Aspiring Type |
+| 不毛型 | Low Collective Efficacy Type |
+
+### 構造的対称性（CODE × SCAN）
+
+| 構造 | CODE | SCAN |
+|---|---|---|
+| 本体概念（石井独自）| Authentic Self | 集合的 Authentic Org |
+| 構成要素 | Why × 才能 × 偏愛 | 集まる × 躍動 |
+| 発現メカニズム | Emotional Contagion | Collective Emotional Contagion |
+| 結果 | 他者を引きつける力 | 組織の引きつけ力 |
+| 思想層接続 | 個人 SE（Bandura 1977）| 組織 CE（Bandura 2000）+ コミュニティ CE（Sampson 1997 Science）|
+
+### 識学差別化 6 軸最終形（Phase 8 → 9 → 11 で決定的進化）
+
+| 軸 | Gravity | 識学 |
+|---|---|---|
+| 変革理論 | Beer-Nohria E+O 統合 | E 単独 |
+| 中間管理職 | Raelin 4 条件エンパワメント | 実行者扱い |
+| 失敗回避 | Jones-Schenk + Kotter 5+8 | 失敗放置 |
+| OD 実装 | 5 系列統合 | 単一権威担ぎ |
+| 思想層バックボーン | Bandura 効力感理論直接実装 | 効力感概念なし |
+| **🔥🔥 個人 → 組織 → コミュニティ 3 層階層**（Phase 11）| **Authentic Self → 集合的 Authentic Org → Community CE の翻訳機構** | 階層概念なし |
+
+### 商談時の主軸メッセージ（v0.6 確定）
+
+> **「Gravity の本質は、Bandura 効力感理論を直接実装するだけでなく、個人 → 組織 → コミュニティの 3 層階層において Authentic Self / Authentic Org が Emotional Contagion を通じて引力を発生させる統合理論として完成しています。識学（管理の科学・効力感概念なし・階層概念なし）とは構造的に異なるサービスです」**
+
+詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md`
 
 ---
 

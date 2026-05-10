@@ -22,29 +22,41 @@ Gravity の権威性訴求は以下の 2 階層：
 
 ## 1. コア主張 10 件（権威性訴求の出発点）
 
-### コア主張 #1：個人引力の 3 要素整合理論
+### コア主張 #1：個人引力の Authentic Self → Emotional Contagion 翻訳機構（260510 Phase 11 確定）
 
-**主張：** 経営者の引力は **Why × 才能 × 偏愛** の三角形の **整合度**として定義される。
+**主張：** 経営者の **個人引力 = Authentic Self（Why × 才能 × 偏愛）が Emotional Contagion を通じて他者に伝染した結果生じる「他者を引きつける力」**である。**個人引力 ≠ Self-Efficacy**（石井独自概念として明確に区別）。
 
-**詳細：**
-- **Why**：根源的動機（「許せなさ」「使命」「古い傷」）
-- **才能**：自然にできてしまう動詞 ＋ 発火する環境
-- **偏愛**：譲れない好み ＋ 絶対に選ばない嫌い
-- 3 要素が整合 = 本来の引力発揮 ／ どれかがズレ = 引力欠損
-- 経営者個人の 4 型判定：**整合型 / Why ズレ型 / 才能ズレ型 / 偏愛ズレ型**
+**詳細（260510 Phase 11 スパーリング 8 段階で確定）：**
 
-**学術領域：** モチベーション心理学 / Self-Determination Theory（自己決定論）/ フロー理論 / Ikigai 理論
+```
+個人引力 = Authentic Self × Emotional Contagion → 他者を引きつける力
+```
 
-**論文リサーチ方向：**
-- Deci & Ryan（自己決定論・内発的動機）
-- Csikszentmihalyi（フロー理論）
-- García & Miralles（Ikigai 関連）
-- Maslow（自己実現・peak experience）
+#### Authentic Self の 3 要素（学術定義）
 
-**学術領域マッピング：**
-- **主軸領域：** Self-Determination Theory（Deci & Ryan, 1985 / 2000）── 内発的動機と自律性が個人パフォーマンスを決める
-- **接続領域：** Authentic Leadership（Bill George, 2003）/ フロー理論（Csikszentmihalyi, 1990）/ Ikigai 研究（García & Miralles, 2017）
-- **反論論文の主軸：** 「Why は後付けである」論（Behavioral Economics 系・**[Speculative]** Daniel Pink 系統への批判論文）/ 「内発的動機は外発的動機で代替可能」論（行動経済学・Ariely 系）
+| 要素 | 学術定義 | 主要古典 |
+|---|---|---|
+| **Why** | Calling（召命）+ Mission（使命）| Wrzesniewski 1997 / Bill George Authentic Leadership |
+| **才能** | Innate Talent（生まれ持った素質）+ Flow（没入）+ Self-Efficacy 成功体験 | Csikszentmihalyi / Bandura 1977（49,507 cites）|
+| **偏愛** | Harmonious Passion（自己統合情熱）+ Intrinsic Motivation（内発的動機）| Vallerand 2003 / Deci-Ryan SDT |
+
+#### 媒介ロジック：Authentic Self → 個人引力
+
+3 要素が統合された Authentic Self は **Authentic Leadership 理論（Avolio-Gardner 2005 等）**の核概念。これが **Emotional Contagion（Hatfield-Cacioppo-Rapson 1994 / Barsade 2002）**を通じて他者に伝染し、**「人を引きつける磁力」= 個人引力**として発現する。
+
+#### 経営者個人の 4 型判定（既存温存）
+
+**整合型 / Why ズレ型 / 才能ズレ型 / 偏愛ズレ型**（CODE 診断結果）
+
+**学術領域マッピング（Phase 11 確定）：**
+- **主軸領域：** Authentic Leadership（Avolio-Gardner 2005 / Walumbwa 2008 ALQ）+ Emotional Contagion（Hatfield 1994 / Barsade 2002）── 3 要素統合 → 他者への磁力翻訳機構
+- **接続領域：** Self-Efficacy（Bandura 1977・才能の中の SE 成功体験）/ Calling（Wrzesniewski 1997・Why）/ Flow（Csikszentmihalyi・才能の中の Flow）/ Harmonious Passion（Vallerand 2003・偏愛）/ SDT（Deci-Ryan・偏愛の Intrinsic Motivation）
+- **反論論文の主軸：** Vancouver et al. 2002（Self-Efficacy 過信批判・WhitePaper 反論章）/ 「Why は後付けである」論（行動経済学系）
+
+**重要な区別（260510 Phase 11 確定）：**
+> **個人引力 ≠ Self-Efficacy。Self-Efficacy は「自分はやれる」信念。個人引力は「他者を引きつける力」。Authentic Self の中に SE 成功体験は含まれるが、個人引力そのものは Authentic Self → Emotional Contagion で発現する独立概念。**
+
+詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md`
 
 ---
 
@@ -54,26 +66,55 @@ Gravity の権威性訴求は以下の 2 階層：
 
 **260510 拡張根拠：** サイバーエージェント分析（過去壁打ち記憶）で「Shift（自社）は集まる・躍動 強いが留まる弱い／CA は 3 軸全て強い／Gravity は 3 軸統合設計」と確認。詳細：`05_プロダクト/_共通/260510_Gravity_3軸_集まる躍動留まる_SSOT_v1.0.md`
 
-**詳細：**
-- **集まる軸**（Shift R / CODE / Scan）: 採用パイプライン × 最終辞退率 × 採用最大壁の自覚度
-- **躍動する軸**（Shift C / Cultivate）: 優秀人材定着率 × 幹部発話量 × エンゲージメント × 離脱予兆
-- **留まる軸**（Orbit）: 月次引力強化 × 経営者-幹部エンゲージメント × 長期コミットメント形成
-- 組織 4 型（集まる × 躍動の 2 軸マトリクス）：**整合型（◎×◎）/ 拡散型（◎×△）/ 渇望型（△×◎）/ 不毛型（△×△）**
-- Pre-Shift 適合診断：4 型に応じて Recruit / Cultivate / Shift / Orbit / Coaching を推奨
-- **3 軸の運用：** 4 型診断（集まる × 躍動）で組織パターンを把握し、留まる軸（Orbit）で長期月次強化を設計する二層構造
+**詳細（260510 Phase 11 確定）：**
 
-**学術領域：** 組織心理学 / Person-Organization Fit / 組織開発
+**主張（Phase 11 確定）：** 組織の **組織引力 = 集合的 Authentic Org（集まる × 躍動）が Collective Emotional Contagion を通じて発現した「組織の引きつけ力」**である。**組織引力 ≠ Collective Efficacy**（石井独自概念として明確に区別）。
 
-**論文リサーチ方向：**
-- Cable & Judge（Person-Organization Fit）
-- Schneider（ASA Framework：Attraction-Selection-Attrition）
-- Edmondson（Psychological Safety）
-- O'Reilly & Chatman（Organizational Culture Profile）
+```
+組織引力 = 集合的 Authentic Org × Collective Emotional Contagion → 組織の引きつけ力
+```
 
-**学術領域マッピング：**
-- **主軸領域：** ASA Framework（Schneider, 1987 / 1995）── 組織は経営者の引力で人を引き寄せ・選別し・離脱させる動的プロセス
-- **接続領域：** Competing Values Framework（Quinn & Rohrbaugh, 1983）/ Person-Organization Fit（Cable & Judge, 1996）/ Organizational Culture Profile（O'Reilly, Chatman & Caldwell, 1991）
-- **反論論文の主軸：** 「組織文化の 4 型分類は単純化しすぎ」論（Schein 系統・組織文化は階層構造で 4 マトリクスでは捉えられない）/ 「P-O Fit は採用バイアスを正当化する」論（Diversity 研究側からの批判）
+#### 表層 2 軸（経営者向け・診断ツール・Phase 11 確定）
+
+| 軸 | 学術定義 | 主要古典 |
+|---|---|---|
+| **集まる軸** | ASA Attraction + Person-Organization Fit | Schneider 1987 / Cable-Judge |
+| **躍動軸** | Engagement 2 軸（Job + Org）+ Collective Efficacy + 心理的安全性 | Saks 2006（3,206c）+ Bandura 2000（1,721c）+ Edmondson |
+
+#### 4 型ラベル（既存温存・経営者向け）
+
+**整合型（◎×◎）/ 拡散型（◎×△）/ 渇望型（△×◎）/ 不毛型（△×△）**
+
+#### 4 型 × Bandura CE パターンマッピング（Phase 11 確定・WhitePaper / 思想層・任意併記）
+
+| 既存ラベル | 学術翻訳ラベル |
+|---|---|
+| 整合型 | High Collective Efficacy Type |
+| 拡散型 | Job-High Org-Low Type / Diffuse Engagement Type |
+| 渇望型 | Resource-Starved Aspiring Type |
+| 不毛型 | Low Collective Efficacy Type |
+
+#### 思想層 3 層階層（WhitePaper / 書籍）
+
+```
+個人 SE（CODE）→ 組織 CE（SCAN）→ コミュニティ CE（思想層）
+   ↓                ↓                    ↓
+Bandura 1977     Bandura 2000         Sampson 1997 Science
+（49,507c）      （1,721c）            （8,583c）
+```
+
+**Pre-Shift 適合診断：** 4 型に応じて Recruit / Cultivate / Shift / Orbit / Coaching を推奨
+
+**学術領域マッピング（Phase 11 確定）：**
+- **主軸領域：** ASA Framework（Schneider 1987 / 1995）+ Saks Engagement 2 軸（2006・3,206c）+ Bandura Collective Efficacy（2000・1,721c）+ Edmondson Psychological Safety
+- **接続領域：** Person-Organization Fit（Cable-Judge）/ Goddard-Hoy Collective Teacher Efficacy（2000・839c）/ Tasa-Taggar-Seijts チーム CE 縦断構築（2007）/ Stajkovic-Lee-Nyberg CE × 業績メタ分析（2009）
+- **発現メカニズム：** Collective Emotional Contagion（Barsade 2002・Phase 12 で追加予定）
+- **反論論文の主軸：** 「組織文化の 4 型分類は単純化しすぎ」論（Schein 系統）/ 「P-O Fit は採用バイアスを正当化する」論（Diversity 研究側）/ 集合的効力感の文脈依存批判 / Vancouver et al. 2002（SE 過信批判）
+
+**重要な区別（260510 Phase 11 確定）：**
+> **組織引力 ≠ Collective Efficacy。Collective Efficacy は「自分たちはやれる」共同信念。組織引力は「人を引きつけ・躍動させ・留まらせる組織の力」。集合的 Authentic Org の中に CE は含まれるが、組織引力そのものは集合的 Authentic Org → Collective Emotional Contagion で発現する独立概念。**
+
+詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md`
 
 ---
 
