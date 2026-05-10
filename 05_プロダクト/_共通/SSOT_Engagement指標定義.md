@@ -127,8 +127,36 @@ Engagement が高まると以下 4 つの帰結が生まれる：
 
 ---
 
-## 7. 改訂履歴
+---
+
+## 8. Tier 2A 補強（260510 追加）
+
+### 8.1 Institutionalized 戦術 → 役割明確化 → エンゲージメントの伝達経路（A-10 Saks-Gruman 2011）
+
+Saks-Gruman（2011）は **「Institutionalized 戦術 → 役割明確化 → 自己効力感 → エンゲージメント」**の 4 段階伝達経路を実証。
+- Saks 2006 の 6 前提条件「①仕事特性」と「役割明確化」が直接接続
+- **「役割明確化」を Engagement の最重要 KPI として位置付け**
+
+**Cultivate Week 3-6 評価制度設計への適用：**
+- 各役職の「役割定義書（Role Charter）」明確性チェックを実装
+  - 責任 / 権限 / 期待成果 / 評価基準を 1 ページに整理
+  - 役割の曖昧さ = エンゲージメント低下の主要因として明示
+
+### 8.2 SRT（Socialization Resources Theory）理論基盤の Oxford 権威性（A-11 Saks-Gruman 2012）
+
+A-9 で導入した「17 種類社会化資源」の理論的根拠は **Oxford Handbook of Organizational Socialization 収録章（Saks-Gruman 2012・76 cites）**に体系化されている：
+- 社会化研究 30 年（1980-2010）の包括レビュー
+- SRT を「組織が新人に提供すべき資源体系」として理論化
+- **2 段権威性訴求**：A-3 Bauer メタ分析（1,423 cites）+ A-11 Oxford Handbook
+
+**WhitePaper / 商談での引用ルール：**
+> 「Cultivate の 17 資源リストは、Saks-Gruman（2018）の Socialization Resources Theory を起点にしており、その理論的根拠は Oxford Handbook of Organizational Socialization（2012）に体系化されています」
+
+---
+
+## 9. 改訂履歴
 
 | 版 | 日付 | 内容 |
 |---|---|---|
 | v1.0 | 2026-05-10 | 初版作成（Phase 7 Tier 1 #3 採用反映・Saks 2006 ベース）|
+| v1.1 | 2026-05-10 | Tier 2A #6 (A-10 伝達経路) + #7 (A-11 SRT 理論基盤) 追加 |
