@@ -275,7 +275,7 @@
 - マッピング：`02_セッション記録/論文リサーチ/260510_Phase9_学術領域マッピング_自己集合的効力感_v0.1.md`
 - 候補論文：`02_セッション記録/論文リサーチ/260510_Phase9_候補論文リスト_v0.1.md`（254 件 unique）
 - 関連 SSOT：`05_プロダクト/_共通/SSOT_Engagement指標定義.md`（v1.1）
-- 関連 SSOT：`05_プロダクト/_共通/260510_Gravity_3軸_集まる躍動留まる_SSOT_v1.0.md`
+- 関連 SSOT：`05_プロダクト/_共通/SSOT_Gravity_3軸.md`
 - 関連 memory：`memory/user_self_intro_attractor_designer_260430.md`（30 年テーマ）
 - 関連 memory：`memory/user_life_theme_gravity.md`（和歌山 vs 流山）
 
