@@ -1266,3 +1266,46 @@ A：契約時に双方向 NDA を締結します（弁護士確認後・5/16 以
 | v0.2 | 2026-05-07 | 構造完成版（Tier 1 反映前）|
 | v0.3 | 2026-05-09 | A-3 媒体配置（v2.0 引用ライブラリ・p.7.5 / p.9.5）+ JAFCO 反映 |
 | **v0.4** | **2026-05-10** | **Phase 8 シャープ化反映**：p.7.5 / p.9.5 に Phase 8 シャープ化 5 件追加 + §Phase 8 識学差別化最終形（4 軸 × 5 系列・7 質問事前診断）追加 |
+| **v0.5** | **2026-05-10 夜** | **Phase 9 Bandura 系列反映**：§Bandura 効力感理論バックボーン（権威性訴求）+ 識学差別化 5 軸化（4 軸 + 思想層バックボーン軸）|
+
+---
+
+## §Bandura 効力感理論バックボーン（260510 v0.5 追加・権威性訴求）
+
+### 商談時の主軸メッセージ
+
+> **「Gravity の理論的バックボーンは Bandura（Stanford・心理学界の不朽の古典）の Self-Efficacy 理論（1977・被引用 49,507）+ Collective Efficacy 理論（2000）です。識学さんは『管理の科学』ですが、Gravity は『Bandura 効力感理論を企業向けに直接実装する唯一のサービス』として位置付けられます」**
+
+### 識学差別化 5 軸最終形（260510 v0.5・Phase 8 → Phase 9 で決定的進化）
+
+| 軸 | Gravity（Recruit / Cultivate）| 識学 |
+|---|---|---|
+| 変革理論 | Beer-Nohria E+O 統合 | Theory E 単独 |
+| 中間管理職 | Raelin 4 条件エンパワメント | 実行者扱い |
+| 失敗回避 | Jones-Schenk + Kotter 5+8 失敗回避 | 失敗放置 |
+| OD 実装 | 5 系列統合（Kotter / Bushe-Marshak / NTL / Cooperrider / Beer-Nohria）| 単一権威担ぎ |
+| **🔥 思想層バックボーン**（260510 Phase 9 追加）| **Bandura 効力感理論（Self-Efficacy 1977 + Collective Efficacy 2000）を直接実装**| 効力感概念なし |
+
+### Bandura 系列 3 大古典（権威性訴求の核）
+
+1. **Bandura, A. (1977)**. Self-efficacy: Toward a unifying theory of behavioral change. *Psychological Review*, 84(2), 191-215.（被引用 **49,507** = 心理学界の不朽の古典）
+2. **Bandura, A. (2000)**. Exercise of human agency through collective efficacy. *Current Directions in Psychological Science*, 9(3), 75-78.（被引用 1,721 = 集合的効力感の起点）
+3. **Sampson, R. J., Raudenbush, S. W., & Earls, F. (1997)**. Neighborhoods and violent crime: A multilevel study of collective efficacy. *Science*, 277(5328), 918-924.（被引用 **8,583** = Science 誌・コミュニティ Collective Efficacy 創始）
+
+### 引力経営の最終目標 = 集合的効力感に満ちた会社
+
+> **「Gravity の最終目標 = 組織のメンバーが『自分たちはやれる』と本気で信じている状態を作る」**
+
+これは Bandura の Collective Efficacy 定義（"a group's shared belief in its conjoint capabilities to organize and execute the courses of action required to produce given levels of attainment"）と完全に一致します。
+
+### サービス別 Bandura 系列引用（思想層バックボーン）
+
+| サービス | 主要引用 |
+|---|---|
+| **CODE** | Bandura 1977（経営者の Self-Efficacy 解読）|
+| **Coaching** | Bandura 1977（Self-Efficacy 4 源泉 6 ヶ月伴走）+ Taggar-Seijts 2003（個人 → 集合的翻訳）|
+| **Scan** | Bandura 2000（4 型 = 集合的効力感パターン）+ Goddard-Hoy 2000（組織応用）|
+| **Recruit** | Stajkovic-Luthans 1998（採用後 SE 構築 → 業績）|
+| **Cultivate** | Bandura 2000 + Tasa-Taggar-Seijts 2007（12 週縦断構築）+ Stajkovic-Lee-Nyberg 2009（メタ分析）|
+| **Orbit** | Bandura 2000（CE 月次維持）|
+| **思想層 / 自己紹介** | Sampson 1997 Science（コミュニティ CE）|
