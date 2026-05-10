@@ -154,9 +154,84 @@ A-9 で導入した「17 種類社会化資源」の理論的根拠は **Oxford 
 
 ---
 
-## 9. 改訂履歴
+---
+
+## 10. Phase 9-10 Bandura 効力感系列統合（260510 夜・v1.2）
+
+> **位置づけ：** Saks 2006 の Engagement 概念を Bandura 効力感理論（Self-Efficacy / Collective Efficacy）の枠組みで再統合。**Engagement = Efficacy の発現形態**として位置付け、両者を統合的に運用する。
+
+### 10.1 Engagement と Efficacy の統合構造（260510 確立）
+
+```
+個人レベル：
+  - Self-Efficacy（Bandura 1977）= 「自分はやれる」信念
+  - Job Engagement（Saks 2006）= 仕事への熱意
+  - Organization Engagement（Saks 2006）= 組織への帰属
+
+組織レベル：
+  - Collective Efficacy（Bandura 2000）= 「自分たちはやれる」共同信念
+  - Engagement の集合的発現 = Collective Efficacy の指標化
+```
+
+### 10.2 Bandura 効力感理論との理論的接続
+
+**Saks 2006 の 6 前提条件 → Bandura SE 4 源泉 への対応：**
+
+| Saks 2006 前提条件 | Bandura SE 4 源泉 |
+|---|---|
+| ①仕事特性 | ①成功体験（Mastery experience）|
+| ②知覚された組織支援（POS）| ④情動的覚醒（Emotional arousal）|
+| ③知覚された上司支援（PSS）| ③言語的説得（Verbal persuasion）|
+| ④報酬と認知 | ②代理経験（Vicarious experience）|
+| ⑤分配的公正感 | （SE 維持の文脈条件）|
+| ⑥手続き的公正感 | （SE 維持の文脈条件）|
+
+**Saks 2006 Engagement → Bandura Self-Efficacy → 4 帰結指標**の伝達経路：
+- Engagement の前提条件（Saks）= Self-Efficacy の源泉（Bandura）の発現
+- Engagement = Self-Efficacy の感情的・行動的表現
+- 両者を統合的に診断・介入することで「個人レベルの引力」を完全カバー
+
+### 10.3 全サービスへの統合適用（260510 夜更新）
+
+#### Scan（4 型診断）
+- 既存：Engagement 2 軸（Job vs Org）+ 6 前提条件
+- **追加（Phase 9）：** Collective Efficacy（Bandura 2000）パターン診断と統合
+- 4 型躍動軸 = **Engagement の集合的発現 = Collective Efficacy パターン**として再定義
+
+#### Coaching（経営者個人）
+- 既存：経営者個人の Job vs Org Engagement 6 ヶ月伴走診断
+- **追加（Phase 9）：** Bandura SE 4 源泉（成功体験 / 代理経験 / 言語的説得 / 情動的覚醒）を経営者個人に適用
+- Engagement 診断 + Self-Efficacy 4 源泉介入 = 経営者個人の引力強化の二層フレーム
+
+#### Cultivate / Shift C
+- 既存：17 資源リスト + Engagement 月次測定
+- **追加（Phase 9）：** Tasa-Taggar-Seijts 2007（チーム CE 縦断構築）+ Stajkovic-Lee-Nyberg 2009（CE × 業績メタ分析）
+- 12 週で Collective Efficacy を縦断構築するプロセス = Engagement の集合的発現を増幅
+
+#### Orbit
+- 既存：月次引力レポートに Engagement スコア + 17 資源スコア + コホート定着率
+- **追加（Phase 9）：** Collective Efficacy 月次測定指標を追加検討（次バージョンで詳細化）
+
+### 10.4 引用ルール拡張（Phase 9 反映）
+
+**APA 形式（Phase 9 主要 3 大古典）：**
+> Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. *Psychological Review*, 84(2), 191-215. https://doi.org/10.1037/0033-295x.84.2.191
+> Bandura, A. (2000). Exercise of human agency through collective efficacy. *Current Directions in Psychological Science*, 9(3), 75-78. https://doi.org/10.1111/1467-8721.00064
+> Sampson, R. J., Raudenbush, S. W., & Earls, F. (1997). Neighborhoods and violent crime: A multilevel study of collective efficacy. *Science*, 277(5328), 918-924. https://doi.org/10.1126/science.277.5328.918
+
+**商談時のショートピッチ（Engagement + Efficacy 統合版）：**
+> 「Engagement と効力感は別概念ですが密接に関連します。私たちは Saks 2006 の Engagement 2 軸（Job vs Org）と Bandura の Self-Efficacy / Collective Efficacy 理論を統合的に診ます。御社の従業員は『仕事に熱中している』だけでなく『自分たちはやれると本気で信じている』状態ですか？」
+
+### 10.5 関連 Phase 9 引用ライブラリ
+
+詳細：`04_GrowthFix/02_マーケティング/260510_Gravity_論文引用ライブラリ_v4.0_Phase9追加.md`
+
+---
+
+## 11. 改訂履歴
 
 | 版 | 日付 | 内容 |
 |---|---|---|
 | v1.0 | 2026-05-10 | 初版作成（Phase 7 Tier 1 #3 採用反映・Saks 2006 ベース）|
 | v1.1 | 2026-05-10 | Tier 2A #6 (A-10 伝達経路) + #7 (A-11 SRT 理論基盤) 追加 |
+| **v1.2** | **2026-05-10 夜** | **Phase 9 Bandura 効力感系列統合：Engagement と Efficacy の統合構造確立 + 全サービス適用拡張（§10）。新規 SSOT_Efficacy指標定義 を作成せず、本 SSOT に統合（メンテ負荷最小化）** |
