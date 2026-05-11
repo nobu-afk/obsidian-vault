@@ -78,7 +78,7 @@
 | **回 1 ワーク** | 9 マス診断（A4 1p）作成 + 採用 4 軸の方向確定 |
 | **回 2 ワーク** | 採用基準ロールアウト + 模擬面接 1 件採点（5 原則 × 4 段階ルーブリック）+ ASA Framework 可視化 |
 | **成果物** | 採用 4 軸 v1.0（A4 4p）/ 採用基準文書 v1.0（A4 4p）/ 9 マス診断（A4 1p）|
-| **学術裏付け** | R1 AI 補完スキル軸（Acemoglu 2022・27,000 社）+ R2 ASA Framework（Schneider 1987・5,300+ 引用）|
+| **学術裏付け** | R1 AI 補完スキル軸（Acemoglu 2022・27,000 社）+ R2 ASA Framework（Schneider 1987・5,300+ 引用）/ **v1.0.2 追加（260513・B-1）：** Kristof-Brown 2005 P-O Fit メタ（3,698 cites・172 研究統合）+ Cable-Judge 1996/1997 + 日本固有 2 軸（Aoki 1988 情報共有経路・756 cites / Takeuchi 2007 HPWS × 信頼気候媒介・707 cites・日本 76 事業所）→ **4 種フィット × 採用 4 軸 = 16 セル整合性チェック + 日本固有 2 軸** |
 
 ### 3.2 ② 面接プロセス（回 3）
 
@@ -96,7 +96,7 @@
 | **What** | 口説きフレーズ 5 種を CODE 4 型からカスタマイズ + 求人原稿再設計 |
 | **回 3 ワーク** | **20 セル完全マッピング表テンプレ**（4 型 × 5 種・◎主軸 / ○補助 / △限定的）でカスタマイズ |
 | **成果物** | 口説きフレーズ 5 種 v1.0（A4 4p）/ 求人原稿テンプレ v1.0 / スカウト文面テンプレ v1.0 |
-| **学術裏付け** | Authentic Leadership × EC（Avolio-Gardner 2005 / Hatfield 1994）+ Calling 研究（Wrzesniewski 1997）|
+| **学術裏付け** | Authentic Leadership × EC（Avolio-Gardner 2005 / Hatfield 1994）+ Calling 研究（Wrzesniewski 1997）/ **v1.0.2 追加（260513・B-1）：** Connelly 2010 Signaling Theory（4,189 cites）+ Berthon 2005 EmpAt 5 次元（706 cites）+ Lievens-Highhouse 2003 Symbolic 属性スケール（576 cites）+ Phillips 1998 RJP メタ（21 研究統合）→ **EmpAt 5 次元 × CODE 4 型 = 20 セルマップ拡張 + Symbolic 属性スケール内蔵** |
 
 ### 3.4 ④ オンボーディング（回 4）
 
