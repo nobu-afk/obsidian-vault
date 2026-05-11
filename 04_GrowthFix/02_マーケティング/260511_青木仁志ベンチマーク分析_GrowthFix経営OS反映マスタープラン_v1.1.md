@@ -233,7 +233,7 @@ v1.0 で 6 件 + 2 件追記済。v1.1 で以下 5 件を追加候補化：
 
 ### 8-A. 独自軸希釈回避（v1.0 から継承）
 
-- GrowthFix = 複数領域編集型（141 論文 × Authentic Self × Emotional Contagion × ASA × P-O Fit × AI ネイティブ × 4 型診断）
+- GrowthFix = 複数領域統合型（141 論文 × Authentic Self × Emotional Contagion × ASA × P-O Fit × AI ネイティブ × 4 型診断）
 - 青木 = 単一権威担ぎ型（選択理論心理学 × 個人実績 × ヒル × バイブル）
 - Tier 2 抽出時も **GrowthFix 独自軸を希釈しない判断を Tier 3 に落とせる**（v1.1 で 20 件 Tier 3 判定）
 
