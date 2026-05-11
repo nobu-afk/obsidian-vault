@@ -1,13 +1,13 @@
 #!/bin/bash
 # PostToolUse hook: 05_プロダクト/*.html 編集後に
 #   ① audit_mobile_sync.py（mobile.css 同期監査）
-#   ② lint_lp_internal_terms.py（LP 社内用語ゼロ原則・260512 追加）
+#   ② lint_lp_internal_terms.py（LP 社内用語ゼロ原則・260511 追加）
 # を並列実行し、結果を additionalContext で Claude に注入。
 #
 # stdin: hook input JSON / stdout: hook output JSON
 # 関連 SSOT:
 #   - CLAUDE.md「LP 編集時の自動機械チェック」（260501 確立）
-#   - 09_会社OS/公開/ガイドライン/design.md §LP 社内用語ゼロ原則（260512 追加）
+#   - 09_会社OS/公開/ガイドライン/design.md §LP 社内用語ゼロ原則（260511 追加）
 
 PAYLOAD=$(cat)
 FILE_PATH=$(echo "$PAYLOAD" | jq -r '.tool_input.file_path // .tool_response.filePath // ""')
