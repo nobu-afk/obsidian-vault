@@ -1,0 +1,36 @@
+#!/bin/bash
+set -u
+IDS_FILE="_selected_55_ids.txt"
+OUT_DIR="transcripts"
+JOBS=10
+
+download_one() {
+    local id="$1"
+    local out="$OUT_DIR/$id"
+    # Skip only if a .vtt actually exists
+    local existing
+    existing=$(find "$OUT_DIR" -maxdepth 1 -name "${id}.*.vtt" -print -quit 2>/dev/null)
+    if [ -n "$existing" ]; then
+        echo "[skip] $id"
+        return 0
+    fi
+    yt-dlp \
+        --skip-download \
+        --write-subs \
+        --write-auto-subs \
+        --sub-langs "ja,ja-orig,en" \
+        --sub-format "vtt" \
+        --quiet --no-warnings \
+        --output "${out}.%(ext)s" \
+        "https://www.youtube.com/watch?v=${id}" 2>&1 | tail -1
+    echo "[done] $id"
+}
+
+export -f download_one
+export OUT_DIR
+
+cat "$IDS_FILE" | xargs -P "$JOBS" -I{} bash -c 'download_one "$@"' _ {} 2>&1 | tail -60
+echo "=== Files downloaded ==="
+ls -1 "$OUT_DIR"/*.vtt 2>/dev/null | wc -l
+echo "=== Unique videos with at least one subtitle ==="
+ls -1 "$OUT_DIR"/*.vtt 2>/dev/null | sed -E 's|.*/||; s/\..*//' | sort -u | wc -l
