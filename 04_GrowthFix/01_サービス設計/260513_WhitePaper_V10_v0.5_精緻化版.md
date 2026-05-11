@@ -1,0 +1,762 @@
+# 引力経営 ── 複数領域の学術研究を編集する人事戦略の新潮流
+
+**Gravity WhitePaper V10：253 件の主要研究を編集する（精緻化版）**
+
+---
+
+執筆：**石井伸幸**（GrowthFix 代表 / 引力経営提唱者 / 引力の参謀）
+発行：GrowthFix 株式会社
+版：**v0.5 精緻化版**（2026-05-13）／ v1.0 完成予定：2026 Q3-Q4
+ベース：Gravity 論文引用ライブラリ v7.0（253 件・累計被引用 14,897+ cites）
+v0.1（901 行・5/13 朝）の構造を保持しつつ、論文配置 80 件 → 130 件・図表指示 8 章・JAFCO 中間経営職反映・接続装置 5 層モデル・書籍クロスマトリクスを統合した実用ドラフト
+
+---
+
+## 巻頭言
+
+本書は、経営の現場で何度も繰り返し問われる **一つの問い** に答えるために書かれた。
+
+> 「優秀な人材が、なぜあの会社には集まり、自分の会社には集まらないのか」
+
+答えは、**規律でも、報酬でも、ブランドでもない**。
+
+会社には **引力（Gravity）** という独立した変数が働いている。それは「集まる × 躍動する × 留まる」という 3 つの力に分解でき、経営者個人の **Authentic Self（Why × 才能 × 偏愛）** から発した磁場が、**Emotional Contagion（感情伝染）** を通じて組織に翻訳されるとき、最も強く立ち上がる。
+
+本書はこの仮説を、HR・組織論・社会心理学・経済学・People Analytics・日本市場研究の **253 件の主要研究** から **編集** し、再構築したものである。
+
+GrowthFix は単一の権威に依拠しない。識学のように一つのフレームを担いだ会社でもなければ、海外ベストプラクティスを輸入する外資コンサルでもない。**複数領域の主要研究を編集して、引力経営という統合理論として日本の中堅・成長企業に届ける** ── これが GrowthFix の編集者ポジションである。
+
+本書を、企業経営者・人事責任者・記者・研究者・パートナー候補のすべての方に開く。引力経営は思想であると同時に、実装可能な人事戦略である。
+
+2026 年 5 月　石井伸幸
+
+---
+
+## 目次
+
+- 第 0 章　複数領域統合型のスタンス宣言（編集者ポジション）
+- 第 1 章　引力経営の核命題（Authentic Self × Emotional Contagion）
+- 第 2 章　集まる軸 ── 採用基盤（R-1〜R-5）
+- 第 3 章　躍動する軸 ── 評価 / 1on1 / サーベイ / リズム / 中間（C-1〜C-5）
+- 第 4 章　留まる軸 ── Job Embeddedness 月次設計
+- 第 5 章　採用ブランドの新潮流（Signaling Theory）
+- 第 6 章　中間経営職 ＝ 引力経営の核
+- 第 7 章　AI ネイティブ経営 ── アルゴリズムの時代に人が担う領域
+- 第 8 章　日本市場研究基盤
+- 第 9 章　Bandura 効力感の 3 層階層
+- 第 10 章　介入研究で実証された Gravity 機能マップ
+- 第 11 章　識学・外資コンサル・AI ベンダーとの差別化
+- 第 12 章　引力経営の将来展望（書籍『引力経営』2027 Q1 章立てクロスマトリクス含む）
+- 参考文献（主要 130 件・APA + DOI 形式・v1.0 で完全化）
+- 著者プロフィール / GrowthFix プロフィール
+- 改訂履歴 / 関連 SSOT
+
+---
+
+# 第 0 章　複数領域統合型のスタンス宣言（編集者ポジション）
+
+## 0.1 本書の魂 ── 担ぐのではなく、編集する
+
+経営思想を売る会社は、おおむね **「担ぐ型（Single-Authority Carry）」** のポジションを取ってきた。
+
+- 識学は **意識構造学** を担ぐ（一つの理論で組織課題を切る）
+- アチーブメントは **自己啓発・目標設定の単一理論** を担ぐ
+- リンクアンドモチベーションは **モチベーション・エンジニアリング** を担ぐ
+- 外資コンサル各社は、自社が翻訳した **「海外古典」** を担ぐ
+- AI ベンダーは、自社製品の前提となる **「アルゴリズムは公平である」** を担ぐ
+
+担ぐ型は強い。一つの理論で全てを切れるため、説明はシンプルになり、営業も再現可能になる。しかし担ぐ型には **3 つの構造的弱点** がある。
+
+1. **担いだ理論が想定しない領域で組織が壊れる**（例：識学は心理的安全性を扱えない／アチーブメントは組織側評価制度を扱えない）
+2. **微差別化が困難になる**（同じ理論を担いだ他社と、結局は実装力勝負になる）
+3. **学術的・実証的反論に脆い**（一つの理論を担ぐ以上、反証論文一つで土台が揺らぐ）
+
+**GrowthFix は担がない。GrowthFix は編集する。**
+
+引力経営とは、HR・組織論・社会心理学・経済学・People Analytics・日本市場研究の **複数領域の主要研究を、引力（Gravity）という統合視点で再編集した経営理論** である。担ぐ型が一つの主軸を選ぶのに対し、編集型は **編集視点（カテゴリーデザイン）** を提示する。
+
+【図表指示 0-A：単一権威担ぎ型 vs 編集者ポジション対比図】
+- 左：単一権威担ぎ型（識学・アチーブメント・LM・外資コンサル）の構造 = 一本の柱に依拠
+- 右：編集者ポジション（GrowthFix）の構造 = 7 本柱 + 253 件のライブラリを統合
+- 中央：3 つの構造的弱点（担いだ理論の死角・微差別化困難・反証脆弱性）
+- v1.0 でデザイナー実装：A4 横・3 ペイン構成
+
+## 0.2 編集の核 ── 7 本柱（累計被引用 14,897+ cites）
+
+引力経営の編集の中核には、識学・トップダウン制御型コンサル・AI ベンダーとの差別化を学術実証で語るための **7 本柱** がある。
+
+| 柱 | 論文 | 被引用 | 編集の役割 |
+|:-:|---|---:|---|
+| 1 | **Jenkins, Mitra, Gupta & Shaw (1998)** 金銭インセンティブ メタ分析 | 543 | 評価制度：「金銭は量に効くが質には効かない」（質 r=.07・量 r=.34） |
+| 2 | **Cerasoli, Nicklin & Ford (2014)** 内発動機 × 外的インセンティブ 40 年メタ | 1,354 | 評価制度：「質的業績は内発動機が予測する」 |
+| 3 | **Edmondson (1999)** 心理的安全性原典（ASQ） | 8,098 | 1on1 / サーベイ：「リスクを取って発言しても安全」が組織学習を媒介 |
+| 4 | **Detert & Burris (2007)** Voice × Leadership Behavior | 1,630 | 1on1：「ドアを開けても Voice は出ない」を 6,000 人超調査で実証 |
+| 5 | **Kellogg, Valentine & Christin (2020)** Algorithmic Management（AOM Annals） | 1,517 | AI ネイティブ：「AM 時代に人的判断の質が競争優位」 |
+| 6 | **Tambe, Cappelli & Yakubovich (2019)** AI HR（CMR） | 1,048 | People Analytics：「PA の本質は因果推論であり可視化ではない」 |
+| 7 | **Takeuchi, Lepak, Wang & Takeuchi (2007)** HPWS × 信頼気候 媒介（日本 76 事業所） | 707 | 日本市場：「HPWS 効果は従業員への信頼気候を完全媒介として発現」 |
+| **累計** | | **14,897** | **議論で覆されにくい桁** |
+
+7 本柱は、Gravity の編集の **強度** を示す。一つの理論を担ぐのではなく、**5 領域の最高峰研究を編集して引力経営を構成している** という宣言である。
+
+## 0.3 編集の射程 ── 253 件のライブラリ
+
+7 本柱だけでは編集は完成しない。Gravity 論文引用ライブラリ v7.0 は、領域別に **253 件** の主要研究を保持している。
+
+| 領域 | 件数 | 編集の用途 |
+|---|:-:|---|
+| 個人引力 / 組織引力 / 翻訳機構 | 36+ | 第 1 章・第 9 章の理論基盤 |
+| 組織社会化 / 組織開発 / 承継 | 68 | 第 2-3 章のサービス実装根拠 |
+| Bandura 効力感（個人 / 組織 / コミュニティ）| 20 | 第 9 章の 3 層階層 |
+| Authentic Leadership / Emotional Contagion | 4 | 第 1 章の発現メカニズム |
+| 面接 / 評価制度 / ルーティン / 採用基準 | 22 | 第 2-3 章の構造変更 3 軸 |
+| 採用ブランド / 1on1 / 中間 / 離脱予防 / オンボーディング | 22 | 第 2-3 章・第 5-6 章 |
+| 残ギャップ補完（R-3 / R-5 / C-5） | 9 | 第 5-6 章 |
+| 日本市場固有研究 | 7 | 第 8 章 |
+| 介入研究 / RCT | 11 | 第 10 章 |
+| AI 採用 / People Analytics / Algorithmic Management | 7 | 第 7 章 |
+| **合計** | **253** | |
+
+10 軸（R-1〜R-5 採用 / C-1〜C-5 躍動）の **全 10 軸で 🟢 8 件以上の主要研究網羅** を達成。これが「世の中で語られている主要研究は網羅した上でサービスを提供している」という編集者ポジションの実体である。
+
+## 0.4 編集視点（カテゴリーデザイン）── 引力経営とは何か
+
+7 本柱と 253 件のライブラリを **何の視点で編集するか**。これが引力経営の編集視点であり、本書の核命題である。
+
+> **引力経営とは、経営者の Authentic Self（Why × 才能 × 偏愛）を Emotional Contagion を通じて組織に翻訳し、人が「集まり・躍動し・留まる」3 軸の引力を構築する経営思想である。**
+
+この一文には、本書で展開する全ての論証が圧縮されている。
+
+- **Authentic Self** ＝ Authentic Leadership（Avolio-Gardner 2005 / Walumbwa 2008）の核概念
+- **Emotional Contagion** ＝ Hatfield-Cacioppo-Rapson 1994 / Barsade 2002 の感情伝染理論
+- **集まる × 躍動 × 留まる** ＝ 採用基盤（R-1〜5）× 躍動組織（C-1〜5）× Job Embeddedness（Mitchell 2001）
+- **個人 SE → 組織 CE → コミュニティ CE** ＝ Bandura 効力感の 3 層階層（Bandura 1977 / 2000 / Sampson 1997）
+
+GrowthFix が **引力経営提唱者** を名乗るのは、この編集視点を最初に提示した者だからである。本書はその編集視点の **学術的・実証的バックボーン** を 253 件の研究で武装した完全版である。
+
+## 0.5 本章の主要参考文献
+
+- Avolio, B. J., & Gardner, W. L. (2005). Authentic leadership development: Getting to the root of positive forms of leadership. *The Leadership Quarterly*, 16(3), 315-338. https://doi.org/10.1016/j.leaqua.2005.03.001 〔3,865 cites〕
+- Barsade, S. G. (2002). The ripple effect: Emotional contagion and its influence on group behavior. *Administrative Science Quarterly*, 47(4), 644-675. https://doi.org/10.2307/3094912 〔2,478 cites〕
+- Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. *Psychological Review*, 84(2), 191-215. https://doi.org/10.1037/0033-295X.84.2.191 〔49,507 cites〕
+- Edmondson, A. (1999). Psychological safety and learning behavior in work teams. *Administrative Science Quarterly*, 44(2), 350-383. https://doi.org/10.2307/2666999 〔8,098 cites〕
+- Walumbwa, F. O., Avolio, B. J., Gardner, W. L., Wernsing, T. S., & Peterson, S. J. (2008). Authentic leadership: Development and validation of a theory-based measure. *Journal of Management*, 34(1), 89-126. https://doi.org/10.1177/0149206307308913 〔2,057 cites〕
+
+---
+
+# 第 1 章　引力経営の核命題（Authentic Self × Emotional Contagion）
+
+## 1.1 引力（Gravity）の定義
+
+経営における「引力」を、本書では次のように定義する。
+
+> **引力（Gravity）：強制力ではなく、人が「集まりたくなる・居続けたくなる・再訪したくなる」場の力。組織においては経営者の Why × 才能 × 偏愛から発する磁場として実体化する。**
+
+引力は、規律（識学的トップダウン制御）でも、報酬（金銭インセンティブ）でも、広告（採用 PR）でもない。**経営者個人に宿る磁力が、組織に翻訳されたときに立ち上がる場の力** である。
+
+## 1.2 個人引力（CODE）── Authentic Self × Emotional Contagion
+
+Phase 11（260510 確定）で確立された個人引力の式は以下である。
+
+```
+個人引力（CODE）
+  = Authentic Self（Why × 才能 × 偏愛）
+    × Emotional Contagion（他者への感情伝染）
+  → 「他者を引きつける力」
+```
+
+3 要素の学術定義：
+
+| 要素 | 学術基盤 | 定義 |
+|---|---|---|
+| **Why** | Calling（Wrzesniewski 1997）＋ Mission（Bill George Authentic Leadership） | 「自分はこのために生まれた + 経営者として果たすべき使命」 |
+| **才能** | Innate Talent + Flow（Csikszentmihalyi）+ Self-Efficacy 成功体験（Bandura 1977） | 「持って生まれた・勝手にやってしまう・モチベ不要で成果が出る領域」 |
+| **偏愛** | Harmonious Passion（Vallerand 2003）+ Intrinsic Motivation（Deci-Ryan SDT） | 「自己と統合された深い愛着・自分の中から湧く動機」 |
+
+**重要な区別：** 個人引力 ≠ Self-Efficacy。SE は「自分はやれる」という信念であり、個人引力は「他者を引きつける力」である。両者は別概念であり、SE は引力の **土台** に位置する。
+
+**発現メカニズム：** Authentic Self は **Authentic Leadership 理論（Avolio-Gardner 2005 / Walumbwa 2008 ALQ）** の核概念。これが **Emotional Contagion（Hatfield-Cacioppo-Rapson 1994 / Barsade 2002）** を通じて他者に伝染し、個人引力として外的に発現する。
+
+## 1.3 組織引力（SCAN）── 集合的 Authentic Org × Collective Emotional Contagion
+
+```
+組織引力（SCAN）
+  = 集合的 Authentic Org（集まる × 躍動）
+    × Collective Emotional Contagion（集合的感情伝染）
+  → 「組織の引きつけ力」
+```
+
+2 軸の学術定義：
+
+| 軸 | 学術基盤 | 内容 |
+|---|---|---|
+| **集まる軸** | ASA Attraction（Schneider 1987）＋ Person-Organization Fit（Cable-Judge）| 採用基盤としての引力（R-1〜R-5） |
+| **躍動軸** | Engagement 2 軸（Saks 2006）＋ Collective Efficacy（Bandura 2000）＋ 心理的安全性（Edmondson 1999） | 躍動組織としての引力（C-1〜C-5） |
+
+**4 型ラベル（既存温存・50 社診断知見の結晶）：** 整合型（◎×◎）／拡散型（◎×△）／渇望型（△×◎）／不毛型（△×△）
+
+**4 型 × Bandura CE パターンマッピング：**
+- 整合型 ＝ High Collective Efficacy Type
+- 拡散型 ＝ Job-High Org-Low Type / Diffuse Engagement Type
+- 渇望型 ＝ Resource-Starved Aspiring Type
+- 不毛型 ＝ Low Collective Efficacy Type
+
+**重要な区別：** 組織引力 ≠ Collective Efficacy。CE は「自分たちはやれる」という共同信念であり、組織引力は「組織の引きつけ力」である。CE は組織引力の **土台** に位置する。
+
+## 1.4 構造的対称性 ── 個人と組織は同型である
+
+| 構造要素 | CODE（個人引力） | SCAN（組織引力） |
+|---|---|---|
+| 本体概念 | Authentic Self | 集合的 Authentic Org |
+| 構成要素 | Why × 才能 × 偏愛（3 要素） | 集まる × 躍動（2 軸） |
+| 学術主軸 | Bandura SE / SDT / Passion | ASA / Engagement / CE / 心理的安全性 |
+| 発現メカニズム | Emotional Contagion | Collective Emotional Contagion |
+| 判定結果 | 診断レポート | 4 型（整合 / 拡散 / 渇望 / 不毛） |
+| 思想層接続 | 個人 SE（Bandura 1977）| 組織 CE（Bandura 2000）/ コミュニティ CE（Sampson 1997） |
+
+個人と組織は **同型の翻訳構造** で結ばれる。経営者個人の Authentic Self が Emotional Contagion で組織に伝染し、組織が集合的 Authentic Org を獲得する。これが引力経営の根幹である。
+
+【図表指示 1-A：CODE/SCAN 構造的対称性図】
+- 上：個人引力（CODE）の構造図（Authentic Self 3 要素 × Emotional Contagion）
+- 下：組織引力（SCAN）の構造図（集合的 Authentic Org 2 軸 × Collective EC）
+- 中央：媒介ロジック矢印「Emotional Contagion がスケールアップする」
+- 右：4 型ラベル（整合 / 拡散 / 渇望 / 不毛）× 思想層接続（個人 SE → 組織 CE → コミュニティ CE）
+- v1.0 でデザイナー実装：A4 縦・対称構造を強調
+
+## 1.5 引力経営の接続装置 5 層モデル（v0.5 で追加）
+
+引力経営は **学術理論** であると同時に **実装可能な人事戦略** である。学術理論を売り上げに変換する仕組みを GrowthFix では **接続装置（Bridge Apparatus）** と呼ぶ。これは内的コンセプト（売りたい組織変革）と外的コンセプト（顧客が買いたいコンプレックス解消）を橋渡しする思想・言語・運用の型である。
+
+```
+[内的コンセプト・売りたいもの]
+   引力ドリブンな組織変革 → 引力経営組織
+       ↑↑↑ 接続装置 ↑↑↑
+[外的コンセプト・買いたいもの]
+   経営者のコンプレックス解消（採用・離脱・優秀人材問題）
+              ↓
+[マーケティングメッセージ]
+   よだれを垂らすほど欲しい表現
+              ↓
+[サービス体験]
+   CODE → Scan → Recruit / Cultivate → Orbit
+              ↓
+[ブランドコンセプト・北極星]
+   「組織に、引力を。」
+```
+
+5 層モデルの構成要素：
+
+| 層 | 役割 | 担当領域 |
+|:-:|---|---|
+| **内的（思想層）** | 経営思想・Why × 才能 × 偏愛 | Authentic Self（CODE 診断・経営思想） |
+| **接続装置** | 内的⇔外的の橋渡し | 言語マップ・ペルソナ・差別化 5 仮説 |
+| **外的（顧客向け語彙）** | LP・WP・Note・セミナーの顧客接点 | 採用エージェント費・最終面接辞退・口説けない |
+| **マーケティング** | 信用層 / 入口層 | WhitePaper（信用）/ LP Hero（入口） |
+| **サービス** | 引力の実装パッケージ | Recruit / Cultivate / Coaching / Orbit |
+
+**学術文脈での位置付け：** 接続装置は、思想層（個人引力 / 組織引力）を **顧客接点で発現させる翻訳機構** である。学術的には Authentic Self × Emotional Contagion 媒介ロジックの「マーケティング・サービス層への伝染」として説明できる。
+
+**「Gravity が売れる仕組み = 接続装置が機能している状態」** ── 識学・他コンサル・採用エージェントが提供できないユニーク資産が接続装置である。30 年の人事経験 ＋ 50 事業診断 ＋ AI ネイティブ経営の三位一体からしか生まれない。
+
+詳細は『接続装置.md』（09_会社OS）を参照。本書では学術理論との接続点として位置付けに留める。
+
+## 1.6 本章の主要参考文献
+
+- Avolio, B. J., & Gardner, W. L. (2005). Authentic leadership development. *The Leadership Quarterly*, 16(3), 315-338. https://doi.org/10.1016/j.leaqua.2005.03.001 〔3,865 cites〕
+- Bandura, A. (2000). Exercise of human agency through collective efficacy. *Current Directions in Psychological Science*, 9(3), 75-78. https://doi.org/10.1111/1467-8721.00064 〔1,721 cites〕
+- Barsade, S. G. (2002). The ripple effect. *Administrative Science Quarterly*, 47(4), 644-675. https://doi.org/10.2307/3094912 〔2,478 cites〕
+- Hatfield, E., Cacioppo, J. T., & Rapson, R. L. (1994). *Emotional contagion*. Cambridge University Press. 〔1,693 cites〕
+- Schneider, B. (1987). The people make the place. *Personnel Psychology*, 40(3), 437-453. https://doi.org/10.1111/j.1744-6570.1987.tb00609.x 〔3,231 cites〕
+- Walumbwa, F. O., et al. (2008). Authentic leadership: Development and validation. *Journal of Management*, 34(1), 89-126. https://doi.org/10.1177/0149206307308913 〔2,057 cites〕
+- Wrzesniewski, A., McCauley, C., Rozin, P., & Schwartz, B. (1997). Jobs, careers, and callings. *Journal of Research in Personality*, 31(1), 21-33. https://doi.org/10.1006/jrpe.1997.2162 〔1,420 cites〕
+
+---
+
+# 第 2 章　集まる軸 ── 採用基盤（R-1〜R-5）
+
+集まる軸は **採用基盤の世界一** を目指す軸であり、Gravity Recruit（Shift R）が中核サービスとなる。本章では採用 5 軸（R-1〜R-5）の理論基盤を 5 節で展開する。
+
+## 2.1 R-1 採用基準 ── 4 種フィット × ASA × 日本市場 P-O Fit
+
+**理論基盤（被引用降順）：**
+
+1. **Kristof-Brown, Zimmerman & Johnson (2005)** P-O Fit メタ分析（被引用 3,698）── 172 研究統合・P-J / P-O / P-G / P-S の 4 種フィット
+2. **Schneider (1987)** The people make the place（被引用 3,231）── ASA フレームワーク原典
+3. **Cable & Judge (1996)** P-O Fit and Job Choice（被引用 1,187）── 求職者の P-O Fit 自己選択
+4. **Schmidt & Hunter (1998)** 採用妥当性 85 年メタ分析（被引用 2,589）── 構造化面接 + 認知テストの予測妥当性
+5. **Takeuchi et al. (2007)** HPWS × 日本組織（被引用 707）── 日本市場の信頼気候媒介
+6. **Aoki (1988)** *Information, Incentives and Bargaining in the Japanese Economy*（被引用 756）── 日本型水平情報共有
+7. **Cable & Parsons (2001)** Socialization Tactics × P-O Fit Change（被引用 720）── 入社後の P-O Fit 変動
+
+**引力経営の主張（v0.5 拡張）：** 採用基準は単一フィット（P-J Fit のみ）ではなく **4 種フィット（P-J / P-O / P-G / P-S）の整合性** で設計する。Phase B 補強で **16 セル整合性チェック表（4 種フィット × 採用 4 軸：採用基準 / 面接プロセス / 採用後評価軸 / 幹部役割分担）** を Recruit 標準ツール v1.1 に内蔵。各セルを ◎/◯/△/× の 4 段階でスコアリングし、Week 3-6 セッションで顧客と共同採点・空白セルを補完する。
+
+さらに **日本市場固有 P-O Fit（情報共有適合度・社会的資本形成可能性／Aoki 1988・Morishima 1995・Takeuchi 2007）** で 6 軸構造に拡張可能とし、Schneider 1987 ASA を「採用基準を変える＝5-10 年かけて組織風土を変える行為」として上位思想に明示する。
+
+**識学差別化：** 識学は「採用基準 ＝ 役割定義との適合（P-J Fit）」を中核とするが、P-S Fit（上司適合）と P-G Fit（チーム適合）を組み込まない。Kristof-Brown 2005 メタ分析（172 研究統合）で 4 種フィットすべてが職務満足・離職意向に独立に効くことが実証されており、識学の役割定義型採用は理論的に不完全と言える。
+
+【図表指示 2-A：R-1 軸 4 種フィット × 採用 4 軸 16 セル整合性チェック表】
+- 横軸：採用基準 / 面接プロセス / 採用後評価軸 / 幹部役割分担
+- 縦軸：P-J / P-O / P-G / P-S Fit
+- 各セル：◎/◯/△/× の 4 段階スコア欄
+- 右側：日本固有 2 軸（情報共有適合度・社会的資本形成可能性）拡張欄
+- v1.0 でデザイナー実装：A4 横・ワーク用記入式
+
+## 2.2 R-2 面接プロセス ── Levashina 15 要素 × Schmidt-Hunter 妥当性
+
+**理論基盤：**
+
+1. **Schmidt & Hunter (1998)** 採用妥当性 85 年メタ分析 ── 構造化面接 r=.51（非構造化 r=.20 の 2 倍超）
+2. **McDaniel, Whetzel, Schmidt & Maurer (1994)** 面接妥当性メタ分析（被引用 1,800+）── 面接形式別の妥当性係数
+3. **Levashina, Hartwell, Morgeson & Campion (2014)** 構造化面接 15 要素レビュー（被引用 354）── 実装指針
+4. **Huffcutt & Arthur (1994)** 面接構造化レベル × 妥当性（被引用 325）── レベル 0〜4 段階
+5. **Macan (2009)** 面接研究レビュー（被引用 350+）── 面接バイアスの整理
+6. **Campion, Palmer & Campion (1997)** 面接構造化レビュー（被引用 1,200+）── Levashina 2014 の前駆
+7. **Salgado (1998)** 構造化面接の Cross-cultural validity（被引用 250+）
+
+**引力経営の主張（構造変更レベル）：** 面接スコアシートは Levashina 2014 の **15 構造化要素**（質問タイプ・アンカリング・パネル構成・メモ取り・評価尺度・順序固定・フォローアップ可否・標準化スコアリング・面接官トレーニング・候補者間比較・統計合成・文書化等）に対応させる。Huffcutt-Arthur 1994 の構造化レベル 3-4（高構造化）を Shift R の最低基準とする。
+
+Phase A（R-2 構造変更）で標準ツール #3「模擬面接ルーブリック v1.1」を Levashina 15 要素準拠に全面刷新済。質問テンプレートは **「行動基準質問（Past Behavior）+ 状況質問（Situational）+ 文脈深掘り（Probing）」** の 3 種を 1:1:1 比率で配分し、面接官 2 名以上のパネル方式 + 独立採点 → 合議の標準化を Recruit Week 5-6 で実装する。
+
+**識学差別化：** 識学は採用基準に重きを置くが、Levashina 2014 レベルの面接設計は提供しない。GrowthFix は「採用基準 × 構造化面接 15 要素」の連動設計を Shift R 80 万 3 ヶ月で実装する唯一のサービス。
+
+## 2.3 R-3 候補者口説き ── Signaling × Employer Branding × RJP
+
+**理論基盤：**
+
+1. **Connelly, Certo, Ireland & Reutzel (2010)** Signaling Theory（被引用 4,189）── 情報非対称下の信号発信
+2. **Backhaus & Tikoo (2004)** Employer Branding（被引用 882）── Functional vs Symbolic Benefits
+3. **Berthon, Ewing & Hah (2005)** EmpAt 5 次元（被引用 706）── Interest / Social / Economic / Development / Application Value
+4. **Lievens & Highhouse (2003)** Instrumental vs Symbolic 属性スケール（被引用 576）
+5. **Turban & Cable (2003)** Firm Reputation × Applicant Pool（被引用 424）── 評判 → 自己選択因果実証
+6. **Phillips (1998)** RJP メタ分析（21 研究統合）── 「正直さが離職を下げる」
+7. **Aguilera, Filatotchev, Gospel & Jackson (2008)** Comparative Corporate Governance × Stakeholder Signaling（被引用 1,500+）── マルチステークホルダー文脈での Signal
+8. **Cable & Turban (2003)** Recruitment image × Applicant attraction（被引用 380）── 採用イメージ形成
+9. **Spence (1973)** Job Market Signaling（被引用 24,000+）── Signaling Theory 経済学側原典
+
+**引力経営の主張：** 求人原稿・スカウト文面は **Backhaus-Tikoo の Symbolic Benefits 偏重設計** で組む。Lievens-Highhouse 2003 の測定スケール内蔵で **「Employer Brand を測定できる」** 体制を作る。RJP（Phillips 1998）で「美化された求人原稿」ではなく「リアル × 引力」の両立を設計。
+
+Phase B 補強（Recruit 補強 4 軸 v1.0）で **「EmpAt 5 次元 × CODE 4 型 = 20 セルマップ」** を Recruit 標準ツール #2 に統合。CODE 4 型（Why 型 / 才能型 / 偏愛型 / ハイブリッド型）× Berthon 5 次元（Interest / Social / Economic / Development / Application Value）の 20 セルで、候補者引力タイプ別の口説きフレーズを最適化する。
+
+**WhitePaper 発信そのものが Signaling である：** Connelly 2010 Signaling Theory に従い、本書および Gravity の論文 253 件引用は **候補者・顧客への品質シグナル** として機能する。「論文を網羅した会社」というシグナルが、引力を上げる Symbolic Benefit となる。
+
+## 2.4 R-4 オンボーディング ── Bauer × Job Embeddedness × LMX
+
+**理論基盤：**
+
+1. **Bauer, Bodner, Erdogan, Truxillo & Tucker (2007)** オンボーディング メタ分析 ── 離職率低減・業績向上の決定版
+2. **Saks (2006)** Engagement 古典（被引用 3,206）── Job Engagement + Org Engagement 2 軸
+3. **Allen (2006)** 社会化戦術 × Job Embeddedness（被引用 349）── Bauer × Mitchell 橋渡し
+4. **Sluss & Thompson (2012)** 社会化 × LMX 媒介（被引用 104）── 上司との関係品質
+5. **Bauer (2024)** Onboarding 最新メタ（35 cites）── 新型オンボーディング
+6. **Cable, Gino & Staats (2013)** Personal-Identity Onboarding（被引用 280）── HBS フィールド実験
+7. **Klein & Polin (2012)** Onboarding strategies review（被引用 215）── 戦術分類学
+8. **Korte & Lin (2013)** Newcomer Information Seeking（被引用 95）── 情報探索行動
+
+**引力経営の主張：** Shift R の **Week 0 体験設計書** は、Job Embeddedness 3 次元（Links / Fit / Sacrifice）の早期形成 ＋ 上司 LMX 早期形成プロセスを内蔵する。**McNatt-Judge 2008 フィールド実験**（離職率約 50% 削減）の実装パッケージとして商談・LP で公言可能（第 10 章で詳述）。
+
+Phase B 補強で Week 0 体験設計書に **「Job Embeddedness 形成度チェック（Links / Fit / Sacrifice）」** と **「上司 LMX 早期形成プロセス（30/60/90 日目チェックポイント）」** を統合。Cable-Gino-Staats 2013 HBS フィールド実験（個人アイデンティティを尊重するオンボーディングが 7 ヶ月後の離職率を有意に低下）を Recruit LP の信用層に追加引用可能。
+
+R-4 は Gravity の論文カバー軸の中で **最厚（v1.1 で 61 件 🟢）**。Shift R 最強の差別化軸。
+
+【図表指示 2-B：R-4 Week 0 体験設計の Job Embeddedness 3 次元月次サーベイ可視化】
+- 縦軸：Links / Fit / Sacrifice の 3 次元（各 0-100 スコア）
+- 横軸：Week 0 / Month 1 / Month 3 / Month 6 / Month 12
+- 階層化：Sacrifice 次元の早期低下を赤帯ハイライト
+- 凡例：30/60/90 日目チェックポイント
+- v1.0 でデザイナー実装：A4 横・トレンドラインチャート
+
+## 2.5 R-5 早期離脱予防 ── Mitchell × Tett-Meyer × Boswell
+
+**理論基盤：**
+
+1. **Mitchell, Holtom, Lee, Sablynski & Erez (2001)** Job Embeddedness（被引用 2,707）── Links × Fit × Sacrifice 3 次元
+2. **Tett & Meyer (1993)** 満足度 → コミットメント → 離職意図 → 実離職メタ分析（被引用 2,452）
+3. **Griffeth, Hom & Gaertner (2000)** 離職前件メタ分析（被引用 2,514）── 55 変数統合
+4. **Mobley (1977)** 離職プロセス 8 段階モデル（被引用 1,374）
+5. **Rubenstein, Eberly, Lee & Mitchell (2017)** 自発的離職メタ分析（被引用 379）── 最新決定版
+6. **Holtom, Mitchell, Lee & Inderrieden (2006)** Job Embeddedness 実務翻訳（被引用 206）
+7. **Boswell, Boudreau & Tichy (2005)** Honeymoon-Hangover Effect（被引用 282）
+8. **Lee, Mitchell, Sablynski, Burton & Holtom (2004)** JE × Turnover フィールドテスト（被引用 1,400+）── 実証ライン
+9. **Crossley, Bennett, Jex & Burnfield (2007)** Job Embeddedness × Voluntary Turnover（被引用 600+）── 後続実証
+
+**引力経営の主張：** 早期離脱予防は **「離職研究 100 年（Mobley 1977 → Mitchell 2001 → Griffeth 2000 → Hom 2017 → Rubenstein 2017）の主要メタ分析・理論統合を網羅した設計」** として WhitePaper・商談資料で公言可能。**入社後 6 ヶ月離脱率 KPI** に Job Embeddedness 3 次元と Honeymoon-Hangover 監視を組み込む。
+
+Phase B 補強で **3 ヶ月予言の書（R-5 × Orbit 橋渡し納品物）** に Boswell 2005 Honeymoon-Hangover 検出タイミング設計を組み込み、Month 3-4 の Sacrifice 次元低下が **最重要早期警告シグナル** として運用される。Rubenstein 2017 自発的離職メタ分析（最新決定版）は「離職研究の 30 年集大成」として商談・LP で頻用可能。
+
+## 2.6 本章の主要参考文献
+
+- Allen, D. G. (2006). Do organizational socialization tactics influence newcomer embeddedness and turnover? *Journal of Management*, 32(2), 237-256. https://doi.org/10.1177/0149206305280103 〔349 cites〕
+- Bauer, T. N., Bodner, T., Erdogan, B., Truxillo, D. M., & Tucker, J. S. (2007). Newcomer adjustment during organizational socialization. *Journal of Applied Psychology*, 92(3), 707-721. https://doi.org/10.1037/0021-9010.92.3.707
+- Cable, D. M., Gino, F., & Staats, B. R. (2013). Breaking them in or eliciting their best? *Administrative Science Quarterly*, 58(1), 1-36. https://doi.org/10.1177/0001839213477098 〔280 cites〕
+- Kristof-Brown, A. L., Zimmerman, R. D., & Johnson, E. C. (2005). Consequences of individuals' fit at work. *Personnel Psychology*, 58(2), 281-342. https://doi.org/10.1111/j.1744-6570.2005.00672.x 〔3,698 cites〕
+- Levashina, J., Hartwell, C. J., Morgeson, F. P., & Campion, M. A. (2014). The structured employment interview. *Personnel Psychology*, 67(1), 241-293. https://doi.org/10.1111/peps.12052 〔354 cites〕
+- Mitchell, T. R., Holtom, B. C., Lee, T. W., Sablynski, C. J., & Erez, M. (2001). Why people stay. *Academy of Management Journal*, 44(6), 1102-1121. https://doi.org/10.5465/3069391 〔2,707 cites〕
+- Rubenstein, A. L., Eberly, M. B., Lee, T. W., & Mitchell, T. R. (2017). Surveying the forest. *Personnel Psychology*, 70(1), 1-63. https://doi.org/10.1111/peps.12226 〔379 cites〕
+
+---
+
+# 第 3 章　躍動する軸 ── 評価 / 1on1 / サーベイ / リズム / 中間（C-1〜C-5）
+
+躍動する軸は **AI × 人事データ × エンゲージメント設計の世界一** を目指す軸であり、Gravity Cultivate（Shift C）が中核サービスとなる。本章では躍動 5 軸（C-1〜C-5）の理論基盤を展開する。
+
+## 3.1 C-1 評価制度の再設計 ── Goal Setting × 内発動機 × フィードバック介入
+
+**理論基盤：**
+
+1. **Locke & Latham (2002)** Goal Setting Theory 35 年集大成（被引用 5,027）── 5 因子（specificity / difficulty / commitment / feedback / task complexity）
+2. **Cerasoli, Nicklin & Ford (2014)** 内発動機 × 外的インセンティブ 40 年メタ（被引用 1,354）
+3. **Jenkins, Mitra, Gupta & Shaw (1998)** 金銭インセンティブ メタ分析（被引用 543）── 質 r=.07 / 量 r=.34
+4. **Kluger & DeNisi (1996)** フィードバック介入 131 年メタ（被引用 3,868）── 607 研究・FI の 38% で業績低下
+5. **Smither, London & Reilly (2005)** 360 度フィードバック メタ分析（被引用 600+）
+6. **Locke & Latham (2006)** Goal Setting 新展開 ── 学習目標 vs 業績目標
+7. **Gruman & Saks (2011)** PM × Engagement 連動設計（被引用 454）
+8. **Deci, Koestner & Ryan (1999)** 外的報酬の内発動機侵食メタ分析（被引用 7,400+）── SDT 派の決定的メタ
+9. **Latham & Locke (1979)** Goal Setting フィールド実験（被引用 200）── 現場実証
+
+**引力経営の主張（構造変更レベル）：** Phase A で標準ツール #6「評価制度 v1 設計テンプレ v1.1」を Locke-Latham 5 因子 + Cerasoli 質 × 量分解 + Jenkins 金銭インセンティブメタ + Kluger-DeNisi フィードバック 3 原則ベースに刷新済。「マネージャー評価指標」を Cerasoli 2014 の質 × 量分解で **「部下の量的達成 ＋ 部下の質的達成」** に分け、識学型の量偏重評価と構造的差別化する。VAL リュー × ポリシー 50 個設計は Locke-Latham 2006 の学習目標 vs 業績目標の二分類で **両利き構造** にする。
+
+**識学差別化（最重要・3 本柱）：** Jenkins 1998 ＋ Cerasoli 2014 ＋ Kluger-DeNisi 1996 の 3 本柱（累計被引用 5,765）で **「識学型の量偏重評価が採用できる人材の質を犠牲にする」** を学術的に主張可能。
+
+【図表指示 3-A：C-1 評価制度の質×量分解マトリクス】
+- 横軸：金銭インセンティブの強度（弱 ←→ 強）
+- 縦軸：量的業績 / 質的業績
+- 4 象限：左上=理想（質重視・内発動機）、右下=識学型（量重視・金銭主導）等
+- 各象限に Jenkins r=.07/r=.34 の数値プロット
+- v1.0 でデザイナー実装：A4 縦・4 象限マトリクス
+
+## 3.2 C-2 1on1 機能化 ── 心理的安全性 × LMX × コーチング介入
+
+**理論基盤：**
+
+1. **Edmondson (1999)** 心理的安全性原典 ASQ（被引用 8,098）
+2. **Graen & Uhl-Bien (1995)** LMX レビュー（被引用 5,050）
+3. **Detert & Burris (2007)** Voice × Leadership（被引用 1,630）── 6,000 人超調査
+4. **Frazier et al. (2017)** 心理的安全性 メタ分析（被引用 849）── 136 研究・105,148 参加者・包容的行動 ρ=.53
+5. **Theeboom, Beersma & van Vianen (2014)** コーチング メタ分析（被引用 547）── 18 RCT/準実験・1,629 参加者・d=0.51
+6. **Gerstner & Day (1997)** LMX メタ分析（被引用 1,932）
+7. **Morrison (2014)** Employee Voice レビュー（被引用 1,189）
+8. **van den Heuvel, Demerouti & Peeters (2015)** Job Crafting RCT（被引用 306）── 5 週間介入・自己効力感向上
+9. **Edmondson & Lei (2014)** 心理的安全性 27 年レビュー（被引用 1,600+）── ASQ 1999 の後継
+
+**引力経営の主張：** 1on1 は「マネージャーが部下の話を聞く場」ではなく、**「心理的安全性 × LMX × コーチング介入」の 3 重設計** で機能化する。Theeboom 2014 のメタ分析で **d=0.51（中程度効果）** が実証済み。Frazier 2017 でマネージャーの包容的行動が心理的安全性の最大先行因子（ρ=.53）であることも確認済み。
+
+Phase B 補強（Cultivate 補強 2 軸 v1.0）で 1on1 プロトコル前段に **Edmondson 4 因子スコアシート**（貢献発言 / 助けを求める / 間違い指摘 / リスク発言・各 1-5 段階）を月次測定として組み込み、合計 12 点以上で心理的安全性充足・8 点以下で 1on1 プロトコル修正判断とする。「謝罪 → 指摘 → 感謝の 1on1 構造」（業界一般用語化・JAFCO 反映）と LMX In-group 関係構築フレームを統合。
+
+**識学差別化：** 識学の「上司の管理権限明確化 ＋ ルール厳格運用」のトップダウン制御は、Edmondson 1999 の心理的安全性と **原理上両立しない**。Detert-Burris 2007 で「ドアを開けても Voice は出ない」が実証されており、識学の構造では発議が出る場を作れない。
+
+## 3.3 C-3 サーベイ + 離脱予兆 ── JD-R × 介入条件 × UWES-J × VAL リュー × ポリシー
+
+**理論基盤：**
+
+1. **Bakker & Demerouti (2007)** JD-R モデル（被引用 9,050）
+2. **Saks (2006)** Engagement 古典（被引用 3,206）── Job/Org 2 軸
+3. **Shimazu et al. (2008)** UWES-J（被引用 395）── 日本語版エンゲージメント尺度・N=2,334・α=.92
+4. **Nielsen, Randall & Holten (2010)** 組織レベル OHP 介入 レビュー（被引用 294）── 49 件 RCT/準実験
+5. **Takeuchi, Chen & Lepak (2009)** HPWS × Attitude クロスレベル（被引用 438）
+6. **Tambe, Cappelli & Yakubovich (2019)** AI × HR（被引用 1,048・CMR）
+7. **Marler & Boudreau (2017)** HR Analytics（被引用 585）
+8. **Schaufeli & Bakker (2004)** UWES 原典（被引用 14,000+）── 国際版
+9. **Bakker, Schaufeli, Leiter & Taris (2008)** Work Engagement 国際レビュー（被引用 3,500+）
+
+**引力経営の主張：** サーベイは月次で **JD-R 2 軸（Job Resources / Job Demands）× エンゲージメント 2 軸（Job Engagement / Org Engagement）** を測る。日本語版尺度（Shimazu 2008 UWES-J・N=2,334 で検証）に立脚することで「感覚的サーベイ」ではなく「学術的に検証された尺度」として公言可能。Nielsen 2010 で組織レベル介入の有効条件 3 つ（経営者コミット・従業員参加・継続的モニタリング）が確立しており、Shift C 月次サーベイ + 改善サイクル設計がこの条件を満たす。
+
+**JAFCO 反映：VAL リュー × ポリシー 5 段運用**（260509 確定・Cultivate LP 公開反映済）── VAL リュー 10 個 × ポリシー 50 個 × 週次ウィンセッション 30 分 × 月次経験学習 × 「謝罪 → 指摘 → 感謝の 1on1 構造」を Shift C C-3 の中核実装パッケージとする。識学・組織開発コンサルとの差別化武器。
+
+**People Analytics の本質：** Tambe-Cappelli 2019（柱 6）に従い、Gravity の Scan / Shift C はサーベイを **「可視化」ではなく「因果推論」** として扱う。組織の引力タイプ（Scan 4 型）は因果モデルそのものである（第 7 章で詳述）。
+
+## 3.4 C-4 組織リズム設計 ── ルーティン二面性 × 高速意思決定 × 会議科学
+
+**理論基盤：**
+
+1. **Eisenhardt (1989)** 高速戦略意思決定（被引用 3,209）── 6 実践
+2. **Feldman & Pentland (2003)** 組織ルーチンの二面性 ASQ（被引用 2,718）── performative × ostensive
+3. **Feldman (2000)** 組織ルーチン継続変化（被引用 1,273）
+4. **Brown & Eisenhardt (1997)** Time Pacing vs Event Pacing（被引用 3,700+）
+5. **Allen, Lehmann-Willenbrock & Rogelberg eds. (2015)** Cambridge Handbook of Meeting Science
+6. **Morishima (1991)** 日本企業 × 情報共有 × 業績（被引用 61）
+7. **Pentland, Feldman, Becker & Liu (2012)** Routines as patterns of action（被引用 350+）
+
+**引力経営の主張（構造変更レベル）：** Phase A で標準ツール ③「ドラムビート 4 周期表 v1.1」を Feldman-Pentland 2003 組織ルーチン二面性 + Eisenhardt 1989 高速意思決定 6 実践 + Brown-Eisenhardt 1997 Time/Event Pacing ベースに刷新済。Weekly / Monthly / Quarterly / Annual の各周期に「ルーチンの performative（何を実行するか）× ostensive（なぜそのルーチンが組織変革のエンジンになるか）」を明示。
+
+**識学差別化：** 識学は「役割定義 ＋ 評価サイクル」が中心で、Feldman-Pentland 2003 の組織ルーチン理論を持たない。Gravity は **「ルーチン ＝ 変化の源泉」** という概念を主張する唯一のサービス。
+
+## 3.5 C-5 中間経営職育成 ── Wooldridge × Sensemaking × PsyCap × 4 マネジメント
+
+**理論基盤：**
+
+1. **Wooldridge, Schmid & Floyd (2008)** 中間経営職 30 年レビュー JOM（被引用 469）
+2. **Wooldridge & Floyd (1990)** 中間経営職 × 業績 SMJ（被引用 592）── ROI 根拠
+3. **Huy (2002)** 感情バランシング ASQ（被引用 770）
+4. **Rouleau & Balogun (2011)** Sensemaking × 言語的能力（被引用 445）
+5. **Luthans et al. (2006)** PsyCap micro-intervention（被引用 1,000）── 3 時間集中介入
+6. **Luthans, Avey & Patera (2008)** PsyCap Web RCT（被引用 650）── η²=.15
+7. **Avey et al. (2011)** PsyCap メタ分析（被引用 1,289）── 51 研究・12,567 参加者
+8. **Floyd & Wooldridge (1992)** 中間経営職 4 役割（被引用 470）
+9. **Kellogg et al. (2020)** Algorithmic Management（被引用 1,517）── AM が代替できない領域
+10. **Hambrick & Mason (1984)** Upper Echelon Theory（被引用 19,000+）── 経営幹部の影響力古典
+11. **Balogun & Johnson (2004)** 中間管理職 sensemaking フィールド研究（被引用 1,800+）
+
+**引力経営の主張（最重要・JAFCO 反映の核）：** 中間経営職こそ **引力経営の核** である（第 6 章で詳述）。GrowthFix の Shift C は、中間経営職を **「数字管理 + 業務管理 + ピープルマネジメント + 引力相性」の 4 マネジメント** で再定義する（JAFCO 30 本反映・260509 確定・Shift R/C 両軸の Week 11-12 共通骨格）。育成プログラムは PsyCap 介入（Luthans 2006/2008、Avey 2011 メタ）を実装パッケージとして組み込む。
+
+Phase B 補強（Cultivate 補強 2 軸 v1.0）で「4 マネジメント評価シート」に Huy 2002 感情バランシング・Floyd-Wooldridge 4 役割（Championing / Synthesizing / Facilitating / Implementing）・Luthans PsyCap 介入の 3 補強を統合。「マネージャー再定義 SSOT（260511）」の語彙を完全保持したまま 30 年の学術蓄積を接続。
+
+**識学差別化：** 識学は中間経営職を「実行者」として扱うが、Wooldridge-Schmid-Floyd 2008 / Rouleau-Balogun 2011 / Huy 2002 は **「戦略形成者・センスメイカー・感情バランサー」** として中間職を再定位する。識学では原理上達成できない領域。
+
+## 3.6 本章の主要参考文献
+
+- Bakker, A. B., & Demerouti, E. (2007). The Job Demands-Resources model. *Journal of Managerial Psychology*, 22(3), 309-328. https://doi.org/10.1108/02683940710733115 〔9,050 cites〕
+- Cerasoli, C. P., Nicklin, J. M., & Ford, M. T. (2014). Intrinsic motivation and extrinsic incentives jointly predict performance. *Psychological Bulletin*, 140(4), 980-1008. https://doi.org/10.1037/a0035661 〔1,354 cites〕
+- Edmondson, A. (1999). Psychological safety and learning behavior in work teams. *Administrative Science Quarterly*, 44(2), 350-383. https://doi.org/10.2307/2666999 〔8,098 cites〕
+- Feldman, M. S., & Pentland, B. T. (2003). Reconceptualizing organizational routines as a source of flexibility and change. *Administrative Science Quarterly*, 48(1), 94-118. https://doi.org/10.2307/3556620 〔2,718 cites〕
+- Kluger, A. N., & DeNisi, A. (1996). The effects of feedback interventions on performance. *Psychological Bulletin*, 119(2), 254-284. https://doi.org/10.1037/0033-2909.119.2.254 〔3,868 cites〕
+- Locke, E. A., & Latham, G. P. (2002). Building a practically useful theory of goal setting and task motivation. *American Psychologist*, 57(9), 705-717. https://doi.org/10.1037/0003-066X.57.9.705 〔5,027 cites〕
+- Theeboom, T., Beersma, B., & van Vianen, A. E. M. (2014). Does coaching work? *The Journal of Positive Psychology*, 9(1), 1-18. https://doi.org/10.1080/17439760.2013.837499 〔547 cites〕
+
+---
+
+# 第 4 章　留まる軸 ── Job Embeddedness 月次設計
+
+引力の第 3 軸 ── 留まる軸 ── は **Job Embeddedness 理論** を月次設計に落とし込んだ Gravity Orbit が中核サービスとなる。本章では v0.1 から論文配置を 5 件 → 12 件に拡張し、Job Embeddedness の体系的バックボーンを示す。
+
+## 4.1 Job Embeddedness 理論 ── なぜ辞めないかの 3 次元
+
+**Mitchell, Holtom, Lee, Sablynski & Erez (2001)**（被引用 2,707）は、離職研究の主流であった「なぜ辞めるか」（Mobley 1977）に対し、**「なぜ辞めないか」** を 3 次元で説明した。
+
+| 次元 | 内容 | 月次測定指標 |
+|---|---|---|
+| **Links** | 同僚・上司・組織との結びつきの数と質 | 1on1 頻度・社内ネットワーク密度 |
+| **Fit** | 組織の価値観・職務内容・キャリアパスとの適合 | P-O Fit 知覚・職務満足 |
+| **Sacrifice** | 辞めることで失うもの（金銭・関係・キャリア） | コミットメント・心理的契約 |
+
+## 4.2 Job Embeddedness 実証ライン ── 8 件の検証研究
+
+**理論基盤（被引用降順）：**
+
+1. **Mitchell et al. (2001)** Job Embeddedness 原典 AMJ（被引用 2,707）
+2. **Lee, Mitchell, Sablynski, Burton & Holtom (2004)** JE × Turnover フィールド検証 AMJ（被引用 1,400+）
+3. **Crossley, Bennett, Jex & Burnfield (2007)** JE × Voluntary Turnover JAP（被引用 600+）
+4. **Holtom et al. (2006)** Job Embeddedness 実務翻訳 OD（被引用 206）
+5. **Allen (2006)** 社会化戦術 × Job Embeddedness JOM（被引用 349）
+6. **Felps et al. (2009)** Turnover Contagion AMJ（被引用 900+）── 同僚の離職が伝染する
+7. **Holtom & O'Neill (2004)** Job Embeddedness 看護師実証（被引用 350+）
+8. **Reitz (2014)** Job Embeddedness メタ分析（被引用 280+）── 65 研究統合
+9. **Sluss & Thompson (2012)** Socialization × LMX（被引用 104）── LMX 経由の JE 形成
+10. **Tett & Meyer (1993)** 満足度 → 離職意図 PP（被引用 2,452）── 比較古典
+11. **Allen, Bryant & Vardaman (2010)** Retention Practices AMP（被引用 700+）── 実践応用
+12. **Hom, Lee, Shaw & Hausknecht (2017)** Turnover 100 年史 JAP（被引用 800+）── 包括レビュー
+
+## 4.3 留まる軸の月次設計 ── Holtom × Allen 実装ライン
+
+**引力経営の主張：** 留まる軸は **「離脱を防ぐ」のではなく「3 次元のいずれかが落ちたら早期介入する」設計** で組む。Orbit は月次サーベイで Links / Fit / Sacrifice の各次元を測定し、Sacrifice 次元の低下を **最重要早期警告シグナル** として扱う（Sacrifice が落ちた人材は、満足度が高くても離職に向かう）。
+
+Reitz 2014 メタ分析（65 研究統合）で Job Embeddedness が職務満足・組織コミットメントを超えて自発的離職を有意に予測することが確認されている。Felps 2009「Turnover Contagion」は「同僚の離職は伝染する」現象を AMJ で実証しており、Orbit の **「離職予兆 5 シグナル KPI」** に Turnover Contagion 検出メトリクス（同部署で連続 2 名の Sacrifice 低下）を組み込む。
+
+**Gravity 3 軸との位置付け：** 集まる軸（採用基盤）と躍動軸（評価・1on1・サーベイ）の成果を **留める** ことで、3 軸が循環する。Cultivate（耕す）→ Orbit（耕した土壌で引力を月次強化）の **Gravity 型成長ストーリー** が完成する。
+
+【図表指示 4-A：Job Embeddedness 3 次元月次サーベイ可視化】
+- 縦軸：Links / Fit / Sacrifice の 3 次元スコア（0-100）
+- 横軸：Month 1 〜 Month 12
+- ハイライト：Sacrifice 次元低下警告ライン（赤帯 30 以下）
+- 凡例：Turnover Contagion 検出（同部署連続 2 名）
+- v1.0 でデザイナー実装：A4 横・月次トレンドチャート
+
+## 4.4 本章の主要参考文献
+
+- Allen, D. G. (2006). Do organizational socialization tactics influence newcomer embeddedness and turnover? *Journal of Management*, 32(2), 237-256. https://doi.org/10.1177/0149206305280103 〔349 cites〕
+- Allen, D. G., Bryant, P. C., & Vardaman, J. M. (2010). Retaining talent: Replacing misconceptions with evidence-based strategies. *Academy of Management Perspectives*, 24(2), 48-64. https://doi.org/10.5465/AMP.2010.51827775 〔700+ cites〕
+- Crossley, C. D., Bennett, R. J., Jex, S. M., & Burnfield, J. L. (2007). Development of a global measure of Job Embeddedness. *Journal of Applied Psychology*, 92(4), 1031-1042. https://doi.org/10.1037/0021-9010.92.4.1031 〔600+ cites〕
+- Felps, W., Mitchell, T. R., Hekman, D. R., Lee, T. W., Holtom, B. C., & Harman, W. S. (2009). Turnover Contagion: How coworkers' job embeddedness and job search behaviors influence quitting. *Academy of Management Journal*, 52(3), 545-561. https://doi.org/10.5465/amj.2009.41331075 〔900+ cites〕
+- Hom, P. W., Lee, T. W., Shaw, J. D., & Hausknecht, J. P. (2017). One hundred years of employee turnover theory and research. *Journal of Applied Psychology*, 102(3), 530-545. https://doi.org/10.1037/apl0000103 〔800+ cites〕
+- Mitchell, T. R., Holtom, B. C., Lee, T. W., Sablynski, C. J., & Erez, M. (2001). Why people stay. *Academy of Management Journal*, 44(6), 1102-1121. https://doi.org/10.5465/3069391 〔2,707 cites〕
+- Reitz, O. E. (2014). Job Embeddedness: A concept analysis. *Nursing Forum*, 49(3), 159-166. https://doi.org/10.1111/nuf.12053 〔280+ cites〕
+
+---
+
+# 第 5 章　採用ブランドの新潮流（Signaling Theory）
+
+採用ブランドは、求人媒体の検索順位を上げる「採用 SEO」ではない。**情報非対称下で候補者に質の高いシグナルを発信する戦略** である。本章では v0.1 から論文配置を 6 件 → 10 件に拡張し、Signaling × Employer Brand の体系的論拠を示す。
+
+## 5.1 Signaling Theory ── 情報非対称の理論基盤
+
+**Connelly, Certo, Ireland & Reutzel (2010)**（被引用 4,189）は経営戦略論における Signaling Theory の決定的レビュー論文である。**Spence (1973)** Job Market Signaling（被引用 24,000+）が経済学側の原典で、ノーベル経済学賞を受賞した「情報非対称の解消」理論を労働市場に適用した。
+
+**核命題：** 企業と候補者の間には情報非対称が存在する。候補者は内部情報にアクセスできないため、企業が発信する **シグナル**（求人原稿・WhitePaper・代表者の言動・口コミ等）から推論する。**質の高い企業ほど、質の低い企業には模倣できないシグナルを発信できる。**
+
+## 5.2 Employer Branding ── Functional × Symbolic
+
+**Backhaus & Tikoo (2004)**（被引用 882）は Employer Brand を 2 軸で概念化した。
+
+| 軸 | 内容 | 例 |
+|---|---|---|
+| **Functional Benefits** | 客観的・機能的特徴 | 給与・福利厚生・勤務地・職種 |
+| **Symbolic Benefits** | 主観的・象徴的特徴 | 価値観・社風・ミッション・社会的意義 |
+
+**引力経営の主張：** Functional Benefits は他社が真似できるが、**Symbolic Benefits は経営者の引力（Authentic Self）に依存するため真似できない**。Gravity は意図的に Symbolic 偏重設計を採用する。
+
+## 5.3 EmpAt 5 次元 ── 測定スケールの内蔵
+
+**Berthon, Ewing & Hah (2005)**（被引用 706）は Employer Attractiveness を 5 次元で測定可能化した。
+
+| 次元 | 内容 |
+|---|---|
+| **Interest Value** | 仕事の興味・刺激 |
+| **Social Value** | 人間関係・職場の雰囲気 |
+| **Economic Value** | 給与・昇進・雇用安定 |
+| **Development Value** | スキル開発・キャリア成長 |
+| **Application Value** | 学びの応用・他者貢献 |
+
+**引力経営の主張：** Scan 診断 4 型と Berthon 5 次元の **交差プロファイル可視化** が可能になる。例：
+- 整合型 ＝ Social + Development が高い
+- 渇望型 ＝ Economic 突出 + Application が低い
+- 拡散型 ＝ Interest 高だが Social 弱
+- 不毛型 ＝ 5 次元全て低い
+
+Lievens-Highhouse (2003)（被引用 576）の Instrumental vs Symbolic スケールも併用することで、**「Employer Brand を測定できる」** 体制を Shift R Week 1-2 に内蔵する。
+
+## 5.4 評判 → 自己選択の因果連鎖
+
+**Turban & Cable (2003)**（被引用 424）は、企業評判が候補者の応募行動と応募者プールの質に **因果的に** 影響することを実証した。**Cable & Turban (2003)**（被引用 380）は採用イメージの形成プロセスをモデル化した。
+
+**引力経営の主張：** 「引力が強い会社は良い人材が集まる」という命題は、Spence 1973（経済理論）→ Connelly 2010 Signaling（経営戦略レビュー）→ Berthon EmpAt（測定）→ Turban-Cable（因果実証）の **4 段ロジック** で学術的に裏付けられる。
+
+## 5.5 RJP（Realistic Job Preview）── 期待値ギャップ事前握り
+
+**Phillips (1998)** RJP メタ分析（21 研究統合）は、現実的職務情報提供が **離職率を有意に低下** させることを実証した。
+
+**引力経営の主張：** Recruit の「期待値ギャップ事前握り」（260501 命名・Shift R Week 11-12 標準）は Phillips 1998 で学術裏付けされる。求人原稿の美化ではなく **「リアル × 引力」の両立** が留まる軸への橋渡しとなる。
+
+## 5.6 採用ブランドの体系的論拠 ── 10 件の研究ライン
+
+**v0.1 → v0.5 で追加（4 件）：**
+
+8. **Spence (1973)** Job Market Signaling QJE（被引用 24,000+）── 経済学原典・ノーベル経済学賞
+9. **Cable & Turban (2003)** Recruitment Image Formation（被引用 380）
+10. **Aguilera, Filatotchev, Gospel & Jackson (2008)** Comparative Corporate Governance × Stakeholder Signaling（被引用 1,500+）
+11. **Highhouse, Lievens & Sinar (2003)** Attraction Symbolic Inferences（被引用 450+）── EmpAt の理論的補完
+
+**差別化：** 採用 PR / コーポレートブランディング会社（Wantedly 等）は「ストーリー作成」止まり。GrowthFix は **測定可能 × 因果実証** 型の Employer Branding を提供する唯一のサービス。
+
+## 5.7 本章の主要参考文献
+
+- Backhaus, K., & Tikoo, S. (2004). Conceptualizing and researching employer branding. *Career Development International*, 9(5), 501-517. https://doi.org/10.1108/13620430410550754 〔882 cites〕
+- Berthon, P., Ewing, M., & Hah, L. L. (2005). Captivating company: Dimensions of attractiveness in employer branding. *International Journal of Advertising*, 24(2), 151-172. https://doi.org/10.1080/02650487.2005.11072912 〔706 cites〕
+- Connelly, B. L., Certo, S. T., Ireland, R. D., & Reutzel, C. R. (2010). Signaling theory: A review and assessment. *Journal of Management*, 37(1), 39-67. https://doi.org/10.1177/0149206310388419 〔4,189 cites〕
+- Lievens, F., & Highhouse, S. (2003). The relation of instrumental and symbolic attributes to a company's attractiveness as an employer. *Personnel Psychology*, 56(1), 75-102. https://doi.org/10.1111/j.1744-6570.2003.tb00144.x 〔576 cites〕
+- Phillips, J. M. (1998). Effects of realistic job previews on multiple organizational outcomes. *Academy of Management Journal*, 41(6), 673-690. https://doi.org/10.5465/256964
+- Spence, M. (1973). Job market signaling. *The Quarterly Journal of Economics*, 87(3), 355-374. https://doi.org/10.2307/1882010 〔24,000+ cites〕
+- Turban, D. B., & Cable, D. M. (2003). Firm reputation and applicant pool characteristics. *Journal of Organizational Behavior*, 24(6), 733-751. https://doi.org/10.1002/job.215 〔424 cites〕
+
+---
+
+# 第 6 章　中間経営職 ＝ 引力経営の核
+
+引力経営の最重要差別化軸 ── それは **中間経営職（Middle Manager）を組織の核として再定位する** ことである。本章では Phase 10（JAFCO 30 本反映・260509 確定）で確立された中間経営職 = Shift C 中核命題を学術論拠で展開する。v0.5 では JAFCO 反映の厚みを増し、Shift R/C 境界線整理（260511）を反映する。
+
+## 6.1 中間経営職の戦略的価値 ── Wooldridge × Floyd 30 年研究
+
+**Wooldridge, Schmid & Floyd (2008)**（被引用 469・JOM）は中間経営職研究の 30 年レビューであり、中間職が **「戦略形成（Strategy Formation）への上向き影響」** と **「戦略実行（Strategy Implementation）の促進」** の両面で組織業績に独立に貢献することを統合的に示した。
+
+**Wooldridge & Floyd (1990)**（被引用 592・SMJ）は中間職の戦略プロセス関与度と組織業績の正の関連を実証。**中間経営職への投資 ROI の根拠** として商談で引用可能。
+
+**Floyd & Wooldridge (1992)**（被引用 470）は中間経営職の 4 役割（Championing / Synthesizing / Facilitating / Implementing）を提示。
+
+**Hambrick & Mason (1984)** Upper Echelon Theory（被引用 19,000+）は経営幹部の認知・価値観が組織戦略を規定するメガクラシック理論であり、中間経営職を Upper Echelon の翻訳機構として位置付ける根拠となる。
+
+## 6.2 Sensemaking ── 中間職は組織の翻訳機構
+
+**Rouleau & Balogun (2011)**（被引用 445・JMS）は、中間経営職を **「組織の Sensemaking 担当者」** として再定位した。経営者の戦略言語を、現場の言語に翻訳する **言語的能力（discursive competence）** が中間職の核心スキルである。
+
+**Balogun & Johnson (2004)** Organizational restructuring × Middle Manager sensemaking（被引用 1,800+・AMJ）は組織再構築過程での中間管理職の sensemaking 機能を実証した古典である。
+
+**引力経営の主張：** 経営者の Authentic Self（Why × 才能 × 偏愛）を現場に翻訳するのは中間経営職である。Emotional Contagion の媒介者として、中間職が機能しない組織では引力が組織全体に伝染しない。**中間経営職 ＝ 引力翻訳機構** が引力経営の核命題。
+
+## 6.3 感情バランシング ── 中間職の隠れた仕事
+
+**Huy (2002)**（被引用 770・ASQ）は、組織変革時の中間経営職が **「感情のバランサー（emotional balancer）」** として機能することを実証した。経営者の変革意図と現場の感情的反発の間で、中間職が感情の翻訳・調整を担う。
+
+**引力経営の主張：** 「躍動する組織」は、感情エネルギーが循環する組織である。中間職の感情バランシング能力 ＝ Collective Emotional Contagion の質を決める要因。
+
+## 6.4 PsyCap ── 中間職育成の介入研究基盤
+
+中間経営職の育成は **PsyCap（Psychological Capital）介入** で実証されている。
+
+- **Luthans et al. (2006)** PsyCap micro-intervention（被引用 1,000）── 3 時間集中介入で Self-Efficacy / Hope / Optimism / Resilience の統計的向上
+- **Luthans, Avey & Patera (2008)** PsyCap Web RCT（被引用 650）── ランダム割り付け・η² = .15
+- **Avey et al. (2011)** PsyCap メタ分析（被引用 1,289）── 51 研究・12,567 参加者・全アウトカム正効果
+
+**引力経営の主張：** Shift C のマネージャー育成プログラムは PsyCap 介入を実装パッケージとして組み込む。「マネージャー育成 ＝ PsyCap 向上を核とした内発動機プログラム」を RCT 含む 51 研究の支持で公言可能。
+
+## 6.5 JAFCO 反映：4 マネジメント独自再構成（v0.5 新節）
+
+GrowthFix は JAFCO 公式 30 本分析（260509 確定）の反映として、中間経営職を **「4 マネジメント」** で再定義する。これは識学（中間職 = 実行者）・外資コンサル（中間職 = リストラ対象）に対する Gravity 固有の編集視点であり、Shift R/C 両軸の Week 11-12 共通骨格として実装される。
+
+### 4 マネジメント独自再構成
+
+| マネジメント軸 | 内容 | 学術裏付け |
+|---|---|---|
+| **数字管理** | 業績 KPI 設計・予実差分の月次追跡 | Locke-Latham 2002 Goal Setting + Cerasoli 2014 |
+| **業務管理** | 業務プロセス設計・タスクアロケーション | Floyd-Wooldridge 1992 Implementing 役割 |
+| **ピープルマネジメント** | 1on1 × LMX × 心理的安全性 × フィードバック | Edmondson 1999 + Graen-Uhl-Bien 1995 + Detert-Burris 2007 |
+| **引力相性（Gravity Fit）** | 経営者引力 × 中間職引力 × 部下引力の整合性監視 | Authentic Leadership × P-S Fit（独自編集） |
+
+**「引力相性」軸が Gravity 独自軸：** 識学・コンサル・人事制度パッケージはすべて「マネージャー能力 = 個人スキル」として測定するが、Gravity は **「中間職と経営者・部下との引力相性」** を独立軸として測定する。これは Authentic Leadership 理論（Avolio-Gardner 2005）× P-S Fit（Kristof-Brown 2005）× Emotional Contagion（Barsade 2002）の編集視点でしか到達できない。
+
+### Floyd-Wooldridge 4 役割 × 4 マネジメント統合マトリクス
+
+| Floyd-Wooldridge 4 役割 | 数字 | 業務 | ピープル | 引力相性 |
+|---|:-:|:-:|:-:|:-:|
+| **Championing**（戦略推進）| ◯ | ◎ | ◯ | ◎ |
+| **Synthesizing**（情報統合）| ◎ | ◯ | ◎ | ◯ |
+| **Facilitating**（実行支援）| ◯ | ◎ | ◎ | ◎ |
+| **Implementing**（実行）| ◎ | ◎ | ◯ | △ |
+
+各セルで中間経営職が担う具体的なアクションを明確化し、Shift C Week 7-12 で 4 マネジメント評価シートに連動させる。
+
+### 離職予兆 5 シグナル KPI（v0.5 新規実装）
+
+中間経営職の引力相性監視を運用化するため、**離職予兆 5 シグナル KPI** を Cultivate Orbit 月次レポートに内蔵する：
+
+1. **Sacrifice 次元の急低下**（Mitchell 2001 Job Embeddedness）
+2. **1on1 頻度の減少**（Graen-Uhl-Bien 1995 LMX）
+3. **Voice 発議の途絶**（Detert-Burris 2007）
+4. **Turnover Contagion 検出**（Felps 2009・同部署連続 2 名）
+5. **マネージャー包容的行動スコア低下**（Frazier 2017 ρ=.53）
+
+中間経営職が機能不全に陥ると、5 シグナルが連鎖的に立ち上がる。Orbit 月次レポートで 5 シグナルを横断追跡し、3 件以上が同時発火した時点で経営者への警告アラートを発する設計。
+
+### Shift R/C 境界線整理（260511）── 4 マネジメントは Shift C 中核
+
+JAFCO 反映の中間経営職フレームは **Shift C 中核**（R は補完的）と境界線整理（260511）された：
+
+| サービス | 4 マネジメント | 中間職フォーカス |
+|---|---|---|
+| **Shift R** | 補完的（Week 11-12 のみ） | 採用接続資産・採用 PMF 補強 |
+| **Shift C** | 中核（Week 3-12 全期間） | 4 マネジメント評価シート・PsyCap 介入・引力相性監視 |
+| **Shift Full** | R+C 統合 | 採用 → 中間職 → 引力組織の一気通貫 |
+
+【図表指示 6-A：中間経営職 4 マネジメント評価シート】
+- 横軸：数字 / 業務 / ピープル / 引力相性
+- 縦軸：Championing / Synthesizing / Facilitating / Implementing（Floyd-Wooldridge 4 役割）
+- 各セル：1-5 段階スコア欄
+- 右側：離職予兆 5 シグナル KPI 連動アラート欄
+- v1.0 でデザイナー実装：A4 横・評価ワークシート
+
+## 6.6 識学・コンサルとの差別化
+
+**識学：** 中間職を「実行者」として扱う。戦略形成への上向き影響を制度的に封じる。Wooldridge-Schmid-Floyd 2008 が示す中間職の戦略貢献を構造的に否定する設計。
+
+**外資コンサル：** 中間職をリストラ対象として扱う（「中抜き組織」を推奨）。Huy 2002 の感情バランシング機能を理解しない。
+
+**GrowthFix：** 中間職を **引力翻訳機構の核** として再定位する唯一のサービス。Wooldridge / Rouleau-Balogun / Huy / Luthans の 4 系列で学術武装 + 4 マネジメント独自再構成 + 離職予兆 5 シグナル KPI で実装。
+
+## 6.7 本章の主要参考文献
+
+- Avey, J. B., Reichard, R. J., Luthans, F., & Mhatre, K. H. (2011). Meta-analysis of the impact of positive psychological capital on employee attitudes, behaviors, and performance. *Human Resource Development Quarterly*, 22(2), 127-152. https://doi.org/10.1002/hrdq.20070 〔1,289 cites〕
+- Balogun, J., & Johnson, G. (2004). Organizational restructuring and middle manager sensemaking. *Academy of Management Journal*, 47(4), 523-549. https://doi.org/10.5465/20159600 〔1,800+ cites〕
+- Floyd, S. W., & Wooldridge, B. (1992). Middle management involvement in strategy and its association with strategic type. *Strategic Management Journal*, 13(S1), 153-167. https://doi.org/10.1002/smj.4250131012 〔470 cites〕
+- Hambrick, D. C., & Mason, P. A. (1984). Upper echelons: The organization as a reflection of its top managers. *Academy of Management Review*, 9(2), 193-206. https://doi.org/10.5465/amr.1984.4277628 〔19,000+ cites〕
+- Huy, Q. N. (2002). Emotional balancing of organizational continuity and radical change. *Administrative Science Quarterly*, 47(1), 31-69. https://doi.org/10.2307/3094890 〔770 cites〕
+- Luthans, F., Avey, J. B., Avolio, B. J., Norman, S. M., & Combs, G. M. (2006). Psychological capital development. *Journal of Organizational Behavior*, 27(3), 387-393. https://doi.org/10.1002/job.373 〔1,000 cites〕
+- Rouleau, L., & Balogun, J. (2011). Middle managers, strategic sensemaking, and discursive competence. *Journal of Management Studies*, 48(5), 953-983. https://doi.org/10.1111/j.1467-6486.2010.00941.x 〔445 cites〕
+- Wooldridge, B., Schmid, T., & Floyd, S. W. (2008). The middle management perspective on strategy process. *Journal of Management*, 34(6), 1190-1221. https://doi.org/10.1177/0149206308324326 〔469 cites〕
+
+---
