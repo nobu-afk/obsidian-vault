@@ -84,7 +84,6 @@
             '<a href="https://growthfix.jp/gravity-scan/">Gravity Scan</a>' +
             '<a href="https://growthfix.jp/gravity-recruit/">Gravity Recruit</a>' +
             '<a href="https://growthfix.jp/gravity-cultivate/">Gravity Cultivate</a>' +
-            '<a href="https://growthfix.jp/gravity-orbit/">Gravity Orbit</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">会社・サイト</p>' +
