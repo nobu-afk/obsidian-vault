@@ -127,7 +127,7 @@ Gravity CODE / Gravity Scan / Gravity Recruit / Gravity Cultivate / Gravity Shif
 ### 価格
 
 ```
-5 万円 / 10 万円 / 38 万円 / 80 万円 / 90 万円 / 100 万円 / 128 万円 / 150 万円 / 月 15 万円
+5 万円 / 10 万円 / 38 万円 / 80 万円 / 90 万円 / 100 万円 / 150 万円 / 198 万円 / 220 万円 / 月 15 万円
 ```
 
 ### 量・厚み
