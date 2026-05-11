@@ -84,7 +84,7 @@
 ```
 気になる経営者は、無料の 30 分相談で
 あなたの組織の「引力」を一緒に翻訳しよう
-[相談を予約する]
+[相談を予約する] → https://utage-system.com/event/gcfmTRLg7lAq/register
 ```
 
 ---
