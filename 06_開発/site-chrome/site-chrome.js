@@ -92,6 +92,7 @@
             '<a href="https://growthfix.jp/profile/">プロフィール</a>' +
             '<a href="https://growthfix.jp/contact/">お問い合わせ</a>' +
             '<a href="https://growthfix.jp/privacy-policy/">プライバシーポリシー</a>' +
+            '<a href="https://growthfix.jp/citations/">学術ベース（主要参考文献）</a>' +
           '</div>' +
         '</div>' +
         '<div class="b-footer-copy">&copy; 2026 GrowthFix. All rights reserved.</div>' +
