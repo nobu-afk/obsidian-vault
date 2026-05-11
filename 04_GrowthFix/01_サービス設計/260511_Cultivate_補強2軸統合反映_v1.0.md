@@ -14,8 +14,8 @@
 
 Phase A では Cultivate の **構造変更 2 軸**が完走済：
 
-- **C-1 評価制度再設計（🔴 構造変更）**：標準ツール ⑥「評価制度 v1 設計テンプレ」を Locke-Latham 2002 目標設定 5 因子 + Cerasoli 2014 質×量分解 + Jenkins 1998 金銭インセンティブメタ + Kluger-DeNisi 1996 フィードバック 3 原則ベースに刷新済（`260512_Cultivate_標準ツール6_評価制度LockeLatham5因子版_v1.1.md`）
-- **C-4 組織リズム設計（🔴 構造変更）**：標準ツール ③「ドラムビート 4 周期表」を Feldman-Pentland 2003 組織ルーチン二面性 + Eisenhardt 1989 高速意思決定 6 実践 + Brown-Eisenhardt 1997 Time/Event Pacing ベースに刷新済（`260512_Cultivate_標準ツール3_ドラムビートFeldmanPentland二面性版_v1.1.md`）
+- **C-1 評価制度再設計（🔴 構造変更）**：標準ツール ⑥「評価制度 v1 設計テンプレ」を Locke-Latham 2002 目標設定 5 因子 + Cerasoli 2014 質×量分解 + Jenkins 1998 金銭インセンティブメタ + Kluger-DeNisi 1996 フィードバック 3 原則ベースに刷新済（`260511_Cultivate_標準ツール6_評価制度LockeLatham5因子版_v1.1.md`）
+- **C-4 組織リズム設計（🔴 構造変更）**：標準ツール ③「ドラムビート 4 周期表」を Feldman-Pentland 2003 組織ルーチン二面性 + Eisenhardt 1989 高速意思決定 6 実践 + Brown-Eisenhardt 1997 Time/Event Pacing ベースに刷新済（`260511_Cultivate_標準ツール3_ドラムビートFeldmanPentland二面性版_v1.1.md`）
 
 ### 1.2 Phase B で達成する状態（本書のスコープ）
 
