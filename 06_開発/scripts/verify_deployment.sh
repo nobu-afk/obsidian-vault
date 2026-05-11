@@ -116,6 +116,42 @@ for url in "${LPS[@]}"; do
 done
 echo ""
 
+# 2.5 WhitePaper URL 設計検証（260511 障害再発防止）
+echo "🔒 WhitePaper URL 設計検証"
+
+# /whitepaper/ にオプトインフォームが存在するか
+optin_body=$(curl -s "https://growthfix.jp/whitepaper/" 2>/dev/null)
+if echo "$optin_body" | grep -q 'name="email"\|type="email"'; then
+  echo "  ✅ /whitepaper/ にオプトインフォーム（email 入力欄）が存在"
+  PASS=$((PASS+1))
+else
+  echo "  ❌ /whitepaper/ にオプトインフォームが見つからない"
+  echo "     → WP V9 本体に誤って上書きされている可能性（260511 事故パターン）"
+  echo "     復旧コマンド: bash 06_開発/scripts/deploy_whitepaper.sh --optin --skip-pdf"
+  FAIL=$((FAIL+1))
+fi
+
+# /whitepaper-read/ に WP V9 本体が存在するか
+wp_read_body=$(curl -s "https://growthfix.jp/whitepaper-read/" 2>/dev/null)
+if echo "$wp_read_body" | grep -q 'hero-title\|chapter-title'; then
+  echo "  ✅ /whitepaper-read/ に WP V9 本体（hero-title / chapter-title）が存在"
+  PASS=$((PASS+1))
+else
+  echo "  ❌ /whitepaper-read/ に WP V9 本体が見つからない"
+  FAIL=$((FAIL+1))
+fi
+
+# /whitepaper.pdf が 200 OK か
+pdf_code=$(curl -s -o /dev/null -w "%{http_code}" -I "https://growthfix.jp/whitepaper.pdf" 2>/dev/null)
+if [[ "$pdf_code" == "200" ]]; then
+  echo "  ✅ /whitepaper.pdf: HTTP 200"
+  PASS=$((PASS+1))
+else
+  echo "  ❌ /whitepaper.pdf: HTTP $pdf_code"
+  FAIL=$((FAIL+1))
+fi
+echo ""
+
 # 3. mobile.css バージョン整合性
 echo "🔢 mobile.css バージョン整合性"
 versions=$(for url in "${LPS[@]}"; do
