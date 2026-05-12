@@ -57,97 +57,35 @@ Tier 2：Why（個人内部の駆動源）
 
 **5. Why の理論基盤 = Bandura 効力感理論 3 層階層（260511 追加）：**
 
-GrowthFix の Why は **「経営者を、本来の自分に戻す」** だが、その学術的バックボーンは **Bandura（Stanford）の効力感理論（Self-Efficacy 1977 / Collective Efficacy 2000）+ Sampson（Harvard）のコミュニティ Collective Efficacy 研究（1997 Science）** にある。
-
-### 3 層階層
-
 ```
-個人 Self-Efficacy（経営者）
-  └→ 組織 Collective Efficacy（企業内チーム集団）
-      └→ コミュニティ Collective Efficacy（街・地域）
+個人 SE（Bandura 1977・49,507 cites）→ 組織 CE（Bandura 2000・1,721 cites）→ コミュニティ CE（Sampson 1997 Science・8,583 cites）
 ```
 
-- **個人 SE（Bandura 1977・被引用 49,507）**：「自分はやれる」信念。4 源泉 = ①成功体験 ②代理経験 ③言語的説得 ④情動的覚醒。**Why × 才能 × 偏愛の言語化は SE 4 源泉のうち①と②の引き出し作業に直結**
-- **組織 CE（Bandura 2000・被引用 1,721）**：「自分たちはやれる」共同信念。経営者 SE が組織内で翻訳・伝染した結果
-- **コミュニティ CE（Sampson 1997 Science・被引用 8,583）**：街・地域の引力。和歌山（45 年人口流出）vs 流山（6 年流入 1 位）の差を学術的に説明可能
+GrowthFix の Why「経営者を本来の自分に戻す」は学術的に **Bandura SE 4 源泉の再起動**（①成功体験 ②代理経験 ③言語的説得 ④情動的覚醒）。Why × 才能 × 偏愛の言語化は SE 4 源泉のうち①と②の引き出し作業に直結。和歌山（45 年人口流出）vs 流山（6 年流入 1 位）の差はコミュニティ CE で学術的に説明可能。
 
-### Why と効力感の接続関係
-
-| GrowthFix の Why 概念 | Bandura 翻訳 |
+| GrowthFix Why | Bandura 翻訳 |
 |---|---|
-| 経営者を本来の自分に戻す | 経営者の Self-Efficacy 4 源泉を再起動する |
-| 自己主権を取り戻す | SE が他者の期待で塗り替えられた状態 → SE の主権回復 |
-| 灰色 → カラフル | 効力感が枯れた状態 → 4 源泉が再点火した状態 |
-| 組織に引力を | 経営者 SE → 組織 CE への翻訳機構を実装 |
-| 引力経営の最終目標 | **集合的効力感に満ちた会社をつくる**（Bandura 2000 直接実装）|
+| 経営者を本来の自分に戻す | SE 4 源泉を再起動 |
+| 自己主権を取り戻す | 他者の期待で塗り替えられた SE → 主権回復 |
+| 灰色 → カラフル | 効力感が枯れた → 4 源泉再点火 |
+| 引力経営の最終目標 | **集合的効力感に満ちた会社（Bandura 2000 直接実装）**|
 
-**6. Authentic Self × Emotional Contagion 媒介ロジック（260511 追加・Phase 11 確定の双子概念）：**
+**6. Authentic Self × Emotional Contagion 媒介ロジック（260511 Phase 11 確定）：**
 
-効力感（Bandura）が **「土台」**なら、Authentic Self × Emotional Contagion は **「発現メカニズム」**。両者は双子概念であり、Gravity 根幹概念を完成させる：
+効力感（Bandura）= **土台**／Authentic Self × Emotional Contagion = **発現メカニズム**（双子概念）。
 
 ```
 個人引力 = Authentic Self（Why × 才能 × 偏愛）× Emotional Contagion → 他者を引きつける力
 組織引力 = 集合的 Authentic Org（集まる × 躍動）× Collective Emotional Contagion → 組織の引きつけ力
 ```
 
-### Authentic Self の 3 要素（Why × 才能 × 偏愛）
+**Authentic Self 3 要素**：Why = Calling（Wrzesniewski 1997）+ Mission（Bill George）／才能 = Innate Talent + Flow（Csikszentmihalyi）+ SE 成功体験／偏愛 = Harmonious Passion（Vallerand 2003）+ SDT（Deci-Ryan）。これが Authentic Leadership（Avolio-Gardner 2005 / Walumbwa 2008 ALQ）× Emotional Contagion（Hatfield 1994 / Barsade 2002）で発現。
 
-| 要素 | 学術定義 | 主要古典 |
-|---|---|---|
-| **Why** | Calling（召命）+ Mission（使命）| Wrzesniewski 1997 / Bill George Authentic Leadership |
-| **才能** | Innate Talent + Flow + Self-Efficacy 成功体験 | Csikszentmihalyi / Bandura 1977 |
-| **偏愛** | Harmonious Passion + Intrinsic Motivation | Vallerand 2003 / Deci-Ryan SDT |
+**個人引力 ≠ Self-Efficacy**（SE は内的信念・個人引力は対他者影響力で独立概念）。詳細：`引力.md` § Authentic Self × EC ／ `04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md`
 
-### 媒介ロジック
+**7. 複数領域統合型のスタンス（260511 主軸化）：**
 
-**Authentic Self → 個人引力**：3 要素が統合された Authentic Self は **Authentic Leadership 理論（Avolio-Gardner 2005 / Walumbwa 2008 ALQ）** の核概念。これが **Emotional Contagion（Hatfield-Cacioppo-Rapson 1994 / Barsade 2002）** を通じて他者に伝染し、「他者を引きつける磁力」= 個人引力として発現する。
-
-**重要な区別：個人引力 ≠ Self-Efficacy**
-- Self-Efficacy =「自分はやれる」信念（個人の内的状態）
-- 個人引力 =「他者を引きつける力」（対他者の影響力）
-- Authentic Self の中に SE 成功体験は含まれるが、個人引力そのものは Authentic Self → Emotional Contagion で発現する独立概念
-
-### 効力感と Authentic Self × EC の双子関係
-
-| レイヤー | 土台（効力感） | 発現メカニズム（Authentic × EC）|
-|---|---|---|
-| 個人 | 経営者の Self-Efficacy | Authentic Self × Emotional Contagion → 個人引力 |
-| 組織 | Collective Efficacy | 集合的 Authentic Org × Collective Emotional Contagion → 組織引力 |
-| コミュニティ | コミュニティ CE | （街・地域レベルの集合的 Authentic）|
-
-詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md` / `05_プロダクト/_共通/SSOT_Gravity_コア主張.md` § コア主張 #1 / #2
-
-**7. 複数領域統合型のスタンス = 複数領域統合型（260511 主軸化・260509 学術ブランディング戦略から思想層昇格）：**
-
-GrowthFix の思想層は **「単一権威担ぎ型 NG → 複数領域統合型」**を識学差別化の決定打として運用する。これは効力感・Authentic Self × EC・中間経営職フレームと並ぶ第 4 の中核戦略決定。
-
-**単一権威担ぎ型 NG（不採用パターン）：**
-- 識学 = 安藤広大の意識構造学を単一権威として担ぐ
-- アチーブメント = 青木仁志の戦略型コーチを単一権威として担ぐ
-- → **「○○先生の理論を実装する」型はブランディング上限低い**（弟子・代理店扱い）
-
-**複数領域統合型（Gravity 採用）：**
-- **複数領域統合型のスタンス**：複数領域の学術知見を経営者向けに編集する位置取り
-- **5 系列統合**：OD（Kotter / Bushe-Marshak / NTL / Cooperrider / Beer-Nohria）+ Bandura 効力感 + Authentic Leadership + 社会化研究 + 速度非対称性
-- **石井伸幸 = 統合者**：50 社診断 + 16 年 HRBP + 168 件論文ライブラリで複数領域を統合
-- → **「○○先生」を超える独自ポジション**（統合者は権威を超える）
-
-**学術濃度 3 層運用：**
-- 入口層（0-5%）：学術ゼロ・経営者の痛みに直撃
-- 信用層（20-40%）：主要引用 4-5 件で「複数領域統合の片鱗」を見せる
-- 理論層（50-70%）：168 件引用ライブラリ + 5 系列統合の全体像
-
-詳細：`09_会社OS/公開/発信・AI/発信_学術濃度ルール.md` / `04_GrowthFix/02_マーケティング/260509_学術ブランディング戦略マトリクス_v0.1.md`
-
-### 識学差別化の決定打
-
-| 軸 | Gravity | 識学 |
-|---|---|---|
-| 思想層バックボーン | **Bandura 効力感理論を直接実装** | 管理の科学（効力感概念なし）|
-| 最終目標 | 集合的効力感に満ちた会社 | 組織の意識構造を管理 |
-| アプローチ | 効力感（自分はやれる）を引き出す | 不毛な意識を矯正する |
-
-詳細：`05_プロダクト/_共通/SSOT_Gravity_コア主張.md` § コア主張 #13 / `09_会社OS/公開/ガイドライン/商品_5サービス_論文反映_Phase8_Phase9.md`
+GrowthFix は **単一権威担ぎ型 NG → 複数領域統合型**を識学差別化の決定打として運用。識学（安藤広大単一権威）・アチーブメント（青木仁志単一権威）型は「○○先生の弟子・代理店扱い」でブランディング上限低い。Gravity は **5 系列統合**（OD / Bandura 効力感 / Authentic Leadership / 社会化研究 / 速度非対称性）× 50 社診断 + 16 年 HRBP + 168 件論文ライブラリで「統合者は権威を超える」独自ポジション。学術濃度 3 層運用（入口 0-5% / 信用層 20-40% / 理論層 50-70%）。詳細：`09_会社OS/公開/発信・AI/発信_学術濃度ルール.md` / `04_GrowthFix/02_マーケティング/260509_学術ブランディング戦略マトリクス_v0.1.md`
 
 ---
 
