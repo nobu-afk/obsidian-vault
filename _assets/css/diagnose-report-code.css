@@ -1,0 +1,223 @@
+/*
+ * diagnose-report-code.css — CODE / CODE Executive 専用スタイル
+ * diagnose-report.css（共通）の後に読み込む
+ * 対象: GravityCode/診断_本番/generate.php
+ *        GravityCode/診断_executive_本番/generate.php
+ * 作成: 2026-05-12 (P1-B CSS外部化)
+ *
+ * 内容:
+ *   - verb-map（CODE版: 横並び / Executive版: 縦並びフロー）
+ *   - CODE共通: filter-grid/analyst-note の形状差分上書き
+ *   - Executive専用: cover-page, gravity-integration, business-impact-box,
+ *     gravity-core, why-declaration, env-condition, type-judgment, future-box,
+ *     closing-note(拡張), haveto-card(拡張), job-career-calling, hp-op-distinction,
+ *     externalization-statement, somatic-resonance-prompt, authentic-leadership-box,
+ *     time-axis, path-card(拡張)
+ */
+
+/* ════════════════════════════════════════════════
+   CODE (診断_本番) — 横並び verb-map
+   ════════════════════════════════════════════════ */
+/* CODE は diagnose-report.css の .verb-map デフォルト定義なし。
+   CODE専用として定義 */
+.verb-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 0; margin: 20px 0 28px; padding: 28px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
+.verb-map-item { flex: 0 1 auto; min-width: 130px; max-width: 180px; text-align: center; padding: 0 18px 0 0; position: relative; }
+.verb-map-item:not(:last-child)::after { content: '→'; position: absolute; right: -2px; top: 14px; font-size: 16pt; font-weight: 700; color: #0f172a; line-height: 1; }
+.verb-map-verb { display: inline-block; font-size: 11pt; font-weight: 800; color: #0f172a; background: #fff; border: 2px solid #0f172a; border-radius: 10px; padding: 10px 18px; margin-bottom: 10px; white-space: nowrap; letter-spacing: 0.02em; }
+.verb-map-source { font-size: 9pt; color: #64748b; line-height: 1.6; padding: 0 4px; }
+.verb-map-arrow { display: none; }
+
+/* CODE の analyst-note（border-radius のみ版） */
+.analyst-note { background: #f8fafc; border-radius: 8px; padding: 24px 28px; margin: 28px 0; font-size: 10pt; font-style: italic; line-height: 1.9; color: #475569; page-break-inside: avoid; }
+.analyst-note strong { color: #0f172a; font-style: normal; }
+
+
+/* ════════════════════════════════════════════════
+   CODE Executive (診断_executive_本番) 専用スタイル
+   ════════════════════════════════════════════════ */
+
+/* --- verb-map 縦並びフロー（v5.3 260507 改修）--- */
+/* Executive の verb-map は CODE の横並びを上書きする形で定義 */
+/* NOTE: Executive generate.php でのみ適用するため、
+         ExecutiveのPHPでは本ファイルのみ読み込む（CODE本番はcode専用を使う）。
+         但し両ファイルが同じ .verb-map を使うため、
+         Executive は HTML クラスで区別するか別ファイルにする設計が望ましい。
+         現状ではExecutiveとCODE本番は別phpのためそれぞれ異なるリンクタグを使うことで解決。
+         → Executive側では diagnose-report-code.css をロードしないので上書き問題なし。 */
+
+/* ════════════════════════════════════════════════
+   Executive 専用 verb-map（縦並びフロー・v5.3）
+   CODE本番には diagnose-report-code.css を使うため、
+   このブロックは diagnose-report-executive.css 相当として機能する
+   ════════════════════════════════════════════════ */
+/* 260507 v5.3 改修: verb-map 縦並びフロー化（横並び破綻 + テキスト切れの解消） */
+
+/* ──────────────────────────────────────────
+   NOTE: このファイルは CODE本番(diagnose_本番) と
+   CODE Executive(診断_executive_本番) の両方を対象にしているが、
+   verb-map の実装差異があるため以下のように分離する：
+   - CODE本番: .verb-map は横並び（上記で定義済み）
+   - Executive: .verb-map は縦並び → diagnose-report-executive.css に分離が理想
+   現在は Executive 専用クラスで上書きする設計とする
+   ────────────────────────────────────────── */
+
+/* Executive のカバーページ（ダークモード・WP V9 風） */
+.cover-page { background: #0f172a; color: #fff; padding: 56px 48px 40px; position: relative; overflow: hidden; page-break-after: always; box-sizing: border-box; }
+.cover-page::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border: 36px solid rgba(71, 85, 105, 0.3); border-radius: 50%; pointer-events: none; }
+.cover-page::after { content: ''; position: absolute; bottom: -100px; left: -100px; width: 200px; height: 200px; border: 22px solid rgba(197, 168, 128, 0.12); border-radius: 50%; pointer-events: none; }
+
+/* Executive の cgd-tag（CODE Executive版 形状） */
+.cgd-tag { font-size: 8pt; font-weight: 800; letter-spacing: 0.15em; padding: 3px 10px; border-radius: 2px; flex-shrink: 0; }
+.cover-gravity-positive .cgd-tag { color: #6EE7B7; background: rgba(110, 231, 183, 0.08); border: 1px solid rgba(110, 231, 183, 0.35); }
+.cover-gravity-negative .cgd-tag { color: #FCA5A5; background: rgba(252, 165, 165, 0.06); border: 1px solid rgba(252, 165, 165, 0.35); }
+.cover-gravity-claim { font-size: 11.5pt; font-weight: 800; color: #fff; margin: 16px 0 0; padding: 0; border: none; line-height: 1.55; }
+.cover-meta { display: flex; align-items: center; gap: 14px; font-size: 9pt; color: #475569; letter-spacing: 0.18em; margin-top: 28px; padding-top: 20px; border-top: 1px solid #1e293b; }
+.cover-meta strong { color: #94a3b8; font-weight: 700; }
+
+/* Executive の analyst-note（border-left付き版） */
+.analyst-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 24px 28px; margin: 28px 0; font-size: 10pt; font-style: italic; line-height: 1.9; color: #475569; page-break-inside: avoid; }
+.analyst-note strong { color: #0f172a; font-style: normal; }
+
+/* haveto-card（Executive 拡張版） */
+.haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; page-break-inside: avoid; }
+.haveto-tag { display: inline-block; font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 6px; }
+.haveto-card h4 { margin: 0 0 12px; color: #991b1b; font-size: 11.5pt; }
+.haveto-card p { font-size: 10pt; line-height: 1.8; color: #334155; margin-bottom: 10px; }
+.haveto-card p:last-child { margin-bottom: 0; }
+.haveto-card strong { color: #991b1b; }
+
+/* Executive の path-cards（margin拡張） */
+.path-cards { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 28px; }
+.path-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; position: relative; background: #fff; }
+.path-card--recommended { border-color: #0f172a; border-width: 2px; background: rgba(15,23,42,0.04); padding-top: 38px; }
+.path-badge { position: absolute; top: 12px; left: 20px; font-size: 8pt; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; background: #0f172a; color: #fff; border-radius: 4px; }
+.path-card h4 { margin: 0 0 8px; font-size: 11.5pt; text-transform: none; color: #0f172a; }
+.path-card p { font-size: 10pt; color: #334155; line-height: 1.7; margin: 0; }
+
+/* Executive の closing-note（拡張・余白大） */
+.closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 20px 0 12px; font-style: italic; color: #334155; page-break-inside: avoid; }
+.closing-note p { margin: 0 0 8px; font-size: 10.5pt; line-height: 1.85; }
+.closing-note p:last-child { margin-bottom: 0; }
+
+/* Executive の report-footer（圧縮版・260507 v5.3.4 単独白ページ解消） */
+.report-footer { margin-top: 20px; padding-top: 10px; border-top: 1px solid #cbd5e1; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; page-break-before: avoid; }
+.report-footer strong { color: #0f172a; font-size: 10pt; }
+
+/* --- 時間軸（v5.1新要素） --- */
+.time-axis { font-style: italic; color: #64748b; margin: 16px 0 28px; padding-left: 16px; border-left: 2px solid #cbd5e1; font-size: 11pt; line-height: 1.8; }
+
+/* --- 統合マップ（gravity-integration / Block C 冒頭） --- */
+.gravity-integration { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 2px solid #0f172a; border-radius: 12px; padding: 28px 24px; margin: 32px 0 20px; page-break-inside: avoid; }
+.gravity-integration h4 { color: #0f172a; font-size: 11.5pt; margin: 0 0 20px; text-align: center; letter-spacing: 0.02em; }
+/* 260507 v5.3.1: 3要素を3列固定で折り返し回避 */
+.gi-formula { display: flex; align-items: stretch; gap: 8px; flex-wrap: nowrap; justify-content: center; margin: 16px 0 24px; }
+.gi-element { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px 14px; flex: 1 1 0; min-width: 0; max-width: none; text-align: center; }
+.gi-label { display: block; font-size: 8.5pt; color: #64748b; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 6px; }
+.gi-value { display: block; font-size: 11pt; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 4px; }
+.gi-status { display: block; font-size: 9pt; font-style: italic; color: #64748b; margin-top: 4px; }
+.gi-operator { font-size: 18pt; font-weight: 800; color: #0f172a; flex: 0 0 auto; }
+.gi-result { text-align: center; margin: 20px 0 16px; }
+.gi-arrow { display: block; font-size: 18pt; color: #0f172a; margin: 8px 0; line-height: 1; font-weight: 700; }
+.gi-core { background: #fff; border-left: 4px solid #dc2626; padding: 14px 20px; margin: 10px auto 0; max-width: 560px; font-size: 11pt; color: #0f172a; text-align: left; }
+.gi-core strong { color: #991b1b; }
+.gi-judgment { text-align: center; margin: 16px 0 0; }
+.gi-type, .gi-risk { background: #fff; padding: 10px 18px; margin: 8px auto; max-width: 560px; border-radius: 6px; font-size: 10.5pt; color: #0f172a; text-align: left; line-height: 1.7; }
+.gi-type { border-left: 4px solid #3b82f6; }
+.gi-type strong { color: #1e40af; }
+.gi-risk { border-left: 4px solid #0f172a; }
+.gi-reading-guide { font-size: 9.5pt; color: #64748b; text-align: center; margin: 20px 0 0; font-style: italic; padding-top: 14px; border-top: 1px dashed #cbd5e1; }
+
+/* --- Why宣言 --- */
+.why-declaration { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 20px 24px; margin: 24px 0 32px; }
+.why-label { font-size: 9pt; letter-spacing: 0.12em; color: #92400e; font-weight: 700; margin-bottom: 8px; }
+.why-text { font-size: 13pt; font-weight: 700; color: #78350f; margin: 0; }
+
+/* --- 環境条件 --- */
+.env-condition { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 16px 0 28px; }
+.env-condition p { margin: 0 0 8px; font-size: 10pt; line-height: 1.8; }
+.env-condition p:last-child { margin-bottom: 0; }
+.env-condition strong { color: #0f172a; }
+
+/* --- カバーページ（260507 v5.3.3 刷新） --- */
+/* .cover-page は上記で定義済み */
+
+/* --- Block C 経営インパクトボックス（260507 v5.3 新規）採用/離脱/躍動 3軸 --- */
+.business-impact-box { background: #eff6ff; border: 2px solid #1e40af; border-radius: 12px; padding: 24px 28px; margin: 24px 0; page-break-inside: avoid; }
+.bi-label { font-size: 10pt; font-weight: 700; color: #1e3a8a; letter-spacing: 0.08em; margin-bottom: 16px; }
+.bi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.bi-axis { background: #fff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 16px 20px; }
+.bi-axis-name { display: inline-block; font-size: 10pt; font-weight: 800; color: #fff; background: #1e40af; padding: 3px 12px; border-radius: 100px; letter-spacing: 0.05em; margin-bottom: 10px; }
+.bi-before, .bi-after { font-size: 10pt; line-height: 1.75; margin: 0 0 6px; color: #1e293b; }
+.bi-before:last-child, .bi-after:last-child { margin-bottom: 0; }
+.bi-before strong { color: #991b1b; }
+.bi-after strong { color: #047857; }
+
+/* --- 引力のコア --- */
+.gravity-core { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 24px; margin: 28px 0; page-break-inside: avoid; }
+.gravity-core h4 { color: #991b1b; margin: 0 0 16px; font-size: 11pt; }
+.core-action { font-size: 11pt; font-weight: 700; color: #991b1b; background: #fff; border-left: 4px solid #dc2626; padding: 12px 16px; margin: 0 0 16px; }
+.core-duality { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.core-effect, .core-sideeffect { background: #fff; padding: 14px 16px; border-radius: 6px; border: 1px solid #fecaca; font-size: 10pt; line-height: 1.7; }
+.core-effect strong, .core-sideeffect strong { display: block; font-size: 9pt; letter-spacing: 0.05em; color: #991b1b; margin-bottom: 6px; text-transform: uppercase; }
+.core-summary { margin: 0; font-size: 10pt; line-height: 1.8; color: #991b1b; font-weight: 600; }
+
+/* --- 未来ボックス --- */
+.future-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px 24px; margin: 24px 0; page-break-inside: avoid; }
+.future-box h4 { color: #065f46; margin-top: 0; margin-bottom: 12px; }
+.future-box p { font-size: 10.5pt; line-height: 1.9; color: #064e3b; margin: 0; }
+
+/* --- タイプ判定 --- */
+.type-judgment { background: #eff6ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 22px 26px; margin: 28px 0; page-break-inside: avoid; }
+.type-label { font-size: 9pt; letter-spacing: 0.12em; color: #1e40af; font-weight: 700; margin-bottom: 6px; }
+.type-name { font-size: 15pt; color: #1e3a8a; margin: 0 0 12px; border: none; padding: 0; }
+.type-reason { margin: 0 0 12px; color: #334155; font-size: 10pt; line-height: 1.8; }
+.type-prescription { margin: 0; font-weight: 700; color: #1e40af; font-size: 11pt; }
+
+/* --- フィルターグリッド（CODE専用差分） --- */
+/* 基底は共通 CSS 側。ここでは CODE 側の list-item差分のみ */
+.filter-col li::before { content: ''; }
+.filter-high li::before { background: #0f172a; }
+.filter-low li::before { background: #dc2626; opacity: 0.5; }
+
+/* --- job-career-calling（Executive 職業論学術引用ボックス） --- */
+.job-career-calling { background: #f0fdf4; border-left: 3px solid #16a34a; padding: 8px 14px; margin: 8px 0 16px; font-size: 9.5pt; line-height: 1.65; color: #14532d; page-break-inside: avoid; }
+.job-career-calling strong { color: #166534; font-weight: 700; }
+
+/* --- hp-op-distinction（Harmonious Passion / Obsessive Passion 区別） --- */
+.hp-op-distinction { background: #fdf4ff; border-left: 3px solid #a855f7; padding: 8px 14px; margin: 8px 0 16px; font-size: 9.5pt; line-height: 1.65; color: #581c87; page-break-inside: avoid; }
+.hp-op-distinction strong { color: #6b21a8; font-weight: 700; }
+
+/* --- externalization-statement（外在化ステートメント） --- */
+.externalization-statement { background: #f8fafc; border-left: 3px solid #64748b; padding: 12px 18px; margin: 20px 0 -8px; font-size: 9.5pt; line-height: 1.7; color: #475569; font-style: italic; page-break-inside: avoid; }
+.externalization-statement strong { color: #1e293b; font-weight: 700; font-style: normal; }
+
+/* --- somatic-resonance-prompt（身体的共鳴プロンプト） --- */
+.somatic-resonance-prompt { background: #fef3c7; border-left: 3px solid #b8a88a; padding: 14px 20px; margin: -8px 0 24px; font-size: 9.5pt; line-height: 1.75; color: #78350f; page-break-inside: avoid; }
+.somatic-resonance-prompt strong { color: #7a6234; font-weight: 700; }
+
+/* --- authentic-leadership-box（本物のリーダーシップ） --- */
+.authentic-leadership-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 18px; margin: 18px 0; page-break-inside: avoid; }
+.authentic-leadership-box h4 { font-size: 10.5pt; margin: 0 0 8px; color: #075985; font-weight: 700; }
+.authentic-leadership-box p { font-size: 9.5pt; line-height: 1.7; color: #334155; margin: 0 0 6px; }
+.authentic-leadership-box .dim { padding: 6px 10px; margin: 0 0 4px; background: #fff; border-left: 3px solid #0284c7; border-radius: 4px; font-size: 9pt; line-height: 1.6; color: #475569; }
+.authentic-leadership-box .dim strong { color: #075985; font-weight: 700; }
+
+/* ── レスポンシブ追加（Executive専用） ── */
+@media screen and (max-width: 800px) {
+  /* 260507 v5.3 モバイルも縦並びフロー継承（Executive） */
+  .verb-map { padding: 20px 14px; gap: 30px; }
+  .verb-map-item { padding: 16px 18px; }
+  .verb-map-item:not(:last-child)::after { font-size: 16pt; bottom: -27px; }
+  .verb-map-verb { font-size: 12pt; line-height: 1.5; }
+  .verb-map-source { font-size: 9pt; line-height: 1.65; }
+  .core-duality { grid-template-columns: 1fr; gap: 10px; }
+  .haveto-card, .future-box, .type-judgment, .closing-note { padding: 16px 18px; margin: 20px 0; }
+  .gravity-core { padding: 18px 20px; }
+  .why-declaration { padding: 16px 18px; }
+  .why-text { font-size: 15px; }
+  .path-card--recommended { padding-top: 32px; }
+  .gravity-integration { padding: 20px 16px; }
+  .gi-formula { flex-direction: column; gap: 8px; }
+  .gi-operator { transform: rotate(90deg); }
+  .gi-element { min-width: 100%; max-width: 100%; }
+}
