@@ -281,15 +281,23 @@ $system_prompt = <<<'SYSTEM'
 ```
 <div class="theory-background-box">
   <h4>このレポートの理論背景</h4>
-  <p class="theory-intro">Gravity CODE は、GrowthFix の 50 社診断 + 16 年人事キャリアの現場知見と、組織心理学・教育心理学・認知言語学・コーチング研究などの先行研究を編集して構築した独自フレームで経営者の引力タイプを解読します：</p>
+  <p class="theory-intro">Gravity CODE が定義する「個人引力」は、<strong>Authentic Self（Why × 才能 × 偏愛の 3 要素整合）が Emotional Contagion（感情伝染）を通じて他者を引きつける力</strong>です。Self-Efficacy（自己効力感）とは別概念として、GrowthFix の 50 社診断 + 16 年人事キャリアの現場知見と、組織心理学・教育心理学・認知言語学・コーチング研究などの先行研究を編集して構築した独自フレームで経営者の引力タイプを解読します。</p>
+  <p class="theory-intro" style="margin-top:14px;font-weight:600;color:#475569;">個人引力の理論基盤（Phase 11 確定・260510）</p>
   <ul class="theory-list">
-    <li><strong>Why × 才能 × 偏愛 の 3 要素整合理論</strong>（GrowthFix 独自・引力 = 三角形の整合度として定義／関連研究：Vansteenkiste &amp; Ryan, 2013 / Di Domenico &amp; Ryan, 2017）</li>
+    <li><strong>Why = Calling + Mission</strong>── 「自分はこのために生まれた」+「経営者として果たすべき使命」の二層構造（Wrzesniewski et al., 1997 ／ Bill George, 2003 <em>Authentic Leadership</em>）</li>
+    <li><strong>才能 = Innate Talent + Flow + Self-Efficacy 成功体験</strong>── 持って生まれた素質に没入経験と成功体験が重なって発火する領域（Csikszentmihalyi, 1990 <em>Flow</em> ／ Bandura, 1977 <em>Self-Efficacy</em>）</li>
+    <li><strong>偏愛 = Harmonious Passion + Intrinsic Motivation</strong>── 自己と統合された深い愛着と内発動機（Vallerand et al., 2003 ／ Deci &amp; Ryan, 2000 SDT）</li>
+    <li><strong>Authentic Self → Emotional Contagion → 個人引力</strong>── 偽りのない自己が感情を伝染させ、他者の認知・行動に変化を起こすメカニズム（Hatfield, Cacioppo &amp; Rapson, 1994 ／ Barsade, 2002 <em>Administrative Science Quarterly</em>）</li>
+    <li><strong>真正リーダーシップ 4 次元副次診断</strong>── 自己認識 / 関係透明性 / バランス処理 / 内在化された道徳観（Walumbwa et al., 2008 <em>Journal of Management</em>・3,720+ 引用）</li>
+  </ul>
+  <p class="theory-intro" style="margin-top:14px;font-weight:600;color:#475569;">独自フレーム（GrowthFix 50 社診断由来）</p>
+  <ul class="theory-list">
     <li><strong>能力の輪（マンガー応用）</strong>── 内側 vs 外側の輪を識別し、本来の強みを発火させる思考フレーム（関連研究：Ericsson, 2004 / Baker, Côté &amp; Deakin, 2005）</li>
     <li><strong>キャラ命名手法</strong>（矛盾を抱えた一語化）── 経営者本人すら言語化できなかった引力構造を 1 文で凝縮（関連研究：Lakoff &amp; Johnson, 1980 / Rakova, 2003）</li>
     <li><strong>have to 検出と本来に戻す一手</strong>── 社会から埋め込まれた "やらねば" を解体し、自然に湧き出る動詞に戻す（関連研究：Vansteenkiste &amp; Ryan, 2013 / Van den Broeck et al., 2021 メタ分析）</li>
     <li><strong>コーチング × コンサルティング × ソマティクス</strong>── 石井 16 年の実践で統合した対話手法（関連研究：Jones, Woods &amp; Guillaume, 2015 メタ分析 / Dyrbye et al., 2019 JAMA RCT）</li>
   </ul>
-  <p class="theory-note">★ 各論文の詳細・APA フル引用・反論論文への応答は WhitePaper V10（Q4 公開予定）で展開。50 社現場 60% : 学術 40% の比率原則で運用。</p>
+  <p class="theory-note">★ 各論文の詳細・APA フル引用・反論論文への応答は WhitePaper V10（Q4 公開予定）で展開。50 社現場 60% : 学術 40% の比率原則で運用。<strong>個人引力 ≠ Self-Efficacy</strong>：個人引力は石井独自概念として Self-Efficacy（自己効力感）から明確に区別。</p>
 </div>
 ```
 
