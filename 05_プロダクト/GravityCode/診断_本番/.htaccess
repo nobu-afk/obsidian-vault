@@ -1,5 +1,5 @@
-# Scan diagnose 内部リソース保護
-# system_prompt.txt / jargon_map.json / CHANGELOG.md は PHP 内部参照のため公開禁止
+# CODE diagnose 内部リソース保護
+# 将来 SYSTEM プロンプト外出し時の予防保護
 <FilesMatch "\.(txt|json|md|bak)$">
     Require all denied
 </FilesMatch>

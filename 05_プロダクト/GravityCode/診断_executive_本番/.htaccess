@@ -1,0 +1,12 @@
+# Executive diagnose 内部リソース保護
+<FilesMatch "\.(txt|json|md|bak)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^generate_backup_.*\.php$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^generate_v2\.php$">
+    Require all denied
+</FilesMatch>
