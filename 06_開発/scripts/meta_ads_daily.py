@@ -156,10 +156,11 @@ def map_ad_data(insights):
 # mdファイル更新
 # ============================================================
 def get_daily_log_path(date_str):
-    """日付からmdファイルパスを生成"""
+    """日付からmdファイルパスを生成（260513 月別フォルダ化対応：YYMM/YYMMDD_daily.md）"""
     dt = datetime.strptime(date_str, "%Y-%m-%d")
+    yymm = dt.strftime("%y%m")
     filename = dt.strftime("%y%m%d") + "_daily.md"
-    return os.path.join(DAILY_LOG_DIR, filename)
+    return os.path.join(DAILY_LOG_DIR, yymm, filename)
 
 
 def update_daily_log(filepath, ad_data):
