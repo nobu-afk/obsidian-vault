@@ -185,3 +185,10 @@
 
 /* FRAMEWORK lead paragraph */
 .sv2-framework-lead { font-size:15px; line-height:1.85; color:#334155; margin-bottom:24px; }
+
+/* note バリアント */
+.sv2-note--mt24 { margin-top:24px; }
+.sv2-note--center { text-align:center; }
+
+/* theory-box バリアント */
+.sv2-theory-box--mt { margin:20px 0 0; }
