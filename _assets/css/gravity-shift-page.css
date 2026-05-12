@@ -109,3 +109,79 @@
 .shift-faq-list .faq-item summary::after { content:"+"; position:absolute; right:24px; top:18px; font-size:22px; color:#1e40af; font-weight:300; }
 .shift-faq-list .faq-item[open] summary::after { content:"−"; }
 .shift-faq-list .faq-answer { padding: 0 24px 22px; font-size:14px; line-height:1.9; color:#475569; }
+
+/* ============================================================
+   Phase 1 CSS class 化（260512）
+   Recruit / Cultivate LP の反復 inline style を class に抽出
+   ============================================================ */
+
+/* 本文 body text（THE WALL / THE OFFER セクション <p>） */
+.sv2-body-text { font-size:16px; line-height:1.95; color:#334155; }
+
+/* DELIVERABLES <ul> */
+.sv2-deliv-list { font-size:15px; line-height:1.95; color:#334155; padding-left:20px; }
+.sv2-deliv-list li { margin-bottom:10px; }
+.sv2-deliv-list li:last-child { margin-bottom:0; }
+
+/* FRAMEWORK <ul>（行間 2.0） */
+.sv2-framework-list { font-size:15px; line-height:2.0; color:#334155; padding-left:20px; margin:0; }
+
+/* PREREQUISITE <ul>（行間 1.95・li margin-bottom:12px） */
+.sv2-pricing-list { font-size:15px; line-height:1.95; color:#334155; padding-left:20px; }
+.sv2-pricing-list li { margin-bottom:12px; }
+
+/* セクション末尾注釈 <p>（★ … 30分でご案内します） */
+.sv2-note { font-size:14px; color:#6b6b6b; margin-top:20px; }
+.sv2-note--sm { font-size:13px; color:#6b6b6b; margin:14px 0 0; }
+
+/* サービスの進め方 ボックス */
+.sv2-how-box { margin-top:32px; padding:24px 28px; background:#fff; border:1px solid #e5e7eb; border-radius:8px; }
+.sv2-how-box-title { font-size:13px; font-weight:800; color:#1b1b1b; letter-spacing:0.12em; margin:0 0 16px; }
+.sv2-how-list { font-size:14.5px; line-height:1.95; color:#334155; padding-left:20px; margin:0; }
+.sv2-how-list li { margin-bottom:10px; }
+.sv2-how-list li:last-child { margin-bottom:0; }
+
+/* CTA #apply セクション */
+.sv2-apply-section { padding:56px 0; background:#f8fafc; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
+.sv2-apply-inner { max-width:760px; margin:0 auto; padding:0 24px; }
+.sv2-apply-card { padding:36px 40px; background:#ffffff; border-left:4px solid #0f172a; border-radius:6px; }
+.sv2-apply-kicker { font-size:11px; font-weight:700; color:#0f172a; letter-spacing:0.16em; margin:0 0 10px; }
+.sv2-apply-h3 { font-size:20px; font-weight:900; color:#0f172a; line-height:1.6; margin:0 0 14px; }
+.sv2-apply-lead { font-size:14px; color:#475569; line-height:1.9; margin:0 0 14px; }
+.sv2-apply-strong { font-size:14px; color:#0f172a; line-height:1.9; margin:0 0 22px; font-weight:700; }
+.sv2-badge-row { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px; }
+.sv2-badge { display:inline-block; padding:6px 14px; background:#f8fafc; border:1px solid #e5e7eb; border-radius:100px; font-size:12px; font-weight:700; color:#475569; letter-spacing:0.04em; }
+.sv2-apply-btn { display:inline-block; padding:16px 36px; background:#0f172a; color:#ffffff; text-decoration:none; border-radius:4px; font-size:15px; font-weight:800; letter-spacing:0.06em; }
+.sv2-apply-notes { margin:20px 0 0; padding:0; list-style:none; font-size:11.5px; color:#94a3b8; line-height:1.85; }
+
+/* Signature セクション */
+.sv2-signature-section { padding:40px 24px 60px; text-align:center; background:#fafafa; border-top:1px solid #e5e7eb; }
+.sv2-signature-text { font-size:13px; color:#64748b; line-height:1.85; max-width:720px; margin:0 auto; }
+.sv2-signature-sub { font-size:12.5px; }
+
+/* hero eyebrow（ヒーロー内 kicker テキスト） */
+.sv2-hero-eyebrow { font-size:14px; font-weight:800; color:#1b1b1b; letter-spacing:0.04em; margin-bottom:16px; }
+
+/* THEORY セクション ボックス */
+.sv2-theory-box { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:28px 32px; margin:0 0 20px; }
+.sv2-theory-box--bg { background:#f8fafc; }
+.sv2-theory-label { font-size:13px; letter-spacing:0.15em; color:#1e40af; margin:0 0 14px; font-weight:700; }
+.sv2-theory-body { font-size:13.5px; line-height:1.85; color:#475569; margin:0 0 14px; }
+.sv2-theory-body--last { margin:0; }
+.sv2-theory-list { list-style:disc; padding-left:20px; margin:0; font-size:13.5px; line-height:1.85; color:#475569; }
+.sv2-ref-label { font-size:12px; letter-spacing:0.15em; color:#64748b; margin:0 0 12px; font-weight:700; }
+.sv2-ref-list { list-style:none; padding:0; margin:0; font-size:12.5px; line-height:1.85; color:#475569; }
+.sv2-ref-list li { margin-bottom:8px; padding-left:14px; position:relative; }
+.sv2-ref-list li:last-child { margin-bottom:0; }
+.sv2-ref-dot { position:absolute; left:0; color:#94a3b8; }
+.sv2-citations-link { text-align:center; font-size:14px; margin:24px 0; }
+
+/* THEORY h2 中央揃え */
+.sv2-theory-section h2 { text-align:center; }
+.sv2-theory-lead { font-size:14.5px; line-height:1.85; color:#475569; margin:24px 0 28px; text-align:center; }
+
+/* FAQ section margin */
+.sv2-faq-list-wrap { margin-top:28px; }
+
+/* FRAMEWORK lead paragraph */
+.sv2-framework-lead { font-size:15px; line-height:1.85; color:#334155; margin-bottom:24px; }

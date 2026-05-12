@@ -51,13 +51,24 @@
 
 | 取得日 | 論文 | 反映先 | 反映日 |
 |---|---|---|---|
-| _（まだなし）_ | | | |
+| 2026-05-12 | The AI Layoff Trap（Falk-Tsoukalas, SSRN 6448898）| Note Vol.10 素材ストック v0.1（260512_Vol10_..._素材ストック_v0.1.md §2 主軸引用候補）| 260512（素材ストック化）|
+| 2026-05-12 | ⭕#1 Managers and Executives Disagree on AI（HBR 2026/04）| Note Vol.12 ドラフト v1.0 ヘッダー素材ストック追記 / 営業資料 §11 補強候補（W22）| 260512（Vol.12 素材化）|
+| 2026-05-12 | ⭕#2 Safety First arxiv 2602.23279（Reich et al. 2026/2・n=2,257）| Citations LP Tier 2 Cultivate 昇格判定 ✅（260512_Citations_LP_Tier2昇格判定_v1.0.md T59-A）+ culture.md 補強候補（W22）| 260512（判定 SSOT 起票）|
+| 2026-05-12 | ⭕#3 HBR Erodes Trust（2026/02）| Note Vol.10 素材ストック §2 補強候補 / FB 投稿候補（W22）| 260512（素材化）|
+| 2026-05-12 | ⭕#4 Anthropic Labor Market Impacts of AI（Massenkoff-McCrory 2026/3）| Note Vol.10 序盤一次データ素材 ✅ + Citations LP Tier 3 追加検討（T59-C・W22）+ FB 投稿候補（W22）| 260512（Vol.10 素材化）|
+| 2026-05-12 | ⭕#5 Nature SR Attrition Prediction with XAI（2026）| Citations LP Tier 2 Orbit 昇格判定 ✅（T59-B）+ 商品_5サービス詳細.md L519 Orbit 章補強（W22）| 260512（判定 SSOT 起票）|
+| 2026-05-12 | ⭕#6 OECD SME AI Adoption（2024/12・7 ヶ国 5,232 社）| 営業資料 §15 SMB ターゲット顧客理解強化（W22・日本 SME 16%・90% 期待 vs 41% 用途不明）| 260512（タスク化）|
+| 2026-05-12 | ⭕#7 McKinsey Human Leadership in Age of AI（2026）| 営業資料 §0.5 補強（複数領域統合型傍証）/ FB 投稿候補（W22）| 260512（タスク化）|
 
 ### 🔴 不採用（記録のみ・将来の参考用）
 
 | 取得日 | 論文 | 不採用理由 |
 |---|---|---|
-| _（まだなし）_ | | |
+| 2026-05-12 | AI and jobs: review of theory（arxiv 2509.15265）| マクロ寄り・受け身 AI Layoff Trap で十分カバー |
+| 2026-05-12 | Fairness and Bias in Algorithmic Hiring Survey（ACM TIST）| サーベイ論文・新規性低 |
+| 2026-05-12 | AI Popular Leadership Advice（JLS 2026 Kiran）| academic-practitioner 接続論・Gravity 接続弱 |
+| 2026-05-12 | Predicting employee turnover in IT&ITeS using ML（IEEE 2020）| 2020 年で古い・既存 141 papers でカバー済 |
+| 2026-05-12 | Navigating AI-Induced Displacement: Emerging Market（Wiley HBET 2026）| 新興国フォーカス・日本 SMB と乖離 |
 
 ---
 
