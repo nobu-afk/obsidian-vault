@@ -11,7 +11,6 @@
     <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
     <noscript><img loading="lazy" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3958421771147615&ev=PageView&noscript=1" alt="" /></noscript>
 
-    <link rel="stylesheet" href="https://growthfix.jp/assets/css/animate.min.css">
     <link rel="stylesheet" href="https://growthfix.jp/assets/css/style.css?v=20260226c">
     <!--  FONT  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +40,7 @@
 <!-- Gravityシリーズセクション レイアウト調整（260420） -->
 <link rel="stylesheet" href="https://growthfix.jp/gravity/styles-top.css?v=20260424">
   <!-- トップページ専用 CSS（inline style class 化 260512） -->
-  <link rel="stylesheet" href="https://growthfix.jp/assets/css/top-page.css?v=20260512">
+  <link rel="stylesheet" href="https://growthfix.jp/assets/css/top-page.css?v=20260512b">
   <script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
   <script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
 </head>
@@ -430,11 +429,19 @@
     <!-- 共通モバイル最適化パッチ（260427）— styles.cssの後に置いて最終勝者にする -->
     <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260507">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="https://growthfix.jp/assets/js/wow.min.js"></script>
     <script src="https://growthfix.jp/assets/js/bundle.js"></script>
 
     <script>
-        new WOW().init();
+        // CSS-only reveal animation trigger（260512・WOW 置換）
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 
     <script src="https://growthfix.jp/gravity/site-chrome.js?v=20260511b" defer></script>

@@ -427,3 +427,31 @@
   letter-spacing: 0.06em;
   margin: 0;
 }
+
+/* ==========================================
+   CSS-only reveal animation（260512・WOW + animate.css 置換）
+   IntersectionObserver で .visible 付与時にトリガー
+   ========================================== */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translateY(20px); }
+.reveal-left { transform: translateX(-20px); }
+.reveal-right { transform: translateX(20px); }
+.reveal.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.reveal.visible[data-delay=".2s"] { transition-delay: .2s; }
+.reveal.visible[data-delay=".3s"] { transition-delay: .3s; }
+.reveal.visible[data-delay=".4s"] { transition-delay: .4s; }
+.reveal.visible[data-delay=".5s"] { transition-delay: .5s; }
+.reveal.visible[data-delay=".6s"] { transition-delay: .6s; }
+.reveal.visible[data-delay=".7s"] { transition-delay: .7s; }
+.reveal.visible[data-delay=".8s"] { transition-delay: .8s; }
+.reveal.visible[data-delay="1s"] { transition-delay: 1s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+}
