@@ -14,7 +14,7 @@
 // --- bootstrap 読み込み ---
 $DIAGNOSE_CONFIG_PATH = __DIR__ . '/config.php';
 $DIAGNOSE_BASE_DIR    = __DIR__;
-require_once __DIR__ . '/../../_共通/diagnose-bootstrap.php';
+require_once __DIR__ . '/../../../_共通/diagnose-bootstrap.php';
 
 // bootstrap 完了後：$input, $reports_dir が利用可能
 // Executive は非同期ジョブ方式: report_id / REPORT_FILE はジョブ受付後に初期化

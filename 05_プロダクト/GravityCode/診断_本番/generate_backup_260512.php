@@ -1,25 +1,66 @@
 <?php
 /**
- * Gravity CODE 診断 — レポート生成API (v2: bootstrap分離版)
+ * Gravity CODE 診断 — レポート生成API
  * Claude APIを呼び出して才能の取扱説明書を生成する
- *
- * [変更点] CORS/ヘッダー/設定/GETハンドラー/POSTチェック を
- *   diagnose-bootstrap.php に集約。本ファイルは CODE 固有処理のみ保持。
- * [注意] CODE は同期処理（非同期ジョブなし）のため report_id をここで初期化。
- * [本番置換前] generate_v2.php として並走確認後、generate.php にリネーム。
- *
- * config_file パス: __DIR__/config.php（GravityCode/診断_本番/config.php）
  */
 
-// --- bootstrap 読み込み ---
-$DIAGNOSE_CONFIG_PATH = __DIR__ . '/config.php';
-$DIAGNOSE_BASE_DIR    = __DIR__;
-require_once __DIR__ . '/../../_共通/diagnose-bootstrap.php';
+header('Content-Type: application/json; charset=utf-8');
+$allowed_origins = ['https://growthfix.jp', 'http://localhost:8000'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowed_origins)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 
-// bootstrap 完了後：$input, $reports_dir が利用可能
-// CODE は同期処理: report_id / REPORT_FILE を POST 処理のタイミングで初期化
-$report_id   = bin2hex(random_bytes(8));
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
+// --- 設定 ---
+$config_file = __DIR__ . '/config.php';
+if (file_exists($config_file)) {
+    require_once $config_file;
+}
+$ANTHROPIC_API_KEY = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : getenv('ANTHROPIC_API_KEY');
+if (empty($ANTHROPIC_API_KEY)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'API設定エラー。管理者に連絡してください。']);
+    exit;
+}
+$report_id = bin2hex(random_bytes(8));
+$reports_dir = __DIR__ . '/reports';
+if (!is_dir($reports_dir)) mkdir($reports_dir, 0755, true);
 $REPORT_FILE = $reports_dir . '/report_' . $report_id . '.html';
+
+// --- GET /generate.php?report=REPORT_ID → レポート表示 ---
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['report'])) {
+    $req_id = preg_replace('/[^a-f0-9]/', '', $_GET['report']);
+    $req_file = __DIR__ . '/reports/report_' . $req_id . '.html';
+    if ($req_id && strlen($req_id) === 16 && file_exists($req_file)) {
+        header('Content-Type: text/html; charset=utf-8');
+        readfile($req_file);
+    } else {
+        http_response_code(404);
+        echo json_encode(['error' => 'レポートが見つかりません']);
+    }
+    exit;
+}
+
+// --- POST → レポート生成 ---
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Method not allowed']);
+    exit;
+}
+
+$input = json_decode(file_get_contents('php://input'), true);
+if (!$input) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid JSON']);
+    exit;
+}
 
 $choices = $input['choices'] ?? [];
 $freetext = $input['freetext'] ?? [];

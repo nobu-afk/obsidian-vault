@@ -1,25 +1,103 @@
 <?php
 /**
- * Gravity CODE Executive 診断 — レポート生成API（経営者向け）(v2: bootstrap分離版)
+ * Gravity CODE Executive 診断 — レポート生成API（経営者向け）
  * Claude APIを呼び出して「経営者の取扱説明書」を生成する
  * 2026-04-15 作成（4/15堀田＋深掘りセッション反映）
- *
- * [変更点] CORS/ヘッダー/設定/ジョブヘルパー/GETハンドラー/POSTチェック を
- *   diagnose-bootstrap.php に集約。本ファイルは Executive 固有処理のみ保持。
- * [本番置換前] generate_v2.php として並走確認後、generate.php にリネーム。
- *
- * config_file パス: __DIR__/config.php（GravityCode/診断_executive_本番/config.php）
  */
 
-// --- bootstrap 読み込み ---
-$DIAGNOSE_CONFIG_PATH = __DIR__ . '/config.php';
-$DIAGNOSE_BASE_DIR    = __DIR__;
-require_once __DIR__ . '/../../_共通/diagnose-bootstrap.php';
+header('Content-Type: application/json; charset=utf-8');
+$allowed_origins = ['https://growthfix.jp', 'http://localhost:8000'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowed_origins)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 
-// bootstrap 完了後：$input, $reports_dir が利用可能
-// Executive は非同期ジョブ方式: report_id / REPORT_FILE はジョブ受付後に初期化
-$report_id   = bin2hex(random_bytes(8));
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
+// --- 設定 ---
+$config_file = __DIR__ . '/config.php';
+if (file_exists($config_file)) {
+    require_once $config_file;
+}
+$ANTHROPIC_API_KEY = defined('ANTHROPIC_API_KEY') ? ANTHROPIC_API_KEY : getenv('ANTHROPIC_API_KEY');
+if (empty($ANTHROPIC_API_KEY)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'API設定エラー。管理者に連絡してください。']);
+    exit;
+}
+$report_id = bin2hex(random_bytes(8));
+$reports_dir = __DIR__ . '/reports';
+if (!is_dir($reports_dir)) mkdir($reports_dir, 0755, true);
 $REPORT_FILE = $reports_dir . '/report_' . $report_id . '.html';
+
+// --- ジョブステータス ヘルパー（SCAN パターン移植・C-1 fastcgi_finish_request 対応） ---
+function status_file_path($id) {
+    return __DIR__ . '/reports/status_' . $id . '.json';
+}
+function write_status($id, $data) {
+    $existing = read_status($id);
+    if ($existing && isset($existing['created_at'])) {
+        $data['created_at'] = $existing['created_at'];
+    }
+    $data['updated_at'] = time();
+    file_put_contents(status_file_path($id), json_encode($data, JSON_UNESCAPED_UNICODE));
+}
+function read_status($id) {
+    $path = status_file_path($id);
+    if (!file_exists($path)) return null;
+    return json_decode(file_get_contents($path), true);
+}
+
+// --- GET /generate.php?report=REPORT_ID → レポート表示 ---
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['report'])) {
+    $req_id = preg_replace('/[^a-f0-9]/', '', $_GET['report']);
+    $req_file = __DIR__ . '/reports/report_' . $req_id . '.html';
+    if ($req_id && strlen($req_id) === 16 && file_exists($req_file)) {
+        header('Content-Type: text/html; charset=utf-8');
+        readfile($req_file);
+    } else {
+        http_response_code(404);
+        echo json_encode(['error' => 'レポートが見つかりません']);
+    }
+    exit;
+}
+
+// --- GET /generate.php?job=JOB_ID → ジョブステータス返却 ---
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['job'])) {
+    $req_id = preg_replace('/[^a-f0-9]/', '', $_GET['job']);
+    if (!$req_id || strlen($req_id) !== 16) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid job ID']);
+        exit;
+    }
+    $status = read_status($req_id);
+    if (!$status) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Job not found']);
+        exit;
+    }
+    echo json_encode($status);
+    exit;
+}
+
+// --- POST → レポート生成（非同期ジョブ方式） ---
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Method not allowed']);
+    exit;
+}
+
+$input = json_decode(file_get_contents('php://input'), true);
+if (!$input) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid JSON']);
+    exit;
+}
 
 $choices = $input['choices'] ?? [];
 $freetext = $input['freetext'] ?? [];
@@ -609,7 +687,7 @@ $report_url = $base_url . dirname($_SERVER['REQUEST_URI']) . '/generate.php?repo
 write_status($report_id, [
     'status' => 'pending',
     'created_at' => time(),
-], $reports_dir);
+]);
 
 echo json_encode(['job_id' => $report_id, 'report_url' => $report_url]);
 
@@ -622,7 +700,7 @@ set_time_limit(300);
 write_status($report_id, [
     'status' => 'running',
     'created_at' => time(),
-], $reports_dir);
+]);
 
 // --- Claude API 呼び出し（バックグラウンド実行・SYSTEM プロンプト prompt caching 有効） ---
 $api_body = json_encode([
@@ -664,7 +742,7 @@ if ($curl_error) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'API通信エラー: ' . $curl_error,
-    ], $reports_dir);
+    ]);
     exit;
 }
 
@@ -674,7 +752,7 @@ if ($http_code !== 200) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'レポート生成サービスに一時的な問題が発生しています。しばらく後に再試行してください。',
-    ], $reports_dir);
+    ]);
     exit;
 }
 
@@ -691,7 +769,7 @@ if (empty($report_body)) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'レポートの生成に失敗しました',
-    ], $reports_dir);
+    ]);
     exit;
 }
 
@@ -1118,4 +1196,4 @@ write_status($report_id, [
     'status' => 'done',
     'created_at' => time(),
     'report_url' => $report_url,
-], $reports_dir);
+]);
