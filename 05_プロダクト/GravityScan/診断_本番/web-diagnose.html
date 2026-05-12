@@ -251,6 +251,135 @@ body {
   color: #C5A880;
   text-decoration: underline;
 }
+.hero-credit {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(197, 168, 128, 0.08);
+  border-left: 2px solid #C5A880;
+  text-align: left;
+  border-radius: 4px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-credit-line1 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+.hero-credit-line2 {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+.hero-minimap {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-minimap-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.hero-minimap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  max-width: 280px;
+  margin: 0 auto 8px;
+}
+.hero-minimap-cell {
+  padding: 12px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.hero-minimap-cell.type-positive { background: #dcfce7; color: #166534; }
+.hero-minimap-cell.type-warning { background: #fef3c7; color: #92400e; }
+.hero-minimap-cell.type-danger { background: #fee2e2; color: #991b1b; }
+.hero-minimap-note {
+  font-size: 11px;
+  color: #64748b;
+  margin: 6px 0 0 0;
+  text-align: center;
+}
+.hero-voice {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-voice-quote {
+  font-size: 13px;
+  color: #334155;
+  font-style: italic;
+  margin: 0 0 6px 0;
+  line-height: 1.6;
+}
+.hero-voice-author {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+}
+.hero-voice-disclaimer {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-style: normal;
+}
+.cta-faq {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.cta-faq summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  padding: 4px 0;
+  outline: none;
+}
+.cta-faq summary:hover { color: #0f172a; }
+.cta-faq dl {
+  margin-top: 16px;
+}
+.cta-faq dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.cta-faq dt:first-of-type { margin-top: 0; }
+.cta-faq dd {
+  font-size: 12px;
+  color: #475569;
+  margin: 6px 0 0 0;
+  line-height: 1.7;
+}
 
 /* ========================================
    SECTION 2: QUIZ
@@ -876,17 +1005,40 @@ body {
       整合型 / 拡散型 / 渇望型 / 不毛型の 4 型を判定。<br>
       自社に効く施策の方角が、ここで分かる。
     </p>
+
+    <div class="hero-credit">
+      <p class="hero-credit-line1">引力の参謀（組織軸）・石井伸幸 監修</p>
+      <p class="hero-credit-line2">30 名→ 300 名規模の組織を 50 社以上伴走</p>
+    </div>
+
+    <div class="hero-minimap">
+      <p class="hero-minimap-label">2 分でこの 4 型のどこかに分類されます</p>
+      <div class="hero-minimap-grid">
+        <div class="hero-minimap-cell type-positive">整合型</div>
+        <div class="hero-minimap-cell type-warning">拡散型</div>
+        <div class="hero-minimap-cell type-warning">渇望型</div>
+        <div class="hero-minimap-cell type-danger">不毛型</div>
+      </div>
+      <p class="hero-minimap-note">集まる軸 × 躍動軸の 2 マトリクス判定</p>
+    </div>
+
     <div class="hero-meta">
       <span class="hero-meta-badge">12 問・約 2 分</span>
       <span class="hero-meta-badge">無料</span>
       <span class="hero-meta-badge">即時結果表示</span>
-      <span class="hero-meta-badge">引力の参謀（組織軸）監修</span>
     </div>
     <button class="btn-primary" onclick="ScanApp.startDiagnosis()" style="font-size:17px;padding:20px 52px;">
       診断を開始する
     </button>
+
+    <div class="hero-voice">
+      <p class="hero-voice-quote">「『これでいいんだろうか』と感じた夜に受診して、予想せぬ型だった。」</p>
+      <p class="hero-voice-author">── IT スタートアップ代表・30 代</p>
+      <p class="hero-voice-disclaimer">※ Gravity Scan が伴走した経営者の体験を基にした想定例（公開後の実受診者引用に差し替え予定）</p>
+    </div>
+
     <p class="hero-note">
-      ※ 本診断はセルフ版（無料）です。専門家による 60 分の精密診断は
+      ※ 本診断はセルフ版（無料）です。Bandura CE / Schneider ASA / Saks Engagement 等の<a href="https://growthfix.jp/citations/" target="_blank" rel="noopener">学術モデル</a>ベース。専門家による 60 分の精密診断は
       <a href="https://growthfix.jp/gravity-scan/" target="_blank" rel="noopener">Gravity Scan（有料・10 万円）</a>をご利用ください。
     </p>
   </div>
@@ -1046,19 +1198,62 @@ body {
     <p class="result-section-title">NEXT ACTION — 推奨サービス</p>
     <div id="next-action-container"></div>
 
-    <!-- 4-5. CTA -->
+    <!-- 4-5. CTA（v0.3 パルス消費型・260513 改修） -->
+    <!-- プライマリ：30 分相談（最大型・最低障壁） -->
     <div class="result-cta-row">
-      <button class="btn-primary" onclick="ScanApp.goToDetail()">
-        詳細レポート PDF を受け取る
-      </button>
       <a href="https://utage-system.com/event/gcfmTRLg7lAq/register" target="_blank" rel="noopener"
-         class="btn-outline-dark">
-        30 分無料相談を予約する
+         class="btn-primary" style="text-decoration:none;font-size:17px;padding:20px 52px;display:inline-flex;align-items:center;justify-content:center;">
+        30 分、一緒に「これから」を話しましょう
       </a>
     </div>
-    <p class="result-cta-note" style="margin-top:16px;">
-      ※ 詳細レポート（PDF・A4 6-7p）はメールアドレス確認後に自動送信されます。<br>
-      ※ 30 分無料相談は経営者ご本人限定・押し売りなし・石井本人が対応。
+    <p class="result-cta-note" style="margin-top:12px;text-align:center;color:#64748b;font-size:13px;">
+      無料 ・ Zoom ・ 勧誘なし ・ 引力の参謀（組織軸）石井本人が対応
+    </p>
+
+    <!-- Q&A accordion：相談しない理由を消す 10 件 -->
+    <details class="cta-faq">
+      <summary>30 分相談についてよくあるご質問（クリックで展開）</summary>
+      <dl>
+        <dt>Q1. 30 分で何が分かりますか?</dt>
+        <dd>60 分の有料 Scan で行う「型 × 軸スコア × 処方箋」3 段のうち、型と軸スコア解釈の 2 段を 30 分で対話。「次の一手」が複数候補で見える状態を目指します。</dd>
+
+        <dt>Q2. 結局 SCAN 10 万 ・ Shift 80-220 万を売られるのでは?</dt>
+        <dd>30 分内で営業はしません。「次の一手は何か」「自社単独でやるか / 外部と進めるか」までを対話。Gravity サービスの提案はリクエストがあった場合のみ ・ PDF 後送で対応します。</dd>
+
+        <dt>Q3. Zoom が苦手です。</dt>
+        <dd>Zoom or Google Meet お選びいただけます。録画もご希望に応じて。カメラ オフでも対話成立します（音声のみ）。</dd>
+
+        <dt>Q4. 経営チームを連れて行きたい。</dt>
+        <dd>経営者ご本人のみを原則としていますが、CHRO / COO を 1 名同席させたい場合は予約時にご記載ください。</dd>
+
+        <dt>Q5. 今週は忙しい ・ 来月以降にしたい。</dt>
+        <dd>予約フォームに 6 週間先までの空き枠を公開しています。「忘れる前に」が体温計の本質。15 分でも可能（要事前相談）。</dd>
+
+        <dt>Q6. 幼い議論になりそうで不安です。</dt>
+        <dd>30 名 → 300 名規模の組織を 50 社以上伴走した経営伴走の知見ベース。診断結果 + 経営者の現状文脈に基づく対話。学者モード / 抽象論にはなりません。</dd>
+
+        <dt>Q7. 自社情報を出すのが不安です。</dt>
+        <dd>NDA 必要であれば事前提示します（テンプレ送付）。30 分内で出す情報は経営者がコントロール。</dd>
+
+        <dt>Q8. 他社と比較したい。</dt>
+        <dd>Gravity 以外の選択肢（識学 ・ アチーブメント ・ サーベイ系 ・ 組織開発系等）も対話内で第三者目線で言及します。「自社に合うのは何か」を一緒に考えるスタンス。</dd>
+
+        <dt>Q9. 予算なし ・ 情報収集だけです。</dt>
+        <dd>無料の 30 分です。情報収集目的のご予約も歓迎。「いつか必要になった時の選択肢」として記憶していただけば十分です。</dd>
+
+        <dt>Q10. 今、診断結果を見ただけで十分です。</dt>
+        <dd>レポート PDF（A4 4 ページ）でセルフレビュー可能ですが、「30 分の対話」で気づくことが多くのクライアントから報告されています。気が変わったら 6 週間以内に再予約も可。</dd>
+      </dl>
+    </details>
+
+    <!-- セカンダリ：レポート PDF -->
+    <div class="result-cta-row" style="margin-top:28px;">
+      <button class="btn-outline-dark" onclick="ScanApp.goToDetail()" style="font-size:15px;">
+        レポート PDF（A4 6-7p）を受け取る
+      </button>
+    </div>
+    <p class="result-cta-note" style="margin-top:8px;text-align:center;color:#94a3b8;font-size:11px;">
+      ※ メールアドレス登録で即時送付
     </p>
 
     <!-- 4-6. 有料 Scan への誘導（末尾） -->
