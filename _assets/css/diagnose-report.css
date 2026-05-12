@@ -1,0 +1,173 @@
+/*
+ * diagnose-report.css — 診断レポート共通スタイル
+ * Gravity CODE / CODE Executive / Gravity Scan の全 generate.php に適用
+ * 抽出元: GravityCode/診断_本番、GravityCode/診断_executive_本番、GravityScan/診断_本番
+ * 作成: 2026-05-12 (P1-B CSS外部化)
+ *
+ * このファイルに含まれるセレクタ: 全3ファイルで共通の基底スタイル
+ * ファイル固有スタイルは diagnose-report-code.css / diagnose-report-scan.css を参照
+ */
+
+/* ── ページ・リセット ── */
+@page { size: A4; margin: 20mm 18mm 24mm 18mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: #e8e8e8; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 15px; line-height: 1.8; color: #1a1a2e; background: #fff;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  max-width: 760px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1);
+}
+
+/* ── レイアウト基盤 ── */
+.page { padding: 48px 56px; }
+
+/* ── PDF印刷ボタン ── */
+.pdf-btn {
+  position: fixed; bottom: 32px; right: 32px; display: flex; align-items: center; gap: 8px;
+  background: #0f172a; color: #fff; font-size: 14px; font-weight: 600;
+  padding: 14px 28px; border: none; border-radius: 100px; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: opacity 0.2s, transform 0.2s;
+  z-index: 9999; letter-spacing: 0.04em;
+}
+.pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.pdf-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ── セクション構造 ── */
+.section { page-break-inside: avoid; margin-bottom: 36px; }
+.section-num {
+  display: inline-block; font-size: 9pt; font-weight: 700; color: #fff;
+  background: #0f172a; width: 28px; height: 28px; line-height: 28px;
+  text-align: center; border-radius: 50%; margin-right: 10px; vertical-align: middle;
+}
+.section-title {
+  display: inline; font-size: 16pt; font-weight: 800; color: #0f172a;
+  letter-spacing: 0.04em; vertical-align: middle;
+}
+.section-line { height: 2px; background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%); margin: 12px 0 28px; }
+
+/* ── 基本タイポグラフィ ── */
+h3 { font-size: 12pt; font-weight: 700; color: #0f172a; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+h4 { font-size: 10.5pt; font-weight: 700; color: #334155; margin: 20px 0 10px; letter-spacing: 0.02em; }
+p { margin: 0 0 14px; }
+
+/* ── コアクォート ── */
+.core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
+
+/* ── 動詞チェーン（見出し帯） ── */
+.verb-chain { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 24px; margin: 16px 0 24px; font-size: 11pt; font-weight: 700; color: #0f172a; letter-spacing: 0.02em; text-align: center; line-height: 1.8; }
+
+/* ── 番号付きリスト ── */
+.numbered-list { counter-reset: nlist; list-style: none; padding: 0; margin: 12px 0 24px; }
+.numbered-list li, .numbered-list > div { counter-increment: nlist; position: relative; padding-left: 32px; margin-bottom: 14px; font-size: 10pt; line-height: 1.8; }
+.numbered-list li::before, .numbered-list > div::before { content: counter(nlist); position: absolute; left: 0; top: 2px; width: 22px; height: 22px; background: #0f172a; color: #fff; border-radius: 50%; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+/* ── フィルターグリッド ── */
+.filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+.filter-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.filter-col h4 { margin: 0 0 12px; font-size: 10pt; text-transform: none; }
+.filter-high { background: rgba(15,23,42,0.02); }
+.filter-low { background: rgba(220,38,38,0.02); }
+.filter-col ul { list-style: none; padding: 0; }
+.filter-col li { font-size: 10pt; line-height: 1.8; padding-left: 16px; position: relative; margin-bottom: 6px; }
+.filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
+.filter-high li::before { background: #0f172a; }
+.filter-low li::before { background: #dc2626; opacity: 0.5; }
+
+/* ── Have-to カード ── */
+.haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
+.haveto-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 4px; }
+.haveto-card p { font-size: 10pt; line-height: 1.8; color: #334155; }
+
+/* ── プロセスグリッド ── */
+.process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 24px; }
+.process-item { padding: 14px 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; }
+.process-verb { font-size: 10pt; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+.process-item p { font-size: 9pt; color: #64748b; line-height: 1.7; }
+
+/* ── シナリオボックス ── */
+.scenario-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
+.scenario-box h4 { margin: 0 0 10px; text-transform: none; }
+.scenario-box ul { list-style: disc; padding-left: 20px; }
+.scenario-box li { font-size: 10pt; line-height: 1.8; margin-bottom: 4px; }
+
+/* ── マニュアルグリッド ── */
+.manual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+.manual-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.manual-do { background: rgba(15,23,42,0.02); }
+.manual-dont { background: rgba(220,38,38,0.02); }
+.manual-col h4 { margin: 0 0 12px; text-transform: none; }
+
+/* ── パスカード ── */
+.path-cards { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 24px; }
+.path-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; position: relative; }
+.path-card--recommended { border-color: #0f172a; background: rgba(15,23,42,0.02); }
+.path-badge { position: absolute; top: 14px; right: 14px; font-size: 8pt; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; background: #0f172a; color: #fff; border-radius: 4px; }
+.path-card h4 { margin: 0 0 6px; font-size: 11pt; text-transform: none; color: #0f172a; }
+.path-card p { font-size: 9.5pt; color: #64748b; line-height: 1.7; }
+.path-card-meta { font-size: 9.5pt; color: #64748b; margin: 0 0 10px !important; letter-spacing: 0.02em; font-weight: 600; }
+.path-card--small { padding: 12px 16px; font-size: 9.5pt; color: #475569; background: #f8fafc; border-color: #e2e8f0; }
+.path-card--small strong { color: #0f172a; }
+
+/* ── クロージングノート ── */
+.closing-note { background: #f8fafc; border-left: 4px solid #0f172a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 20px 0 12px; font-style: italic; color: #334155; page-break-inside: avoid; }
+.closing-note p { margin: 0 0 8px; font-size: 10.5pt; line-height: 1.85; }
+.closing-note p:last-child { margin-bottom: 0; }
+
+/* ── 理論背景ボックス ── */
+.theory-background-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 24px 0 16px; page-break-inside: avoid; }
+.theory-background-box h4 { font-size: 10.5pt; margin: 0 0 8px; color: #475569; font-weight: 700; }
+.theory-background-box .theory-intro { margin: 0 0 10px; font-size: 9pt; line-height: 1.7; color: #64748b; }
+.theory-background-box .theory-list { list-style: disc; padding-left: 18px; margin: 0 0 8px; }
+.theory-background-box .theory-list li { font-size: 9pt; line-height: 1.65; color: #475569; margin: 0 0 4px; }
+.theory-background-box .theory-list strong { color: #334155; font-weight: 700; }
+.theory-background-box .theory-note { font-size: 8pt; color: #94a3b8; margin: 8px 0 0; padding-top: 6px; border-top: 1px dashed #e2e8f0; line-height: 1.55; }
+
+/* ── レポートフッター ── */
+.report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
+.report-footer strong { color: #0f172a; font-size: 10pt; }
+.page-break { page-break-before: always; }
+
+/* ── カバーページ共通パーツ ── */
+.cover-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; padding-top: 16px; }
+.cover-badge { display: inline-block; font-size: 9pt; font-weight: 700; letter-spacing: 0.3em; color: #94a3b8; border: 1px solid #334155; padding: 5px 14px; border-radius: 2px; margin-bottom: 28px; text-transform: uppercase; }
+.cover-main-title { font-size: 48pt; font-weight: 900; line-height: 1.05; color: #fff; border-left: 6px solid #C5A880; padding: 0 0 0 24px; margin: 0 0 28px; letter-spacing: 0.02em; border-bottom: none; }
+.cover-divider { width: 72px; height: 3px; background: #C5A880; margin: 0 0 36px 24px; }
+.cover-gravity-def { background: rgba(255, 255, 255, 0.04); padding: 24px 28px; border-radius: 4px; border-left: 3px solid #C5A880; margin-bottom: 28px; }
+.cover-gravity-label { font-size: 10pt; font-weight: 700; letter-spacing: 0.2em; color: #C5A880; margin-bottom: 14px; text-transform: uppercase; }
+.cover-gravity-body { font-size: 11pt; line-height: 1.85; color: #d7dde6; margin: 0 0 18px; }
+.cover-gravity-body strong { color: #fff; font-weight: 800; }
+.cover-gravity-duality { display: flex; flex-direction: column; gap: 6px; margin: 14px 0 18px; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.cover-gravity-positive, .cover-gravity-negative { display: flex; align-items: center; gap: 12px; font-size: 10pt; line-height: 1.5; color: #d7dde6; padding: 4px 0; }
+.cgd-arrow { color: #64748b; font-weight: 700; }
+.cover-gravity-claim { font-size: 12pt; font-weight: 700; color: #fff; margin: 0; padding-top: 8px; line-height: 1.6; letter-spacing: 0.02em; }
+.cm-divider { margin: 0 8px; color: #475569; }
+
+/* ── レスポンシブ（スクリーン ≤800px） ── */
+@media screen and (max-width: 800px) {
+  body { max-width: 100%; box-shadow: none; font-size: 14px; }
+  .page { padding: 24px 20px; }
+  .section-title { font-size: 18px; }
+  h3 { font-size: 15px; }
+  .core-quote { padding: 16px 18px; font-size: 14px; }
+  .verb-chain { padding: 14px 16px; font-size: 13px; }
+  .filter-grid, .manual-grid { grid-template-columns: 1fr; gap: 12px; }
+  .process-grid { grid-template-columns: 1fr; gap: 8px; }
+  .path-cards { gap: 10px; }
+  .analyst-note { padding: 18px 20px; }
+  .pdf-btn { bottom: 16px; right: 16px; padding: 10px 20px; font-size: 13px; }
+}
+@media screen and (min-width: 801px) {
+  body { max-width: 760px; }
+}
+
+/* ── 印刷 ── */
+@media print {
+  html { background: #fff; }
+  body { font-size: 10pt; visibility: visible !important; max-width: none; box-shadow: none; margin: 0; }
+  .page { padding: 0; }
+  .pdf-btn { display: none; }
+  .filter-grid, .process-grid, .manual-grid { break-inside: avoid; }
+  .haveto-card, .path-card, .scenario-box { break-inside: avoid; }
+}
