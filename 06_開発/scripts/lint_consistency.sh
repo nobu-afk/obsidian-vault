@@ -39,6 +39,7 @@ check_forbidden() {
       --exclude-dir="_archive_obsolete" \
       --exclude-dir="レポート" \
       --exclude="*template*" \
+      --exclude="*_backup_*" \
       --exclude="growthfix-*-index.html" \
       --exclude="$extra_exclude" \
       2>/dev/null)
@@ -49,6 +50,7 @@ check_forbidden() {
       --exclude-dir="_archive_obsolete" \
       --exclude-dir="レポート" \
       --exclude="*template*" \
+      --exclude="*_backup_*" \
       --exclude="growthfix-*-index.html" \
       2>/dev/null)
   fi
@@ -144,9 +146,9 @@ check_forbidden "Scan 5万" "Scan 価格 SSOT 違反（正：10 万・60 分）"
 check_forbidden "C-5 中判定" "v0.4 で覚悟確認 4 象限化（B 結論先送り型 / C 単線思考型）" "覚悟確認 B 型 / C 型"
 check_forbidden "C-5 高判定" "v0.4 で覚悟確認 4 象限化（A 完全覚悟型）" "覚悟確認 A 型"
 check_forbidden "C-5 低判定" "v0.4 で覚悟確認 4 象限化（D 完全 have to 型）" "覚悟確認 D 型"
-# 260509 v0.4 引力項目数（7 → 8 に拡張）── LP 6 ファイル（Scan/Gravity TOP/Orbit/service/WP V9）に「引力 7 項目」表記が残存。本質改訂（PO Fit 認識・心理的安全性 4 行動の説明追加）が必要なため 5/15 後のタスクで対応・現在は warning レベルとして無効化
-# check_forbidden "引力 7 項目" "v0.4 で 8 項目化（PO Fit 認識・心理的安全性 4 行動追加）" "引力 8 項目"
-# check_forbidden "引力7項目" "v0.4 で 8 項目化" "引力 8 項目"
+# 260509 v0.4 引力項目数（7 → 8 に拡張）。260512 LP 5 ファイル 8 項目化完了 → 検出再有効化
+check_forbidden "引力 7 項目" "v0.4 で 8 項目化（PO Fit 認識・心理的安全性 4 行動追加）" "引力 8 項目"
+check_forbidden "引力7項目" "v0.4 で 8 項目化" "引力 8 項目"
 
 # 260511 朝 SSOT §8 同期追加（廃止用語の機械検出強化）
 check_forbidden "Why × 動詞 × 環境" "260430 公開語彙統一で廃止" "Why × 才能 × 偏愛"

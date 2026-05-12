@@ -40,7 +40,7 @@ SCAN_SUFFIXES = {".html", ".htm", ".css", ".js", ".php"}
 EXCLUDE_PARTS = {"_archive", ".git", "node_modules", "_backup"}
 
 PATTERNS = [
-    ("wp-content", re.compile(r"wp-content(?:/[^\s\"'<>)]*)?")),
+    ("wp-content", re.compile(r"wp-content(?!s)(?:/[^\s\"'<>)]*)?")),
     ("wp-includes", re.compile(r"wp-includes(?:/[^\s\"'<>)]*)?")),
     ("wp-json", re.compile(r"/wp-json/[^\s\"'<>)]*")),
     ("wp-admin", re.compile(r"/wp-admin/[^\s\"'<>)]*")),
