@@ -4,6 +4,75 @@
    ========================================= */
 
 /* ==========================================
+   Phase 1 CSS class 化（260512）
+   b-cta / b-chapter / b-axis-group の inline style を class 定義
+   ========================================== */
+
+/* CTA ボタン（ヒーロー内） */
+.b-cta-primary {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  border-radius: 4px;
+}
+.b-cta-secondary {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* Chapter セクション（思想層）—— 背景色はバリアント class で指定 */
+.b-chapter { padding: 80px 0 72px; border-top: 1px solid #e5e7eb; }
+.b-chapter--bg-warm { background: #fafaf8; }
+.b-chapter--bg-white { background: #ffffff; border-top-color: #e8e4da; padding-top: 72px; padding-bottom: 72px; }
+
+/* axis-group —— 上マージンはバリアント class で指定 */
+.b-axis-group--mt-sm { margin-top: 32px; }
+.b-axis-group--mt-lg { margin-top: 48px; }
+
+/* series-card-header（flex 設定） */
+.b-series-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+/* series-card-title（margin リセット） */
+.b-series-card-title { margin: 0; }
+
+/* series-card-tag（margin） */
+.b-series-card-tag-mb { margin-bottom: 10px; }
+
+/* series-card-meta カラーバリアント */
+.b-series-card-meta--dark { color: #0f172a; }
+.b-series-card-meta--blue { color: #1e40af; }
+
+/* series-card ボーダー左バリアント */
+.b-series-card--dark { border-left: 4px solid #0f172a; }
+.b-series-card--blue { border-left: 4px solid #1e40af; }
+
+/* series-grid カラム指定バリアント */
+.b-series-grid--3col { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.b-series-grid--2col { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+/* price badge（コンパクトな価格表示） */
+.b-price-badge { font-size: 12px; font-weight: 900; color: #64748b; white-space: nowrap; }
+
+/* ==========================================
    Service Connect Band（ヒーロー直後の5サービス接続）
    ========================================== */
 .b-service-connect-band {
