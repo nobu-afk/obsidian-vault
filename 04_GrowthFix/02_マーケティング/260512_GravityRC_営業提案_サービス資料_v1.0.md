@@ -54,6 +54,27 @@
 | **D** | AI × コーチング × 引力翻訳の三位一体 | AI HR ツール導入済・コーチング受講済の経営者向け |
 | **E** | 教育型 vs 構造実装型 | WhitePaper V10 第 0 章限定運用（商談では言及しない）|
 
+### 複数領域統合型スタンス × McKinsey 3A 整合（260513 §3.6 60-G 追加）
+
+**学術ソース：** McKinsey & Company (2026). *Developing human leadership in the age of AI.* McKinsey Insights.
+**URL：** https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/building-leaders-in-the-age-of-ai
+
+**McKinsey 3A モデル × Gravity 6 サービスのマッピング：**
+
+| McKinsey 3A | 学術原典 | Gravity 6 サービスでの実装 |
+|---|---|---|
+| **Authentic**（本来性）| Walumbwa et al. 2008 ALQ（2,057 cites）| CODE（個人引力解読・5 万）+ Coaching（38 万）|
+| **Adaptive**（適応性）| Heifetz Adaptive Leadership | Cultivate（150 万・6 ヶ月）+ Orbit（月 15 万）|
+| **Accountable**（責任性）| Stewardship Theory | Scan（10 万・組織引力タイプ診断）+ Shift R/C/Full |
+
+**商談での活用：**
+> 「McKinsey が 2026 年に提言した『AI 時代の競争優位 = authentic / adaptive / accountable リーダーの育成』── これは私たちが 30 年追いかけてきた『引力経営』とほぼ完全に同型です。**ただし GrowthFix は McKinsey の理論を実装するのではなく、複数領域統合型のスタンス**（Bandura 効力感 / Edmondson 心理的安全性 / Walumbwa Authentic / OD 5 系列 / 速度非対称性）で 6 サービスを設計しています」
+
+**運用原則：**
+- McKinsey 単独を「権威担ぎ」しない（複数領域統合型のスタンス維持）
+- HBR 2026/04 中間経営職 + Anthropic 2026/3 Labor Market + OECD SME と**並列展開**で「複数領域から同じ結論が出ている」型に整形
+- 5 つの勝ち筋カテゴリ **D**（AI × コーチング × 引力翻訳の三位一体）と接続し、Coaching / CODE 受講済経営者の商談で活用
+
 ---
 
 ---
@@ -1738,7 +1759,7 @@ A：契約時に双方向 NDA を締結します（弁護士確認後・5/16 以
 
 **詳細 SSOT：** `04_GrowthFix/02_マーケティング/260512_三位一体マップ_AI論文7件反映マッピング_v1.0.md`
 
-### §17.6 OECD SME AI 統計（日本市場理解・260512 採用論文 #6）
+### §17.6 OECD SME AI 統計（日本市場理解・260512 採用論文 #6 / 260513 §3.6 60-F 商談時運用 guide 追加）
 
 **日本 SME AI 採用統計（OECD 2024/12・7 ヶ国 5,232 社調査・日本含む）：**
 
@@ -1748,8 +1769,26 @@ A：契約時に双方向 NDA を締結します（弁護士確認後・5/16 以
 - **50%** の SME が「従業員に AI を使うスキルなし」（日本最大障壁）
 - 日本のデジタル競争力ランキング：**31 位 / 67 ヶ国**（IMD 2024）
 
-**商談での活用：**
+**学術ソース：** OECD (2024). *AI adoption by small and medium-sized enterprises (SMEs).* OECD Publishing, Paris.
+**URL：** https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/12/ai-adoption-by-small-and-medium-sized-enterprises_9c48eae6/426399c1-en.pdf
+
+**商談での活用（基本）：**
 > 「OECD の最新調査で、日本の中小企業の **41% が AI ユースケース不明**。これは脅威ではなく機会です。GrowthFix が「AI ネイティブ × 引力経営」を**翻訳して見せる**ことで、SMB が次のステージに進める」
+
+**商談シーン別運用 guide（260513 §3.6 60-F 追加）：**
+
+| 商談シーン | 提示する OECD 数値 | 接地メッセージ |
+|---|---|---|
+| **AI 導入未着手の経営者**（Gravity 全体導入検討時）| 「日本 SME の AI 採用率 16%・最低水準」 | 「御社が今 AI に着手すれば、市場の **上位 16%** に入るタイミング。Gravity の `引力経営 × AI ネイティブ` フレームで具体ユースケースを 6 サービス × 4 マネジメントに翻訳します」|
+| **AI 導入済だが浸透しない経営者**（Cultivate 適合判定時）| 「50% の SME が `従業員に AI を使うスキルなし`」 | 「これは **AI スキル教育の不在ではなく、中間経営職の AI 翻訳機能不在**（HBR 2026/04 Wharton 800 名調査）。Gravity Cultivate の 4 マネジメントが介入点」|
+| **採用市場の競合激化に悩む経営者**（Recruit 適合判定時）| 「ドイツ 38.7% vs 日本 23.5%（生成 AI 採用率）」 | 「グローバル比較で 15pt の遅れ。優秀人材は AI ネイティブ環境を選ぶ。Gravity Recruit の `AI × 引力 × 採用基盤` 3 ヶ月伴走で、AI ネイティブ採用市場での競争優位を確立します」|
+| **DX を進めたいが何から始めるか不明な経営者**（Scan 受診前）| 「非利用者の 41% が `具体的な利用機会が思い浮かばない`」 | 「これは経営者個人の課題ではなく **業界共通の翻訳ボトルネック**。Gravity Scan（10 万・60 分）で組織の引力タイプを診て、AI 投入の方角を 4 型 × 6 サービスで決めます」|
+| **識学・組織開発系と比較中の経営者**（差別化軸提示時）| 「日本デジタル競争力 31 位 / 67 ヶ国」 | 「識学は AI で代替リスク高（管理自動化系）。Gravity は AI が管理を自動化するほど引力設計の希少性が上がる構造（Kellogg 2020 / Tambe 2019）。**日本 31 位の現状を変える勝ち筋**は引力経営型」|
+
+**運用原則：**
+- **数値の単発提示は禁則**：必ず「OECD 数値 + 接地メッセージ + 該当サービス提案」の 3 点セットで提示
+- **権威担ぎの回避**：「OECD が言っているから」型 NG。**複数領域統合型のスタンス**（OECD + HBR + Anthropic + Wharton の組合せ）で運用
+- **詳細統計は商談後資料に格納**：商談中は 1-2 数値に絞り、フルセットは PDF 配布資料 + Note Vol.10 / Vol.12 に展開
 
 ### §17.7 改訂履歴（v0.9 追加）
 
