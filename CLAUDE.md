@@ -102,3 +102,13 @@ AI 費用は経営戦略指標として扱う。月次 retail 換算コストは
 - **時間制約タスク**：目的 1 行 → 問い 3-5 / 決定 3-5 / 指標 3-5 で止める。網羅報告は禁則（`memory/feedback_session_purpose_first.md`）
 - **Skill 実行後は Diff 提示**：iran-update / daily 等は前日との差分箇条書きを必ず出す（`memory/feedback_post_skill_diff_summary.md`）
 - **モデル選択**：戦略判断・壁打ちは Opus、レポート生成・実装は Sonnet（`memory/feedback_model_selection_sonnet.md`）
+
+---
+
+## 260513 Phase 1 フォルダ整理（適用済）
+
+- **03_コンテンツ**：直下40本ベタ置き → サブフォルダ化（`_連載管理/` `連載_Vol0-14/` `連載_卒業生シリーズS1-S8/` `_素材ストック/` `_archive/`）。詳細：`03_コンテンツ/_README.md`
+- **04_GrowthFix/03_採用**：新設（求人設計 / 面接プロセス / オファー設計 / 採用_横断知見 / Shift_R_Week1-2納品物）。詳細：`04_GrowthFix/03_採用/_README.md`
+- **01_石井伸幸**：親版本 = `260427_最新統合プロファイル_4月後半発見統合版.md`。詳細：`01_石井伸幸/_README.md`
+- **_shared 廃止**：`question_block_styles.php` を `05_プロダクト/_共通/` に統合（deploy.sh 同期更新済）
+- **08_情報収集 56M→4M**：青木聡 VTT 原本（42M）・Tier2 VTT（9.9M）・260501 Shift検証素材（152K）削除。クリーン版とフレーム集約 SSOT は温存

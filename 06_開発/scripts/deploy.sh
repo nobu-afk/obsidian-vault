@@ -39,7 +39,7 @@ deploy_shared() {
   upload "$VAULT/_assets/css/tokens.css"           "assets/css/tokens.css"            "tokens.css"
   upload "$VAULT/_assets/css/lp-base.css"          "assets/css/lp-base.css"           "lp-base.css"
   upload "$VAULT/_assets/css/lp-scan-extras.css"   "assets/css/lp-scan-extras.css"    "lp-scan-extras.css"
-  upload "$VAULT/_shared/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
+  upload "$VAULT/05_プロダクト/_共通/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
   wait
   echo "[共通アセット完了]"
   echo ""
