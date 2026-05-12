@@ -1,0 +1,41 @@
+{
+  "client_id": "sample_orbit_client",
+  "month": "2026-05",
+  "previous_month": "2026-04",
+  "gravity_scores": {
+    "current": {
+      "recruitment_pipeline":  "○",
+      "final_decline_rate":    "△",
+      "talent_retention":      "○",
+      "executive_voice":       "△",
+      "engagement":            "○",
+      "departure_signal":      "△",
+      "recruitment_wall_pof":  "○",
+      "psych_safety_cost":     "△"
+    },
+    "previous": {
+      "recruitment_pipeline":  "△",
+      "final_decline_rate":    "△",
+      "talent_retention":      "△",
+      "executive_voice":       "×",
+      "engagement":            "△",
+      "departure_signal":      "×",
+      "recruitment_wall_pof":  "△",
+      "psych_safety_cost":     "×"
+    }
+  },
+  "alpha_beta_gamma_delta_actions": [
+    {"axis": "R-α", "action": "採用メッセージの Why 軸を経営者の言語で再設計（求職者ペルソナ×引力ポイントの言語化）", "priority": "high"},
+    {"axis": "C-β", "action": "1on1 頻度を隔週→毎週に引き上げ・アジェンダ標準化（発話量ログ継続）", "priority": "high"},
+    {"axis": "C-γ", "action": "エンゲージメントサーベイ設問を引力 8 項目に対応させる（Shift C 設計フレームを活用）", "priority": "medium"},
+    {"axis": "R-δ", "action": "最終面接フォローアップ連絡を 24h 以内に統一・辞退率改善の継続測定", "priority": "medium"}
+  ],
+  "departure_signals": {
+    "physical":      "△",
+    "facial":        "○",
+    "overload":      "△",
+    "meaning":       "○",
+    "relationships": "○"
+  },
+  "memo": "【2026-05 コメント】2ヶ月目。採用パイプライン・優秀人材定着率・エンゲージメントが△→○に改善。幹部発話量・離脱予兆は×→△に改善。Bさんの過負荷シグナルは継続要注意。来月は心理的安全性の改善施策を集中投下予定。"
+}

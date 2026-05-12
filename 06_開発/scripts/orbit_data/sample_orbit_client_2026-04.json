@@ -1,0 +1,41 @@
+{
+  "client_id": "sample_orbit_client",
+  "month": "2026-04",
+  "previous_month": "2026-03",
+  "gravity_scores": {
+    "current": {
+      "recruitment_pipeline":  "△",
+      "final_decline_rate":    "△",
+      "talent_retention":      "△",
+      "executive_voice":       "×",
+      "engagement":            "△",
+      "departure_signal":      "×",
+      "recruitment_wall_pof":  "△",
+      "psych_safety_cost":     "×"
+    },
+    "previous": {
+      "recruitment_pipeline":  "×",
+      "final_decline_rate":    "×",
+      "talent_retention":      "△",
+      "executive_voice":       "×",
+      "engagement":            "×",
+      "departure_signal":      "×",
+      "recruitment_wall_pof":  "×",
+      "psych_safety_cost":     "×"
+    }
+  },
+  "alpha_beta_gamma_delta_actions": [
+    {"axis": "R-α", "action": "採用 JD（職務記述書）を Why 軸・才能軸で再設計し求職者ペルソナに刺さる言語に変換", "priority": "high"},
+    {"axis": "C-β", "action": "幹部 1on1 の週次化・対話量ログ開始（発話比率 経営者: 幹部 = 3:7 目標）", "priority": "high"},
+    {"axis": "C-γ", "action": "エンゲージメントサーベイを月次 5 問に圧縮し継続率を上げる", "priority": "medium"},
+    {"axis": "R-δ", "action": "最終面接後 24h 以内フォロー連絡の徹底と辞退理由の記録", "priority": "medium"}
+  ],
+  "departure_signals": {
+    "physical":      "×",
+    "facial":        "△",
+    "overload":      "×",
+    "meaning":       "△",
+    "relationships": "△"
+  },
+  "memo": "【2026-04 コメント】Orbit 初月。ベースライン測定フェーズ。経営者の覚悟形成は概ね完了。幹部 3 名のうち 1 名（Bさん）に離職予兆ありとして重点ウォッチを開始。"
+}

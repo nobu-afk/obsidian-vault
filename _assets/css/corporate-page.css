@@ -1,0 +1,133 @@
+/*
+ * corporate-page.css
+ * GrowthFix — corporate ページ群（10 ページ）の共通インライン <style> 抽出雛形
+ *
+ * Phase 0（2026-05-12 作成）
+ * - HTML は一切編集していない。このファイルは参照 0 のスタンドアロン雛形。
+ * - Phase 1 で各 HTML の <style> から完全一致セレクタを削除し、
+ *   <link rel="stylesheet" href="/assets/css/corporate-page.css"> に差し替える。
+ *
+ * 収録基準：
+ *   ✅ 完全一致（セレクタ名・値ともに 2 ファイル以上で同一）→ 本ファイルに収録
+ *   ❌ 値違い（セレクタ名は同じだがファイルにより値が異なる）→ 各 HTML に残す（後述）
+ *
+ * 完全一致セレクタ一覧（12 個）:
+ *   .breadcrumb          [7 / 10 ページ]
+ *   .breadcrumb a        [7 / 10 ページ]
+ *   .breadcrumb a:hover  [5 / 10 ページ]
+ *   .sub-hero .eyebrow   [6 / 10 ページ]
+ *   .cta-inner h2        [2 / 10 ページ]  profile / achievement
+ *   .cta-inner p         [2 / 10 ページ]  profile / achievement
+ *   .cta-btns            [2 / 10 ページ]  profile / achievement
+ *   .cta-btn             [2 / 10 ページ]  profile / achievement
+ *   .cta-btn-primary     [2 / 10 ページ]  profile / achievement
+ *   .cta-btn-primary:hover [2 / 10 ページ]  profile / achievement
+ *   .cta-btn-ghost       [2 / 10 ページ]  profile / achievement
+ *   .cta-btn-ghost:hover [2 / 10 ページ]  profile / achievement
+ *
+ * 値違いにより見送りしたセレクタ（7 個・各 HTML に残す）:
+ *   .sub-hero        — privacy のみ padding が 72px 0 40px（他は 80px 0 48px）
+ *   .sub-hero h1     — privacy のみ font-size: 28px（他は 32px）
+ *   .sub-hero .lead  — contact は line-height: 1.85 / privacy は font-size: 13.5px と差異あり
+ *   .section-label   — profile（text-align なし）vs achievement（text-align: center）
+ *   .section-title   — profile（text-align なし）vs achievement（text-align: center）
+ *   .cta-section     — padding / text-align が 2 ファイル間で異なる
+ *   .cta-inner       — profile（text-align: center あり）vs achievement（なし）
+ */
+
+/* ============================================================
+   パンくず（breadcrumb）
+   対象: profile / service / news / achievement / knowledge /
+         contact / privacy  [7 / 10 ページ]
+   ============================================================ */
+.breadcrumb {
+    padding: 16px 0;
+    font-size: 12px;
+    color: #94a3b8;
+    letter-spacing: 0.04em;
+}
+
+.breadcrumb a {
+    color: #64748b;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   サブヒーロー eyebrow ラベル
+   対象: profile / news / achievement / knowledge / contact /
+         privacy  [6 / 10 ページ]
+   注意: .sub-hero 本体・.sub-hero h1・.sub-hero .lead は
+         値違いのため各 HTML に残す。
+   ============================================================ */
+.sub-hero .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.18em;
+    margin-bottom: 14px;
+}
+
+
+/* ============================================================
+   CTA セクション — ボタン・コピー群
+   対象: profile / achievement  [2 / 10 ページ]
+   注意: .cta-section 本体・.cta-inner 本体は値違いのため
+         各 HTML に残す。
+   ============================================================ */
+.cta-inner h2 {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    margin: 0 0 16px;
+}
+
+.cta-inner p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.9;
+    margin: 0 0 32px;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+}
+
+.cta-btn-primary {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+.cta-btn-primary:hover {
+    background: #e2e8f0;
+}
+
+.cta-btn-ghost {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #cbd5e1;
+}
+
+.cta-btn-ghost:hover {
+    background: #ffffff;
+    color: #0f172a;
+}
