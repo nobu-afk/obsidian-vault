@@ -19,9 +19,9 @@ if echo "$FILE_PATH" | grep -qE '05_プロダクト/.+\.html$'; then
   LINT_OUT="$(mktemp)"
 
   # ① と ② を並列実行
-  (cd "$VAULT_DIR" && python3 06_開発/scripts/audit_mobile_sync.py 2>&1 | tail -15) > "$AUDIT_OUT" &
+  (cd "$VAULT_DIR" && python3 06_開発/scripts/audit/audit_mobile_sync.py 2>&1 | tail -15) > "$AUDIT_OUT" &
   AUDIT_PID=$!
-  (cd "$VAULT_DIR" && python3 06_開発/scripts/lint_lp_internal_terms.py 2>&1 | tail -30) > "$LINT_OUT" &
+  (cd "$VAULT_DIR" && python3 06_開発/scripts/lint/lint_lp_internal_terms.py 2>&1 | tail -30) > "$LINT_OUT" &
   LINT_PID=$!
 
   wait $AUDIT_PID

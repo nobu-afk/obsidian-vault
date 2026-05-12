@@ -525,7 +525,7 @@ fi
 echo ""
 echo "[10] 知識連動 audit（memory ↔ SSOT ↔ 会社OS）"
 VAULT_ROOT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
-audit_output=$(python3 "$VAULT_ROOT/06_開発/scripts/audit_knowledge_sync.py" 2>&1)
+audit_output=$(python3 "$VAULT_ROOT/06_開発/scripts/audit/audit_knowledge_sync.py" 2>&1)
 audit_exit=$?
 if echo "$audit_output" | grep -qE "🔴 HIGH"; then
   high_count=$(echo "$audit_output" | grep -oE "HIGH: [0-9]+" | grep -oE "[0-9]+" | head -1)

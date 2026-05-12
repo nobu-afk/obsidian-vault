@@ -127,7 +127,7 @@ if echo "$optin_body" | grep -q 'name="email"\|type="email"'; then
 else
   echo "  ❌ /whitepaper/ にオプトインフォームが見つからない"
   echo "     → WP V9 本体に誤って上書きされている可能性（260511 事故パターン）"
-  echo "     復旧コマンド: bash 06_開発/scripts/deploy_whitepaper.sh --optin --skip-pdf"
+  echo "     復旧コマンド: bash 06_開発/scripts/deploy/deploy_whitepaper.sh --optin --skip-pdf"
   FAIL=$((FAIL+1))
 fi
 
