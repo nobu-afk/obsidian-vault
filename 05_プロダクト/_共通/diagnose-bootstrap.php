@@ -71,36 +71,33 @@ if (!isset($DIAGNOSE_BASE_DIR)) {
     $DIAGNOSE_BASE_DIR = __DIR__;
 }
 $reports_dir = $DIAGNOSE_BASE_DIR . '/reports';
-if (!is_dir($reports_dir)) {
-    mkdir($reports_dir, 0755, true);
-}
+@mkdir($reports_dir, 0755, true);
 
 // ============================================================
 // 4. ジョブステータスヘルパー関数
 // ============================================================
 if (!function_exists('status_file_path')) {
-    function status_file_path($id) {
-        global $reports_dir;
-        return $reports_dir . '/status_' . $id . '.json';
-    }
-}
-
-if (!function_exists('write_status')) {
-    function write_status($id, $data) {
-        $existing = read_status($id);
-        if ($existing && isset($existing['created_at'])) {
-            $data['created_at'] = $existing['created_at'];
-        }
-        $data['updated_at'] = time();
-        file_put_contents(status_file_path($id), json_encode($data, JSON_UNESCAPED_UNICODE));
+    function status_file_path($id, $dir) {
+        return $dir . '/status_' . $id . '.json';
     }
 }
 
 if (!function_exists('read_status')) {
-    function read_status($id) {
-        $path = status_file_path($id);
-        if (!file_exists($path)) return null;
-        return json_decode(file_get_contents($path), true);
+    function read_status($id, $dir) {
+        $path = status_file_path($id, $dir);
+        $raw = @file_get_contents($path);
+        return $raw === false ? null : json_decode($raw, true);
+    }
+}
+
+if (!function_exists('write_status')) {
+    function write_status($id, $data, $dir) {
+        if (!isset($data['created_at'])) {
+            $existing = read_status($id, $dir);
+            $data['created_at'] = $existing['created_at'] ?? time();
+        }
+        $data['updated_at'] = time();
+        file_put_contents(status_file_path($id, $dir), json_encode($data, JSON_UNESCAPED_UNICODE));
     }
 }
 
@@ -130,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['job'])) {
         echo json_encode(['error' => 'Invalid job ID']);
         exit;
     }
-    $status = read_status($req_id);
+    $status = read_status($req_id, $reports_dir);
     if (!$status) {
         http_response_code(404);
         echo json_encode(['error' => 'Job not found']);

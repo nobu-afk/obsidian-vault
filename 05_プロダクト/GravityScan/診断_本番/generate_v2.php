@@ -1127,7 +1127,7 @@ $report_url = $base_url . dirname($_SERVER['REQUEST_URI']) . '/generate.php?repo
 write_status($job_id, [
     'status' => 'pending',
     'created_at' => time(),
-]);
+], $reports_dir);
 
 // --- 即時レスポンス: ジョブIDを返してから接続を閉じ、バックグラウンド処理へ ---
 echo json_encode(['job_id' => $job_id, 'report_url' => $report_url]);
@@ -1141,7 +1141,7 @@ set_time_limit(300);
 write_status($job_id, [
     'status' => 'running',
     'created_at' => time(),
-]);
+], $reports_dir);
 
 // --- Claude API 呼び出し（バックグラウンド実行・SYSTEM プロンプト prompt caching 有効） ---
 $api_body = json_encode([
@@ -1183,7 +1183,7 @@ if ($curl_error) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'API通信エラー: ' . $curl_error,
-    ]);
+    ], $reports_dir);
     exit;
 }
 
@@ -1193,7 +1193,7 @@ if ($http_code !== 200) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'レポート生成サービスに一時的な問題が発生しています。しばらく後に再試行してください。',
-    ]);
+    ], $reports_dir);
     exit;
 }
 
@@ -1210,7 +1210,7 @@ if (empty($report_body)) {
         'status' => 'error',
         'created_at' => time(),
         'error' => 'レポートの生成に失敗しました',
-    ]);
+    ], $reports_dir);
     exit;
 }
 
@@ -1754,4 +1754,4 @@ write_status($job_id, [
     'status' => 'done',
     'created_at' => time(),
     'report_url' => $report_url,
-]);
+], $reports_dir);
