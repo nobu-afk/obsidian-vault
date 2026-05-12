@@ -116,3 +116,22 @@
 3. **次月（260612）：**
    - 🟡 保留 7 件の 3 ヶ月後再評価設定（自動的に 8 月再判定キュー）
    - 標準 8 クエリ + Tier 3 から `AI × succession family business 2026` 追加で実行
+
+---
+
+## ✅ §3.6 W22 反映 完走ログ（260513・W22 前倒し）
+
+| 論文 # | サブタスク | 反映先 | 完了マーク |
+|:-:|---|---|:-:|
+| #1 HBR 中間経営職 | 60-A | 営業資料 v1.0 §17.4 補強 + 識学差別化 12 軸化（中間経営職観追加・HBR 2026/04 Wharton 800 名調査根拠）| ✅ |
+| #2 arxiv Safety First | 60-B | Citations LP Tier 2 Cultivate に追加 + culture.md 心理的安全性 × AI 2026 実証段落追加 | ✅ |
+| #3 HBR Erodes Trust | 60-C | FB 投稿候補 SSOT 新規（候補 1・W22 配信予定）| ✅ |
+| #4 Anthropic Labor Market | 60-D | FB 投稿候補 SSOT 新規（候補 2）+ Citations LP Tier 3 # 254 追加 | ✅ |
+| #5 Nature SR Attrition | 60-E | Citations LP Tier 2 Orbit + Tier 3 # 256 + 商品_5サービス詳細.md Orbit 離職予兆 5 シグナル KPI 学術裏付け追加 | ✅ |
+| #6 OECD SME | 60-F | 営業資料 v1.0 §17.6 商談シーン別運用 guide 追加（5 シーン × 3 点セット運用原則）| ✅ |
+| #7 McKinsey Human Leadership | 60-G | 営業資料 v1.0 §0.5 補強（3A × 6 サービスマッピング）+ FB 投稿候補 SSOT 新規（候補 3）| ✅ |
+
+**新規生成 SSOT：** `04_GrowthFix/02_マーケティング/260513_FB投稿候補_AI論文反映_v1.0.md`
+**統合タスクマスター反映：** `04_GrowthFix/00_統合タスクマスター_v1.1.md` §3.6 完走マーク
+**作業時間：** 約 60 分（260513・W22 前倒し）
+**運用原則：** 複数領域統合型のスタンス維持（OECD + HBR + Anthropic + McKinsey + Wharton + arxiv + Nature SR を **並列展開**で「複数領域から同じ結論が出ている」型に整形）
