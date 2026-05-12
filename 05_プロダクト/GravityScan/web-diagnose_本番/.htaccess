@@ -1,0 +1,19 @@
+# Gravity Scan Web 無料診断 — 内部リソース保護
+# 設計 SSOT 配下と同等のセキュリティ方針を適用
+
+# logs/ ディレクトリは完全アクセス禁止（CSV は内部運用のみ）
+RedirectMatch 403 ^/gravity-scan/web-diagnose/logs(/|$)
+
+# .md / .txt / .bak / .sql / .log は直接アクセス禁止
+<FilesMatch "\.(md|txt|bak|sql|log)$">
+    Require all denied
+</FilesMatch>
+
+# .htaccess 自身の保護
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# index.html / generate.php は通常公開
+# index.html → デフォルト DirectoryIndex に依存
+DirectoryIndex index.html

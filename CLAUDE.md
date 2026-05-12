@@ -105,10 +105,16 @@ AI 費用は経営戦略指標として扱う。月次 retail 換算コストは
 
 ---
 
-## 260513 Phase 1 フォルダ整理（適用済）
+## 260513 Phase 1-2 フォルダ整理（適用済）
 
+### Phase 1（260513・即時整理）
 - **03_コンテンツ**：直下40本ベタ置き → サブフォルダ化（`_連載管理/` `連載_Vol0-14/` `連載_卒業生シリーズS1-S8/` `_素材ストック/` `_archive/`）。詳細：`03_コンテンツ/_README.md`
 - **04_GrowthFix/03_採用**：新設（求人設計 / 面接プロセス / オファー設計 / 採用_横断知見 / Shift_R_Week1-2納品物）。詳細：`04_GrowthFix/03_採用/_README.md`
 - **01_石井伸幸**：親版本 = `260427_最新統合プロファイル_4月後半発見統合版.md`。詳細：`01_石井伸幸/_README.md`
 - **_shared 廃止**：`question_block_styles.php` を `05_プロダクト/_共通/` に統合（deploy.sh 同期更新済）
 - **08_情報収集 56M→4M**：青木聡 VTT 原本（42M）・Tier2 VTT（9.9M）・260501 Shift検証素材（152K）削除。クリーン版とフレーム集約 SSOT は温存
+
+### Phase 2（260513・中規模整理）
+- **04_デイリーログ 月別分割**：直下62本ベタ置き → `2603/`（13本）`2604/`（28本）`2605/`（21本）の月別フォルダ化。**ファイルパス：`04_デイリーログ/YYMM/YYMMDD_daily.md`**（YYMM = YYMMDD の最初4文字）。daily / weekly-close / hotta-prep / work-log / sync-knowledge skill のパス参照と `meta_ads_daily.py` の `get_daily_log_path()` 更新済。詳細：`04_GrowthFix/04_デイリーログ/_README.md`
+- **01_サービス設計 テーマ別分類**：直下119本 → 11テーマ別フォルダ化（_Gravity_R / _Gravity_C / _Gravity_診断_CODE_Scan / _Gravity_その他_Orbit_Coaching_ShiftS / _書籍_WhitePaper / _Phase論文反映 / _外部分析_対談 / _セミナー_WS_モニター / _横断_フレーム_戦略 / _堀田壁打ち）。詳細：`04_GrowthFix/01_サービス設計/_README.md`
+- **06_開発/scripts/ 軽量サブフォルダ化**：`config/`（4本）`converters/`（2本）`extractors/`（3本）新設・5スクリプトの CONFIG_PATH 更新・`.gitignore` 更新。audit/orbit/deploy/lint 系は hook 依存があるため温存。詳細：`06_開発/scripts/_README.md`

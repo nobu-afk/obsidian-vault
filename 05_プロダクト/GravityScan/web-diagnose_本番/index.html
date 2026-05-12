@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断</title>
+<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 12 問・約 2 分で診断できる無料 Web 版。集まる軸（採用基盤）× 躍動軸（躍動組織）の 2 マトリクスで自社の引力タイプを判定し、Gravity Recruit／Cultivate／Shift のどれが効くかを確認できます。">
+<meta property="og:title" content="Gravity Scan 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断">
+<meta property="og:description" content="組織の引力タイプを 12 問・約 2 分で診断できる無料 Web 版。整合型・拡散型・渇望型・不毛型のどの型かを確認し、推奨サービスの方角を知る。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://growthfix.jp/gravity-scan/web-diagnose/">
+<meta property="og:image" content="https://growthfix.jp/gravity/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://growthfix.jp/gravity/ogp.png">
+<link rel="canonical" href="https://growthfix.jp/gravity-scan/web-diagnose/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
+<!-- GA4 + GTM + Meta Pixel via /assets/js/tracking.js -->
+<script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
+<!-- 共通モバイル最適化パッチ（260427）-->
+<link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260507">
+<script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
+<script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
+<style>
+/* ========================================
+   Gravity Scan Web 無料診断 UI — Styles
+   モバイルファースト（375px 起点）
+   WCAG AA 準拠（コントラスト比 4.5:1 以上）
+   ======================================== */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: #f8fafc;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+/* --- Skip link (accessibility) --- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 4px;
+  z-index: 999;
+  background: #0f172a;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 4px;
+}
+
+/* --- Screen transitions --- */
+.screen {
+  display: none;
+  min-height: 100vh;
+}
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.35s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Badge --- */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: #0f172a;
+  padding: 5px 20px;
+  border-radius: 100px;
+}
+.badge-accent {
+  background: #1e40af;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.18);
+  text-decoration: none;
+  min-height: 56px;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15,23,42,0.22);
+}
+.btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #475569;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  min-height: 52px;
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: #475569;
+  color: #1e293b;
+  background: #f1f5f9;
+}
+.btn-secondary:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border: 2px solid #0f172a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  min-height: 52px;
+}
+.btn-outline-dark:hover {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* ========================================
+   SECTION 1: HERO
+   ======================================== */
+#screen-hero {
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #1e3a5f 100%);
+  padding: 48px 24px;
+}
+.hero-inner {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #C5A880;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.hero-h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.hero-h1 em {
+  font-style: normal;
+  color: #C5A880;
+}
+.hero-sub {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #94a3b8;
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.hero-meta-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 100px;
+  font-size: 12px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.hero-free-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #C5A880;
+  color: #0f172a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+.hero-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.7;
+}
+.hero-note a {
+  color: #C5A880;
+  text-decoration: underline;
+}
+.hero-credit {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(197, 168, 128, 0.08);
+  border-left: 2px solid #C5A880;
+  text-align: left;
+  border-radius: 4px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-credit-line1 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+.hero-credit-line2 {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+.hero-minimap {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-minimap-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.hero-minimap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  max-width: 280px;
+  margin: 0 auto 8px;
+}
+.hero-minimap-cell {
+  padding: 12px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.hero-minimap-cell.type-positive { background: #dcfce7; color: #166534; }
+.hero-minimap-cell.type-warning { background: #fef3c7; color: #92400e; }
+.hero-minimap-cell.type-danger { background: #fee2e2; color: #991b1b; }
+.hero-minimap-note {
+  font-size: 11px;
+  color: #64748b;
+  margin: 6px 0 0 0;
+  text-align: center;
+}
+.hero-voice {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-voice-quote {
+  font-size: 13px;
+  color: #334155;
+  font-style: italic;
+  margin: 0 0 6px 0;
+  line-height: 1.6;
+}
+.hero-voice-author {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+}
+.hero-voice-disclaimer {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-style: normal;
+}
+.cta-faq {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.cta-faq summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  padding: 4px 0;
+  outline: none;
+}
+.cta-faq summary:hover { color: #0f172a; }
+.cta-faq dl {
+  margin-top: 16px;
+}
+.cta-faq dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.cta-faq dt:first-of-type { margin-top: 0; }
+.cta-faq dd {
+  font-size: 12px;
+  color: #475569;
+  margin: 6px 0 0 0;
+  line-height: 1.7;
+}
+
+/* ========================================
+   SECTION 2: QUIZ
+   ======================================== */
+#screen-quiz {
+  align-items: stretch;
+  justify-content: flex-start;
+  background: #f8fafc;
+}
+
+/* Progress header */
+.quiz-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 20px 10px;
+  z-index: 20;
+}
+.progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1e40af, #0f172a);
+  border-radius: 3px;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+.progress-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+.progress-pct {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Quiz body */
+.quiz-body {
+  flex: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+  display: flex;
+  flex-direction: column;
+}
+.quiz-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #1e40af;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.quiz-question {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+/* Likert scale */
+.likert-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex: 1;
+}
+.likert-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+  text-align: left;
+  gap: 14px;
+  font-family: inherit;
+}
+.likert-option:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+.likert-option.selected {
+  border-color: #1e40af;
+  background: #eff6ff;
+  box-shadow: 0 0 0 1px #1e40af;
+}
+.likert-option:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+.likert-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  flex-shrink: 0;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.likert-option.selected .likert-dot {
+  border-color: #1e40af;
+  background: #1e40af;
+}
+.likert-option.selected .likert-dot::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+.likert-score {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+}
+.likert-option.selected .likert-score {
+  color: #1e40af;
+}
+.likert-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.5;
+  flex: 1;
+}
+.likert-option.selected .likert-label {
+  color: #1e293b;
+}
+
+/* Navigation */
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  gap: 12px;
+}
+
+/* ========================================
+   SECTION 3: FORM
+   ======================================== */
+#screen-form {
+  align-items: center;
+  justify-content: flex-start;
+  background: #f8fafc;
+  padding: 48px 24px;
+}
+.form-inner {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+.form-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.form-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.55;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.form-header p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.8;
+}
+.form-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+.form-required {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #dc2626;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  letter-spacing: 0.04em;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 48px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.12);
+  background: #fff;
+}
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+.form-group input.invalid {
+  border-color: #dc2626;
+}
+.form-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+  display: none;
+}
+.form-group.has-error .form-error {
+  display: block;
+}
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: #dc2626;
+}
+.form-privacy {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.form-privacy a {
+  color: #64748b;
+}
+
+/* ========================================
+   SECTION 4: RESULT
+   ======================================== */
+#screen-result {
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #f8fafc;
+  padding: 0;
+}
+
+/* Result hero */
+.result-hero {
+  width: 100%;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.result-type-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  padding: 5px 18px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.type-整合 .result-hero { background: linear-gradient(150deg, #0f172a 0%, #1e3a5f 100%); }
+.type-整合 .result-type-badge { background: #C5A880; color: #0f172a; }
+.type-整合 .result-type-name { color: #C5A880; }
+.type-整合 .result-type-icon { color: #C5A880; }
+
+.type-拡散 .result-hero { background: linear-gradient(150deg, #1e293b 0%, #1e3a5f 100%); }
+.type-拡散 .result-type-badge { background: #3b82f6; color: #fff; }
+.type-拡散 .result-type-name { color: #93c5fd; }
+.type-拡散 .result-type-icon { color: #93c5fd; }
+
+.type-渇望 .result-hero { background: linear-gradient(150deg, #1e293b 0%, #2d1810 100%); }
+.type-渇望 .result-type-badge { background: #f59e0b; color: #0f172a; }
+.type-渇望 .result-type-name { color: #fcd34d; }
+.type-渇望 .result-type-icon { color: #fcd34d; }
+
+.type-不毛 .result-hero { background: linear-gradient(150deg, #1e293b 0%, #200e0e 100%); }
+.type-不毛 .result-type-badge { background: #dc2626; color: #fff; }
+.type-不毛 .result-type-name { color: #fca5a5; }
+.type-不毛 .result-type-icon { color: #fca5a5; }
+
+.result-type-name {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.result-type-en {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+.result-type-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Score chart */
+.result-body {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+.result-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1e40af;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  margin-top: 40px;
+}
+.result-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+}
+.axis-score-row {
+  margin-bottom: 20px;
+}
+.axis-score-row:last-child {
+  margin-bottom: 0;
+}
+.axis-score-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.axis-score-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+}
+.axis-score-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+}
+.axis-score-value span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-left: 2px;
+}
+.axis-bar-bg {
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.axis-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+.bar-collect { background: linear-gradient(90deg, #1e40af, #3b82f6); }
+.bar-vitality { background: linear-gradient(90deg, #0f172a, #334155); }
+.axis-score-note {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* Bandura CE pattern */
+.ce-card {
+  background: #f8fafc;
+  border-left: 3px solid #1e40af;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.ce-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e40af;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.ce-card-desc {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #334155;
+}
+
+/* Next action card */
+.next-action-card {
+  border: 2px solid #0f172a;
+  border-radius: 12px;
+  padding: 24px 20px;
+  background: #0f172a;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.next-action-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #C5A880;
+  margin-bottom: 8px;
+}
+.next-action-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+.next-action-desc {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.next-action-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: #C5A880;
+  margin-bottom: 16px;
+}
+.next-action-price small {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* CTA section */
+.result-cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+.result-cta-note {
+  font-size: 11.5px;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ========================================
+   SECTION 5: DONE
+   ======================================== */
+#screen-done {
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 48px 24px;
+}
+.done-inner {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+.done-icon {
+  width: 64px;
+  height: 64px;
+  background: #0f172a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+}
+.done-inner h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+.done-inner p {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+.done-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.done-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  transition: border-color 0.18s, background 0.18s;
+}
+.done-link:hover {
+  border-color: #0f172a;
+  background: #f8fafc;
+}
+.done-link-arrow {
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+/* ========================================
+   TOAST
+   ======================================== */
+.toast {
+  position: fixed;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 200;
+  transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  max-width: 92vw;
+  text-align: center;
+}
+.toast.show {
+  bottom: 36px;
+}
+
+/* ========================================
+   RESPONSIVE — 640px+
+   ======================================== */
+@media (min-width: 640px) {
+  .hero-h1 { font-size: 36px; }
+  .quiz-question { font-size: 18px; }
+  .result-type-name { font-size: 52px; }
+  .result-body { padding: 48px 32px 72px; }
+  .result-card { padding: 28px 28px; }
+  .form-card { padding: 40px 40px; }
+  #screen-hero { padding: 72px 40px; }
+  .likert-label { font-size: 15px; }
+  .result-cta-row { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .result-cta-row .btn-primary,
+  .result-cta-row .btn-outline-dark { min-width: 220px; }
+}
+
+@media (min-width: 768px) {
+  .hero-h1 { font-size: 42px; }
+  .quiz-body { padding: 44px 32px 56px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">メインコンテンツへスキップ</a>
+<div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+<!-- ============================================================
+     SECTION 1: HERO
+     ============================================================ -->
+<div id="screen-hero" class="screen active" role="main" id="main-content">
+  <div class="hero-inner">
+    <div class="hero-free-tag">無料 Web 診断</div>
+    <h1 class="hero-h1">
+      組織の<em>引力タイプ</em>を、<em>2 分で。</em>
+    </h1>
+    <button class="btn-primary" onclick="ScanApp.startDiagnosis()" style="font-size:17px;padding:20px 52px;">
+      診断を開始する
+    </button>
+
+    <div class="hero-voice">
+      <p class="hero-voice-quote">「『これでいいんだろうか』と感じた夜に受診して、予想せぬ型だった。」</p>
+      <p class="hero-voice-author">── IT スタートアップ代表・30 代</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 2: QUIZ（12 問 Likert）
+     ============================================================ -->
+<div id="screen-quiz" class="screen">
+  <div class="quiz-header" role="banner" aria-label="診断の進捗">
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-bar" aria-label="回答進捗">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-info">
+      <span class="progress-text" id="progress-text" aria-live="polite">質問 1 / 12</span>
+      <span class="progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+
+  <div class="quiz-body" id="quiz-body">
+    <div class="quiz-section-label" id="section-label" aria-label="現在のセクション"></div>
+    <h2 class="quiz-question" id="question-text"></h2>
+    <div class="likert-wrap" id="likert-container" role="radiogroup" aria-labelledby="question-text"></div>
+    <div class="quiz-nav">
+      <button class="btn-secondary" id="btn-back" onclick="ScanApp.goBack()" disabled>
+        戻る
+      </button>
+      <button class="btn-primary" id="btn-next" onclick="ScanApp.goNext()" disabled>
+        次へ
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 3: FORM（氏名・会社名・メール・業種・規模）
+     ============================================================ -->
+<div id="screen-form" class="screen">
+  <div class="form-inner">
+    <div class="form-header">
+      <span class="badge badge-accent">STEP 2 / 2</span>
+      <h2>結果を受け取るための<br>情報を入力してください</h2>
+      <p>診断結果をメールで送信します。30 秒で完了します。</p>
+    </div>
+
+    <div class="form-card">
+      <form id="info-form" novalidate>
+
+        <div class="form-group" id="fg-name">
+          <label for="field-name">お名前 <span class="form-required">必須</span></label>
+          <input type="text" id="field-name" name="name" required autocomplete="name"
+                 placeholder="山田 太郎" inputmode="text">
+          <p class="form-error" id="err-name">お名前を入力してください</p>
+        </div>
+
+        <div class="form-group" id="fg-company">
+          <label for="field-company">会社名 <span class="form-required">必須</span></label>
+          <input type="text" id="field-company" name="company" required autocomplete="organization"
+                 placeholder="株式会社○○" inputmode="text">
+          <p class="form-error" id="err-company">会社名を入力してください</p>
+        </div>
+
+        <div class="form-group" id="fg-email">
+          <label for="field-email">メールアドレス <span class="form-required">必須</span></label>
+          <input type="email" id="field-email" name="email" required autocomplete="email"
+                 placeholder="example@company.com" inputmode="email">
+          <p class="form-error" id="err-email">有効なメールアドレスを入力してください</p>
+        </div>
+
+        <div class="form-group" id="fg-industry">
+          <label for="field-industry">業種</label>
+          <select id="field-industry" name="industry">
+            <option value="">選択してください（任意）</option>
+            <option value="IT・Web">IT・Web</option>
+            <option value="製造業">製造業</option>
+            <option value="小売・EC">小売・EC</option>
+            <option value="飲食・サービス">飲食・サービス</option>
+            <option value="医療・介護">医療・介護</option>
+            <option value="建設・不動産">建設・不動産</option>
+            <option value="金融・保険">金融・保険</option>
+            <option value="コンサル・士業">コンサル・士業</option>
+            <option value="教育・研修">教育・研修</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="fg-size">
+          <label for="field-size">従業員規模</label>
+          <select id="field-size" name="size">
+            <option value="">選択してください（任意）</option>
+            <option value="5名以下">5 名以下</option>
+            <option value="6〜10名">6〜10 名</option>
+            <option value="11〜30名">11〜30 名</option>
+            <option value="31〜100名">31〜100 名</option>
+            <option value="101名以上">101 名以上</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;">
+          診断結果を見る
+        </button>
+
+        <p class="form-privacy">
+          入力情報は結果レポートの送信・GrowthFix からのご案内にのみ使用します。<br>
+          <a href="https://growthfix.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 4: RESULT
+     ============================================================ -->
+<div id="screen-result" class="screen" role="main">
+
+  <!-- 4-1. 型宣言ビジュアル（JS で .type-整合 / .type-拡散 / .type-渇望 / .type-不毛 を動的付与） -->
+  <div class="result-hero" id="result-hero">
+    <div class="result-type-badge" id="result-badge">TYPE 1</div>
+    <div class="result-type-name" id="result-type-name">整合型</div>
+    <div class="result-type-en" id="result-type-en">COHERENT TYPE</div>
+    <p class="result-type-desc" id="result-type-desc"></p>
+  </div>
+
+  <div class="result-body">
+
+    <!-- 4-2. 軸スコアグラフ -->
+    <p class="result-section-title">AXIS SCORE — 2 軸スコア</p>
+    <div class="result-card">
+      <div class="axis-score-row">
+        <div class="axis-score-label">
+          <span class="axis-score-name">集まる軸（採用基盤）</span>
+          <span class="axis-score-value" id="score-collect-display">—<span>/100</span></span>
+        </div>
+        <div class="axis-bar-bg">
+          <div class="axis-bar-fill bar-collect" id="bar-collect"></div>
+        </div>
+        <p class="axis-score-note" id="note-collect"></p>
+      </div>
+      <div class="axis-score-row">
+        <div class="axis-score-label">
+          <span class="axis-score-name">躍動軸（躍動組織）</span>
+          <span class="axis-score-value" id="score-vitality-display">—<span>/100</span></span>
+        </div>
+        <div class="axis-bar-bg">
+          <div class="axis-bar-fill bar-vitality" id="bar-vitality"></div>
+        </div>
+        <p class="axis-score-note" id="note-vitality"></p>
+      </div>
+    </div>
+
+    <!-- 4-3. Bandura CE パターン -->
+    <p class="result-section-title">COLLECTIVE EFFICACY PATTERN（Bandura 2000 準拠）</p>
+    <div id="ce-pattern-container"></div>
+
+    <!-- 4-4. 推奨サービス -->
+    <p class="result-section-title">NEXT ACTION — 推奨サービス</p>
+    <div id="next-action-container"></div>
+
+    <!-- 4-5. CTA（v0.3 パルス消費型・260513 改修） -->
+    <!-- プライマリ：30 分相談（最大型・最低障壁） -->
+    <div class="result-cta-row">
+      <a href="https://utage-system.com/event/gcfmTRLg7lAq/register" target="_blank" rel="noopener"
+         class="btn-primary" style="text-decoration:none;font-size:17px;padding:20px 52px;display:inline-flex;align-items:center;justify-content:center;">
+        30 分、一緒に「これから」を話しましょう
+      </a>
+    </div>
+    <p class="result-cta-note" style="margin-top:12px;text-align:center;color:#64748b;font-size:13px;">
+      無料 ・ Zoom ・ 勧誘なし ・ 引力の参謀（組織軸）石井本人が対応
+    </p>
+
+    <!-- Q&A accordion：相談しない理由を消す 10 件 -->
+    <details class="cta-faq">
+      <summary>30 分相談についてよくあるご質問（クリックで展開）</summary>
+      <dl>
+        <dt>Q1. 30 分で何が分かりますか?</dt>
+        <dd>60 分の有料 Scan で行う「型 × 軸スコア × 処方箋」3 段のうち、型と軸スコア解釈の 2 段を 30 分で対話。「次の一手」が複数候補で見える状態を目指します。</dd>
+
+        <dt>Q2. 結局 SCAN 10 万 ・ Shift 80-220 万を売られるのでは?</dt>
+        <dd>30 分内で営業はしません。「次の一手は何か」「自社単独でやるか / 外部と進めるか」までを対話。Gravity サービスの提案はリクエストがあった場合のみ ・ PDF 後送で対応します。</dd>
+
+        <dt>Q3. Zoom が苦手です。</dt>
+        <dd>Zoom or Google Meet お選びいただけます。録画もご希望に応じて。カメラ オフでも対話成立します（音声のみ）。</dd>
+
+        <dt>Q4. 経営チームを連れて行きたい。</dt>
+        <dd>経営者ご本人のみを原則としていますが、CHRO / COO を 1 名同席させたい場合は予約時にご記載ください。</dd>
+
+        <dt>Q5. 今週は忙しい ・ 来月以降にしたい。</dt>
+        <dd>予約フォームに 6 週間先までの空き枠を公開しています。「忘れる前に」が体温計の本質。15 分でも可能（要事前相談）。</dd>
+
+        <dt>Q6. 幼い議論になりそうで不安です。</dt>
+        <dd>30 名 → 300 名規模の組織を 50 社以上伴走した経営伴走の知見ベース。診断結果 + 経営者の現状文脈に基づく対話。学者モード / 抽象論にはなりません。</dd>
+
+        <dt>Q7. 自社情報を出すのが不安です。</dt>
+        <dd>NDA 必要であれば事前提示します（テンプレ送付）。30 分内で出す情報は経営者がコントロール。</dd>
+
+        <dt>Q8. 他社と比較したい。</dt>
+        <dd>Gravity 以外の選択肢（識学 ・ アチーブメント ・ サーベイ系 ・ 組織開発系等）も対話内で第三者目線で言及します。「自社に合うのは何か」を一緒に考えるスタンス。</dd>
+
+        <dt>Q9. 予算なし ・ 情報収集だけです。</dt>
+        <dd>無料の 30 分です。情報収集目的のご予約も歓迎。「いつか必要になった時の選択肢」として記憶していただけば十分です。</dd>
+
+        <dt>Q10. 今、診断結果を見ただけで十分です。</dt>
+        <dd>レポート PDF（A4 4 ページ）でセルフレビュー可能ですが、「30 分の対話」で気づくことが多くのクライアントから報告されています。気が変わったら 6 週間以内に再予約も可。</dd>
+      </dl>
+    </details>
+
+    <!-- セカンダリ：レポート PDF -->
+    <div class="result-cta-row" style="margin-top:28px;">
+      <button class="btn-outline-dark" onclick="ScanApp.goToDetail()" style="font-size:15px;">
+        レポート PDF（A4 6-7p）を受け取る
+      </button>
+    </div>
+    <p class="result-cta-note" style="margin-top:8px;text-align:center;color:#94a3b8;font-size:11px;">
+      ※ メールアドレス登録で即時送付
+    </p>
+
+    <!-- 4-6. 有料 Scan への誘導（末尾） -->
+    <div style="margin-top:48px;padding:24px 20px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;">
+      <p style="font-size:11px;letter-spacing:0.18em;color:#64748b;font-weight:700;margin-bottom:10px;text-transform:uppercase;">より精密な診断をご希望の方へ</p>
+      <p style="font-size:14.5px;font-weight:700;color:#0f172a;margin-bottom:8px;line-height:1.55;">
+        本 Web 診断はセルフ版（簡易判定）です。<br>
+        専門家による 60 分精密診断は Gravity Scan（有料・10 万円）へ。
+      </p>
+      <p style="font-size:13px;color:#475569;line-height:1.8;margin-bottom:16px;">
+        Scan（10 万円）では引力 8 項目スコア × 集まる軸 / 躍動軸の 2 マトリクスで 4 型を確定し、
+        Gravity Recruit / Cultivate / Shift の推奨ロードマップを共同制作します。
+      </p>
+      <a href="https://growthfix.jp/gravity-scan/" class="btn-outline-dark" style="display:inline-flex;">
+        Gravity Scan（有料・10 万円）を見る &rarr;
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 5: DONE（送信完了）
+     ============================================================ -->
+<div id="screen-done" class="screen">
+  <div class="done-inner">
+    <div class="done-icon" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>レポートをメールで送信しました</h2>
+    <p>
+      入力いただいたメールアドレスに診断結果（PDF レポート）を送信しました。<br>
+      数分以内に届かない場合は迷惑メールフォルダをご確認ください。
+    </p>
+    <nav class="done-links" aria-label="次のアクション">
+      <a href="https://growthfix.jp/gravity-scan/" class="done-link">
+        <span>Gravity Scan（精密診断 60 分・10 万円）へ</span>
+        <span class="done-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="https://growthfix.jp/gravity-recruit/" class="done-link">
+        <span>Gravity Recruit（採用基盤・3 ヶ月 80 万）へ</span>
+        <span class="done-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="https://growthfix.jp/gravity-cultivate/" class="done-link">
+        <span>Gravity Cultivate（躍動組織・6 ヶ月 150 万）へ</span>
+        <span class="done-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="https://growthfix.jp/gravity/" class="done-link">
+        <span>Gravity シリーズ TOP へ</span>
+        <span class="done-link-arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Gravity Scan Web 無料診断 — App Logic（v0.2 12 問版・260512）
+   12 問 Likert（5 段階）・約 2 分で完了
+   localStorage 中断保存・復帰対応
+   集まる軸 6 問・躍動軸 6 問 → 4 型判定
+   POST /gravity-scan/diagnose/generate.php（並列実装中・フォールバックあり）
+   ============================================================ */
+
+const STORAGE_KEY = 'gravity-scan-web-v1-answers';
+const STORAGE_META = 'gravity-scan-web-v1-meta';
+const API_ENDPOINT = '/gravity-scan/web-diagnose/generate.php';
+
+/* --- 質問定義（v0.2 12 問版・260512 確定）---
+   各質問は axis（collect = 集まる軸 / vitality = 躍動軸）を保持。
+   逆転項目は v0.2 で廃止（全質問が正方向・経営者の負担最小化）。
+   集計式：(各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
+*/
+const QUESTIONS = [
+  /* ===== 集まる軸 6 問（Q01〜Q06）===== */
+  {
+    id: 'Q01', axis: 'collect', reverse: false, section: '集まる軸 / 採用市場認知',
+    text: '【Q01】採用市場で「あの会社は採用が強い」と認知されている。',
+  },
+  {
+    id: 'Q02', axis: 'collect', reverse: false, section: '集まる軸 / 内定承諾',
+    text: '【Q02】過去 1 年の内定承諾率は業界平均より高い。',
+  },
+  {
+    id: 'Q03', axis: 'collect', reverse: false, section: '集まる軸 / リファラル',
+    text: '【Q03】社員のリファラル経由応募が月 1 件以上ある。',
+  },
+  {
+    id: 'Q04', axis: 'collect', reverse: false, section: '集まる軸 / 選抜整合',
+    text: '【Q04】採用ペルソナと内定者のスキル・志向が一致している。',
+  },
+  {
+    id: 'Q05', axis: 'collect', reverse: false, section: '集まる軸 / 採用責任者言語化',
+    text: '【Q05】「なぜうちに来てほしいか」を社長が 30 秒で語れる。',
+  },
+  {
+    id: 'Q06', axis: 'collect', reverse: false, section: '集まる軸 / 離脱予兆',
+    text: '【Q06】優秀人材の早期離職(1 年以内)が起きていない。',
+  },
+
+  /* ===== 躍動軸 6 問（Q07〜Q12）===== */
+  {
+    id: 'Q07', axis: 'vitality', reverse: false, section: '躍動軸 / Job Engagement',
+    text: '【Q07】社員が自分の仕事に没入している瞬間を頻繁に見る。',
+  },
+  {
+    id: 'Q08', axis: 'vitality', reverse: false, section: '躍動軸 / Org Engagement',
+    text: '【Q08】社員が会社の将来を自分ごととして語る。',
+  },
+  {
+    id: 'Q09', axis: 'vitality', reverse: false, section: '躍動軸 / Collective Efficacy',
+    text: '【Q09】「自分たちはやれる」と本気で信じているチームがある。',
+  },
+  {
+    id: 'Q10', axis: 'vitality', reverse: false, section: '躍動軸 / 心理的安全性',
+    text: '【Q10】会議で「反対意見」が出る頻度が月 1 回以上ある。',
+  },
+  {
+    id: 'Q11', axis: 'vitality', reverse: false, section: '躍動軸 / 中間経営職翻訳',
+    text: '【Q11】中間経営職が経営者の言葉を現場の言葉に翻訳している。',
+  },
+  {
+    id: 'Q12', axis: 'vitality', reverse: false, section: '躍動軸 / 離脱予兆察知',
+    text: '【Q12】離職する社員の予兆を 1 ヶ月以上前に察知できる。',
+  },
+];
+
+const LIKERT = [
+  { label: '強く同意', score: 5 },
+  { label: '同意',     score: 4 },
+  { label: '中立',     score: 3 },
+  { label: '反対',     score: 2 },
+  { label: '強く反対', score: 1 },
+];
+
+/* ---- 4 型定義 ---- */
+const TYPE_DEFS = {
+  '整合': {
+    en: 'COHERENT TYPE',
+    badge: 'TYPE 1',
+    desc: '集まる軸・躍動軸ともに機能している状態。優秀人材が集まり、入社後も活躍しています。Orbit（月次継続運用）でさらなる引力強化を。',
+    ce_title: '整合型の集合的効力感パターン（Bandura 2000）',
+    ce_desc: '組織全体に「自分たちならできる」という集合的効力感（Collective Efficacy）が高く形成されています。このパターンは感情伝染（Barsade 2002）を通じて採用・定着の両面に好循環をもたらします。',
+    next_label: '次の一手',
+    next_title: 'Gravity Orbit（月次継続運用）',
+    next_desc: 'Recruit / Cultivate で耕した土台の上で引力を月次強化する Gravity 型成長加速装置。',
+    next_price: '月 15 万円',
+    next_url: 'https://growthfix.jp/gravity-orbit/',
+    collect_note: '採用パイプライン・会社引力・P-O Fit の三軸が機能しています。',
+    vitality_note: 'エンゲージメント・心理的安全性・集合的効力感が高水準です。',
+  },
+  '拡散': {
+    en: 'DIFFUSE TYPE',
+    badge: 'TYPE 2',
+    desc: '採用力はあるが、入社後の定着・躍動が弱い状態。優秀な幹部から順に辞めていく構造的問題があります。',
+    ce_title: '拡散型の集合的効力感パターン（Bandura 2000）',
+    ce_desc: '採用段階では引力が機能していますが、入社後の集合的効力感（Collective Efficacy）が低下しています。感情伝染（Barsade 2002）がネガティブ方向に働いており、幹部離脱の連鎖が起きやすい状態です。',
+    next_label: '次の一手',
+    next_title: 'Gravity Cultivate（躍動組織実装・6 ヶ月）',
+    next_desc: '躍動する土壌を本格実装。エンゲージメント・心理的安全性・組織引力の三軸強化。',
+    next_price: '6 ヶ月 150 万円',
+    next_url: 'https://growthfix.jp/gravity-cultivate/',
+    collect_note: '採用パイプラインは機能しています。',
+    vitality_note: '躍動軸の強化が急務です。',
+  },
+  '渇望': {
+    en: 'YEARNING TYPE',
+    badge: 'TYPE 3',
+    desc: '既存メンバーは活きているが、採用パイプが詰まっている状態。応募が来ない・最終面接での辞退が多い構造です。',
+    ce_title: '渇望型の集合的効力感パターン（Bandura 2000）',
+    ce_desc: '組織内の集合的効力感は高く躍動しています。しかし外部への引力発信が弱く、Person-Organization Fit（Cable-Judge）のミスマッチが採用段階で起きています。',
+    next_label: '次の一手',
+    next_title: 'Gravity Recruit（採用基盤実装・3 ヶ月）',
+    next_desc: '優秀人材が自然に集まる採用基盤を 3 ヶ月で実装。採用力の構造改革。',
+    next_price: '3 ヶ月 80 万円',
+    next_url: 'https://growthfix.jp/gravity-recruit/',
+    collect_note: '採用パイプの強化が急務です。',
+    vitality_note: '躍動軸は機能しています。',
+  },
+  '不毛': {
+    en: 'BARREN TYPE',
+    badge: 'TYPE 4',
+    desc: '集まる軸・躍動軸の両方が弱い状態。採用も定着も機能していません。両軸の同時強化が必要です。',
+    ce_title: '不毛型の集合的効力感パターン（Bandura 2000）',
+    ce_desc: '集合的効力感（Collective Efficacy）が組織全体で低下しています。採用段階の引力不足と入社後の感情伝染（Barsade 2002）のネガティブ連鎖が重なっている最も緊急度が高い状態です。',
+    next_label: '次の一手',
+    next_title: 'Gravity Shift（R+C 複合・9 ヶ月）',
+    next_desc: 'Recruit + Cultivate の両軸を統合実装。最短ルートで両軸を立て直す複合パッケージ。',
+    next_price: '9 ヶ月 220 万円（10 万割）',
+    next_url: 'https://growthfix.jp/gravity-shift/',
+    collect_note: '採用パイプの構造改革が必要です。',
+    vitality_note: '躍動軸の構造改革が必要です。',
+  },
+};
+
+/* ============================================================
+   ScanApp — メインコントローラ
+   ============================================================ */
+const ScanApp = (() => {
+  let current = 0;           // 現在の質問インデックス（0-11）
+  let answers = new Array(12).fill(null);  // 各問の選択スコア（null=未回答・v0.2 12 問版）
+  let userData = {};         // フォーム入力値
+  let resultData = {};       // 判定結果
+
+  /* --- 画面切り替え --- */
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  /* --- Toast --- */
+  function toast(msg, dur = 2800) {
+    const el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), dur);
+  }
+
+  /* --- localStorage --- */
+  function saveProgress() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+      localStorage.setItem(STORAGE_META, JSON.stringify({ current, ts: Date.now() }));
+    } catch(e) {}
+  }
+  function loadProgress() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const meta  = localStorage.getItem(STORAGE_META);
+      if (saved && meta) {
+        const parsed = JSON.parse(saved);
+        const m = JSON.parse(meta);
+        // 24h 以内のみ復帰
+        if (Array.isArray(parsed) && parsed.length === 12 && (Date.now() - m.ts < 86400000)) {
+          answers = parsed;
+          current = typeof m.current === 'number' ? m.current : 0;
+          return true;
+        }
+      }
+    } catch(e) {}
+    return false;
+  }
+  function clearProgress() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(STORAGE_META);
+    } catch(e) {}
+  }
+
+  /* --- Diagnosis start --- */
+  function startDiagnosis() {
+    const hasSaved = loadProgress();
+    if (hasSaved && answers.some(a => a !== null)) {
+      if (confirm('前回の回答が保存されています。続きから再開しますか？\n（キャンセルすると最初から始めます）')) {
+        renderQuestion(current);
+        showScreen('screen-quiz');
+        return;
+      } else {
+        answers = new Array(12).fill(null);
+        current = 0;
+        clearProgress();
+      }
+    }
+    renderQuestion(0);
+    showScreen('screen-quiz');
+  }
+
+  /* --- レンダリング --- */
+  function renderQuestion(idx) {
+    const q = QUESTIONS[idx];
+    const total = QUESTIONS.length;
+
+    // プログレス
+    const pct = Math.round((idx / total) * 100);
+    const fill = document.getElementById('progress-fill');
+    const bar  = document.getElementById('progress-bar');
+    const txt  = document.getElementById('progress-text');
+    const pctEl = document.getElementById('progress-pct');
+    if (fill) fill.style.width = pct + '%';
+    if (bar) bar.setAttribute('aria-valuenow', pct);
+    if (txt) txt.textContent = `質問 ${idx + 1} / ${total}`;
+    if (pctEl) pctEl.textContent = pct + '%';
+
+    // セクションラベル
+    const sLabel = document.getElementById('section-label');
+    if (sLabel) sLabel.textContent = q.section;
+
+    // 質問テキスト
+    const qText = document.getElementById('question-text');
+    if (qText) {
+      qText.textContent = q.text;
+      qText.id = 'question-text';
+    }
+
+    // Likert ボタン群
+    const container = document.getElementById('likert-container');
+    if (!container) return;
+    container.innerHTML = '';
+    LIKERT.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'likert-option' + (answers[idx] === opt.score ? ' selected' : '');
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', answers[idx] === opt.score ? 'true' : 'false');
+      btn.setAttribute('aria-label', opt.label + '（スコア ' + opt.score + '）');
+      btn.innerHTML = `
+        <span class="likert-dot" aria-hidden="true"></span>
+        <span class="likert-score" aria-hidden="true">${opt.score}</span>
+        <span class="likert-label">${opt.label}</span>
+      `;
+      btn.addEventListener('click', () => selectAnswer(idx, opt.score));
+      container.appendChild(btn);
+    });
+
+    // ナビボタン
+    const btnBack = document.getElementById('btn-back');
+    const btnNext = document.getElementById('btn-next');
+    if (btnBack) {
+      btnBack.disabled = idx === 0;
+      btnBack.textContent = idx === 0 ? '戻る' : '前の質問へ';
+    }
+    if (btnNext) {
+      btnNext.disabled = answers[idx] === null;
+      btnNext.textContent = idx < total - 1 ? '次へ' : '情報入力へ';
+    }
+
+    current = idx;
+  }
+
+  function selectAnswer(idx, score) {
+    answers[idx] = score;
+    saveProgress();
+    renderQuestion(idx);
+  }
+
+  function goBack() {
+    if (current > 0) renderQuestion(current - 1);
+  }
+
+  function goNext() {
+    if (answers[current] === null) return;
+    if (current < QUESTIONS.length - 1) {
+      renderQuestion(current + 1);
+    } else {
+      // 全問完了 → フォームへ
+      showScreen('screen-form');
+    }
+  }
+
+  /* --- スコア計算（v0.2 12 問版・正規化 0-100）--- */
+  function calcScores() {
+    let collectRaw = 0, vitalityRaw = 0;
+    QUESTIONS.forEach((q, i) => {
+      const raw = answers[i] || 3; // 未回答は中立 3
+      if (q.axis === 'collect') collectRaw += raw;
+      else vitalityRaw += raw;
+    });
+    // (各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
+    const collect = Math.round((collectRaw - 6) / 24 * 100);
+    const vitality = Math.round((vitalityRaw - 6) / 24 * 100);
+    return { collect, vitality, collectRaw, vitalityRaw };
+  }
+
+  /* --- 4 型判定（v0.2 12 問版・0-100 スケール）---
+     集まる軸 6 問 × max 5 = 30pt 生スコア → 0-100 正規化
+     閾値：50（中央値）
+  */
+  function judgeType(collect, vitality) {
+    const threshold = 50; // 0-100 正規化スケールの中央値
+    const highC = collect >= threshold;
+    const highV = vitality >= threshold;
+    if (highC && highV)  return '整合';
+    if (highC && !highV) return '拡散';
+    if (!highC && highV) return '渇望';
+    return '不毛';
+  }
+
+  /* --- フォーム送信 --- */
+  function bindForm() {
+    const form = document.getElementById('info-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validateForm()) return;
+      userData = {
+        name:     document.getElementById('field-name').value.trim(),
+        company:  document.getElementById('field-company').value.trim(),
+        email:    document.getElementById('field-email').value.trim(),
+        industry: document.getElementById('field-industry').value,
+        size:     document.getElementById('field-size').value,
+      };
+      const { collect, vitality } = calcScores();
+      const type = judgeType(collect, vitality);
+      resultData = { collect, vitality, type, answers: answers.slice(), userData };
+      renderResult(resultData);
+      showScreen('screen-result');
+      // POST to API（並列実装中 generate.php が稼働時に処理）
+      postToApi(resultData);
+    });
+  }
+
+  function validateForm() {
+    let valid = true;
+    const checks = [
+      { field: 'name',    fg: 'fg-name',    err: 'err-name',    regex: null },
+      { field: 'company', fg: 'fg-company', err: 'err-company', regex: null },
+      { field: 'email',   fg: 'fg-email',   err: 'err-email',   regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+    ];
+    checks.forEach(({ field, fg, err, regex }) => {
+      const input = document.getElementById('field-' + field);
+      const fg_el = document.getElementById(fg);
+      const err_el = document.getElementById(err);
+      const val = input ? input.value.trim() : '';
+      const ok = val !== '' && (!regex || regex.test(val));
+      if (fg_el) fg_el.classList.toggle('has-error', !ok);
+      valid = valid && ok;
+    });
+    if (!valid) {
+      toast('必須項目を正しく入力してください');
+      const firstErr = document.querySelector('.has-error input');
+      if (firstErr) firstErr.focus();
+    }
+    return valid;
+  }
+
+  /* --- API POST --- */
+  async function postToApi(data) {
+    try {
+      const payload = {
+        source:   'web-diagnose',
+        name:     data.userData.name,
+        company:  data.userData.company,
+        email:    data.userData.email,
+        industry: data.userData.industry,
+        size:     data.userData.size,
+        type:     data.type,
+        collect:  data.collect,
+        vitality: data.vitality,
+        answers:  data.answers,
+      };
+      await fetch(API_ENDPOINT, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+    } catch(e) {
+      // API 未稼働時はサイレント失敗（結果表示は継続）
+    }
+  }
+
+  /* --- 結果描画 --- */
+  function renderResult({ collect, vitality, type }) {
+    const def = TYPE_DEFS[type] || TYPE_DEFS['整合'];
+
+    // 型クラス付与
+    const resultScreen = document.getElementById('screen-result');
+    ['type-整合', 'type-拡散', 'type-渇望', 'type-不毛'].forEach(c => resultScreen.classList.remove(c));
+    resultScreen.classList.add('type-' + type);
+
+    // Hero
+    const badge = document.getElementById('result-badge');
+    const name  = document.getElementById('result-type-name');
+    const en    = document.getElementById('result-type-en');
+    const desc  = document.getElementById('result-type-desc');
+    if (badge) badge.textContent = def.badge;
+    if (name)  name.textContent  = type + '型';
+    if (en)    en.textContent    = def.en;
+    if (desc)  desc.textContent  = def.desc;
+
+    // Axis scores（アニメーション付きバー・v0.2 0-100 正規化）
+    const maxScore = 100;
+    const collectPct  = Math.max(0, Math.min(100, collect));
+    const vitalityPct = Math.max(0, Math.min(100, vitality));
+
+    document.getElementById('score-collect-display').innerHTML = collect + '<span>/' + maxScore + '</span>';
+    document.getElementById('score-vitality-display').innerHTML = vitality + '<span>/' + maxScore + '</span>';
+    document.getElementById('note-collect').textContent  = def.collect_note;
+    document.getElementById('note-vitality').textContent = def.vitality_note;
+
+    // バーアニメーション（描画後に幅を適用）
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const bc = document.getElementById('bar-collect');
+        const bv = document.getElementById('bar-vitality');
+        if (bc) bc.style.width = collectPct + '%';
+        if (bv) bv.style.width = vitalityPct + '%';
+      }, 120);
+    });
+
+    // Bandura CE パターン
+    const ceCont = document.getElementById('ce-pattern-container');
+    if (ceCont) {
+      ceCont.innerHTML = `
+        <div class="ce-card">
+          <div class="ce-card-title">${def.ce_title}</div>
+          <p class="ce-card-desc">${def.ce_desc}</p>
+        </div>
+      `;
+    }
+
+    // 次の一手
+    const naCont = document.getElementById('next-action-container');
+    if (naCont) {
+      naCont.innerHTML = `
+        <div class="next-action-card">
+          <div class="next-action-label">${def.next_label}</div>
+          <div class="next-action-title">${def.next_title}</div>
+          <p class="next-action-desc">${def.next_desc}</p>
+          <div class="next-action-price">${def.next_price}<small>（税抜）</small></div>
+          <a href="${def.next_url}" class="btn-primary" style="font-size:14px;padding:14px 32px;">
+            詳細を見る &rarr;
+          </a>
+        </div>
+      `;
+    }
+  }
+
+  /* --- PDF 受け取り（フォーム送信後に遷移）--- */
+  function goToDetail() {
+    // フォームが既に送信済みの場合は Done 画面へ
+    if (userData.email) {
+      showScreen('screen-done');
+    } else {
+      showScreen('screen-form');
+    }
+  }
+
+  /* --- 初期化 --- */
+  function init() {
+    bindForm();
+  }
+
+  return { startDiagnosis, goBack, goNext, goToDetail, init };
+})();
+
+document.addEventListener('DOMContentLoaded', () => ScanApp.init());
+</script>
+
+</body>
+</html>

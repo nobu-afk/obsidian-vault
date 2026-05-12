@@ -21,7 +21,7 @@ from urllib.parse import urlencode
 # 設定
 # ============================================================
 AD_ACCOUNT_ID = "1832186337593481"
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config_meta.json")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config", "config_meta.json")
 DAILY_LOG_DIR = os.path.expanduser(
     "~/Documents/Obsidian Vault/04_GrowthFix/04_デイリーログ"
 )

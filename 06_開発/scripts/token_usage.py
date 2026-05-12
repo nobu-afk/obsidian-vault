@@ -26,7 +26,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECTS_ROOT = Path.home() / ".claude" / "projects"
-PRICING_PATH = SCRIPT_DIR / "config_token_pricing.json"
+PRICING_PATH = SCRIPT_DIR / "config" / "config_token_pricing.json"
 JST = dt.timezone(dt.timedelta(hours=9))
 
 

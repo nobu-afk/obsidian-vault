@@ -16,7 +16,7 @@ from urllib.request import urlopen, Request
 from urllib.parse import urlencode, urlparse, parse_qs
 import base64
 
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config_fitbit.json")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config", "config_fitbit.json")
 AUTHORIZE_URL = "https://www.fitbit.com/oauth2/authorize"
 TOKEN_URL = "https://api.fitbit.com/oauth2/token"
 
