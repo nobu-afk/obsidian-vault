@@ -1347,3 +1347,305 @@ footer a:hover {
     display: none;
   }
 }
+
+/* ============================================================
+   WhitePaper inline style → class 化（260512）
+   名前空間: .wp-*
+   ============================================================ */
+
+/* ── ヒーロー eyebrow (accent gold) ── */
+.wp-hero-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  color: #C5A880;
+  letter-spacing: 0.18em;
+  margin: 16px 0 32px;
+}
+
+/* ── 章導入 eyebrow（小さめ・余白狭） ── */
+.wp-chapter-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  color: #C5A880;
+  letter-spacing: 0.18em;
+  margin: 0 0 8px;
+  text-transform: none;
+}
+
+/* ── 症例リスト (bullet なし、小文字) ── */
+.wp-plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+/* ── 症例リスト（階層構造・大き目） ── */
+.wp-layer-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+  font-size: 14.5px;
+  line-height: 2;
+}
+
+/* ── 章内 inline テキスト ── */
+.wp-intro-text {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+}
+
+/* ── 節見出し h3（margin-top:0 バリアント・stairs 内等） ── */
+.wp-h3-no-top {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+/* ── 節見出し h3（既存 .section-heading がない箇所に使用） ── */
+.wp-h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 32px 0 12px;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+/* ── strong 強調（heading color） ── */
+.wp-strong-dark {
+  color: #0f172a;
+}
+
+/* ── muted arrow (階層区切り矢印) ── */
+.wp-arrow-muted {
+  color: #94a3b8;
+}
+
+/* ── 学術注釈（小文字・muted） ── */
+.wp-citation {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 12px;
+}
+
+/* ── 学術注釈（上余白大） ── */
+.wp-citation-mt24 {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 24px;
+}
+
+/* ── 補足テキスト（やや大・subtle） ── */
+.wp-note-text {
+  font-size: 13.5px;
+  color: #475569;
+  margin-top: 24px;
+}
+
+/* ── 補足テキスト（上余白小） ── */
+.wp-note-text-mt16 {
+  font-size: 13.5px;
+  color: #475569;
+  margin-top: 16px;
+}
+
+/* ── quote-light の上余白バリエーション ── */
+.wp-quote-mt24 {
+  margin: 24px 0;
+}
+
+.wp-quote-mt32 {
+  margin-top: 32px;
+}
+
+/* ── quote 内 span（小） ── */
+.wp-quote-small {
+  font-size: 14px;
+}
+
+/* ── service footnote（超小・muted・上余白） ── */
+.wp-svc-note {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 24px;
+}
+
+/* ── 事例 case eyebrow ── */
+.wp-case-eyebrow {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+/* ── case-body padding リセット ── */
+.wp-case-body-reset {
+  padding: 0;
+}
+
+/* ── case 本文 ── */
+.wp-case-text {
+  margin: 0;
+  line-height: 2;
+}
+
+/* ── ul（padding-left 付き） ── */
+.wp-ref-list {
+  font-size: 14px;
+  line-height: 1.95;
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+/* ── CTA section: service table wrap ── */
+.wp-svc-table-wrap {
+  margin: 32px 0 40px;
+  padding: 28px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 6px;
+}
+
+.wp-svc-table-eyebrow {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #C5A880;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.wp-svc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: #d7dde6;
+}
+
+.wp-svc-table-header-row {
+  border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+}
+
+.wp-svc-th {
+  padding: 10px 6px;
+  text-align: left;
+  font-weight: 700;
+  color: #C5A880;
+}
+
+.wp-svc-th-right {
+  padding: 10px 6px;
+  text-align: right;
+  font-weight: 700;
+  color: #C5A880;
+  white-space: nowrap;
+}
+
+.wp-svc-td-axis {
+  padding: 10px 6px;
+  vertical-align: top;
+  color: #94a3b8;
+}
+
+.wp-svc-td-name {
+  padding: 10px 6px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.wp-svc-td {
+  padding: 10px 6px;
+}
+
+.wp-svc-td-price {
+  padding: 10px 6px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.wp-svc-row-dashed {
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+/* ── CTA box 内 recommend label ── */
+.wp-recommend-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #C5A880;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ── CTA その先へ区切り ── */
+.wp-cta-next-wrap {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px dashed rgba(197, 168, 128, 0.3);
+}
+
+.wp-cta-next-label {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.wp-cta-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* ── card desc 内 strong (white on dark bg) ── */
+.wp-card-strong {
+  color: #fff;
+}
+
+/* ── CTA footer link ── */
+.wp-cta-footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.wp-cta-footer-link {
+  color: #C5A880;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ── epilogue closing margin variant ── */
+.wp-epilogue-closing-mt40 {
+  margin-top: 40px;
+}
+
+/* ── epilogue author block ── */
+.wp-author-block {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.wp-author-label {
+  font-size: 13px;
+  color: #94a3b8;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.wp-author-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.wp-author-bio {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}

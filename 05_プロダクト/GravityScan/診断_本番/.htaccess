@@ -1,0 +1,10 @@
+# Scan diagnose 内部リソース保護
+# system_prompt.txt / jargon_map.json / CHANGELOG.md は PHP 内部参照のため公開禁止
+<FilesMatch "\.(txt|json|md|bak)$">
+    Require all denied
+</FilesMatch>
+
+# generate_backup_*.php もロールバック専用・直接アクセス不可
+<FilesMatch "^generate_backup_.*\.php$">
+    Require all denied
+</FilesMatch>

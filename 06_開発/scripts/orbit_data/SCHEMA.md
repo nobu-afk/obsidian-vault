@@ -1,7 +1,7 @@
 # Orbit 月次引力レポート — 入力 JSON スキーマ定義
 
-**対象スクリプト：** `06_開発/scripts/orbit_monthly_report.py`
-**バージョン：** v0.1（Phase 0 骨格）
+**対象スクリプト：** `06_開発/scripts/orbit_monthly_report.py` / `orbit_quarterly_review.py`
+**バージョン：** v1.0（Phase 1）
 **最終更新：** 260512
 
 ---
@@ -138,10 +138,17 @@ SSOT `09_会社OS/商品.md`「離職予兆 5 シグナル KPI」準拠
 
 ---
 
-## Phase 1 拡張予定（本番投入時）
+## Phase 1 実装済（260512）
+
+1. **Score IntEnum 化**（`orbit_monthly_report.py` — M-1 解消。`◎/○/△/×` の定義は `Score` クラスに集約）
+2. **α/β/γ/δ 自動マッピング**（`orbit_actions_map.json` の 16 ルールでスコアパターン → 提案を自動生成）
+   - `alpha_beta_gamma_delta_actions` が JSON に存在すれば手動入力を優先（下位互換維持）
+3. **過去 6 ヶ月時系列グラフ**（`--trend` フラグで `_trend.png` を出力）
+4. **PDF 出力サポート**（`--pdf` フラグ + `reportlab` がある場合に A4 3p PDF を出力）
+5. **orbit_quarterly_review.py 新設**（四半期 4 型再判定書 A4 5p を自動生成）
+
+## Phase 2 残課題（本番顧客投入時）
 
 1. `gravity_scores.current` の数値直接入力サポート（定量データ連携）
-2. `alpha_beta_gamma_delta_actions` の自動マッピングロジック（スコアパターン → 提案テンプレート）
-3. 複数月時系列データ対応（トレンドグラフ生成）
-4. PDF 出力サポート（A4 3p テンプレートへの埋め込み）
-5. 顧客別ベンチマーク比較（同業他社匿名平均との差分）
+2. 顧客別ベンチマーク比較（同業他社匿名平均との差分）
+3. `orbit_actions_map.json` ルールの実顧客フィードバックによる精緻化（ルール増設・優先度調整）

@@ -40,6 +40,8 @@
 
 <!-- Gravityシリーズセクション レイアウト調整（260420） -->
 <link rel="stylesheet" href="https://growthfix.jp/gravity/styles-top.css?v=20260424">
+  <!-- トップページ専用 CSS（inline style class 化 260512） -->
+  <link rel="stylesheet" href="https://growthfix.jp/assets/css/top-page.css?v=20260512">
   <script src="https://growthfix.jp/assets/js/ab-test.js?v=20260429a" defer></script>
   <script src="https://growthfix.jp/assets/js/seminar-bar.js?v=20260430b" defer></script>
 </head>
@@ -56,10 +58,10 @@
             <div class="inner d-flex flex-row flex-between">
                 <div class="item">
                     <h1 data-wow-delay=".6s" class="fv_ttl wow fadeInUp">優秀人材が<br>躍動する会社をつくる</h1>
-                    <p data-wow-delay=".8s" class="wow fadeInUp" style="font-size: 15px; color: #64748b; margin-top: 20px; letter-spacing: 0.04em;">30 年以上、組織の引力 ── 人が集まり、活きる力を設計してきた男が、人が集まり活躍する組織づくりを伴走する。</p>
-                    <div data-wow-delay="1s" class="wow fadeInUp" style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
-                        <a href="https://growthfix.jp/gravity-code/" style="display: inline-block; background: #000; color: #fff; padding: 14px 28px; text-decoration: none; font-size: 14px; letter-spacing: 0.04em;">あなたの"引力タイプ"を解剖する</a>
-                        <a href="https://growthfix.jp/gravity-scan/" style="display: inline-block; background: #fff; color: #000; border: 1px solid #000; padding: 14px 28px; text-decoration: none; font-size: 14px; letter-spacing: 0.04em;">組織の"引力タイプ"を診断する</a>
+                    <p data-wow-delay=".8s" class="wow fadeInUp t-fv-lead">30 年以上、組織の引力 ── 人が集まり、活きる力を設計してきた男が、人が集まり活躍する組織づくりを伴走する。</p>
+                    <div data-wow-delay="1s" class="wow fadeInUp t-fv-cta-wrap">
+                        <a href="https://growthfix.jp/gravity-code/" class="t-fv-btn-primary">あなたの"引力タイプ"を解剖する</a>
+                        <a href="https://growthfix.jp/gravity-scan/" class="t-fv-btn-secondary">組織の"引力タイプ"を診断する</a>
                     </div>
                 </div>
                 <p data-wow-delay="1s" class="fv_en">Growth<br>Fix</p>
@@ -69,86 +71,86 @@
         <!-- 次回セミナー告知バー -->
 
         <!-- 3 Twist 連発セクション（260430・5層モデル外的フック） -->
-        <section class="uncomfortable-truths" style="padding: 80px 24px; background: #f8fafc; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">
-          <div class="uncomfortable-truths-inner" style="max-width: 880px; margin: 0 auto;">
-            <p class="uncomfortable-truths-eyebrow" style="font-size:11px;letter-spacing:0.3em;color:#94a3b8;margin-bottom:32px;text-align:center;font-weight:700;">UNCOMFORTABLE TRUTHS</p>
-            <div class="uncomfortable-truths-list" style="display: flex; flex-direction: column; gap: 36px;">
-              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+        <section class="uncomfortable-truths t-ut-section">
+          <div class="uncomfortable-truths-inner t-ut-inner">
+            <p class="uncomfortable-truths-eyebrow t-ut-eyebrow">UNCOMFORTABLE TRUTHS</p>
+            <div class="uncomfortable-truths-list t-ut-list">
+              <p class="uncomfortable-truths-item t-ut-item">
                 「正しい施策」を全部入れた会社で、<br>なぜか優秀な人ほど先に辞めていく。
               </p>
-              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+              <p class="uncomfortable-truths-item t-ut-item">
                 「強い経営者」を演じれば演じるほど、<br>組織は弱くなる。
               </p>
-              <p class="uncomfortable-truths-item" style="font-family:'Noto Serif JP',serif;font-size: clamp(20px, 4vw, 26px); line-height: 1.65; color: #0f172a; font-weight: 800; margin: 0; letter-spacing: 0.02em;">
+              <p class="uncomfortable-truths-item t-ut-item">
                 権限委譲した瞬間、組織が止まる。
               </p>
             </div>
-            <p class="uncomfortable-truths-credit" style="font-size:13px;color:#64748b;margin-top:48px;text-align:center;letter-spacing:0.04em;line-height:1.85;">
+            <p class="uncomfortable-truths-credit t-ut-credit">
               ── 16 年の組織人事と 50 社診断で見えた、不都合な構造。
             </p>
-            <div class="uncomfortable-truths-box" style="margin-top: 36px; padding: 24px 28px; background: #f8fafc; border-left: 3px solid #b8a88a; border-radius: 2px;">
-              <p style="font-size:14.5px;color:#334155;margin:0;line-height:1.95;">
-                引力経営は、経営者個人の引力（Why × 才能 × 偏愛）を、<strong style="color:#0f172a;">人が集まり・躍動し・留まる組織に翻訳する</strong>経営手法です。
+            <div class="uncomfortable-truths-box t-ut-box">
+              <p class="t-ut-box-text">
+                引力経営は、経営者個人の引力（Why × 才能 × 偏愛）を、<strong class="t-ut-box-strong">人が集まり・躍動し・留まる組織に翻訳する</strong>経営手法です。
               </p>
             </div>
-            <div class="uncomfortable-truths-cta" style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-              <a href="https://growthfix.jp/whitepaper/" style="display:inline-block;background:#0f172a;color:#fff;padding:12px 24px;text-decoration:none;font-size:13px;letter-spacing:0.04em;border-radius:2px;">無料 PDF『引力経営』25 ページをダウンロード ▶</a>
-              <a href="https://growthfix.jp/service/" style="display:inline-block;background:#fff;color:#0f172a;border:1px solid #0f172a;padding:12px 24px;text-decoration:none;font-size:13px;letter-spacing:0.04em;border-radius:2px;">サービス一覧を見る ▶</a>
+            <div class="uncomfortable-truths-cta t-ut-cta">
+              <a href="https://growthfix.jp/whitepaper/" class="t-ut-cta-primary">無料 PDF『引力経営』25 ページをダウンロード ▶</a>
+              <a href="https://growthfix.jp/service/" class="t-ut-cta-secondary">サービス一覧を見る ▶</a>
             </div>
           </div>
         </section>
 
         <!-- 4 ペルソナ主訴別ナビ（260506 P1 ファネル監査追加・接続装置 4 切り口統合実装設計図 §3.1 反映） -->
-        <section class="persona-nav" style="padding: 80px 24px; background: #fff; border-bottom: 1px solid #e5e7eb;">
-          <div style="max-width: 1080px; margin: 0 auto;">
-            <p style="font-size:11px;letter-spacing:0.3em;color:#94a3b8;margin-bottom:24px;text-align:center;font-weight:700;">YOUR PRESSING PAIN</p>
-            <h3 style="font-family:'Noto Serif JP',serif;font-size:clamp(20px,3.5vw,28px);text-align:center;color:#0f172a;font-weight:800;margin-bottom:16px;letter-spacing:0.02em;line-height:1.55;">あなたの今、<br class="sp-only">最も痛む箇所はどれですか？</h3>
-            <p style="font-size:13.5px;color:#64748b;text-align:center;margin-bottom:48px;line-height:1.85;letter-spacing:0.02em;">経営者の主訴を 4 タイプで分解。あなたに効く入口を、ここで決めます。</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
-              <a href="https://growthfix.jp/gravity-recruit/" style="display:block;padding:28px 24px;background:#f8fafc;border-radius:6px;border-left:3px solid #0f172a;text-decoration:none;color:#0f172a;transition:transform 0.2s, box-shadow 0.2s;">
-                <p style="font-size:11px;letter-spacing:0.15em;color:#94a3b8;margin:0 0 10px;font-weight:700;">採用の痛み</p>
-                <p style="font-family:'Noto Serif JP',serif;font-size:16px;line-height:1.65;margin:0 0 14px;font-weight:700;color:#0f172a;">採用エージェントに 300 万払い、入社 1 ヶ月で退職される</p>
-                <p style="font-size:12.5px;color:#475569;margin:0;line-height:1.75;letter-spacing:0.02em;">→ <strong>CODE → Scan → Gravity Recruit</strong><br><span style="color:#94a3b8;">採用基盤の世界一を 3 ヶ月で実装する</span></p>
+        <section class="persona-nav t-pn-section">
+          <div class="t-pn-inner">
+            <p class="t-pn-eyebrow">YOUR PRESSING PAIN</p>
+            <h3 class="t-pn-title">あなたの今、<br class="sp-only">最も痛む箇所はどれですか？</h3>
+            <p class="t-pn-subtitle">経営者の主訴を 4 タイプで分解。あなたに効く入口を、ここで決めます。</p>
+            <div class="t-pn-grid">
+              <a href="https://growthfix.jp/gravity-recruit/" class="t-pn-card">
+                <p class="t-pn-card-label">採用の痛み</p>
+                <p class="t-pn-card-title">採用エージェントに 300 万払い、入社 1 ヶ月で退職される</p>
+                <p class="t-pn-card-body">→ <strong>CODE → Scan → Gravity Recruit</strong><br><span class="t-pn-card-muted">採用基盤の世界一を 3 ヶ月で実装する</span></p>
               </a>
-              <a href="https://growthfix.jp/gravity-cultivate/" style="display:block;padding:28px 24px;background:#f8fafc;border-radius:6px;border-left:3px solid #0f172a;text-decoration:none;color:#0f172a;transition:transform 0.2s, box-shadow 0.2s;">
-                <p style="font-size:11px;letter-spacing:0.15em;color:#94a3b8;margin:0 0 10px;font-weight:700;">離脱・組織冷えの痛み</p>
-                <p style="font-family:'Noto Serif JP',serif;font-size:16px;line-height:1.65;margin:0 0 14px;font-weight:700;color:#0f172a;">1on1・OKR・サーベイを全部入れたのに、優秀層から先に辞める</p>
-                <p style="font-size:12.5px;color:#475569;margin:0;line-height:1.75;letter-spacing:0.02em;">→ <strong>CODE → Scan → Gravity Cultivate</strong><br><span style="color:#94a3b8;">躍動する土壌を 6 ヶ月で本格実装する</span></p>
+              <a href="https://growthfix.jp/gravity-cultivate/" class="t-pn-card">
+                <p class="t-pn-card-label">離脱・組織冷えの痛み</p>
+                <p class="t-pn-card-title">1on1・OKR・サーベイを全部入れたのに、優秀層から先に辞める</p>
+                <p class="t-pn-card-body">→ <strong>CODE → Scan → Gravity Cultivate</strong><br><span class="t-pn-card-muted">躍動する土壌を 6 ヶ月で本格実装する</span></p>
               </a>
-              <a href="https://growthfix.jp/gravity-coaching/" style="display:block;padding:28px 24px;background:#f8fafc;border-radius:6px;border-left:3px solid #0f172a;text-decoration:none;color:#0f172a;transition:transform 0.2s, box-shadow 0.2s;">
-                <p style="font-size:11px;letter-spacing:0.15em;color:#94a3b8;margin:0 0 10px;font-weight:700;">経営者の孤独・消耗の痛み</p>
-                <p style="font-family:'Noto Serif JP',serif;font-size:16px;line-height:1.65;margin:0 0 14px;font-weight:700;color:#0f172a;">立派な経営者を演じる疲れと、ナンバー 2 不在症候群</p>
-                <p style="font-size:12.5px;color:#475569;margin:0;line-height:1.75;letter-spacing:0.02em;">→ <strong>CODE → Gravity Coaching</strong><br><span style="color:#94a3b8;">心の参謀として 6 ヶ月伴走する</span></p>
+              <a href="https://growthfix.jp/gravity-coaching/" class="t-pn-card">
+                <p class="t-pn-card-label">経営者の孤独・消耗の痛み</p>
+                <p class="t-pn-card-title">立派な経営者を演じる疲れと、ナンバー 2 不在症候群</p>
+                <p class="t-pn-card-body">→ <strong>CODE → Gravity Coaching</strong><br><span class="t-pn-card-muted">心の参謀として 6 ヶ月伴走する</span></p>
               </a>
-              <a href="https://growthfix.jp/whitepaper/" style="display:block;padding:28px 24px;background:#f8fafc;border-radius:6px;border-left:3px solid #0f172a;text-decoration:none;color:#0f172a;transition:transform 0.2s, box-shadow 0.2s;">
-                <p style="font-size:11px;letter-spacing:0.15em;color:#94a3b8;margin:0 0 10px;font-weight:700;">AI 時代不安の痛み</p>
-                <p style="font-family:'Noto Serif JP',serif;font-size:16px;line-height:1.65;margin:0 0 14px;font-weight:700;color:#0f172a;">AI に代替されない経営の核と、プロダクト差別化の喪失</p>
-                <p style="font-size:12.5px;color:#475569;margin:0;line-height:1.75;letter-spacing:0.02em;">→ <strong>WhitePaper → CODE → Scan</strong><br><span style="color:#94a3b8;">思想層から入って組織変革へ</span></p>
+              <a href="https://growthfix.jp/whitepaper/" class="t-pn-card">
+                <p class="t-pn-card-label">AI 時代不安の痛み</p>
+                <p class="t-pn-card-title">AI に代替されない経営の核と、プロダクト差別化の喪失</p>
+                <p class="t-pn-card-body">→ <strong>WhitePaper → CODE → Scan</strong><br><span class="t-pn-card-muted">思想層から入って組織変革へ</span></p>
               </a>
             </div>
-            <p style="font-size:12.5px;color:#64748b;margin-top:36px;text-align:center;line-height:1.85;letter-spacing:0.02em;">複数該当する場合は、最も切迫している痛みから入ってください。Scan（10 万・60 分）が組織の引力 4 型診断で次手の方角を確定します。</p>
+            <p class="t-pn-note">複数該当する場合は、最も切迫している痛みから入ってください。Scan（10 万・60 分）が組織の引力 4 型診断で次手の方角を確定します。</p>
 
-            <div style="margin-top:48px;padding:32px 28px;background:#f8fafc;border-radius:8px;border-top:3px solid #b8a88a;">
-              <p style="font-size:11px;letter-spacing:0.18em;color:#b8a88a;margin:0 0 12px;text-align:center;font-weight:700;">GRAVITY の唯一の 3 軸</p>
-              <h4 style="font-family:'Noto Serif JP',serif;font-size:clamp(18px,2.8vw,22px);text-align:center;color:#0f172a;font-weight:800;margin:0 0 24px;letter-spacing:0.04em;">集まる × 躍動する × 留まる</h4>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:880px;margin:0 auto;">
-                <div style="padding:16px 18px;background:#ffffff;border-radius:6px;border:1px solid #e5e7eb;text-align:center;">
-                  <p style="font-size:13px;font-weight:900;color:#0f172a;margin:0 0 4px;">集まる</p>
-                  <p style="font-size:11px;color:#94a3b8;margin:0 0 8px;letter-spacing:0.04em;">優秀人材が集まる</p>
-                  <p style="font-size:12px;font-weight:700;color:#1b1b1b;margin:0;">Gravity Recruit（80 万）</p>
+            <div class="t-axis-box">
+              <p class="t-axis-eyebrow">GRAVITY の唯一の 3 軸</p>
+              <h4 class="t-axis-title">集まる × 躍動する × 留まる</h4>
+              <div class="t-axis-grid">
+                <div class="t-axis-card">
+                  <p class="t-axis-card-name">集まる</p>
+                  <p class="t-axis-card-sub">優秀人材が集まる</p>
+                  <p class="t-axis-card-svc">Gravity Recruit（80 万）</p>
                 </div>
-                <div style="padding:16px 18px;background:#ffffff;border-radius:6px;border:1px solid #e5e7eb;text-align:center;">
-                  <p style="font-size:13px;font-weight:900;color:#0f172a;margin:0 0 4px;">躍動する</p>
-                  <p style="font-size:11px;color:#94a3b8;margin:0 0 8px;letter-spacing:0.04em;">集まった人材が活躍する</p>
-                  <p style="font-size:12px;font-weight:700;color:#1b1b1b;margin:0;">Gravity Cultivate（150 万）</p>
+                <div class="t-axis-card">
+                  <p class="t-axis-card-name">躍動する</p>
+                  <p class="t-axis-card-sub">集まった人材が活躍する</p>
+                  <p class="t-axis-card-svc">Gravity Cultivate（150 万）</p>
                 </div>
-                <div style="padding:16px 18px;background:#ffffff;border-radius:6px;border:1px solid #e5e7eb;text-align:center;">
-                  <p style="font-size:13px;font-weight:900;color:#0f172a;margin:0 0 4px;">留まる</p>
-                  <p style="font-size:11px;color:#94a3b8;margin:0 0 8px;letter-spacing:0.04em;">活躍する人材が留まる</p>
-                  <p style="font-size:12px;font-weight:700;color:#1b1b1b;margin:0;">Gravity Orbit（月 15 万）</p>
+                <div class="t-axis-card">
+                  <p class="t-axis-card-name">留まる</p>
+                  <p class="t-axis-card-sub">活躍する人材が留まる</p>
+                  <p class="t-axis-card-svc">Gravity Orbit（月 15 万）</p>
                 </div>
               </div>
-              <p style="font-size:11.5px;color:#64748b;margin:18px 0 0;text-align:center;line-height:1.75;">CODE（個人軸入口）/ Scan（組織軸入口）/ Coaching（経営者個人横断）/ Gravity Shift（Recruit + Cultivate 統合）で 3 軸全体を引力経営として設計</p>
+              <p class="t-axis-note">CODE（個人軸入口）/ Scan（組織軸入口）/ Coaching（経営者個人横断）/ Gravity Shift（Recruit + Cultivate 統合）で 3 軸全体を引力経営として設計</p>
             </div>
           </div>
         </section>
@@ -156,15 +158,15 @@
 <section class="service">
             <div class="c-inner">
                 <h3 data-wow-delay=".2s" class="c-sub_ttl wow fadeInUp">Gravityシリーズ</h3>
-                <p data-wow-delay=".3s" class="wow fadeInUp" style="text-align: center; font-size: 14px; color: #64748b; margin-bottom: 40px; letter-spacing: 0.04em;">経営者を本来の自分に戻し、組織に引力を生む</p>
+                <p data-wow-delay=".3s" class="wow fadeInUp t-svc-label">経営者を本来の自分に戻し、組織に引力を生む</p>
 
-                <p data-wow-delay=".3s" class="wow fadeInUp" style="font-size: 12px; letter-spacing: 0.15em; color: #94a3b8; margin-bottom: 20px;">── まず、解剖する</p>
-                <div class="item d-flex flex-row" style="align-items: center;">
-                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp" style="white-space: nowrap;">経営者の<br>引力を知る</h4>
+                <p data-wow-delay=".3s" class="wow fadeInUp t-svc-phase">── まず、解剖する</p>
+                <div class="item d-flex flex-row t-svc-item-align">
+                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp t-svc-nowrap">経営者の<br>引力を知る</h4>
                     <div data-wow-delay=".6s" class="area wow fadeInUp">
                         <a href="https://growthfix.jp/gravity-code/" class="row d-flex flex-row align-center" target="_blank" rel="noopener noreferrer">
                             <div class="logo d-flex flex-row align-center">
-                                <div class="logo_name" style="white-space: nowrap;">
+                                <div class="logo_name t-svc-nowrap">
                                     <p class="logo_en">Gravity CODE</p>
                                     <p class="logo_jp">引力の参謀（個人軸）── 自分の引力源を、60 分で丸裸にする</p>
                                 </div>
@@ -178,12 +180,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="item d-flex flex-row" style="align-items: center;">
-                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp" style="white-space: nowrap;">組織の<br>引力を翻訳する</h4>
+                <div class="item d-flex flex-row t-svc-item-align">
+                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp t-svc-nowrap">組織の<br>引力を翻訳する</h4>
                     <div data-wow-delay=".6s" class="area wow fadeInUp">
                         <a href="https://growthfix.jp/gravity-scan/" class="row d-flex flex-row align-center" target="_blank" rel="noopener noreferrer">
                             <div class="logo d-flex flex-row align-center">
-                                <div class="logo_name" style="white-space: nowrap;">
+                                <div class="logo_name t-svc-nowrap">
                                     <p class="logo_en">Gravity Scan</p>
                                     <p class="logo_jp">引力の参謀（組織軸）── 自社の引力タイプを、60 分で丸裸にする（組織の引力タイプ診断）</p>
                                 </div>
@@ -197,13 +199,13 @@
                         </a>
                     </div>
                 </div>
-                <p data-wow-delay=".3s" class="wow fadeInUp" style="font-size: 12px; letter-spacing: 0.15em; color: #94a3b8; margin-top: 48px; margin-bottom: 20px;">── そして、取り戻す</p>
-                <div class="item d-flex flex-row" style="align-items: center;">
-                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp" style="white-space: nowrap;">自分を<br>取り戻す</h4>
+                <p data-wow-delay=".3s" class="wow fadeInUp t-svc-phase-mid">── そして、取り戻す</p>
+                <div class="item d-flex flex-row t-svc-item-align">
+                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp t-svc-nowrap">自分を<br>取り戻す</h4>
                     <div data-wow-delay=".6s" class="area wow fadeInUp">
                         <a href="https://growthfix.jp/gravity-coaching/" class="row d-flex flex-row align-center" target="_blank" rel="noopener noreferrer">
                             <div class="logo d-flex flex-row align-center">
-                                <div class="logo_name" style="white-space: nowrap;">
+                                <div class="logo_name t-svc-nowrap">
                                     <p class="logo_en">Gravity Coaching</p>
                                     <p class="logo_jp">心の参謀 ── 自分を取り戻すと、人生が動き出す（月 1 × 90 分 × 6 ヶ月・38 万円）</p>
                                 </div>
@@ -217,12 +219,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="item d-flex flex-row" style="align-items: center;">
-                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp" style="white-space: nowrap;">採用基盤を<br>つくる</h4>
+                <div class="item d-flex flex-row t-svc-item-align">
+                    <h4 data-wow-delay=".4s" class="item_name wow fadeInUp t-svc-nowrap">採用基盤を<br>つくる</h4>
                     <div data-wow-delay=".6s" class="area wow fadeInUp">
                         <a href="https://growthfix.jp/gravity-recruit/" class="row d-flex flex-row align-center" target="_blank" rel="noopener noreferrer">
                             <div class="logo d-flex flex-row align-center">
-                                <div class="logo_name" style="white-space: nowrap;">
+                                <div class="logo_name t-svc-nowrap">
                                     <p class="logo_en">Gravity Recruit</p>
                                     <p class="logo_jp">変革の参謀（採用基盤）── 優秀人材が吸い寄せられる会社を、3 ヶ月で実装する</p>
                                 </div>
@@ -236,12 +238,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="item d-flex flex-row" style="align-items: center;">
-                    <h4 data-wow-delay=".5s" class="item_name wow fadeInUp" style="white-space: nowrap;">躍動する<br>土壌をつくる</h4>
+                <div class="item d-flex flex-row t-svc-item-align">
+                    <h4 data-wow-delay=".5s" class="item_name wow fadeInUp t-svc-nowrap">躍動する<br>土壌をつくる</h4>
                     <div data-wow-delay=".7s" class="area wow fadeInUp">
                         <a href="https://growthfix.jp/gravity-cultivate/" class="row d-flex flex-row align-center" target="_blank" rel="noopener noreferrer">
                             <div class="logo d-flex flex-row align-center">
-                                <div class="logo_name" style="white-space: nowrap;">
+                                <div class="logo_name t-svc-nowrap">
                                     <p class="logo_en">Gravity Cultivate</p>
                                     <p class="logo_jp">変革の参謀（躍動組織）── 優秀人材が躍動する土壌を、6 ヶ月で本格実装する</p>
                                 </div>
@@ -255,18 +257,18 @@
                         </a>
                     </div>
                 </div>
-                <p style="font-size:12px;letter-spacing:0.15em;color:#94a3b8;margin-top:24px;padding-left:4px;">── ※ <strong style="color:#475569;font-weight:700;">中間経営職育成設計</strong>（4 マネジメント：数字 / 業務 / ピープル / 引力相性）は Cultivate（6 ヶ月）の Week 23-24 中核で実装します。中間管理職ではなく、ミニ CEO として事業を動かすミドル層を育てます。</p>
-                <p data-wow-delay=".3s" class="wow fadeInUp" style="font-size: 12px; letter-spacing: 0.15em; color: #94a3b8; margin-top: 32px; margin-bottom: 12px; padding-left: 4px;">── ※ 採用と躍動の両軸が同時に停滞している経営者には <strong style="color:#475569;font-weight:700;">Recruit + Cultivate を順次受講する R+C 複合パッケージ（220 万・9 ヶ月・10 万割引）</strong> もあります。商談時にご案内します。<br>── ※ Gravity Recruit / Cultivate の実装後は <strong style="color:#475569;font-weight:700;">継続運用伴走（Gravity Orbit／月額 15 万円）</strong> をご用意しています。詳細は商談時にご案内します。</p>
+                <p class="t-svc-footnote">── ※ <strong class="t-svc-footnote-strong">中間経営職育成設計</strong>（4 マネジメント：数字 / 業務 / ピープル / 引力相性）は Cultivate（6 ヶ月）の Week 23-24 中核で実装します。中間管理職ではなく、ミニ CEO として事業を動かすミドル層を育てます。</p>
+                <p data-wow-delay=".3s" class="wow fadeInUp t-svc-footnote-note">── ※ 採用と躍動の両軸が同時に停滞している経営者には <strong class="t-svc-footnote-strong">Recruit + Cultivate を順次受講する R+C 複合パッケージ（220 万・9 ヶ月・10 万割引）</strong> もあります。商談時にご案内します。<br>── ※ Gravity Recruit / Cultivate の実装後は <strong class="t-svc-footnote-strong">継続運用伴走（Gravity Orbit／月額 15 万円）</strong> をご用意しています。詳細は商談時にご案内します。</p>
             </div>
         </section>
 
         <!-- Profile 抜粋 -->
-        <section style="padding: 80px 0; background: #f8fafc;">
+        <section class="t-profile-section">
             <div class="c-inner">
-                <h3 data-wow-delay=".2s" class="c-sub_ttl wow fadeInUp" style="font-size: 13px; letter-spacing: 0.1em; color: #94a3b8;">── 引力経営提唱者／引力の参謀について</h3>
-                <p data-wow-delay=".4s" class="wow fadeInUp" style="font-size: 17px; line-height: 2.05; letter-spacing: 0.04em; margin-top: 24px;">30 年以上、組織の引力 ── 人が集まり、活きる力を追いかけてきた人間。和歌山市（45 年連続人口流出）で求心力が失われていく景色を見て育ち、12 歳で児童会長、大学で中心市街地活性化ゼミ、組織人事 16 年（DMM.com 50 事業 HRBP 統括・MOON-X 30→120 人）を経て、2024 年 GrowthFix 創業。<strong>経営者の引力を、人が集まり・躍動し・留まる組織に翻訳する参謀</strong>として、引力経営を提唱している。</p>
-                <p data-wow-delay=".5s" class="wow fadeInUp" style="font-size: 14.5px; color: #475569; line-height: 1.95; margin-top: 20px; letter-spacing: 0.04em;">── 社会人の頃、本音で生きられていない自分に絶望した。それが、経営者を本来の自分に戻す仕事の原点になっている。</p>
-                <div data-wow-delay=".6s" class="wow fadeInUp" style="margin-top: 32px;">
+                <h3 data-wow-delay=".2s" class="c-sub_ttl wow fadeInUp t-profile-label">── 引力経営提唱者／引力の参謀について</h3>
+                <p data-wow-delay=".4s" class="wow fadeInUp t-profile-text">30 年以上、組織の引力 ── 人が集まり、活きる力を追いかけてきた人間。和歌山市（45 年連続人口流出）で求心力が失われていく景色を見て育ち、12 歳で児童会長、大学で中心市街地活性化ゼミ、組織人事 16 年（DMM.com 50 事業 HRBP 統括・MOON-X 30→120 人）を経て、2024 年 GrowthFix 創業。<strong>経営者の引力を、人が集まり・躍動し・留まる組織に翻訳する参謀</strong>として、引力経営を提唱している。</p>
+                <p data-wow-delay=".5s" class="wow fadeInUp t-profile-sub">── 社会人の頃、本音で生きられていない自分に絶望した。それが、経営者を本来の自分に戻す仕事の原点になっている。</p>
+                <div data-wow-delay=".6s" class="wow fadeInUp t-profile-btn-wrap">
                     <a href="https://growthfix.jp/profile" class="c-btn d-flex flex-center align-center">
                         <span>プロフィール全文を読む</span>
                         <span class="d-flex">
@@ -345,24 +347,24 @@
         <section class="archive">
             <div class="c-inner">
                 <h3 data-wow-delay=".2s" class="c-sub_ttl wow fadeInUp">事例・実績</h3>
-                <div data-wow-delay=".4s" class="item d-flex flex-row wow fadeInUp" style="align-items: center;">
+                <div data-wow-delay=".4s" class="item d-flex flex-row wow fadeInUp t-archive-item-align">
                     <figure class="item_img">
                         <img loading="lazy" src="https://growthfix.jp/assets/img/profile/DSC00224.jpg" alt="GrowthFix 代表 石井伸幸">
                     </figure>
                     <div class="area">
                         <p class="area_lead">経営者の引力を、組織の求心力に翻訳する<br>── 引力の参謀</p>
-                        <div class="area_flex d-flex flex-row align-center" style="gap:12px;margin:0 0 16px;flex-wrap:wrap;">
-                            <div style="flex:1;min-width:100px;padding:14px 12px;background:#f8fafc;border-radius:4px;text-align:center;">
-                                <p style="font-size:22px;font-weight:900;color:#0f172a;margin:0 0 4px;letter-spacing:0.02em;line-height:1;">50+</p>
-                                <p style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:0.06em;margin:0;">診断実績（社）</p>
+                        <div class="area_flex d-flex flex-row align-center t-stats-wrap">
+                            <div class="t-stats-card">
+                                <p class="t-stats-num">50+</p>
+                                <p class="t-stats-label">診断実績（社）</p>
                             </div>
-                            <div style="flex:1;min-width:100px;padding:14px 12px;background:#f8fafc;border-radius:4px;text-align:center;">
-                                <p style="font-size:22px;font-weight:900;color:#0f172a;margin:0 0 4px;letter-spacing:0.02em;line-height:1;">16年</p>
-                                <p style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:0.06em;margin:0;">人事キャリア</p>
+                            <div class="t-stats-card">
+                                <p class="t-stats-num">16年</p>
+                                <p class="t-stats-label">人事キャリア</p>
                             </div>
-                            <div style="flex:1;min-width:100px;padding:14px 12px;background:#f8fafc;border-radius:4px;text-align:center;">
-                                <p style="font-size:22px;font-weight:900;color:#0f172a;margin:0 0 4px;letter-spacing:0.02em;line-height:1;">30→120</p>
-                                <p style="font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:0.06em;margin:0;">組織拡大（名）</p>
+                            <div class="t-stats-card">
+                                <p class="t-stats-num">30→120</p>
+                                <p class="t-stats-label">組織拡大（名）</p>
                             </div>
                         </div>
                         <p class="area_txt">GrowthFixは、変化の激しいスタートアップ・成長企業の現場に深く入り込み、事業の成長を止めている構造を見抜き、社長がいなくても事業が伸び続ける状態をつくる支援をしてきました。</p>

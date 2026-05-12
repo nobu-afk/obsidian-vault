@@ -1,0 +1,429 @@
+/* ============================================================
+   GrowthFix コーポレートトップページ専用スタイル
+   top_本番/index.html の inline style を class 化（260512）
+   名前空間: .t-* (top page)
+   ============================================================ */
+
+/* ── FV (First View) ── */
+.t-fv-lead {
+  font-size: 15px;
+  color: #64748b;
+  margin-top: 20px;
+  letter-spacing: 0.04em;
+}
+
+.t-fv-cta-wrap {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.t-fv-btn-primary {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.t-fv-btn-secondary {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Uncomfortable Truths section ── */
+.t-ut-section {
+  padding: 80px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.t-ut-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.t-ut-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #94a3b8;
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.t-ut-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.t-ut-item {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(20px, 4vw, 26px);
+  line-height: 1.65;
+  color: #0f172a;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.t-ut-credit {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 48px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.85;
+}
+
+.t-ut-box {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: #f8fafc;
+  border-left: 3px solid #b8a88a;
+  border-radius: 2px;
+}
+
+.t-ut-box-text {
+  font-size: 14.5px;
+  color: #334155;
+  margin: 0;
+  line-height: 1.95;
+}
+
+.t-ut-box-strong {
+  color: #0f172a;
+}
+
+.t-ut-cta {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.t-ut-cta-primary {
+  display: inline-block;
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+}
+
+.t-ut-cta-secondary {
+  display: inline-block;
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #0f172a;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+}
+
+/* ── Persona Nav section ── */
+.t-pn-section {
+  padding: 80px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.t-pn-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.t-pn-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #94a3b8;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.t-pn-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(20px, 3.5vw, 28px);
+  text-align: center;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+}
+
+.t-pn-subtitle {
+  font-size: 13.5px;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+.t-pn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.t-pn-card {
+  display: block;
+  padding: 28px 24px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border-left: 3px solid #0f172a;
+  text-decoration: none;
+  color: #0f172a;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.t-pn-card-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.t-pn-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.t-pn-card-body {
+  font-size: 12.5px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
+.t-pn-card-muted {
+  color: #94a3b8;
+}
+
+.t-pn-note {
+  font-size: 12.5px;
+  color: #64748b;
+  margin-top: 36px;
+  text-align: center;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ── 3-axis box (inside persona nav) ── */
+.t-axis-box {
+  margin-top: 48px;
+  padding: 32px 28px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-top: 3px solid #b8a88a;
+}
+
+.t-axis-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #b8a88a;
+  margin: 0 0 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.t-axis-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(18px, 2.8vw, 22px);
+  text-align: center;
+  color: #0f172a;
+  font-weight: 800;
+  margin: 0 0 24px;
+  letter-spacing: 0.04em;
+}
+
+.t-axis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.t-axis-card {
+  padding: 16px 18px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.t-axis-card-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.t-axis-card-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+}
+
+.t-axis-card-svc {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin: 0;
+}
+
+.t-axis-note {
+  font-size: 11.5px;
+  color: #64748b;
+  margin: 18px 0 0;
+  text-align: center;
+  line-height: 1.75;
+}
+
+/* ── Service section labels ── */
+.t-svc-label {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 40px;
+  letter-spacing: 0.04em;
+}
+
+.t-svc-phase {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.t-svc-phase-mid {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+.t-svc-item-align {
+  align-items: center;
+}
+
+.t-svc-nowrap {
+  white-space: nowrap;
+}
+
+.t-svc-footnote {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin-top: 24px;
+  padding-left: 4px;
+}
+
+.t-svc-footnote-strong {
+  color: #475569;
+  font-weight: 700;
+}
+
+.t-svc-footnote-note {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* ── Profile section ── */
+.t-profile-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.t-profile-label {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+}
+
+.t-profile-text {
+  font-size: 17px;
+  line-height: 2.05;
+  letter-spacing: 0.04em;
+  margin-top: 24px;
+}
+
+.t-profile-sub {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.95;
+  margin-top: 20px;
+  letter-spacing: 0.04em;
+}
+
+.t-profile-btn-wrap {
+  margin-top: 32px;
+}
+
+/* ── Archive / Stats ── */
+.t-archive-item-align {
+  align-items: center;
+}
+
+.t-stats-wrap {
+  gap: 12px;
+  margin: 0 0 16px;
+  flex-wrap: wrap;
+}
+
+.t-stats-card {
+  flex: 1;
+  min-width: 100px;
+  padding: 14px 12px;
+  background: #f8fafc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.t-stats-num {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.t-stats-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+  margin: 0;
+}

@@ -1,0 +1,119 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "updated": "260512",
+    "description": "引力8項目スコアパターン → R/C α/β/γ/δ 推奨アクション自動マッピングルール",
+    "trigger_note": "trigger 内の全キーのスコアが条件値に含まれる場合に発火（AND条件）。複数ルールが発火する場合は priority 順に並べて max 5 件出力する。",
+    "axes": {
+      "集まる軸": ["①recruitment_pipeline", "②final_decline_rate", "⑦recruitment_wall_pof"],
+      "躍動軸":   ["③talent_retention", "④executive_voice", "⑤engagement", "⑥departure_signal", "⑧psych_safety_cost"]
+    }
+  },
+  "rules": [
+    {
+      "id": "R-α-1",
+      "axis": "R-α",
+      "priority": "high",
+      "trigger": {"recruitment_pipeline": ["×", "△"]},
+      "action": "採用ペルソナ × 引力翻訳の再設計（Week 1-2 で代表 × 設計者の対話 90分）。Why 軸・才能軸を求職者言語に変換した JD を作成する。"
+    },
+    {
+      "id": "R-α-2",
+      "axis": "R-α",
+      "priority": "high",
+      "trigger": {"recruitment_pipeline": ["×"], "final_decline_rate": ["×"]},
+      "action": "採用引力の根本診断（採用ピッチ全件見直し）。経営者の個人引力を採用メッセージに直結させる緊急設計セッションを実施。"
+    },
+    {
+      "id": "R-β-1",
+      "axis": "R-β",
+      "priority": "high",
+      "trigger": {"final_decline_rate": ["×", "△"], "recruitment_wall_pof": ["×", "△"]},
+      "action": "最終面接プロセスの改善（辞退理由の構造的分析 + PO Fit 判定設問の再設計）。フォローアップを面接翌日 24h 以内に標準化。"
+    },
+    {
+      "id": "R-β-2",
+      "axis": "R-β",
+      "priority": "medium",
+      "trigger": {"final_decline_rate": ["△"]},
+      "action": "最終面接後フォローアップ連絡を 24h 以内に統一。辞退理由をカテゴリ別に記録し月次でパターン分析を実施。"
+    },
+    {
+      "id": "R-γ-1",
+      "axis": "R-γ",
+      "priority": "high",
+      "trigger": {"talent_retention": ["×"]},
+      "action": "優秀人材定着モニタリングの緊急強化。個別面談（代表直轄）を即時設定し離職リスク対象者を特定・リテンションプランを立案。"
+    },
+    {
+      "id": "R-γ-2",
+      "axis": "R-γ",
+      "priority": "medium",
+      "trigger": {"recruitment_wall_pof": ["×", "△"]},
+      "action": "採用最大壁の再特定ワークショップ（代表 + 採用担当 60分）。PO Fit チェックリストを更新し面接フローに組み込む。"
+    },
+    {
+      "id": "R-δ-1",
+      "axis": "R-δ",
+      "priority": "low",
+      "trigger": {"recruitment_pipeline": ["○", "◎"], "final_decline_rate": ["○", "◎"]},
+      "action": "集まる軸が良好水準。採用データの週次モニタリング習慣化と採用 KPI ダッシュボードの整備を推進。"
+    },
+    {
+      "id": "C-α-1",
+      "axis": "C-α",
+      "priority": "high",
+      "trigger": {"engagement": ["×", "△"], "talent_retention": ["△"]},
+      "action": "エンゲージメント緊急施策（幹部 1on1 の週次化 + アジェンダ標準化）。発話比率目標を経営者:幹部 = 3:7 に設定しログ開始。"
+    },
+    {
+      "id": "C-α-2",
+      "axis": "C-α",
+      "priority": "high",
+      "trigger": {"engagement": ["×"]},
+      "action": "全幹部エンゲージメント緊急診断。引力 8 項目との相関マップを作成し、低エンゲージメントの構造的原因を特定する。"
+    },
+    {
+      "id": "C-β-1",
+      "axis": "C-β",
+      "priority": "high",
+      "trigger": {"departure_signal": ["×", "△"]},
+      "action": "離脱予兆対象者の個別フォロープラン立案。代表直轄の非公式 1on1（月 2 回）を設定し心理的安全性の回復を図る。"
+    },
+    {
+      "id": "C-β-2",
+      "axis": "C-β",
+      "priority": "medium",
+      "trigger": {"executive_voice": ["×", "△"], "engagement": ["×", "△"]},
+      "action": "幹部対話文化の設計（ドラムビートリズム確立）。月次全体会議 + 週次チームミーティングのアジェンダを引力設計原則に合わせて再構築。"
+    },
+    {
+      "id": "C-δ-1",
+      "axis": "C-δ",
+      "priority": "high",
+      "trigger": {"executive_voice": ["×", "△"]},
+      "action": "幹部発話量の計測開始（月次セッション記録から発話比率を算出）。発話量が低い幹部には 1on1 でコーチング型質問を週次で投入。"
+    },
+    {
+      "id": "C-δ-2",
+      "axis": "C-δ",
+      "priority": "medium",
+      "trigger": {"executive_voice": ["△"]},
+      "action": "幹部ミーティングでの発言機会設計（議題提案権の付与・ラウンドロビン発言ルール導入）。発話量ログを月次引力レポートに反映。"
+    },
+    {
+      "id": "C-γ-1",
+      "axis": "C-γ",
+      "priority": "high",
+      "trigger": {"psych_safety_cost": ["×", "△"]},
+      "action": "心理的安全性 4 行動チェック（Edmondson 1999）の月次実施。採用コスト対効果の計測基盤を整備し、コスト削減効果を可視化する。"
+    },
+    {
+      "id": "C-γ-2",
+      "axis": "C-γ",
+      "priority": "medium",
+      "trigger": {"engagement": ["×", "△"]},
+      "action": "エンゲージメントサーベイを月次 5 問（引力 8 項目対応）に圧縮・継続率を高める設計に変更。次月からの定点観測を開始。"
+    }
+  ]
+}
