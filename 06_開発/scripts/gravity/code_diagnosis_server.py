@@ -23,7 +23,7 @@ ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY', '')
 
 # APIキーがなければconfig_claude.jsonから読む
 if not ANTHROPIC_API_KEY:
-    config_path = os.path.join(os.path.dirname(__file__), 'config', 'config_claude.json')
+    config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config_claude.json')
     if os.path.exists(config_path):
         with open(config_path) as f:
             cfg = json.load(f)

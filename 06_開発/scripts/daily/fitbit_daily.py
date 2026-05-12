@@ -19,7 +19,7 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 import base64
 
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config", "config_fitbit.json")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "config", "config_fitbit.json")
 API_BASE = "https://api.fitbit.com"
 TOKEN_URL = "https://api.fitbit.com/oauth2/token"
 
