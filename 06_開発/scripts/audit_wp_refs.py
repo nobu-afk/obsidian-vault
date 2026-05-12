@@ -64,17 +64,37 @@ def scan_file(path: Path):
         text = path.read_text(encoding="utf-8", errors="replace")
     except OSError:
         return findings
-    for lineno, line in enumerate(text.splitlines(), start=1):
-        for kind, pattern in PATTERNS:
-            for match in pattern.finditer(line):
-                findings.append({
-                    "file": str(path.relative_to(VAULT_ROOT)),
-                    "line": lineno,
-                    "kind": kind,
-                    "match": match.group(0),
-                    "context": line.strip()[:160],
-                })
+    line_starts = None
+    for kind, pattern in PATTERNS:
+        for match in pattern.finditer(text):
+            if line_starts is None:
+                line_starts = [0]
+                for i, ch in enumerate(text):
+                    if ch == "\n":
+                        line_starts.append(i + 1)
+            offset = match.start()
+            lineno = _bisect_line(line_starts, offset)
+            line_end = text.find("\n", offset)
+            line = text[line_starts[lineno - 1]: line_end if line_end != -1 else len(text)]
+            findings.append({
+                "file": str(path.relative_to(VAULT_ROOT)),
+                "line": lineno,
+                "kind": kind,
+                "match": match.group(0),
+                "context": line.strip()[:160],
+            })
     return findings
+
+
+def _bisect_line(line_starts, offset):
+    lo, hi = 0, len(line_starts) - 1
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if line_starts[mid] <= offset:
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo + 1
 
 
 def collect_targets():

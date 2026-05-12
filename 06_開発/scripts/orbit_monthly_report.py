@@ -30,18 +30,18 @@ import json
 import argparse
 from datetime import datetime, timezone, timedelta
 
-# ============================================================
-# matplotlib はオプション依存（なければ PNG スキップ）
-# ============================================================
-try:
-    import matplotlib
-    matplotlib.use("Agg")  # GUI不要・バックエンドをファイル出力専用に設定
-    import matplotlib.pyplot as plt
-    import matplotlib.patches as mpatches
-    import matplotlib.font_manager as fm
-    HAS_MATPLOTLIB = True
-except ImportError:
-    HAS_MATPLOTLIB = False
+
+def _load_matplotlib():
+    """matplotlib を遅延ロード（PNG 生成時のみ ~300ms の起動コストを払う）"""
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import matplotlib.patches as mpatches
+        import matplotlib.font_manager as fm
+        return plt, mpatches, fm
+    except ImportError:
+        return None
 
 # ============================================================
 # 定数・マッピング
@@ -98,14 +98,15 @@ def load_json(client_id: str, month: str) -> dict:
     """orbit_data/<CLIENT_ID>_<YYYY-MM>.json を読み込む"""
     filename = f"{client_id}_{month}.json"
     filepath = os.path.join(DATA_DIR, filename)
-    if not os.path.exists(filepath):
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError as e:
         raise FileNotFoundError(
             f"データファイルが見つかりません: {filepath}\n"
             f"  orbit_data/ 配下に {filename} を配置してください。\n"
             f"  スキーマ: orbit_data/SCHEMA.md"
-        )
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+        ) from e
 
 
 def validate_data(data: dict) -> None:
@@ -359,12 +360,14 @@ def build_page3(data: dict) -> str:
 # グラフ生成（matplotlib）
 # ============================================================
 
-def build_chart(data: dict, output_path: str) -> None:
-    """引力8項目グループ棒グラフ（今月 vs 先月）を PNG に保存"""
-    if not HAS_MATPLOTLIB:
+def build_chart(data: dict, output_path: str) -> bool:
+    """引力8項目グループ棒グラフ（今月 vs 先月）を PNG に保存。成功時 True を返す。"""
+    loaded = _load_matplotlib()
+    if loaded is None:
         print("[INFO] matplotlib が見つかりません。PNG 出力をスキップします。", file=sys.stderr)
         print("[INFO] インストール: pip install matplotlib", file=sys.stderr)
-        return
+        return False
+    plt, mpatches, fm = loaded
 
     gs = data["gravity_scores"]
     current  = gs.get("current", {})
@@ -441,7 +444,8 @@ def build_chart(data: dict, output_path: str) -> None:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches="tight")
-    plt.close()
+    plt.close(fig)
+    return True
 
 
 # ============================================================
@@ -508,14 +512,13 @@ def main() -> None:
         chart_path = os.path.join(REPORT_DIR, f"{client_id}_{month}.png")
         print(f"[INFO] PNG 生成: {chart_path}", file=sys.stderr)
         try:
-            build_chart(data, chart_path)
-            if HAS_MATPLOTLIB and os.path.exists(chart_path):
+            if build_chart(data, chart_path):
                 size_kb = os.path.getsize(chart_path) // 1024
                 print(f"[OK]  PNG 出力完了: {chart_path} ({size_kb} KB)", file=sys.stderr)
-        except Exception as e:
+        except (ValueError, OSError, RuntimeError) as e:
             print(f"[WARN] PNG 生成中にエラーが発生しました: {e}", file=sys.stderr)
     else:
-        print(f"[INFO] --no-chart 指定につき PNG 出力をスキップ", file=sys.stderr)
+        print("[INFO] --no-chart 指定につき PNG 出力をスキップ", file=sys.stderr)
 
 
 if __name__ == "__main__":
