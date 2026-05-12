@@ -465,121 +465,18 @@ $report_html = <<<HTML
 <title>才能の取扱説明書｜Gravity CODE</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/css/diagnose-report.css?v=20260512">
+<link rel="stylesheet" href="/assets/css/diagnose-report-code.css?v=20260512">
 <style>
-  @page { size: A4; margin: 20mm 18mm 24mm 18mm; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { background: #e8e8e8; }
-  body {
-    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
-    font-size: 15px; line-height: 1.8; color: #1a1a2e; background: #fff;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
-    max-width: 760px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1);
-  }
-  .page { padding: 48px 56px; }
-  .pdf-btn {
-    position: fixed; bottom: 32px; right: 32px; display: flex; align-items: center; gap: 8px;
-    background: #0f172a; color: #fff; font-size: 14px; font-weight: 600;
-    padding: 14px 28px; border: none; border-radius: 100px; cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: opacity 0.2s, transform 0.2s;
-    z-index: 9999; letter-spacing: 0.04em;
-  }
-  .pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-  .pdf-btn svg { width: 18px; height: 18px; fill: currentColor; }
-  @media print {
-    html { background: #fff; }
-  }
-  .section { page-break-inside: avoid; margin-bottom: 36px; }
-  .section-num {
-    display: inline-block; font-size: 9pt; font-weight: 700; color: #fff;
-    background: #0f172a; width: 28px; height: 28px; line-height: 28px;
-    text-align: center; border-radius: 50%; margin-right: 10px; vertical-align: middle;
-  }
-  .section-title {
-    display: inline; font-size: 16pt; font-weight: 800; color: #0f172a;
-    letter-spacing: 0.04em; vertical-align: middle;
-  }
-  .section-line { height: 2px; background: linear-gradient(90deg, #0f172a 30%, #e2e8f0 30%); margin: 12px 0 28px; }
-  h3 { font-size: 12pt; font-weight: 700; color: #0f172a; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
-  h4 { font-size: 10.5pt; font-weight: 700; color: #334155; margin: 20px 0 10px; letter-spacing: 0.02em; }
-  p { margin: 0 0 14px; }
-  .core-quote { background: #f8fafc; border-left: 4px solid #0f172a; padding: 20px 24px; margin: 20px 0 28px; font-size: 11pt; line-height: 1.9; color: #1e293b; }
-  .verb-chain { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 24px; margin: 16px 0 24px; font-size: 11pt; font-weight: 700; color: #0f172a; letter-spacing: 0.02em; text-align: center; line-height: 1.8; }
-  .verb-map { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 0; margin: 20px 0 28px; padding: 28px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
-  .verb-map-item { flex: 0 1 auto; min-width: 130px; max-width: 180px; text-align: center; padding: 0 18px 0 0; position: relative; }
-  .verb-map-item:not(:last-child)::after { content: '→'; position: absolute; right: -2px; top: 14px; font-size: 16pt; font-weight: 700; color: #0f172a; line-height: 1; }
-  .verb-map-verb { display: inline-block; font-size: 11pt; font-weight: 800; color: #0f172a; background: #fff; border: 2px solid #0f172a; border-radius: 10px; padding: 10px 18px; margin-bottom: 10px; white-space: nowrap; letter-spacing: 0.02em; }
-  .verb-map-source { font-size: 9pt; color: #64748b; line-height: 1.6; padding: 0 4px; }
-  .verb-map-arrow { display: none; }
-  .numbered-list { counter-reset: nlist; list-style: none; padding: 0; margin: 12px 0 24px; }
-  .numbered-list li, .numbered-list > div { counter-increment: nlist; position: relative; padding-left: 32px; margin-bottom: 14px; font-size: 10pt; line-height: 1.8; }
-  .numbered-list li::before, .numbered-list > div::before { content: counter(nlist); position: absolute; left: 0; top: 2px; width: 22px; height: 22px; background: #0f172a; color: #fff; border-radius: 50%; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
-  .filter-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
-  .filter-col h4 { margin: 0 0 12px; font-size: 10pt; text-transform: none; }
-  .filter-high { background: rgba(15,23,42,0.02); }
-  .filter-low { background: rgba(220,38,38,0.02); }
-  .filter-col ul { list-style: none; padding: 0; }
-  .filter-col li { font-size: 10pt; line-height: 1.8; padding-left: 16px; position: relative; margin-bottom: 6px; }
-  .filter-col li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; }
-  .filter-high li::before { background: #0f172a; }
-  .filter-low li::before { background: #dc2626; opacity: 0.5; }
-  .haveto-card { background: #fef2f2; border-left: 3px solid #dc2626; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
-  .haveto-tag { font-size: 9pt; font-weight: 800; letter-spacing: 0.08em; color: #dc2626; text-transform: uppercase; margin-bottom: 4px; }
-  .haveto-card p { font-size: 10pt; line-height: 1.8; color: #334155; }
-  .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 24px; }
-  .process-item { padding: 14px 18px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; }
-  .process-verb { font-size: 10pt; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
-  .process-item p { font-size: 9pt; color: #64748b; line-height: 1.7; }
-  .scenario-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 12px 0; page-break-inside: avoid; }
-  .scenario-box h4 { margin: 0 0 10px; text-transform: none; }
-  .scenario-box ul { list-style: disc; padding-left: 20px; }
-  .scenario-box li { font-size: 10pt; line-height: 1.8; margin-bottom: 4px; }
-  .manual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
-  .manual-col { padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
-  .manual-do { background: rgba(15,23,42,0.02); }
-  .manual-dont { background: rgba(220,38,38,0.02); }
-  .manual-col h4 { margin: 0 0 12px; text-transform: none; }
-  .path-cards { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 24px; }
-  .path-card { padding: 18px 22px; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; position: relative; }
-  .path-card--recommended { border-color: #0f172a; background: rgba(15,23,42,0.02); }
-  .path-badge { position: absolute; top: 14px; right: 14px; font-size: 8pt; font-weight: 800; letter-spacing: 0.08em; padding: 3px 10px; background: #0f172a; color: #fff; border-radius: 4px; }
-  .path-card h4 { margin: 0 0 6px; font-size: 11pt; text-transform: none; color: #0f172a; }
-  .path-card p { font-size: 9.5pt; color: #64748b; line-height: 1.7; }
-  .analyst-note { background: #f8fafc; border-radius: 8px; padding: 24px 28px; margin: 28px 0; font-size: 10pt; font-style: italic; line-height: 1.9; color: #475569; page-break-inside: avoid; }
-  .analyst-note strong { color: #0f172a; font-style: normal; }
-  {$question_block_css}
-  .report-footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #0f172a; text-align: center; font-size: 9pt; color: #64748b; page-break-inside: avoid; }
-  .report-footer strong { color: #0f172a; font-size: 10pt; }
-  .page-break { page-break-before: always; }
-  /* スクリーン表示のレスポンシブ */
+  /* CODE 横並び verb-map モバイル補正（共通CSS + code.css のレスポンシブに追加） */
   @media screen and (max-width: 800px) {
-    body { max-width: 100%; box-shadow: none; font-size: 14px; }
-    .page { padding: 24px 20px; }
-    .section-title { font-size: 18px; }
-    h3 { font-size: 15px; }
-    .core-quote { padding: 16px 18px; font-size: 14px; }
-    .verb-chain { padding: 14px 16px; font-size: 13px; }
     .verb-map { padding: 20px 12px; gap: 20px 0; }
     .verb-map-item { min-width: 110px; max-width: 150px; padding: 0 14px 0 0; }
     .verb-map-item:not(:last-child)::after { font-size: 13pt; top: 10px; }
     .verb-map-verb { font-size: 10.5pt; padding: 8px 14px; margin-bottom: 8px; }
     .verb-map-source { font-size: 8.5pt; line-height: 1.55; }
-    .filter-grid, .manual-grid { grid-template-columns: 1fr; gap: 12px; }
-    .process-grid { grid-template-columns: 1fr; gap: 8px; }
-    .path-cards { gap: 10px; }
-    .analyst-note { padding: 18px 20px; }
-    .pdf-btn { bottom: 16px; right: 16px; padding: 10px 20px; font-size: 13px; }
   }
-  @media screen and (min-width: 801px) {
-    body { max-width: 760px; }
-  }
-  @media print {
-    body { font-size: 10pt; visibility: visible !important; max-width: none; box-shadow: none; margin: 0; }
-    .page { padding: 0; }
-    .pdf-btn { display: none; }
-    .filter-grid, .process-grid, .manual-grid { break-inside: avoid; }
-    .haveto-card, .path-card, .scenario-box { break-inside: avoid; }
-  }
+  {$question_block_css}
 </style>
 </head>
 <body>
