@@ -13,39 +13,74 @@
 
 ---
 
-## 構造（4カテゴリ × 2層 = 18ファイル・260502 バランスホイール SSOT 昇格）
+## 構造（4 カテゴリ × 2 層 + 子 MD・260512 Phase 9 完走時点）
+
+**実 MD 数：31**（+ _素材ストック 2 + _archive 2 = 計 35 ファイル）
 
 ```
 09_会社OS/
 ├── 00_README.md           ← このファイル
-├── 公開/                  （対外発信・クライアント展開時のテンプレ）
-│   ├── 経営思想/          【思想層 ★260430 サブ層分割】
-│   │   ├── 会社.md        【経営思想サブ】GrowthFix=引力経営を広める会社
-│   │   ├── Why.md         【経営思想サブ】使命=才能解放・自己主権
-│   │   ├── 引力.md        【経営思想サブ】中核思想・タグライン実装
-│   │   ├── 参謀.md        【経営思想サブ】社長の翻訳者・5サービス参謀体系
-│   │   └── 接続装置.md    【接続装置サブ★260430 新規】内的⇔外的橋渡し・5層モデル・「引力＝集客力」言い換え・GrowthFix の最大の知的資産
+├── _整理計画_260430.md     【Phase 8 整理計画書】
+├── 公開/                   （対外発信・クライアント展開時のテンプレ）
+│   ├── 経営思想/           【思想層・300 行ルール】
+│   │   ├── 会社.md         GrowthFix=引力経営を広める会社
+│   │   ├── Why.md          使命=才能解放・自己主権
+│   │   ├── 引力.md         中核思想・タグライン実装・Phase 11 定義
+│   │   ├── 参謀.md         社長の翻訳者・6 サービス参謀体系
+│   │   ├── 接続装置.md     【接続装置サブ】内的⇔外的橋渡し・5 層モデル
+│   │   └── 接続装置_実装パターン.md  【子 MD・260502 分離】配置パターン詳細
 │   ├── 文化/
-│   │   ├── culture.md     尖り路線4.3・批判覚悟・主軸先行
-│   │   └── 判断基準.md    堀田フレーム・ウニ丼・5原則・構造逆算
+│   │   ├── culture.md      尖り路線 4.3・批判覚悟・主軸先行
+│   │   ├── 判断基準.md     堀田フレーム・ウニ丼・5 原則・構造逆算
+│   │   └── 判断基準_運用レイヤー.md  【子 MD】運用詳細
 │   ├── ガイドライン/
-│   │   ├── design.md      ブランドガイド・引力ブランディング3層
-│   │   ├── 商品.md        5サービス一貫性ガイド
-│   │   └── 翻訳.md        コアコンピタンス=翻訳力
+│   │   ├── design.md       ブランドガイド・引力ブランディング 3 層
+│   │   ├── 商品.md         6 サービス一貫性ガイド
+│   │   ├── 商品_5サービス詳細.md       【子 MD】サービス別詳細
+│   │   ├── 商品_5サービス_論文反映_Phase8_Phase9.md   【孫 MD】論文反映
+│   │   ├── 商品_5サービス_論文反映_Phase10_10軸補完.md 【孫 MD】10 軸補完
+│   │   └── 翻訳.md         コアコンピタンス=翻訳力
 │   └── 発信・AI/
-│       ├── AI.md          AIネイティブ経営の実装ノウハウ
-│       └── 発信.md        広報5軸・Note連載・SNS方針
-└── 非公開/                （内部運用専用）
-    ├── 経営層/
-    │   ├── 社長.md            石井さんの判断軸の生情報
-    │   └── バランスホイール.md  【★260502 新規】個人軸 8 領域ゴール SSOT（仕事/ファイナンス/健康/知性/趣味/人間関係/家族/社会貢献）× 2026年末 / 2028年 / 2033年
-    ├── 機能/
-    │   ├── 法務.md        契約パターン
-    │   ├── 採用.md        業務委託パートナー基準
-    │   └── 営業.md        商談・見積・契約標準
-    └── ガイド/
-        └── カスタマー.md   顧客対応・コミュニケーション基準
+│       ├── AI.md           AI ネイティブ経営の実装ノウハウ
+│       ├── AI_自動化群.md  【子 MD】Skill 自動化・サブエージェント
+│       ├── harness.md      【ハーネスエンジニアリング SSOT・260501 分離】
+│       ├── 発信.md         広報 5 軸・Note 連載・SNS 方針
+│       ├── 発信_学術濃度ルール.md   【子 MD】媒体別学術濃度
+│       └── 発信_チャネル別運用.md   【子 MD】チャネル別運用
+├── 非公開/                  （内部運用専用）
+│   ├── 経営層/
+│   │   ├── 社長.md          石井さんの判断軸の生情報
+│   │   └── バランスホイール.md  個人軸 8 領域ゴール SSOT
+│   ├── 機能/
+│   │   ├── 法務.md          契約パターン
+│   │   ├── 採用.md          業務委託パートナー基準
+│   │   ├── 営業.md          商談・見積・契約標準
+│   │   ├── 営業_運用詳細.md            【子 MD】運用詳細
+│   │   └── 営業_論文反映_Phase8_Phase9.md  【子 MD】論文反映
+│   └── ガイド/
+│       └── カスタマー.md    顧客対応・コミュニケーション基準
+├── _素材ストック/            【260512 Phase 9 完走で分離】
+│   ├── 商品_進化記録_260510-260512.md       Phase 7-11 + 素材ストック
+│   └── 営業_260512反映_HACHI操電_スイートスポット.md  検証由来素材
+└── _archive/                【完了済履歴・260430 Phase 8 で導入】
+    ├── 260429_AINative森_ハーネスエンジニアリング_会社OS運用アップデート提案.md
+    └── 260510_商品_5サービス詳細_Phase7反映本体.md
 ```
+
+### 親 ↔ 子 ↔ 孫 構造マップ
+
+| 親 MD | 子 MD | 孫 MD |
+|---|---|---|
+| 商品.md | 商品_5サービス詳細.md | 商品_5サービス_論文反映_Phase8_Phase9.md / Phase10_10軸補完.md |
+| 商品.md | （素材ストック）商品_進化記録_260510-260512.md | - |
+| 判断基準.md | 判断基準_運用レイヤー.md | - |
+| 発信.md | 発信_学術濃度ルール.md / 発信_チャネル別運用.md | - |
+| AI.md | AI_自動化群.md / harness.md | - |
+| 接続装置.md | 接続装置_実装パターン.md | - |
+| 営業.md | 営業_運用詳細.md / 営業_論文反映_Phase8_Phase9.md | - |
+| 営業.md | （素材ストック）営業_260512反映_HACHI操電_スイートスポット.md | - |
+
+**孫 MD は Phase 反映系のみ**（論文反映・運用上必要な階層）。一般原則は「孫 MD 化禁止」（Phase 9 計画書）。
 
 ---
 
@@ -185,225 +220,36 @@ T4 ハーネス層（各 MD の Part 3）
 
 ---
 
-## 進行ステータス（2026-04-27 起点）
+## 進行ステータス年表（260427-260512）
 
-### Phase 1（既存メモリ抽出ベース・即書ける思想層）
+| Phase | 完了日 | 主要成果 | 主要 MD 影響 |
+|:-:|---|---|---|
+| 1-3 | 260427 | 全 14 MD 思想注入版完成（Phase 1 思想層 6 / Phase 2 実装層 5 / Phase 3 非公開 4 + 法務テンプレ）| 全 MD 初期化 |
+| 4 | 260429 | Part 3 ハーネス層拡張（森謙吾／AINative 統合・法務以外 14 MD に追加）| 全 MD |
+| 5 | 260430 | 接続装置サブ層追加（5 層モデル・GrowthFix の最大の知的資産確立）| 接続装置.md 新規 |
+| 6 | 260430 午後 | タグライン進化・6 サービス体系・Shift R/C/Full・個人引力単一統一・4 型 A' 案 | 会社.md / 商品.md |
+| 7 | 260430 夕 | Scan リブート（Pre-Shift 適合診断）・タグライン階層構造・CODE × Scan 対比 | 商品.md / 引力.md / 参謀.md |
+| 8（情報圧縮）| 260430 夜 | 重複圧縮・膨張抑制ルール A-F 確立（1 MD = 1 コンセプト / 思想層 300 行 / 機能系 500 行）| 全 MD 圧縮 |
+| 8.5（シャープ化）| 260501 夜 | /sharpen 哲学・Lean MVP テスト・RECODE Agent 並列・ウニ丼進化 | 判断基準.md / AI.md |
+| 9（命名運用）| 260502-260503 | /sharpen × 5 サービス完遂・B 案二層命名（内的 Shift R/C/Full ↔ 外的 Recruit/Cultivate/Shift）・minimal LP 化 | SSOT_用語と定義 / 商品.md / 営業.md |
+| 10 | 260504-260511 | Phase 9-10 Bandura 効力感系列追加（思想層バックボーン確定）・Phase 11 CODE × SCAN フレーム最終確定 | 商品.md / Why.md / 引力.md |
+| **9 完走** | **260512** | **lint §9 警告ゼロ達成・10 MD 圧縮（-1,398 行）・3 並列 Opus エージェントで思想層 5 件 + 機能系 3 件 + 子 MD 2 件**| 全 MD 圧縮済 |
 
-すべて260427に完成。同日中にセルフレビュー → 思想注入版に書き換え済み（5本：会社/引力/culture/判断基準/参謀。Why.md はレビューで合格）。
+詳細：
 
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| 会社.md | ✅ 完成（思想注入版） | `project_growthfix_company_positioning` |
-| Why.md | ✅ 完成 | `user_core_mission_talent_liberation` `user_why_glossary_core_concepts` `user_why_grayscale_vs_colorful` |
-| 引力.md | ✅ 完成（思想注入版） | `project_gravity_identity_gravitational` `user_life_theme_gravity` |
-| culture.md | ✅ 完成（思想注入版） | `feedback_edge_path_43` `feedback_embrace_criticism_and_exaggeration` `feedback_ai_brainstorm_individuality` |
-| 判断基準.md | ✅ 完成（思想注入版） | `reference_horita_framework` `project_unidon_service_ratios_260424` 他多数 |
-| 参謀.md | ✅ 完成（思想注入版） | `project_3saiyaku_naming_260425` `project_gravity_identity_triple_layer` `project_gravity_l3_positioning` |
+- 設計判断ログ：`memory/project_company_os_260427.md`
+- Phase 7 戦略ピボット：`memory/project_session_learnings_260430_pivot.md`
+- Phase 8 重複圧縮：`memory/project_company_os_phase8_consolidation_260430.md`
+- Phase 9 完走実績：`04_GrowthFix/02_マーケティング/260512_Phase9_思想層フォローアップ実績.md` + `260512_Phase9_機能系フォローアップ実績.md` + `260512_Phase9_子MDフォローアップ実績.md`
+- Phase 9 分割計画書：`04_GrowthFix/02_マーケティング/260508_Phase9_09会社OS分割計画.md`
 
-### Phase 2（260427 完成）
+### Phase 9 完走時点（260512）の状態
 
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| AI.md | ✅ 完成 | `project_ai_native_strategy` `feedback_ai_brainstorm_individuality` `feedback_model_selection_sonnet` |
-| 商品.md | ✅ 完成 | `project_gravity_series_gen2_260415` `project_shift_v2_260422` `project_unidon_service_ratios_260424` ＋ SSOT |
-| 発信.md | ✅ 完成 | `project_gravity_strategy_260403` `project_note_knowledge_3themes` `project_q4_2026_triggers` `project_seminar_acting_260424` |
-| 翻訳.md | ✅ 完成 | `project_gravity_strategy_260403` `project_gravity_l3_positioning` `user_core_mission_talent_liberation` |
-| design.md | ✅ 完成 | `project_gravity_identity_triple_layer` `feedback_lp_header_footer_template` `reference_mobile_css_strategy` |
+- ✅ lint §9 09_会社OS サイズ違反ゼロ（思想層 300 行 / 機能系 500 行 全件通過）
+- ✅ 全 12 圧縮 MD で 親 ↔ 子 双方向リンク確認
+- ✅ 公開/非公開境界違反なし（フィールド検証由来の SSOT 化フレームは出典明示で許容）
+- ✅ SSOT_用語と定義.md（766 行・本 OS 外）も同日圧縮済（1025 → 766）
 
-### Phase 3（260427 完成・法務のみテンプレ維持）
-
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| 社長.md | ✅ 完成（260427・生情報フル版・273行） | `user_profile_basics` `user_core_mission_talent_liberation` `user_why_grayscale_vs_colorful` `user_circle_of_competence` `user_financial_context` |
-| 採用.md | ✅ 完成（260427・218行） | `project_unidon_service_ratios_260424` `project_gravity_academy_roadmap` `project_q4_2026_triggers` `user_circle_of_competence` |
-| 営業.md | ✅ 完成（260427・218行） | `project_coaching_clients` `project_seminar_acting_260424` `feedback_coach_credibility_business_pair` `user_why_grayscale_vs_colorful` |
-| カスタマー.md | ✅ 完成（260427・237行） | `project_coaching_clients` `project_orbit_direct` `feedback_coach_credibility_business_pair` `project_gravity_strategy_260403` |
-| 法務.md | 📝 テンプレ維持 | （実案件発生時に蓄積。契約・NDA・知財登記の素材が現状不足のため机上の雛形化を回避） |
-
-### Phase 4（260429 完成・Part 3 ハーネス層拡張）
-
-森謙吾／AINative 動画「ハーネスエンジニアリング」を統合フレームとして採用。**法務.md 以外の 14 MD すべてに Part 3 ハーネス層を追加**。
-
-### Phase 5（260430 完成・接続装置サブ層追加）
-
-5 層モデル戦略確定（GrowthFix が売れない真因＝接続装置未整備）に伴い、**思想層内に独立サブ層「接続装置」を追加**。
-
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| **接続装置.md** | ✅ 完成（260430・新規・思想層内サブ層）| `project_internal_external_concept_260430` `user_self_intro_attractor_designer_260430` `feedback_recruitment_pain_first` `feedback_egetsunai_specific_over_abstract` |
-
-### Phase 6（260430 午後完成・戦略大改訂反映：会社.md / 商品.md）
-
-**260430 午後の戦略確定（タグライン進化・6 サービス体系・得意技 2 軸・個人引力単一統一・4 型 A' 案）**を会社.md / 商品.md に反映。最重要 SSOT として `project_strategy_lock_260430.md` を memory 永続化。
-
-### Phase 7（260430 夕完成・Scan リブート＋タグライン階層構造）
-
-**260430 夕の戦略再整理：**
-1. Blueprint v6.0「採用口説きブループリント」廃止 → **Gravity Scan「組織の引力タイプ診断・Pre-Shift 適合診断」リブート**
-2. **タグライン階層構造**：会社思想「優秀人材が躍動する会社をつくる」（コーポレート）／プロダクト思想「組織に、引力を。」（Gravity TOP）
-3. **CODE × Scan 対比構造**：個人軸の引力診断 × 組織軸の引力診断・両方「引力の参謀」
-4. 採用 4 軸＋面接ブループリント 5 要素は **Shift R Week 1-2 納品物に移管**
-
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| 商品.md | ✅ Scan リブート反映完了（260430 夕） | `project_scan_reboot_260430` `project_session_learnings_260430_pivot` |
-| 引力.md | ✅ CODE × Scan 対比＋タグライン階層追記（260430 夕） | `project_session_learnings_260430_pivot` |
-| 参謀.md | ✅ 6 サービス参謀体系（Scan 反映）（260430 夕） | `project_3saiyaku_naming_260425`（更新済み） |
-| 判断基準.md | ✅ Part 3 に 5 つの気づき追記（260430 夕） | `project_session_learnings_260430_pivot` |
-| その他 7 MD（Why／会社／culture／design／翻訳／発信／AI）| ✅ Blueprint → Scan 機械置換完了 | （sed 一括）|
-
-**新規メモリ：** `project_session_learnings_260430_pivot.md`（5 つの判断軸学び：戦略撤回スピード／タグライン階層／CODE × Scan 対比／LP 単一化／顕在ニーズゼロ運用検証）
-
-### Phase 8（260501 夜・シャープ化哲学 + Lean MVP コンセプトテスト + AI Agent 並列実行 + ウニ丼進化反映）
-
-**260501 夜の戦略確定：**
-1. **シャープ化哲学**（モリモリ → 1 文）：49 質問テンプレ運用 + ★/⚪/△ 削ぎ落としマークで Shift R/C を「1 文で説明できる状態」まで研ぎ澄ます（Shift R = 「採用コスト悪循環を断つ」/ Shift C = 「制度疲弊からの解放」）
-2. **Lean MVP コンセプトテスト原則**：1 サービスのモニターを「実証 → 3 案 × N サービス = N×3 VP コンセプトテスト」に転換（5/8 長谷さんモニターで R/C 6 VP テスト実施予定）
-3. **LP 構成判断の見直し**（260430 LP 単一化原則 → 260501 実運用検証で見直し）：Gravity マップで R/C が別象限ターゲット（人力拡大 vs 施策先行）の場合は 2 枚分割を優先（Shift R 専用化 + Shift C 専用 LP 新規・5/2-5/14 段階移行）
-4. **RECODE Agent 並列実行パターン**：Sonnet × 6 並列で 33 ファイル / 6,571 行を約 10-15 分で 278 発見抽出
-5. **ウニ丼理論の進化**：標準化 = AI（70-75%）/ トレーニング = 人間（35-40%）の時系列実装
-
-| MD | ステータス | 主参照メモリ |
-|---|:-:|---|
-| 判断基準.md | ✅ シャープ化哲学 + Lean MVP コンセプトテスト + LP 構成判断見直し追記（260501 夜）| `project_shift_rc_specs_260501` `project_shift_rc_field_validation_260501` |
-| AI.md | ✅ RECODE Agent 並列実行パターン + ウニ丼理論進化 + 6 セッション連続稼働パターン追記（260501 夜）| `project_shift_rc_field_validation_260501` `project_harness_engineering_260429` |
-
-**主参照ファイル：**
-- 1 文 SSOT（Shift R）：`04_GrowthFix/01_サービス設計/260501_Shift_R_49質問_削ぎ落とし版.md`
-- 1 文 SSOT（Shift C）：`04_GrowthFix/01_サービス設計/260501_Shift_A_シャープ版_1文_5論点確定.md` ／ `260501_Shift_A_49質問_削ぎ落とし版.md`
-- 5/8 R/C 統合 6 VP 資料：`04_GrowthFix/01_サービス設計/260508_長谷さんモニター_R_A統合_6VPテスト資料一式.md`
-- A4 1 枚サマリー：`04_GrowthFix/01_サービス設計/260501_Shift全体像_A4一枚_本日確定版.md`
-
-**Phase 8 で持ち越し（5/8 モニター後の最終仕様で反映）：**
-- 商品.md：Shift C シャープ版（躍動 3 点セット 27p + 1 文 + 標準化+OJT 構造）反映 → 5/9-5/15 計画
-- 発信.md：Meta 広告 R/C 分離戦略 + 5/15 セミナータイトル整合性 → 5/4-5/16 段階反映
-
-### Phase 9（260502 朝・/sharpen × 5 サービス完遂 + Shift R/C 2 LP 物理分割 + 廃止用語完全消滅 + git 履歴復活 + auto_commit hook）
-
-**260502 朝〜午後の戦略確定：**
-
-1. **/sharpen × 5 サービス全完遂**：CODE / Scan / Coaching / Shift R / Shift C の 1 文 SSOT 確定 + 49 質問削ぎ落とし版作成 + LP/SSOT/商品.md/営業.md 整合
-2. **Shift R/C 2 LP 物理分割**：既存 /gravity-shift/ → Shift R 専用化 + /gravity-shift-a/ 新規作成（260501 Phase 8 確定の運用実装）
-3. **20 LP 横断監査 + 廃止用語完全消滅**：採用 4 軸（5 件）／面接ブループリント（2 件）／ブループリント（2 件）が gravity-hub と service の 2 ページに集中残存していたのを完全クリーン化
-4. **サービス軸性質判定（Push vs Pull）原則確立**：CODE/Scan/Shift R/C は Push 型（採用接地統一）／Coaching は唯一 Pull 型（「売り言葉にしない」原則）
-5. **ハイブリッド配置パターン標準化**：軸 B（市場接地）Hero 主軸 + 軸 A（既存軸）Sub Hero + 軸 C（構造起点）Pricing 補強の 3 軸ハイブリッド
-6. **funnel 全体採用接地統一**：CODE → Scan → Shift R 連続 Hero が採用接地で言語的に統一 → 経営者の「自分の話」感を全段階で維持
-7. **ブラッシュアップの境界線確立（WhitePaper LP 事故教訓）**：思想書 vs 採用ペイン具体起点・LP の役割別に軸を分ける判定ルール
-8. **git 履歴復活 + auto_commit hook 実装**：5 ヶ月放置事故対策。Stop event hook で自動 commit + secrets 検出ガード + GitHub Push Protection 三層防御
-
-| MD | ステータス | 主参照 |
-|---|:-:|---|
-| 商品.md | ✅ CODE / Scan / Coaching セクション 1 文 SSOT + 配分 15-25-20 + ハイブリッド配置追記 | `260502_*_シャープ版_1文_5論点確定.md` |
-| SSOT_用語と定義.md | ✅ CODE / Scan / Coaching スコープ詳細セクション新規 | 同上 |
-| 営業.md | ✅ funnel diagram [2][3][4] 全更新（CODE/Scan 60 分配分 + Coaching Pull 性質）| 同上 |
-| Scan generate.php / CODE generate.php | ✅ PART タイミング 15-25-20 化 + LP 分離 URL 振り分けルール | 同上 |
-| **判断基準.md** | ✅ サービス軸性質判定（Push vs Pull）+ ブラッシュアップ境界線 + git 履歴運用追記（260502 朝）| `260502_Coaching_シャープ版_1文_5論点確定.md` ／ `feedback_coaching_not_frontline_word.md` |
-| **AI.md** | ✅ secrets 防御パターン + auto_commit hook（ハーネスエンジニアリング実装事例）追記（260502 朝）| 本セッション・GitHub Push Protection 事故対応 |
-| **接続装置.md** | ✅ ハイブリッド配置パターン標準化 + funnel 全体軸統一原則追記（260502 朝）| `260502_*_シャープ版_1文_5論点確定.md` |
-
-**主参照ファイル：**
-- 1 文 SSOT × 5：`04_GrowthFix/01_サービス設計/260502_{CODE,Scan,Coaching}_シャープ版_1文_5論点確定.md` ／ `260501_Shift_{R,A}_*`
-- 49 質問削ぎ落とし版 × 5：上記同フォルダ `260502_*_49質問_削ぎ落とし版.md` ／ `260501_Shift_*_49質問_削ぎ落とし版.md`
-- 20 LP 監査結果：`04_GrowthFix/04_デイリーログ/260502_daily.md`
-- auto_commit hook：`06_開発/scripts/hooks/auto_commit.sh`
-
-### Phase 10（260503・二層命名運用 B 案 + Gravity Shift minimal LP 化（Orbit パターン汎用化）+ Gravity Succession 骨子確定）
-
-**260503 朝〜夜の戦略確定：**
-
-1. **B 案二層命名運用確定**：内的 Shift R/C/Full ／ 外的 Gravity Recruit/Cultivate/Shift。接続装置 5 層モデル「内的→外的」原則と完全整合。CODE/Scan の既存パターンと同じ二層構造で運用負荷増ゼロ
-2. **β 並列型 URL 構造確定**：`/gravity-recruit/` `/gravity-cultivate/` `/gravity-shift/` の 3 並列・既存 Code/Scan/Coaching/Orbit と完全対称
-3. **Gravity Shift minimal LP 化（Orbit パターン汎用化）**：5/1 で Orbit を minimal LP 化した運用が、5/3 で Shift にも適用 → 2 例で汎用パターン化。Hub/コーポレート/各 LP フッターから Shift カード/リンク撤去・Recruit/Cultivate の pricing 欄では言及保持
-4. **Scan 4 型推奨フロー更新**：「不毛型 → Shift Full」→「不毛型 → Recruit + Cultivate 順次（商談時に Shift 提案）」に統一
-5. **Gravity Succession 骨子確定（構想段階）**：引力経営 3 軸目（採用×躍動×承継）。S-3 PMI 統合実装が主軸候補・3 点セット 78p（Shift R/C 完全対称）・6 ヶ月伴走・規模別 1,000-3,000 万 + 成功報酬。本格化は 2027〜・第 1 フェーズ Shift R 集中軸を侵食しない制約遵守
-6. **lint_consistency.sh [5.5] 機械チェック新設**：minimal LP 運用違反（Hub/コーポレート/Footer に Shift カード/リンク残存）を自動検出
-7. **18 ファイル本番デプロイ完遂**：Phase 1（新規 LP + .htaccess redirect）+ Phase 2（既存 9 LP cross-link 一斉更新）+ minimal LP 化再デプロイの 3 段階を 1 セッションで完遂
-
-| MD | ステータス | 主参照 |
-|---|:-:|---|
-| **SSOT_用語と定義.md** | ✅ §0.5 命名二層運用ルール新設 + Gravity Shift minimal LP 運用ルール + 7 項目最終整合（動線/Scan 4 型/組織の引力 4 型表/Shift Full スコープ詳細/Coaching 並走表記/Section 8 廃止用語/関連メモリ） | `project_naming_two_layer_260503.md` |
-| **商品.md** | ✅ 二層命名運用バナー追加 + 4 型 → URL β 並列型化 + 営業時パッケージ外的呼称化 + Part 3 NG 例に二層命名違反追加 | 同上 |
-| **接続装置.md** | ✅ 商品名・サービス名の二段運用拡張（260503 サービス名にも拡張）+ funnel 連続 Hero 例外的呼称化 | 同上 |
-| **営業.md** | ✅ 二層命名運用バナー + 4 型 → 推奨 URL β 並列型化 | 同上 |
-| **カスタマー.md / 採用.md / 発信.md** | ✅ 二層命名運用バナー追加 | 同上 |
-| **判断基準.md** | ✅ ★ minimal LP 戦略選択原則（Orbit パターン汎用化・260503 確立）追加 + Part 3 ハーネス層 NG 例 1 件・合格基準 1 件追加 | `project_naming_two_layer_260503.md` |
-| **AI.md**（260503 夜追記） | ✅ サブエージェント分離パターン新設（モデル選択経済表に lp-implementer / script-writer 行追加 + 専用 ★ セクション「サブエージェント分離パターン」+ 言葉・語彙 3 件追加 + Part 3 機械チェック対応に `~/.claude/agents/*.md` 追加） | `feedback_model_selection_sonnet.md` |
-| **harness.md**（260503 夜追記） | ✅ 3 層構造 [3] 実行エージェント層に「物理ファイル化（260503 確立）」サブセクション新設 + Part 2 既存ハーネス資産表にサブエージェント定義 + auto_commit hook 行追加 | 同上 |
-
-**主参照ファイル：**
-- B 案二層命名運用 SSOT：`memory/project_naming_two_layer_260503.md`
-- Succession 骨子：`04_GrowthFix/01_サービス設計/260503_GravitySuccession_シャープ版_1文_5論点確定_概念フェーズ.md`
-- minimal LP 実装：`05_プロダクト/GravityShift/LP/index.html`（130 行・1 ページ完結）
-- W18 週次クローズ：`04_GrowthFix/04_デイリーログ/260501_weekly_close.md`
-- サブエージェント定義：`~/.claude/agents/lp-implementer.md` ／ `~/.claude/agents/script-writer.md`（260503 夜・実行エージェント層の物理ファイル化第 1 弾）
-
-**Phase 10 で持ち越し（W19 / 5/4-5/10）：**
-- 発信.md 反映：命名運用変更の対外発信物への影響・Note Vol.2 接続
-- WhitePaper PDF 再生成（HTML 更新済・PDF 古いまま）
-- 5/8 長谷さんモニター実施 → Gravity 受注 1 件目判断
-- アウトバウンド母数復活（朝のリーチルーティン毎日実行・W19 月から再開）
-
-**Phase 9 で持ち越し（5/8 モニター後 or 余力時）：**
-- 5 サービス × 5 層整合の最終確認（5/8 モニター反応反映）
-- 価格見直し（Lean MVP 原則・モニター後判断）：CODE 5 万 → 7-10 万 ／ Scan 10 万 → 12-15 万
-- gravity-code-executive LP の Footer 組織軸列に Shift R/C 追加（5/8 後別ペルソナ判断）
-- design.md Part 3 に「20 LP 横断監査ハーネス」セクション追加（時間あれば）
-
-**新規メモリ候補（5/2 で永続化された SSOT・コード）：**
-- `auto_commit.sh`（hook ハーネス装置）
-- `.gitignore` 拡張パターン（secrets 防御）
-- 判断基準.md「サービス軸性質判定（Push vs Pull）」原則
-- 接続装置.md「ハイブリッド配置パターン」標準化
-- 接続装置.md：言語マップ R/C 別ペインカテゴリ分離 → 5/16 以降
-- 採用.md：業務委託パートナー組成 Phase 1 採用基準詳細化 → 次の weekly-close でまとめて
-
-| MD | 更新内容 | 主参照メモリ |
-|---|---|---|
-| **会社.md（260430 戦略反映版）**| アンブレラタグライン「優秀人材が躍動する会社をつくる」追加・6 サービス体系（Shift R/C/Full）・識学対比に「野心商材 vs コンプレックス商材」軸追加・進化軌跡第 5 期追加・得意技 2 軸の戦略判断基準追加 | **🔥 `project_strategy_lock_260430.md`**（最重要 SSOT）|
-| **商品.md（260430 戦略反映版）**| 6 サービス体系・組織の引力タイプ診断化・Shift R/C/Full 詳細スコープ・公開語彙 Why × 才能 × 偏愛 統一・4 型 A' 案・廃止用語 8 件追加・営業時パッケージ Shift R/C 対応 | **🔥 `project_strategy_lock_260430.md`** ＋ SSOT |
-
-
-
-| MD | Part 3 内容 |
-|---|---|
-| AI.md | AI 生成物（発信物・分析メモ・LP）の合格基準＋ TDD 経営の業務適用マッピング |
-| 判断基準.md | コンバージョン 3 条件＋ 5 原則＋ウニ丼比率の Pass 条件・意思決定タイミング別チェック |
-| culture.md | 尖り路線 4.3 の合格基準・4 点取り型 NG・音読セルフレビュー |
-| 営業.md | 適合判定 Pass 条件＋ **チェンジマネジメント 3 層判定表（Shift / Coaching 差別化）** |
-| 商品.md | 5 サービス品質＋ **Shift Week 1-2 ハーネス成立度診断（Shift 80→90 万正当化材料）** |
-| 採用.md | 業務委託パートナー「**ハーネスを書ける人 5 項目評価**」 |
-| 発信.md | 発信物の品質・採用ペイン接地・スピーカー偏差値 |
-| design.md | LP / WP / コーポレートのビジュアル品質・19 LP 一括運用 |
-| 翻訳.md | 経営者言語 → 組織言語の翻訳出力品質 |
-| カスタマー.md | 磁化の継続 vs 業務処理の判定 |
-| 社長.md | **コア層としての石井さんの責務 5 項目** |
-| 会社.md | 思想層・ハーネス展開先への接続のみ |
-| Why.md | 思想層・Why が各ハーネスに与える駆動 |
-| 引力.md | 思想層・引力思想 → ハーネス派生関係 |
-| 参謀.md | 思想層・参謀名 → ハーネス派生関係 |
-
----
-
-### Phase 8（260430 夜完成・情報圧縮＋膨張抑制ルール整備）
-
-**目的：** 19 MD・6,212 行に膨らんだ 09_会社OS の重複・冗長を圧縮し、今後の膨張抑制ルールを整備する。
-
-**実施内容：**
-
-1. **履歴ファイルの `_archive/` 移動**：`260429_AINative森_ハーネスエンジニアリング_会社OS運用アップデート提案.md`（179 行）を `_archive/` 配下へ移動。OS ルートが現役 MD のみで構成される状態に。
-2. **関連MD/参考メモリ簡素化（12 MD）**：各 MD の「関連MD」「参考メモリ」欄を 5 件以内に縮小。冗長参照を削除し、必須参照のみ残す。
-3. **タグライン階層構造の SSOT 一元化**：旧 3 層タグライン構造（メイン／サブ／アイデンティティ）を廃止し、260430 確定の 3 層階層構造（会社思想／プロダクト思想／識学アンチテーゼ）に刷新。詳細は `引力.md` Part 2、アンブレラタグラインは `会社.md` Part 1 が SSOT。
-4. **6 サービス体系サマリーのポインタ化**：`会社.md` の 6 サービス価格表を `商品.md` Part 2 へのポインタ化。
-5. **ハーネスエンジニアリング SSOT 確認**：`AI.md` Part 1 が SSOT として機能していることを再確認。他 MD は既にポインタ化済み。**※260501 追加：AI.md から `harness.md` へ独立分離（B ルール 500 行以内達成）**。
-6. **Why × 才能 × 偏愛 SSOT 確認**：`引力.md` Part 1 中核原則が SSOT として機能。他 MD の引用は短文参照に留まることを確認。
-
-| 項目 | 状態 |
-|---|:-:|
-| `_archive/` 移動 | ✅ 完了（260430 夕）|
-| 関連MD/参考メモリ簡素化 | ✅ 完了（260430 夜・12 MD 全件）|
-| タグライン階層構造一元化 | ✅ 完了（260430 夜・引力.md 刷新）|
-| 6 サービス体系ポインタ化 | ✅ 完了（260430 夜・会社.md ポインタ化）|
-| ハーネス／Why × 才能 × 偏愛 一元化 | ✅ 確認のみ（既に SSOT 確立済み）|
 
 ---
 
