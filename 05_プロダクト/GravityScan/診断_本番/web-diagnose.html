@@ -901,7 +901,7 @@ body {
       <div class="progress-fill" id="progress-fill"></div>
     </div>
     <div class="progress-info">
-      <span class="progress-text" id="progress-text" aria-live="polite">質問 1 / 30</span>
+      <span class="progress-text" id="progress-text" aria-live="polite">質問 1 / 12</span>
       <span class="progress-pct" id="progress-pct">0%</span>
     </div>
   </div>
@@ -1019,7 +1019,7 @@ body {
       <div class="axis-score-row">
         <div class="axis-score-label">
           <span class="axis-score-name">集まる軸（採用基盤）</span>
-          <span class="axis-score-value" id="score-collect-display">—<span>/75</span></span>
+          <span class="axis-score-value" id="score-collect-display">—<span>/100</span></span>
         </div>
         <div class="axis-bar-bg">
           <div class="axis-bar-fill bar-collect" id="bar-collect"></div>
@@ -1029,7 +1029,7 @@ body {
       <div class="axis-score-row">
         <div class="axis-score-label">
           <span class="axis-score-name">躍動軸（躍動組織）</span>
-          <span class="axis-score-value" id="score-vitality-display">—<span>/75</span></span>
+          <span class="axis-score-value" id="score-vitality-display">—<span>/100</span></span>
         </div>
         <div class="axis-bar-bg">
           <div class="axis-bar-fill bar-vitality" id="bar-vitality"></div>
@@ -1258,7 +1258,7 @@ const TYPE_DEFS = {
    ScanApp — メインコントローラ
    ============================================================ */
 const ScanApp = (() => {
-  let current = 0;           // 現在の質問インデックス（0-29）
+  let current = 0;           // 現在の質問インデックス（0-11）
   let answers = new Array(12).fill(null);  // 各問の選択スコア（null=未回答・v0.2 12 問版）
   let userData = {};         // フォーム入力値
   let resultData = {};       // 判定結果
@@ -1297,7 +1297,7 @@ const ScanApp = (() => {
         const parsed = JSON.parse(saved);
         const m = JSON.parse(meta);
         // 24h 以内のみ復帰
-        if (Array.isArray(parsed) && parsed.length === 30 && (Date.now() - m.ts < 86400000)) {
+        if (Array.isArray(parsed) && parsed.length === 12 && (Date.now() - m.ts < 86400000)) {
           answers = parsed;
           current = typeof m.current === 'number' ? m.current : 0;
           return true;
@@ -1322,7 +1322,7 @@ const ScanApp = (() => {
         showScreen('screen-quiz');
         return;
       } else {
-        answers = new Array(30).fill(null);
+        answers = new Array(12).fill(null);
         current = 0;
         clearProgress();
       }
@@ -1413,24 +1413,26 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- スコア計算 --- */
+  /* --- スコア計算（v0.2 12 問版・正規化 0-100）--- */
   function calcScores() {
-    let collect = 0, vitality = 0;
+    let collectRaw = 0, vitalityRaw = 0;
     QUESTIONS.forEach((q, i) => {
-      const raw = answers[i] || 3;
-      const s = q.reverse ? (6 - raw) : raw;
-      if (q.axis === 'collect') collect += s;
-      else vitality += s;
+      const raw = answers[i] || 3; // 未回答は中立 3
+      if (q.axis === 'collect') collectRaw += raw;
+      else vitalityRaw += raw;
     });
-    return { collect, vitality };
+    // (各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
+    const collect = Math.round((collectRaw - 6) / 24 * 100);
+    const vitality = Math.round((vitalityRaw - 6) / 24 * 100);
+    return { collect, vitality, collectRaw, vitalityRaw };
   }
 
-  /* --- 4 型判定 ---
-     集まる軸 15 問 × max 5 = 75pt，躍動軸同様
-     閾値：45 / 75 = 60%
+  /* --- 4 型判定（v0.2 12 問版・0-100 スケール）---
+     集まる軸 6 問 × max 5 = 30pt 生スコア → 0-100 正規化
+     閾値：50（中央値）
   */
   function judgeType(collect, vitality) {
-    const threshold = 45; // 15問 × 3（中立）= 45
+    const threshold = 50; // 0-100 正規化スケールの中央値
     const highC = collect >= threshold;
     const highV = vitality >= threshold;
     if (highC && highV)  return '整合';
