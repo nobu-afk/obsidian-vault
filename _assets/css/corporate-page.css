@@ -131,3 +131,122 @@
     background: #ffffff;
     color: #0f172a;
 }
+
+
+/* ============================================================
+   サブヒーロー本体（260512 Phase 1 統合）
+   対象: contact / news / knowledge / profile / achievement / service
+        [6 / 10 ページ・privacy は例外で個別定義のまま]
+   ============================================================ */
+.sub-hero {
+    padding: 80px 0 48px;
+    text-align: center;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.sub-hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+    margin: 0 0 18px;
+    line-height: 1.4;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.sub-hero .lead {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+    .sub-hero { padding: 56px 0 36px; }
+    .sub-hero h1 { font-size: 26px; }
+}
+
+
+/* ============================================================
+   Form 共通（260512 Phase 1 統合）
+   対象: contact （主） + 将来 whitepaper_optin / consultation-thanks
+        も class 統一時に再利用可
+   ============================================================ */
+.form-group { margin: 0 0 24px; }
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+}
+
+.form-label .required {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 7px;
+    background: #b8a88a;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    vertical-align: 2px;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #0f172a;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #0f172a;
+}
+
+.form-textarea {
+    min-height: 160px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.form-submit-wrap {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.form-submit {
+    display: inline-block;
+    padding: 14px 48px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+}
+
+.form-submit:hover {
+    background: #1e293b;
+}
