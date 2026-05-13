@@ -1,0 +1,675 @@
+[
+  {
+    "name": "06_組織開発（データ）",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）",
+    "type": "folder"
+  },
+  {
+    "name": "02_Wevox全体",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体",
+    "type": "folder"
+  },
+  {
+    "name": "00_Wevox生データ",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ",
+    "type": "folder"
+  },
+  {
+    "name": "2112_Wevox",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2112_Wevox",
+    "type": "folder"
+  },
+  {
+    "name": "2201_Wevox",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2201_Wevox",
+    "type": "folder"
+  },
+  {
+    "name": "03_ToMo指数",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数",
+    "type": "folder"
+  },
+  {
+    "name": "01_データポータル",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル",
+    "type": "folder"
+  },
+  {
+    "name": "素材",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/素材",
+    "type": "folder"
+  },
+  {
+    "name": "分析系業務",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務",
+    "type": "folder"
+  },
+  {
+    "name": "05_ナレッジ情報",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報",
+    "type": "folder"
+  },
+  {
+    "name": "04_面談関連",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/04_面談関連",
+    "type": "folder"
+  },
+  {
+    "name": "06_タレント（従業員）情報",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報",
+    "type": "folder"
+  },
+  {
+    "name": "07_360度FB",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/07_360度FB",
+    "type": "folder"
+  },
+  {
+    "name": "20211216_wevox_コメントローデータ （OE,MK）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2112_Wevox/20211216_wevox_コメントローデータ （OE,MK）.xlsx",
+    "type": "file",
+    "size_kb": 40.2,
+    "modified": "2021-12-23T05:45:29",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "20211216_wevox_コメントローデータ （OE,MK）2.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2112_Wevox/20211216_wevox_コメントローデータ （OE,MK）2.xlsx",
+    "type": "file",
+    "size_kb": 54.5,
+    "modified": "2021-12-27T02:24:14",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "20211216_wevox_コメントローデータ （OE）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2112_Wevox/20211216_wevox_コメントローデータ （OE）.xlsx",
+    "type": "file",
+    "size_kb": 24.8,
+    "modified": "2021-12-27T02:29:28",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "202112-_wevox_コメントローデータ （OE,MK）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2201_Wevox/202112-_wevox_コメントローデータ （OE,MK）.xlsx",
+    "type": "file",
+    "size_kb": 91.0,
+    "modified": "2022-01-28T02:06:49",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "202112-_wevox_コメントローデータ （OE）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2201_Wevox/202112-_wevox_コメントローデータ （OE）.xlsx",
+    "type": "file",
+    "size_kb": 40.6,
+    "modified": "2022-01-28T02:17:44",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【取り扱い注意】_OE事業部営業.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/2201_Wevox/【取り扱い注意】_OE事業部営業.xlsx",
+    "type": "file",
+    "size_kb": 19.2,
+    "modified": "2022-01-28T02:25:39",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220616_Wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220616_Wevox.xlsx",
+    "type": "file",
+    "size_kb": 323.1,
+    "modified": "2022-08-04T03:13:25",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "211216_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/211216_wevox.xlsx",
+    "type": "file",
+    "size_kb": 509.4,
+    "modified": "2022-08-04T03:15:48",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220216_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220216_wevox.xlsx",
+    "type": "file",
+    "size_kb": 526.9,
+    "modified": "2022-08-04T03:15:10",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220323_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220323_wevox.xlsx",
+    "type": "file",
+    "size_kb": 327.5,
+    "modified": "2022-08-04T03:14:40",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220421_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220421_wevox.xlsx",
+    "type": "file",
+    "size_kb": 522.5,
+    "modified": "2022-08-04T03:14:16",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220519_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220519_wevox.xlsx",
+    "type": "file",
+    "size_kb": 288.5,
+    "modified": "2022-08-04T03:13:52",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220120_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220120_wevox.xlsx",
+    "type": "file",
+    "size_kb": 287.9,
+    "modified": "2022-08-04T03:16:45",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "211118_wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/211118_wevox.xlsx",
+    "type": "file",
+    "size_kb": 279.4,
+    "modified": "2022-09-07T15:20:51",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220701_【人事限定】wevox_見る会データ.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/220701_【人事限定】wevox_見る会データ.xlsx",
+    "type": "file",
+    "size_kb": 425.6,
+    "modified": "2022-07-01T05:28:01",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220701_wevoxコメント精査SS.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/220701_wevoxコメント精査SS.xlsx",
+    "type": "file",
+    "size_kb": 4143.4,
+    "modified": "2022-07-01T05:28:56",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "やり方.png",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/やり方.png",
+    "type": "file",
+    "size_kb": 54.3,
+    "modified": "2021-10-28T02:11:05",
+    "extension": ".png"
+  },
+  {
+    "name": "ラウンドロビン方式の発表.pptx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/ラウンドロビン方式の発表.pptx",
+    "type": "file",
+    "size_kb": 86.9,
+    "modified": "2021-10-28T02:11:49",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ポイントチームMotivative指数集約シート.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/ポイントチームMotivative指数集約シート.xlsx",
+    "type": "file",
+    "size_kb": 43.7,
+    "modified": "2021-10-28T02:15:07",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "ToMo.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/ToMo.pdf",
+    "type": "file",
+    "size_kb": 424.6,
+    "modified": "2021-10-28T03:30:35",
+    "extension": ".pdf"
+  },
+  {
+    "name": "心理的安全性集計.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/心理的安全性集計.xlsx",
+    "type": "file",
+    "size_kb": 103.1,
+    "modified": "2021-10-28T03:33:45",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "ToMo指数集計.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/ToMo指数集計.xlsx",
+    "type": "file",
+    "size_kb": 109.7,
+    "modified": "2021-10-28T03:34:09",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "やり方 ToMo指数.pptx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/03_ToMo指数/やり方 ToMo指数.pptx",
+    "type": "file",
+    "size_kb": 94.0,
+    "modified": "2021-10-28T02:08:26",
+    "extension": ".pptx"
+  },
+  {
+    "name": "220822_03_データポータル一覧.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_03_データポータル一覧.pdf",
+    "type": "file",
+    "size_kb": 615.3,
+    "modified": "2022-08-22T02:22:21",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_人事部.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_人事部.pdf",
+    "type": "file",
+    "size_kb": 324.0,
+    "modified": "2022-08-22T02:22:55",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_ Human resources report_人事部2.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_ Human resources report_人事部2.pdf",
+    "type": "file",
+    "size_kb": 180.1,
+    "modified": "2022-08-22T02:23:27",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_ Human resources report_人事部3.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_ Human resources report_人事部3.pdf",
+    "type": "file",
+    "size_kb": 208.1,
+    "modified": "2022-08-22T02:23:54",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_BP.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_BP.pdf",
+    "type": "file",
+    "size_kb": 345.3,
+    "modified": "2022-08-22T02:24:23",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_BP2.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_BP2.pdf",
+    "type": "file",
+    "size_kb": 538.5,
+    "modified": "2022-08-22T02:25:22",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_BP3.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_BP3.pdf",
+    "type": "file",
+    "size_kb": 344.9,
+    "modified": "2022-08-22T02:26:07",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_BP4.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_BP4.pdf",
+    "type": "file",
+    "size_kb": 267.4,
+    "modified": "2022-08-22T02:26:38",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_Human resources report_BP5.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_Human resources report_BP5.pdf",
+    "type": "file",
+    "size_kb": 385.2,
+    "modified": "2022-08-22T02:27:22",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_有給休暇取得状況_DMM.com › 直近3カ月のフォロー対象者.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_有給休暇取得状況_DMM.com › 直近3カ月のフォロー対象者.pdf",
+    "type": "file",
+    "size_kb": 182.1,
+    "modified": "2022-08-22T02:28:19",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_募集求人一覧_管理者用.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_募集求人一覧_管理者用.pdf",
+    "type": "file",
+    "size_kb": 236.4,
+    "modified": "2022-08-22T02:28:48",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_派遣・SES採用管理レポート.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_派遣・SES採用管理レポート.pdf",
+    "type": "file",
+    "size_kb": 256.6,
+    "modified": "2022-08-22T02:29:17",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_2020年度 従業員実態調査結果_掲載用 › 全体.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_2020年度 従業員実態調査結果_掲載用 › 全体.pdf",
+    "type": "file",
+    "size_kb": 255.9,
+    "modified": "2022-08-22T02:29:43",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_有給休暇取得傾向のレポート_2018.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_有給休暇取得傾向のレポート_2018.pdf",
+    "type": "file",
+    "size_kb": 119.3,
+    "modified": "2022-08-22T02:30:09",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_リファラル50 report.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_リファラル50 report.pdf",
+    "type": "file",
+    "size_kb": 141.6,
+    "modified": "2022-08-22T02:30:35",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_退職アンケートレポート.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_退職アンケートレポート.pdf",
+    "type": "file",
+    "size_kb": 178.3,
+    "modified": "2022-08-22T02:31:06",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_退職・上長アンケートレポート.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_退職・上長アンケートレポート.pdf",
+    "type": "file",
+    "size_kb": 175.3,
+    "modified": "2022-08-22T02:31:39",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220822_入社時アンケートレポート.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220822_入社時アンケートレポート.pdf",
+    "type": "file",
+    "size_kb": 133.8,
+    "modified": "2022-08-22T02:32:14",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220901_HRレポート.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/220901_HRレポート.pdf",
+    "type": "file",
+    "size_kb": 340.0,
+    "modified": "2022-09-01T00:28:53",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Wevox.png",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/素材/Wevox.png",
+    "type": "file",
+    "size_kb": 520.9,
+    "modified": "2020-06-10T00:08:39",
+    "extension": ".png"
+  },
+  {
+    "name": "ユニフォーム進行案件レポート（仮）.jpg",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/素材/ユニフォーム進行案件レポート（仮）.jpg",
+    "type": "file",
+    "size_kb": 981.5,
+    "modified": "2020-06-10T00:06:18",
+    "extension": ".jpg"
+  },
+  {
+    "name": "1on1実施状況.jpg",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/素材/1on1実施状況.jpg",
+    "type": "file",
+    "size_kb": 1045.3,
+    "modified": "2020-06-10T00:06:42",
+    "extension": ".jpg"
+  },
+  {
+    "name": "DMM事業別損益推移_2017年03月～2020年02月.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務/DMM事業別損益推移_2017年03月～2020年02月.xlsx",
+    "type": "file",
+    "size_kb": 3586.6,
+    "modified": "2020-06-22T05:46:51",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "DMM利益項目推移_2011年02月～2020年02月.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務/DMM利益項目推移_2011年02月～2020年02月.xlsx",
+    "type": "file",
+    "size_kb": 4371.9,
+    "modified": "2020-06-08T01:33:50",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "DMM事業別損益グラフ__2017年03月～2020年02月.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務/DMM事業別損益グラフ__2017年03月～2020年02月.pdf",
+    "type": "file",
+    "size_kb": 1455.8,
+    "modified": "2020-06-04T05:06:18",
+    "extension": ".pdf"
+  },
+  {
+    "name": "DMMタブ別損益推移_2017年03月～2020年02月.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務/DMMタブ別損益推移_2017年03月～2020年02月.xlsx",
+    "type": "file",
+    "size_kb": 9938.8,
+    "modified": "2020-06-10T08:35:02",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "人事関連費用明細201903_202002_20200514.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/01_データポータル/分析系業務/人事関連費用明細201903_202002_20200514.xlsx",
+    "type": "file",
+    "size_kb": 895.0,
+    "modified": "2020-06-04T10:56:45",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220704_【HD提案用】組織診断サービスの情報まとめ.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報/220704_【HD提案用】組織診断サービスの情報まとめ.xlsx",
+    "type": "file",
+    "size_kb": 1120.0,
+    "modified": "2022-07-04T01:06:15",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220824_大手企業のタレントマネジメント2020.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報/220824_大手企業のタレントマネジメント2020.pdf",
+    "type": "file",
+    "size_kb": 2693.9,
+    "modified": "2022-08-24T01:55:35",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220907_20201222_DP：組織マネジメントのモニタリングについて.pptx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報/220907_20201222_DP：組織マネジメントのモニタリングについて.pptx",
+    "type": "file",
+    "size_kb": 819.1,
+    "modified": "2022-09-07T03:29:10",
+    "extension": ".pptx"
+  },
+  {
+    "name": "220906_220630_カルチャーサーベイ_戦略会議稟議.docx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報/220906_220630_カルチャーサーベイ_戦略会議稟議.docx",
+    "type": "file",
+    "size_kb": 1169.9,
+    "modified": "2022-09-07T02:28:36",
+    "extension": ".docx"
+  },
+  {
+    "name": "220907_20220207_人材育成について（ディスカッション・ペーパー） のコピー.pptx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/05_ナレッジ情報/220907_20220207_人材育成について（ディスカッション・ペーパー） のコピー.pptx",
+    "type": "file",
+    "size_kb": 15196.6,
+    "modified": "2022-09-07T03:28:17",
+    "extension": ".pptx"
+  },
+  {
+    "name": "220819_外国籍面談MTG Memo.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/04_面談関連/220819_外国籍面談MTG Memo.xlsx",
+    "type": "file",
+    "size_kb": 1223.8,
+    "modified": "2022-08-18T23:42:43",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220826_【閲覧権限あり】2021_成果期待従業員調査.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220826_【閲覧権限あり】2021_成果期待従業員調査.xlsx",
+    "type": "file",
+    "size_kb": 440.4,
+    "modified": "2022-08-26T01:33:47",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220830_【人事部_ｃｏｍ事業部人事グループ_ｃｏｍ事業部人事チーム】com組織管理本部_スキル可視化シート.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220830_【人事部_ｃｏｍ事業部人事グループ_ｃｏｍ事業部人事チーム】com組織管理本部_スキル可視化シート.xlsx",
+    "type": "file",
+    "size_kb": 111.8,
+    "modified": "2022-08-30T02:05:41",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220830_※権限限定（コピー）【保存版】スカウター結果集計＆分析（旧）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220830_※権限限定（コピー）【保存版】スカウター結果集計＆分析（旧）.xlsx",
+    "type": "file",
+    "size_kb": 3429.2,
+    "modified": "2022-08-30T01:30:07",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220701_職種人数.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220701_職種人数.xlsx",
+    "type": "file",
+    "size_kb": 438.3,
+    "modified": "2020-06-10T04:50:08",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220819_innv本部talent名鑑・MBTI.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220819_innv本部talent名鑑・MBTI.xlsx",
+    "type": "file",
+    "size_kb": 520.0,
+    "modified": "2022-08-18T23:47:30",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220819_履歴書_カオナビフォーマット2020_07.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220819_履歴書_カオナビフォーマット2020_07.xlsx",
+    "type": "file",
+    "size_kb": 6066.2,
+    "modified": "2022-08-18T23:41:39",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220830_若手社員（30歳以下）に関する集計.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220830_若手社員（30歳以下）に関する集計.xlsx",
+    "type": "file",
+    "size_kb": 21.3,
+    "modified": "2022-08-30T01:35:28",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220830_アニメライツ人員数推移.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220830_アニメライツ人員数推移.xlsx",
+    "type": "file",
+    "size_kb": 8.4,
+    "modified": "2022-08-30T00:35:23",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220908_220128_若手ポテンシャル人材抽出_20代.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220908_220128_若手ポテンシャル人材抽出_20代.xlsx",
+    "type": "file",
+    "size_kb": 3715.1,
+    "modified": "2022-09-08T04:42:57",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220908_タレマネ参考資料.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/220908_タレマネ参考資料.pdf",
+    "type": "file",
+    "size_kb": 1509.7,
+    "modified": "2022-06-21T23:36:21",
+    "extension": ".pdf"
+  },
+  {
+    "name": "自分のエンゲージメント.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/自分のエンゲージメント.xlsx",
+    "type": "file",
+    "size_kb": 54.2,
+    "modified": "2022-09-08T09:25:13",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220830_スコア一覧_配信日2022年08月18日(木)_分析対象メンバー.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220830_スコア一覧_配信日2022年08月18日(木)_分析対象メンバー.xlsx",
+    "type": "file",
+    "size_kb": 428.0,
+    "modified": "2022-09-08T09:26:17",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220920_フレックス〜リモートワーク推奨下における従業員の勤怠傾向.pptx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/220920_フレックス〜リモートワーク推奨下における従業員の勤怠傾向.pptx",
+    "type": "file",
+    "size_kb": 817.2,
+    "modified": "2022-09-20T04:22:59",
+    "extension": ".pptx"
+  },
+  {
+    "name": "221006_2022上期360FB：結果（DMM.com）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/07_360度FB/221006_2022上期360FB：結果（DMM.com）.xlsx",
+    "type": "file",
+    "size_kb": 718.7,
+    "modified": "2022-10-06T10:27:58",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "221006_2022上期360度フィードバック結果.pdf",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/07_360度FB/221006_2022上期360度フィードバック結果.pdf",
+    "type": "file",
+    "size_kb": 1834.5,
+    "modified": "2022-10-06T10:29:31",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220922_スコア一覧_配信日2022年09月15日(木)_分析対象メンバー.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220922_スコア一覧_配信日2022年09月15日(木)_分析対象メンバー.xlsx",
+    "type": "file",
+    "size_kb": 343.6,
+    "modified": "2022-10-29T13:45:59",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "スコア一覧_配信日2022年10月20日(木)_分析対象メンバー.numbers",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/スコア一覧_配信日2022年10月20日(木)_分析対象メンバー.numbers",
+    "type": "file",
+    "size_kb": 1828.3,
+    "modified": "2022-10-29T13:39:30",
+    "extension": ".numbers"
+  },
+  {
+    "name": "220825_wevoxコメント精査SS.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220825_wevoxコメント精査SS.xlsx",
+    "type": "file",
+    "size_kb": 4199.5,
+    "modified": "2022-08-25T00:43:05",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220714_Wevox.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/02_Wevox全体/00_Wevox生データ/220714_Wevox.xlsx",
+    "type": "file",
+    "size_kb": 374.0,
+    "modified": "2025-05-01T08:03:56",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220822_データガントリー003｜ヒュードラシステム04（労務用）.xlsx",
+    "path": "/01_DMM.com/01_HRビジネスパートナー/06_組織開発（データ）/06_タレント（従業員）情報/220822_データガントリー003｜ヒュードラシステム04（労務用）.xlsx",
+    "type": "file",
+    "size_kb": 2046.2,
+    "modified": "2022-08-22T02:10:29",
+    "extension": ".xlsx"
+  }
+]

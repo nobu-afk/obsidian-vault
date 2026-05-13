@@ -1,0 +1,58 @@
+{
+  "version": "v1.0",
+  "selected_at": "2026-05-14",
+  "total_count": 38,
+  "MOON-X": {
+    "count": 13,
+    "files": [
+      {"path": "/04_MOON-X/01_業務フロー/221106_業務フロー（採用広報〜採用）.pdf", "category": "採用設計", "ai_target": "recruit-layer-audit"},
+      {"path": "/04_MOON-X/01_業務フロー/221106_オンボーディング.pdf", "category": "オンボーディング", "ai_target": "onboarding-engine"},
+      {"path": "/04_MOON-X/02_制度設計/人事制度素案.xlsx", "category": "制度設計", "ai_target": "comp-grade-designer"},
+      {"path": "/04_MOON-X/02_制度設計/グレードマッピング2023.xlsx", "category": "等級制度", "ai_target": "comp-grade-designer"},
+      {"path": "/04_MOON-X/採用広報（ケラッタ）.pptx", "category": "採用ブランディング", "ai_target": "recruit-pitch-builder"},
+      {"path": "/04_MOON-X/Peopleに関する課題.pdf", "category": "人事課題分析", "ai_target": "people-issue-mapper"},
+      {"path": "/04_MOON-X/Moon-X案件_投資メモ (1).docx", "category": "投資判断", "ai_target": "investment-thesis-extractor"},
+      {"path": "/04_MOON-X/投資情報共有会20230207.pptx", "category": "投資情報", "ai_target": "investment-thesis-extractor"},
+      {"path": "/04_MOON-X/05_参考資料/220822スタートアップ・ベンチャー企業向け人事・組織領域の取り組みに関する調査.pdf", "category": "業界知見", "ai_target": "market-research-summarizer"},
+      {"path": "/04_MOON-X/05_参考資料/221007_MoonX-EarnOut-Slide-211202.pdf", "category": "M&A設計", "ai_target": "pmi-designer"},
+      {"path": "/04_MOON-X/05_参考資料/00_LayerX/221006_公開用_LayerX羅針盤_2022010_ver_1.1__2_.pdf", "category": "同業ナビ", "ai_target": "vision-codifier"},
+      {"path": "/04_MOON-X/03_労務/産業医活動テンプレート/産業衛生活動お役立ちテンプレート一覧 Ver1.2.pdf", "category": "労務テンプレ", "ai_target": "labor-template-library"},
+      {"path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/18衛生委員会の立ち上げと運用手引き Ver1.2.pdf", "category": "衛生委員会", "ai_target": "labor-template-library"}
+    ]
+  },
+  "プレイド": {
+    "count": 12,
+    "files": [
+      {"path": "/00_プレイド/オンボーディング/2404_オンボーディングチーム・アップデート.pptx", "category": "オンボ設計", "ai_target": "onboarding-engine"},
+      {"path": "/00_プレイド/オンボーディング/PMプロセスについて.pptx", "category": "PM プロセス", "ai_target": "delivery-pm-mapper"},
+      {"path": "/00_プレイド/ナレッジ/提案書類/STUDIO ZERO_whitepaper.pptx", "category": "サービス WP", "ai_target": "whitepaper-builder"},
+      {"path": "/00_プレイド/ナレッジ/STUDIO ZERO_Proposal (1).pptx", "category": "提案テンプレ", "ai_target": "proposal-builder"},
+      {"path": "/00_プレイド/アルファー/プロフェッショナルサービス｢PLAID ALPHA｣のご紹介.pptx", "category": "プロフェッショナルサービス設計", "ai_target": "service-design-extractor"},
+      {"path": "/00_プレイド/01_顧客デリバリー/東京建物/20230731_東京建物_CXアプリ構想_最終報告資料_保存版.pptx", "category": "顧客伴走完成形", "ai_target": "engagement-flow-mapper"},
+      {"path": "/00_プレイド/01_顧客デリバリー/関西電力/202404_新規事業伴走支援_関西電力様.pptx", "category": "新規事業伴走", "ai_target": "engagement-flow-mapper"},
+      {"path": "/00_プレイド/その他/エモーションテック/応募図書.pptx", "category": "応募図書テンプレ", "ai_target": "proposal-builder"},
+      {"path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/新規事業開発の心得.pptx", "category": "新規事業ナレッジ", "ai_target": "knowledge-curator"},
+      {"path": "/00_プレイド/01_顧客デリバリー/JTB/240523_JTB_コーポマーケ戦略策定_v2.pptx", "category": "戦略策定", "ai_target": "strategy-codifier"},
+      {"path": "/00_プレイド/ナレッジ/ワークショップ/ユーザー体験の設計とは？：マリオの話（UEPON）.pptx", "category": "WS 設計教育", "ai_target": "ws-designer"},
+      {"path": "/00_プレイド/その他/Nobuセミナー/マーケ組織セミナー第二弾  組織成長を加速させる秘訣は「スタイル開発」.pptx", "category": "組織設計セミナー", "ai_target": "org-style-developer"}
+    ]
+  },
+  "DMM": {
+    "count": 13,
+    "files": [
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/01_採用関連/02_プロジェクト管理/220630_中途採用分科会data.xlsx", "category": "中途採用 KPI", "ai_target": "recruit-kpi-analyzer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/02_オンボーディング/03_HRBPオンボーディング/03_社内営業資料/HRBP社内営業用資料_final.pptx", "category": "HRBP 社内営業", "ai_target": "hrbp-internal-sales"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/03_人材開発（育成）/02_研修一覧/01_初級TL/面接官研修（基礎）/220819_面接官研修.pptx", "category": "面接官研修 基礎", "ai_target": "recruit-layer-audit"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/04_制度面/01_COM/02_COM人事制度/02_スキル評価/スキル評価 - 職能集計（2020_03_04時点）_作業用.xlsx", "category": "スキル評価制度", "ai_target": "skill-evaluator"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/04_制度面/01_COM/08_手当類の整理/マスタデータ/手当出力.xlsx", "category": "手当制度", "ai_target": "comp-grade-designer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/04_制度面/01_COM/01_子会社関連/05_DMMチャットブースト/HSD他2107-004【HSD】就業規則.pdf", "category": "就業規則", "ai_target": "labor-template-library"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/05_労務対応/01_労務対応/220701_労務対応素材.pptx", "category": "労務対応ナレッジ", "ai_target": "labor-issue-coach"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/05_労務対応/01_労務対応/220819_ネクストキャリア制度 （仮称）.xlsx", "category": "ネクストキャリア制度", "ai_target": "career-transition-designer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/05_労務対応/04_退職関連資料/220822_入社・社員アンケート（回答）.xlsx", "category": "入社時アンケート", "ai_target": "minutes-analyzer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/05_労務対応/04_退職関連資料/220824_【com】2021年度退職者分析.xlsx", "category": "退職者分析", "ai_target": "retention-analyzer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/07_組織体制/00_異動関連資料/02_異動関連ナレッジ/220901_異動関連ナレッジ.pdf", "category": "異動運用ナレッジ", "ai_target": "transfer-designer"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/08_PMI/02_PMI対応企業/01_comidia/07_PMI/220824_オンボーディング.pptx", "category": "PMI オンボ", "ai_target": "pmi-onboarding"},
+      {"path": "/01_DMM.com/01_HRビジネスパートナー/08_PMI/01_PMIナレッジ/02_ナレッジ（参照ボックス）/220908_【DMMオンクレ】 人事労務管理マニュアル.pptx", "category": "PMI 後労務マニュアル", "ai_target": "pmi-labor-manual"}
+    ]
+  }
+}

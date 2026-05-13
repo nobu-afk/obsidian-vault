@@ -1,0 +1,2132 @@
+[
+  {
+    "name": "00_プレイド",
+    "path": "/00_プレイド",
+    "type": "folder"
+  },
+  {
+    "name": "その他",
+    "path": "/00_プレイド/その他",
+    "type": "folder"
+  },
+  {
+    "name": "顔写真",
+    "path": "/00_プレイド/その他/顔写真",
+    "type": "folder"
+  },
+  {
+    "name": "エモーションテック",
+    "path": "/00_プレイド/その他/エモーションテック",
+    "type": "folder"
+  },
+  {
+    "name": "アルファー",
+    "path": "/00_プレイド/アルファー",
+    "type": "folder"
+  },
+  {
+    "name": "ナレッジ",
+    "path": "/00_プレイド/ナレッジ",
+    "type": "folder"
+  },
+  {
+    "name": "インタビュー",
+    "path": "/00_プレイド/ナレッジ/インタビュー",
+    "type": "folder"
+  },
+  {
+    "name": "ジャーニーWS",
+    "path": "/00_プレイド/ナレッジ/ジャーニーWS",
+    "type": "folder"
+  },
+  {
+    "name": "プロジェクトマネジメント",
+    "path": "/00_プレイド/ナレッジ/プロジェクトマネジメント",
+    "type": "folder"
+  },
+  {
+    "name": "ワークショップ",
+    "path": "/00_プレイド/ナレッジ/ワークショップ",
+    "type": "folder"
+  },
+  {
+    "name": "顧客戦略FMT",
+    "path": "/00_プレイド/ナレッジ/顧客戦略FMT",
+    "type": "folder"
+  },
+  {
+    "name": "採用デッキ",
+    "path": "/00_プレイド/ナレッジ/採用デッキ",
+    "type": "folder"
+  },
+  {
+    "name": "組織開発",
+    "path": "/00_プレイド/ナレッジ/組織開発",
+    "type": "folder"
+  },
+  {
+    "name": "提案書類",
+    "path": "/00_プレイド/ナレッジ/提案書類",
+    "type": "folder"
+  },
+  {
+    "name": "Nobuセミナー",
+    "path": "/00_プレイド/その他/Nobuセミナー",
+    "type": "folder"
+  },
+  {
+    "name": "ZERO合宿",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿",
+    "type": "folder"
+  },
+  {
+    "name": "オンボーディング",
+    "path": "/00_プレイド/オンボーディング",
+    "type": "folder"
+  },
+  {
+    "name": "PlayBook",
+    "path": "/00_プレイド/PlayBook",
+    "type": "folder"
+  },
+  {
+    "name": "トレーニング",
+    "path": "/00_プレイド/トレーニング",
+    "type": "folder"
+  },
+  {
+    "name": "PL733_石井 伸幸.jpg",
+    "path": "/00_プレイド/その他/顔写真/PL733_石井 伸幸.jpg",
+    "type": "file",
+    "size_kb": 502.1,
+    "modified": "2024-04-26T00:33:50",
+    "extension": ".jpg"
+  },
+  {
+    "name": "Pro-Capture One 2297.jpg",
+    "path": "/00_プレイド/その他/顔写真/Pro-Capture One 2297.jpg",
+    "type": "file",
+    "size_kb": 667.6,
+    "modified": "2024-04-26T00:33:51",
+    "extension": ".jpg"
+  },
+  {
+    "name": "Pro-Capture One 2341.jpg",
+    "path": "/00_プレイド/その他/顔写真/Pro-Capture One 2341.jpg",
+    "type": "file",
+    "size_kb": 1543.9,
+    "modified": "2024-04-26T00:33:51",
+    "extension": ".jpg"
+  },
+  {
+    "name": "スクリーンショット 2024-04-01 11.23.38.png",
+    "path": "/00_プレイド/その他/顔写真/スクリーンショット 2024-04-01 11.23.38.png",
+    "type": "file",
+    "size_kb": 1975.0,
+    "modified": "2024-04-26T00:33:52",
+    "extension": ".png"
+  },
+  {
+    "name": "【ZEROロープレ】採点表.xlsx",
+    "path": "/00_プレイド/その他/【ZEROロープレ】採点表.xlsx",
+    "type": "file",
+    "size_kb": 63.8,
+    "modified": "2024-04-26T05:24:16",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【拠点別帳票】㈱商工中金情報システム.pdf",
+    "path": "/00_プレイド/その他/エモーションテック/【拠点別帳票】㈱商工中金情報システム.pdf",
+    "type": "file",
+    "size_kb": 595.1,
+    "modified": "2024-05-21T07:39:29",
+    "extension": ".pdf"
+  },
+  {
+    "name": "【株式会社商工組合中央金庫様】_2023年度 エンゲージメント調査分析本レポート_20240418.pdf",
+    "path": "/00_プレイド/その他/エモーションテック/【株式会社商工組合中央金庫様】_2023年度 エンゲージメント調査分析本レポート_20240418.pdf",
+    "type": "file",
+    "size_kb": 24124.2,
+    "modified": "2024-05-21T07:39:31",
+    "extension": ".pdf"
+  },
+  {
+    "name": "応募図書.pptx",
+    "path": "/00_プレイド/その他/エモーションテック/応募図書.pptx",
+    "type": "file",
+    "size_kb": 29115.8,
+    "modified": "2024-05-21T09:57:13",
+    "extension": ".pptx"
+  },
+  {
+    "name": "プロフェッショナルサービス｢PLAID ALPHA｣のご紹介.pptx",
+    "path": "/00_プレイド/アルファー/プロフェッショナルサービス｢PLAID ALPHA｣のご紹介.pptx",
+    "type": "file",
+    "size_kb": 45892.4,
+    "modified": "2024-06-25T04:55:10",
+    "extension": ".pptx"
+  },
+  {
+    "name": "インタビューフローFMT (1).docx",
+    "path": "/00_プレイド/ナレッジ/インタビュー/インタビューフローFMT (1).docx",
+    "type": "file",
+    "size_kb": 9289.5,
+    "modified": "2024-06-28T04:47:14",
+    "extension": ".docx"
+  },
+  {
+    "name": "CJMチェックリスト_0430.xlsx",
+    "path": "/00_プレイド/ナレッジ/ジャーニーWS/CJMチェックリスト_0430.xlsx",
+    "type": "file",
+    "size_kb": 10.0,
+    "modified": "2024-06-28T04:48:26",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "ジャーニーワークショップ_0209.pptx",
+    "path": "/00_プレイド/ナレッジ/ジャーニーWS/ジャーニーワークショップ_0209.pptx",
+    "type": "file",
+    "size_kb": 7247.7,
+    "modified": "2024-06-28T04:49:48",
+    "extension": ".pptx"
+  },
+  {
+    "name": "Web_Project_Management_Hyoujun.pdf",
+    "path": "/00_プレイド/ナレッジ/プロジェクトマネジメント/Web_Project_Management_Hyoujun.pdf",
+    "type": "file",
+    "size_kb": 4234.3,
+    "modified": "2024-06-28T04:49:57",
+    "extension": ".pdf"
+  },
+  {
+    "name": "市場、顧客から仮説を立てるWS_20240606.pptx",
+    "path": "/00_プレイド/ナレッジ/ワークショップ/市場、顧客から仮説を立てるWS_20240606.pptx",
+    "type": "file",
+    "size_kb": 9187.3,
+    "modified": "2024-06-28T04:51:16",
+    "extension": ".pptx"
+  },
+  {
+    "name": "FMT_顧客戦略1201.xlsx",
+    "path": "/00_プレイド/ナレッジ/顧客戦略FMT/FMT_顧客戦略1201.xlsx",
+    "type": "file",
+    "size_kb": 160.5,
+    "modified": "2024-06-28T04:52:36",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "202402_zero_RecruitmentLetter.pdf",
+    "path": "/00_プレイド/ナレッジ/採用デッキ/202402_zero_RecruitmentLetter.pdf",
+    "type": "file",
+    "size_kb": 7646.7,
+    "modified": "2024-06-28T04:53:23",
+    "extension": ".pdf"
+  },
+  {
+    "name": "ゴールデンサークルWS.pptx",
+    "path": "/00_プレイド/ナレッジ/組織開発/ゴールデンサークルWS.pptx",
+    "type": "file",
+    "size_kb": 5148.0,
+    "modified": "2024-06-28T06:04:10",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ユーザー体験の設計とは？：マリオの話（UEPON）.pptx",
+    "path": "/00_プレイド/ナレッジ/ワークショップ/ユーザー体験の設計とは？：マリオの話（UEPON）.pptx",
+    "type": "file",
+    "size_kb": 19762.7,
+    "modified": "2024-06-28T06:06:01",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ZEROプロダクト営業汎用資料ver.0.5.pptx",
+    "path": "/00_プレイド/ナレッジ/ワークショップ/ZEROプロダクト営業汎用資料ver.0.5.pptx",
+    "type": "file",
+    "size_kb": 7302.6,
+    "modified": "2024-06-28T06:06:02",
+    "extension": ".pptx"
+  },
+  {
+    "name": "提案成功率を上げるプレゼンテーション.pptx",
+    "path": "/00_プレイド/ナレッジ/ワークショップ/提案成功率を上げるプレゼンテーション.pptx",
+    "type": "file",
+    "size_kb": 5437.9,
+    "modified": "2024-06-28T06:06:05",
+    "extension": ".pptx"
+  },
+  {
+    "name": "インタビューシートSample.xlsx",
+    "path": "/00_プレイド/ナレッジ/インタビュー/インタビューシートSample.xlsx",
+    "type": "file",
+    "size_kb": 19.5,
+    "modified": "2024-06-28T06:06:17",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "UX勉強会.pptx",
+    "path": "/00_プレイド/ナレッジ/ワークショップ/UX勉強会.pptx",
+    "type": "file",
+    "size_kb": 5572.5,
+    "modified": "2024-06-28T06:06:28",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ZEROハイレイヤーイベントWBS.xlsx",
+    "path": "/00_プレイド/ナレッジ/ZEROハイレイヤーイベントWBS.xlsx",
+    "type": "file",
+    "size_kb": 647.2,
+    "modified": "2024-07-04T01:56:24",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "Proposal Template_ver1.0.pptx",
+    "path": "/00_プレイド/ナレッジ/提案書類/Proposal Template_ver1.0.pptx",
+    "type": "file",
+    "size_kb": 6534.4,
+    "modified": "2024-07-29T00:36:43",
+    "extension": ".pptx"
+  },
+  {
+    "name": "（ファイルをコピーして使ってね）提案資料フォーマット_STUDIO ZERO_Proposal Template_ver2.pptx",
+    "path": "/00_プレイド/ナレッジ/提案書類/（ファイルをコピーして使ってね）提案資料フォーマット_STUDIO ZERO_Proposal Template_ver2.pptx",
+    "type": "file",
+    "size_kb": 16133.8,
+    "modified": "2024-07-29T00:36:44",
+    "extension": ".pptx"
+  },
+  {
+    "name": "STUDIO ZERO_whitepaper.pptx",
+    "path": "/00_プレイド/ナレッジ/提案書類/STUDIO ZERO_whitepaper.pptx",
+    "type": "file",
+    "size_kb": 27771.7,
+    "modified": "2024-07-29T00:36:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "期待値合わせシート_FMT.pptx",
+    "path": "/00_プレイド/ナレッジ/期待値合わせシート_FMT.pptx",
+    "type": "file",
+    "size_kb": 5148.4,
+    "modified": "2024-10-21T00:11:20",
+    "extension": ".pptx"
+  },
+  {
+    "name": "studiozeroプロジェクト実績整理_2024.pptx",
+    "path": "/00_プレイド/その他/studiozeroプロジェクト実績整理_2024.pptx",
+    "type": "file",
+    "size_kb": 15894.6,
+    "modified": "2024-10-23T02:45:18",
+    "extension": ".pptx"
+  },
+  {
+    "name": "マーケ組織セミナー第一弾  戦略と紐づく理想のマーケティング組織を考える（エモテク共有用）.pdf",
+    "path": "/00_プレイド/その他/Nobuセミナー/マーケ組織セミナー第一弾  戦略と紐づく理想のマーケティング組織を考える（エモテク共有用）.pdf",
+    "type": "file",
+    "size_kb": 5425.2,
+    "modified": "2024-10-31T01:21:52",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20241030_nobu_事業戦略とバリューチェーンから紐解く理想のマーケティング組織.mp4",
+    "path": "/00_プレイド/その他/Nobuセミナー/20241030_nobu_事業戦略とバリューチェーンから紐解く理想のマーケティング組織.mp4",
+    "type": "file",
+    "size_kb": 120410.6,
+    "modified": "2024-10-31T23:23:36",
+    "extension": ".mp4"
+  },
+  {
+    "name": "20241113_nobu_自社らしい組織開発を加速させる秘訣は「スタイル開発」.mp4",
+    "path": "/00_プレイド/その他/Nobuセミナー/20241113_nobu_自社らしい組織開発を加速させる秘訣は「スタイル開発」.mp4",
+    "type": "file",
+    "size_kb": 116733.5,
+    "modified": "2024-11-14T06:46:15",
+    "extension": ".mp4"
+  },
+  {
+    "name": "Nobu_組織開発勉強会（初級編） (1).mp4",
+    "path": "/00_プレイド/その他/Nobuセミナー/Nobu_組織開発勉強会（初級編） (1).mp4",
+    "type": "file",
+    "size_kb": 121574.0,
+    "modified": "2024-12-04T10:08:29",
+    "extension": ".mp4"
+  },
+  {
+    "name": "STUDIO ZEROにおけるプロジェクトの全体フロー.pptx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/STUDIO ZEROにおけるプロジェクトの全体フロー.pptx",
+    "type": "file",
+    "size_kb": 5365.9,
+    "modified": "2024-12-18T03:22:02",
+    "extension": ".pptx"
+  },
+  {
+    "name": "FY25_My Growth Sheet_nobu (1).xlsx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/FY25_My Growth Sheet_nobu (1).xlsx",
+    "type": "file",
+    "size_kb": 52.5,
+    "modified": "2024-12-18T03:23:10",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "STUDIO ZERO タレント一覧 ver.2.pptx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/STUDIO ZERO タレント一覧 ver.2.pptx",
+    "type": "file",
+    "size_kb": 12946.0,
+    "modified": "2024-12-18T03:23:09",
+    "extension": ".pptx"
+  },
+  {
+    "name": "Copy of [Temp] ZERO式 議事録フォーマット.docx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/Copy of [Temp] ZERO式 議事録フォーマット.docx",
+    "type": "file",
+    "size_kb": 8.5,
+    "modified": "2024-12-18T03:23:16",
+    "extension": ".docx"
+  },
+  {
+    "name": "【顧客課題】アカウント名_プロジェクト名_new format.xlsx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/【顧客課題】アカウント名_プロジェクト名_new format.xlsx",
+    "type": "file",
+    "size_kb": 21.4,
+    "modified": "2024-12-18T03:23:20",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "零道_先達の学び.xlsx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/零道_先達の学び.xlsx",
+    "type": "file",
+    "size_kb": 67.7,
+    "modified": "2024-12-18T03:23:31",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "期待値合わせシート_FMT (1).pptx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/期待値合わせシート_FMT (1).pptx",
+    "type": "file",
+    "size_kb": 5160.6,
+    "modified": "2024-12-18T03:23:43",
+    "extension": ".pptx"
+  },
+  {
+    "name": "アカウント名_プロジェクト名_new format.docx",
+    "path": "/00_プレイド/ナレッジ/ZERO合宿/アカウント名_プロジェクト名_new format.docx",
+    "type": "file",
+    "size_kb": 109.5,
+    "modified": "2024-12-18T03:24:09",
+    "extension": ".docx"
+  },
+  {
+    "name": "生成AIサービス利用における法的リスク (1).pdf",
+    "path": "/00_プレイド/その他/生成AIサービス利用における法的リスク (1).pdf",
+    "type": "file",
+    "size_kb": 665.0,
+    "modified": "2025-01-07T03:32:05",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20241215_STUDIO ZEROにおけるプロジェクトの全体フロー.pptx",
+    "path": "/00_プレイド/ナレッジ/20241215_STUDIO ZEROにおけるプロジェクトの全体フロー.pptx",
+    "type": "file",
+    "size_kb": 5365.3,
+    "modified": "2025-03-06T03:22:03",
+    "extension": ".pptx"
+  },
+  {
+    "name": "FY25_開示用_全員目標.xlsx",
+    "path": "/00_プレイド/ナレッジ/FY25_開示用_全員目標.xlsx",
+    "type": "file",
+    "size_kb": 150.4,
+    "modified": "2025-04-28T01:34:41",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "New_FY25_My Growth Sheet_見本.xlsx",
+    "path": "/00_プレイド/ナレッジ/提案書類/New_FY25_My Growth Sheet_見本.xlsx",
+    "type": "file",
+    "size_kb": 352.9,
+    "modified": "2025-04-28T01:47:54",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "New_FY25_My Growth Sheet_見本.xlsx",
+    "path": "/00_プレイド/ナレッジ/New_FY25_My Growth Sheet_見本.xlsx",
+    "type": "file",
+    "size_kb": 352.9,
+    "modified": "2025-04-28T01:48:00",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【ZEROロープレ】採点表 (1).xlsx",
+    "path": "/00_プレイド/オンボーディング/【ZEROロープレ】採点表 (1).xlsx",
+    "type": "file",
+    "size_kb": 294.4,
+    "modified": "2025-05-01T00:19:16",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "最初に読む_ZERO参画メンバーへのオンボーディング・プログラム全容.docx",
+    "path": "/00_プレイド/オンボーディング/最初に読む_ZERO参画メンバーへのオンボーディング・プログラム全容.docx",
+    "type": "file",
+    "size_kb": 21.0,
+    "modified": "2025-05-01T00:22:00",
+    "extension": ".docx"
+  },
+  {
+    "name": "ZEROオンボコンテンツ一覧.xlsx",
+    "path": "/00_プレイド/オンボーディング/ZEROオンボコンテンツ一覧.xlsx",
+    "type": "file",
+    "size_kb": 599.5,
+    "modified": "2025-05-01T00:22:01",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "20241215_STUDIO ZEROにおけるプロジェクトの全体フロー (1).pptx",
+    "path": "/00_プレイド/オンボーディング/20241215_STUDIO ZEROにおけるプロジェクトの全体フロー (1).pptx",
+    "type": "file",
+    "size_kb": 5366.5,
+    "modified": "2025-05-01T00:22:03",
+    "extension": ".pptx"
+  },
+  {
+    "name": "STUDIO ZERO_タレントデータ.xlsx",
+    "path": "/00_プレイド/オンボーディング/STUDIO ZERO_タレントデータ.xlsx",
+    "type": "file",
+    "size_kb": 14535.8,
+    "modified": "2025-05-01T00:22:04",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "PMプロセスについて.pptx",
+    "path": "/00_プレイド/オンボーディング/PMプロセスについて.pptx",
+    "type": "file",
+    "size_kb": 18208.6,
+    "modified": "2025-05-01T00:22:02",
+    "extension": ".pptx"
+  },
+  {
+    "name": "2404_オンボーディングチーム・アップデート.pptx",
+    "path": "/00_プレイド/オンボーディング/2404_オンボーディングチーム・アップデート.pptx",
+    "type": "file",
+    "size_kb": 20505.5,
+    "modified": "2025-05-01T00:22:07",
+    "extension": ".pptx"
+  },
+  {
+    "name": "トレーニング-20250501T002644Z-001.zip",
+    "path": "/00_プレイド/トレーニング/トレーニング-20250501T002644Z-001.zip",
+    "type": "file",
+    "size_kb": 75593.7,
+    "modified": "2025-05-01T00:27:24",
+    "extension": ".zip"
+  },
+  {
+    "name": "インタビュー-20250501T002855Z-001.zip",
+    "path": "/00_プレイド/ナレッジ/インタビュー/インタビュー-20250501T002855Z-001.zip",
+    "type": "file",
+    "size_kb": 49104.8,
+    "modified": "2025-05-01T00:30:13",
+    "extension": ".zip"
+  },
+  {
+    "name": "[Temp] ZERO式 議事録フォーマット.docx",
+    "path": "/00_プレイド/ナレッジ/[Temp] ZERO式 議事録フォーマット.docx",
+    "type": "file",
+    "size_kb": 8.5,
+    "modified": "2025-05-01T00:33:09",
+    "extension": ".docx"
+  },
+  {
+    "name": "期待値合わせ-20250501T003059Z-001.zip",
+    "path": "/00_プレイド/ナレッジ/期待値合わせ-20250501T003059Z-001.zip",
+    "type": "file",
+    "size_kb": 10306.7,
+    "modified": "2025-05-01T00:33:10",
+    "extension": ".zip"
+  },
+  {
+    "name": "STUDIO ZERO_Proposal (1).pptx",
+    "path": "/00_プレイド/ナレッジ/STUDIO ZERO_Proposal (1).pptx",
+    "type": "file",
+    "size_kb": 17605.9,
+    "modified": "2025-05-01T00:33:08",
+    "extension": ".pptx"
+  },
+  {
+    "name": "2504_朝会フレーム.pptx",
+    "path": "/00_プレイド/ナレッジ/2504_朝会フレーム.pptx",
+    "type": "file",
+    "size_kb": 13728.3,
+    "modified": "2025-05-01T00:38:30",
+    "extension": ".pptx"
+  },
+  {
+    "name": "マーケ・広報関連年間番組表.xlsx",
+    "path": "/00_プレイド/ナレッジ/マーケ・広報関連年間番組表.xlsx",
+    "type": "file",
+    "size_kb": 28.5,
+    "modified": "2025-05-01T00:45:19",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "01_顧客デリバリー",
+    "path": "/00_プレイド/01_顧客デリバリー",
+    "type": "folder"
+  },
+  {
+    "name": "関西電力",
+    "path": "/00_プレイド/01_顧客デリバリー/関西電力",
+    "type": "folder"
+  },
+  {
+    "name": "クラシエ",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ",
+    "type": "folder"
+  },
+  {
+    "name": "OneDrive_3_2024-6-21",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21",
+    "type": "folder"
+  },
+  {
+    "name": "OneDrive_2_2024-6-21",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_2_2024-6-21",
+    "type": "folder"
+  },
+  {
+    "name": "OneDrive_1_2024-6-21",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_1_2024-6-21",
+    "type": "folder"
+  },
+  {
+    "name": "MEI",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI",
+    "type": "folder"
+  },
+  {
+    "name": "国分本社",
+    "path": "/00_プレイド/01_顧客デリバリー/国分本社",
+    "type": "folder"
+  },
+  {
+    "name": "伊藤忠食品",
+    "path": "/00_プレイド/01_顧客デリバリー/伊藤忠食品",
+    "type": "folder"
+  },
+  {
+    "name": "Accel 3",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3",
+    "type": "folder"
+  },
+  {
+    "name": "30_イベント",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント",
+    "type": "folder"
+  },
+  {
+    "name": "FY23",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23",
+    "type": "folder"
+  },
+  {
+    "name": "20230202_西武HDセミナー＆懇親会",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/20230202_西武HDセミナー＆懇親会",
+    "type": "folder"
+  },
+  {
+    "name": "20230621_海老根さん",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/20230621_海老根さん",
+    "type": "folder"
+  },
+  {
+    "name": "02_SalesTool",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool",
+    "type": "folder"
+  },
+  {
+    "name": "★Archive",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/★Archive",
+    "type": "folder"
+  },
+  {
+    "name": "10_参考資料",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料",
+    "type": "folder"
+  },
+  {
+    "name": "11_他社参考資料",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料",
+    "type": "folder"
+  },
+  {
+    "name": "FY23",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23",
+    "type": "folder"
+  },
+  {
+    "name": "01_ベンチマーク",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/01_ベンチマーク",
+    "type": "folder"
+  },
+  {
+    "name": "99_作業",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業",
+    "type": "folder"
+  },
+  {
+    "name": "20_ノウハウ共有",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有",
+    "type": "folder"
+  },
+  {
+    "name": "三菱UFJ",
+    "path": "/00_プレイド/01_顧客デリバリー/三菱UFJ",
+    "type": "folder"
+  },
+  {
+    "name": "202404_新規事業伴走支援_関西電力様.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/関西電力/202404_新規事業伴走支援_関西電力様.pptx",
+    "type": "file",
+    "size_kb": 22203.7,
+    "modified": "2024-04-26T00:19:15",
+    "extension": ".pptx"
+  },
+  {
+    "name": "KracieX 最終審査依頼事項1016 (1).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/KracieX 最終審査依頼事項1016 (1).pdf",
+    "type": "file",
+    "size_kb": 2852.3,
+    "modified": "2024-06-21T00:06:34",
+    "extension": ".pdf"
+  },
+  {
+    "name": "2024年メンタリングスケジュール_プレイド様共有.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21/2024年メンタリングスケジュール_プレイド様共有.xlsx",
+    "type": "file",
+    "size_kb": 43.6,
+    "modified": "2024-06-21T00:06:38",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "KracieX採点シート_エントリー審査_集計作業用_2024_共有用.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21/KracieX採点シート_エントリー審査_集計作業用_2024_共有用.xlsx",
+    "type": "file",
+    "size_kb": 30.9,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【プレイド様】KracieX2024_全体スケジュール（仮）_20240606.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21/【プレイド様】KracieX2024_全体スケジュール（仮）_20240606.pptx",
+    "type": "file",
+    "size_kb": 124.1,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".pptx"
+  },
+  {
+    "name": "メンタリング日程調整.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21/メンタリング日程調整.xlsx",
+    "type": "file",
+    "size_kb": 19.2,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "リーンキャンパス_フォーマット.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_3_2024-6-21/リーンキャンパス_フォーマット.pptx",
+    "type": "file",
+    "size_kb": 671.4,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".pptx"
+  },
+  {
+    "name": "KracieX エントリー審査依頼事項20240515.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_2_2024-6-21/KracieX エントリー審査依頼事項20240515.pptx",
+    "type": "file",
+    "size_kb": 1945.7,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".pptx"
+  },
+  {
+    "name": "KracieX採点シート_エントリー審査_2024（審査員お渡し用）.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_2_2024-6-21/KracieX採点シート_エントリー審査_2024（審査員お渡し用）.xlsx",
+    "type": "file",
+    "size_kb": 468.9,
+    "modified": "2024-06-21T00:06:39",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "2024KracieX 応募フォーマット16_9_vf.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_1_2024-6-21/2024KracieX 応募フォーマット16_9_vf.pptx",
+    "type": "file",
+    "size_kb": 1217.5,
+    "modified": "2024-06-21T00:06:40",
+    "extension": ".pptx"
+  },
+  {
+    "name": "KracieX2024 事前プログラム20240322_vf.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_1_2024-6-21/KracieX2024 事前プログラム20240322_vf.pdf",
+    "type": "file",
+    "size_kb": 8133.2,
+    "modified": "2024-06-21T00:06:40",
+    "extension": ".pdf"
+  },
+  {
+    "name": "KracieX 応募要項（新プログラム資料）20240301_プレゼン用.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/クラシエ/OneDrive_1_2024-6-21/KracieX 応募要項（新プログラム資料）20240301_プレゼン用.pdf",
+    "type": "file",
+    "size_kb": 3751.5,
+    "modified": "2024-06-21T00:06:41",
+    "extension": ".pdf"
+  },
+  {
+    "name": "MEI様_戦略企画部の業務推進支援ご提案資料_20240621.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/MEI様_戦略企画部の業務推進支援ご提案資料_20240621.pptx",
+    "type": "file",
+    "size_kb": 3957.5,
+    "modified": "2024-06-27T04:49:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "230919_運営会議各部報告フォーマット案.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/230919_運営会議各部報告フォーマット案.pptx",
+    "type": "file",
+    "size_kb": 1390.6,
+    "modified": "2024-06-27T04:52:22",
+    "extension": ".pptx"
+  },
+  {
+    "name": "231019_MEI合宿プラン.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/231019_MEI合宿プラン.pptx",
+    "type": "file",
+    "size_kb": 5360.9,
+    "modified": "2024-06-27T04:52:22",
+    "extension": ".pptx"
+  },
+  {
+    "name": "231205_MEI全体合宿プラン.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/231205_MEI全体合宿プラン.pptx",
+    "type": "file",
+    "size_kb": 5360.9,
+    "modified": "2024-06-27T04:52:23",
+    "extension": ".pptx"
+  },
+  {
+    "name": "231205_MEI合宿プラン.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/231205_MEI合宿プラン.pptx",
+    "type": "file",
+    "size_kb": 9007.5,
+    "modified": "2024-06-27T04:52:23",
+    "extension": ".pptx"
+  },
+  {
+    "name": "231205_MEI合宿プラン_当初スケジュール含む.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/231205_MEI合宿プラン_当初スケジュール含む.pptx",
+    "type": "file",
+    "size_kb": 8306.1,
+    "modified": "2024-06-27T04:52:23",
+    "extension": ".pptx"
+  },
+  {
+    "name": "MEI運営会議_報告フォーマット のコピー.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/MEI運営会議_報告フォーマット のコピー.xlsx",
+    "type": "file",
+    "size_kb": 78.4,
+    "modified": "2024-06-27T04:52:23",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "[提案資料]医用工学研究所様_PMO支援ご提案資料_20230714.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/MEI/[提案資料]医用工学研究所様_PMO支援ご提案資料_20230714.pptx",
+    "type": "file",
+    "size_kb": 1786.9,
+    "modified": "2024-06-27T04:54:58",
+    "extension": ".pptx"
+  },
+  {
+    "name": "(サンプル）事業整理ひな形_202501.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/国分本社/(サンプル）事業整理ひな形_202501.pptx",
+    "type": "file",
+    "size_kb": 602.8,
+    "modified": "2025-01-21T05:29:52",
+    "extension": ".pptx"
+  },
+  {
+    "name": "（作成中）別紙①：「国分グループオープンイノベーションプログラム2024報告資料」 (1).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/国分本社/（作成中）別紙①：「国分グループオープンイノベーションプログラム2024報告資料」 (1).pptx",
+    "type": "file",
+    "size_kb": 35606.9,
+    "modified": "2025-01-28T00:37:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "20241202伊藤忠食品様_キックオフ資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/伊藤忠食品/20241202伊藤忠食品様_キックオフ資料.pptx",
+    "type": "file",
+    "size_kb": 19627.5,
+    "modified": "2025-01-28T01:56:19",
+    "extension": ".pptx"
+  },
+  {
+    "name": "★SWINGNOTE-価値変容.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/20230202_西武HDセミナー＆懇親会/★SWINGNOTE-価値変容.pdf",
+    "type": "file",
+    "size_kb": 898.7,
+    "modified": "2025-05-01T02:16:33",
+    "extension": ".pdf"
+  },
+  {
+    "name": "セミナー案内看板 (1).key",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/20230202_西武HDセミナー＆懇親会/セミナー案内看板 (1).key",
+    "type": "file",
+    "size_kb": 2747.2,
+    "modified": "2025-05-01T02:16:34",
+    "extension": ".key"
+  },
+  {
+    "name": "セミナー案内看板.key",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/20230621_海老根さん/セミナー案内看板.key",
+    "type": "file",
+    "size_kb": 2747.2,
+    "modified": "2025-05-01T02:16:35",
+    "extension": ".key"
+  },
+  {
+    "name": "6月21日事業開発セミナー＆懇親会投影資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/6月21日事業開発セミナー＆懇親会投影資料.pptx",
+    "type": "file",
+    "size_kb": 5885.3,
+    "modified": "2025-05-01T02:16:35",
+    "extension": ".pptx"
+  },
+  {
+    "name": "2月2日事業開発セミナー＆懇親会投影資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/30_イベント/FY23/2月2日事業開発セミナー＆懇親会投影資料.pptx",
+    "type": "file",
+    "size_kb": 11977.2,
+    "modified": "2025-05-01T02:16:37",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202209_新規事業伴走支援「PLAID Accel」_.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/★Archive/202209_新規事業伴走支援「PLAID Accel」_.pptx",
+    "type": "file",
+    "size_kb": 2392.0,
+    "modified": "2025-05-01T02:16:38",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202306_新規事業伴走支援「PLAID Accel」.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/★Archive/202306_新規事業伴走支援「PLAID Accel」.pptx",
+    "type": "file",
+    "size_kb": 7725.4,
+    "modified": "2025-05-01T02:16:39",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202304_新規事業伴走支援「PLAID Accel」.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/★Archive/202304_新規事業伴走支援「PLAID Accel」.pptx",
+    "type": "file",
+    "size_kb": 7262.7,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202301_新規事業伴走支援「PLAID Accel」_.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/★Archive/202301_新規事業伴走支援「PLAID Accel」_.pptx",
+    "type": "file",
+    "size_kb": 5218.1,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202504_新規事業伴走支援.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/202504_新規事業伴走支援.pptx",
+    "type": "file",
+    "size_kb": 15147.2,
+    "modified": "2025-05-01T02:16:37",
+    "extension": ".pptx"
+  },
+  {
+    "name": "202407_新規事業伴走支援.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/02_SalesTool/202407_新規事業伴走支援.pptx",
+    "type": "file",
+    "size_kb": 17652.2,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "Webinar_text_20230712.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230712.pdf",
+    "type": "file",
+    "size_kb": 7031.6,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20230606_P10～【配布用】事業創出の「文化醸成」+.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/20230606_P10～【配布用】事業創出の「文化醸成」+.pdf",
+    "type": "file",
+    "size_kb": 5977.0,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230516.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230516.pdf",
+    "type": "file",
+    "size_kb": 4979.3,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230831.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230831.pdf",
+    "type": "file",
+    "size_kb": 3341.6,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20230801_【配布用】新規事業を確実にスケールさせる戦略的な事業計画づくり.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/20230801_【配布用】新規事業を確実にスケールさせる戦略的な事業計画づくり.pdf",
+    "type": "file",
+    "size_kb": 3774.0,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230608.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230608.pdf",
+    "type": "file",
+    "size_kb": 3448.9,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230615.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230615.pdf",
+    "type": "file",
+    "size_kb": 5854.3,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230620.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230620.pdf",
+    "type": "file",
+    "size_kb": 3572.8,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230725.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230725.pdf",
+    "type": "file",
+    "size_kb": 3649.6,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230802.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230802.pdf",
+    "type": "file",
+    "size_kb": 5340.1,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "【価値創造型リサーチvol3】Summary_vF.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/【価値創造型リサーチvol3】Summary_vF.pdf",
+    "type": "file",
+    "size_kb": 4777.0,
+    "modified": "2025-05-01T02:16:47",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20230614.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/FY23/Webinar_text_20230614.pdf",
+    "type": "file",
+    "size_kb": 4417.7,
+    "modified": "2025-05-01T02:16:48",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20231017.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/Webinar_text_20231017.pdf",
+    "type": "file",
+    "size_kb": 4584.7,
+    "modified": "2025-05-01T02:16:48",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20231018.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/Webinar_text_20231018.pdf",
+    "type": "file",
+    "size_kb": 4736.2,
+    "modified": "2025-05-01T02:16:48",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Webinar_text_20231019.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/11_他社参考資料/Webinar_text_20231019.pdf",
+    "type": "file",
+    "size_kb": 3115.1,
+    "modified": "2025-05-01T02:16:48",
+    "extension": ".pdf"
+  },
+  {
+    "name": "【VITALY】DX・新規事業推進パッケージのご紹介_202208 (1).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/01_ベンチマーク/【VITALY】DX・新規事業推進パッケージのご紹介_202208 (1).pdf",
+    "type": "file",
+    "size_kb": 3341.5,
+    "modified": "2025-05-01T02:16:49",
+    "extension": ".pdf"
+  },
+  {
+    "name": "参考情報_競合_【損害保険シャハン様】アイテアらほ_伴走支援_20220126.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/01_ベンチマーク/参考情報_競合_【損害保険シャハン様】アイテアらほ_伴走支援_20220126.pdf",
+    "type": "file",
+    "size_kb": 2775.9,
+    "modified": "2025-05-01T02:16:49",
+    "extension": ".pdf"
+  },
+  {
+    "name": "株式会社Relic 会社概要資料.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/01_ベンチマーク/株式会社Relic 会社概要資料.pdf",
+    "type": "file",
+    "size_kb": 3419.4,
+    "modified": "2025-05-01T02:16:51",
+    "extension": ".pdf"
+  },
+  {
+    "name": "クイック説明_顧客グロース_1031.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/クイック説明_顧客グロース_1031.pptx",
+    "type": "file",
+    "size_kb": 7733.2,
+    "modified": "2025-05-01T02:16:49",
+    "extension": ".pptx"
+  },
+  {
+    "name": "クイック説明_顧客グロース_1031（抜粋版）.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/10_参考資料/クイック説明_顧客グロース_1031（抜粋版）.pptx",
+    "type": "file",
+    "size_kb": 7539.5,
+    "modified": "2025-05-01T02:16:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "old_MEI Strategic Leadership Forum_20240613(第2弾) のコピー.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/old_MEI Strategic Leadership Forum_20240613(第2弾) のコピー.pptx",
+    "type": "file",
+    "size_kb": 3382.5,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "old_西武様ペットOMO事業_MTG_20220823.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/old_西武様ペットOMO事業_MTG_20220823.pptx",
+    "type": "file",
+    "size_kb": 502.6,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "STUDIO ZEROアドバイザリー支援実績.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/STUDIO ZEROアドバイザリー支援実績.pptx",
+    "type": "file",
+    "size_kb": 504.2,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発支援をプレイドに依頼する理由.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/事業開発支援をプレイドに依頼する理由.pptx",
+    "type": "file",
+    "size_kb": 786.4,
+    "modified": "2025-05-01T02:16:42",
+    "extension": ".pptx"
+  },
+  {
+    "name": "CRM・OMO成功事例.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/CRM・OMO成功事例.pptx",
+    "type": "file",
+    "size_kb": 3757.5,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "MUFG.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/MUFG.pptx",
+    "type": "file",
+    "size_kb": 773.8,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "アイデアの出し方.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/99_作業/アイデアの出し方.pptx",
+    "type": "file",
+    "size_kb": 687.3,
+    "modified": "2025-05-01T02:16:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発における経営層コミットの重要性.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発における経営層コミットの重要性.pptx",
+    "type": "file",
+    "size_kb": 728.4,
+    "modified": "2025-05-01T02:16:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ブレストのやり方.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/ブレストのやり方.pptx",
+    "type": "file",
+    "size_kb": 524.9,
+    "modified": "2025-05-01T02:16:55",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ブレストの方法論.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/ブレストの方法論.pptx",
+    "type": "file",
+    "size_kb": 524.9,
+    "modified": "2025-05-01T02:16:55",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業創造の考え方.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業創造の考え方.pptx",
+    "type": "file",
+    "size_kb": 7285.7,
+    "modified": "2025-05-01T02:16:52",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY2(2023).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY2(2023).pptx",
+    "type": "file",
+    "size_kb": 3310.2,
+    "modified": "2025-05-01T02:16:57",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY1(2023).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY1(2023).pptx",
+    "type": "file",
+    "size_kb": 8768.0,
+    "modified": "2025-05-01T02:16:54",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY2.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY2.pptx",
+    "type": "file",
+    "size_kb": 4378.7,
+    "modified": "2025-05-01T02:16:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY1.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY1.pptx",
+    "type": "file",
+    "size_kb": 9230.6,
+    "modified": "2025-05-01T02:16:57",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY2 のコピー.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY2 のコピー.pptx",
+    "type": "file",
+    "size_kb": 5427.9,
+    "modified": "2025-05-01T02:16:55",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY3.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY3.pptx",
+    "type": "file",
+    "size_kb": 13637.8,
+    "modified": "2025-05-01T02:16:51",
+    "extension": ".pptx"
+  },
+  {
+    "name": "新規事業開発の心得.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/新規事業開発の心得.pptx",
+    "type": "file",
+    "size_kb": 18213.9,
+    "modified": "2025-05-01T02:16:55",
+    "extension": ".pptx"
+  },
+  {
+    "name": "事業開発トレーニング研修_DAY3(2023).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Accel 3/20_ノウハウ共有/事業開発トレーニング研修_DAY3(2023).pptx",
+    "type": "file",
+    "size_kb": 16978.6,
+    "modified": "2025-05-01T02:16:52",
+    "extension": ".pptx"
+  },
+  {
+    "name": "進行フローの振り返り_1212.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/進行フローの振り返り_1212.pptx",
+    "type": "file",
+    "size_kb": 5493.5,
+    "modified": "2025-05-01T02:27:51",
+    "extension": ".pptx"
+  },
+  {
+    "name": "241001_auファイナンシャルHD様.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/241001_auファイナンシャルHD様.pptx",
+    "type": "file",
+    "size_kb": 36525.0,
+    "modified": "2025-05-01T02:27:54",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ANAエアポートサービス株式会社様_リサーチPJご提案資料_0801.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/ANAエアポートサービス株式会社様_リサーチPJご提案資料_0801.pptx",
+    "type": "file",
+    "size_kb": 19731.0,
+    "modified": "2025-05-01T02:27:55",
+    "extension": ".pptx"
+  },
+  {
+    "name": "2407_ZERO人的資本マスタースケジュール (1).xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/2407_ZERO人的資本マスタースケジュール (1).xlsx",
+    "type": "file",
+    "size_kb": 113.8,
+    "modified": "2025-05-01T00:52:05",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "課題インタビュー.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/三菱UFJ/課題インタビュー.xlsx",
+    "type": "file",
+    "size_kb": 21.0,
+    "modified": "2025-01-20T05:28:37",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "三井物産",
+    "path": "/00_プレイド/01_顧客デリバリー/三井物産",
+    "type": "folder"
+  },
+  {
+    "name": "三井住友海上",
+    "path": "/00_プレイド/01_顧客デリバリー/三井住友海上",
+    "type": "folder"
+  },
+  {
+    "name": "コクヨ",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ",
+    "type": "folder"
+  },
+  {
+    "name": "その他",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/その他",
+    "type": "folder"
+  },
+  {
+    "name": "UPR",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR",
+    "type": "folder"
+  },
+  {
+    "name": "提出資料20241016",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016",
+    "type": "folder"
+  },
+  {
+    "name": "1．会社の概要や方向性を理解するための資料",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/1．会社の概要や方向性を理解するための資料",
+    "type": "folder"
+  },
+  {
+    "name": "2．人事管理の仕組みを理解するための資料",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/2．人事管理の仕組みを理解するための資料",
+    "type": "folder"
+  },
+  {
+    "name": "3．教育体系や組織開発施策を理解するための資料",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/3．教育体系や組織開発施策を理解するための資料",
+    "type": "folder"
+  },
+  {
+    "name": "Salmon",
+    "path": "/00_プレイド/01_顧客デリバリー/Salmon",
+    "type": "folder"
+  },
+  {
+    "name": "JTB",
+    "path": "/00_プレイド/01_顧客デリバリー/JTB",
+    "type": "folder"
+  },
+  {
+    "name": "JT",
+    "path": "/00_プレイド/01_顧客デリバリー/JT",
+    "type": "folder"
+  },
+  {
+    "name": "VB浸透",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透",
+    "type": "folder"
+  },
+  {
+    "name": "VB浸透",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透",
+    "type": "folder"
+  },
+  {
+    "name": "Chime研修素材",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材",
+    "type": "folder"
+  },
+  {
+    "name": "集英社",
+    "path": "/00_プレイド/01_顧客デリバリー/集英社",
+    "type": "folder"
+  },
+  {
+    "name": "東京ガス",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス",
+    "type": "folder"
+  },
+  {
+    "name": "セールスイネーブルメント",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/セールスイネーブルメント",
+    "type": "folder"
+  },
+  {
+    "name": "東京建物",
+    "path": "/00_プレイド/01_顧客デリバリー/東京建物",
+    "type": "folder"
+  },
+  {
+    "name": "顧客デリバリー",
+    "path": "/00_プレイド/顧客デリバリー",
+    "type": "folder"
+  },
+  {
+    "name": "UPR",
+    "path": "/00_プレイド/顧客デリバリー/UPR",
+    "type": "folder"
+  },
+  {
+    "name": "ZERO運営",
+    "path": "/00_プレイド/ZERO運営",
+    "type": "folder"
+  },
+  {
+    "name": "国分本社",
+    "path": "/00_プレイド/顧客デリバリー/国分本社",
+    "type": "folder"
+  },
+  {
+    "name": "コクヨ",
+    "path": "/00_プレイド/顧客デリバリー/コクヨ",
+    "type": "folder"
+  },
+  {
+    "name": "【プレイド】PLAID Chime_マーケDX領域カリキュラム.key",
+    "path": "/00_プレイド/01_顧客デリバリー/三井物産/【プレイド】PLAID Chime_マーケDX領域カリキュラム.key",
+    "type": "file",
+    "size_kb": 5625.0,
+    "modified": "2024-05-07T04:24:17",
+    "extension": ".key"
+  },
+  {
+    "name": "受講コースガイド.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/三井物産/受講コースガイド.pdf",
+    "type": "file",
+    "size_kb": 1184.3,
+    "modified": "2024-05-07T04:24:19",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20220208_三井物産御中_来期ご提案資料.key",
+    "path": "/00_プレイド/01_顧客デリバリー/三井物産/20220208_三井物産御中_来期ご提案資料.key",
+    "type": "file",
+    "size_kb": 41891.1,
+    "modified": "2024-05-07T04:24:19",
+    "extension": ".key"
+  },
+  {
+    "name": "CXデザイン部_オンボーディングプログラムご提案資料_0322.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/三井住友海上/CXデザイン部_オンボーディングプログラムご提案資料_0322.pptx",
+    "type": "file",
+    "size_kb": 18519.1,
+    "modified": "2024-05-27T01:44:52",
+    "extension": ".pptx"
+  },
+  {
+    "name": "CXデザイン部_学習定着プログラムご提案資料_0221.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/三井住友海上/CXデザイン部_学習定着プログラムご提案資料_0221.pptx",
+    "type": "file",
+    "size_kb": 17181.8,
+    "modified": "2024-05-27T01:49:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "機能一覧比較_ロイロ_Goodnote_20240405.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/その他/機能一覧比較_ロイロ_Goodnote_20240405.xlsx",
+    "type": "file",
+    "size_kb": 25.5,
+    "modified": "2024-05-16T01:53:17",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "20240515_コクヨ_ヒアリングシート_河口回答.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/その他/20240515_コクヨ_ヒアリングシート_河口回答.xlsx",
+    "type": "file",
+    "size_kb": 16.9,
+    "modified": "2024-05-16T01:53:17",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "2405_【プレイド様】学校向けサービス企画_デジタルキャンパス.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/その他/2405_【プレイド様】学校向けサービス企画_デジタルキャンパス.pdf",
+    "type": "file",
+    "size_kb": 3374.0,
+    "modified": "2024-05-16T01:53:17",
+    "extension": ".pdf"
+  },
+  {
+    "name": "20240523_コクヨ様_定例議事録#01.docx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/20240523_コクヨ様_定例議事録#01.docx",
+    "type": "file",
+    "size_kb": 15.2,
+    "modified": "2024-05-27T10:56:05",
+    "extension": ".docx"
+  },
+  {
+    "name": "コクヨ様_横串PJT用.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/コクヨ様_横串PJT用.xlsx",
+    "type": "file",
+    "size_kb": 30.9,
+    "modified": "2024-05-27T10:56:04",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "コクヨ様_社内打ち合わせ用 (1).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/コクヨ様_社内打ち合わせ用 (1).pptx",
+    "type": "file",
+    "size_kb": 9246.9,
+    "modified": "2024-05-27T10:56:05",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240530_コクヨ様_打ち合わせ資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/240530_コクヨ様_打ち合わせ資料.pptx",
+    "type": "file",
+    "size_kb": 8379.7,
+    "modified": "2024-05-27T10:57:36",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240508_コクヨ様_打ち合わせ資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/240508_コクヨ様_打ち合わせ資料.pptx",
+    "type": "file",
+    "size_kb": 11629.6,
+    "modified": "2024-05-27T11:00:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240513_コクヨ様_打ち合わせ資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/240513_コクヨ様_打ち合わせ資料.pptx",
+    "type": "file",
+    "size_kb": 10438.6,
+    "modified": "2024-05-27T11:00:43",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240523_コクヨ様_打ち合わせ資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/240523_コクヨ様_打ち合わせ資料.pptx",
+    "type": "file",
+    "size_kb": 10844.7,
+    "modified": "2024-05-27T11:02:38",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240617_コクヨ様_CEO_CSO会議上程用 .pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/240617_コクヨ様_CEO_CSO会議上程用 .pdf",
+    "type": "file",
+    "size_kb": 762.5,
+    "modified": "2024-06-18T02:24:56",
+    "extension": ".pdf"
+  },
+  {
+    "name": "横断組織設計 横ぐし組織20240617.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/コクヨ/横断組織設計 横ぐし組織20240617.pdf",
+    "type": "file",
+    "size_kb": 358.7,
+    "modified": "2024-06-18T02:25:26",
+    "extension": ".pdf"
+  },
+  {
+    "name": "4．その他のデータ.txt",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/4．その他のデータ.txt",
+    "type": "file",
+    "size_kb": 0.2,
+    "modified": "2024-10-18T03:36:12",
+    "extension": ".txt"
+  },
+  {
+    "name": "b.組織図2024.9.1.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/1．会社の概要や方向性を理解するための資料/b.組織図2024.9.1.xlsx",
+    "type": "file",
+    "size_kb": 167.2,
+    "modified": "2024-10-18T03:36:13",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "a.中期経営計画2025(ver.1).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/1．会社の概要や方向性を理解するための資料/a.中期経営計画2025(ver.1).pdf",
+    "type": "file",
+    "size_kb": 2702.2,
+    "modified": "2024-10-18T03:36:17",
+    "extension": ".pdf"
+  },
+  {
+    "name": "a.中期経営計画2025(ver.2).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/1．会社の概要や方向性を理解するための資料/a.中期経営計画2025(ver.2).pdf",
+    "type": "file",
+    "size_kb": 3146.2,
+    "modified": "2024-10-18T03:36:17",
+    "extension": ".pdf"
+  },
+  {
+    "name": "a.就業規則_20220901.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/2．人事管理の仕組みを理解するための資料/a.就業規則_20220901.pdf",
+    "type": "file",
+    "size_kb": 591.4,
+    "modified": "2024-10-18T03:36:13",
+    "extension": ".pdf"
+  },
+  {
+    "name": "b-1.賃金規程別表20240901 .pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/2．人事管理の仕組みを理解するための資料/b-1.賃金規程別表20240901 .pdf",
+    "type": "file",
+    "size_kb": 580.5,
+    "modified": "2024-10-18T03:36:13",
+    "extension": ".pdf"
+  },
+  {
+    "name": "b.賃金規程20240901.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/2．人事管理の仕組みを理解するための資料/b.賃金規程20240901.pdf",
+    "type": "file",
+    "size_kb": 341.9,
+    "modified": "2024-10-18T03:36:13",
+    "extension": ".pdf"
+  },
+  {
+    "name": "c.人事制度ハンドブック2024年9月.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/2．人事管理の仕組みを理解するための資料/c.人事制度ハンドブック2024年9月.pdf",
+    "type": "file",
+    "size_kb": 3726.0,
+    "modified": "2024-10-18T03:36:16",
+    "extension": ".pdf"
+  },
+  {
+    "name": "ご提供いただきたい資料（UPR様）.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/ご提供いただきたい資料（UPR様）.pdf",
+    "type": "file",
+    "size_kb": 179.9,
+    "modified": "2024-10-18T03:36:13",
+    "extension": ".pdf"
+  },
+  {
+    "name": "a-1.人材要件.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/3．教育体系や組織開発施策を理解するための資料/a-1.人材要件.pdf",
+    "type": "file",
+    "size_kb": 711.3,
+    "modified": "2024-10-18T03:36:14",
+    "extension": ".pdf"
+  },
+  {
+    "name": "a-2.育成STEPアップ.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/3．教育体系や組織開発施策を理解するための資料/a-2.育成STEPアップ.pdf",
+    "type": "file",
+    "size_kb": 1433.9,
+    "modified": "2024-10-18T03:36:15",
+    "extension": ".pdf"
+  },
+  {
+    "name": "a.人材育成ハンドブック20240901.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/3．教育体系や組織開発施策を理解するための資料/a.人材育成ハンドブック20240901.pdf",
+    "type": "file",
+    "size_kb": 4284.1,
+    "modified": "2024-10-18T03:36:18",
+    "extension": ".pdf"
+  },
+  {
+    "name": "b.【46期4Q】ワークエンゲージメント四半期報告20240910.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/提出資料20241016/3．教育体系や組織開発施策を理解するための資料/b.【46期4Q】ワークエンゲージメント四半期報告20240910.pptx",
+    "type": "file",
+    "size_kb": 2668.7,
+    "modified": "2024-10-18T03:36:18",
+    "extension": ".pptx"
+  },
+  {
+    "name": "社内アンケート項目一覧 (3).xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/社内アンケート項目一覧 (3).xlsx",
+    "type": "file",
+    "size_kb": 160.7,
+    "modified": "2025-01-20T05:13:37",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【社内説明】短期海外研修について (1).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/【社内説明】短期海外研修について (1).pptx",
+    "type": "file",
+    "size_kb": 592.7,
+    "modified": "2025-01-20T05:14:23",
+    "extension": ".pptx"
+  },
+  {
+    "name": "イメージ.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/イメージ.pptx",
+    "type": "file",
+    "size_kb": 126.6,
+    "modified": "2025-01-20T05:15:29",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ストレングスファインダー_結果一覧20241111.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/ストレングスファインダー_結果一覧20241111.xlsx",
+    "type": "file",
+    "size_kb": 63.6,
+    "modified": "2025-01-20T05:16:22",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "ワークエンゲージメント運用ルール202209.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/ワークエンゲージメント運用ルール202209.pptx",
+    "type": "file",
+    "size_kb": 151.9,
+    "modified": "2025-01-20T05:16:23",
+    "extension": ".pptx"
+  },
+  {
+    "name": "【データ】人材ポートフォリオ20241114.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/【データ】人材ポートフォリオ20241114.xlsx",
+    "type": "file",
+    "size_kb": 6434.4,
+    "modified": "2025-01-20T05:16:23",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "【行動評価】評価基準別　具体例 (2).xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/【行動評価】評価基準別　具体例 (2).xlsx",
+    "type": "file",
+    "size_kb": 207.3,
+    "modified": "2025-01-20T05:17:00",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "社内アンケート結果.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/社内アンケート結果.xlsx",
+    "type": "file",
+    "size_kb": 1782.8,
+    "modified": "2025-02-05T05:15:30",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "採用方針2025 .pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/採用方針2025 .pptx",
+    "type": "file",
+    "size_kb": 256.4,
+    "modified": "2025-02-20T07:02:25",
+    "extension": ".pptx"
+  },
+  {
+    "name": "salomon 6月以降準備.docx",
+    "path": "/00_プレイド/01_顧客デリバリー/Salmon/salomon 6月以降準備.docx",
+    "type": "file",
+    "size_kb": 7516.8,
+    "modified": "2024-04-30T00:30:45",
+    "extension": ".docx"
+  },
+  {
+    "name": "サロモン公式オンラインストア グロース支援PRJ kick off.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Salmon/サロモン公式オンラインストア グロース支援PRJ kick off.pptx",
+    "type": "file",
+    "size_kb": 16398.6,
+    "modified": "2024-04-30T00:33:45",
+    "extension": ".pptx"
+  },
+  {
+    "name": "20240319_salomon様ヒアリング資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/Salmon/20240319_salomon様ヒアリング資料.pptx",
+    "type": "file",
+    "size_kb": 17710.1,
+    "modified": "2024-04-30T00:33:48",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240523_JTB_コーポマーケ戦略策定_v2.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JTB/240523_JTB_コーポマーケ戦略策定_v2.pptx",
+    "type": "file",
+    "size_kb": 21643.4,
+    "modified": "2024-06-21T03:01:05",
+    "extension": ".pptx"
+  },
+  {
+    "name": "JTB-20250501T022617Z-001.zip",
+    "path": "/00_プレイド/01_顧客デリバリー/JTB/JTB-20250501T022617Z-001.zip",
+    "type": "file",
+    "size_kb": 2097461.2,
+    "modified": "2025-05-01T02:33:22",
+    "extension": ".zip"
+  },
+  {
+    "name": "JTB-20250501T022617Z-002.zip",
+    "path": "/00_プレイド/01_顧客デリバリー/JTB/JTB-20250501T022617Z-002.zip",
+    "type": "file",
+    "size_kb": 2097126.7,
+    "modified": "2025-05-01T02:35:41",
+    "extension": ".zip"
+  },
+  {
+    "name": "JTB-20250501T022617Z-003.zip",
+    "path": "/00_プレイド/01_顧客デリバリー/JTB/JTB-20250501T022617Z-003.zip",
+    "type": "file",
+    "size_kb": 372085.0,
+    "modified": "2025-05-01T02:33:35",
+    "extension": ".zip"
+  },
+  {
+    "name": "コーポVBコミュニケーション施策_企画会議資料Ver1.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/コーポVBコミュニケーション施策_企画会議資料Ver1.pptx",
+    "type": "file",
+    "size_kb": 3649.9,
+    "modified": "2024-04-26T00:18:11",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_進行案0510.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_進行案0510.pdf",
+    "type": "file",
+    "size_kb": 1127.0,
+    "modified": "2024-05-13T07:29:55",
+    "extension": ".pdf"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_ディスカッション資料0501 (1).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_ディスカッション資料0501 (1).pdf",
+    "type": "file",
+    "size_kb": 1055.7,
+    "modified": "2024-05-13T07:32:04",
+    "extension": ".pdf"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_進行案0529.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_進行案0529.pptx",
+    "type": "file",
+    "size_kb": 10493.6,
+    "modified": "2024-08-13T00:44:24",
+    "extension": ".pptx"
+  },
+  {
+    "name": "old_240522_wrapupメモ_その他ワーク資料.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/old_240522_wrapupメモ_その他ワーク資料.pptx",
+    "type": "file",
+    "size_kb": 9047.5,
+    "modified": "2024-08-13T00:44:25",
+    "extension": ".pptx"
+  },
+  {
+    "name": "[共有]V_B課題マップ_0510~.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/[共有]V_B課題マップ_0510~.xlsx",
+    "type": "file",
+    "size_kb": 212.6,
+    "modified": "2024-08-13T00:44:27",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "6_11ワークショップ宿題（少しできているシーン）.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/6_11ワークショップ宿題（少しできているシーン）.xlsx",
+    "type": "file",
+    "size_kb": 72.6,
+    "modified": "2024-08-13T00:44:27",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_WS進行資料_0611.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_WS進行資料_0611.pptx",
+    "type": "file",
+    "size_kb": 11957.9,
+    "modified": "2024-08-13T00:44:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_進行案0522.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_進行案0522.pptx",
+    "type": "file",
+    "size_kb": 10062.6,
+    "modified": "2024-08-13T00:44:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "ZERO内共有用_V_B浸透支援イメージ動画コンセプト設計プロジェクトご提案資料_0805.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/ZERO内共有用_V_B浸透支援イメージ動画コンセプト設計プロジェクトご提案資料_0805.pptx",
+    "type": "file",
+    "size_kb": 19211.6,
+    "modified": "2024-08-13T00:44:28",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_進行案0510.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_進行案0510.pptx",
+    "type": "file",
+    "size_kb": 10283.1,
+    "modified": "2024-08-13T00:44:40",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_進行案0507.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_進行案0507.pptx",
+    "type": "file",
+    "size_kb": 12107.2,
+    "modified": "2024-08-13T00:44:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_クリエイティブブリーフ&アイデアシート_0618.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_クリエイティブブリーフ&アイデアシート_0618.pptx",
+    "type": "file",
+    "size_kb": 10376.6,
+    "modified": "2024-08-13T00:53:38",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援動画PJ_WS進行資料_0531.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援動画PJ_WS進行資料_0531.pptx",
+    "type": "file",
+    "size_kb": 13966.0,
+    "modified": "2024-08-13T00:53:39",
+    "extension": ".pptx"
+  },
+  {
+    "name": "V_B浸透支援メッセージの整理.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/VB浸透/VB浸透/V_B浸透支援メッセージの整理.pptx",
+    "type": "file",
+    "size_kb": 9998.5,
+    "modified": "2024-08-13T00:53:41",
+    "extension": ".pptx"
+  },
+  {
+    "name": "JT-20250501T022603Z-001.zip",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/JT-20250501T022603Z-001.zip",
+    "type": "file",
+    "size_kb": 2096551.9,
+    "modified": "2025-05-01T02:31:24",
+    "extension": ".zip"
+  },
+  {
+    "name": "JT-20250501T022603Z-002.zip",
+    "path": "/00_プレイド/01_顧客デリバリー/JT/JT-20250501T022603Z-002.zip",
+    "type": "file",
+    "size_kb": 361169.0,
+    "modified": "2025-05-01T02:31:40",
+    "extension": ".zip"
+  },
+  {
+    "name": "vol.5 ATL・BTL.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材/vol.5 ATL・BTL.pdf",
+    "type": "file",
+    "size_kb": 7494.3,
+    "modified": "2024-05-07T13:58:54",
+    "extension": ".pdf"
+  },
+  {
+    "name": "vol.1 戦略とは　マーケティングとは.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材/vol.1 戦略とは　マーケティングとは.pdf",
+    "type": "file",
+    "size_kb": 3638.0,
+    "modified": "2024-05-07T13:58:55",
+    "extension": ".pdf"
+  },
+  {
+    "name": "vol.2 ブランドとは　ブランドの構成要素.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材/vol.2 ブランドとは　ブランドの構成要素.pdf",
+    "type": "file",
+    "size_kb": 4814.7,
+    "modified": "2024-05-07T13:58:55",
+    "extension": ".pdf"
+  },
+  {
+    "name": "vol.3 マーケティング戦略（STPなど）.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材/vol.3 マーケティング戦略（STPなど）.pdf",
+    "type": "file",
+    "size_kb": 8692.6,
+    "modified": "2024-05-07T13:58:55",
+    "extension": ".pdf"
+  },
+  {
+    "name": "vol.4 コンセプト開発.pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/Chime研修素材/vol.4 コンセプト開発.pdf",
+    "type": "file",
+    "size_kb": 4123.6,
+    "modified": "2024-05-07T13:58:56",
+    "extension": ".pdf"
+  },
+  {
+    "name": "集英社さん_ジャンプ+定期購読者拡大に向けたご提案_0816 (2).pdf",
+    "path": "/00_プレイド/01_顧客デリバリー/集英社/集英社さん_ジャンプ+定期購読者拡大に向けたご提案_0816 (2).pdf",
+    "type": "file",
+    "size_kb": 5405.9,
+    "modified": "2024-08-16T08:00:12",
+    "extension": ".pdf"
+  },
+  {
+    "name": "240315_1to1_［修理］インタビュー結果まとめ.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/240315_1to1_［修理］インタビュー結果まとめ.pptx",
+    "type": "file",
+    "size_kb": 16041.7,
+    "modified": "2024-04-30T02:38:56",
+    "extension": ".pptx"
+  },
+  {
+    "name": "東京ガス様_施策アイデアリスト.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/東京ガス様_施策アイデアリスト.xlsx",
+    "type": "file",
+    "size_kb": 169.5,
+    "modified": "2024-04-30T02:38:57",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "東京ガス_CDP提案書.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/東京ガス_CDP提案書.pptx",
+    "type": "file",
+    "size_kb": 11267.3,
+    "modified": "2024-04-30T02:38:58",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240124_1to1施策アイディエーションWS.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/240124_1to1施策アイディエーションWS.pptx",
+    "type": "file",
+    "size_kb": 33023.4,
+    "modified": "2024-04-30T02:38:58",
+    "extension": ".pptx"
+  },
+  {
+    "name": "施策要件定義フォーム.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/施策要件定義フォーム.pptx",
+    "type": "file",
+    "size_kb": 28673.7,
+    "modified": "2024-04-30T02:39:11",
+    "extension": ".pptx"
+  },
+  {
+    "name": "240605_TGESセールスイネーブルメントディスカッションペーパー.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京ガス/セールスイネーブルメント/240605_TGESセールスイネーブルメントディスカッションペーパー.pptx",
+    "type": "file",
+    "size_kb": 8525.6,
+    "modified": "2024-06-21T02:34:19",
+    "extension": ".pptx"
+  },
+  {
+    "name": "20230731_東京建物_CXアプリ構想_最終報告資料_保存版.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京建物/20230731_東京建物_CXアプリ構想_最終報告資料_保存版.pptx",
+    "type": "file",
+    "size_kb": 40874.0,
+    "modified": "2024-06-21T00:09:59",
+    "extension": ".pptx"
+  },
+  {
+    "name": "[マスタ] 東京建物_CXアプリ開発_提案依頼書(RFP) (1).pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/東京建物/[マスタ] 東京建物_CXアプリ開発_提案依頼書(RFP) (1).pptx",
+    "type": "file",
+    "size_kb": 79499.7,
+    "modified": "2024-06-26T08:53:27",
+    "extension": ".pptx"
+  },
+  {
+    "name": "三菱UFJモルガン・スタンレー証券様_参考資料_お見積もりの考え方資料_0731.xlsx",
+    "path": "/00_プレイド/01_顧客デリバリー/三菱UFJモルガン・スタンレー証券様_参考資料_お見積もりの考え方資料_0731.xlsx",
+    "type": "file",
+    "size_kb": 9.2,
+    "modified": "2025-05-01T02:35:37",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "upr-20250501T023741Z-001.zip",
+    "path": "/00_プレイド/顧客デリバリー/UPR/upr-20250501T023741Z-001.zip",
+    "type": "file",
+    "size_kb": 891586.1,
+    "modified": "2025-05-01T02:47:58",
+    "extension": ".zip"
+  },
+  {
+    "name": "ZERO_スキルタグ作成.xlsx",
+    "path": "/00_プレイド/ZERO運営/ZERO_スキルタグ作成.xlsx",
+    "type": "file",
+    "size_kb": 125.0,
+    "modified": "2025-05-01T00:51:52",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "年計表.xlsx",
+    "path": "/00_プレイド/ZERO運営/年計表.xlsx",
+    "type": "file",
+    "size_kb": 1186.0,
+    "modified": "2025-05-01T00:51:53",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "アカウント名_プロジェクト名_new format (1).docx",
+    "path": "/00_プレイド/ZERO運営/アカウント名_プロジェクト名_new format (1).docx",
+    "type": "file",
+    "size_kb": 8.2,
+    "modified": "2025-05-01T00:54:32",
+    "extension": ".docx"
+  },
+  {
+    "name": "成長サイクルを回すコミュニケーション_STUDIO ZERO.pptx",
+    "path": "/00_プレイド/ZERO運営/成長サイクルを回すコミュニケーション_STUDIO ZERO.pptx",
+    "type": "file",
+    "size_kb": 5146.3,
+    "modified": "2025-05-01T00:54:50",
+    "extension": ".pptx"
+  },
+  {
+    "name": "国分-20250501T024027Z-001.zip",
+    "path": "/00_プレイド/顧客デリバリー/国分本社/国分-20250501T024027Z-001.zip",
+    "type": "file",
+    "size_kb": 909787.8,
+    "modified": "2025-05-01T02:48:41",
+    "extension": ".zip"
+  },
+  {
+    "name": "コクヨ-20250501T023949Z-001.zip",
+    "path": "/00_プレイド/顧客デリバリー/コクヨ/コクヨ-20250501T023949Z-001.zip",
+    "type": "file",
+    "size_kb": 1362228.5,
+    "modified": "2025-05-01T02:49:45",
+    "extension": ".zip"
+  },
+  {
+    "name": "マーケ組織セミナー第一弾  戦略と紐づく理想のマーケティング組織を考える.pptx",
+    "path": "/00_プレイド/その他/Nobuセミナー/マーケ組織セミナー第一弾  戦略と紐づく理想のマーケティング組織を考える.pptx",
+    "type": "file",
+    "size_kb": 50120.7,
+    "modified": "2024-11-06T05:59:00",
+    "extension": ".pptx"
+  },
+  {
+    "name": "マーケ組織セミナー第二弾  組織成長を加速させる秘訣は「スタイル開発」.pptx",
+    "path": "/00_プレイド/その他/Nobuセミナー/マーケ組織セミナー第二弾  組織成長を加速させる秘訣は「スタイル開発」.pptx",
+    "type": "file",
+    "size_kb": 73705.6,
+    "modified": "2024-11-14T06:47:35",
+    "extension": ".pptx"
+  },
+  {
+    "name": "採用方針2025 - 資料編.pptx",
+    "path": "/00_プレイド/01_顧客デリバリー/UPR/採用方針2025 - 資料編.pptx",
+    "type": "file",
+    "size_kb": 1741.7,
+    "modified": "2025-02-20T07:02:26",
+    "extension": ".pptx"
+  }
+]

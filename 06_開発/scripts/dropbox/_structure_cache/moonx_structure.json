@@ -1,0 +1,966 @@
+[
+  {
+    "name": "04_MOON-X",
+    "path": "/04_MOON-X",
+    "type": "folder"
+  },
+  {
+    "name": "04_その他",
+    "path": "/04_MOON-X/04_その他",
+    "type": "folder"
+  },
+  {
+    "name": "入社前書類",
+    "path": "/04_MOON-X/04_その他/入社前書類",
+    "type": "folder"
+  },
+  {
+    "name": "Zoom壁紙",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙",
+    "type": "folder"
+  },
+  {
+    "name": "00_社員リスト",
+    "path": "/04_MOON-X/04_その他/00_社員リスト",
+    "type": "folder"
+  },
+  {
+    "name": "ストックオプション",
+    "path": "/04_MOON-X/04_その他/ストックオプション",
+    "type": "folder"
+  },
+  {
+    "name": "『1ページ』思考_テンプレート",
+    "path": "/04_MOON-X/04_その他/『1ページ』思考_テンプレート",
+    "type": "folder"
+  },
+  {
+    "name": "05_参考資料",
+    "path": "/04_MOON-X/05_参考資料",
+    "type": "folder"
+  },
+  {
+    "name": "00_LayerX",
+    "path": "/04_MOON-X/05_参考資料/00_LayerX",
+    "type": "folder"
+  },
+  {
+    "name": "参考資料（コンかー）",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）",
+    "type": "folder"
+  },
+  {
+    "name": "01_業務フロー",
+    "path": "/04_MOON-X/01_業務フロー",
+    "type": "folder"
+  },
+  {
+    "name": "02_制度設計",
+    "path": "/04_MOON-X/02_制度設計",
+    "type": "folder"
+  },
+  {
+    "name": "03_労務",
+    "path": "/04_MOON-X/03_労務",
+    "type": "folder"
+  },
+  {
+    "name": "産業医活動テンプレート",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート",
+    "type": "folder"
+  },
+  {
+    "name": "3.長時間労働",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/3.長時間労働",
+    "type": "folder"
+  },
+  {
+    "name": "2.職場巡視",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/2.職場巡視",
+    "type": "folder"
+  },
+  {
+    "name": "5.ストレスチェック",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/5.ストレスチェック",
+    "type": "folder"
+  },
+  {
+    "name": "6.産業医面談",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/6.産業医面談",
+    "type": "folder"
+  },
+  {
+    "name": "4.健康診断",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/4.健康診断",
+    "type": "folder"
+  },
+  {
+    "name": "1.衛生委員会",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会",
+    "type": "folder"
+  },
+  {
+    "name": "⑨連絡票ブランク (1).xlsx",
+    "path": "/04_MOON-X/04_その他/入社前書類/⑨連絡票ブランク (1).xlsx",
+    "type": "file",
+    "size_kb": 143.2,
+    "modified": "2022-09-28T01:18:50",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "入社前確認sheet (3).xlsx",
+    "path": "/04_MOON-X/04_その他/入社前書類/入社前確認sheet (3).xlsx",
+    "type": "file",
+    "size_kb": 9.1,
+    "modified": "2022-09-29T04:42:10",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "220818_石井伸幸様_労働条件提示書2022.8.18.pdf",
+    "path": "/04_MOON-X/04_その他/入社前書類/220818_石井伸幸様_労働条件提示書2022.8.18.pdf",
+    "type": "file",
+    "size_kb": 77.4,
+    "modified": "2022-08-18T00:38:06",
+    "extension": ".pdf"
+  },
+  {
+    "name": "220906_入社前_NDA(2022.6) 石井伸幸様.pdf",
+    "path": "/04_MOON-X/04_その他/入社前書類/220906_入社前_NDA(2022.6) 石井伸幸様.pdf",
+    "type": "file",
+    "size_kb": 501.2,
+    "modified": "2022-09-07T01:20:23",
+    "extension": ".pdf"
+  },
+  {
+    "name": "入社誓約書 (2).docx",
+    "path": "/04_MOON-X/04_その他/入社前書類/入社誓約書 (2).docx",
+    "type": "file",
+    "size_kb": 15.1,
+    "modified": "2022-10-12T07:50:48",
+    "extension": ".docx"
+  },
+  {
+    "name": "01_atlas_zoon.jpg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/01_atlas_zoon.jpg",
+    "type": "file",
+    "size_kb": 321.4,
+    "modified": "2022-10-01T05:48:43",
+    "extension": ".jpg"
+  },
+  {
+    "name": "くりぼう01.jpeg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/くりぼう01.jpeg",
+    "type": "file",
+    "size_kb": 17.5,
+    "modified": "2022-10-06T23:37:51",
+    "extension": ".jpeg"
+  },
+  {
+    "name": "くりぼう02.png",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/くりぼう02.png",
+    "type": "file",
+    "size_kb": 1.2,
+    "modified": "2022-10-06T23:38:07",
+    "extension": ".png"
+  },
+  {
+    "name": "221007_マリオ.jpg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/221007_マリオ.jpg",
+    "type": "file",
+    "size_kb": 27.1,
+    "modified": "2022-10-07T09:56:18",
+    "extension": ".jpg"
+  },
+  {
+    "name": "kuribo.gif",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/kuribo.gif",
+    "type": "file",
+    "size_kb": 1.1,
+    "modified": "2022-10-07T22:20:09",
+    "extension": ".gif"
+  },
+  {
+    "name": "01_atlas_zoonのコピー.jpg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/01_atlas_zoonのコピー.jpg",
+    "type": "file",
+    "size_kb": 321.4,
+    "modified": "2022-10-28T01:29:25",
+    "extension": ".jpg"
+  },
+  {
+    "name": "スクリーンショット 2022-11-14 11.57.40.png",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/スクリーンショット 2022-11-14 11.57.40.png",
+    "type": "file",
+    "size_kb": 474.6,
+    "modified": "2022-11-14T12:11:23",
+    "extension": ".png"
+  },
+  {
+    "name": "IMG_2165 (1).jpg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/IMG_2165 (1).jpg",
+    "type": "file",
+    "size_kb": 107.2,
+    "modified": "2022-12-28T00:26:30",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_2166.jpg",
+    "path": "/04_MOON-X/04_その他/Zoom壁紙/IMG_2166.jpg",
+    "type": "file",
+    "size_kb": 116.4,
+    "modified": "2022-12-28T00:26:31",
+    "extension": ".jpg"
+  },
+  {
+    "name": "Export-01f7aa35-b0b4-41f7-a6fc-a27da0f81cee.zip",
+    "path": "/04_MOON-X/04_その他/00_社員リスト/Export-01f7aa35-b0b4-41f7-a6fc-a27da0f81cee.zip",
+    "type": "file",
+    "size_kb": 8.3,
+    "modified": "2022-10-06T01:52:32",
+    "extension": ".zip"
+  },
+  {
+    "name": "1) KIQS_株主総会議案雛型_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/1) KIQS_株主総会議案雛型_v1.0.docx",
+    "type": "file",
+    "size_kb": 76.6,
+    "modified": "2022-11-06T17:57:14",
+    "extension": ".docx"
+  },
+  {
+    "name": "2) KIQS_新株予約権発行要項雛型_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/2) KIQS_新株予約権発行要項雛型_v1.0.docx",
+    "type": "file",
+    "size_kb": 50.4,
+    "modified": "2022-11-06T17:57:58",
+    "extension": ".docx"
+  },
+  {
+    "name": "3) KIQS_新株予約権割当契約書雛型_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/3) KIQS_新株予約権割当契約書雛型_v1.0.docx",
+    "type": "file",
+    "size_kb": 38.5,
+    "modified": "2022-11-06T17:58:32",
+    "extension": ".docx"
+  },
+  {
+    "name": "4) KIQS_登記を要する事由及び必要書類のリスト_v1.0.xlsx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/4) KIQS_登記を要する事由及び必要書類のリスト_v1.0.xlsx",
+    "type": "file",
+    "size_kb": 17.1,
+    "modified": "2022-11-06T18:00:56",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "5) KIQS_募集新株予約権の申込みを証する書面_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/5) KIQS_募集新株予約権の申込みを証する書面_v1.0.docx",
+    "type": "file",
+    "size_kb": 19.7,
+    "modified": "2022-11-06T18:01:30",
+    "extension": ".docx"
+  },
+  {
+    "name": "7) KIQS_委任状_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/7) KIQS_委任状_v1.0.docx",
+    "type": "file",
+    "size_kb": 22.9,
+    "modified": "2022-11-06T18:02:18",
+    "extension": ".docx"
+  },
+  {
+    "name": "8) KIQS_新株予約権原簿_v1.0.xlsx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/8) KIQS_新株予約権原簿_v1.0.xlsx",
+    "type": "file",
+    "size_kb": 8.1,
+    "modified": "2022-11-07T03:55:58",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "6) KIQS_株主リスト_v1.0.docx",
+    "path": "/04_MOON-X/04_その他/ストックオプション/6) KIQS_株主リスト_v1.0.docx",
+    "type": "file",
+    "size_kb": 19.9,
+    "modified": "2022-11-06T18:01:48",
+    "extension": ".docx"
+  },
+  {
+    "name": "外部の専門家に依頼する_1Pageテンプレート.docx",
+    "path": "/04_MOON-X/04_その他/『1ページ』思考_テンプレート/外部の専門家に依頼する_1Pageテンプレート.docx",
+    "type": "file",
+    "size_kb": 19.2,
+    "modified": "2022-11-20T23:36:22",
+    "extension": ".docx"
+  },
+  {
+    "name": "3ヶ月に1回学びを蓄積する_1Pageテンプレート.docx",
+    "path": "/04_MOON-X/04_その他/『1ページ』思考_テンプレート/3ヶ月に1回学びを蓄積する_1Pageテンプレート.docx",
+    "type": "file",
+    "size_kb": 18.6,
+    "modified": "2022-11-20T23:36:23",
+    "extension": ".docx"
+  },
+  {
+    "name": "社内でのプラン提案_1Pageテンプレート.docx",
+    "path": "/04_MOON-X/04_その他/『1ページ』思考_テンプレート/社内でのプラン提案_1Pageテンプレート.docx",
+    "type": "file",
+    "size_kb": 20.4,
+    "modified": "2022-11-20T23:36:24",
+    "extension": ".docx"
+  },
+  {
+    "name": "221006_公開用_LayerX羅針盤_2022010_ver_1.1__2_.pdf",
+    "path": "/04_MOON-X/05_参考資料/00_LayerX/221006_公開用_LayerX羅針盤_2022010_ver_1.1__2_.pdf",
+    "type": "file",
+    "size_kb": 1707.1,
+    "modified": "2022-10-06T00:05:49",
+    "extension": ".pdf"
+  },
+  {
+    "name": "Moon-X案件_投資メモ (1).docx",
+    "path": "/04_MOON-X/05_参考資料/Moon-X案件_投資メモ (1).docx",
+    "type": "file",
+    "size_kb": 4438.0,
+    "modified": "2022-10-07T08:11:12",
+    "extension": ".docx"
+  },
+  {
+    "name": "221007_MoonX-EarnOut-Slide-211202.pdf",
+    "path": "/04_MOON-X/05_参考資料/221007_MoonX-EarnOut-Slide-211202.pdf",
+    "type": "file",
+    "size_kb": 272.5,
+    "modified": "2022-10-07T08:28:28",
+    "extension": ".pdf"
+  },
+  {
+    "name": "2021_コンカー.pdf",
+    "path": "/04_MOON-X/05_参考資料/2021_コンカー.pdf",
+    "type": "file",
+    "size_kb": 18678.2,
+    "modified": "2022-10-13T05:17:44",
+    "extension": ".pdf"
+  },
+  {
+    "name": "組織課題.png",
+    "path": "/04_MOON-X/05_参考資料/組織課題.png",
+    "type": "file",
+    "size_kb": 301.1,
+    "modified": "2022-10-13T07:26:42",
+    "extension": ".png"
+  },
+  {
+    "name": "データ.png",
+    "path": "/04_MOON-X/05_参考資料/データ.png",
+    "type": "file",
+    "size_kb": 285.4,
+    "modified": "2022-10-13T07:28:26",
+    "extension": ".png"
+  },
+  {
+    "name": "採用経路.png",
+    "path": "/04_MOON-X/05_参考資料/採用経路.png",
+    "type": "file",
+    "size_kb": 10.3,
+    "modified": "2022-10-13T07:46:03",
+    "extension": ".png"
+  },
+  {
+    "name": "220822スタートアップ・ベンチャー企業向け人事・組織領域の取り組みに関する調査.pdf",
+    "path": "/04_MOON-X/05_参考資料/220822スタートアップ・ベンチャー企業向け人事・組織領域の取り組みに関する調査.pdf",
+    "type": "file",
+    "size_kb": 2266.0,
+    "modified": "2022-10-13T07:59:15",
+    "extension": ".pdf"
+  },
+  {
+    "name": "IMG_1949.JPG",
+    "path": "/04_MOON-X/05_参考資料/IMG_1949.JPG",
+    "type": "file",
+    "size_kb": 1925.5,
+    "modified": "2022-10-14T01:14:32",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_1951.JPG",
+    "path": "/04_MOON-X/05_参考資料/IMG_1951.JPG",
+    "type": "file",
+    "size_kb": 2152.7,
+    "modified": "2022-10-14T01:14:34",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_1950.JPG",
+    "path": "/04_MOON-X/05_参考資料/IMG_1950.JPG",
+    "type": "file",
+    "size_kb": 1614.6,
+    "modified": "2022-10-14T01:14:36",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_1948.JPG",
+    "path": "/04_MOON-X/05_参考資料/IMG_1948.JPG",
+    "type": "file",
+    "size_kb": 1982.7,
+    "modified": "2022-10-14T01:14:38",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_1947.JPG",
+    "path": "/04_MOON-X/05_参考資料/IMG_1947.JPG",
+    "type": "file",
+    "size_kb": 2245.4,
+    "modified": "2022-10-14T01:14:41",
+    "extension": ".jpg"
+  },
+  {
+    "name": "7766523E-1655-4835-B8D4-F279524444F8.JPG",
+    "path": "/04_MOON-X/05_参考資料/7766523E-1655-4835-B8D4-F279524444F8.JPG",
+    "type": "file",
+    "size_kb": 845.4,
+    "modified": "2022-10-14T01:14:41",
+    "extension": ".jpg"
+  },
+  {
+    "name": "IMG_2007.jpg.HEIC",
+    "path": "/04_MOON-X/05_参考資料/IMG_2007.jpg.HEIC",
+    "type": "file",
+    "size_kb": 1016.5,
+    "modified": "2022-10-19T03:02:11",
+    "extension": ".heic"
+  },
+  {
+    "name": "IMG_2008.jpg.HEIC",
+    "path": "/04_MOON-X/05_参考資料/IMG_2008.jpg.HEIC",
+    "type": "file",
+    "size_kb": 787.7,
+    "modified": "2022-10-19T03:02:10",
+    "extension": ".heic"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.40.22.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.40.22.png",
+    "type": "file",
+    "size_kb": 1946.2,
+    "modified": "2022-11-25T22:40:29",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.51.18.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.51.18.png",
+    "type": "file",
+    "size_kb": 640.8,
+    "modified": "2022-11-25T22:51:23",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.54.51.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.54.51.png",
+    "type": "file",
+    "size_kb": 572.3,
+    "modified": "2022-11-25T22:54:56",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 8.04.15.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 8.04.15.png",
+    "type": "file",
+    "size_kb": 276.3,
+    "modified": "2022-11-25T23:04:20",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-12-05 9.32.25.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-12-05 9.32.25.png",
+    "type": "file",
+    "size_kb": 87.8,
+    "modified": "2022-12-05T00:32:29",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.12.58.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.12.58.png",
+    "type": "file",
+    "size_kb": 278.8,
+    "modified": "2022-11-25T22:13:04",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.35.36.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.35.36.png",
+    "type": "file",
+    "size_kb": 504.0,
+    "modified": "2022-11-25T22:35:42",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-12-05 9.26.25.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-12-05 9.26.25.png",
+    "type": "file",
+    "size_kb": 233.8,
+    "modified": "2022-12-05T00:26:29",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 8.05.37.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 8.05.37.png",
+    "type": "file",
+    "size_kb": 509.3,
+    "modified": "2022-11-25T23:05:43",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.19.30.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.19.30.png",
+    "type": "file",
+    "size_kb": 473.4,
+    "modified": "2022-11-25T22:19:36",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.20.48.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.20.48.png",
+    "type": "file",
+    "size_kb": 418.0,
+    "modified": "2022-11-25T22:20:53",
+    "extension": ".png"
+  },
+  {
+    "name": "36協定9号の2（ＭＯＯＮ−Ｘ様）最新.docx",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/36協定9号の2（ＭＯＯＮ−Ｘ様）最新.docx",
+    "type": "file",
+    "size_kb": 55.3,
+    "modified": "2022-12-01T07:09:42",
+    "extension": ".docx"
+  },
+  {
+    "name": "スクリーンショット 2022-12-01 23.31.19.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-12-01 23.31.19.png",
+    "type": "file",
+    "size_kb": 535.6,
+    "modified": "2022-12-01T14:31:23",
+    "extension": ".png"
+  },
+  {
+    "name": "EcPLPZLU0AAHD4w.jpg",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/EcPLPZLU0AAHD4w.jpg",
+    "type": "file",
+    "size_kb": 157.2,
+    "modified": "2022-11-26T03:44:42",
+    "extension": ".jpg"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.14.32.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.14.32.png",
+    "type": "file",
+    "size_kb": 347.9,
+    "modified": "2022-11-25T22:14:38",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.23.16.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.23.16.png",
+    "type": "file",
+    "size_kb": 556.3,
+    "modified": "2022-11-25T22:23:21",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 8.07.07.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 8.07.07.png",
+    "type": "file",
+    "size_kb": 357.1,
+    "modified": "2022-11-25T23:07:13",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.07.16.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.07.16.png",
+    "type": "file",
+    "size_kb": 347.4,
+    "modified": "2022-11-25T22:07:21",
+    "extension": ".png"
+  },
+  {
+    "name": "スクリーンショット 2022-11-26 7.31.13.png",
+    "path": "/04_MOON-X/05_参考資料/参考資料（コンかー）/スクリーンショット 2022-11-26 7.31.13.png",
+    "type": "file",
+    "size_kb": 533.1,
+    "modified": "2022-11-25T22:31:18",
+    "extension": ".png"
+  },
+  {
+    "name": "『1ページ』思考_テンプレート.zip",
+    "path": "/04_MOON-X/05_参考資料/『1ページ』思考_テンプレート.zip",
+    "type": "file",
+    "size_kb": 58.9,
+    "modified": "2022-11-20T23:35:01",
+    "extension": ".zip"
+  },
+  {
+    "name": "Moonx_20221116.pages",
+    "path": "/04_MOON-X/05_参考資料/Moonx_20221116.pages",
+    "type": "file",
+    "size_kb": 252.8,
+    "modified": "2022-11-17T02:27:22",
+    "extension": ".pages"
+  },
+  {
+    "name": "221106_オンボーディング.pdf",
+    "path": "/04_MOON-X/01_業務フロー/221106_オンボーディング.pdf",
+    "type": "file",
+    "size_kb": 88.1,
+    "modified": "2022-11-06T00:55:24",
+    "extension": ".pdf"
+  },
+  {
+    "name": "221106_業務フロー（人事領域全体）.pdf",
+    "path": "/04_MOON-X/01_業務フロー/221106_業務フロー（人事領域全体）.pdf",
+    "type": "file",
+    "size_kb": 73.2,
+    "modified": "2022-11-06T00:55:10",
+    "extension": ".pdf"
+  },
+  {
+    "name": "221106_業務フロー（採用広報〜採用）.pdf",
+    "path": "/04_MOON-X/01_業務フロー/221106_業務フロー（採用広報〜採用）.pdf",
+    "type": "file",
+    "size_kb": 91.5,
+    "modified": "2022-11-06T00:54:51",
+    "extension": ".pdf"
+  },
+  {
+    "name": "221118_ケラッタ組織の人材PF.xlsx",
+    "path": "/04_MOON-X/02_制度設計/221118_ケラッタ組織の人材PF.xlsx",
+    "type": "file",
+    "size_kb": 36.3,
+    "modified": "2022-11-17T07:51:21",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "グレードマッピング2023.xlsx",
+    "path": "/04_MOON-X/02_制度設計/グレードマッピング2023.xlsx",
+    "type": "file",
+    "size_kb": 95.6,
+    "modified": "2023-06-22T23:45:32",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "人事制度素案.xlsx",
+    "path": "/04_MOON-X/02_制度設計/人事制度素案.xlsx",
+    "type": "file",
+    "size_kb": 304.3,
+    "modified": "2023-06-22T23:45:52",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "33長時間労働者面談報告書【雛形】　※産業医用.xlsx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/3.長時間労働/33長時間労働者面談報告書【雛形】　※産業医用.xlsx",
+    "type": "file",
+    "size_kb": 31.7,
+    "modified": "2022-12-19T08:53:55",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "31疲労蓄積度チェックリスト.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/3.長時間労働/31疲労蓄積度チェックリスト.pdf",
+    "type": "file",
+    "size_kb": 212.4,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".pdf"
+  },
+  {
+    "name": "32心身の健康状況、生活状況の把握のためのチェックリスト.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/3.長時間労働/32心身の健康状況、生活状況の把握のためのチェックリスト.pdf",
+    "type": "file",
+    "size_kb": 439.1,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".pdf"
+  },
+  {
+    "name": "21職場巡視チェックリスト（事務所用）【雛形】改定版.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/2.職場巡視/21職場巡視チェックリスト（事務所用）【雛形】改定版.docx",
+    "type": "file",
+    "size_kb": 27.1,
+    "modified": "2022-12-19T08:53:56",
+    "extension": ".docx"
+  },
+  {
+    "name": "51ストレスチェック制度実施規程【雛形】.doc",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/5.ストレスチェック/51ストレスチェック制度実施規程【雛形】.doc",
+    "type": "file",
+    "size_kb": 55.0,
+    "modified": "2022-12-19T08:53:56",
+    "extension": ".doc"
+  },
+  {
+    "name": "52事業場における心の健康づくり計画及びストレスチェック実施計画【雛形】.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/5.ストレスチェック/52事業場における心の健康づくり計画及びストレスチェック実施計画【雛形】.docx",
+    "type": "file",
+    "size_kb": 35.3,
+    "modified": "2022-12-19T08:53:56",
+    "extension": ".docx"
+  },
+  {
+    "name": "53ストレスチェック結果報告書（労基署提出）【雛形】.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/5.ストレスチェック/53ストレスチェック結果報告書（労基署提出）【雛形】.pdf",
+    "type": "file",
+    "size_kb": 140.2,
+    "modified": "2022-12-19T08:53:57",
+    "extension": ".pdf"
+  },
+  {
+    "name": "63産業医意見書【雛形】　※産業医用.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/6.産業医面談/63産業医意見書【雛形】　※産業医用.docx",
+    "type": "file",
+    "size_kb": 24.5,
+    "modified": "2022-12-19T08:53:56",
+    "extension": ".docx"
+  },
+  {
+    "name": "61面談者事前記入シート【雛形】.xlsx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/6.産業医面談/61面談者事前記入シート【雛形】.xlsx",
+    "type": "file",
+    "size_kb": 18.3,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "62産業医面談記録【雛形】　※産業医用.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/6.産業医面談/62産業医面談記録【雛形】　※産業医用.docx",
+    "type": "file",
+    "size_kb": 25.2,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".docx"
+  },
+  {
+    "name": "42定期健康結果による従業員への受診勧奨文書【雛形】.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/4.健康診断/42定期健康結果による従業員への受診勧奨文書【雛形】.docx",
+    "type": "file",
+    "size_kb": 20.0,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".docx"
+  },
+  {
+    "name": "43診療情報提供書（簡易版）【雛形】　※産業医用.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/4.健康診断/43診療情報提供書（簡易版）【雛形】　※産業医用.docx",
+    "type": "file",
+    "size_kb": 18.2,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".docx"
+  },
+  {
+    "name": "43診療情報提供書（詳細版）【雛形】　※産業医用.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/4.健康診断/43診療情報提供書（詳細版）【雛形】　※産業医用.docx",
+    "type": "file",
+    "size_kb": 32.4,
+    "modified": "2022-12-19T08:53:58",
+    "extension": ".docx"
+  },
+  {
+    "name": "41健康診断結果報告書（労基署提出）【雛形】.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/4.健康診断/41健康診断結果報告書（労基署提出）【雛形】.pdf",
+    "type": "file",
+    "size_kb": 144.3,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".pdf"
+  },
+  {
+    "name": "11産業医（衛生管理者）選任届【雛形】.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/11産業医（衛生管理者）選任届【雛形】.pdf",
+    "type": "file",
+    "size_kb": 157.4,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".pdf"
+  },
+  {
+    "name": "13衛生委員会規程【雛形】.doc",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/13衛生委員会規程【雛形】.doc",
+    "type": "file",
+    "size_kb": 33.5,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".doc"
+  },
+  {
+    "name": "14衛生管理規程【雛形】.doc",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/14衛生管理規程【雛形】.doc",
+    "type": "file",
+    "size_kb": 42.5,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".doc"
+  },
+  {
+    "name": "15安全衛生年間計画【雛形】.xls",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/15安全衛生年間計画【雛形】.xls",
+    "type": "file",
+    "size_kb": 79.5,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".xls"
+  },
+  {
+    "name": "17衛生委員会 議事録_記載例 Ver1.0.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/17衛生委員会 議事録_記載例 Ver1.0.pdf",
+    "type": "file",
+    "size_kb": 132.7,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".pdf"
+  },
+  {
+    "name": "17衛生委員会 議事録【雛形】 Ver1.0.xlsx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/17衛生委員会 議事録【雛形】 Ver1.0.xlsx",
+    "type": "file",
+    "size_kb": 48.9,
+    "modified": "2022-12-19T08:53:59",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "16産業医未訪問月の情報提供チェックリスト【雛形】.xlsx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/16産業医未訪問月の情報提供チェックリスト【雛形】.xlsx",
+    "type": "file",
+    "size_kb": 24.7,
+    "modified": "2022-12-19T08:54:01",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "12健康情報等の取扱規程【雛形】.docx",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/12健康情報等の取扱規程【雛形】.docx",
+    "type": "file",
+    "size_kb": 36.4,
+    "modified": "2022-12-19T08:54:01",
+    "extension": ".docx"
+  },
+  {
+    "name": "11産業医（衛生管理者）選任届の記載例 ver1.1.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/11産業医（衛生管理者）選任届の記載例 ver1.1.pdf",
+    "type": "file",
+    "size_kb": 871.3,
+    "modified": "2022-12-19T08:54:02",
+    "extension": ".pdf"
+  },
+  {
+    "name": "18衛生委員会の立ち上げと運用手引き Ver1.2.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/1.衛生委員会/18衛生委員会の立ち上げと運用手引き Ver1.2.pdf",
+    "type": "file",
+    "size_kb": 1247.2,
+    "modified": "2022-12-19T08:54:03",
+    "extension": ".pdf"
+  },
+  {
+    "name": "産業衛生活動お役立ちテンプレート一覧 Ver1.2.pdf",
+    "path": "/04_MOON-X/03_労務/産業医活動テンプレート/産業衛生活動お役立ちテンプレート一覧 Ver1.2.pdf",
+    "type": "file",
+    "size_kb": 762.0,
+    "modified": "2022-12-19T08:54:02",
+    "extension": ".pdf"
+  },
+  {
+    "name": "【Dr.健康経営】面談者事前記入シート (1).xlsx",
+    "path": "/04_MOON-X/03_労務/【Dr.健康経営】面談者事前記入シート (1).xlsx",
+    "type": "file",
+    "size_kb": 17.1,
+    "modified": "2022-12-20T07:44:04",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "労働条件通知書_template (1) (1).docx",
+    "path": "/04_MOON-X/労働条件通知書_template (1) (1).docx",
+    "type": "file",
+    "size_kb": 19.9,
+    "modified": "2023-02-01T23:49:22",
+    "extension": ".docx"
+  },
+  {
+    "name": "牟田さん × MX.docx",
+    "path": "/04_MOON-X/牟田さん × MX.docx",
+    "type": "file",
+    "size_kb": 8.3,
+    "modified": "2023-11-02T09:06:04",
+    "extension": ".docx"
+  },
+  {
+    "name": "入社時チェックシート.xlsx",
+    "path": "/04_MOON-X/入社時チェックシート.xlsx",
+    "type": "file",
+    "size_kb": 8.4,
+    "modified": "2023-10-12T23:40:33",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "渡辺寿恵様　労働条件通知書.docx",
+    "path": "/04_MOON-X/渡辺寿恵様　労働条件通知書.docx",
+    "type": "file",
+    "size_kb": 770.2,
+    "modified": "2023-07-04T01:36:05",
+    "extension": ".docx"
+  },
+  {
+    "name": "オンボーディング_採用アンケート（回答）.xlsx",
+    "path": "/04_MOON-X/オンボーディング_採用アンケート（回答）.xlsx",
+    "type": "file",
+    "size_kb": 33.0,
+    "modified": "2023-10-30T02:44:19",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "members (1).csv",
+    "path": "/04_MOON-X/members (1).csv",
+    "type": "file",
+    "size_kb": 54.7,
+    "modified": "2023-09-06T23:19:50",
+    "extension": ".csv"
+  },
+  {
+    "name": "幼児向け寝具布製品の製造EC販売卸売企業概要書.pdf",
+    "path": "/04_MOON-X/幼児向け寝具布製品の製造EC販売卸売企業概要書.pdf",
+    "type": "file",
+    "size_kb": 3568.8,
+    "modified": "2022-11-17T05:59:18",
+    "extension": ".pdf"
+  },
+  {
+    "name": "（共有用）kerata商品レビューシート_ひな形.xlsx .xlsx",
+    "path": "/04_MOON-X/（共有用）kerata商品レビューシート_ひな形.xlsx .xlsx",
+    "type": "file",
+    "size_kb": 1116.4,
+    "modified": "2023-10-28T09:37:51",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "members.csv",
+    "path": "/04_MOON-X/members.csv",
+    "type": "file",
+    "size_kb": 49.8,
+    "modified": "2023-08-04T04:47:24",
+    "extension": ".csv"
+  },
+  {
+    "name": "Peopleに関する課題.pdf",
+    "path": "/04_MOON-X/Peopleに関する課題.pdf",
+    "type": "file",
+    "size_kb": 3546.1,
+    "modified": "2023-08-04T00:10:00",
+    "extension": ".pdf"
+  },
+  {
+    "name": "業務委託契約_個別契約込み_テンプレートver1.0.docx",
+    "path": "/04_MOON-X/業務委託契約_個別契約込み_テンプレートver1.0.docx",
+    "type": "file",
+    "size_kb": 31.7,
+    "modified": "2023-08-04T04:15:33",
+    "extension": ".docx"
+  },
+  {
+    "name": "採用広報（ケラッタ）.pptx",
+    "path": "/04_MOON-X/採用広報（ケラッタ）.pptx",
+    "type": "file",
+    "size_kb": 826.0,
+    "modified": "2023-08-30T01:21:53",
+    "extension": ".pptx"
+  },
+  {
+    "name": "投資情報共有会20230207.pptx",
+    "path": "/04_MOON-X/投資情報共有会20230207.pptx",
+    "type": "file",
+    "size_kb": 3943.5,
+    "modified": "2023-02-09T03:18:29",
+    "extension": ".pptx"
+  }
+]
