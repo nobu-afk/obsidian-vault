@@ -11,6 +11,11 @@
 # 並列度: 8（curl & で並列実行）
 # Xserver 制限：典型的に4-8並列まで安全
 # ⚠️ 並列数が多すぎると FTP認証530エラーが出る（2026-04-20確認）。1スクリプトあたり8本前後に抑える
+#
+# 260513 Phase 3 B-1: 05_プロダクト 親子2階層化に対応
+#   - 旧 05_プロダクト/Gravity{Code,Scan,Shift,...}/ → 新 05_プロダクト/Gravity/{Code,Scan,Shift,...}/
+#   - GravityBlueprint 関連はすべて削除（260430 廃止済）
+#   - 本番URL（gravity-code/ 等）は変更なし
 
 set -e
 
@@ -47,28 +52,22 @@ deploy_shared() {
 
 deploy_lp() {
   echo "[LP並列アップロード]"
-  # Blueprint LP（新URL・260420追加）
-  upload "$VAULT/05_プロダクト/GravityBlueprint/LP/index.html" "gravity-blueprint/index.html" "Blueprint LP"
-  upload "$VAULT/05_プロダクト/GravityBlueprint/LP/script.js"  "gravity-blueprint/script.js"  "Blueprint script.js"
-  upload "$VAULT/05_プロダクト/GravityBlueprint/LP/styles.css" "gravity-blueprint/styles.css" "Blueprint styles.css"
   # Scan LP（新Scan・旧DEEP統合版／styles.css は共通CSS使用）
-  upload "$VAULT/05_プロダクト/GravityScan/LP/index.html"     "gravity-scan/index.html"      "Scan LP"
-  upload "$VAULT/05_プロダクト/GravityScan/LP/script.js"      "gravity-scan/script.js"       "Scan script.js"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/LP/index.html"     "gravity-scan/index.html"      "Scan LP"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/LP/script.js"      "gravity-scan/script.js"       "Scan script.js"
   # Shift LP（styles.css は共通CSS使用のため対象外）
-  upload "$VAULT/05_プロダクト/GravityShift/LP/index.html"    "gravity-shift/index.html"     "Shift LP"
-  upload "$VAULT/05_プロダクト/GravityShift/LP/script.js"     "gravity-shift/script.js"      "Shift script.js"
-  # Orbit LP
-  upload "$VAULT/05_プロダクト/GravityOrbit/LP/index.html"    "gravity-orbit/index.html"     "Orbit LP"
-  upload "$VAULT/05_プロダクト/GravityOrbit/LP/styles.css"    "gravity-orbit/styles.css"     "Orbit CSS"
-  upload "$VAULT/05_プロダクト/GravityOrbit/LP/script.js"     "gravity-orbit/script.js"      "Orbit script.js"
+  upload "$VAULT/05_プロダクト/Gravity/Shift/LP/index.html"    "gravity-shift/index.html"     "Shift LP"
+  upload "$VAULT/05_プロダクト/Gravity/Shift/LP/script.js"     "gravity-shift/script.js"      "Shift script.js"
+  # Orbit LP（260513 HR Team 仮説E採用でロールバック・Orbit 復元）
+  upload "$VAULT/05_プロダクト/Gravity/Orbit/LP/index.html"    "gravity-orbit/index.html"     "Orbit LP"
   # Coaching LP
-  upload "$VAULT/05_プロダクト/GravityCoaching/LP/index.html" "gravity-coaching/index.html"  "Coaching LP"
-  upload "$VAULT/05_プロダクト/GravityCoaching/LP/styles.css" "gravity-coaching/styles.css"  "Coaching CSS"
-  upload "$VAULT/05_プロダクト/GravityCoaching/LP/script.js"  "gravity-coaching/script.js"   "Coaching script.js"
+  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/index.html" "gravity-coaching/index.html"  "Coaching LP"
+  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/styles.css" "gravity-coaching/styles.css"  "Coaching CSS"
+  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/script.js"  "gravity-coaching/script.js"   "Coaching script.js"
   # Code LP
-  upload "$VAULT/05_プロダクト/GravityCode/LP/index.html"     "gravity-code/index.html"      "Code LP"
-  upload "$VAULT/05_プロダクト/GravityCode/LP/styles.css"     "gravity-code/styles.css"      "Code CSS"
-  upload "$VAULT/05_プロダクト/GravityCode/LP/script.js"      "gravity-code/script.js"       "Code script.js"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"     "gravity-code/index.html"      "Code LP"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/styles.css"     "gravity-code/styles.css"      "Code CSS"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"      "gravity-code/script.js"       "Code script.js"
   wait
   echo "[LP完了]"
   echo ""
@@ -76,10 +75,10 @@ deploy_lp() {
 
 deploy_wp() {
   echo "[WhitePaper V9 アップロード]"
-  upload "$VAULT/05_プロダクト/WhitePaper/V9/index.html"           "whitepaper/index.html"           "WP V9 index.html"
-  upload "$VAULT/05_プロダクト/WhitePaper/V9/style.css"            "whitepaper/style.css"            "WP V9 style.css"
-  upload "$VAULT/05_プロダクト/WhitePaper/V9/images/gravity_map.svg" "whitepaper/images/gravity_map.svg" "WP V9 gravity_map.svg"
-  upload "$VAULT/05_プロダクト/WhitePaper/V9/images/loop_chart.svg"  "whitepaper/images/loop_chart.svg"  "WP V9 loop_chart.svg"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/index.html"           "whitepaper/index.html"           "WP V9 index.html"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/style.css"            "whitepaper/style.css"            "WP V9 style.css"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/gravity_map.svg" "whitepaper/images/gravity_map.svg" "WP V9 gravity_map.svg"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/loop_chart.svg"  "whitepaper/images/loop_chart.svg"  "WP V9 loop_chart.svg"
   wait
   echo "[WhitePaper V9 完了]"
   echo ""
@@ -87,31 +86,25 @@ deploy_wp() {
 
 deploy_diagnose() {
   echo "[診断ツール並列アップロード]"
-  # === Blueprint 診断（個人CEO・60分単発／260420 URL配置換え） ===
-  upload "$VAULT/05_プロダクト/GravityBlueprint/診断_本番/app.js"       "gravity-blueprint/diagnose/app.js"       "Blueprint diagnose app.js"
-  upload "$VAULT/05_プロダクト/GravityBlueprint/診断_本番/generate.php" "gravity-blueprint/diagnose/generate.php" "Blueprint diagnose generate.php"
-  upload "$VAULT/05_プロダクト/GravityBlueprint/診断_本番/index.html"   "gravity-blueprint/diagnose/index.html"   "Blueprint diagnose index.html"
-  upload "$VAULT/05_プロダクト/GravityBlueprint/診断_本番/style.css"    "gravity-blueprint/diagnose/style.css"    "Blueprint diagnose style.css"
-
-  # === Scan 診断（CEO+幹部・multi-step／260420 旧DEEP統合版） ===
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/index.html"        "gravity-scan/diagnose/index.html"        "Scan dashboard"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/hearing-ceo.html"  "gravity-scan/diagnose/hearing-ceo.html"  "Scan CEO hearing"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/hearing-exec.html" "gravity-scan/diagnose/hearing-exec.html" "Scan Exec hearing"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/integrate.html"    "gravity-scan/diagnose/integrate.html"    "Scan integrate"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/analyze.html"      "gravity-scan/diagnose/analyze.html"      "Scan analyze"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/api/project.php"        "gravity-scan/diagnose/api/project.php"        "Scan api project"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/api/hearing.php"        "gravity-scan/diagnose/api/hearing.php"        "Scan api hearing"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/api/generate-gap.php"   "gravity-scan/diagnose/api/generate-gap.php"   "Scan api gap"
-  upload "$VAULT/05_プロダクト/GravityScan/診断_本番/api/generate-report.php" "gravity-scan/diagnose/api/generate-report.php" "Scan api report"
+  # === Scan 診断（260508 Shift診断UI統合廃止後の単一ファイル構成・260513 deploy.sh 実態同期）===
+  #   旧 multi-step UI（hearing-ceo / hearing-exec / integrate / analyze / api/*4本）は廃止
+  #   現行：app.js + generate.php + index.html + style.css + web-diagnose.html + system_prompt.txt + jargon_map.json
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/index.html"          "gravity-scan/diagnose/index.html"          "Scan index"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/app.js"              "gravity-scan/diagnose/app.js"              "Scan app.js"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/generate.php"        "gravity-scan/diagnose/generate.php"        "Scan generate.php"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/style.css"           "gravity-scan/diagnose/style.css"           "Scan style.css"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/web-diagnose.html"   "gravity-scan/diagnose/web-diagnose.html"   "Scan web-diagnose"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/system_prompt.txt"   "gravity-scan/diagnose/system_prompt.txt"   "Scan system prompt"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/jargon_map.json"     "gravity-scan/diagnose/jargon_map.json"     "Scan jargon map"
 
   # === CODE 一般診断（ペンディング中）===
-  upload "$VAULT/05_プロダクト/GravityCode/診断_本番/app.js"        "gravity-code/diagnose/app.js"        "Code app.js"
-  upload "$VAULT/05_プロダクト/GravityCode/診断_本番/generate.php"  "gravity-code/diagnose/generate.php"  "Code generate.php"
+  upload "$VAULT/05_プロダクト/Gravity/Code/診断_本番/app.js"        "gravity-code/diagnose/app.js"        "Code app.js"
+  upload "$VAULT/05_プロダクト/Gravity/Code/診断_本番/generate.php"  "gravity-code/diagnose/generate.php"  "Code generate.php"
 
   # === CODE Executive 診断（260420追加）===
-  upload "$VAULT/05_プロダクト/GravityCode/診断_executive_本番/app.js"        "gravity-code/executive/app.js"        "Code Executive app.js"
-  upload "$VAULT/05_プロダクト/GravityCode/診断_executive_本番/generate.php"  "gravity-code/executive/generate.php"  "Code Executive generate.php"
-  upload "$VAULT/05_プロダクト/GravityCode/診断_executive_本番/index.html"    "gravity-code/executive/index.html"    "Code Executive index.html"
+  upload "$VAULT/05_プロダクト/Gravity/Code/診断_executive_本番/app.js"        "gravity-code/executive/app.js"        "Code Executive app.js"
+  upload "$VAULT/05_プロダクト/Gravity/Code/診断_executive_本番/generate.php"  "gravity-code/executive/generate.php"  "Code Executive generate.php"
+  upload "$VAULT/05_プロダクト/Gravity/Code/診断_executive_本番/index.html"    "gravity-code/executive/index.html"    "Code Executive index.html"
 
   # ※ config.php（APIキー）は手動デプロイのみ（セキュリティのためスクリプト対象外）
   wait

@@ -28,7 +28,7 @@ import re
 import sys
 from pathlib import Path
 
-VAULT_ROOT = Path(__file__).resolve().parents[2]
+VAULT_ROOT = Path(__file__).resolve().parents[3]  # 260513 Phase 3 サブフォルダ化対応：audit/ → scripts/ → 06_開発/ → Vault root
 
 SCAN_DIRS = [
     VAULT_ROOT / "05_プロダクト",

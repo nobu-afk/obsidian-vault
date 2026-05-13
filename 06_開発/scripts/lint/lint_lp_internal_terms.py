@@ -208,8 +208,8 @@ def main() -> int:
     if args.vault_root:
         vault = Path(args.vault_root).resolve()
     else:
-        # スクリプトの位置から推定
-        vault = Path(__file__).resolve().parent.parent.parent
+        # スクリプトの位置から推定（260513 Phase 3 サブフォルダ化対応：lint/ → scripts/ → 06_開発/ → Vault root）
+        vault = Path(__file__).resolve().parent.parent.parent.parent
 
     products_root = vault / "05_プロダクト"
 

@@ -21,10 +21,10 @@ from datetime import datetime
 # 設定
 # ============================================================
 TEMPLATE_PATH = os.path.expanduser(
-    "~/Documents/Obsidian Vault/05_プロダクト/GravityScan/レポート/テンプレート_停滞構造レポート.md"
+    "~/Documents/Obsidian Vault/05_プロダクト/Gravity/Scan/レポート/テンプレート_停滞構造レポート.md"
 )
 REPORT_OUTPUT_DIR = os.path.expanduser(
-    "~/Documents/Obsidian Vault/05_プロダクト/GravityScan/レポート"
+    "~/Documents/Obsidian Vault/05_プロダクト/Gravity/Scan/レポート"
 )
 
 
@@ -422,7 +422,7 @@ def main():
     if len(sys.argv) < 2:
         print("使い方: python3 gravity_scan_report.py <ヒアリング入力シート.md>")
         print()
-        print("例: python3 gravity_scan_report.py ~/Documents/Obsidian\\ Vault/05_プロダクト/GravityScan/レポート/サンプル_hearing.md")
+        print("例: python3 gravity_scan_report.py ~/Documents/Obsidian\\ Vault/05_プロダクト/Gravity/Scan/レポート/サンプル_hearing.md")
         sys.exit(1)
 
     input_path = sys.argv[1]

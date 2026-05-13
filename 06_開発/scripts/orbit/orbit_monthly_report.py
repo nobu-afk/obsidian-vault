@@ -1,8 +1,14 @@
 """
-Orbit 月次引力レポート 自動生成スクリプト（Phase 1）
+Orbit 月次引力レポート 自動生成スクリプト（v3.1・260513 R4 軸 15 個ゲート対応）
 
 Orbit v3.0 単一プラン（月15万）の3点セット納品物のうち
 「② 月次引力レポート A4 3p」を自動生成するスクリプト。
+
+v3.1 拡張（260513 堀田 R4 反映）:
+  - 軸 15 個ゲート構造を追加（集まる 5 / 躍動 5 / 留まる 5 = 5 年継続装置）
+  - JSON 入力に `axes_15` フィールドを任意追加可能（未指定時は section スキップ）
+  - p.4 軸 15 個ゲート進捗ページ追加（ファイブスター演出は R10 詳細設計で実装）
+  - 数値閾値・クリア判定ロジックは R10 完走後に本実装（v3.1 はスキャフォールドのみ）
 
 使い方:
   python3 orbit_monthly_report.py --client <CLIENT_ID> --month YYYY-MM [オプション]
@@ -143,6 +149,30 @@ GRAVITY_ITEMS = [
     {"key": "engagement",            "label": "⑤エンゲージメント",           "axis": "躍動"},
     {"key": "departure_signal",      "label": "⑥離脱予兆",                   "axis": "躍動"},
     {"key": "psych_safety_cost",     "label": "⑧心理的安全性+採用コスト",   "axis": "躍動"},
+]
+
+# 軸 15 個ゲート（260513 R4・SSOT_Gravity_3軸.md §1.0 準拠・5 年継続装置）
+# 集まる 5 / 躍動 5 / 留まる 5 の 3 軸 × 5 = 15 軸
+# 詳細閾値・クリア判定ロジック・ファイブスター演出は派生タスク R10（Phase C）で実装
+AXES_15 = [
+    # 集まる 5
+    {"key": "scout_reply_rate",         "label": "スカウト返信率",            "axis": "集まる"},
+    {"key": "final_decline_rate",       "label": "最終面接辞退率",            "axis": "集まる"},
+    {"key": "recruit_unit_cost",        "label": "採用単価",                  "axis": "集まる"},
+    {"key": "early_attrition_rate",     "label": "入社後早期離脱率",          "axis": "集まる"},
+    {"key": "referral_rate",            "label": "リファラル率",              "axis": "集まる"},
+    # 躍動 5
+    {"key": "individual_sales_15x",     "label": "個人売上 1.5 倍",           "axis": "躍動"},
+    {"key": "ai_armed_score",           "label": "AI 武装スコア",             "axis": "躍動"},
+    {"key": "task_5kpi",                "label": "業務遂行 5 KPI",            "axis": "躍動"},
+    {"key": "one_on_one_rate",          "label": "1on1 実施率",               "axis": "躍動"},
+    {"key": "individual_gravity_score", "label": "個人引力スコア",            "axis": "躍動"},
+    # 留まる 5
+    {"key": "talent_retention_rate",    "label": "優秀人材離職率",            "axis": "留まる"},
+    {"key": "engagement_score",         "label": "エンゲージメントスコア",    "axis": "留まる"},
+    {"key": "drumbeat_retention",       "label": "ドラムビート定着率",        "axis": "留まる"},
+    {"key": "career_path_clarity",      "label": "キャリアパス言語化率",      "axis": "留まる"},
+    {"key": "succession_pool",          "label": "後継者プール冗長度",        "axis": "留まる"},
 ]
 
 # 離職予兆5シグナル（SSOT 商品.md 準拠）
@@ -518,6 +548,88 @@ def build_page3(data: dict) -> str:
     lines.append(
         "*四半期 4 型再判定書は別途 `orbit_quarterly_review.py` で生成します。*"
     )
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+# ============================================================
+# レポート生成: p.4 軸 15 個ゲート進捗（v3.1・260513 R4）
+# ============================================================
+
+def build_page4_axes_15(data: dict) -> str:
+    """p.4: 軸 15 個ゲート進捗（5 年継続装置・スカフォールド版）
+
+    JSON 入力に `axes_15` フィールドが含まれる場合のみ section を生成。
+    各軸は {key, value, cleared (bool)} の形で受け取り、現状値とクリア状態を表示する。
+    R10（Phase C）で数値閾値・クリア判定ロジック・ファイブスター演出を本実装する。
+    """
+    axes_data = data.get("axes_15", {})
+    month     = data.get("month", "")
+
+    # データなし → section 全体をスキップ（v3.1 後方互換性）
+    if not axes_data:
+        return ""
+
+    lines = []
+    lines.append("---")
+    lines.append("")
+    lines.append("## p.4 軸 15 個ゲート進捗（5 年継続装置・260513 R4）")
+    lines.append("")
+    lines.append(f"**対象月:** {month}")
+    lines.append("")
+    lines.append("> **位置付け：** 軸 15 個ゲート = 集まる 5 / 躍動 5 / 留まる 5 の 3 軸構成。")
+    lines.append("> 3 ヶ月で 1 軸クリア = ファイブスター演出（R10 詳細設計で実装予定）。")
+    lines.append("> 月次セッション + Quarterly での進捗確認の中核装置。")
+    lines.append("")
+
+    # 軸別グルーピング表示
+    for axis_name in ["集まる", "躍動", "留まる"]:
+        axis_items = [a for a in AXES_15 if a["axis"] == axis_name]
+        cleared_count = sum(
+            1 for a in axis_items
+            if axes_data.get(a["key"], {}).get("cleared", False)
+        )
+
+        lines.append(f"### {axis_name}軸（{cleared_count} / 5 軸クリア）")
+        lines.append("")
+        lines.append("| # | 軸名 | 現状値 | クリア判定 | コメント |")
+        lines.append("|:-:|---|---|:-:|---|")
+
+        for i, item in enumerate(axis_items, 1):
+            key      = item["key"]
+            label    = item["label"]
+            entry    = axes_data.get(key, {})
+            value    = entry.get("value", "-")
+            cleared  = entry.get("cleared", False)
+            comment  = entry.get("comment", "")
+            mark     = "★ クリア" if cleared else "未クリア"
+            lines.append(f"| {i} | **{label}** | {value} | {mark} | {comment} |")
+
+        lines.append("")
+
+    # 全体集計
+    total_cleared = sum(
+        1 for a in AXES_15
+        if axes_data.get(a["key"], {}).get("cleared", False)
+    )
+    lines.append(f"### 全 15 軸 累計クリア数: {total_cleared} / 15")
+    lines.append("")
+
+    if total_cleared == 0:
+        progress = "立ち上げ期（軸クリア前・基準値固定中）"
+    elif total_cleared <= 5:
+        progress = "初期定着期（1-5 軸クリア）"
+    elif total_cleared <= 10:
+        progress = "中期成熟期（6-10 軸クリア）"
+    elif total_cleared < 15:
+        progress = "後期完成期（11-14 軸クリア・全クリアまで残りわずか）"
+    else:
+        progress = "★★★★★ 全軸クリア達成（5 年継続装置の到達点）"
+
+    lines.append(f"**進捗段階：** {progress}")
+    lines.append("")
+    lines.append("> ※ 数値閾値とクリア判定ロジックの詳細は派生タスク R10（Phase C・6/11-6/17）で本実装予定。v3.1 ではスカフォールドのみ。")
     lines.append("")
 
     return "\n".join(lines)
@@ -925,13 +1037,14 @@ def main() -> None:
     actions_map = load_actions_map()
     rules = actions_map.get("rules", [])
 
-    # レポート生成（Markdown 3p）
+    # レポート生成（Markdown 3p + p.4 軸 15 個ゲート・v3.1）
     report_parts = [
         build_page1(data),
         build_page2(data, rules),
         build_page3(data),
+        build_page4_axes_15(data),  # axes_15 が JSON にあれば追加生成（v3.1・260513 R4）
     ]
-    full_report = "\n".join(report_parts)
+    full_report = "\n".join(p for p in report_parts if p)
     print(full_report)
 
     os.makedirs(REPORT_DIR, exist_ok=True)

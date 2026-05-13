@@ -40,6 +40,13 @@ scripts/
 
 ## 直近の整理履歴
 
+### Phase C 22-CS（260513・R5 月額表記対応）
+- `lint/lint_consistency.sh` に §1.7「月額表記移行期警告」追加（R5 確定価格マップ準拠）
+  - Recruit：月 26.7 万（3 ヶ月総額 80 万）／ Cultivate：月 25 万（6 ヶ月総額 150 万）／ Shift Full：月 24.4 万（9 ヶ月総額 220 万）
+  - Coaching = 38 万一括維持・Orbit = 既月 15 万 → 対象外
+  - WARNING レベル運用（Phase B 22-CI「LP 月額表示化」で解消予定）
+- 起点：260513 堀田セッション R5（価格戦略・月額化）+ 統合 SSOT 反映プラン v0.1
+
 ### Phase 3 C-1拡張（260513）
 - 直下に散在していた 35 スクリプトを 9 テーマ別サブフォルダに完全分類
 - パス参照を一括更新（5 SKILL.md + 1 hook + CLAUDE.md 4箇所 + lint_consistency.sh 1箇所 + verify_deployment.sh 1箇所 + 5 Python scripts の config 相対パス）

@@ -58,3 +58,6 @@ venv/
 *.txt
 !requirements.txt
 
+
+# Dropbox 連携：ダウンロードファイル一時保存（260513 追加・絶対 commit しない）
+06_開発/scripts/dropbox/_cache/

@@ -38,7 +38,7 @@ from collections import defaultdict
 # ============================================================
 # パス設定
 # ============================================================
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent  # audit/ → scripts/ → 06_開発/ → Vault root（260513 Phase 3 サブフォルダ化対応）
 LP_DIR = PROJECT_ROOT / "05_プロダクト"
 MOBILE_CSS = LP_DIR / "_共通" / "mobile.css"
 

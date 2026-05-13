@@ -22,22 +22,30 @@ git rev-parse --git-dir >/dev/null 2>&1 || exit 0
 CHANGES=$(git status --short 2>/dev/null | wc -l | tr -d ' ')
 [[ "$CHANGES" == "0" ]] && exit 0
 
-# パスワード等の secrets が含まれていないかガード
-if git diff --cached --no-color 2>/dev/null | grep -qE "cgq1fv99|api_key.*[a-zA-Z0-9]{20,}|password.*=.*[a-zA-Z0-9]{8,}"; then
-    echo "⚠️  auto_commit: secrets 検出のため commit 中止。手動確認してください。" >&2
-    exit 0
-fi
-if git diff --no-color 2>/dev/null | grep -qE "cgq1fv99|api_key.*[a-zA-Z0-9]{20,}"; then
-    echo "⚠️  auto_commit: 未ステージ diff に secrets 検出。git add 前に確認してください。" >&2
-    exit 0
-fi
-
-# stage all
+# stage all（secrets チェックの前に staging を確定）
 git add . 2>/dev/null
 
 # stage 後の変更件数再カウント
 STAGED=$(git diff --cached --name-only 2>/dev/null | wc -l | tr -d ' ')
 [[ "$STAGED" == "0" ]] && exit 0
+
+# secrets ガード（260513 改修）：
+#   - staged ファイルの「現在の内容」を grep（diff の `-` 行は対象外 → secret 削除 commit は通る）
+#   - パターン中の生 secret は `[x]y...` 形式の文字クラスで分割 → スクリプト自身が誤マッチしない
+SECRET_RE='[c]gq1fv99|api_key.*[a-zA-Z0-9]{20,}|password.*=.*[a-zA-Z0-9]{8,}'
+SECRET_HIT=""
+while IFS= read -r f; do
+    [[ -z "$f" ]] && continue
+    [[ ! -f "$f" ]] && continue
+    if grep -qE "$SECRET_RE" "$f" 2>/dev/null; then
+        SECRET_HIT="$SECRET_HIT $f"
+    fi
+done < <(git diff --cached --name-only 2>/dev/null)
+if [[ -n "$SECRET_HIT" ]]; then
+    echo "⚠️  auto_commit: secrets 検出のため commit 中止。対象ファイル:$SECRET_HIT" >&2
+    echo "    → .gitignore 追加 or config_*.json への分離を検討してください。" >&2
+    exit 0
+fi
 
 # 主要編集ディレクトリの推定（top 3）
 TOP_DIRS=$(git diff --cached --name-only 2>/dev/null | awk -F/ '{print $1}' | sort | uniq -c | sort -rn | head -3 | awk '{print $2}' | tr '\n' ' ')

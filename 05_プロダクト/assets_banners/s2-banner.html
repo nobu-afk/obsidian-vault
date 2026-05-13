@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>引力経営 卒業生シリーズ S. 02 バナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #0a0f1e; }
+
+    .banner {
+        width: 1200px;
+        height: 630px;
+        position: relative;
+        overflow: hidden;
+        background-color: #0a0f1e;
+        background-image:
+            radial-gradient(ellipse at 30% 30%, rgba(184, 168, 138, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 75% 65%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+            radial-gradient(circle at 50% 50%, #0f172a 0%, #050810 80%);
+    }
+
+    .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 3px rgba(255,255,255,0.6); }
+
+    .gravity-rays { position: absolute; inset: 0; opacity: 0.15; pointer-events: none; }
+    .gravity-rays::before,
+    .gravity-rays::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 1600px; height: 1600px;
+        border-radius: 50%;
+        border: 1px solid rgba(184, 168, 138, 0.3);
+        transform: translate(-50%, -50%);
+    }
+    .gravity-rays::after { width: 2200px; height: 2200px; opacity: 0.5; }
+
+    .inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 64px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .top-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .vol-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #b8a88a;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+    }
+    .vol-divider {
+        width: 40px;
+        height: 1px;
+        background: #b8a88a;
+        opacity: 0.6;
+    }
+    .category-label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #cbd5e1;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+    }
+    .mark {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(184, 168, 138, 0.7);
+        box-shadow: 0 0 30px rgba(184, 168, 138, 0.35);
+        background: #ffffff;
+    }
+
+    .center-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-title {
+        font-size: 42px;
+        font-weight: 900;
+        color: #ffffff;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        margin: 0 0 32px;
+    }
+
+    .gold-line {
+        width: 80px;
+        height: 2px;
+        background: #b8a88a;
+        margin: 0 0 22px;
+    }
+
+    .sub-title {
+        font-size: 20px;
+        font-weight: 500;
+        color: #b8a88a;
+        letter-spacing: 0.06em;
+        line-height: 1.6;
+    }
+
+    .bottom-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .brand {
+        font-size: 18px;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 0.08em;
+    }
+    .brand-tagline {
+        font-size: 11px;
+        font-weight: 500;
+        color: #94a3b8;
+        letter-spacing: 0.14em;
+        margin-top: 4px;
+    }
+    .url {
+        font-size: 12px;
+        font-weight: 500;
+        color: #64748b;
+        letter-spacing: 0.06em;
+    }
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="gravity-rays"></div>
+    <div class="stars" id="stars"></div>
+
+    <div class="inner">
+        <div class="top-row">
+            <div class="top-left">
+                <span class="vol-label">S. 02</span>
+                <span class="vol-divider"></span>
+                <span class="category-label">卒業生シリーズ</span>
+            </div>
+            <img class="mark" src="assets/mark.jpg" alt="GrowthFix mark">
+        </div>
+
+        <div class="center-block">
+            <h1 class="main-title">サーベイを毎四半期回しているのに、<br>何も動かない経営者へ。</h1>
+            <div class="gold-line"></div>
+            <p class="sub-title">測る装置と、診る装置は別物だ。</p>
+        </div>
+
+        <div class="bottom-row">
+            <div>
+                <div class="brand">GrowthFix</div>
+                <div class="brand-tagline">組織に、引力を。</div>
+            </div>
+            <div class="url">growthfix.jp</div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var starsEl = document.getElementById('stars');
+    var count = 80;
+    for (var i = 0; i < count; i++) {
+        var s = document.createElement('span');
+        s.className = 'star';
+        var size = Math.random() * 2.4 + 0.6;
+        s.style.width = size + 'px';
+        s.style.height = size + 'px';
+        s.style.top = Math.random() * 100 + '%';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.opacity = (Math.random() * 0.7 + 0.3).toFixed(2);
+        starsEl.appendChild(s);
+    }
+})();
+</script>
+</body>
+</html>

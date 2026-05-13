@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gravity Orbit | 優秀人材が集まり、躍動し、留まり続ける会社を、月次で進化させる。</title>
+    <meta
+      name="description"
+      content="優秀人材が集まり、躍動し、留まり続ける会社を、月次で進化させる継続運用伴走サービス。Gravity 3 軸（集まる × 躍動 × 留まる）の留まる軸を担い、Recruit/Cultivate で実装した土台の上で引力を月次強化し、Gravity 型成長を加速させ続ける。月 15 万円・最低契約期間 6 ヶ月。詳細は商談時にご案内します。"
+    />
+    <meta property="og:title" content="Gravity Orbit | 優秀人材が集まり、躍動し、留まり続ける会社を、月次で進化させる。" />
+    <meta
+      property="og:description"
+      content="優秀人材が集まり、躍動し、留まり続ける会社を、月次で進化させる継続運用伴走サービス。Gravity 3 軸（集まる × 躍動 × 留まる）の留まる軸を担い、引力を月次強化し続ける（月 15 万円）。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://growthfix.jp/gravity-orbit/" />
+    <meta property="og:image" content="https://growthfix.jp/gravity-orbit/ogp.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://growthfix.jp/gravity-orbit/ogp.png" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231b1b1b'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23b8a88a'>G</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tokens.css?v=20260424" />
+    <link rel="stylesheet" href="https://growthfix.jp/assets/css/mobile.css?v=20260507">
+    <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
+
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        color: #1b1b1b;
+        background: #fafafa;
+        line-height: 1.85;
+        -webkit-font-smoothing: antialiased;
+      }
+      .minimal-container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 80px 28px 64px;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #b8a88a;
+        background: #1b1b1b;
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+      }
+      h1 {
+        font-size: clamp(26px, 5vw, 36px);
+        font-weight: 900;
+        line-height: 1.45;
+        margin-bottom: 16px;
+        color: #1b1b1b;
+        letter-spacing: 0.02em;
+      }
+      .subtitle {
+        font-size: 16px;
+        color: #6b6b6b;
+        margin-bottom: 40px;
+        font-weight: 500;
+      }
+      .lead-box {
+        background: #fff;
+        border: 1px solid #e8e0d0;
+        border-radius: 12px;
+        padding: 28px 32px;
+        margin-bottom: 32px;
+      }
+      .lead-box p {
+        font-size: 15px;
+        line-height: 1.95;
+        color: #333;
+      }
+      .lead-box p + p { margin-top: 14px; }
+      .pricing-table {
+        background: #1b1b1b;
+        color: #fff;
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 32px;
+      }
+      .pricing-table h3 {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #b8a88a;
+        margin-bottom: 20px;
+      }
+      .pricing-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .pricing-row:last-of-type { border-bottom: none; }
+      .pricing-name {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .pricing-price {
+        font-size: 18px;
+        font-weight: 900;
+        color: #b8a88a;
+      }
+      .pricing-note {
+        font-size: 13px;
+        color: rgba(255,255,255,0.65);
+        margin-top: 16px;
+        line-height: 1.7;
+      }
+      .next-step {
+        background: #fff;
+        border-left: 4px solid #b8a88a;
+        padding: 24px 28px;
+        margin-bottom: 32px;
+      }
+      .next-step h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1b1b1b;
+        margin-bottom: 12px;
+        letter-spacing: 0.04em;
+      }
+      .next-step p {
+        font-size: 14px;
+        line-height: 1.85;
+        color: #555;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: 24px;
+        font-size: 14px;
+        color: #1b1b1b;
+        text-decoration: none;
+        font-weight: 700;
+        border-bottom: 2px solid #b8a88a;
+        padding-bottom: 2px;
+      }
+      .back-link:hover { color: #b8a88a; }
+      .footer-mini {
+        max-width: 720px;
+        margin: 64px auto 0;
+        padding: 32px 28px;
+        border-top: 1px solid #e8e0d0;
+        font-size: 12px;
+        color: #999;
+        text-align: center;
+      }
+      .footer-mini a {
+        color: #6b6b6b;
+        text-decoration: none;
+        margin: 0 12px;
+      }
+      .footer-mini a:hover { color: #1b1b1b; }
+    </style>
+  </head>
+  <body>
+    <main class="minimal-container">
+      <span class="badge">GRAVITY ORBIT</span>
+      <h1>優秀人材が集まり、躍動し、留まり続ける会社を、<br>月次で進化させる。</h1>
+      <p class="subtitle">共鳴の参謀 ── Gravity 3 軸（集まる × 躍動 × 留まる）の **留まる軸** を担う、月次引力強化の継続伴走（月 15 万）</p>
+
+      <div class="lead-box">
+        <p>
+          Gravity Recruit（集まる軸）／Cultivate（躍動軸）／Shift の 3 ヶ月実装が完了した会社向けに、
+          <strong>3 軸目の「留まる軸」</strong>として、引力を月次で強化・改善し続ける継続運用伴走です。
+        </p>
+        <p>
+          目指すのは <strong>「勝ち筋ループが回り続ける」Gravity 型成長</strong>。
+          集まり・躍動した人材が長期に組織に留まり続ける状態を、月次サイクルで引力指標を改善・進化させ続ける攻めの伴走で実現します。
+        </p>
+        <p style="margin-top:12px;padding:14px 16px;background:#f8f5ee;border-left:3px solid #b8a88a;border-radius:4px;font-size:14px;line-height:1.85;">
+          <strong>納品物 3 点セット</strong><br>
+          ① <strong>Orbit セッション 月次 90 分</strong>（レビュー → 引力強化テーマ深堀 → 次月アクション設計の 30-30-30 配分）<br>
+          ② <strong>月次引力レポート（A4 3p）</strong>── 引力 8 項目スコア × 先月比 Before/After × 改善提案 ＋ <strong>離職予兆 5 シグナル早期警戒スコア</strong>（身体・表情・過負荷・意味付け・人間関係）<br>
+          ③ <strong>Quarterly 4 型再判定書（A4 5p）</strong>── Scan 4 型再判定 × 構造進化検知 × 次期戦略
+        </p>
+        <p style="margin-top:10px;font-size:12.5px;color:#94a3b8;line-height:1.75;">
+          ※ <strong>体温計と診断書は別物。</strong>パルスサーベイは「組織の状態」を月次で<strong>測る</strong>装置（スコアの定量化に強い）。月次引力レポートは「経営者の引力が組織のどこで止まっているか」を月次で<strong>診る</strong>装置（構造の解読に強い）。サーベイで体温を測り続けても健康にはならない ── Orbit は<strong>引力の方向を月次で再設計し続けるための診断書</strong>です。
+        </p>
+      </div>
+
+      <div class="pricing-table">
+        <h3>PRICING</h3>
+        <div class="pricing-row">
+          <span class="pricing-name">Gravity Orbit</span>
+          <span class="pricing-price">月 15 万円</span>
+        </div>
+        <p class="pricing-note">
+          ※ 最低契約期間 6 ヶ月（Gravity 型成長は短期効果不可のため）。<br>
+          ※ 7 ヶ月目以降は 1 ヶ月前通知で解約可。<br>
+          ※ サービス詳細・契約条件は Shift 受講中の商談でご案内します。
+        </p>
+      </div>
+
+      <div class="next-step">
+        <h3>📌 次のステップ</h3>
+        <p>
+          Shift 受講中の方は、3 ヶ月終了時に継続契約をご相談ください。
+          まだ Shift を検討中の方は、まず Gravity Scan（組織の引力タイプ診断）から
+          ご検討いただくことを推奨しています。
+        </p>
+      </div>
+
+      <div class="theory-background" style="margin-top:48px;padding:32px;background:#fafafa;border-radius:8px;border-left:4px solid #1e40af;">
+        <h3 style="margin:0 0 20px;font-size:18px;font-weight:600;color:#1b1b1b;">理論背景</h3>
+        <p style="margin:0 0 16px;font-size:14px;line-height:1.85;color:#475569;">
+          Gravity Orbit の月次設計は、組織心理学・社会化理論・エンゲージメント研究の主要文献に基づき構築されています。
+        </p>
+        <ul style="margin:0;padding-left:20px;font-size:13px;line-height:2.0;color:#475569;">
+          <li><strong>採用後 0-12 ヶ月コホート定着率</strong>：Bauer, T. N., Bodner, T., Erdogan, B. et al. (2007). Newcomer adjustment during organizational socialization: A meta-analytic review. <em>Journal of Applied Psychology</em>, 92(3), 707-721.（オンボーディングメタ分析・70 研究統合）</li>
+          <li><strong>社会化資源提供スコア（17 項目）</strong>：Saks, A. M., & Gruman, J. A. (2018). Socialization resources theory and newcomers' work engagement. <em>Career Development International</em>, 23(1), 12-32.</li>
+          <li><strong>離脱予兆検知プロトコル</strong>：Van Maanen, J. (1975). Police socialization: A longitudinal examination of job attitudes in an urban police department. <em>Administrative Science Quarterly</em>, 20(2), 207-228.（社会化縦断研究の古典）</li>
+          <li><strong>成功率 vs 進行速度の 2 軸 KPI</strong>：Cooper-Thomas, H. D., & Anderson, N. (2005). Organizational socialization: A field study into socialization success and rate. <em>International Journal of Selection and Assessment</em>, 13(2), 116-128.</li>
+          <li><strong>Engagement 月次測定（Job + Org の 2 分離）</strong>：Saks, A. M. (2006). Antecedents and consequences of employee engagement. <em>Journal of Managerial Psychology</em>, 21(7), 600-619.（被引用数 3,206・Engagement 研究の決定版）</li>
+        </ul>
+
+        <p style="margin:24px 0 12px;font-size:13px;letter-spacing:0.15em;color:#1e40af;font-weight:700;">理論基盤（Bandura 効力感理論・Stanford）</p>
+        <ul style="margin:0;padding-left:20px;font-size:13px;line-height:2.0;color:#475569;">
+          <li><strong>Collective Efficacy 月次維持の理論基盤</strong>：Bandura, A. (2000). Exercise of human agency through collective efficacy. <em>Current Directions in Psychological Science</em>, 9(3), 75-78.（被引用 1,721）</li>
+        </ul>
+        <p style="font-size:12.5px;color:#94a3b8;margin:12px 0 0;line-height:1.7;">Orbit 月次強化は、Bandura 2000 の Collective Efficacy を時間軸で維持・強化する設計。月次引力レポートは「集合的効力感の月次測定 → 改善」の継続装置です。</p>
+      </div>
+
+      <a href="/gravity/" class="back-link" style="margin-top:32px;">← Gravity シリーズ TOP に戻る</a>
+
+      <p style="margin-top:32px;font-size:13px;color:#94a3b8;line-height:1.85;text-align:center;">
+        他サービスとの違いは <a href="https://growthfix.jp/gravity/#faq" style="color:#1b1b1b;text-decoration:underline;">Gravity シリーズ TOP のよくある質問</a> をご覧ください。
+      </p>
+    </main>
+    <script src="https://growthfix.jp/gravity/site-chrome.js?v=20260511b" data-mode="footer" defer></script>
+</body>
+</html>

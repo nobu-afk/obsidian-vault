@@ -159,6 +159,64 @@
 
 新規追加時は本セクションに行追加 + harness.md Part 2 既存ハーネス資産表に同期反映。
 
+### ★ 11 新規エージェント群（260513 R7・堀田セッション反映）
+
+> **起点：** 260513 堀田セッション R7 オペレーション設計確定 → Phase B-3 で 7 本仕様 v0.1 完成 / 残 5 本は Phase C 22-CT/CU で実装予定
+> **配置：** 仕様 v0.1 = `06_開発/scripts/agents_specs/`（Vault 内）／ 本番運用 = `~/.claude/agents/*.md`（推敲後展開）
+> **実装パターン：** 1 ファイルパッケージ化（model + system prompt + tools + ハーネス装置を 1 MD に集約）
+
+**通底原則：Gravity Coaching = 思想の主軸（不変）／ R・C・Orbit = マネタイズ装置（最適化対象）**
+全 11 エージェントは 9:1 二層分離原則（裏方=AI 9 / 表方=経営者 9）に準拠。
+
+#### エージェント一覧
+
+| # | エージェント | 対象 | 状態 | 仕様パス |
+|:-:|---|:-:|:-:|---|
+| 1 | minutes-analyzer（議事録分析・共通基盤）| R/C/O | v0.1 仕様完成 | `06_開発/scripts/agents_specs/01_minutes-analyzer_v0.1.md` |
+| 2 | scout-analyzer（スカウト分析）| R | v0.1 仕様完成 | `06_開発/scripts/agents_specs/02_scout-analyzer_v0.1.md` |
+| 3 | jd-hypothesis（JD 仮説）| R | v0.1 仕様完成 | `06_開発/scripts/agents_specs/03_jd-hypothesis_v0.1.md` |
+| 4 | recruit-layer-audit（レイヤー 1-5 監査）| R | v0.1 仕様完成 | `06_開発/scripts/agents_specs/04_recruit-layer-audit_v0.1.md` |
+| 5 | recruit-weekly-report（週次レポート生成）| R | v0.1 仕様完成 | `06_開発/scripts/agents_specs/05_recruit-weekly-report_v0.1.md` |
+| 6 | cultivate-goal-engine（個人別目標設計）| C | v0.1 仕様完成 | `06_開発/scripts/agents_specs/06_cultivate-goal-engine_v0.1.md` |
+| 7 | cultivate-1on1-support（1on1 サポート・個別最適 20% 集中）| C | v0.1 仕様完成 | `06_開発/scripts/agents_specs/07_cultivate-1on1-support_v0.1.md` |
+| 8 | cultivate-survey-followup（個別フォロー提案エンジン）| C | 22-CT 実装予定（Phase C）| - |
+| 9 | cultivate-meeting-facilitator（AI 会議体ファシリテーター）| C | 22-CT 実装予定（Phase C）| - |
+| 10 | cultivate-manager-copilot（AI マネージャー副操縦士）| C | 22-CT 実装予定（Phase C）| - |
+| 11 | orbit-zoom-pipeline（Zoom → 月次レポート自動化パイプ）| O | 22-CU 実装予定（Phase C）| - |
+| 12 | orbit-15axis-gate（軸 15 個ゲート判定エンジン）| O | 22-CU 実装予定（Phase C）| - |
+
+合計：12 エージェント（minutes-analyzer は共通基盤・残 11 = R 4 / C 5 / O 2）
+
+#### 9:1 二層分離原則の全エージェント適用
+
+| 層 | 比率 | 全エージェント共通の適用 |
+|---|:-:|---|
+| **裏方**（実務エージェント側）| AI 9 : 経営者 1 | データ収集 / 議事録文字起こし / パターン抽出 / 仮説生成 / レポート自動生成 |
+| **表方**（経営者 / マネージャーの意思決定側）| 経営者 9 : AI 1 | 最終選択 / 判断 / カスタマイズ / 顧客への伝達 |
+
+#### Phase 別実装ロードマップ
+
+| Phase | 期間 | 実装内容 |
+|---|---|---|
+| **B-3**（5/14 完了済）| 1 日 | 7 本仕様 v0.1（Vault 内）|
+| **C 22-CT**（5/28-6/3）| 1 週間 | Cultivate 残 3 本実装（個別フォロー / 会議体 / マネージャー副操縦士）|
+| **C 22-CU**（6/4-6/17）| 2 週間 | Orbit 2 本実装（Zoom 自動化 / 軸 15 個ゲート判定）|
+| **D 統合**（6/18-6/30）| 2 週間 | 全 11 本統合テスト + 1 件目顧客試験運用 |
+
+#### 各エージェントの共通ハーネス
+
+- **9:1 二層分離準拠**：「経営者の意思決定を奪う最終答え」になっていない
+- **個人情報マスキング済**：候補者氏名 / 給与等は ANON 化
+- **学術武装併記**（該当時）：Locke-Latham / Edmondson / Theeboom 等の参照
+- **「足すコーチではなく抜く翻訳者」原則準拠**：本人の言葉を引き出す（AI 創作で埋めない）
+
+#### 関連 SSOT
+
+- 仕様 v0.1：`06_開発/scripts/agents_specs/01-07_*.md`（7 本完成）
+- 統合 SSOT 反映プラン：`04_GrowthFix/01_サービス設計/_横断_フレーム_戦略/260513_堀田セッション_統合SSOT反映プラン_v0.1.md`
+- Phase B 実行計画：`04_GrowthFix/01_サービス設計/_横断_フレーム_戦略/260513_PhaseB_実行計画_機能層4MD_営業資料4_エージェント7本.md`
+- AI.md Part 3 二層分離原則 / harness.md（更新中）
+
 #### 試運転の知見（260503 夜・lp-implementer 初回起動で確立）
 
 **知見 1：mid-session で作成したサブエージェントは Agent tool から見えない**
@@ -377,3 +435,10 @@ AI 活用で個性が希薄化していないか：
 - [ ] ハーネスを書くこと自体が目的化していないか → 規定の塊化警戒・思想層の魅力が殺されていないか確認
 
 ---
+
+### 改訂履歴
+
+| バージョン | 日付 | 内容 |
+|---|---|---|
+| v260513 R7 | 2026-05-13 | 11 新規エージェント群セクション追加（260513 堀田セッション R7 反映・Phase B-3 で 7 本仕様 v0.1 完成 / 残 5 本は 22-CT/CU 予定）|
+| v260507 | 2026-05-07 | AI.md Phase 9.1 分割により AI_自動化群.md として独立 |

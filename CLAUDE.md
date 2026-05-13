@@ -105,7 +105,7 @@ AI 費用は経営戦略指標として扱う。月次 retail 換算コストは
 
 ---
 
-## 260513 Phase 1-2 フォルダ整理（適用済）
+## 260513 Phase 1-3 フォルダ整理（全完走・適用済）
 
 ### Phase 1（260513・即時整理）
 - **03_コンテンツ**：直下40本ベタ置き → サブフォルダ化（`_連載管理/` `連載_Vol0-14/` `連載_卒業生シリーズS1-S8/` `_素材ストック/` `_archive/`）。詳細：`03_コンテンツ/_README.md`
@@ -117,4 +117,11 @@ AI 費用は経営戦略指標として扱う。月次 retail 換算コストは
 ### Phase 2（260513・中規模整理）
 - **04_デイリーログ 月別分割**：直下62本ベタ置き → `2603/`（13本）`2604/`（28本）`2605/`（21本）の月別フォルダ化。**ファイルパス：`04_デイリーログ/YYMM/YYMMDD_daily.md`**（YYMM = YYMMDD の最初4文字）。daily / weekly-close / hotta-prep / work-log / sync-knowledge skill のパス参照と `meta_ads_daily.py` の `get_daily_log_path()` 更新済。詳細：`04_GrowthFix/04_デイリーログ/_README.md`
 - **01_サービス設計 テーマ別分類**：直下119本 → 11テーマ別フォルダ化（_Gravity_R / _Gravity_C / _Gravity_診断_CODE_Scan / _Gravity_その他_Orbit_Coaching_ShiftS / _書籍_WhitePaper / _Phase論文反映 / _外部分析_対談 / _セミナー_WS_モニター / _横断_フレーム_戦略 / _堀田壁打ち）。詳細：`04_GrowthFix/01_サービス設計/_README.md`
-- **06_開発/scripts/ 軽量サブフォルダ化**：`config/`（4本）`converters/`（2本）`extractors/`（3本）新設・5スクリプトの CONFIG_PATH 更新・`.gitignore` 更新。audit/orbit/deploy/lint 系は hook 依存があるため温存。詳細：`06_開発/scripts/_README.md`
+- **06_開発/scripts/ 軽量サブフォルダ化**：`config/`（4本）`converters/`（2本）`extractors/`（3本）新設・5スクリプトの CONFIG_PATH 更新・`.gitignore` 更新。詳細：`06_開発/scripts/_README.md`
+
+### Phase 3（260513・高リスク整理 全完走）
+- **05_プロダクト 親子2階層化**：ルート28フォルダ平置き → `Gravity/`（10本）+ `コーポレート/`（12本）+ `assets_banners/`（旧 banners_本番）+ 既存インフラ系。**本番URLは変更なし**（ローカルパスのみ）。GravityBlueprint 幽霊フォルダ問題（260430 廃止済）も deploy.sh から完全削除。詳細：`05_プロダクト/_README.md`
+- **06_開発/scripts/ 完全カテゴリ化**：軽量3サブフォルダ → 14サブフォルダ（audit/lint/deploy/orbit/daily/note/gravity/lp/util + 既存 config/converters/extractors/hooks）。**ファイルパス例：`06_開発/scripts/lint/lint_consistency.sh`, `06_開発/scripts/audit/audit_mobile_sync.py`, `06_開発/scripts/daily/token_usage.py`**。post_lp_edit_audit.sh hook + CLAUDE.md 4箇所 + 5 skill のパス参照を一括更新。
+- **04_GrowthFix/00_営業 サブフォルダ化**：直下27本 → 6テーマ別（_Sushitech/_Scan商談/_Gravity営業基盤/_Coaching営業/_業務委託営業/_営業プレイブック）。詳細：`04_GrowthFix/00_営業/_README.md`
+- **02_セッション記録 クライアント別分離**：直下32本 → 堀田18本+クライアント別（長島寛12+長谷2）+横断分析2本。詳細：`02_セッション記録/_README.md`
+- **06_開発 直下 MD 6本**：旧セッション引継ぎ・MVP仕様書 → `04_GrowthFix/02_マーケティング/_archive/06_開発_由来_旧引継ぎ/`

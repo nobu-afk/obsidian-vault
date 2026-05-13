@@ -119,3 +119,78 @@
 .coaching-faq-list .faq-item summary::after { content:"+"; position:absolute; right:24px; top:18px; font-size:22px; color:#b8a88a; font-weight:300; }
 .coaching-faq-list .faq-item[open] summary::after { content:"−"; }
 .coaching-faq-list .faq-answer { padding: 0 24px 22px; font-size:14px; line-height:1.9; color:#475569; }
+
+/* ============================================================
+   FU-13 260513: Coaching LP 専用ファイルへの切替に伴う追記
+   出典：gravity-shift-page.css（Coaching HTML 使用分を移植）
+   ============================================================ */
+
+/* Shift v2 構造（Coaching LP は現状 shift-v2-* を Hero/Section 構造として流用） */
+.shift-v2-hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.shift-v2-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://growthfix.jp/gravity/images/space_bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; mix-blend-mode: multiply; pointer-events: none; z-index: 0; }
+.shift-v2-hero > * { position: relative; z-index: 1; }
+.shift-v2-hero h1 { font-size: clamp(22px, 5vw, 48px); font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 28px; word-break: keep-all; overflow-wrap: anywhere; }
+.shift-v2-hero h1 em { font-style:normal; background:linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
+.shift-v2-hero-sub { font-size: clamp(15px, 2.2vw, 18px); line-height: 1.9; color:#334155; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto; }
+.shift-v2-hero-meta { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:28px; font-size:12px; color:#64748b; }
+.shift-v2-hero-meta-badge { background:#f1f5f9; padding:6px 14px; border-radius:100px; font-weight:700; }
+.shift-v2-section { padding: 80px 0; }
+.shift-v2-label { display:inline-block; font-size:11px; letter-spacing:0.2em; font-weight:700; color:#1e40af; margin-bottom:16px; }
+.shift-v2-section h2 { font-size: clamp(22px, 3.6vw, 32px); font-weight: 900; line-height: 1.4; margin-bottom: 24px; letter-spacing:-0.01em; }
+.shift-v2-section h2 em { font-style:normal; background:linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
+
+/* CTA section（Coaching LP は shift-cta-* を流用） */
+.shift-cta-section { background:#0f172a; color:#fff; padding: 80px 0; text-align:center; }
+.shift-cta-section h2 { color:#fff; }
+.shift-cta-section h2 em { background:linear-gradient(transparent 62%, rgba(253, 230, 138, 0.3) 62%); }
+.shift-cta-lead { color:#cbd5e1; font-size:16px; line-height:1.9; margin:20px 0 32px; max-width:600px; margin-left:auto; margin-right:auto; }
+.shift-cta-proof { display:flex; gap:10px; justify-content:center; margin:24px 0; flex-wrap:wrap; font-size:13px; color:#94a3b8; }
+.shift-cta-proof span { padding:6px 14px; background:rgba(255,255,255,0.08); border-radius:100px; }
+
+/* FAQ（Coaching LP は shift-faq-list を流用） */
+.shift-faq-list .faq-item { background:#fff; border:1px solid #e2e8f0; border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.shift-faq-list .faq-item summary { padding:20px 24px; font-weight:700; cursor:pointer; font-size:15px; color:#0f172a; list-style:none; position:relative; }
+.shift-faq-list .faq-item summary::-webkit-details-marker { display:none; }
+.shift-faq-list .faq-item summary::after { content:"+"; position:absolute; right:24px; top:18px; font-size:22px; color:#1e40af; font-weight:300; }
+.shift-faq-list .faq-item[open] summary::after { content:"−"; }
+.shift-faq-list .faq-answer { padding: 0 24px 22px; font-size:14px; line-height:1.9; color:#475569; }
+
+/* sv2 reference components */
+.sv2-ref-label { font-size:12px; letter-spacing:0.15em; color:#64748b; margin:0 0 12px; font-weight:700; }
+.sv2-ref-list { list-style:none; padding:0; margin:0; font-size:12.5px; line-height:1.85; color:#475569; }
+.sv2-ref-list li { margin-bottom:8px; padding-left:14px; position:relative; }
+.sv2-ref-list li:last-child { margin-bottom:0; }
+.sv2-ref-list-last { margin-bottom:0; padding-left:14px; position:relative; }
+.sv2-ref-dot { position:absolute; left:0; color:#94a3b8; }
+.sv2-citations-link { text-align:center; font-size:14px; margin:24px 0; }
+
+/* sv2 note / signature */
+.sv2-note { font-size:14px; color:#6b6b6b; margin-top:20px; }
+.sv2-signature-sub { font-size:12.5px; }
+.sv2-faq-list-wrap { margin-top:28px; }
+.sv2-pricing-list { font-size:15px; line-height:1.95; color:#334155; padding-left:20px; }
+.sv2-pricing-list li { margin-bottom:12px; }
+
+/* sv2 theory variants */
+.sv2-theory-box--bg { background:#f8fafc; }
+.sv2-theory-box--mt { margin:20px 0 0; }
+
+/* lp utility（Shift/Phase2 由来・Coaching LP 使用分） */
+.lp-body-16 { font-size:16px; line-height:1.95; color:#334155; }
+.lp-list-15 { font-size:15px; line-height:1.95; color:#334155; padding-left:20px; }
+.lp-list-15-85 { font-size:15px; line-height:1.85; color:#334155; padding-left:20px; }
+.lp-list-14 { font-size:14px; line-height:1.85; color:#334155; padding-left:20px; }
+.lp-mb-14 { margin-bottom:14px; }
+.lp-section-h3 { margin-top:36px; font-size:18px; color:#0f172a; }
+.lp-btn-dark { display:block; padding:14px 20px; background:#0f172a; color:#fff; border-radius:8px; text-decoration:none; font-weight:700; text-align:center; }
+.lp-btn-outline { display:block; padding:14px 20px; background:#fff; color:#0f172a; border:1px solid #0f172a; border-radius:8px; text-decoration:none; font-weight:700; text-align:center; }
+.lp-btn-cta { display:inline-block; padding:14px 32px; background:#0f172a; color:#ffffff; text-decoration:none; border-radius:4px; font-size:14px; font-weight:800; letter-spacing:0.04em; }
+.lp-cta-card-sub { font-size:13px; color:#64748b; margin-top:20px; }
+.lp-cta-p-mb16 { margin-bottom:16px; }
+.lp-sig-section { padding:40px 24px 60px; text-align:center; background:#fafafa; border-top:1px solid #e5e7eb; }
+.lp-sig-text { font-size:13px; color:#64748b; line-height:1.85; max-width:720px; margin:0 auto; }
+.lp-consult-section { padding:48px 0; background:#f8fafc; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
+.lp-consult-card { padding:32px 36px; background:#ffffff; border-left:4px solid #0f172a; border-radius:6px; }
+.lp-consult-kicker { font-size:11px; font-weight:700; color:#0f172a; letter-spacing:0.16em; margin:0 0 10px; }
+.lp-consult-h3 { font-size:19px; font-weight:900; color:#0f172a; line-height:1.6; margin:0 0 12px; }
+.lp-consult-body { font-size:13.5px; color:#475569; line-height:1.85; margin:0 0 22px; }

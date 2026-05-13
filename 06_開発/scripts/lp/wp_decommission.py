@@ -10,19 +10,23 @@ Usage:
   python3 wp_decommission.py verify        # HTTP verification
 """
 import ftplib
+import json
 import re
 import sys
 import os
 import tempfile
 from pathlib import Path
 
-FTP_HOST = "sv16489.xserver.jp"
-FTP_USER = "xs992119"
-FTP_PASS = "cgq1fv99"
-REMOTE_ROOT = "/growthfix.jp/public_html"
-
 VAULT = Path("/Users/ishiinobuyuki/Documents/Obsidian Vault")
-TOP_HTML = VAULT / "05_プロダクト/top_本番/index.html"
+TOP_HTML = VAULT / "05_プロダクト/コーポレート/top_本番/index.html"
+
+_CONFIG_FTP = VAULT / "06_開発/scripts/config/config_ftp.json"
+with open(_CONFIG_FTP) as _f:
+    _ftp = json.load(_f)
+FTP_HOST = _ftp["host"]
+FTP_USER = _ftp["user"]
+FTP_PASS = _ftp["pass"]
+REMOTE_ROOT = _ftp.get("remote_root", "/growthfix.jp/public_html")
 
 ASSET_MOVES = [
     ("wp-content/themes/growth/assets/css/animate.min.css", "assets/css/animate.min.css"),
@@ -54,17 +58,17 @@ URL_REPLACEMENTS = [
 ]
 
 LOCAL_TO_REMOTE_HTMLS = [
-    ("05_プロダクト/top_本番/index.html", "index.html"),
-    ("05_プロダクト/contact_本番/index.html", "contact/index.html"),
-    ("05_プロダクト/profile_本番/index.html", "profile/index.html"),
-    ("05_プロダクト/news_本番/index.html", "news/index.html"),
-    ("05_プロダクト/achievement_本番/index.html", "achievement/index.html"),
-    ("05_プロダクト/knowledge_本番/index.html", "knowledge/index.html"),
-    ("05_プロダクト/whitepaper_optin_本番/index.html", "whitepaper/index.html"),
-    ("05_プロダクト/privacy-policy_本番/index.html", "privacy-policy/index.html"),
-    ("05_プロダクト/service_本番/index.html", "service/index.html"),
-    ("05_プロダクト/news_本番/site-renewal/index.html", "news/site-renewal/index.html"),
-    ("05_プロダクト/news_本番/gravity-release/index.html", "news/gravity-release/index.html"),
+    ("05_プロダクト/コーポレート/top_本番/index.html", "index.html"),
+    ("05_プロダクト/コーポレート/contact_本番/index.html", "contact/index.html"),
+    ("05_プロダクト/コーポレート/profile_本番/index.html", "profile/index.html"),
+    ("05_プロダクト/コーポレート/news_本番/index.html", "news/index.html"),
+    ("05_プロダクト/コーポレート/achievement_本番/index.html", "achievement/index.html"),
+    ("05_プロダクト/コーポレート/knowledge_本番/index.html", "knowledge/index.html"),
+    ("05_プロダクト/コーポレート/whitepaper_optin_本番/index.html", "whitepaper/index.html"),
+    ("05_プロダクト/コーポレート/privacy-policy_本番/index.html", "privacy-policy/index.html"),
+    ("05_プロダクト/コーポレート/service_本番/index.html", "service/index.html"),
+    ("05_プロダクト/コーポレート/news_本番/site-renewal/index.html", "news/site-renewal/index.html"),
+    ("05_プロダクト/コーポレート/news_本番/gravity-release/index.html", "news/gravity-release/index.html"),
 ]
 
 

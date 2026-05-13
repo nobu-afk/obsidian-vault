@@ -15,13 +15,19 @@
 set -e
 
 VAULT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
-WP_BODY="$VAULT/05_プロダクト/WhitePaper/V9/index.html"
-WP_PDF="$VAULT/05_プロダクト/WhitePaper/V9/gravity-whitepaper-v9.pdf"
-OPTIN_HTML="$VAULT/05_プロダクト/whitepaper_optin_本番/index.html"
+WP_BODY="$VAULT/05_プロダクト/Gravity/WhitePaper/V9/index.html"
+WP_PDF="$VAULT/05_プロダクト/Gravity/WhitePaper/V9/gravity-whitepaper-v9.pdf"
+OPTIN_HTML="$VAULT/05_プロダクト/コーポレート/whitepaper_optin_本番/index.html"
 
-FTP_USER="xs992119"
-FTP_PASS="cgq1fv99"
-FTP_HOST="sv16489.xserver.jp"
+CONFIG_FTP="$VAULT/06_開発/scripts/config/config_ftp.json"
+if [ ! -f "$CONFIG_FTP" ]; then
+  echo "❌ FTP config が見つかりません: $CONFIG_FTP"
+  echo "   既存スクリプトの値で再作成: { \"host\": \"sv16489.xserver.jp\", \"user\": \"xs992119\", \"pass\": \"...\" }"
+  exit 1
+fi
+FTP_HOST=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['host'])" "$CONFIG_FTP")
+FTP_USER=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['user'])" "$CONFIG_FTP")
+FTP_PASS=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['pass'])" "$CONFIG_FTP")
 FTP_BASE="ftp://${FTP_HOST}/growthfix.jp/public_html"
 
 UPDATE_OPTIN=false

@@ -861,3 +861,49 @@ section h2 {
   .service-connect-tag { font-size: 9px; }
   .service-connect-arrow { font-size: 12px; }
 }
+
+/* === Shared utility classes (FU-12 260513) ===
+   3 LP（CODE / Scan / Coaching）共通で完全同一定義のもの
+   移行元：gravity-code-page.css / gravity-bp-page.css / gravity-shift-page.css
+   ============================================================ */
+
+/* hero eyebrow */
+.sv2-hero-eyebrow { font-size:14px; font-weight:800; color:#1b1b1b; letter-spacing:0.04em; margin-bottom:16px; }
+
+/* theory section */
+.sv2-theory-section h2 { text-align:center; }
+.sv2-theory-lead { font-size:14.5px; line-height:1.85; color:#475569; margin:24px 0 28px; text-align:center; }
+.sv2-theory-box { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:28px 32px; margin:0 0 20px; }
+.sv2-theory-label--blue { font-size:13px; letter-spacing:0.15em; color:#1e40af; margin:0 0 14px; font-weight:700; }
+.sv2-theory-body { font-size:13.5px; line-height:1.85; color:#475569; margin:0 0 14px; }
+.sv2-theory-body--last { font-size:13.5px; line-height:1.85; color:#475569; margin:0; }
+.sv2-theory-list { list-style:disc; padding-left:20px; margin:0; font-size:13.5px; line-height:1.85; color:#475569; }
+
+/* badge row */
+.sv2-badge-row { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px; }
+.sv2-badge { display:inline-block; padding:6px 14px; background:#f8fafc; border:1px solid #e5e7eb; border-radius:100px; font-size:12px; font-weight:700; color:#475569; letter-spacing:0.04em; }
+
+/* apply notes */
+.sv2-apply-notes { margin:20px 0 0; padding:0; list-style:none; font-size:11.5px; color:#94a3b8; line-height:1.85; }
+
+/* inline links */
+.lp-link-blue { color:#1e40af; text-decoration:underline; }
+.lp-link-blue-bold { color:#1e40af; font-weight:700; text-decoration:underline; }
+
+/* CTA card */
+.lp-cta-card { background:#fff; color:#0f172a; margin-top:32px; padding:40px 36px; border-radius:16px; max-width:520px; margin-left:auto; margin-right:auto; text-align:left; }
+.lp-cta-card-lead { color:#0f172a; font-weight:700; font-size:15px; margin-bottom:20px; }
+
+/* consult section */
+.lp-consult-section--56 { padding:56px 0; background:#f8fafc; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
+.lp-consult-inner { max-width:760px; margin:0 auto; padding:0 24px; }
+.lp-consult-h3--20 { font-size:20px; font-weight:900; color:#0f172a; line-height:1.6; margin:0 0 14px; }
+.lp-consult-lead { font-size:14px; color:#475569; line-height:1.9; margin:0 0 14px; }
+.lp-consult-strong { font-size:14px; color:#0f172a; line-height:1.9; margin:0 0 22px; font-weight:700; }
+
+/* sv2 apply section lead（CODE / Scan / Shift 共用） */
+.sv2-apply-lead { font-size:14px; color:#475569; line-height:1.9; margin:0 0 14px; }
+
+/* utility */
+.lp-mb-12 { margin-bottom:12px; }
+.lp-note-center { margin-top:24px; font-size:14px; color:#6b6b6b; text-align:center; }
