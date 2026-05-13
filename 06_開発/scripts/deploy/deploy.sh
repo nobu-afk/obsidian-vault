@@ -68,6 +68,10 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"     "gravity-code/index.html"      "Code LP"
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/styles.css"     "gravity-code/styles.css"      "Code CSS"
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"      "gravity-code/script.js"       "Code script.js"
+  # Recruit LP（260513 仮説 E v0.2・集める軸・引力の参謀（採用）・月 35 万・260514 22-DH 追加）
+  upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/index.html"  "gravity-recruit/index.html"   "Recruit LP"
+  # Cultivate LP（260513 仮説 E v0.2・躍動する軸・変革の参謀（躍動）・月 50 万・260514 22-DH 追加）
+  upload "$VAULT/05_プロダクト/Gravity/Cultivate/LP/index.html" "gravity-cultivate/index.html" "Cultivate LP"
   wait
   echo "[LP完了]"
   echo ""

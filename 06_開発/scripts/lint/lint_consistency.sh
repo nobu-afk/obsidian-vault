@@ -298,9 +298,9 @@ check_required "Gravity/Code/LP/index.html" "引力の参謀"
 check_required "Gravity/Scan/LP/index.html" "引力の参謀（組織軸）"
 check_required "Gravity/Coaching/LP/index.html" "心の参謀"
 check_required "Gravity/Orbit/LP/index.html" "共鳴の参謀"
-# 260503 β 並列型・新設 LP（Gravity Recruit / Gravity Cultivate・260505 リネーム）
-check_required "Gravity/Recruit/LP/index.html" "変革の参謀"
-check_required "Gravity/Cultivate/LP/index.html" "変革の参謀"
+# 260503 β 並列型・新設 LP（Gravity Recruit / Gravity Cultivate・260505 リネーム・260514 SSOT v5.0 整合：参謀名（軸）形式に統一）
+check_required "Gravity/Recruit/LP/index.html" "引力の参謀（採用）"
+check_required "Gravity/Cultivate/LP/index.html" "変革の参謀（躍動）"
 # 260503 minimal LP（Push 型：GravityShift = R+A 複合 / Pull 型：GravityCoaching = 心の参謀・記載あり/リンクなし）：他ページからのリンクチェックは [5.5]/[5.6] で対応
 
 # ----------------------------------------------------------------------
