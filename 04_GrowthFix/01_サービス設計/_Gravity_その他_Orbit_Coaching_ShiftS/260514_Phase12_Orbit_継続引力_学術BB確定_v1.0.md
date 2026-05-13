@@ -290,6 +290,9 @@ Continuous EC = Saks 2006 Engagement 2 軸 × 月次拍動運用
 
 **設計判断：** Quarterly が「振り返り」だけでは継続装置として弱い。**「期待を再交渉する正式な場」**として明示化することで、5 年継続装置の核心が学術的に確立される。
 
+**🆕 v1.1 P1 反映：運用ドキュメント独立化（260514 夕）：** Quarterly Page 6 の **A4 5 枚セット運用テンプレ（本紙 + 経営者用記入ガイド + 優秀人材プール用記入ガイド + 期待ギャップ可視化マトリクス + 集計手順 + 介入アクションテンプレ）** を独立ファイル化済。本ファイルは学術 BB SSOT に専念し、現場運用詳細は別ファイル参照：
+- 📄 **`04_GrowthFix/01_サービス設計/_Gravity_その他_Orbit_Coaching_ShiftS/260514_P1_QuarterlyPage6_心理的契約再校正_運用テンプレ_v1.0.md`**
+
 ### 4-4. Continuous Emotional Contagion → Saks 2006 Engagement の月次拍動メカニズム
 
 **Continuous EC の具体的拍動装置（月次 / Quarterly / 半期年）：**
@@ -330,6 +333,9 @@ Continuous EC = Saks 2006 Engagement 2 軸 × 月次拍動運用
 - 識学：時間軸概念なし・心理的契約論なし → Gravity = 学術 3 連鎖で時間軸を独占
 - Wevox / Geppo：測定のみ・再交渉装置なし → Gravity = 測定 + 月次セッション + Quarterly 再交渉の三位一体
 - 採用 BPO：採用までで終了・Honeymoon-Hangover 介入なし → Gravity = 入社後 1 年 + 5 年継続まで設計
+
+**🆕 v1.1 P1 反映：競合比較表 v1.1 独立化（260514 夕）：** Meyer 2002 / Rousseau 1989 / Zhao 2007 / McNatt-Judge 2008 / Kellogg 2020 等の **学術根拠付き 1 文武装（商談即戦力化版）** を独立ファイル化済。識学 / Wevox / 採用 BPO に加えて、**外資組織コンサル / AI HR Tech の 2 競合を追加した 5 競合 × 8 軸比較表** + 商談シーン別 1 文武装ライブラリ 8 件を確定：
+- 📄 **`04_GrowthFix/00_営業/_Gravity営業基盤/260514_P1_競合比較表_留まる軸学術根拠付き_v1.1.md`**
 
 ### 5.3 認知価格根拠（Pain × Service 価格妥当性）
 
