@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>GrowthFix 事業モデル三位一体マップ v1.0</title>
+<style>
+  :root {
+    --text: #1e293b;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --bg-dark: #0f172a;
+    --border: #e2e8f0;
+    --accent: #1e40af;
+    --accent-hover: #1e3a8a;
+    --accent-light: #eff3ff;
+    --pro-gradient: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    --layer-theory: #4338ca;
+    --layer-impl: #1e40af;
+    --layer-spread: #6d28d9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    color: var(--text);
+    background: var(--bg-alt);
+    padding: 40px 20px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 40px; }
+  h1 {
+    font-size: 32px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .tagline {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+  .map-wrapper {
+    background: var(--bg);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+    margin-bottom: 32px;
+  }
+  svg { width: 100%; height: auto; display: block; }
+  .layer-detail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .layer-card {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 28px;
+    border-top: 6px solid;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  }
+  .layer-card.theory { border-top-color: var(--layer-theory); }
+  .layer-card.impl { border-top-color: var(--layer-impl); }
+  .layer-card.spread { border-top-color: var(--layer-spread); }
+  .layer-name {
+    font-size: 14px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .layer-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .layer-card.theory .layer-title { color: var(--layer-theory); }
+  .layer-card.impl .layer-title { color: var(--layer-impl); }
+  .layer-card.spread .layer-title { color: var(--layer-spread); }
+  .layer-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  .layer-items {
+    list-style: none;
+    padding-left: 0;
+  }
+  .layer-items li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .layer-items li:last-child { border-bottom: none; }
+  .layer-items li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 10px;
+  }
+  .layer-card.theory .layer-items li::before { color: var(--layer-theory); }
+  .layer-card.impl .layer-items li::before { color: var(--layer-impl); }
+  .layer-card.spread .layer-items li::before { color: var(--layer-spread); }
+  .flow-note {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--accent-hover);
+    line-height: 1.8;
+  }
+  .flow-note strong { color: var(--accent); }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-light);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>GrowthFix 事業モデル ── 三位一体マップ</h1>
+    <p class="subtitle">引力経営を「理論・実装・普及」の三層循環で社会に届ける</p>
+    <span class="tagline">優秀人材が躍動する会社をつくる</span>
+  </header>
+
+  <div class="map-wrapper">
+    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三位一体マップ：理論層・実装層・普及層の循環構造">
+      <defs>
+        <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1e40af"/>
+          <stop offset="100%" stop-color="#312e81"/>
+        </linearGradient>
+        <linearGradient id="theoryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4338ca"/>
+          <stop offset="100%" stop-color="#312e81"/>
+        </linearGradient>
+        <linearGradient id="implGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1e40af"/>
+          <stop offset="100%" stop-color="#1e3a8a"/>
+        </linearGradient>
+        <linearGradient id="spreadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6d28d9"/>
+          <stop offset="100%" stop-color="#5b21b6"/>
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+        </marker>
+      </defs>
+
+      <!-- 中央：引力経営 -->
+      <circle cx="400" cy="300" r="90" fill="url(#centerGrad)"/>
+      <text x="400" y="290" text-anchor="middle" fill="white" font-size="22" font-weight="700">引力経営</text>
+      <text x="400" y="318" text-anchor="middle" fill="white" font-size="13" opacity="0.9">Gravity 思想の主軸</text>
+
+      <!-- 理論層（上） -->
+      <circle cx="400" cy="100" r="75" fill="url(#theoryGrad)"/>
+      <text x="400" y="93" text-anchor="middle" fill="white" font-size="18" font-weight="700">理論層</text>
+      <text x="400" y="115" text-anchor="middle" fill="white" font-size="12" opacity="0.9">思想を編集する</text>
+
+      <!-- 実装層（左下） -->
+      <circle cx="200" cy="475" r="75" fill="url(#implGrad)"/>
+      <text x="200" y="468" text-anchor="middle" fill="white" font-size="18" font-weight="700">実装層</text>
+      <text x="200" y="490" text-anchor="middle" fill="white" font-size="12" opacity="0.9">顧客に届ける</text>
+
+      <!-- 普及層（右下） -->
+      <circle cx="600" cy="475" r="75" fill="url(#spreadGrad)"/>
+      <text x="600" y="468" text-anchor="middle" fill="white" font-size="18" font-weight="700">普及層</text>
+      <text x="600" y="490" text-anchor="middle" fill="white" font-size="12" opacity="0.9">認知を広げる</text>
+
+      <!-- 矢印：循環構造 -->
+      <path d="M 360 150 Q 270 280 240 410" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M 270 475 L 530 475" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M 560 410 Q 530 280 440 150" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <!-- 中央への矢印 -->
+      <line x1="400" y1="180" x2="400" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="265" y1="445" x2="320" y2="350" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="535" y1="445" x2="480" y2="350" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+      <!-- 理論層の要素ラベル -->
+      <text x="400" y="30" text-anchor="middle" fill="#312e81" font-size="11" font-weight="600">書籍 / WhitePaper / Note 連載 / ナレッジ</text>
+
+      <!-- 実装層の要素ラベル -->
+      <text x="200" y="565" text-anchor="middle" fill="#1e3a8a" font-size="11" font-weight="600">CODE / Scan / Coaching / Shift R/C/Full / Orbit</text>
+
+      <!-- 普及層の要素ラベル -->
+      <text x="600" y="565" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="600">セミナー / Podcast / 体験 WS / アカデミー</text>
+
+      <!-- 循環ラベル -->
+      <text x="220" y="270" fill="#64748b" font-size="11" font-weight="600">理論 → 実装</text>
+      <text x="400" y="510" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600">実装 → 普及</text>
+      <text x="580" y="270" text-anchor="end" fill="#64748b" font-size="11" font-weight="600">普及 → 理論</text>
+    </svg>
+  </div>
+
+  <div class="layer-detail">
+
+    <article class="layer-card theory">
+      <p class="layer-name">Theory Layer</p>
+      <h2 class="layer-title">理論層</h2>
+      <p class="layer-desc">引力経営の知的基盤を作る。<br>16 年 × 50 社 × 254 論文 × 33.6 MB 実例の<br>「複数領域統合型 編集者ポジション」。</p>
+      <ul class="layer-items">
+        <li>書籍『引力経営』（2027 Q1 KDP 出版）</li>
+        <li>WhitePaper V10（v1.0 化 W26 6/29）</li>
+        <li>Note 連載「組織に、引力を。」Vol.0-14</li>
+        <li>卒業生シリーズ S1-S8</li>
+        <li>ナレッジ集（堀田フレーム 35 選 等）</li>
+      </ul>
+    </article>
+
+    <article class="layer-card impl">
+      <p class="layer-name">Implementation Layer</p>
+      <h2 class="layer-title">実装層</h2>
+      <p class="layer-desc">引力経営を顧客企業に届ける。<br>仮説 E v0.2「コンサル × AI 実装伴走」<br>3 サービス月額制 × 3 カウンターパート。</p>
+      <ul class="layer-items">
+        <li>CODE（5 万・引力の参謀（個人軸））</li>
+        <li>Scan（10 万・引力の参謀（組織軸））</li>
+        <li>Coaching（38 万・心の参謀）</li>
+        <li>Recruit（月 35 万・引力の参謀（採用））</li>
+        <li>Cultivate（月 50 万・変革の参謀（躍動））</li>
+        <li>Orbit（月 15 万・共鳴の参謀（留まる））</li>
+      </ul>
+    </article>
+
+    <article class="layer-card spread">
+      <p class="layer-name">Spread Layer</p>
+      <h2 class="layer-title">普及層</h2>
+      <p class="layer-desc">引力経営の認知を広げる拡大装置。<br>Q4 2026 〜 2027 Q1 で本格起動。<br>α 層 → β 層 → γ 層の 3 年戦略。</p>
+      <ul class="layer-items">
+        <li>セミナー（月 1 回・Phase 1 〜）</li>
+        <li>Podcast「Gravity」（Q4 2026 起動）</li>
+        <li>体験 WS（9 月パイロット → 10 月本番）</li>
+        <li>Gravity アカデミー（2027 年 4 月開講）</li>
+        <li>認定コーチ制度（70/30 分配制）</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <div class="flow-note">
+    <strong>循環構造（テキスト版完成済の構造図版化）：</strong><br>
+    <strong>理論 → 実装：</strong>書籍 / 論文 / Note 連載で言語化された引力経営の枠組みが、5 + 1 サービスとして顧客に届くサービス設計に直接反映される。<br>
+    <strong>実装 → 普及：</strong>顧客企業での実装事例（HACHI / 操電 等）が卒業生シリーズ・セミナー・WS の素材になる。<br>
+    <strong>普及 → 理論：</strong>セミナー参加者・Podcast リスナー・アカデミー受講生からのフィードバックが、書籍改訂・WhitePaper v2.0 化・Note 連載第 5 部の素材に還流する。<br>
+    この 3 層循環が「経営者個人 × 組織 × 業界カテゴリ」の 3 階層への引力伝播（Bandura 1977 / 2000 / Sampson 1997）の構造と整合する。
+  </div>
+
+  <footer>
+    GrowthFix 株式会社 / 引力経営提唱者 石井伸幸 / v1.0 図版化版 2026-05-14<br>
+    テキスト版 SSOT：09_会社OS/公開/経営思想/会社.md Part 2「事業モデル（三位一体）」
+  </footer>
+
+</div>
+</body>
+</html>
