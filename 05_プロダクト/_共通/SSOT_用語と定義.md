@@ -129,9 +129,9 @@
 → **「なんでもできます」は捨てる**。3 軸（集まる・躍動・留まる）が SSOT。
 → 詳細：`05_プロダクト/_共通/SSOT_Gravity_3軸.md`
 
-### 🔥 個人引力 / 組織引力の正式定義（260510 Phase 11 確定）
+### 🔥 個人引力 / 組織引力 / 継続引力 の正式定義（260510 Phase 11 + 260514 Phase 12 v1.2 確定）
 
-> **個人引力・組織引力は石井独自概念。Self-Efficacy / Collective Efficacy とは別概念。混同禁止。**
+> **3 引力は石井独自概念。Self-Efficacy / Collective Efficacy / Job Embeddedness とは別概念。混同禁止。**
 
 **個人引力（Personal Gravity）** ──
 > **Authentic Self（Why × 才能 × 偏愛）が Emotional Contagion を通じて他者に伝染した結果生じる「他者を引きつける力」**
@@ -143,12 +143,36 @@
 >
 > ⚠️ **組織引力 ≠ Collective Efficacy**。Collective Efficacy は「自分たちはやれる」共同信念。組織引力は「人を引きつけ・躍動させ・留まらせる組織の力」。集合的 Authentic Org の中に CE は含まれるが、組織引力そのものは集合的 Authentic Org → Collective Emotional Contagion で発現する独立概念。
 
-**3 層階層構造（思想層）：**
+**🆕 継続引力（Continuous Gravity）** ── 260514 Phase 12 v1.2 確定
+> **Embedded Self（Job Embeddedness × Psychological Contract × Affective Commitment）が Continuous Emotional Contagion（時間軸の感情伝染・月次拍動）を通じて発現する「組織と人材が双方向に離れない・離さない時間軸の力」**
+>
+> ⚠️ **継続引力 ≠ Job Embeddedness 単独**。Mitchell 2001 Job Embeddedness は「辞めにくい構造」のみを記述する独立概念。継続引力は **Job Embeddedness（構造）× Psychological Contract（期待）× Affective Commitment（感情）の三位一体**で発現する石井独自統合概念。
+
+**継続引力の学術 BB（Phase 12 v1.2 / Phase 13 SSOT v1.0 確定）：**
+- **Mitchell 2001 Job Embeddedness**（Links × Fit × Sacrifice の 6 領域）→ 「辞めにくい」構造
+- **Rousseau 1989/1995 Psychological Contract**（被引用 7,483 + 10,000+）→ 「辞めない」期待の継続再交渉
+- **Meyer-Allen 1991 / Meyer 2002 meta**（被引用 13,777 + 3,351）→ 「辞めたくない」Affective Commitment
+- **Crossley 2007 短縮 7 項目尺度**（被引用 1,501）→ 月次パルスサーベイ実装
+
+**4 層階層構造（思想層・260514 v1.2 で 3 層 → 4 層に拡張）：**
 - **個人レベル（CODE）：** 個人引力 = Authentic Self → Emotional Contagion
 - **組織レベル（SCAN）：** 組織引力 = 集合的 Authentic Org → Collective Emotional Contagion
+- **🆕 継続レベル（Orbit / 留まる）：** 継続引力 = Embedded Self → Continuous Emotional Contagion（**Phase 12 v1.2 で時間軸を独立第 3 引力として確立**）
 - **コミュニティレベル（思想層）：** 街・地域の引力 = コミュニティ Collective Efficacy（Sampson 1997 Science）
 
-詳細：`04_GrowthFix/01_サービス設計/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md` + `05_プロダクト/_共通/SSOT_Gravity_コア主張.md` コア主張 #1 / #2 / #13
+**3 引力対称構造マトリクス：**
+
+| 層 | 個人 | 組織 | 継続 |
+|---|---|---|---|
+| Self 概念 | Authentic Self | 集合的 Authentic Org | **Embedded Self** |
+| 発現 | Emotional Contagion | Collective EC | **Continuous EC（時間軸）** |
+| Bandura 系列 | SE（1977）| CE（2000）| **Sustained CE** |
+| サービス | CODE | SCAN | **Orbit / 留まる** |
+| 時間軸 | 瞬間（解読）| 場（診断）| **時間（5 年装置）** |
+| 顧客 Pain | 「自分の引力が分からない」 | 「採れない・抜ける」 | 「育てた人材が辞める」 |
+| 学術累積被引用 | Phase 11（Calling/Flow/SDT 系列）| Phase 11（ASA/CE/Engagement）| **Phase 12+13 計 25,000+** |
+
+詳細：`04_GrowthFix/01_サービス設計/_Gravity_診断_CODE_Scan/260510_Phase11_CODE_SCAN_フレーム最終確定_v1.0.md` + `04_GrowthFix/01_サービス設計/_Gravity_その他_Orbit_Coaching_ShiftS/260514_Phase12_Orbit_継続引力_学術BB確定_v1.0.md` + `260514_Phase13_留まる軸_主軸論文SSOT_v1.0.md` + `05_プロダクト/_共通/SSOT_Gravity_コア主張.md` コア主張 #1 / #2 / #13
 
 ---
 
@@ -162,12 +186,15 @@
 
 **Gravity 引力経営の最終目標** = **集合的効力感に満ちた会社を作ること**（260510 ユーザー確立）。これは Bandura の Collective Efficacy 定義と完全一致。
 
-**3 層階層構造：**
-- 個人 SE（経営者）→ Coaching が個人を磨く
-- 組織 CE（企業内チーム集団）→ 躍動する / **留まる**（留まる軸・月次伴走・旧 Orbit 機能継承）が構築・維持
-- コミュニティ CE（街・地域）→ 引力経営の思想層が街・地域へ波及
+**🆕 4 層階層構造（260514 Phase 12 v1.2 で 3 層 → 4 層拡張）：**
+- 個人 SE（経営者）→ CODE / Coaching が個人を磨く
+- 組織 CE（企業内チーム集団・場）→ SCAN / 集める / 躍動する が構築
+- **継続 Sustained CE（時間軸・月次拍動）→ Orbit / 留まる が再点火（Phase 12 v1.2 新規確立）**
+- コミュニティ CE（街・地域・世代）→ 引力経営の思想層が街・地域へ波及
 
-詳細：`05_プロダクト/_共通/SSOT_Engagement指標定義.md` §10（Phase 9 Bandura 系列統合）+ `05_プロダクト/WhitePaper/V10_第6章草案/260510_WhitePaper_V10_第6.5章_自己効力感から集合的効力感への翻訳機構_v0.1.md`
+**Sustained CE の理論的位置付け（Phase 12 v1.2）：** Bandura 2000 Collective Efficacy + Sheldon-Lyubomirsky 2006 Sustainable Happiness（Hedonic Adaptation 回避）+ Saks-Gruman 2018 17 資源月次提供の統合。**Orbit 月次セッション + 月次レポート + Quarterly + 半期合宿の 4 周期で Sustained CE を発生させる唯一のサービス**。
+
+詳細：`05_プロダクト/_共通/SSOT_Engagement指標定義.md` §10（Phase 9 Bandura 系列統合）+ `05_プロダクト/WhitePaper/V10_第6章草案/260510_WhitePaper_V10_第6.5章_自己効力感から集合的効力感への翻訳機構_v0.1.md` + `04_GrowthFix/01_サービス設計/_Gravity_その他_Orbit_Coaching_ShiftS/260514_Phase12_Orbit_継続引力_学術BB確定_v1.0.md`
 
 ---
 
