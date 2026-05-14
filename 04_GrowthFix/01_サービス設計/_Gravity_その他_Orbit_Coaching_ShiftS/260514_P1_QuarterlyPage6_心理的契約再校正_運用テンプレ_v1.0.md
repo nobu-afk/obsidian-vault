@@ -4,14 +4,14 @@
 >
 > **配布形態：** A4 5 枚セット（本紙 1 + 記入ガイド 2 + 突合マトリクス 1 + 集計手順 1）
 > **作成：** 2026-05-14 夕（メインスレッド Opus・P1 反映）
-> **学術根拠：** Rousseau 1989/1995（被引用 17,000+）+ Morrison-Robinson 1997 + Zhao 2007 PsycRev meta（被引用 4,500+）+ **Tomprou-Rousseau-Hansen 2015 Post-Violation Model（被引用 277・JOB）+ Hansen-Tomprou 2018 動的位相モデル（被引用 488・JOB）**（🔴 Phase 14-A 訂正：v1.0 初版「4 段階修復モデル」は誤訳・正式は「4 outcomes 結果分類モデル」+ VRBs 3 次元）
+> **学術根拠：** Rousseau 1989/1995（被引用 17,000+）+ Morrison-Robinson 1997 + Zhao 2007 PsycRev meta（被引用 4,500+）+ **Tomprou-Rousseau-Hansen 2015 Post-Violation Model（被引用 277・JOB）+ Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488・JOB）**（🔴 Phase 14-A 訂正：v1.0 初版「4 段階修復モデル」は誤訳・正式は「4 outcomes 結果分類モデル」+ VRBs 3 次元）
 > **対象：** Orbit 月 15 万契約クライアントの Quarterly セッション（3 ヶ月毎 1 回・年 4 回）
 
 ---
 
 ## 0. このテンプレの目的
 
-経営者と優秀人材プールの**心理的契約**（明示的契約を超えた暗黙の期待束）を **3 ヶ月毎に正式に再交渉する場**を制度化する。Rousseau 系列の最新理論である Tomprou-Rousseau-Hansen 2015「Post-Violation Model」（v1.0 初版「4 段階修復モデル」は誤訳・🔴 Phase 14-A 訂正）における **VRBs（Violation Resolution Beliefs）を高水準で維持し、Cognitive Regulation 経路で Thriving / Reactivation outcome に誘導する装置**。Hansen-Tomprou 2018 動的位相モデル（被引用 488）の Maintenance / Repair-Renegotiation phase を制度化する。
+経営者と優秀人材プールの**心理的契約**（明示的契約を超えた暗黙の期待束）を **3 ヶ月毎に正式に再交渉する場**を制度化する。Rousseau 系列の最新理論である Tomprou-Rousseau-Hansen 2015「Post-Violation Model」（v1.0 初版「4 段階修復モデル」は誤訳・🔴 Phase 14-A 訂正）における **VRBs（Violation Resolution Beliefs）を高水準で維持し、Cognitive Regulation 経路で Thriving / Reactivation outcome に誘導する装置**。Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488）の Maintenance / Repair-Renegotiation phase を制度化する。
 
 **運用原則：**
 - **Breach（契約違反・客観的事実）から Violation（違反知覚・感情）への発展を遮断**：Breach 発生から 1-3 ヶ月以内に経営者の意図帰属を明示化
@@ -281,7 +281,7 @@ _____________________________________________________________
 | 版 | 日付 | 内容 |
 |---|---|---|
 | v1.0 | 2026-05-14 夕 | 初版確定。Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 を現場運用ドキュメント完成形に展開。A4 5 枚セット（本紙 + 記入ガイド 2 + 突合マトリクス + 集計手順）を確定。Tomprou 2015 4 段階修復モデルの段階 3「再交渉」を制度化する装置として位置付け（🔴 誤訳・v1.0.1 で訂正）。|
-| **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正（4 箇所）**：Tomprou 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive/Affective）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Page 6 は「段階 3 制度化」ではなく「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving 誘導装置」として再定義。Hansen-Tomprou 2018 動的位相モデル（被引用 488）を併用引用。v1.1 で VRBs 3 次元測定 / 予測 outcome 欄 / outcome 別介入アクションの実装追加予定（Phase 14-A §6.2 P0 反映）|
+| **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正（4 箇所）**：Tomprou 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive/Affective）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Page 6 は「段階 3 制度化」ではなく「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving 誘導装置」として再定義。Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488）を併用引用。v1.1 で VRBs 3 次元測定 / 予測 outcome 欄 / outcome 別介入アクションの実装追加予定（Phase 14-A §6.2 P0 反映）|
 
 ---
 
