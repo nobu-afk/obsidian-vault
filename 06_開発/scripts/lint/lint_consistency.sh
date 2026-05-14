@@ -19,69 +19,90 @@ echo "GrowthFix 整合性チェック ($(date +%Y-%m-%d_%H:%M))"
 echo "SSOT: 05_プロダクト/_共通/SSOT_用語と定義.md"
 echo "========================================"
 
-# 共通: 禁止語チェック関数
-# 除外対象：
-#   _archive / _archive_obsolete   — 廃止済み記録
-#   *template*                       — テンプレート（コメント例OK）
-#   growthfix-*-index.html           — 古いバックアップ（_本番/ が現行）
-#   レポート/                        — サンプルレポート（歴史的内容OK）
-# 第4引数 extra_exclude: 個別ファイルの除外パターン（任意・260430 セミナー LP 例外運用用）
-check_forbidden() {
-  local term="$1"
-  local reason="$2"
-  local replace="$3"
-  local extra_exclude="$4"
-  local found
-  if [ -n "$extra_exclude" ]; then
-    found=$(grep -rln "$term" "$ROOT" \
-      --include="*.html" \
-      --exclude-dir="_archive" \
-      --exclude-dir="_archive_obsolete" \
-      --exclude-dir="レポート" \
-      --exclude="*template*" \
-      --exclude="*_backup_*" \
-      --exclude="growthfix-*-index.html" \
-      --exclude="$extra_exclude" \
-      2>/dev/null)
+# ----------------------------------------------------------------------
+# 禁止語スキャン基盤（260514 夜・TSV 外出し + 1 パス grep に refactor）
+#   旧: check_forbidden / check_forbidden_warning を 100+ 回呼び出し
+#       → 毎回 grep -rln フルスキャン（数十秒 worst case）
+#   新: forbidden_terms.tsv を読み込み、1 度の find + 1 度の grep -F -f で
+#       ヒットファイルを絞り込んだ後、ヒット時のみ term 別に micro-grep
+# ----------------------------------------------------------------------
+LINT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TSV="$LINT_DIR/forbidden_terms.tsv"
+
+# 全 HTML ファイルキャッシュ（exclude ルール込み）
+HTML_LIST=$(mktemp)
+trap 'rm -f "$HTML_LIST" "$PATTERNS_FILE" 2>/dev/null' EXIT
+find "$ROOT" -type f -name "*.html" \
+  -not -path "*/_archive/*" \
+  -not -path "*/_archive_obsolete/*" \
+  -not -path "*/レポート/*" \
+  ! -name "*template*" \
+  ! -name "growthfix-*-index.html" \
+  -print > "$HTML_LIST"
+
+# 1 パス grep でヒットファイルを絞り込み
+PATTERNS_FILE=$(mktemp)
+awk -F'\t' 'NF >= 3 && $1 !~ /^#/ && $1 != "" { print $3 }' "$TSV" | sort -u > "$PATTERNS_FILE"
+
+if [ -s "$HTML_LIST" ] && [ -s "$PATTERNS_FILE" ]; then
+  HIT_FILES=$(tr '\n' '\0' < "$HTML_LIST" | xargs -0 grep -F -l -f "$PATTERNS_FILE" 2>/dev/null)
+else
+  HIT_FILES=""
+fi
+# error レベル用：*_backup_* を追加除外（旧 check_forbidden の挙動）
+HIT_FILES_NO_BACKUP=$(echo "$HIT_FILES" | grep -v "_backup_")
+
+# TSV 1 行に対する判定・出力
+scan_one_term() {
+  local section="$1"
+  local level="$2"
+  local term="$3"
+  local reason="$4"
+  local replace="$5"
+  local extra_exclude="$6"
+
+  local search_pool
+  if [ "$level" = "error" ]; then
+    search_pool="$HIT_FILES_NO_BACKUP"
   else
-    found=$(grep -rln "$term" "$ROOT" \
-      --include="*.html" \
-      --exclude-dir="_archive" \
-      --exclude-dir="_archive_obsolete" \
-      --exclude-dir="レポート" \
-      --exclude="*template*" \
-      --exclude="*_backup_*" \
-      --exclude="growthfix-*-index.html" \
-      2>/dev/null)
+    search_pool="$HIT_FILES"
   fi
-  if [ -n "$found" ]; then
+
+  # extra_exclude（glob 形式・*seminar-acting* 等）→ パスフィルタに変換
+  if [ -n "$extra_exclude" ]; then
+    local exc_substr
+    exc_substr=$(echo "$extra_exclude" | sed 's/\*//g')
+    search_pool=$(echo "$search_pool" | grep -v -- "$exc_substr")
+  fi
+
+  [ -z "$search_pool" ] && return
+
+  local found
+  found=$(echo "$search_pool" | tr '\n' '\0' | xargs -0 grep -F -l "$term" 2>/dev/null)
+  [ -z "$found" ] && return
+
+  if [ "$level" = "error" ]; then
     printf "${RED}❌ 禁止語「%s」発見${NC}（理由: %s → 代替: %s）\n" "$term" "$reason" "$replace"
     echo "$found" | sed "s|$ROOT/|     |"
     ERRORS=$((ERRORS + 1))
-  fi
-}
-
-# 警告レベル禁止語チェック（移行期・大量ヒット予想・LP 修正タスク化想定）
-check_forbidden_warning() {
-  local term="$1"
-  local reason="$2"
-  local replace="$3"
-  local found
-  found=$(grep -rln "$term" "$ROOT" \
-    --include="*.html" \
-    --exclude-dir="_archive" \
-    --exclude-dir="_archive_obsolete" \
-    --exclude-dir="レポート" \
-    --exclude="*template*" \
-    --exclude="growthfix-*-index.html" \
-    2>/dev/null)
-  if [ -n "$found" ]; then
+  else
     local count
     count=$(echo "$found" | wc -l | tr -d ' ')
     printf "${YEL}⚠ 移行期警告「%s」（%s ファイル）${NC}（理由: %s → 代替: %s）\n" "$term" "$count" "$reason" "$replace"
     echo "$found" | sed "s|$ROOT/|     |"
     WARNINGS=$((WARNINGS + 1))
   fi
+}
+
+# 指定 section の TSV エントリを順に scan
+scan_forbidden_section() {
+  local target_section="$1"
+  while IFS=$'\t' read -r section level term reason replace extra_exclude; do
+    [[ -z "$section" ]] && continue
+    [[ "$section" =~ ^# ]] && continue
+    [[ "$section" != "$target_section" ]] && continue
+    scan_one_term "$section" "$level" "$term" "$reason" "$replace" "$extra_exclude"
+  done < "$TSV"
 }
 
 # 共通: 必須語チェック関数（特定ファイルに含まれているべき）
@@ -103,168 +124,23 @@ check_required() {
 
 # ----------------------------------------------------------------------
 # 1. 廃止用語・禁止語チェック（High）
+# 　 禁止語リストは forbidden_terms.tsv 外出し（260514 夜 refactor）
 # ----------------------------------------------------------------------
 echo ""
 echo "[1] 廃止用語・禁止語チェック"
 
-check_forbidden "ホームドクター" "旧Orbit positioning" "共鳴の参謀"
-check_forbidden "セラピスト" "旧医療メタファー" "心の参謀"
-check_forbidden "外科医" "旧医療メタファー" "変革の参謀"
-check_forbidden "Gravity Light" "廃止サービス" "（言及不要）"
-check_forbidden "Gravity Core" "廃止サービス" "（言及不要）"
-# 「Gravity Scan」は 260430 夕にリブート（Pre-Shift 適合診断・組織の引力タイプ診断）。260422 廃止ルールは撤回。
-# check_forbidden "Gravity Scan" "260422廃止・Shift統合" "Shift"
-check_forbidden "月5-15万" "Coaching旧価格" "38万・6ヶ月"
-check_forbidden "月15万・継続対話" "Coaching旧表記" "38万・6ヶ月"
-check_forbidden "月15/25万" "Orbit旧表記（スラッシュ）" "月15-25万"
-check_forbidden "13 ページ" "WP旧ページ数" "25 ページ"
-check_forbidden "13ページ" "WP旧ページ数" "25 ページ"
-check_forbidden "12 ページ" "WP旧ページ数" "25 ページ"
-check_forbidden "12ページ" "WP旧ページ数" "25 ページ"
-check_forbidden "5サービス体系" "260430で6サービス相当（Shift 2パッケージ化）" "6 サービス相当"
-check_forbidden "6サービス体系" "260422→260430移行期の旧表記" "6 サービス相当"
-# 260430 夕 Blueprint → Scan リブート
-check_forbidden "Gravity Blueprint" "260430 夕 Scan リブート" "Gravity Scan"
-check_forbidden "設計の参謀" "260430 夕 Blueprint→Scan リブート（Scan は引力の参謀（組織軸））" "引力の参謀（組織軸）"
-check_forbidden "採用口説きブループリント" "260430 夕 主成果物移管" "面接ブループリント 5 要素（Shift R Week 1-2 納品物）"
-check_forbidden "Shift 60万" "旧Shift価格" "Shift R/C 各 80 万"
-# 260430 SSOT: タグライン階層（会社思想 vs プロダクト思想）
-check_forbidden "採用に強い会社をつくる" "260430 タグライン進化" "優秀人材が躍動する会社をつくる(会社思想) or 組織に、引力を。(プロダクト思想)" "*seminar-acting*"
-check_forbidden "人材磁場 × 躍動設計" "260430 夕 撤回" "(コピーから削除)"
-# 260509 価格 SSOT 違反検出（M-9・LP/HTML での誤表記検出）
-check_forbidden "Recruit 60万" "Recruit 価格 SSOT 違反（正：80 万）" "Gravity Recruit 80 万・3 ヶ月"
-check_forbidden "Cultivate 60万" "Cultivate 価格 SSOT 違反（正：150 万・6 ヶ月）" "Gravity Cultivate 150 万・6 ヶ月"
-check_forbidden "Cultivate 80万" "Cultivate 旧価格（260511 拡張・正：150 万・6 ヶ月）" "Gravity Cultivate 150 万・6 ヶ月"
-check_forbidden "Cultivate・80 万・3 ヶ月" "Cultivate 旧価格・期間（260511 拡張・正：150 万・6 ヶ月）" "Gravity Cultivate 150 万・6 ヶ月"
-check_forbidden "Coaching 月" "Coaching 旧 月額制（正：38 万・6 ヶ月一括）" "Gravity Coaching 38 万・6 ヶ月"
-check_forbidden "Orbit 38万" "Orbit 価格混同（正：月 5 万・最低 6 ヶ月）" "Gravity Orbit 月 5 万・最低 6 ヶ月"
-check_forbidden "Shift 100万" "旧 Shift 価格（260511 拡張・正：R+C 複合 220 万・9 ヶ月）" "Gravity Shift 220 万・9 ヶ月"
-check_forbidden "Shift 150万・6 ヶ月" "Shift 旧価格・期間（260511 R+C 拡張・正：220 万・9 ヶ月）" "Gravity Shift 220 万・9 ヶ月"
-check_forbidden "CODE 10万" "CODE 価格 SSOT 違反（正：5 万・60 分）" "Gravity CODE 5 万・60 分"
-# 260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化（10 万 60 分対話廃止）
-check_forbidden "Scan 10万" "260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）" "Gravity Scan 無料 Web 診断 v2"
-check_forbidden "Scan 10 万" "260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）" "Gravity Scan 無料 Web 診断 v2"
-check_forbidden "Scan 5万" "Scan 価格 SSOT 違反（260514 朝 無料化済み・正：無料 Web 診断 v2）" "Gravity Scan 無料 Web 診断 v2"
-# 260514 朝 SCAN 10 万 60 分対話の追加パターン
-check_forbidden "Scan・10 万" "260514 朝 SCAN 10 万廃止" "Gravity Scan 無料 Web 診断 v2"
-check_forbidden "10 万・60 分" "260514 朝 SCAN 10 万 60 分対話廃止" "無料 Web 診断 v2（18 問 3 軸 3 分 + 30 分セッション同梱）"
-check_forbidden "10万・60分" "260514 朝 SCAN 10 万 60 分対話廃止" "無料 Web 診断 v2"
-check_forbidden "SCAN 10 万" "260514 朝 SCAN 10 万廃止（FAQ Q2 等の残骸）" "Gravity Scan 無料 Web 診断 v2"
-
-# 260514 夜 Orbit 価格改訂（月 15 万 → 月 5 万）+ v3.0 廃止語
-check_forbidden_warning "月 15 万" "260514 夜 Orbit 月 15 万 → 月 5 万に値下げ（v3.0）" "月 5 万（Orbit v3.0）"
-check_forbidden_warning "プロコーチ束ね運用" "260514 夜 Orbit v3.0 でコーチング廃止" "（Orbit はコーチング外し・個別コーチングは Cultivate に集約）"
-check_forbidden_warning "3 ヶ月予言の書" "260514 夜 Recruit v2.0 で内部資産化（LP・営業資料から削除）" "集まる力メソッド 6 本（月次レポート型）"
-check_forbidden_warning "Week 1-2 共同制作" "260514 夜 R/C v2.0 で廃止（Week 1 オンボ 90 分のみに圧縮）" "Week 1 オンボ 90 分 + 月次運用サイクル"
-check_forbidden_warning "採用基盤実装書 12 要素" "260514 夜 Recruit v2.0 で内部資産化（LP・営業資料から削除）" "集まる力メソッド 6 本"
-check_forbidden_warning "CU-1" "260514 夜 Orbit AI エージェント命名統一（CU- → OT-）" "OT-1〜OT-6（Orbit Tools）"
-check_forbidden_warning "CU-2" "260514 夜 Orbit AI エージェント命名統一（CU- → OT-）" "OT-2（Orbit Tools）"
-check_forbidden_warning "CU-3" "260514 夜 Orbit AI エージェント命名統一（CU- → OT-）" "OT-3（Orbit Tools）"
-
-# 260514 v5.0 価格体系移行（プロジェクト型 → 月額制・最低 6 ヶ月）
-# Recruit 80 万 3 ヶ月 → 月 35 万・最低 6 ヶ月
-check_forbidden "80 万・3 ヶ月" "260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）" "月 35 万・最低 6 ヶ月"
-check_forbidden "80 万円 ／ 3 ヶ月" "260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）" "月 35 万・最低 6 ヶ月"
-check_forbidden "80 万 ／ 3 ヶ月" "260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）" "月 35 万・最低 6 ヶ月"
-check_forbidden "3 ヶ月 80 万" "260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）" "月 35 万・最低 6 ヶ月"
-check_forbidden "3 ヶ月総額 80 万" "260514 v5.0 過渡期 R5 表記廃止" "月 35 万・最低 6 ヶ月"
-check_forbidden "月 26.7 万" "260514 v5.0 過渡期 R5 表記廃止" "月 35 万"
-check_forbidden "月 27 万" "260514 v5.0 過渡期 R5 表記廃止" "月 35 万"
-# Cultivate 150 万 6 ヶ月 → 月 50 万・最低 6 ヶ月
-check_forbidden "150 万・6 ヶ月" "260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）" "月 50 万・最低 6 ヶ月"
-check_forbidden "150 万円 ／ 6 ヶ月" "260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）" "月 50 万・最低 6 ヶ月"
-check_forbidden "150 万 ／ 6 ヶ月" "260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）" "月 50 万・最低 6 ヶ月"
-check_forbidden "6 ヶ月 150 万" "260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）" "月 50 万・最低 6 ヶ月"
-check_forbidden "6 ヶ月総額 150 万" "260514 v5.0 過渡期 R5 表記廃止" "月 50 万・最低 6 ヶ月"
-check_forbidden "月 25 万・6 ヶ月" "260514 v5.0 過渡期 R5 表記廃止（Cultivate）" "月 50 万・最低 6 ヶ月"
-# R+C 複合 Shift 220 万 9 ヶ月 → 月 85 万・段階移行型
-check_forbidden "220 万・9 ヶ月" "260514 v5.0 価格体系移行（R+C 複合旧プロジェクト型）" "R+C 月 85 万・段階移行型"
-check_forbidden "220 万円・9 ヶ月" "260514 v5.0 価格体系移行（R+C 複合旧プロジェクト型）" "R+C 月 85 万・段階移行型"
-check_forbidden "9 ヶ月総額 220 万" "260514 v5.0 過渡期 R5 表記廃止" "R+C 月 85 万・段階移行型"
-check_forbidden "9 ヶ月 220 万" "260514 v5.0 過渡期 R5 表記廃止" "R+C 月 85 万・段階移行型"
-check_forbidden "月 24.4 万" "260514 v5.0 過渡期 R5 表記廃止（Shift）" "R+C 月 85 万・段階移行型"
-check_forbidden "10 万割引" "260514 v5.0 価格体系移行（R+C 旧 10 万割引運用廃止）" "段階移行型・最低 6 ヶ月"
-check_forbidden "10 万円割引" "260514 v5.0 価格体系移行（R+C 旧 10 万割引運用廃止）" "段階移行型・最低 6 ヶ月"
-# 260509 v0.4 旧用語検出（C-5 高/中/低 → A/B/C/D 4 象限）
-check_forbidden "C-5 中判定" "v0.4 で覚悟確認 4 象限化（B 結論先送り型 / C 単線思考型）" "覚悟確認 B 型 / C 型"
-check_forbidden "C-5 高判定" "v0.4 で覚悟確認 4 象限化（A 完全覚悟型）" "覚悟確認 A 型"
-check_forbidden "C-5 低判定" "v0.4 で覚悟確認 4 象限化（D 完全 have to 型）" "覚悟確認 D 型"
-# 260509 v0.4 引力項目数（7 → 8 に拡張）。260512 LP 5 ファイル 8 項目化完了 → 検出再有効化
-check_forbidden "引力 7 項目" "v0.4 で 8 項目化（PO Fit 認識・心理的安全性 4 行動追加）" "引力 8 項目"
-check_forbidden "引力7項目" "v0.4 で 8 項目化" "引力 8 項目"
-
-# 260511 朝 SSOT §8 同期追加（廃止用語の機械検出強化）
-check_forbidden "Why × 動詞 × 環境" "260430 公開語彙統一で廃止" "Why × 才能 × 偏愛"
-check_forbidden "Why×動詞×環境" "260430 公開語彙統一で廃止" "Why × 才能 × 偏愛"
-check_forbidden "環境ズレ型" "260430 4 型再設計で廃止" "才能ズレ型 / 偏愛ズレ型"
-check_forbidden "動詞ズレ型" "260430 4 型再設計で廃止" "才能ズレ型 / 偏愛ズレ型"
-check_forbidden "32 年" "経験年数の創作表記（幼稚園起点計算）禁止" "30 年以上"
-check_forbidden "辞退理由の事前ブロック" "260501 改名（症状起点 → 構造起点）" "期待値ギャップの事前握り"
-check_forbidden "辞退ブロック" "260501 改名" "期待値ギャップの事前握り"
-check_forbidden "磁化する" "260501 一般語化（Shift R 動詞）" "吸い寄せられる"
-check_forbidden "躍動する OS を実装する" "260501 OS 過多回避（Shift C 動詞）" "躍動する土壌を実装する"
-check_forbidden "躍動するOSを実装する" "260501 OS 過多回避" "躍動する土壌を実装する"
-check_forbidden "口説きフレーズ 3 種" "260430 BP 主成果物 5 種化" "口説きフレーズ 5 種"
-check_forbidden "ハンバーガー型 1on1" "260509 JAFCO 反映時 業界一般用語化（カンリー固有語）" "謝罪 → 指摘 → 感謝の 1on1 構造"
-check_forbidden "リレーションアセット" "260509 JAFCO 反映時 業界一般用語化（VC 用語寄り）" "採用接続資産"
-check_forbidden "採用骨格" "260508 夜 業界一般用語化（人体メタファー禁則）" "採用基盤"
-check_forbidden "動く採用骨格" "260508 夜 業界一般用語化" "動く採用基盤"
-check_forbidden "引力場" "260508 夜 業界一般用語化（経営者認知負荷軽減）" "採用基盤／組織の魅力"
-# 260511 朝 LP 修正完了（Recruit/Cultivate FAQ「採用基盤の引力場」→「採用基盤」）→ エラーレベル復活
-
-# 260511 朝 SSOT 違反検出（Why × 才能 × 偏愛 は社長個人の引力源・会社/組織には適用禁止）
-check_forbidden "会社の Why × 才能 × 偏愛" "Why × 才能 × 偏愛 は社長個人の引力源 → 会社には適用できない（SSOT §2 違反）" "社長の引力（Why × 才能 × 偏愛）に共鳴する人材 + 会社の Why と整合"
-check_forbidden "会社のWhy × 才能 × 偏愛" "SSOT §2 違反（Why × 才能 × 偏愛 は個人軸専用）" "社長の引力（Why × 才能 × 偏愛）"
-check_forbidden "組織の Why × 才能 × 偏愛" "SSOT §2 違反（個人軸専用）" "社長の引力（Why × 才能 × 偏愛）"
-check_forbidden "組織のWhy × 才能 × 偏愛" "SSOT §2 違反（個人軸専用）" "社長の引力（Why × 才能 × 偏愛）"
+scan_forbidden_section "1"
 
 [ "$ERRORS" -eq 0 ] && echo -e "${GRN}✓${NC} 禁止語なし"
 
 # ----------------------------------------------------------------------
 # 1.5 移行期警告（260430 SSOT 追加・LP 修正タスク待ち）
+# 　 警告語リストは forbidden_terms.tsv 外出し（260514 夜 refactor）
 # ----------------------------------------------------------------------
 echo ""
 echo "[1.5] 移行期警告（260430 SSOT 追加・LP 修正タスク待ち）"
 
-check_forbidden_warning "Why × 動詞 × 環境" "260430 公開語彙統一で廃止" "Why × 才能 × 偏愛"
-check_forbidden_warning "環境ズレ型" "260430 4 型再設計" "才能ズレ型"
-check_forbidden_warning "動詞ズレ型" "260430 4 型再設計" "偏愛ズレ型"
-
-# 260503 二層命名運用（B 案）／260505 Activate→Cultivate：対外 HTML（05_プロダクト/ 配下）で内的呼称・旧外的命名が残っていたら警告
-# - LP / WP / コーポレートでは外的呼称「Gravity Recruit / Gravity Cultivate / Gravity Shift」が正
-# - 「Shift R」「Shift C」「Shift Full」「Gravity Shift R」「Gravity Shift C」は対外文脈で禁則
-# - 「Gravity Activate」「Activate」「/gravity-activate/」は 260505 廃止・対外文脈で禁則
-# - 09_会社OS / project memory / 仕様書（.md）は内的呼称継続のため対象外（--include="*.html" で限定）
-check_forbidden_warning "Gravity Shift R" "260503 二層命名運用（対外）" "Gravity Recruit"
-check_forbidden_warning "Gravity Shift C" "260503 二層命名運用（対外）" "Gravity Cultivate"
-check_forbidden_warning "Shift R" "260503 二層命名運用（対外・社内呼称）" "Gravity Recruit"
-check_forbidden_warning "Shift C" "260503 二層命名運用（対外・社内呼称）" "Gravity Cultivate"
-check_forbidden_warning "Shift Full" "260503 二層命名運用（対外・社内呼称）" "Gravity Shift（R+A 複合）"
-check_forbidden_warning "/gravity-shift-a/" "260503 β 並列型 URL 構造" "/gravity-cultivate/"
-# 260505 Activate→Cultivate 外的命名変更（旧外的呼称・URL の対外残存検出）
-check_forbidden_warning "Gravity Activate" "260505 外的命名変更（Activate→Cultivate）" "Gravity Cultivate"
-check_forbidden_warning "/gravity-activate/" "260505 外的命名変更（URL 変更・旧 URL は 301 リダイレクト）" "/gravity-cultivate/"
-check_forbidden_warning "Activate" "260505 外的命名変更（介入主義 Activate を撤廃・思想整合は Cultivate）" "Cultivate"
-
-# 260506 P0-4 機能配分 v1.0 §6.2 追加：内的呼称 Shift A の対外残存検出（260505 Cultivate 命名変更で内的呼称も Shift C に統一済）
-check_forbidden_warning "Shift A" "260505 内的呼称も Shift C に統一済（Cultivate 命名変更時）" "Shift C（社内）or Gravity Cultivate（対外）"
-# Scan LP で発見した「Gravity Recruit／A（躍動組織）」型の残存（260506 修正済・再発防止）
-check_forbidden "／A（躍動" "260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）" "／Gravity Cultivate（躍動組織）"
-check_forbidden "／ A（躍動" "260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）" "／ Gravity Cultivate（躍動組織）"
-
-# 260506 P0-3 ペルソナ v1.0 §「適合外（明示的に避けるペルソナ）」由来：
-# 不適合ペルソナ語彙（ジャイアニズム × バキバキ × カリスマ採用型）の対外露出は禁則
-check_forbidden_warning "ジャイアニズム" "P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）" "（対外コピーから削除）"
-check_forbidden_warning "カリスマ採用" "P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）" "（対外コピーから削除）"
-
-# 260506 P5 声トーンガイド v1.0 §2.2 由来：一人称ルール違反検知
-# 「我々」「弊社」型は石井 ≠ GrowthFix の印象を作って権威希薄化
-check_forbidden_warning "我々 GrowthFix" "P5 声トーンガイド §2.2 違反（複数形は石井 ≠ GrowthFix の印象を作る・権威希薄化）" "GrowthFix（私）は or GrowthFix の Gravity シリーズは"
-check_forbidden_warning "弊社の Gravity" "P5 声トーンガイド §2.2 違反（同上）" "GrowthFix の Gravity"
-
-# 260506 P5 声トーンガイド v1.0 §3 由来：主語チェック違反検知（堀田 #10）
-# 経営者は「組織課題」「組織の問題」にお金を出さない。「事業の成長」「採用基盤」「優秀人材獲得」を主語にする
-check_forbidden_warning "組織の問題を解決" "P5 声トーンガイド §3 主語チェック違反（堀田 #10・経営者は組織課題に金を出さない）" "事業の成長 / 採用基盤 / 優秀人材獲得"
+scan_forbidden_section "1.5"
 
 [ "$WARNINGS" -eq 0 ] && echo -e "${GRN}✓${NC} 移行期警告なし"
 
@@ -451,8 +327,8 @@ echo ""
 echo "[7] 自己紹介ストーリー SSOT 整合（260506 P2 物語アーク統一）"
 
 # 7.1 旧自虐軸文体検出（260506 P2 で B 版に統合済・コーポレート Profile セクション）
-check_forbidden_warning "他人の組織のことしか考えていない" "P2 旧自己紹介文体（260506 B 版に統合済）" "30 年以上、組織の引力 ── 人が集まり、活きる力を追いかけてきた"
-check_forbidden_warning "本音で生きられていない自分に絶望した。<br>その原体験" "P2 旧自己紹介文体（260506 B 版本文と原体験 1 行に統合済）" "B 版 + 原体験 1 行（260506 SSOT 整合形）"
+# 　 警告語リストは forbidden_terms.tsv 外出し（260514 夜 refactor）
+scan_forbidden_section "7.1"
 
 # 7.2 自己紹介核心キーワード密度（profile / 6 サービス LP / WP）
 check_intro_keywords() {
