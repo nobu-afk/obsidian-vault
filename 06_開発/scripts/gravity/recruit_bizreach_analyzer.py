@@ -34,13 +34,11 @@ import os
 import sys
 import csv
 import json
-import hashlib
 import argparse
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CONFIG_PATH = os.path.join(SCRIPT_DIR, "..", "config", "config_claude.json")
-JST = timezone(timedelta(hours=9))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import call_claude, load_config, mask_id, JST  # noqa: E402
 
 SUBJECT_PATTERNS = {
     "名前呼びかけ型": lambda s: "さん" in s[:10],
@@ -63,33 +61,6 @@ BENCHMARK_REPLY_RATE = {
     "医療":   0.09,
     "その他":  0.07,
 }
-
-
-def _load_anthropic():
-    """anthropic SDK を遅延ロード"""
-    try:
-        import anthropic
-        return anthropic
-    except ImportError:
-        return None
-
-
-def _load_config() -> dict:
-    """config_claude.json からAPIキーを読み込む"""
-    path = os.path.normpath(CONFIG_PATH)
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"[WARN] config_claude.json 読み込み失敗: {e}", file=sys.stderr)
-        return {}
-
-
-def _mask_id(raw_id: str, enabled: bool = True) -> str:
-    """候補者 ID を SHA-256 ハッシュ先頭 8 文字にマスク（enabled=False で素通し）"""
-    if not enabled:
-        return raw_id
-    return hashlib.sha256(raw_id.encode()).hexdigest()[:8]
 
 
 def _classify_subject(subject: str) -> str:
@@ -159,7 +130,7 @@ def _load_csv(path: str, mask: bool = True) -> list[dict]:
     with open(path, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row["候補者ID"] = _mask_id(row.get("候補者ID", ""), mask)
+            row["候補者ID"] = mask_id(row.get("候補者ID", ""), mask)
             rows.append(row)
     return rows
 
@@ -228,10 +199,6 @@ def _analyze(rows: list[dict], target_industry: str | None) -> dict:
 
 def _call_claude(analysis: dict, api_key: str) -> str:
     """Claude API で業界特化文面テンプレート 3 本を生成する"""
-    anthropic = _load_anthropic()
-    if anthropic is None:
-        return "[ERROR] anthropic SDK が未インストールです（pip install anthropic）"
-
     top5 = analysis.get("cross_top5", [])
     if not top5:
         return "[INFO] クロス分析結果がないため文面生成をスキップしました"
@@ -259,15 +226,12 @@ def _call_claude(analysis: dict, api_key: str) -> str:
         f"テンプレート 3 種類を出力してください。"
     )
 
-    client = anthropic.Anthropic(api_key=api_key)
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
+    return call_claude(
+        system_prompt="あなたは採用コンサルタントです。Bizreach スカウト文面の返信率最大化が専門です。",
+        user_prompt=prompt,
         max_tokens=1500,
-        system="あなたは採用コンサルタントです。Bizreach スカウト文面の返信率最大化が専門です。",
-        messages=[{"role": "user", "content": prompt}],
-        extra_headers={"anthropic-beta": "prompt-caching-2024-07-31"},
+        api_key=api_key,
     )
-    return message.content[0].text
 
 
 def _build_report(analysis: dict, template_text: str, dry_run: bool) -> str:
@@ -376,7 +340,7 @@ def main() -> None:
         rows = _create_sample_data(args.demo_size)
         if args.mask:
             for r in rows:
-                r["候補者ID"] = _mask_id(r["候補者ID"], True)
+                r["候補者ID"] = mask_id(r["候補者ID"], True)
     else:
         print(f"[INFO] CSV 読み込み: {args.input} (mask={args.mask})", file=sys.stderr)
         try:
@@ -394,7 +358,11 @@ def main() -> None:
 
     template_text = ""
     if not args.dry_run:
-        config = _load_config()
+        try:
+            config = load_config()
+        except (FileNotFoundError, ValueError) as e:
+            print(f"[WARN] config_claude.json 読み込み失敗: {e}", file=sys.stderr)
+            config = {}
         api_key = config.get("api_key", "")
         if not api_key:
             print("[WARN] api_key が config_claude.json に見つかりません。文面生成をスキップします。", file=sys.stderr)

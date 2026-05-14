@@ -29,9 +29,8 @@ import sys
 import json
 import argparse
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, SCRIPT_DIR)
-from _cultivate_common import (
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import (
     call_claude, load_input_json, save_output, save_json,
     mask_name, now_jst_str, parse_claude_json, md_h1, md_h2, md_h3,
     md_table, md_blockquote, md_footer,

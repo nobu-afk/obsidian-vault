@@ -31,15 +31,15 @@ import os
 import sys
 import json
 import argparse
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from enum import IntEnum
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import JST, now_jst_str  # noqa: E402
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR   = os.path.join(SCRIPT_DIR, "orbit_data")
 REPORT_DIR = os.path.join(SCRIPT_DIR, "orbit_reports")
-
-JST = timezone(timedelta(hours=9))
 
 
 def _load_matplotlib():

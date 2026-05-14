@@ -1,14 +1,12 @@
 """
-Gravity Cultivate — 共通処理モジュール（v1.0・260514）
+GrowthFix Claude API 共通クライアント
 
-CT-1 / CT-2 / CT-3 から import して使う共通処理：
-  - Claude API ロード・呼び出し（prompt caching 有効）
-  - config_claude.json 読み込み
-  - Markdown レポート整形ユーティリティ
-  - SHA256 短縮ハッシュ（--mask フラグ用）
-  - JST 日時取得
+gravity/ (cultivate / recruit) と orbit/ から共有する API クライアント。
+prompt caching は新形式 (`cache_control: ephemeral`) に統一。
 
-依存: anthropic（pip install anthropic）、標準ライブラリのみ
+import 例:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from _common.claude_client import call_claude, load_config, mask_name, JST
 """
 
 import os
@@ -29,13 +27,27 @@ def now_jst_str() -> str:
 
 
 def short_hash(text: str, length: int = 8) -> str:
-    return hashlib.sha256(text.encode()).hexdigest()[:length]
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:length]
 
 
-def mask_name(name: str, enabled: bool) -> str:
+def mask_name(name: str, enabled: bool = True, prefix: str = "ID-", length: int = 8) -> str:
     if not enabled or not name:
         return name
-    return f"ID-{short_hash(name)}"
+    return f"{prefix}{short_hash(name, length)}"
+
+
+def mask_id(raw_id: str, enabled: bool = True, length: int = 8) -> str:
+    if not enabled or not raw_id:
+        return raw_id
+    return short_hash(raw_id, length)
+
+
+def mask_email(email: str, enabled: bool = True) -> str:
+    if not enabled or not email:
+        return email
+    if "@" in email:
+        return "@" + email.split("@", 1)[1]
+    return "@unknown"
 
 
 def load_config() -> dict:
@@ -51,13 +63,6 @@ def load_config() -> dict:
         raise ValueError(f"config_claude.json の JSON が不正です: {e}") from e
 
 
-def parse_claude_json(raw: str) -> dict:
-    match = re.search(r"```json\s*(.*?)\s*```", raw, re.DOTALL)
-    if match:
-        return json.loads(match.group(1))
-    return json.loads(raw)
-
-
 def load_input_json(path: str) -> dict:
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -66,6 +71,13 @@ def load_input_json(path: str) -> dict:
         raise FileNotFoundError(f"入力 JSON が見つかりません: {path}") from e
     except json.JSONDecodeError as e:
         raise ValueError(f"入力 JSON の形式が不正です: {e}") from e
+
+
+def parse_claude_json(raw: str) -> dict:
+    match = re.search(r"```json\s*(.*?)\s*```", raw, re.DOTALL)
+    if match:
+        return json.loads(match.group(1))
+    return json.loads(raw)
 
 
 def save_output(content: str, path: str) -> None:
@@ -96,7 +108,12 @@ def call_claude(
     user_prompt: str,
     dry_run: bool = False,
     max_tokens: int = 4096,
+    api_key: str = "",
 ) -> str:
+    """Claude API 呼び出し（prompt caching: cache_control ephemeral 新形式）
+
+    api_key が空文字なら load_config() から取得。
+    """
     if dry_run:
         print("[DRY-RUN] Claude API 呼び出しをスキップします。", file=sys.stderr)
         return "[DRY-RUN] mock 出力：Claude API を呼び出した場合の結果がここに入ります。"
@@ -110,8 +127,9 @@ def call_claude(
         print("[INFO]  --dry-run フラグで API 呼び出しをスキップできます。", file=sys.stderr)
         sys.exit(1)
 
-    cfg = load_config()
-    api_key = cfg.get("api_key", "")
+    if not api_key:
+        cfg = load_config()
+        api_key = cfg.get("api_key", "")
     if not api_key:
         print("[ERROR] config_claude.json に api_key が設定されていません。", file=sys.stderr)
         sys.exit(1)

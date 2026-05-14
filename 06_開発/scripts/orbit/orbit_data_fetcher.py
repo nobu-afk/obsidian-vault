@@ -36,18 +36,17 @@ import os
 import sys
 import csv
 import json
-import hashlib
 import argparse
 import io
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta
 from typing import Optional
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import mask_name as _mask_member, mask_email, JST  # noqa: E402
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR   = os.path.join(SCRIPT_DIR, "orbit_data")
 CONFIG_DIR = os.path.join(SCRIPT_DIR, "..", "config")
-
-JST = timezone(timedelta(hours=9))
 
 GRAVITY_SCORE_KEYS = [
     "recruitment_pipeline",
@@ -84,19 +83,11 @@ M008,中村あき,nakamura@demo.co.jp,マーケティング,3.1,0,9,true,false
 
 
 def _mask_name(name: str, enabled: bool = True) -> str:
-    """氏名を SHA-256 ハッシュ前 6 桁でマスキング（enabled=False で素通し）"""
-    if not enabled:
-        return name
-    return "M-" + hashlib.sha256(name.encode("utf-8")).hexdigest()[:6]
+    return _mask_member(name, enabled, prefix="M-", length=6)
 
 
 def _mask_email(email: str, enabled: bool = True) -> str:
-    """メールアドレスをドメインのみに変換（enabled=False で素通し）"""
-    if not enabled:
-        return email
-    if "@" in email:
-        return "@" + email.split("@", 1)[1]
-    return "@unknown"
+    return mask_email(email, enabled) if email else "@unknown"
 
 
 def _score_from_float(val: float, thresholds: tuple = (3.5, 2.5, 1.5)) -> str:

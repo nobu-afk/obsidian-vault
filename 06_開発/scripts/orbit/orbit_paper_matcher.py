@@ -34,18 +34,17 @@ import os
 import sys
 import json
 import argparse
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from typing import Optional
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import (  # noqa: E402
+    parse_claude_json, JST, MODEL as CLAUDE_MODEL, CONFIG_PATH,
+)
 
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR    = os.path.join(SCRIPT_DIR, "orbit_data")
-CONFIG_DIR  = os.path.join(SCRIPT_DIR, "..", "config")
-CONFIG_PATH = os.path.join(CONFIG_DIR, "config_claude.json")
 PAPERS_DB_PATH = os.path.join(DATA_DIR, "orbit_papers_db.json")
-
-JST = timezone(timedelta(hours=9))
-CLAUDE_MODEL = "claude-sonnet-4-6"
 
 EMBEDDED_PAPERS_DB = {
     "version": "1.0",
@@ -367,14 +366,8 @@ def call_claude_api(system_prompt: str, user_message: str, api_key: str) -> dict
 
     raw_text = response.content[0].text.strip()
 
-    if raw_text.startswith("```"):
-        raw_text = raw_text.split("```", 2)[1]
-        if raw_text.startswith("json"):
-            raw_text = raw_text[4:].strip()
-        raw_text = raw_text.rsplit("```", 1)[0].strip()
-
     try:
-        result = json.loads(raw_text)
+        result = parse_claude_json(raw_text)
     except json.JSONDecodeError:
         result = {"raw_response": raw_text, "parse_error": "JSON parse failed"}
 

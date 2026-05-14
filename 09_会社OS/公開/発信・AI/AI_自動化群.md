@@ -456,7 +456,7 @@ AI 活用で個性が希薄化していないか：
 | **Cultivate** | CT-1 学習磁場（Vision Engine）| `cultivate/cultivate_vision_engine.py` | 282 | 経営者 Why/才能/偏愛 → 文化 3 層 + 8 類型 |
 | Cultivate | CT-2 挑戦磁場（Values × Policy）| `cultivate/cultivate_values_policy.py` | 266 | バリュー 10 × ポリシー 50 自動生成 |
 | Cultivate | CT-3 結束磁場（Manager Copilot）| `cultivate/cultivate_manager_copilot.py` | 362 | コンプレックス補完 + 4 マネジメント軸マトリクス |
-| 共通基盤 | _cultivate_common.py | `cultivate/_cultivate_common.py` | 163 | Claude API / config / MD 整形 |
+| 共通基盤 | claude_client.py | `scripts/_common/claude_client.py` | 200 | Claude API / config / MD 整形 / mask（260514 _cultivate_common.py から昇格・recruit/orbit 共有化）|
 
 **合計：3,412 行 / 9 ファイル**（8 エージェント + 1 共通モジュール）
 
@@ -507,7 +507,7 @@ parser.add_argument('--mask', action=argparse.BooleanOptionalAction, default=Tru
 1. **3 並列 script-writer Sonnet パターン**：大規模スクリプト群（8 ファイル / 3,412 行）を **1.5 時間で同時実装可能**。今後の MVP 一括実装の標準フロー
 2. **--mask フラグ統一は OT-1 / RT-4 両方で同パターン採用**：v0.2 以降の全エージェントで同パターン踏襲（コピペ可能な argparse.BooleanOptionalAction）
 3. **「scope crossover を防ぐ」=「実装ではなく報告で返す」原則**は 260503 lp-implementer 知見を継承（agent A/B/C が各カテゴリのみに集中）
-4. **共通モジュール（_cultivate_common.py）の分離パターン**：Claude API 呼び出し + config 読込 + MD 整形を 1 ファイルに集約 → Cultivate 系 3 本の重複コード削減（パターン展開：Orbit/Recruit 系も v0.2 で共通化検討）
+4. **共通モジュール（scripts/_common/claude_client.py）の分離パターン**：Claude API 呼び出し + config 読込 + MD 整形 + mask 関数を 1 ファイルに集約 → Cultivate / Recruit / Orbit 系 8 ファイルの重複コード削減（260514 夜 `_cultivate_common.py` から昇格・5 ファイル合計 150+ 行削減・prompt caching 新形式 `cache_control: ephemeral` に統一）
 5. **prompt caching の積極活用**：OT-2 で論文 DB 15 本 × タレマネを Claude API に渡す際、`cache_control: ephemeral` でコスト 60% 削減
 6. **デモデータの母数戦略**：RT-4 で 20 件 → 60 件に拡充して業界別クロス分析の統計的安定性確保（1 件サンプル 100% の異常値解消）
 

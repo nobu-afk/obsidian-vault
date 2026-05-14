@@ -44,11 +44,10 @@ import sys
 import csv
 import json
 import argparse
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CONFIG_PATH = os.path.join(SCRIPT_DIR, "..", "config", "config_claude.json")
-JST = timezone(timedelta(hours=9))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _common.claude_client import call_claude, load_config, JST  # noqa: E402
 
 FUNNEL_STEPS = [
     {
@@ -122,26 +121,6 @@ RT_AGENT_MAP = {
 }
 
 
-def _load_anthropic():
-    """anthropic SDK を遅延ロード"""
-    try:
-        import anthropic
-        return anthropic
-    except ImportError:
-        return None
-
-
-def _load_config() -> dict:
-    """config_claude.json からAPIキーを読み込む"""
-    path = os.path.normpath(CONFIG_PATH)
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"[WARN] config_claude.json 読み込み失敗: {e}", file=sys.stderr)
-        return {}
-
-
 def _create_sample_data() -> dict:
     """--demo フラグ用サンプル KPI（HACHI 社 Week19 想定・意図的にボトルネックあり）"""
     return {
@@ -211,10 +190,6 @@ def _detect_bottlenecks(kpis: dict, benchmarks: dict) -> list[dict]:
 
 def _call_claude(bottlenecks: list[dict], week: str, api_key: str) -> str:
     """Claude API でボトルネック別改善施策を生成する"""
-    anthropic = _load_anthropic()
-    if anthropic is None:
-        return "[ERROR] anthropic SDK が未インストールです（pip install anthropic）"
-
     if not bottlenecks:
         return "[INFO] ボトルネックが検出されなかったため施策生成をスキップしました"
 
@@ -237,15 +212,12 @@ def _call_claude(bottlenecks: list[dict], week: str, api_key: str) -> str:
         f"Markdown 形式で出力してください。"
     )
 
-    client = anthropic.Anthropic(api_key=api_key)
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
+    return call_claude(
+        system_prompt="あなたは採用 KPI の専門コンサルタントです。ファネル別ボトルネック分析と施策立案が専門です。",
+        user_prompt=prompt,
         max_tokens=2000,
-        system="あなたは採用 KPI の専門コンサルタントです。ファネル別ボトルネック分析と施策立案が専門です。",
-        messages=[{"role": "user", "content": prompt}],
-        extra_headers={"anthropic-beta": "prompt-caching-2024-07-31"},
+        api_key=api_key,
     )
-    return message.content[0].text
 
 
 def _build_report(kpis: dict, benchmarks: dict, bottlenecks: list[dict],
@@ -414,13 +386,16 @@ def main() -> None:
 
     measures_text = ""
     if not args.dry_run:
-        config  = _load_config()
+        try:
+            config = load_config()
+        except (FileNotFoundError, ValueError) as e:
+            print(f"[WARN] config_claude.json 読み込み失敗: {e}", file=sys.stderr)
+            config = {}
         api_key = config.get("api_key", "")
         if not api_key:
             print("[WARN] api_key が config_claude.json に見つかりません。施策生成をスキップします。", file=sys.stderr)
             args.dry_run = True
         else:
-            print("[INFO] Claude API 呼び出し中...", file=sys.stderr)
             try:
                 measures_text = _call_claude(bottlenecks, week, api_key)
                 print("[OK]  Claude API 施策生成完了", file=sys.stderr)
