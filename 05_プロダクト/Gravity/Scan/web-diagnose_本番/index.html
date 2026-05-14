@@ -1233,6 +1233,16 @@ body {
     <p class="result-section-title">NEXT ACTION — 推奨サービス</p>
     <div id="next-action-container"></div>
 
+    <!-- 4-4.5 PDF ダウンロード（22-DL・260514 朝・html2pdf.js）-->
+    <div class="result-cta-row" style="margin-bottom:16px;">
+      <button type="button" class="btn-download-pdf" id="btn-download-pdf" onclick="ScanApp.downloadPdf()">
+        📄 診断レポート PDF をダウンロード
+      </button>
+    </div>
+    <p class="result-cta-note" style="margin-top:-4px;margin-bottom:24px;text-align:center;color:#64748b;font-size:13px;">
+      A4 PDF ・ 4 型判定 + 3 軸スコア + 推奨サービス収録 ・ 上司・経営チームへの共有用
+    </p>
+
     <!-- 4-5. CTA（v0.3 パルス消費型・260513 改修） -->
     <!-- プライマリ：30 分相談（最大型・最低障壁） -->
     <div class="result-cta-row">
@@ -1834,6 +1844,24 @@ const ScanApp = (() => {
       }, 120);
     });
 
+    // SVG レーダーチャート更新（22-DL・260514 朝・3 軸ポリゴン頂点計算）
+    // 中心 (160, 160) / 集まる軸 上方向 / 躍動軸 右下方向 / 留まる軸 左下方向
+    const radarPolygon = document.getElementById('radar-score');
+    if (radarPolygon) {
+      const cx = 160, cy = 160;
+      // 集まる軸（上・距離 120）
+      const px1 = cx;
+      const py1 = cy - 120 * (collectPct / 100);
+      // 躍動軸（右下・距離: x +130, y +60）
+      const px2 = cx + 130 * (vitalityPct / 100);
+      const py2 = cy +  60 * (vitalityPct / 100);
+      // 留まる軸（左下・距離: x -130, y +60）
+      const px3 = cx - 130 * (retainPct / 100);
+      const py3 = cy +  60 * (retainPct / 100);
+      const points = `${px1.toFixed(1)},${py1.toFixed(1)} ${px2.toFixed(1)},${py2.toFixed(1)} ${px3.toFixed(1)},${py3.toFixed(1)}`;
+      radarPolygon.setAttribute('points', points);
+    }
+
     // Bandura CE パターン
     const ceCont = document.getElementById('ce-pattern-container');
     if (ceCont) {
@@ -1872,12 +1900,41 @@ const ScanApp = (() => {
     }
   }
 
+  /* --- PDF ダウンロード（22-DL・260514 朝・html2pdf.js）--- */
+  function downloadPdf() {
+    if (typeof html2pdf === 'undefined') {
+      toast('PDF 生成ライブラリ読み込み中。数秒後に再試行してください。');
+      return;
+    }
+    const btn = document.getElementById('btn-download-pdf');
+    if (btn) btn.disabled = true;
+    const filename = 'Gravity-Scan-診断レポート_' +
+      (userData.company || '組織') + '_' +
+      new Date().toISOString().slice(0, 10) + '.pdf';
+    const element = document.getElementById('screen-result');
+    const opt = {
+      margin:       [10, 10, 10, 10],
+      filename:     filename,
+      image:        { type: 'jpeg', quality: 0.95 },
+      html2canvas:  { scale: 2, useCORS: true, logging: false },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] },
+    };
+    html2pdf().set(opt).from(element).save().then(() => {
+      if (btn) btn.disabled = false;
+      toast('PDF をダウンロードしました');
+    }).catch((e) => {
+      if (btn) btn.disabled = false;
+      toast('PDF 生成に失敗しました。ブラウザを更新して再試行してください。');
+    });
+  }
+
   /* --- 初期化 --- */
   function init() {
     bindForm();
   }
 
-  return { startDiagnosis, goBack, goNext, goToDetail, init };
+  return { startDiagnosis, goBack, goNext, goToDetail, downloadPdf, init };
 })();
 
 document.addEventListener('DOMContentLoaded', () => ScanApp.init());
