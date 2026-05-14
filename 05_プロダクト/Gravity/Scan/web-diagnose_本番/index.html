@@ -983,7 +983,39 @@ body {
   .hero-h1 { font-size: 42px; }
   .quiz-body { padding: 44px 32px 56px; }
 }
+
+/* ============================================================
+   PDF レポートテンプレ（22-DL・260514 朝 SCAN 廃止対応）
+   html2pdf.js でブラウザ側 PDF 化
+============================================================ */
+.btn-download-pdf {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #b8a88a; color: #ffffff;
+  border: none; border-radius: 8px;
+  padding: 14px 28px; font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+  letter-spacing: 0.02em;
+}
+.btn-download-pdf:hover { background: #a59879; }
+.btn-download-pdf:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.radar-chart-wrap {
+  display: flex; justify-content: center; align-items: center;
+  margin: 24px 0 16px;
+}
+.radar-chart-svg { max-width: 320px; width: 100%; height: auto; }
+
+@media print {
+  body { background: #ffffff !important; }
+  .quiz-body, .hero-eyebrow, .btn-back, .btn-restart,
+  #toast, .skip-link, .axis-bar-bg, .axis-bar-fill { display: none !important; }
+  .screen { display: block !important; }
+  .axis-score-row { page-break-inside: avoid; }
+}
 </style>
+
+<!-- html2pdf.js（22-DL: ブラウザ側 PDF 生成・260514 朝）-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
 </head>
 <body>
 
@@ -1131,9 +1163,36 @@ body {
 
   <div class="result-body">
 
-    <!-- 4-2. 軸スコアグラフ -->
-    <p class="result-section-title">AXIS SCORE — 2 軸スコア</p>
+    <!-- 4-2. 軸スコアグラフ（22-DL: SVG レーダーチャート追加・260514 朝）-->
+    <p class="result-section-title">AXIS SCORE — 3 軸スコア（集まる × 躍動 × 留まる）</p>
     <div class="result-card">
+      <!-- SVG 3 軸レーダーチャート（純実装・依存ゼロ） -->
+      <div class="radar-chart-wrap">
+        <svg class="radar-chart-svg" id="radar-chart" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" aria-label="3 軸スコアレーダーチャート">
+          <!-- 背景ガイド三角形（100% / 75% / 50% / 25%）-->
+          <g id="radar-guides" fill="none" stroke="#e2e8f0" stroke-width="1">
+            <polygon points="160,40 290,220 30,220" />
+            <polygon points="160,80 250,200 70,200" />
+            <polygon points="160,120 210,180 110,180" />
+            <polygon points="160,160 170,160 150,160" />
+          </g>
+          <!-- 軸線 -->
+          <g stroke="#cbd5e1" stroke-width="1">
+            <line x1="160" y1="160" x2="160" y2="40" />
+            <line x1="160" y1="160" x2="290" y2="220" />
+            <line x1="160" y1="160" x2="30" y2="220" />
+          </g>
+          <!-- スコアポリゴン（JS で点を更新） -->
+          <polygon id="radar-score" fill="rgba(184,168,138,0.35)" stroke="#b8a88a" stroke-width="2" points="160,160 160,160 160,160" />
+          <!-- 軸ラベル -->
+          <text x="160" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">集まる</text>
+          <text x="298" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">躍動</text>
+          <text x="22" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">留まる</text>
+          <!-- 中心ドット -->
+          <circle cx="160" cy="160" r="3" fill="#475569" />
+        </svg>
+      </div>
+
       <div class="axis-score-row">
         <div class="axis-score-label">
           <span class="axis-score-name">集まる軸（採用基盤）</span>
