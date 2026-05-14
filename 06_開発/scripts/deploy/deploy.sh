@@ -19,15 +19,33 @@
 
 set -e
 
+# Vaultルート
+VAULT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
+
 # FTP設定（FTP情報_メインFTPアカウント.md より）
 FTP_HOST="sv16489.xserver.jp"
 FTP_USER="xs992119"
-FTP_PASS="${FTP_PASS}"
+
+# FTP_PASS 自動取得（260515 改修）：
+# 環境変数 FTP_PASS が未設定 or 空の場合、FTP情報ファイルから自動読込
+# - フォーマット：「- FTPパスワード：`実パスワード`」を期待
+# - stdout 流出防止：grep + sed のみで変数代入・echo しない
+# - 260514 第 16 ラウンド「FTP パスワード stdout 流出」事故対策として set -x なしを維持
+if [ -z "${FTP_PASS}" ]; then
+  FTP_INFO_FILE="${VAULT}/06_開発/開発ツール/FTP情報_メインFTPアカウント.md"
+  if [ -f "${FTP_INFO_FILE}" ]; then
+    FTP_PASS=$(grep "^- FTPパスワード" "${FTP_INFO_FILE}" | sed 's/.*`\([^`]*\)`.*/\1/' | head -1)
+  fi
+fi
+
+# FTP_PASS が依然未設定なら早期エラー
+if [ -z "${FTP_PASS}" ]; then
+  echo "[ERROR] FTP_PASS が未設定です。環境変数で渡すか、${FTP_INFO_FILE} にパスワードを記載してください" >&2
+  exit 1
+fi
+
 FTP_BASE="ftp://${FTP_HOST}/growthfix.jp/public_html"
 AUTH="${FTP_USER}:${FTP_PASS}"
-
-# Vaultルート
-VAULT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
 
 # === ヘルパー：FTPアップロード（バックグラウンド実行・PID と label を回収）===
 declare -a PIDS=()
@@ -94,6 +112,10 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/index.html"  "gravity-recruit/index.html"   "Recruit LP"
   # Cultivate LP（260513 仮説 E v0.2・躍動する軸・変革の参謀（躍動）・月 50 万・260514 22-DH 追加）
   upload "$VAULT/05_プロダクト/Gravity/Cultivate/LP/index.html" "gravity-cultivate/index.html" "Cultivate LP"
+  # Hub LP（Gravity TOP・_ブランド/LP/・本番 URL: https://growthfix.jp/gravity/ ・260515 deploy.sh lp 漏れ修正で追加）
+  upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/index.html"  "gravity/index.html"           "Hub LP"
+  upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/styles.css"  "gravity/styles.css"           "Hub CSS"
+  upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/script.js"   "gravity/script.js"            "Hub script.js"
   wait_all
   echo "[LP完了]"
   echo ""
