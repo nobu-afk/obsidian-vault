@@ -789,6 +789,7 @@ body {
 }
 .bar-collect { background: linear-gradient(90deg, #1e40af, #3b82f6); }
 .bar-vitality { background: linear-gradient(90deg, #0f172a, #334155); }
+.bar-retain { background: linear-gradient(90deg, #b8a88a, #d4c4a0); }
 .axis-score-note {
   font-size: 11.5px;
   color: #94a3b8;
@@ -1663,9 +1664,9 @@ const ScanApp = (() => {
         industry: document.getElementById('field-industry').value,
         size:     document.getElementById('field-size').value,
       };
-      const { collect, vitality } = calcScores();
+      const { collect, vitality, retain } = calcScores();
       const type = judgeType(collect, vitality);
-      resultData = { collect, vitality, type, answers: answers.slice(), userData };
+      resultData = { collect, vitality, retain, type, answers: answers.slice(), userData };
       renderResult(resultData);
       showScreen('screen-result');
       // POST to API（並列実装中 generate.php が稼働時に処理）
@@ -1702,6 +1703,7 @@ const ScanApp = (() => {
     try {
       const payload = {
         source:   'web-diagnose',
+        version:  'v0.3-18q-3axis',
         name:     data.userData.name,
         company:  data.userData.company,
         email:    data.userData.email,
@@ -1710,6 +1712,7 @@ const ScanApp = (() => {
         type:     data.type,
         collect:  data.collect,
         vitality: data.vitality,
+        retain:   data.retain,
         answers:  data.answers,
       };
       await fetch(API_ENDPOINT, {
@@ -1722,8 +1725,8 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- 結果描画 --- */
-  function renderResult({ collect, vitality, type }) {
+  /* --- 結果描画（v0.3 3 軸対応・260514 朝）--- */
+  function renderResult({ collect, vitality, retain, type }) {
     const def = TYPE_DEFS[type] || TYPE_DEFS['整合'];
 
     // 型クラス付与
@@ -1741,23 +1744,34 @@ const ScanApp = (() => {
     if (en)    en.textContent    = def.en;
     if (desc)  desc.textContent  = def.desc;
 
-    // Axis scores（アニメーション付きバー・v0.2 0-100 正規化）
+    // Axis scores（アニメーション付きバー・v0.3 3 軸 0-100 正規化）
     const maxScore = 100;
     const collectPct  = Math.max(0, Math.min(100, collect));
     const vitalityPct = Math.max(0, Math.min(100, vitality));
+    const retainPct   = Math.max(0, Math.min(100, retain));
 
-    document.getElementById('score-collect-display').innerHTML = collect + '<span>/' + maxScore + '</span>';
+    document.getElementById('score-collect-display').innerHTML  = collect  + '<span>/' + maxScore + '</span>';
     document.getElementById('score-vitality-display').innerHTML = vitality + '<span>/' + maxScore + '</span>';
+    document.getElementById('score-retain-display').innerHTML   = retain   + '<span>/' + maxScore + '</span>';
     document.getElementById('note-collect').textContent  = def.collect_note;
     document.getElementById('note-vitality').textContent = def.vitality_note;
+    // 留まる軸ノート：スコアに応じた動的コメント（型定義には依存せず汎用化）
+    const retainNote = retain >= 70
+      ? '組織への埋め込み感（Job Embeddedness）が高く、人材定着の基盤が機能しています。Orbit（月次強化）で継続性を維持。'
+      : retain >= 50
+      ? '留まる軸は中立水準。心理的契約・継続的感情伝染の月次強化で離脱予兆を未然に防げます。Orbit 導入を推奨。'
+      : '留まる軸が低水準。Job Embeddedness（Fit/Links/Sacrifice）の脆弱性があり、優秀人材の早期離脱リスクが高い状態です。R/C 後の Orbit 月次強化が必須。';
+    document.getElementById('note-retain').textContent = retainNote;
 
     // バーアニメーション（描画後に幅を適用）
     requestAnimationFrame(() => {
       setTimeout(() => {
         const bc = document.getElementById('bar-collect');
         const bv = document.getElementById('bar-vitality');
+        const br = document.getElementById('bar-retain');
         if (bc) bc.style.width = collectPct + '%';
         if (bv) bv.style.width = vitalityPct + '%';
+        if (br) br.style.width = retainPct + '%';
       }, 120);
     });
 
