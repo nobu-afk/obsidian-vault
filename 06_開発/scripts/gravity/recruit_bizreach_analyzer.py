@@ -85,8 +85,10 @@ def _load_config() -> dict:
         return {}
 
 
-def _mask_id(raw_id: str) -> str:
-    """候補者 ID を SHA-256 ハッシュ先頭 8 文字にマスク"""
+def _mask_id(raw_id: str, enabled: bool = True) -> str:
+    """候補者 ID を SHA-256 ハッシュ先頭 8 文字にマスク（enabled=False で素通し）"""
+    if not enabled:
+        return raw_id
     return hashlib.sha256(raw_id.encode()).hexdigest()[:8]
 
 
@@ -105,8 +107,8 @@ def _classify_body_length(body: str) -> str:
     return "長文（600字超）"
 
 
-def _create_sample_data() -> list[dict]:
-    """--demo フラグ用架空データ（20 件）"""
+def _create_sample_data(sample_size: int = 60) -> list[dict]:
+    """--demo フラグ用架空データ（デフォルト 60 件・統計的に意味のある母数）"""
     import random
     random.seed(42)
     industries = ["IT", "コンサル", "メーカー", "金融", "医療"]
@@ -117,6 +119,9 @@ def _create_sample_data() -> list[dict]:
         "ぜひ一度お話しさせてください",
         "年収アップ実績多数の企業からのご連絡",
         "山田さんへ、ご縁のお声がけです",
+        "佐藤さん、次のキャリアステップを一緒に考えませんか",
+        "株式会社GrowthFix・石井からのご相談",
+        "貴殿のご経歴を拝見しました",
     ]
     body_short  = "はじめまして。弊社は引力経営の理念で組織を変革しています。ご興味あれば是非。"
     body_medium = ("はじめまして。株式会社GrowthFixの石井と申します。"
@@ -126,13 +131,15 @@ def _create_sample_data() -> list[dict]:
     body_long   = body_medium * 2 + "詳しくはオンライン面談でお伝えできれば幸いです。ご検討のほどよろしくお願いいたします。"
 
     rows = []
-    for i in range(20):
+    base_date = datetime(2026, 4, 1)
+    for i in range(sample_size):
         ind = random.choice(industries)
         subj_tpl = random.choice(subject_templates)
         body_choice = random.choice([body_short, body_medium, body_long])
         replied = random.random() < BENCHMARK_REPLY_RATE.get(ind, 0.08) * 1.5
+        send_date = base_date + timedelta(days=i % 30)
         rows.append({
-            "送信日":       f"2026-04-{i+1:02d}",
+            "送信日":       send_date.strftime("%Y-%m-%d"),
             "候補者ID":     f"BZ{10000+i}",
             "業界":         ind,
             "職種":         random.choice(occupations),
@@ -140,19 +147,19 @@ def _create_sample_data() -> list[dict]:
             "スカウト件名": subj_tpl,
             "スカウト本文": body_choice,
             "返信状況":     "返信あり" if replied else "未返信",
-            "返信日":       f"2026-04-{i+2:02d}" if replied else "",
+            "返信日":       (send_date + timedelta(days=random.randint(1, 5))).strftime("%Y-%m-%d") if replied else "",
             "返信内容":     "ご連絡ありがとうございます。" if replied else "",
         })
     return rows
 
 
-def _load_csv(path: str) -> list[dict]:
-    """CSV ファイルを読み込み、候補者 ID をマスクして返す"""
+def _load_csv(path: str, mask: bool = True) -> list[dict]:
+    """CSV ファイルを読み込み、候補者 ID をマスクして返す（mask=False で素通し）"""
     rows = []
     with open(path, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row["候補者ID"] = _mask_id(row.get("候補者ID", ""))
+            row["候補者ID"] = _mask_id(row.get("候補者ID", ""), mask)
             rows.append(row)
     return rows
 
@@ -354,20 +361,26 @@ def main() -> None:
     parser.add_argument("--industry", help="業界フィルタ（例: IT / コンサル / メーカー / 金融 / 医療）")
     parser.add_argument("--output",   help="出力 Markdown ファイルパス")
     parser.add_argument("--dry-run",  action="store_true", help="Claude API を呼ばずに分析サマリーのみ出力")
-    parser.add_argument("--demo",     action="store_true", help="同梱架空データ 20 件で動作確認")
+    parser.add_argument("--demo",     action="store_true", help="同梱架空データ 60 件で動作確認")
+    parser.add_argument("--demo-size", type=int, default=60, help="--demo の架空データ件数（デフォルト 60）")
     parser.add_argument("--json",     action="store_true", help="JSON サマリーのみ stdout 出力")
+    parser.add_argument("--mask",     action=argparse.BooleanOptionalAction, default=True,
+                        help="候補者 ID を SHA-256 ハッシュ化（デフォルト ON・--no-mask で素通し）")
     args = parser.parse_args()
 
     if not args.demo and not args.input:
         parser.error("--input または --demo のいずれかを指定してください")
 
     if args.demo:
-        print("[INFO] demo モード: 架空データ 20 件を使用", file=sys.stderr)
-        rows = _create_sample_data()
+        print(f"[INFO] demo モード: 架空データ {args.demo_size} 件を使用 (mask={args.mask})", file=sys.stderr)
+        rows = _create_sample_data(args.demo_size)
+        if args.mask:
+            for r in rows:
+                r["候補者ID"] = _mask_id(r["候補者ID"], True)
     else:
-        print(f"[INFO] CSV 読み込み: {args.input}", file=sys.stderr)
+        print(f"[INFO] CSV 読み込み: {args.input} (mask={args.mask})", file=sys.stderr)
         try:
-            rows = _load_csv(args.input)
+            rows = _load_csv(args.input, args.mask)
         except (FileNotFoundError, OSError) as e:
             print(f"[ERROR] CSV 読み込み失敗: {e}", file=sys.stderr)
             sys.exit(1)

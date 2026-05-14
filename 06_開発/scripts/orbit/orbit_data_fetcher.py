@@ -83,13 +83,17 @@ M008,中村あき,nakamura@demo.co.jp,マーケティング,3.1,0,9,true,false
 """
 
 
-def _mask_name(name: str) -> str:
-    """氏名を SHA-256 ハッシュ前 6 桁でマスキング"""
+def _mask_name(name: str, enabled: bool = True) -> str:
+    """氏名を SHA-256 ハッシュ前 6 桁でマスキング（enabled=False で素通し）"""
+    if not enabled:
+        return name
     return "M-" + hashlib.sha256(name.encode("utf-8")).hexdigest()[:6]
 
 
-def _mask_email(email: str) -> str:
-    """メールアドレスをドメインのみに変換"""
+def _mask_email(email: str, enabled: bool = True) -> str:
+    """メールアドレスをドメインのみに変換（enabled=False で素通し）"""
+    if not enabled:
+        return email
     if "@" in email:
         return "@" + email.split("@", 1)[1]
     return "@unknown"
@@ -112,8 +116,8 @@ def _score_from_bool_inverted(val: bool) -> str:
     return "×" if val else "○"
 
 
-def _parse_csv_members(reader) -> list[dict]:
-    """CSV リーダーからメンバーリストを解析・マスキングして返す"""
+def _parse_csv_members(reader, mask: bool = True) -> list[dict]:
+    """CSV リーダーからメンバーリストを解析・マスキングして返す（mask=False で素通し）"""
     members = []
     for row in reader:
         try:
@@ -124,8 +128,8 @@ def _parse_csv_members(reader) -> list[dict]:
             departure  = row.get("has_departure_risk", "false").strip().lower() == "true"
 
             member = {
-                "member_id":   _mask_name(row.get("name", row.get("member_id", "unknown"))),
-                "email_domain": _mask_email(row.get("email", "")),
+                "member_id":   _mask_name(row.get("name", row.get("member_id", "unknown")), mask),
+                "email_domain": _mask_email(row.get("email", ""), mask),
                 "department":  row.get("department", ""),
                 "engagement_score": engagement,
                 "absence_days":     absence,
@@ -257,57 +261,57 @@ def _build_orbit_json(
     }
 
 
-def fetch_from_csv(csv_path: str, client_id: str, month: str) -> dict:
+def fetch_from_csv(csv_path: str, client_id: str, month: str, mask: bool = True) -> dict:
     """汎用 CSV / SmartHR CSV エクスポートからデータ取得・正規化"""
     with open(csv_path, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        members = _parse_csv_members(reader)
-    print(f"[INFO] CSV 読み込み完了: {len(members)} 件", file=sys.stderr)
+        members = _parse_csv_members(reader, mask)
+    print(f"[INFO] CSV 読み込み完了: {len(members)} 件 (mask={mask})", file=sys.stderr)
     return _build_orbit_json(client_id, month, members, "csv", len(members))
 
 
-def fetch_from_demo(client_id: str, month: str) -> dict:
+def fetch_from_demo(client_id: str, month: str, mask: bool = True) -> dict:
     """同梱サンプル CSV からデモデータを生成"""
     reader = csv.DictReader(io.StringIO(DEMO_CSV_CONTENT))
-    members = _parse_csv_members(reader)
-    print(f"[INFO] デモ CSV 読み込み完了: {len(members)} 件", file=sys.stderr)
+    members = _parse_csv_members(reader, mask)
+    print(f"[INFO] デモ CSV 読み込み完了: {len(members)} 件 (mask={mask})", file=sys.stderr)
     return _build_orbit_json(client_id, month, members, "demo", len(members))
 
 
-def fetch_from_wevox_mock(client_id: str, month: str, api_key: Optional[str] = None) -> dict:
+def fetch_from_wevox_mock(client_id: str, month: str, api_key: Optional[str] = None, mask: bool = True) -> dict:
     """Wevox API モック（MVP: stub レスポンス）"""
-    print("[INFO] Wevox API モック実行中（実 API キーなし・stub レスポンス）", file=sys.stderr)
+    print(f"[INFO] Wevox API モック実行中（実 API キーなし・stub レスポンス・mask={mask}）", file=sys.stderr)
     mock_members = [
-        {"member_id": _mask_name("WevoxUser1"), "email_domain": "@example.com", "department": "営業部",
+        {"member_id": _mask_name("WevoxUser1", mask), "email_domain": "@example.com", "department": "営業部",
          "engagement_score": 3.2, "absence_days": 1, "overtime_hours": 14,
          "one_on_one_done": True, "has_departure_risk": False},
-        {"member_id": _mask_name("WevoxUser2"), "email_domain": "@example.com", "department": "開発部",
+        {"member_id": _mask_name("WevoxUser2", mask), "email_domain": "@example.com", "department": "開発部",
          "engagement_score": 2.0, "absence_days": 4, "overtime_hours": 32,
          "one_on_one_done": False, "has_departure_risk": True},
-        {"member_id": _mask_name("WevoxUser3"), "email_domain": "@client.jp", "department": "人事部",
+        {"member_id": _mask_name("WevoxUser3", mask), "email_domain": "@client.jp", "department": "人事部",
          "engagement_score": 3.7, "absence_days": 0, "overtime_hours": 7,
          "one_on_one_done": True, "has_departure_risk": False},
-        {"member_id": _mask_name("WevoxUser4"), "email_domain": "@client.jp", "department": "営業部",
+        {"member_id": _mask_name("WevoxUser4", mask), "email_domain": "@client.jp", "department": "営業部",
          "engagement_score": 2.6, "absence_days": 2, "overtime_hours": 22,
          "one_on_one_done": True, "has_departure_risk": False},
-        {"member_id": _mask_name("WevoxUser5"), "email_domain": "@example.com", "department": "開発部",
+        {"member_id": _mask_name("WevoxUser5", mask), "email_domain": "@example.com", "department": "開発部",
          "engagement_score": 1.5, "absence_days": 6, "overtime_hours": 40,
          "one_on_one_done": False, "has_departure_risk": True},
     ]
     return _build_orbit_json(client_id, month, mock_members, "wevox_mock", len(mock_members))
 
 
-def fetch_from_kaonavi_mock(client_id: str, month: str, api_key: Optional[str] = None) -> dict:
+def fetch_from_kaonavi_mock(client_id: str, month: str, api_key: Optional[str] = None, mask: bool = True) -> dict:
     """カオナビ API モック（MVP: stub レスポンス）"""
-    print("[INFO] カオナビ API モック実行中（実 API キーなし・stub レスポンス）", file=sys.stderr)
+    print(f"[INFO] カオナビ API モック実行中（実 API キーなし・stub レスポンス・mask={mask}）", file=sys.stderr)
     mock_members = [
-        {"member_id": _mask_name("KaonaviUser1"), "email_domain": "@corp.jp", "department": "管理部",
+        {"member_id": _mask_name("KaonaviUser1", mask), "email_domain": "@corp.jp", "department": "管理部",
          "engagement_score": 3.4, "absence_days": 0, "overtime_hours": 9,
          "one_on_one_done": True, "has_departure_risk": False},
-        {"member_id": _mask_name("KaonaviUser2"), "email_domain": "@corp.jp", "department": "営業部",
+        {"member_id": _mask_name("KaonaviUser2", mask), "email_domain": "@corp.jp", "department": "営業部",
          "engagement_score": 2.3, "absence_days": 3, "overtime_hours": 25,
          "one_on_one_done": False, "has_departure_risk": True},
-        {"member_id": _mask_name("KaonaviUser3"), "email_domain": "@corp.jp", "department": "技術部",
+        {"member_id": _mask_name("KaonaviUser3", mask), "email_domain": "@corp.jp", "department": "技術部",
          "engagement_score": 3.9, "absence_days": 0, "overtime_hours": 5,
          "one_on_one_done": True, "has_departure_risk": False},
     ]
@@ -347,6 +351,8 @@ def main() -> None:
     parser.add_argument("--config",  help="設定 JSON ファイルパス（API キー等）")
     parser.add_argument("--demo",    action="store_true", help="同梱サンプル CSV からデモ実行")
     parser.add_argument("--dry-run", action="store_true", help="ファイル保存をスキップ（JSON を stdout に出力）")
+    parser.add_argument("--mask",    action=argparse.BooleanOptionalAction, default=True,
+                        help="氏名/メールを SHA-256 ハッシュ化（デフォルト ON・--no-mask で素通し）")
     args = parser.parse_args()
 
     try:
@@ -372,21 +378,21 @@ def main() -> None:
     month     = args.month
 
     if args.demo:
-        data = fetch_from_demo(client_id, month)
+        data = fetch_from_demo(client_id, month, args.mask)
     elif args.source in ("csv", "smarthr"):
         csv_path = args.input
         if not csv_path:
             print("[INFO] --input 未指定のため同梱デモ CSV を使用します", file=sys.stderr)
-            data = fetch_from_demo(client_id, month)
+            data = fetch_from_demo(client_id, month, args.mask)
         else:
             if not os.path.exists(csv_path):
                 print(f"[ERROR] CSV ファイルが見つかりません: {csv_path}", file=sys.stderr)
                 sys.exit(1)
-            data = fetch_from_csv(csv_path, client_id, month)
+            data = fetch_from_csv(csv_path, client_id, month, args.mask)
     elif args.source == "wevox":
-        data = fetch_from_wevox_mock(client_id, month, api_key)
+        data = fetch_from_wevox_mock(client_id, month, api_key, args.mask)
     elif args.source == "kaonavi":
-        data = fetch_from_kaonavi_mock(client_id, month, api_key)
+        data = fetch_from_kaonavi_mock(client_id, month, api_key, args.mask)
     else:
         print(f"[ERROR] 未対応の source: {args.source}", file=sys.stderr)
         sys.exit(1)
