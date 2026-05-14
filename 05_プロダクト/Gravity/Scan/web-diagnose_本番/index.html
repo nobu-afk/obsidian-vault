@@ -1153,6 +1153,16 @@ body {
         </div>
         <p class="axis-score-note" id="note-vitality"></p>
       </div>
+      <div class="axis-score-row">
+        <div class="axis-score-label">
+          <span class="axis-score-name">留まる軸（月次強化）</span>
+          <span class="axis-score-value" id="score-retain-display">—<span>/100</span></span>
+        </div>
+        <div class="axis-bar-bg">
+          <div class="axis-bar-fill bar-retain" id="bar-retain"></div>
+        </div>
+        <p class="axis-score-note" id="note-retain"></p>
+      </div>
     </div>
 
     <!-- 4-3. Bandura CE パターン -->
@@ -1287,10 +1297,15 @@ const STORAGE_KEY = 'gravity-scan-web-v1-answers';
 const STORAGE_META = 'gravity-scan-web-v1-meta';
 const API_ENDPOINT = '/gravity-scan/web-diagnose/generate.php';
 
-/* --- 質問定義（v0.2 12 問版・260512 確定）---
-   各質問は axis（collect = 集まる軸 / vitality = 躍動軸）を保持。
+/* --- 質問定義（v0.3 18 問版・260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化反映）---
+   各質問は axis（collect = 集まる軸 / vitality = 躍動軸 / retain = 留まる軸）を保持。
    逆転項目は v0.2 で廃止（全質問が正方向・経営者の負担最小化）。
-   集計式：(各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
+   集計式：(各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化（3 軸並列）
+   留まる軸（Q13-Q18）は Phase 13 学術 BB 準拠：
+     - Mitchell 2001 JE 3 次元（Fit / Links / Sacrifice）
+     - Meyer-Allen 1991 Affective Commitment
+     - Rousseau 1995 / Tomprou 2015 Psychological Contract
+     - Phase 12 Orbit BB Continuous Emotional Contagion
 */
 const QUESTIONS = [
   /* ===== 集まる軸 6 問（Q01〜Q06）===== */
@@ -1343,6 +1358,32 @@ const QUESTIONS = [
   {
     id: 'Q12', axis: 'vitality', reverse: false, section: '躍動軸 / 離脱予兆察知',
     text: '【Q12】離職する社員の予兆を 1 ヶ月以上前に察知できる。',
+  },
+
+  /* ===== 留まる軸 6 問（Q13〜Q18・260514 朝 Phase 13 学術 BB 準拠）===== */
+  {
+    id: 'Q13', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Fit',
+    text: '【Q13】うちの組織風土と「合う」と感じている社員が大多数だ。',
+  },
+  {
+    id: 'Q14', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Links',
+    text: '【Q14】社員同士の組織内ネットワークが密で、人が抜けると影響が大きい。',
+  },
+  {
+    id: 'Q15', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Sacrifice',
+    text: '【Q15】辞めると失うもの（人間関係・キャリア・成長機会）が大きいと社員が感じている。',
+  },
+  {
+    id: 'Q16', axis: 'retain', reverse: false, section: '留まる軸 / Affective Commitment',
+    text: '【Q16】社員が「この会社に居続けたい」と感情的に語ることがある。',
+  },
+  {
+    id: 'Q17', axis: 'retain', reverse: false, section: '留まる軸 / Psychological Contract',
+    text: '【Q17】入社時に約束した条件・期待が現在も果たされている。',
+  },
+  {
+    id: 'Q18', axis: 'retain', reverse: false, section: '留まる軸 / Continuous Emotional Contagion',
+    text: '【Q18】月次の全社会議・チーム MTG で「この場にいたい」というポジティブな空気が継続している。',
   },
 ];
 
@@ -1573,23 +1614,30 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- スコア計算（v0.2 12 問版・正規化 0-100）--- */
+  /* --- スコア計算（v0.3 18 問版・3 軸並列・正規化 0-100）--- */
   function calcScores() {
-    let collectRaw = 0, vitalityRaw = 0;
+    let collectRaw = 0, vitalityRaw = 0, retainRaw = 0;
     QUESTIONS.forEach((q, i) => {
       const raw = answers[i] || 3; // 未回答は中立 3
       if (q.axis === 'collect') collectRaw += raw;
-      else vitalityRaw += raw;
+      else if (q.axis === 'vitality') vitalityRaw += raw;
+      else if (q.axis === 'retain') retainRaw += raw;
     });
     // (各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
-    const collect = Math.round((collectRaw - 6) / 24 * 100);
+    const collect  = Math.round((collectRaw  - 6) / 24 * 100);
     const vitality = Math.round((vitalityRaw - 6) / 24 * 100);
-    return { collect, vitality, collectRaw, vitalityRaw };
+    const retain   = Math.round((retainRaw   - 6) / 24 * 100);
+    return { collect, vitality, retain, collectRaw, vitalityRaw, retainRaw };
   }
 
-  /* --- 4 型判定（v0.2 12 問版・0-100 スケール）---
+  /* --- 4 型判定（v0.3 18 問版・集まる × 躍動 の 2 マトリクスで型判定、留まる軸は補助スコアとして表示）---
      集まる軸 6 問 × max 5 = 30pt 生スコア → 0-100 正規化
      閾値：50（中央値）
+     4 型は集まる × 躍動の 2 マトリクスで確定（既存ロジック維持）
+     留まる軸スコアは「次の一手」判定で Orbit 推奨の補助に使う：
+       - 整合型 + 留まる軸高 → Orbit 直接推奨（既存）
+       - 整合型 + 留まる軸低 → Orbit 推奨 + 月次強化必要性強調
+       - その他の型 + 留まる軸低 → R/C 後の Orbit 移行を強調
   */
   function judgeType(collect, vitality) {
     const threshold = 50; // 0-100 正規化スケールの中央値
