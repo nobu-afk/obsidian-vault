@@ -17,7 +17,10 @@ import argparse
 import json
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+
+WORKERS = 16
 
 VAULT = Path("/Users/ishiinobuyuki/Documents/Obsidian Vault")
 MEMORY_DIR = Path(
@@ -72,20 +75,27 @@ def find_memory_refs_in_text(text: str) -> set[str]:
     return refs
 
 
+def _scan_one_file(path: Path) -> tuple[Path, set[str]]:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (UnicodeDecodeError, OSError):
+        return path, set()
+    return path, find_memory_refs_in_text(text)
+
+
 def scan_external_refs() -> dict[str, set[Path]]:
     """SSOT/会社OS/CLAUDE.md で参照されている memory ref → 参照元 path の dict"""
-    refs: dict[str, set[Path]] = {}
+    all_paths: list[Path] = []
     for target in SCAN_TARGETS:
         if target.is_file():
-            paths = [target]
+            all_paths.append(target)
         else:
-            paths = list(target.rglob("*.md"))
-        for p in paths:
-            try:
-                text = p.read_text(encoding="utf-8")
-            except (UnicodeDecodeError, OSError):
-                continue
-            for ref in find_memory_refs_in_text(text):
+            all_paths.extend(target.rglob("*.md"))
+
+    refs: dict[str, set[Path]] = {}
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+        for p, file_refs in ex.map(_scan_one_file, all_paths):
+            for ref in file_refs:
                 refs.setdefault(ref, set()).add(p)
     return refs
 
@@ -130,8 +140,10 @@ def main():
             findings["medium"].append({"type": "orphan", "file": name})
 
     # [3] frontmatter 整合
-    for name, path in sorted(memory_files.items()):
-        fm = parse_frontmatter(path)
+    sorted_items = sorted(memory_files.items())
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+        fms = list(ex.map(lambda kv: parse_frontmatter(kv[1]), sorted_items))
+    for (name, _), fm in zip(sorted_items, fms):
         missing = [k for k in ("name", "description", "type") if not fm.get(k)]
         if missing:
             findings["medium"].append(
