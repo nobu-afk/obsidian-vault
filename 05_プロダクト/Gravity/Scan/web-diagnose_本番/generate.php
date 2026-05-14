@@ -1,6 +1,6 @@
 <?php
 /**
- * Gravity Scan 4 型 Web 無料診断 — generate.php (v0.2 12 問版・ミニマル版)
+ * Gravity Scan 4 型 + 3 軸 Web 無料診断 — generate.php (v0.3 18 問 3 軸版・260514 朝)
  *
  * 役割：
  *  1. POST JSON 受信（リード情報 + 12 問回答 + フロント計算済スコア）
@@ -234,21 +234,27 @@ if (@mb_send_mail($internal_to, $internal_subject, $internal_body, $internal_hea
 // 5-2. 経営者向けお礼メール
 $user_subject = '【Gravity Scan】無料診断完了：' . $type_php . '型診断結果のご案内';
 $user_body    = "{$name} 様\n\n";
-$user_body   .= "Gravity Scan の無料 Web 診断にご回答いただきありがとうございました。\n";
+$user_body   .= "Gravity Scan 無料 Web 診断（18 問 3 軸版）にご回答いただきありがとうございました。\n";
 $user_body   .= "{$company} 様の組織の引力タイプを診断いたしました。\n\n";
 $user_body   .= "■ 診断結果\n";
 $user_body   .= "組織の引力タイプ：{$type_php}型\n";
 $user_body   .= "集まる軸（採用基盤）：{$gather_score}/100\n";
-$user_body   .= "躍動軸（躍動組織）：{$thrive_score}/100\n\n";
-$user_body   .= "結果の詳細は受診画面でご確認いただけます。\n\n";
-$user_body   .= "■ 次の一手\n";
-$user_body   .= "12 問の Web 簡易版では把握できる範囲が限られます。\n";
-$user_body   .= "より精密な引力タイプ判定と、貴社固有の処方箋設計をご希望の場合は\n";
-$user_body   .= "下記いずれかをご活用ください。\n\n";
-$user_body   .= "▼ 30 分無料相談（Zoom・勧誘なし）\n";
-$user_body   .= "https://growthfix.jp/contact/\n\n";
-$user_body   .= "▼ Gravity Scan 本格版（60 分・10 万円）\n";
-$user_body   .= "https://growthfix.jp/gravity-scan/\n\n";
+$user_body   .= "躍動軸（躍動組織）：{$thrive_score}/100\n";
+$user_body   .= "留まる軸（月次強化）：{$retain_score}/100\n\n";
+$user_body   .= "結果の詳細は受診画面でご確認いただけます（PDF レポートのダウンロードも可能です）。\n\n";
+$user_body   .= "■ 次の一手：30 分解説セッション（無料・Zoom）\n";
+$user_body   .= "18 問 3 軸の Web 診断結果を、「引力の参謀（組織軸）」石井が直接 30 分で解説します。\n";
+$user_body   .= "・型 × 3 軸スコアの読み解き方\n";
+$user_body   .= "・Gravity Recruit / Cultivate / Orbit のどれが効くかの方角\n";
+$user_body   .= "・組織横断ヒアリング + Pre-Shift 適合判定は月額契約 Week 1 オンボに内包されます\n\n";
+$user_body   .= "勧誘なし・経営者ご本人限定・6 週間先まで予約可能：\n";
+$user_body   .= "▼ 予約フォーム\n";
+$user_body   .= "https://utage-system.com/event/gcfmTRLg7lAq/register\n\n";
+$user_body   .= "■ Gravity 月額契約サービス（解説セッション後、必要に応じてご案内）\n";
+$user_body   .= "・Gravity Recruit（採用基盤・月 35 万・カウンターパート：人事部）\n";
+$user_body   .= "・Gravity Cultivate（躍動組織・月 50 万・カウンターパート：事業部）\n";
+$user_body   .= "・Gravity Orbit（月次強化・月 15 万・カウンターパート：経営）\n";
+$user_body   .= "詳細：https://growthfix.jp/gravity-scan/\n\n";
 $user_body   .= "──\n";
 $user_body   .= "GrowthFix 株式会社\n";
 $user_body   .= "代表 石井伸幸（引力の参謀）\n";
@@ -257,7 +263,7 @@ $user_body   .= "https://growthfix.jp/\n";
 $user_headers  = "From: 石井伸幸 (GrowthFix) <no-reply@growthfix.jp>\r\n";
 $user_headers .= "Reply-To: nobuyuki08@gmail.com\r\n";
 $user_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$user_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.2\r\n";
+$user_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.3-18q-3axis\r\n";
 
 @mb_send_mail($email, $user_subject, $user_body, $user_headers);
 
