@@ -1,4 +1,4 @@
-# P1：Orbit Quarterly Page 6「心理的契約再校正」運用テンプレ v1.0
+# P1：Orbit Quarterly Page 6「心理的契約再校正」運用テンプレ v1.1（260514 夜・VRBs + 4 outcomes + Track A/B 2 トラック実装版）
 
 > **位置づけ：** Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 の運用詳細化。Orbit Quarterly 4 型再判定書 A4 6 ページのうち、Phase 12 で新規追加された Page 6「心理的契約再校正」セッションを**現場運用ドキュメント完成形（クライアント配布可能状態）** として確立する。
 >
@@ -281,7 +281,7 @@ _____________________________________________________________
   9. Page 6 本紙の [2] 3 類型診断を予測（経営者・人材双方）
 ```
 
-### 6.2 3 類型別 介入アクションテンプレート
+### 6.2 3 類型別 介入アクションテンプレート（Rousseau 心理的契約類型）
 
 | 検出された類型 | Orbit Quarterly での介入アクション |
 |---|---|
@@ -291,16 +291,96 @@ _____________________________________________________________
 | **類型ギャップ検出**（経営者と人材で類型認識が異なる）| **緊急議題化**：経営者は Relational 認識、人材は Transactional 認識（または逆）のケースは離職予兆最強。次 3 ヶ月で類型認識を一致させる対話を必須化 |
 | **Transitional / 類型崩壊検出**（人材が「どの類型か分からない」を選択）| **🚨 緊急介入**：石井登壇 Quarterly 単独セッション設定・Breach → Violation 進行遮断を最優先 |
 
-### 6.3 セッション進行プロトコル（90 分）
+### 6.2.5 🆕 Tomprou 2015 4 outcomes 別 介入アクションテンプレート（v1.1 新規追加）
+
+| 予測 outcome | Orbit Quarterly での介入アクション | 学術根拠 |
+|---|---|---|
+| 🟢 **Thriving 軌道**（高 VRBs + cognitive regulation 兆候）| 既存の再交渉ペースを維持。**新規価値提案（新規プロジェクト / キャリア拡張）を Page 6 [4] に組み込み、契約発展を加速**。Page 6 §1.5 Sacrifice 次元の自発的拡大を経営者から提示 | Tomprou 2015 thriving outcome 条件 |
+| 🟡 **Reactivation 軌道**（中-高 VRBs + 元契約維持）| **元契約の明示的再確認 + 経営者からの誠実な意図説明**（Morrison-Robinson 1997 「悪意なし」帰属の明示化）+ **履行期限の再設定** + 補償的措置の検討 | Tomprou 2015 reactivation outcome 条件 |
+| 🔴 **Impairment 軌道（要救済）**（低 VRBs + 感情抑制兆候）| **Cognitive Regulation 経路への引き戻しが最優先**。**Sensemaking ワーク 30 分 → Reframing ワーク 20 分 → 具体的 Recontracting 30 分**の構造化セッション。「静かな離職」検出のため月次セッションでのフォローを密にする | Tomprou 2015 impairment 回避メカニズム |
+| 🚨 **Dissolution 軌道（緊急）**（極低 VRBs + 離脱意図）| **🚨 石井登壇緊急 Quarterly**（参謀単独では対応不可と判断）。1on1 個別セッション設定 + **経営者と被害者の直接対話**（Rousseau 修復努力の最終局面）+ 修復可能性の最終確認。修復不能と判断された場合は被害者の尊厳ある離脱支援に切り替え | Tomprou 2015 dissolution 緊急介入 + Rousseau 1995 信頼回復努力 |
+
+### 6.3 セッション進行プロトコル（90 分・v1.1 で 3 段階構造に再構造化）
+
+🆕 Tomprou 2015 cognitive regulation 3 軸（**Sensemaking → Reframing → Recontracting**）を明示的に組み込んだプロトコル：
 
 ```
-[0-10 分]  本日の Page 6 概要説明・突合マトリクス提示
-[10-30 分] 7 領域評価ギャップの議論（±1.5 以上の領域のみ）
-[30-45 分] Breach 候補リストの確認・Violation 感情への発展度議論
-[45-60 分] 3 類型診断の認識すり合わせ
-[60-80 分] 次 Quarterly 再交渉アクション 3 件の合意形成
-[80-90 分] 心理的契約新合意書 [5] の双方確認・署名
+[0-10 分]   Page 6 概要説明・突合マトリクス + VRBs 結果提示
+            （4 outcomes 予測と推奨 Track A/B を参謀から明示）
+
+[10-30 分]  【Sensemaking 20 分】Breach の意味づけ・組織側意図の説明・人材側反応の言語化
+            - 経営者から各 Breach の意図帰属を明示化（「悪意なし」「構造的」「誤解」）
+            - 人材側の Violation 感情への発展度を相互に確認
+            - 学術根拠：Tomprou 2015 cognitive regulation 第 1 軸
+
+[30-50 分]  【Reframing 20 分】3 類型診断 + 期待ギャップ ±1.5 領域の reframe 対話
+            - 7 領域評価ギャップを「経営者と人材で異なる前提認識」として捉え直す
+            - 3 類型認識ギャップを「双方が許容できる類型」に向けて握り直す
+            - 学術根拠：Tomprou 2015 cognitive regulation 第 2 軸 + Rousseau 心理的契約 3 類型
+
+[50-75 分]  【Recontracting 25 分】次 Quarterly 再交渉アクション 3 件の合意形成
+            - 経営者側 新コミットメント（具体・期限付き）
+            - 優秀人材プール側 新コミットメント
+            - 第三者ファシリテーション（月次セッション再確認ポイント）
+            - 学術根拠：Tomprou 2015 cognitive regulation 第 3 軸 + Rousseau-Hansen-Tomprou 2018 Renegotiation phase
+
+[75-90 分]  新合意書 [5] 署名 + VRBs Probability/Timing/Agency の再確認
+            - 90 日後の再評価日程確定
+            - 学術根拠：Self-regulation period の制度化（Tomprou 2015）
 ```
+
+---
+
+## 6.4 🆕 Track A（Renegotiation 版）/ Track B（Repair 版）の 2 トラック構造化（v1.1 新規追加・Rousseau-Hansen-Tomprou 2018）
+
+Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488・JOB 39(9), 1081-1098）の 4 位相循環プロセス（Creation / Maintenance / **Renegotiation** / **Repair**）を Orbit Quarterly に統合：
+
+### 6.4.1 Track A：Renegotiation 版（Maintenance phase 強化型）
+
+**適用条件：** Breach 「なし」 or Breach あるが VRBs 高（① 4-5 + ② 3 ヶ月以内 + ③ 双方協働）。Thriving / Reactivation 軌道予測。
+
+**目的：** **環境変化・契約自然劣化への予防的再交渉**。Hedonic Adaptation（Sheldon-Lyubomirsky 2006）による期待の風化を防ぎ、契約条件を定期的にアップグレード。
+
+**90 分プロトコルへの調整：**
+- Sensemaking 20 分 → 環境変化（事業フェーズ / 市場 / 個人ライフ）の棚卸し
+- Reframing 20 分 → 期待領域 7 軸の上方修正可能性検討（新規価値提案）
+- Recontracting 25 分 → 契約発展アクション 3 件（新規プロジェクト / キャリア拡張 / 学習機会）
+
+**新合意書の質：** **発展的契約**（Sacrifice 拡大・Fit 深化・Links 強化）
+
+### 6.4.2 Track B：Repair 版（Repair phase 緊急介入型）
+
+**適用条件：** Breach 「あり」 + VRBs 中-低（① 1-3 + ② 1 年以内 + ③ 第三者必要）。Impairment / Dissolution 軌道予測。
+
+**目的：** **Breach から Violation への進行を遮断し、Tomprou 2015 cognitive regulation 経路に強制発動**。Affective regulation（感情抑制 / 回避 / Rumination）兆候を Quarterly で断ち切る。
+
+**90 分プロトコルへの調整：**
+- Sensemaking 20 分 → **経営者の意図帰属明示化**（最重要）。「悪意なし」「構造的」「誤解」の 3 区分でラベリング + 経営者の謝罪または説明
+- Reframing 20 分 → 既存契約の意味再解釈（人材側の認知再構築支援）
+- Recontracting 25 分 → 修復アクション 3 件（補償的措置 / 履行期限再設定 / 上司 LMX 再構築）
+
+**新合意書の質：** **修復契約**（信頼回復努力 + 履行確実性 + 撤退オプション明示）
+
+### 6.4.3 Track 選定フロー
+
+```
+Quarterly 当日朝の判断：
+  ┌─ 突合マトリクス警戒度 ±1.5 領域なし？ ─→ Track A
+  ├─ Breach あり + VRBs 高？               ─→ Track A（予防型）
+  ├─ Breach あり + VRBs 中-低？            ─→ Track B（修復型）
+  └─ VRBs 極低 or Dissolution リスク？     ─→ Track B + 石井登壇緊急 Quarterly
+```
+
+### 6.4.4 月次セッション × Quarterly Track A/B × 半期年合宿の動的位相マップ
+
+| 装置 | 周期 | 動的位相モデル対応（4 phases）| 主機能 |
+|---|---|---|---|
+| **月次セッション** | 月 1 | **Maintenance phase** | 簡易 VRBs 早期検出（3 設問・所要 2 分）+ Breach 早期介入 |
+| **Quarterly Track A** | 3 ヶ月毎 | **Renegotiation phase**（環境変化対応）| 契約発展・Sacrifice 拡大 |
+| **Quarterly Track B** | 3 ヶ月毎 | **Repair phase**（Violation 修復）| 信頼回復・Tomprou 2015 cognitive regulation 強制発動 |
+| **半期年合宿** | 半期 1 回 | **Creation/Maintenance 双方を集合的に祝祭化** | Sustained CE 再点火（Bandura 2000 + Saks-Gruman 2018） |
+
+→ **3 層構造で動的位相モデルの 4 phases を完全カバー**。「Creation → Maintenance → Renegotiation or Repair → Maintenance に戻る」の循環プロセスを Orbit が制度化。
 
 ---
 
@@ -323,6 +403,7 @@ _____________________________________________________________
 |---|---|---|
 | v1.0 | 2026-05-14 夕 | 初版確定。Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 を現場運用ドキュメント完成形に展開。A4 5 枚セット（本紙 + 記入ガイド 2 + 突合マトリクス + 集計手順）を確定。Tomprou 2015 4 段階修復モデルの段階 3「再交渉」を制度化する装置として位置付け（🔴 誤訳・v1.0.1 で訂正）。|
 | **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正（4 箇所）**：Tomprou 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive/Affective）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Page 6 は「段階 3 制度化」ではなく「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving 誘導装置」として再定義。Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488）を併用引用。v1.1 で VRBs 3 次元測定 / 予測 outcome 欄 / outcome 別介入アクションの実装追加予定（Phase 14-A §6.2 P0 反映）|
+| **v1.1** | **2026-05-14 夜** | **🆕 VRBs + 4 outcomes + Track A/B 2 トラック構造の本格実装版**：(1) §2 本紙 [3] に **【3-VRBs】Violation Resolution Beliefs 3 次元測定**（Probability/Timing/Agency × 5 件法）+ 警戒度判定 → 4 outcomes 予測ロジック追加 (2) §5.1 突合マトリクスに **予測 outcome 判定欄**（Thriving/Reactivation/Impairment/Dissolution × 推奨 Track A/B）追加 (3) §6.2.5 として **Tomprou 2015 4 outcomes 別介入アクションテンプレ**新設（4 軌道 × Orbit 介入 × 学術根拠）(4) §6.3 セッション進行プロトコルを **Sensemaking 20 分 → Reframing 20 分 → Recontracting 25 分**の 3 段階構造に再構造化（Tomprou 2015 cognitive regulation 3 軸を明示）(5) §6.4 として **Track A（Renegotiation 版・Maintenance 強化型）/ Track B（Repair 版・Violation 修復型）の 2 トラック構造化**を新設（Rousseau-Hansen-Tomprou 2018 動的位相モデルの 4 phases を Orbit Quarterly に統合）(6) 月次セッション × Quarterly Track A/B × 半期年合宿の **動的位相マップ**で 4 phases 完全カバーを確立。Phase 14-A §6.2 P0/P1 提案 + Phase 14-C §11.1/§11.2 P0 提案を完全実装。|
 
 ---
 
