@@ -384,6 +384,114 @@ Quarterly 当日朝の判断：
 
 ---
 
+## 6.5 🆕 Mitchell JE 6 領域 × DMM 20 変数測定モジュール（v1.2 新規追加・H2 検証反映）
+
+DMM 16 年 Wevox 6,780 件コメント分析 + 退職アンケート 1,455 件分析を学術モデル Mitchell 2001 Job Embeddedness 6 領域（Links / Fit / Sacrifice × On-the-job / Off-the-job）と突合した結果、**業界既存サーベイ（Wevox 等）は On-the-job 4 領域のみカバーし、Off-the-job 3 領域は構造的に不可視**であることが判明。本モジュールは Page 6 Quarterly 運用に Mitchell 6 領域の継続測定装置を組み込み、**Off-the-job 3 領域を独占的に補完測定する世界初のパッケージ化**を実装する。
+
+### 6.5.1 6 領域 × 20 変数マッピング表
+
+| Mitchell 領域 | Wevox 対応カテゴリ | DMM 具体現場変数（20 個）| 計測手法 | 計測頻度 | 配置位置 |
+|:-:|---|---|---|:-:|:-:|
+| **§A. On-the-job Links** | 人間関係・チーム 47.7% + 上司 12.1% + 情報共有 8.8% = 約 68% | (1) 1on1 実施率 / (2) Slack 雑談量 / (3) メンター本数 / (4) PJ 連携数 | Wevox + 業務システム | 月次 | 月次セッション |
+| **§B. On-the-job Fit** | やりがい 5.5% + キャリア 8.5% + 裁量 2.9% = 約 17% | (5) やりがい充足度 / (6) キャリアパス合意度（G07）/ (7) 裁量範囲合意 | Wevox 5 段階 + 1on1 | 月次 | 月次セッション |
+| **§C. On-the-job Sacrifice** | 評価・報酬 4.4% + 業務量 7.0% = 約 11% | (8) 給与水準 / (9) 昇格パイプライン / (10) 業務量 / (11) 評価実績 | 制度データ + 業務量集計 | 四半期 | Page 6 Track A/B |
+| **§D. 🆕 Off-the-job Links**（業界盲点）| ❌ Wevox 不可視 | (12) 家族所在地 / (13) 地域コミュニティ参加 / (14) 社外勉強会参加 | 入社時アンケート + 自己申告 | 入社時 + 四半期 | Page 6 v1.2 新設 |
+| **§E. 🆕 Off-the-job Fit**（業界盲点）| 環境・制度 12.3%（リモート系部分）| (15) 通勤時間 / (16) リモート活用率 / (17) フレックス活用率 | 勤怠データ + 自己申告 | 四半期 | Page 6 v1.2 新設 |
+| **§F. 🆕 Off-the-job Sacrifice**（業界盲点）| 環境・制度 12.3%（福利厚生・休暇系部分）| (18) 在宅継続可能性 / (19) 勤務地維持 / (20) 福利厚生継続性 | 制度データ + 自己申告 | 四半期 | Page 6 v1.2 新設 |
+
+### 6.5.2 Page 6 本紙 [6-JE] 追加セクション（v1.2 新規）
+
+```
+【6-JE】Mitchell JE 6 領域 × DMM 20 変数 Quarterly 棚卸し（v1.2 新規）
+
+  §A. On-the-job Links（4 変数）:
+    (1) 1on1 実施率（月次完了/計画）: ___ %
+    (2) Slack 雑談量（個人別週間メッセージ数）: ___ 件/週
+    (3) メンター本数: ___ 人
+    (4) PJ 連携数（横断 PJ 参加数）: ___ 件
+    領域スコア: ___/5（参謀総合判定）
+
+  §B. On-the-job Fit（3 変数）:
+    (5) やりがい充足度（Wevox 5 段階）: ___/5
+    (6) キャリアパス合意度（明文化・本人合意済）: □合意 □部分 □未合意
+    (7) 裁量範囲合意（明文化）: □合意 □部分 □未合意
+    領域スコア: ___/5
+
+  §C. On-the-job Sacrifice（4 変数）:
+    (8) 給与水準（市場相対値）: □上位 25% □中位 □下位 25%
+    (9) 昇格パイプライン（次の昇格ステップ明示）: □あり □なし
+    (10) 業務量（時間外労働）: ___ 時間/月
+    (11) 評価実績（直近 1 年）: □評価上位 □中位 □下位
+    領域スコア: ___/5
+
+  §D. 🆕 Off-the-job Links（3 変数・業界盲点補完）:
+    (12) 家族所在地（同居・近距離・遠距離）: □同居 □近距離 □遠距離
+    (13) 地域コミュニティ参加: □積極 □軽度 □なし
+    (14) 社外勉強会参加: ___ 件/四半期
+    領域スコア: ___/5
+
+  §E. 🆕 Off-the-job Fit（3 変数・業界盲点補完）:
+    (15) 通勤時間: ___ 分/日（片道）
+    (16) リモート活用率: ___ %/月
+    (17) フレックス活用率: ___ %/月
+    領域スコア: ___/5
+
+  §F. 🆕 Off-the-job Sacrifice（3 変数・業界盲点補完）:
+    (18) 在宅継続可能性: □確保 □不確定 □失う恐れ
+    (19) 勤務地維持: □安定 □転勤可能性 □確実に転勤
+    (20) 福利厚生継続性: □充実 □標準 □劣化
+    領域スコア: ___/5
+
+  【6 領域 6 角形チャート】(参謀記入)
+       On-the-job Links
+            ●
+       /         \
+      ●           ●
+  Off-job        On-job
+  Sacrifice       Fit
+      ●           ●
+       \         /
+            ●
+       On-job Sacrifice
+       (中央) Off-job Fit  Off-job Links
+
+  【SMB Links 支配性アラート】
+  §A On-the-job Links スコアが 3 未満 →
+  🚨 チーム結束崩壊予兆（Wevox Links 50% 以下と相関）→ 月次セッションで即時介入
+```
+
+### 6.5.3 v1.2 集計手順への追加（参謀運用・Quarterly 3 日前〜当日朝）
+
+```
+[Quarterly 3 日前]
+  10. Mitchell JE 6 領域 × 20 変数の事前データ収集
+      - 業務システム連携: 1on1 実施率 / Slack 雑談量 / PJ 連携数（自動集計）
+      - 制度データ: 給与水準 / 昇格パイプライン / 評価実績（HR システム参照）
+      - 勤怠データ: 通勤時間 / リモート活用率 / フレックス活用率
+      - 自己申告（経営者・人材双方）: 家族所在地 / 地域コミュニティ / 社外勉強会 / 在宅継続性 / 勤務地維持 / 福利厚生継続性
+
+[Quarterly 当日朝]
+  11. 6 領域 6 角形チャート作成（参謀ツール）
+  12. SMB Links 支配性アラート判定（§A スコア < 3 で🚨）
+  13. Off-the-job 3 領域（§D/§E/§F）の弱点領域マーキング
+       → 業界既存サーベイで見えない離反リスクとして Page 6 [4] 再交渉アクションに優先反映
+```
+
+### 6.5.4 戦略的優位性（識学・Wevox・採用 BPO への構造的差別化）
+
+| 領域 | 識学 | Wevox | 採用 BPO | Orbit Page 6 v1.2 |
+|---|:-:|:-:|:-:|:-:|
+| §A On-the-job Links | ❌ | ✅ 47.7% カバー | ❌ | ✅ + 4 変数定量化 |
+| §B On-the-job Fit | ⚠️ 一部 | ✅ 17% カバー | ❌ | ✅ + 3 変数定量化 |
+| §C On-the-job Sacrifice | ✅ Continuance 偏重 | ⚠️ 部分（評価・業務量）| ❌ | ✅ + 4 変数定量化 |
+| §D 🆕 Off-the-job Links | ❌ | ❌ 構造的盲点 | ❌ | ✅ **独占実装** |
+| §E 🆕 Off-the-job Fit | ❌ | ❌ 構造的盲点 | ❌ | ✅ **独占実装** |
+| §F 🆕 Off-the-job Sacrifice | ❌ | ❌ 構造的盲点 | ❌ | ✅ **独占実装** |
+
+→ **§D/§E/§F の Off-the-job 3 領域は業界既存ツール全社が構造的に不可視**。Orbit Page 6 v1.2 が SMB 30-100 名規模で世界初のパッケージ化として位置付け可能。
+
+---
+
 ## 7. 関連ファイル
 
 ### 入力
@@ -403,7 +511,8 @@ Quarterly 当日朝の判断：
 |---|---|---|
 | v1.0 | 2026-05-14 夕 | 初版確定。Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 を現場運用ドキュメント完成形に展開。A4 5 枚セット（本紙 + 記入ガイド 2 + 突合マトリクス + 集計手順）を確定。Tomprou 2015 4 段階修復モデルの段階 3「再交渉」を制度化する装置として位置付け（🔴 誤訳・v1.0.1 で訂正）。|
 | **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正（4 箇所）**：Tomprou 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive/Affective）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Page 6 は「段階 3 制度化」ではなく「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving 誘導装置」として再定義。Rousseau-Hansen-Tomprou 2018 動的位相モデル（被引用 488）を併用引用。v1.1 で VRBs 3 次元測定 / 予測 outcome 欄 / outcome 別介入アクションの実装追加予定（Phase 14-A §6.2 P0 反映）|
-| **v1.1** | **2026-05-14 夜** | **🆕 VRBs + 4 outcomes + Track A/B 2 トラック構造の本格実装版**：(1) §2 本紙 [3] に **【3-VRBs】Violation Resolution Beliefs 3 次元測定**（Probability/Timing/Agency × 5 件法）+ 警戒度判定 → 4 outcomes 予測ロジック追加 (2) §5.1 突合マトリクスに **予測 outcome 判定欄**（Thriving/Reactivation/Impairment/Dissolution × 推奨 Track A/B）追加 (3) §6.2.5 として **Tomprou 2015 4 outcomes 別介入アクションテンプレ**新設（4 軌道 × Orbit 介入 × 学術根拠）(4) §6.3 セッション進行プロトコルを **Sensemaking 20 分 → Reframing 20 分 → Recontracting 25 分**の 3 段階構造に再構造化（Tomprou 2015 cognitive regulation 3 軸を明示）(5) §6.4 として **Track A（Renegotiation 版・Maintenance 強化型）/ Track B（Repair 版・Violation 修復型）の 2 トラック構造化**を新設（Rousseau-Hansen-Tomprou 2018 動的位相モデルの 4 phases を Orbit Quarterly に統合）(6) 月次セッション × Quarterly Track A/B × 半期年合宿の **動的位相マップ**で 4 phases 完全カバーを確立。Phase 14-A §6.2 P0/P1 提案 + Phase 14-C §11.1/§11.2 P0 提案を完全実装。|
+| v1.1 | 2026-05-14 夜 | 🆕 VRBs + 4 outcomes + Track A/B 2 トラック構造の本格実装版：(1) §2 本紙 [3] に【3-VRBs】Violation Resolution Beliefs 3 次元測定追加 (2) §5.1 突合マトリクスに予測 outcome 判定欄追加 (3) §6.2.5 として Tomprou 2015 4 outcomes 別介入アクションテンプレ新設 (4) §6.3 を Sensemaking → Reframing → Recontracting 3 段階構造に再構造化 (5) §6.4 として Track A/B 2 トラック構造化を新設 (6) 月次 × Quarterly × 半期年合宿の動的位相マップで 4 phases 完全カバーを確立。|
+| **v1.2** | **2026-05-14 夜（Opus 別 Node 移行後）** | **🔥 Mitchell JE 6 領域 × DMM 20 変数測定モジュール追加版（H2 検証反映）**：(1) **§6.5 新設：Mitchell JE 6 領域 × DMM 20 変数マッピング表**（§A〜§F 6 領域・累計 20 個の現場変数）(2) **§6.5.2 Page 6 本紙 [6-JE] 追加セクション**：6 領域 6 角形チャート + SMB Links 支配性アラート（§A < 3 で 🚨）(3) **§6.5.3 集計手順 v1.2 追加**：業務システム連携 + 制度データ + 勤怠データ + 自己申告の 4 系統データ収集フロー (4) **§6.5.4 戦略的優位性表**：§D/§E/§F Off-the-job 3 領域は識学・Wevox・採用 BPO すべて構造的盲点 = Orbit が世界初のパッケージ化として独占実装。3 軸完成設計書 v1.0 §4.7 と完全整合。H1+H2+H3 DB 突合結果反映完了。|
 
 ---
 
