@@ -13,9 +13,9 @@ OUT = CACHE / 'phase4_selection.json'
 # ファイル拡張子フィルタ
 VALID_EXT = {'.xlsx', '.pptx', '.pdf', '.docx', '.doc', '.xls', '.ppt'}
 
-# サイズ制約 50KB - 30MB
-MIN_SIZE = 50 * 1024
-MAX_SIZE = 30 * 1024 * 1024
+# サイズ制約 50KB - 30MB（size_kb 単位）
+MIN_SIZE_KB = 50
+MAX_SIZE_KB = 30 * 1024
 
 # 除外パターン（機密性高すぎ・個人情報）
 EXCLUDE_PATTERNS = [
@@ -54,20 +54,21 @@ def get_files(data, source_tag):
             continue
         path = e.get('path', '')
         name = e.get('name', '')
-        size = e.get('size', 0)
-        ext = os.path.splitext(name)[1].lower()
+        size_kb = e.get('size_kb', 0)
+        ext = (e.get('extension') or os.path.splitext(name)[1]).lower()
         if ext not in VALID_EXT:
             continue
-        if size < MIN_SIZE or size > MAX_SIZE:
+        if size_kb < MIN_SIZE_KB or size_kb > MAX_SIZE_KB:
             continue
         if is_excluded(path):
             continue
         out.append({
             'name': name,
             'path': path,
-            'size': size,
+            'size_kb': size_kb,
             'ext': ext,
             'source': source_tag,
+            'modified': e.get('modified', ''),
         })
     return out
 
@@ -115,11 +116,11 @@ def main():
         print(f"  {k}: {v}")
 
     # サイズ Top 50 を表示
-    deduped_sorted = sorted(deduped, key=lambda x: -x['size'])
-    print("\n--- Top 50 by size ---")
-    for f in deduped_sorted[:50]:
-        size_mb = f['size'] / 1024 / 1024
-        print(f"  [{size_mb:.1f}MB] {f['source']} :: {f['name']}")
+    deduped_sorted = sorted(deduped, key=lambda x: -x['size_kb'])
+    print("\n--- Top 80 by size ---")
+    for f in deduped_sorted[:80]:
+        size_mb = f['size_kb'] / 1024
+        print(f"  [{size_mb:.1f}MB] {f['source']} :: {f['path']}")
 
     with open(OUT, 'w') as f:
         json.dump(deduped, f, ensure_ascii=False, indent=2)
