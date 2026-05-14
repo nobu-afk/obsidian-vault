@@ -62,11 +62,11 @@ def find_memory_refs_in_text(text: str) -> set[str]:
     """text 中で参照されている memory file 名を抽出（基本ファイル名のみ）"""
     refs = set()
     # パターン1: memory/feedback_xxx.md or feedback_xxx.md（type prefix 付き拡張子付き）
-    for m in re.finditer(r"\b(feedback|project|reference|user)_[\w\-]+\.md\b", text):
+    for m in re.finditer(r"\b(feedback|project|reference|user)_[\w\-.]+\.md\b", text):
         refs.add(m.group(0))
     # パターン2: 拡張子なし（CLAUDE.md / culture.md 内で見かける）
     for m in re.finditer(
-        r"`(?:memory/)?((?:feedback|project|reference|user)_[\w\-]+)`", text
+        r"`(?:memory/)?((?:feedback|project|reference|user)_[\w\-.]+)`", text
     ):
         refs.add(m.group(1) + ".md")
     return refs
@@ -95,10 +95,10 @@ def parse_index_entries() -> dict[str, list[int]]:
     entries: dict[str, list[int]] = {}
     text = MEMORY_INDEX.read_text(encoding="utf-8")
     for i, line in enumerate(text.splitlines(), 1):
-        for m in re.finditer(r"\(([\w\-]+\.md)\)", line):
+        for m in re.finditer(r"\(([\w\-.]+\.md)\)", line):
             entries.setdefault(m.group(1), []).append(i)
         # 拡張子なしリンク（既存索引で散在）
-        for m in re.finditer(r"\[([^\]]+)\]\(((?:feedback|project|reference|user)_[\w\-]+)\)", line):
+        for m in re.finditer(r"\[([^\]]+)\]\(((?:feedback|project|reference|user)_[\w\-.]+)\)", line):
             entries.setdefault(m.group(2) + ".md", []).append(i)
     return entries
 
