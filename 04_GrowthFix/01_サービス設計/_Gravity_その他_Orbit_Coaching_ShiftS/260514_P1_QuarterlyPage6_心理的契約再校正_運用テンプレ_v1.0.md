@@ -4,14 +4,14 @@
 >
 > **配布形態：** A4 5 枚セット（本紙 1 + 記入ガイド 2 + 突合マトリクス 1 + 集計手順 1）
 > **作成：** 2026-05-14 夕（メインスレッド Opus・P1 反映）
-> **学術根拠：** Rousseau 1989/1995（被引用 17,000+）+ Morrison-Robinson 1997 + Zhao 2007 PsycRev meta（被引用 4,500+）+ Tomprou-Rousseau-Hansen 2015 4 段階修復モデル
+> **学術根拠：** Rousseau 1989/1995（被引用 17,000+）+ Morrison-Robinson 1997 + Zhao 2007 PsycRev meta（被引用 4,500+）+ **Tomprou-Rousseau-Hansen 2015 Post-Violation Model（被引用 277・JOB）+ Hansen-Tomprou 2018 動的位相モデル（被引用 488・JOB）**（🔴 Phase 14-A 訂正：v1.0 初版「4 段階修復モデル」は誤訳・正式は「4 outcomes 結果分類モデル」+ VRBs 3 次元）
 > **対象：** Orbit 月 15 万契約クライアントの Quarterly セッション（3 ヶ月毎 1 回・年 4 回）
 
 ---
 
 ## 0. このテンプレの目的
 
-経営者と優秀人材プールの**心理的契約**（明示的契約を超えた暗黙の期待束）を **3 ヶ月毎に正式に再交渉する場**を制度化する。Rousseau 系列の最新理論である Tomprou-Rousseau-Hansen 2015「4 段階修復モデル」の段階 3「再交渉（Renegotiation）」を強制発動させる装置。
+経営者と優秀人材プールの**心理的契約**（明示的契約を超えた暗黙の期待束）を **3 ヶ月毎に正式に再交渉する場**を制度化する。Rousseau 系列の最新理論である Tomprou-Rousseau-Hansen 2015「Post-Violation Model」（v1.0 初版「4 段階修復モデル」は誤訳・🔴 Phase 14-A 訂正）における **VRBs（Violation Resolution Beliefs）を高水準で維持し、Cognitive Regulation 経路で Thriving / Reactivation outcome に誘導する装置**。Hansen-Tomprou 2018 動的位相モデル（被引用 488）の Maintenance / Repair-Renegotiation phase を制度化する。
 
 **運用原則：**
 - **Breach（契約違反・客観的事実）から Violation（違反知覚・感情）への発展を遮断**：Breach 発生から 1-3 ヶ月以内に経営者の意図帰属を明示化
@@ -213,7 +213,7 @@ _____________________________________________________________
 
 優秀人材プール側の自由記述（4.3）で「怒り」「裏切られた感」「失望」のいずれかが **4-5** で記入された場合：
 
-- **Tomprou 2015 4 段階修復モデル**に従い、**段階 3「再交渉」を Quarterly で必ず実施**
+- **Tomprou 2015 Post-Violation Model**（🔴 Phase 14-A 訂正：「4 段階」ではなく 4 outcomes 結果分類）に従い、**VRBs 3 次元（Probability/Timing/Agency）が低水準の場合は Quarterly で必ず Cognitive Regulation 経路（Sensemaking → Reframing → Recontracting）への引き戻しを実施**。Affective Regulation（感情抑制 / 回避 / Rumination）兆候放置は Impairment / Dissolution outcome へ進行リスク高
 - 経営者の意図帰属を明示化（「悪意なし」「構造的」「誤解」のどれか）
 - Page 6 [4] 再交渉アクションに**緊急介入アクション**を含める
 

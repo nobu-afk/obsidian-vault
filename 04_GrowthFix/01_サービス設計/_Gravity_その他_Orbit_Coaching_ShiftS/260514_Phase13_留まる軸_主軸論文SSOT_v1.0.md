@@ -159,16 +159,40 @@ Affective Commitment 低下（r=-.45, p<.001）
 
 **Gravity Orbit の含意：** Breach 発生時に **Violation 感情への発展を防ぐ機構**（Quarterly 4 型再判定書 Page 6 の心理的契約再校正セッション）が最重要介入。Breach の認知が起きてから 1-3 ヶ月以内に「経営者の意図帰属」を明示化することで、Violation 感情への発展を遮断する。
 
-#### 1.4.3 修復メカニズム（Tomprou-Rousseau-Hansen 2015）
+#### 1.4.3 Post-Violation Model（Tomprou-Rousseau-Hansen 2015）─ 🔴 Phase 14-A 訂正版（260514 夜）
 
-Rousseau 系列の最新理論：**4 段階修復モデル**
+> **重大訂正：** Phase 13 v1.0 初版で「4 段階修復モデル（Discovery → Sensemaking → Renegotiation → Repair/Disengagement）」と記述したが、Phase 14-A 原典精査（260514）で**これは構造的誤訳**と判明。正しい構造は**段階モデルではなく「結果分類モデル」**。詳細：`260514_Phase14_Tomprou2015_原典精査_v1.0.md`
 
-1. **発覚（Discovery）**：従業員が Breach に気づく
-2. **理解（Sensemaking）**：「なぜ起きたか」を解釈
-3. **再交渉（Renegotiation）**：経営者と新しい期待を握り直す ← **Orbit Quarterly が直撃する段階**
-4. **修復（Repair）or 離脱（Disengagement）**：再交渉成功で関係修復、失敗で心理的離脱
+**Tomprou-Rousseau-Hansen 2015 正式構造（被引用 277・JOB 36(4) 561-581）：**
 
-**Orbit Quarterly = 段階 3 の制度化：** 自然発生的には起きにくい「再交渉の場」を四半期ごとに強制発動させる装置として、Orbit Quarterly 4 型再判定書 Page 6 を位置付ける。これが Rousseau 理論の Gravity Orbit における正式な学術的基礎。
+```
+[1] Violation 発生（Breach → Violation 感情への発展）
+        ↓
+[2] Violation Resolution Beliefs（VRBs）の形成 ← 中核構成概念
+    3 次元：Probability（解決可能性）/ Timing（時間軸）/ Agency（主体帰属）
+        ↓
+[3] Self-Regulatory Process（自己調整・Carver-Scheier 1998 応用）
+    ┌─ Cognitive Regulation（建設的経路）：Sensemaking / Reframing / Reappraisal
+    │    → VRBs 高で発動・Thriving / Reactivation outcome に誘導
+    └─ Affective Regulation（防衛的経路）：感情抑制 / 回避 / Rumination
+         → VRBs 低で発動・Impairment / Dissolution outcome に誘導
+        ↓
+[4] 4 Post-Violation Outcomes（最終分岐）
+    ├─ Thriving（繁栄・契約発展）
+    ├─ Reactivation（再活性化・元契約復元）
+    ├─ Impairment（毀損・契約弱体化・静かな離職）
+    └─ Dissolution（解消・契約破棄・実離職）
+```
+
+**Hansen-Tomprou 2018 動的位相モデル（被引用 488・親論文を上回る）：** 2015 モデルを動的位相モデル（dynamic phase model）として体系化。書籍『引力経営』第 6 章では **2015（静的 outcome）+ 2018（動的位相）のセット引用が必須**。
+
+**Orbit Quarterly Page 6 の正式な学術的基礎（v1.1 で再定義）：**
+- 「段階 3 の制度化」ではなく、**「VRBs を高水準で維持し、Cognitive Regulation 経路で Thriving / Reactivation outcome に誘導する装置」**
+- Page 6 [3] Breach 候補リストに **VRBs 3 次元測定**（Probability/Timing/Agency）を追加
+- 突合マトリクスに **4 outcomes 予測欄**（Thriving/Reactivation/Impairment/Dissolution）を追加
+- 90 分セッションを **Sensemaking 20 分 → Reframing 20 分 → Recontracting 25 分**の 3 段階構造に再構造化
+
+**実証された予測変数（Tomprou 2015）：** Severity of breach・Attribution of intent が VRBs の負の前件 / POS が VRBs の正の前件 / VRBs が cognitive regulation の正の前件
 
 ### 1.5 Orbit への接続（Phase 12 §1-2 / §4-3 の強化）
 

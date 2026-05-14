@@ -80,7 +80,7 @@ Continuous EC = Saks 2006 Engagement 2 軸 × 月次拍動運用
   - Breach → Violation → **Affective Commitment 低下（r=-.45, p<.001）**
   - → OCB 低下（r=-.37）+ 業績低下（r=-.27）
   - → **離職意図上昇（r=+.42）→ 実離職率上昇（r=+.21）**
-- **Orbit Quarterly の理論的位置付け（v1.1 強化）：** Breach 発生時に **Violation 感情への発展を防ぐ機構**が最重要介入。Breach の認知が起きてから 1-3 ヶ月以内に「経営者の意図帰属」を明示化することで Violation 感情への発展を遮断する。これが Quarterly 4 型再判定書 Page 6「心理的契約再校正」の正式な学術的役割。Tomprou-Rousseau-Hansen 2015 の **4 段階修復モデル（発覚 → 理解 → 再交渉 → 修復 or 離脱）の段階 3「再交渉」を制度化する装置**として Orbit Quarterly を定義。
+- **Orbit Quarterly の理論的位置付け（v1.1 強化 → v1.2 Phase 14-A 訂正版）：** Breach 発生時に **Violation 感情への発展を防ぐ機構**が最重要介入。Breach の認知が起きてから 1-3 ヶ月以内に「経営者の意図帰属」を明示化することで Violation 感情への発展を遮断する。これが Quarterly 4 型再判定書 Page 6「心理的契約再校正」の正式な学術的役割。**🔴 Phase 14-A 訂正：** Tomprou-Rousseau-Hansen 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**（Phase 13 初版「4 段階修復モデル」は誤訳）。正式構造：Violation → **VRBs（Violation Resolution Beliefs）3 次元（Probability/Timing/Agency）** → Self-Regulation（Cognitive/Affective 2 経路）→ **4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。**Orbit Quarterly Page 6 は「VRBs を高水準で維持し、Cognitive Regulation 経路で Thriving / Reactivation outcome に誘導する装置」**として再定義。書籍引用は **Tomprou 2015 JOB（被引用 277）+ Hansen-Tomprou 2018 JOB 動的位相モデル（被引用 488）のセット**で行う。
 - **棚卸し v0.1 → Phase 13 状況：** 既存マッピング 110+ 件には未収載だったが、**Phase 13（260514 夕）で原典調査完走・SSOT v1.0 として独立 SSOT 化済**（`260514_Phase13_留まる軸_主軸論文SSOT_v1.0.md` §1 参照）。Rousseau 1989 ERRJ 被引用 **7,483** / 1995 Sage 単著 10,000+ 想定で学術重量確保済。
 - **Orbit への接続：** **Quarterly 4 型再判定書（A4 6p に拡張・Page 6 追加）の中核理論基盤**。Quarterly 再判定は **「3 ヶ月間の期待 vs 現実のギャップを心理的契約として再交渉する場」** として再定義。Rousseau の Relational/Transactional/Balanced 3 類型は **Orbit 顧客の経営者・幹部・優秀人材の継続動機質を分類する診断軸**になる（給料で留まるか / 関係性で留まるか / 成果連動で留まるか）。
 
