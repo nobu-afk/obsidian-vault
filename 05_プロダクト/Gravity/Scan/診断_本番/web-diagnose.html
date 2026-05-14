@@ -1182,7 +1182,7 @@ body {
         <dt>Q1. 30 分で何が分かりますか?</dt>
         <dd>60 分の有料 Scan で行う「型 × 軸スコア × 処方箋」3 段のうち、型と軸スコア解釈の 2 段を 30 分で対話。「次の一手」が複数候補で見える状態を目指します。</dd>
 
-        <dt>Q2. 結局 SCAN 10 万 ・ Shift 80-220 万を売られるのでは?</dt>
+        <dt>Q2. 結局 Recruit / Cultivate / Shift を売られるのでは?</dt>
         <dd>30 分内で営業はしません。「次の一手は何か」「自社単独でやるか / 外部と進めるか」までを対話。Gravity サービスの提案はリクエストがあった場合のみ ・ PDF 後送で対応します。</dd>
 
         <dt>Q3. Zoom が苦手です。</dt>
@@ -1255,15 +1255,15 @@ body {
     </p>
     <nav class="done-links" aria-label="次のアクション">
       <a href="https://growthfix.jp/gravity-scan/" class="done-link">
-        <span>Gravity Scan（精密診断 60 分・10 万円）へ</span>
-        <span class="done-link-arrow" aria-hidden="true">→</span>
-      </a>
-      <a href="https://growthfix.jp/gravity-recruit/" class="done-link">
-        <span>Gravity Recruit（採用基盤・3 ヶ月 80 万）へ</span>
+        <span>Gravity Recruit（集まる軸・月 35 万・最低 6 ヶ月）へ</span>
         <span class="done-link-arrow" aria-hidden="true">→</span>
       </a>
       <a href="https://growthfix.jp/gravity-cultivate/" class="done-link">
-        <span>Gravity Cultivate（躍動組織・6 ヶ月 150 万）へ</span>
+        <span>Gravity Cultivate（躍動する軸・月 50 万・最低 6 ヶ月）へ</span>
+        <span class="done-link-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="https://growthfix.jp/gravity-orbit/" class="done-link">
+        <span>Gravity Orbit（留まる軸・月 15 万・最低 6 ヶ月）へ</span>
         <span class="done-link-arrow" aria-hidden="true">→</span>
       </a>
       <a href="https://growthfix.jp/gravity/" class="done-link">
@@ -1377,9 +1377,9 @@ const TYPE_DEFS = {
     ce_title: '拡散型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '採用段階では引力が機能していますが、入社後の集合的効力感（Collective Efficacy）が低下しています。感情伝染（Barsade 2002）がネガティブ方向に働いており、幹部離脱の連鎖が起きやすい状態です。',
     next_label: '次の一手',
-    next_title: 'Gravity Cultivate（躍動組織実装・6 ヶ月）',
-    next_desc: '躍動する土壌を本格実装。エンゲージメント・心理的安全性・組織引力の三軸強化。',
-    next_price: '6 ヶ月 150 万円',
+    next_title: 'Gravity Cultivate（躍動する軸・継続実装）',
+    next_desc: '躍動する土壌を継続実装。エンゲージメント・心理的安全性・組織引力の三軸強化。',
+    next_price: '月 50 万・最低 6 ヶ月',
     next_url: 'https://growthfix.jp/gravity-cultivate/',
     collect_note: '採用パイプラインは機能しています。',
     vitality_note: '躍動軸の強化が急務です。',
@@ -1391,9 +1391,9 @@ const TYPE_DEFS = {
     ce_title: '渇望型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '組織内の集合的効力感は高く躍動しています。しかし外部への引力発信が弱く、Person-Organization Fit（Cable-Judge）のミスマッチが採用段階で起きています。',
     next_label: '次の一手',
-    next_title: 'Gravity Recruit（採用基盤実装・3 ヶ月）',
-    next_desc: '優秀人材が自然に集まる採用基盤を 3 ヶ月で実装。採用力の構造改革。',
-    next_price: '3 ヶ月 80 万円',
+    next_title: 'Gravity Recruit（集まる軸・継続実装）',
+    next_desc: '優秀人材が自然に集まる採用基盤を継続実装。採用力の構造改革。',
+    next_price: '月 35 万・最低 6 ヶ月',
     next_url: 'https://growthfix.jp/gravity-recruit/',
     collect_note: '採用パイプの強化が急務です。',
     vitality_note: '躍動軸は機能しています。',
@@ -1405,9 +1405,9 @@ const TYPE_DEFS = {
     ce_title: '不毛型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '集合的効力感（Collective Efficacy）が組織全体で低下しています。採用段階の引力不足と入社後の感情伝染（Barsade 2002）のネガティブ連鎖が重なっている最も緊急度が高い状態です。',
     next_label: '次の一手',
-    next_title: 'Gravity Shift（R+C 複合・9 ヶ月）',
-    next_desc: 'Recruit + Cultivate の両軸を統合実装。最短ルートで両軸を立て直す複合パッケージ。',
-    next_price: '9 ヶ月 220 万円（10 万割）',
+    next_title: 'Gravity Shift（R+C 複合・段階移行型）',
+    next_desc: 'Recruit + Cultivate の両軸を段階移行型で統合実装。両軸を順次立て直す複合パッケージ（商談時案内）。',
+    next_price: '月 85 万・段階移行型',
     next_url: 'https://growthfix.jp/gravity-shift/',
     collect_note: '採用パイプの構造改革が必要です。',
     vitality_note: '躍動軸の構造改革が必要です。',

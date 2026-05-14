@@ -154,7 +154,7 @@
 > ⚠️ **継続引力 ≠ Job Embeddedness 単独**。Mitchell 2001 Job Embeddedness は「辞めにくい構造」のみを記述する独立概念。継続引力は **Job Embeddedness（構造）× Psychological Contract（期待）× Affective Commitment（感情）の三位一体**で発現する石井独自統合概念。
 
 **継続引力の学術 BB（Phase 12 v1.2 / Phase 13 SSOT v1.0 確定）：**
-- **Mitchell 2001 Job Embeddedness**（Links × Fit × Sacrifice の 6 領域）→ 「辞めにくい」構造
+- **Mitchell 2001 Job Embeddedness**（被引用 2,707・Links × Fit × Sacrifice の 6 領域）→ 「辞めにくい」構造
 - **Rousseau 1989/1995 Psychological Contract**（被引用 7,483 + 10,000+）→ 「辞めない」期待の継続再交渉
 - **Meyer-Allen 1991 / Meyer 2002 meta**（被引用 13,777 + 3,351）→ 「辞めたくない」Affective Commitment
 - **Crossley 2007 短縮 7 項目尺度**（被引用 1,501）→ 月次パルスサーベイ実装
