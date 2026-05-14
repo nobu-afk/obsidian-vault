@@ -66,7 +66,7 @@ def find_memory_refs_in_text(text: str) -> set[str]:
         refs.add(m.group(0))
     # パターン2: 拡張子なし（CLAUDE.md / culture.md 内で見かける）
     for m in re.finditer(
-        r"`(?:memory/)?((?:feedback|project|reference|user)_[\w\-.]+)`", text
+        r"`(?:memory/)?((?:feedback|project|reference|user)_[\w\-]+)`", text
     ):
         refs.add(m.group(1) + ".md")
     return refs
@@ -98,7 +98,7 @@ def parse_index_entries() -> dict[str, list[int]]:
         for m in re.finditer(r"\(([\w\-.]+\.md)\)", line):
             entries.setdefault(m.group(1), []).append(i)
         # 拡張子なしリンク（既存索引で散在）
-        for m in re.finditer(r"\[([^\]]+)\]\(((?:feedback|project|reference|user)_[\w\-.]+)\)", line):
+        for m in re.finditer(r"\[([^\]]+)\]\(((?:feedback|project|reference|user)_[\w\-]+)\)", line):
             entries.setdefault(m.group(2) + ".md", []).append(i)
     return entries
 
