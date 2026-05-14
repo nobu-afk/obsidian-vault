@@ -1,0 +1,165 @@
+{
+  "client_id": "sample_orbit_client",
+  "month": "2026-05",
+  "generated_at": "2026-05-14 18:44 JST",
+  "papers_matched": 8,
+  "dry_run": true,
+  "matched_papers": [
+    {
+      "paper_id": "Bandura1977",
+      "author": "Bandura A",
+      "year": 1977,
+      "title": "Self-efficacy: Toward a Unifying Theory of Behavioral Change",
+      "axes": [
+        "躍動"
+      ],
+      "matched_signals": [
+        "executive_voice"
+      ],
+      "summary": "自己効力感の4源泉: 達成経験 / 代理経験 / 言語的説得 / 生理的覚醒。達成経験が最強。",
+      "intervention": "幹部の小さな成功体験を月次で記録・言語化 → 次の挑戦への自己効力感向上",
+      "citations": 24000
+    },
+    {
+      "paper_id": "Sampson1997",
+      "author": "Sampson RJ et al.",
+      "year": 1997,
+      "title": "Neighborhoods and Violent Crime: A Multilevel Study of Collective Efficacy",
+      "axes": [
+        "躍動"
+      ],
+      "matched_signals": [
+        "psych_safety_cost",
+        "executive_voice"
+      ],
+      "summary": "集合的効力感(CE)がコミュニティの問題解決力を予測。CE は組織にも適用可。",
+      "intervention": "チーム CE 向上: 集団的目標設定 + 相互モニタリング文化の醸成",
+      "citations": 8583
+    },
+    {
+      "paper_id": "Edmondson1999",
+      "author": "Edmondson AC",
+      "year": 1999,
+      "title": "Psychological Safety and Learning Behavior in Work Teams",
+      "axes": [
+        "躍動"
+      ],
+      "matched_signals": [
+        "psych_safety_cost",
+        "executive_voice"
+      ],
+      "summary": "心理的安全性が学習行動・チームパフォーマンスを促進。リーダーの行動が最大の規定因子。",
+      "intervention": "リーダー4行動: 失敗の承認 / 異議歓迎 / 質問奨励 / 助けを求める文化",
+      "citations": 7200
+    },
+    {
+      "paper_id": "MeyerMeta2002",
+      "author": "Meyer JP et al.",
+      "year": 2002,
+      "title": "Affective, Continuance, and Normative Commitment: A Meta-Analysis",
+      "axes": [
+        "留まる"
+      ],
+      "matched_signals": [
+        "departure_signal"
+      ],
+      "summary": "AC は業績・離職両方を予測。CC は業績を予測しない（単なる「辞められない」はリスク）。",
+      "intervention": "CC 偏重チェック: 「辞めたいが辞められない」層の特定 → AC 向上施策へ転換",
+      "citations": 6300
+    },
+    {
+      "paper_id": "Saks2006",
+      "author": "Saks AM",
+      "year": 2006,
+      "title": "Antecedents and Consequences of Employee Engagement",
+      "axes": [
+        "躍動"
+      ],
+      "matched_signals": [
+        "departure_signal"
+      ],
+      "summary": "エンゲージメントの2軸（職務・組織）を測定。低エンゲージメントは離職意図と強く相関（β=-.40）。",
+      "intervention": "職務エンゲージメント向上: 意義ある業務割当 + 1on1 月2回以上",
+      "citations": 4800
+    },
+    {
+      "paper_id": "Saks2006b",
+      "author": "Saks AM",
+      "year": 2006,
+      "title": "Antecedents and Consequences of Employee Engagement (Organizational Embeddedness)",
+      "axes": [
+        "留まる"
+      ],
+      "matched_signals": [
+        "departure_signal",
+        "overload"
+      ],
+      "summary": "組織エンゲージメントと離職意図の相関（r=-.46）。支援的環境が最大の促進因子。",
+      "intervention": "直属上長の支援行動チェック月次実施 → 「助けてもらえた体験」の記録",
+      "citations": 4800
+    },
+    {
+      "paper_id": "VallerAndHoulgaard2003",
+      "author": "Vallerand RJ et al.",
+      "year": 2003,
+      "title": "Les passions de l'ame: On Obsessive and Harmonious Passion",
+      "axes": [
+        "躍動"
+      ],
+      "matched_signals": [
+        "overload"
+      ],
+      "summary": "調和的情熱(HP)は燃え尽きを防ぎ持続的エンゲージメントを生む。強迫的情熱(OP)は過負荷リスク。",
+      "intervention": "過負荷者への調和的情熱チェック: 「やめられる感覚があるか」を確認",
+      "citations": 3600
+    },
+    {
+      "paper_id": "Mitchell2001",
+      "author": "Mitchell TR et al.",
+      "year": 2001,
+      "title": "Why People Stay: Using Job Embeddedness to Predict Voluntary Turnover",
+      "axes": [
+        "留まる"
+      ],
+      "matched_signals": [
+        "departure_signal"
+      ],
+      "summary": "Job Embeddedness 3次元（Links / Fit / Sacrifice）が自発的離職を予測。Fit が最強予測因子。",
+      "intervention": "Embedded Self 診断: Links(つながり) / Fit(適合) / Sacrifice(代償) の月次測定と介入",
+      "citations": 3200
+    }
+  ],
+  "signals": [
+    {
+      "type": "離職予兆シグナル（身体 + 離脱予兆）",
+      "papers": [
+        "Mitchell2001",
+        "Crossley2007"
+      ],
+      "priority": "high",
+      "actions": [
+        "Job Embeddedness 6 問チェックを今月中に実施し、低スコア者 (Links/Fit/Sacrifice) を特定",
+        "低スコア者に個別面談: 「辞めたいと感じたことがあるか」を明示的に確認",
+        "Sacrifice 強化: キャリアパス言語化 + 月次フォローアップ面談設定"
+      ],
+      "rationale": "Mitchell(2001)はJob Embeddedness3次元が自発的離職を最も強く予測することを実証。早期特定が鍵。"
+    },
+    {
+      "type": "心理的安全性低下",
+      "papers": [
+        "Edmondson1999"
+      ],
+      "priority": "medium",
+      "actions": [
+        "リーダー 4 行動チェック: 失敗の承認 / 異議歓迎 / 質問奨励 / 助けを求める文化の月次観察",
+        "経営者が「私も失敗した」発言を次回全社ミーティングで1回行う",
+        "心理的安全性サーベイ 3 問を月次導入（Edmondson 1999 尺度準拠）"
+      ],
+      "rationale": "Edmondson(1999)はリーダー行動が心理的安全性の最大規定因子であることを実証。トップの行動変容が最速。"
+    }
+  ],
+  "_meta": {
+    "dry_run": true,
+    "model": "claude-sonnet-4-6"
+  }
+}

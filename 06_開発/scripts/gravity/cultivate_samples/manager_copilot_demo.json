@@ -1,0 +1,135 @@
+{
+  "summary": "佐藤 健一は業務遂行力に強みを持つ一方、数字管理が苦手（売上予測・工数管理を後回しにする）と1on1 で場の空気を作れない（沈黙が怖くてすぐ話してしまう）に課題がある。",
+  "learning_resources": {
+    "papers": [
+      {
+        "id": "P1",
+        "title": "The Impact of Self-Efficacy on Motivation and Performance",
+        "author": "Bandura, A.",
+        "year": 1977,
+        "relevance": "自己効力感の 4 源泉（達成体験）が 1on1 設計の学術根拠"
+      },
+      {
+        "id": "P2",
+        "title": "Psychological Safety and Learning Behavior in Work Teams",
+        "author": "Edmondson, A.",
+        "year": 1999,
+        "relevance": "心理的安全性の構築が 1on1 での沈黙活用に直結"
+      },
+      {
+        "id": "P3",
+        "title": "Antecedents and Consequences of Employee Engagement",
+        "author": "Saks, A. M.",
+        "year": 2006,
+        "relevance": "エンゲージメントの Job × Organization 2 軸が KPI 設計の基盤"
+      }
+    ],
+    "books": [
+      {
+        "id": "B1",
+        "title": "コーチング・バイブル（第 4 版）",
+        "author": "ヘンリー・キムジーハウス ほか",
+        "relevance": "オープン質問と傾聴の実践スクリプトが 1on1 改善に直結"
+      },
+      {
+        "id": "B2",
+        "title": "HIGH OUTPUT MANAGEMENT",
+        "author": "アンドリュー・S・グローブ",
+        "relevance": "数字管理・業績評価の実践フレームがコンプレックス補完の核"
+      }
+    ],
+    "videos": [
+      {
+        "id": "V1",
+        "title": "How Great Managers Coach Their Teams",
+        "source": "YouTube - Google re:Work",
+        "relevance": "1on1 の場の作り方を映像で体感できる"
+      },
+      {
+        "id": "V2",
+        "title": "データドリブン意思決定 入門",
+        "source": "YouTube - ビジネス統計学チャンネル",
+        "relevance": "数字管理への苦手意識を体系的に解消する入門コンテンツ"
+      }
+    ]
+  },
+  "practice_program": {
+    "one_on_one_script": [
+      "「今週、一番エネルギーを使ったのはどんな場面でしたか？」（感情から入る）",
+      "「その場面で、自分がうまくできたと感じた点は？」（達成体験を引き出す）",
+      "「来週、一つだけ変えるとしたら何ですか？」（具体行動にコミット）",
+      "「私からできる支援は何かありますか？」（関係構築で締める）"
+    ],
+    "weekly_reflection_template": [
+      "今週、自分が最も集中できた業務は何でしたか？",
+      "チームの誰かが成長した瞬間に気づきましたか？",
+      "自分のエネルギーが下がった場面はどこですか？",
+      "来週、チームとして達成したい小さな成功は何ですか？"
+    ],
+    "kpi_actions": [
+      {
+        "kpi_key": "エンゲージメントスコア",
+        "current": "62（要改善水準）",
+        "target": "75 以上",
+        "action": "週 1 回の 1on1 を 30 分確保し、業務指示より感情確認を優先する"
+      },
+      {
+        "kpi_key": "1on1 実施頻度",
+        "current": "月 1.5 回",
+        "target": "月 4 回（毎週）",
+        "action": "カレンダーに毎週固定枠を入れ、スキップ率 0% を 3 ヶ月続ける"
+      }
+    ]
+  },
+  "dialogue_questions": [
+    {
+      "id": "Q01",
+      "complex_target": "数字管理が苦手（売上予測・工数管理を後回しにする）",
+      "question": "数字を見るとき、どんな感情が湧きますか？",
+      "intent": "数字への感情的ブロックを言語化させる"
+    },
+    {
+      "id": "Q02",
+      "complex_target": "数字管理が苦手（売上予測・工数管理を後回しにする）",
+      "question": "チームの数字が悪かったとき、最初に何を確認しますか？",
+      "intent": "数字管理の現状パターンを把握する"
+    },
+    {
+      "id": "Q03",
+      "complex_target": "1on1 で場の空気を作れない（沈黙が怖くてすぐ話してしまう）",
+      "question": "1on1 で沈黙が 3 秒続いたとき、何が頭をよぎりますか？",
+      "intent": "沈黙への恐怖の根源を探る"
+    },
+    {
+      "id": "Q04",
+      "complex_target": "1on1 で場の空気を作れない（沈黙が怖くてすぐ話してしまう）",
+      "question": "相手が話しやすい 1on1 と、話しにくい 1on1 の違いは何だと思いますか？",
+      "intent": "心理的安全性の自己認識を引き出す"
+    },
+    {
+      "id": "Q05",
+      "complex_target": "メンバーの感情を読むのが苦手",
+      "question": "メンバーの「調子が悪そう」と感じた瞬間を、最近いつ体験しましたか？",
+      "intent": "感情読み取りの実体験を掘り起こす"
+    }
+  ],
+  "coverage_matrix": {
+    "数字管理": {
+      "level": "low",
+      "reason": "コンプレックスの第一項目であり、週次 KPI 管理の習慣が未定着"
+    },
+    "業務遂行": {
+      "level": "high",
+      "reason": "強みフィールドに明記あり・タスク完了率 78% も実力を裏付ける"
+    },
+    "ピープル": {
+      "level": "medium",
+      "reason": "1on1 実施はあるが頻度・質ともに改善余地あり"
+    },
+    "引力相性": {
+      "level": "medium",
+      "reason": "技術志向 × Why 不明確のため、組織引力との接続は今後のコーチングで深堀りが必要"
+    }
+  },
+  "priority_message": "佐藤 健一の今月最優先は「毎週 1on1 を 30 分固定で実施し、業務指示より感情確認を 1 件以上行う」ことです。"
+}
