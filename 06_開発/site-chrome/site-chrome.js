@@ -80,10 +80,10 @@
             '<a href="https://growthfix.jp/gravity-coaching/">Gravity Coaching</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
-            '<p class="b-footer-col-label">組織軸（経営者×組織）</p>' +
-            '<a href="https://growthfix.jp/gravity-scan/">Gravity Scan</a>' +
-            '<a href="https://growthfix.jp/gravity-recruit/">Gravity Recruit</a>' +
-            '<a href="https://growthfix.jp/gravity-cultivate/">Gravity Cultivate</a>' +
+            '<p class="b-footer-col-label">組織軸（集まる × 躍動する × 留まる）</p>' +
+            '<a href="https://growthfix.jp/gravity-recruit/">Gravity Recruit（集まる）</a>' +
+            '<a href="https://growthfix.jp/gravity-cultivate/">Gravity Cultivate（躍動する）</a>' +
+            '<a href="https://growthfix.jp/gravity-orbit/">Gravity Orbit（留まる）</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">会社・サイト</p>' +
