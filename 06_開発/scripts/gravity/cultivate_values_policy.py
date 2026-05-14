@@ -23,11 +23,12 @@ import sys
 import json
 import argparse
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from _common.claude_client import (
     call_claude, load_input_json, save_output, save_json,
     mask_name, now_jst_str, parse_claude_json, md_h1, md_h2, md_h3,
-    md_table, md_blockquote, md_footer,
+    md_table, md_blockquote, md_footer, run_cultivate_pipeline,
 )
 
 SYSTEM_PROMPT = """\
@@ -196,61 +197,28 @@ def _build_markdown(data: dict, result: dict, masked_name: str, is_dry_run: bool
     return "\n".join(lines)
 
 
+def _validate_ten_values(result: dict) -> None:
+    n = len(result.get("values", []))
+    if n != 10:
+        print(f"[WARN] VAL リュー数が 10 件ではありません（{n} 件）。", file=sys.stderr)
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(
+    run_cultivate_pipeline(
         description="CT-2 VAL リュー × ポリシー実装エンジン",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-使用例:
-  python3 cultivate_values_policy.py --demo
-  python3 cultivate_values_policy.py --demo --dry-run
-  python3 cultivate_values_policy.py --input profile.json --output report
-  python3 cultivate_values_policy.py --input profile.json --output report --mask
-        """,
+        demo_basename="values_policy_demo",
+        name_field="ceo_name",
+        mask_help="経営者名を SHA256 短縮ハッシュ化",
+        system_prompt=SYSTEM_PROMPT,
+        sample_fn=_create_sample_input,
+        mock_fn=_mock_output,
+        user_prompt_fn=_build_user_prompt,
+        build_md_fn=_build_markdown,
+        max_tokens=6000,
+        script_dir=SCRIPT_DIR,
+        script_name=os.path.basename(__file__),
+        post_validate_fn=_validate_ten_values,
     )
-    parser.add_argument("--input", help="入力 JSON ファイルパス")
-    parser.add_argument("--output", help="出力ファイルパス（拡張子なし。.md と .json を生成）")
-    parser.add_argument("--demo", action="store_true", help="同梱サンプルプロファイルで動作確認")
-    parser.add_argument("--dry-run", action="store_true", help="Claude API を呼ばず mock 出力を確認")
-    parser.add_argument("--mask", action="store_true", help="経営者名を SHA256 短縮ハッシュ化")
-    args = parser.parse_args()
-
-    if not args.demo and not args.input:
-        parser.error("--input または --demo のいずれかを指定してください。")
-
-    if args.demo:
-        data = _create_sample_input()
-        output_base = args.output or os.path.join(SCRIPT_DIR, "cultivate_samples", "values_policy_demo")
-        print("[INFO] --demo: サンプルプロファイルを使用します。", file=sys.stderr)
-    else:
-        data = load_input_json(args.input)
-        if not args.output:
-            parser.error("--output を指定してください。")
-        output_base = args.output
-
-    masked_name = mask_name(data.get("ceo_name", ""), args.mask)
-
-    if args.dry_run:
-        result = _mock_output(data, masked_name)
-    else:
-        user_prompt = _build_user_prompt(data, masked_name)
-        raw = call_claude(SYSTEM_PROMPT, user_prompt, dry_run=False, max_tokens=6000)
-        try:
-            result = parse_claude_json(raw)
-        except (json.JSONDecodeError, ValueError) as e:
-            print(f"[WARN] JSON パース失敗: {e}。mock 出力にフォールバック。", file=sys.stderr)
-            result = _mock_output(data, masked_name)
-
-    if len(result.get("values", [])) != 10:
-        print(f"[WARN] VAL リュー数が 10 件ではありません（{len(result.get('values', []))} 件）。", file=sys.stderr)
-
-    md_text = _build_markdown(data, result, masked_name, args.dry_run)
-
-    os.makedirs(os.path.dirname(os.path.abspath(output_base)), exist_ok=True)
-    save_output(md_text, output_base + ".md")
-    save_json(result, output_base + ".json")
-
-    print(md_text)
 
 
 if __name__ == "__main__":

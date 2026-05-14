@@ -9,12 +9,14 @@ import 例:
     from _common.claude_client import call_claude, load_config, mask_name, JST
 """
 
+import argparse
 import os
 import re
 import sys
 import json
 import hashlib
 from datetime import datetime, timezone, timedelta
+from typing import Callable, Optional
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(SCRIPT_DIR, "..", "config", "config_claude.json")
@@ -187,3 +189,75 @@ def md_footer(script_name: str) -> str:
         f"\n---\n\n"
         f"*本レポートは {script_name} による自動生成物です（{now_jst_str()}）。*\n"
     )
+
+
+def run_cultivate_pipeline(
+    *,
+    description: str,
+    demo_basename: str,
+    name_field: str,
+    mask_help: str,
+    system_prompt: str,
+    sample_fn: Callable[[], dict],
+    mock_fn: Callable[[dict, str], dict],
+    user_prompt_fn: Callable[[dict, str], str],
+    build_md_fn: Callable[[dict, dict, str, bool], str],
+    max_tokens: int,
+    script_dir: str,
+    script_name: str,
+    post_validate_fn: Optional[Callable[[dict], None]] = None,
+) -> None:
+    """CT-1/CT-2/CT-3 共通の main() 処理（argparse → demo/input 分岐 → API/mock → md/json 出力）"""
+    parser = argparse.ArgumentParser(
+        description=description,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=f"""
+使用例:
+  python3 {script_name} --demo
+  python3 {script_name} --demo --dry-run
+  python3 {script_name} --input profile.json --output report
+  python3 {script_name} --input profile.json --output report --mask
+        """,
+    )
+    parser.add_argument("--input", help="入力 JSON ファイルパス")
+    parser.add_argument("--output", help="出力ファイルパス（拡張子なし。.md と .json を生成）")
+    parser.add_argument("--demo", action="store_true", help="同梱サンプルで動作確認")
+    parser.add_argument("--dry-run", action="store_true", help="Claude API を呼ばず mock 出力を確認")
+    parser.add_argument("--mask", action="store_true", help=mask_help)
+    args = parser.parse_args()
+
+    if not args.demo and not args.input:
+        parser.error("--input または --demo のいずれかを指定してください。")
+
+    if args.demo:
+        data = sample_fn()
+        output_base = args.output or os.path.join(script_dir, "cultivate_samples", demo_basename)
+        print("[INFO] --demo: サンプル入力を使用します。", file=sys.stderr)
+    else:
+        data = load_input_json(args.input)
+        if not args.output:
+            parser.error("--output を指定してください。")
+        output_base = args.output
+
+    masked = mask_name(data.get(name_field, ""), args.mask)
+
+    if args.dry_run:
+        result = mock_fn(data, masked)
+    else:
+        user_prompt = user_prompt_fn(data, masked)
+        raw = call_claude(system_prompt, user_prompt, dry_run=False, max_tokens=max_tokens)
+        try:
+            result = parse_claude_json(raw)
+        except (json.JSONDecodeError, ValueError) as e:
+            print(f"[WARN] JSON パース失敗: {e}。mock 出力にフォールバック。", file=sys.stderr)
+            result = mock_fn(data, masked)
+
+    if post_validate_fn is not None:
+        post_validate_fn(result)
+
+    md_text = build_md_fn(data, result, masked, args.dry_run)
+
+    os.makedirs(os.path.dirname(os.path.abspath(output_base)), exist_ok=True)
+    save_output(md_text, output_base + ".md")
+    save_json(result, output_base + ".json")
+    print(md_text)

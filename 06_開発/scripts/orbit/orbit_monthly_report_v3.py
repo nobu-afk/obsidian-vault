@@ -707,6 +707,31 @@ def build_pdf_v3(
         fontName=base_fn, fontSize=8, textColor=colors.grey,
     )
 
+    def _add_para(text, style):
+        story.append(Paragraph(text, style))
+
+    def _add_table_row(line):
+        cells = [c.strip() for c in line.split("|")[1:-1]]
+        _add_para(" | ".join(cells), style_body)
+
+    # 行プレフィックス → ハンドラ（先勝・上から評価）
+    LINE_HANDLERS = [
+        (lambda l: l.startswith("###"),       lambda l: _add_para(l.lstrip("#").strip(), style_h3)),
+        (lambda l: l.startswith("##"),        lambda l: _add_para(l.lstrip("#").strip(), style_h2)),
+        (lambda l: l.startswith("|---")
+                or l.startswith("---"),       lambda l: None),  # 表区切り / hr は無視
+        (lambda l: l.startswith("|"),         _add_table_row),
+    ]
+
+    def _render_line(line):
+        for pred, handler in LINE_HANDLERS:
+            if pred(line):
+                handler(line)
+                return
+        clean = line.lstrip("#>*- ").strip()
+        if clean:
+            _add_para(clean, style_body)
+
     def _add_section(story, markdown_text, start_marker, end_marker=None):
         in_section = False
         for line in markdown_text.splitlines():
@@ -716,21 +741,7 @@ def build_pdf_v3(
             if end_marker and end_marker in line and in_section:
                 break
             if in_section and line.strip():
-                if line.startswith("###"):
-                    story.append(Paragraph(line.lstrip("#").strip(), style_h3))
-                elif line.startswith("##"):
-                    story.append(Paragraph(line.lstrip("#").strip(), style_h2))
-                elif line.startswith("|") and not line.startswith("|---|"):
-                    cells = [c.strip() for c in line.split("|")[1:-1]]
-                    story.append(Paragraph(" | ".join(cells), style_body))
-                elif line.startswith("|---"):
-                    pass
-                elif line.startswith("---"):
-                    pass
-                else:
-                    clean = line.lstrip("#>*- ").strip()
-                    if clean:
-                        story.append(Paragraph(clean, style_body))
+                _render_line(line)
 
     now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     story = []

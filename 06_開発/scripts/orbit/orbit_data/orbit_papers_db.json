@@ -1,0 +1,263 @@
+{
+  "version": "1.0",
+  "generated": "260514",
+  "papers": [
+    {
+      "id": "Saks2006",
+      "author": "Saks AM",
+      "year": 2006,
+      "title": "Antecedents and Consequences of Employee Engagement",
+      "journal": "Journal of Managerial Psychology",
+      "citations": 4800,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "engagement",
+        "departure_signal"
+      ],
+      "summary": "エンゲージメントの2軸（職務・組織）を測定。低エンゲージメントは離職意図と強く相関（β=-.40）。",
+      "intervention": "職務エンゲージメント向上: 意義ある業務割当 + 1on1 月2回以上"
+    },
+    {
+      "id": "Mitchell2001",
+      "author": "Mitchell TR et al.",
+      "year": 2001,
+      "title": "Why People Stay: Using Job Embeddedness to Predict Voluntary Turnover",
+      "journal": "Academy of Management Journal",
+      "citations": 3200,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "departure_signal",
+        "talent_retention"
+      ],
+      "summary": "Job Embeddedness 3次元（Links / Fit / Sacrifice）が自発的離職を予測。Fit が最強予測因子。",
+      "intervention": "Embedded Self 診断: Links(つながり) / Fit(適合) / Sacrifice(代償) の月次測定と介入"
+    },
+    {
+      "id": "Rousseau1989",
+      "author": "Rousseau DM",
+      "year": 1989,
+      "title": "Psychological and Implied Contracts in Organizations",
+      "journal": "Employee Responsibilities and Rights Journal",
+      "citations": 4100,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "meaning",
+        "relationships"
+      ],
+      "summary": "心理的契約の違反・破綻が組織コミットメントと満足度を急落させる。3段階: 認識→違反→破綻。",
+      "intervention": "月次心理的契約チェック: 「約束された期待」vs「実際の提供」のギャップ測定"
+    },
+    {
+      "id": "MeyerAllen1991",
+      "author": "Meyer JP, Allen NJ",
+      "year": 1991,
+      "title": "A Three-Component Conceptualization of Organizational Commitment",
+      "journal": "Human Resource Management Review",
+      "citations": 8900,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "talent_retention",
+        "engagement"
+      ],
+      "summary": "情動的(AC)・継続的(CC)・規範的(NC)コミットメントの3成分モデル。AC が最も強く業績・定着に相関。",
+      "intervention": "情動的コミットメント強化: Why 共有セッション月1回 + キャリア対話"
+    },
+    {
+      "id": "Edmondson1999",
+      "author": "Edmondson AC",
+      "year": 1999,
+      "title": "Psychological Safety and Learning Behavior in Work Teams",
+      "journal": "Administrative Science Quarterly",
+      "citations": 7200,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "psych_safety_cost",
+        "executive_voice",
+        "facial"
+      ],
+      "summary": "心理的安全性が学習行動・チームパフォーマンスを促進。リーダーの行動が最大の規定因子。",
+      "intervention": "リーダー4行動: 失敗の承認 / 異議歓迎 / 質問奨励 / 助けを求める文化"
+    },
+    {
+      "id": "Schneider1987",
+      "author": "Schneider B",
+      "year": 1987,
+      "title": "The People Make the Place",
+      "journal": "Personnel Psychology",
+      "citations": 3800,
+      "axes": [
+        "集まる"
+      ],
+      "signals": [
+        "recruitment_pipeline",
+        "recruitment_wall_pof"
+      ],
+      "summary": "ASA（誘引-選抜-離脱）モデル: 組織は特定のPersonalityタイプを引き寄せ・選択・保持する。",
+      "intervention": "採用 JD に Why × 才能 × 偏愛を記述 → P-O Fit 向上 → 辞退率低下"
+    },
+    {
+      "id": "Crossley2007",
+      "author": "Crossley CD et al.",
+      "year": 2007,
+      "title": "Development of a Global Measure of Job Embeddedness",
+      "journal": "Journal of Applied Psychology",
+      "citations": 1800,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "talent_retention",
+        "departure_signal"
+      ],
+      "summary": "Job Embeddedness のグローバル単一尺度を開発。6項目逆転あり（Crossley順転誤訳注意）。",
+      "intervention": "JE 簡易6問サーベイ月次実施 → 低スコア者への個別介入フラグ設定"
+    },
+    {
+      "id": "Bandura1977",
+      "author": "Bandura A",
+      "year": 1977,
+      "title": "Self-efficacy: Toward a Unifying Theory of Behavioral Change",
+      "journal": "Psychological Review",
+      "citations": 24000,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "executive_voice",
+        "engagement"
+      ],
+      "summary": "自己効力感の4源泉: 達成経験 / 代理経験 / 言語的説得 / 生理的覚醒。達成経験が最強。",
+      "intervention": "幹部の小さな成功体験を月次で記録・言語化 → 次の挑戦への自己効力感向上"
+    },
+    {
+      "id": "Wrzesniewski1997",
+      "author": "Wrzesniewski A et al.",
+      "year": 1997,
+      "title": "Jobs, Careers, and Callings: People's Relations to Their Work",
+      "journal": "Journal of Research in Personality",
+      "citations": 2900,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "meaning",
+        "engagement"
+      ],
+      "summary": "仕事への関わり方3類型: Job / Career / Calling。Calling は最高の主観的幸福・組織コミットと相関。",
+      "intervention": "1on1 で Calling 発見セッション: 「なぜこの仕事を選んだか」の物語化"
+    },
+    {
+      "id": "Tomprou2015",
+      "author": "Tomprou M et al.",
+      "year": 2015,
+      "title": "The Psychological Contracts of Violation Victims",
+      "journal": "Journal of Organizational Behavior",
+      "citations": 420,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "meaning",
+        "relationships",
+        "facial"
+      ],
+      "summary": "心理的契約違反後の4段階回復モデル: 沈黙 → 発言 → 離脱 → 適応。初期介入が重要。",
+      "intervention": "違反発覚後72h以内の対話設定 → 修復合意書（書面不要・口頭でも有効）"
+    },
+    {
+      "id": "VallerAndHoulgaard2003",
+      "author": "Vallerand RJ et al.",
+      "year": 2003,
+      "title": "Les passions de l'ame: On Obsessive and Harmonious Passion",
+      "journal": "Journal of Personality and Social Psychology",
+      "citations": 3600,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "engagement",
+        "overload"
+      ],
+      "summary": "調和的情熱(HP)は燃え尽きを防ぎ持続的エンゲージメントを生む。強迫的情熱(OP)は過負荷リスク。",
+      "intervention": "過負荷者への調和的情熱チェック: 「やめられる感覚があるか」を確認"
+    },
+    {
+      "id": "Sampson1997",
+      "author": "Sampson RJ et al.",
+      "year": 1997,
+      "title": "Neighborhoods and Violent Crime: A Multilevel Study of Collective Efficacy",
+      "journal": "Science",
+      "citations": 8583,
+      "axes": [
+        "躍動"
+      ],
+      "signals": [
+        "executive_voice",
+        "psych_safety_cost"
+      ],
+      "summary": "集合的効力感(CE)がコミュニティの問題解決力を予測。CE は組織にも適用可。",
+      "intervention": "チーム CE 向上: 集団的目標設定 + 相互モニタリング文化の醸成"
+    },
+    {
+      "id": "Saks2006b",
+      "author": "Saks AM",
+      "year": 2006,
+      "title": "Antecedents and Consequences of Employee Engagement (Organizational Embeddedness)",
+      "journal": "Journal of Managerial Psychology",
+      "citations": 4800,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "departure_signal",
+        "overload"
+      ],
+      "summary": "組織エンゲージメントと離職意図の相関（r=-.46）。支援的環境が最大の促進因子。",
+      "intervention": "直属上長の支援行動チェック月次実施 → 「助けてもらえた体験」の記録"
+    },
+    {
+      "id": "MeyerMeta2002",
+      "author": "Meyer JP et al.",
+      "year": 2002,
+      "title": "Affective, Continuance, and Normative Commitment: A Meta-Analysis",
+      "journal": "Journal of Vocational Behavior",
+      "citations": 6300,
+      "axes": [
+        "留まる"
+      ],
+      "signals": [
+        "talent_retention",
+        "departure_signal"
+      ],
+      "summary": "AC は業績・離職両方を予測。CC は業績を予測しない（単なる「辞められない」はリスク）。",
+      "intervention": "CC 偏重チェック: 「辞めたいが辞められない」層の特定 → AC 向上施策へ転換"
+    },
+    {
+      "id": "CableJudge1996",
+      "author": "Cable DM, Judge TA",
+      "year": 1996,
+      "title": "Person-Organization Fit, Job Choice Decisions, and Organizational Entry",
+      "journal": "Organizational Behavior and Human Decision Processes",
+      "citations": 2400,
+      "axes": [
+        "集まる"
+      ],
+      "signals": [
+        "recruitment_pipeline",
+        "final_decline_rate"
+      ],
+      "summary": "P-O Fit が内定受諾意図を最も強く予測（β=.42）。価値観の合致が報酬より重要。",
+      "intervention": "採用選考に P-O Fit 問答（Why × 組織文化）を明示的に組み込む"
+    }
+  ]
+}

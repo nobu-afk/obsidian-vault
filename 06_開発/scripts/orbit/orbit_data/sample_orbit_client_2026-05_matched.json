@@ -1,7 +1,7 @@
 {
   "client_id": "sample_orbit_client",
   "month": "2026-05",
-  "generated_at": "2026-05-14 18:44 JST",
+  "generated_at": "2026-05-14 20:15 JST",
   "papers_matched": 8,
   "dry_run": true,
   "matched_papers": [
@@ -29,8 +29,8 @@
         "躍動"
       ],
       "matched_signals": [
-        "psych_safety_cost",
-        "executive_voice"
+        "executive_voice",
+        "psych_safety_cost"
       ],
       "summary": "集合的効力感(CE)がコミュニティの問題解決力を予測。CE は組織にも適用可。",
       "intervention": "チーム CE 向上: 集団的目標設定 + 相互モニタリング文化の醸成",
@@ -45,8 +45,8 @@
         "躍動"
       ],
       "matched_signals": [
-        "psych_safety_cost",
-        "executive_voice"
+        "executive_voice",
+        "psych_safety_cost"
       ],
       "summary": "心理的安全性が学習行動・チームパフォーマンスを促進。リーダーの行動が最大の規定因子。",
       "intervention": "リーダー4行動: 失敗の承認 / 異議歓迎 / 質問奨励 / 助けを求める文化",
