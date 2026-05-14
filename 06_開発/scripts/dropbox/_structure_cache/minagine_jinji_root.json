@@ -1,0 +1,104 @@
+[
+  {
+    "name": "002_導入資料",
+    "path": "/02_MINAGINE/01_人事制度検討資料/002_導入資料",
+    "type": "folder"
+  },
+  {
+    "name": "007_オーダーコンサル",
+    "path": "/02_MINAGINE/01_人事制度検討資料/007_オーダーコンサル",
+    "type": "folder"
+  },
+  {
+    "name": "014_窪さん打ち合わせ",
+    "path": "/02_MINAGINE/01_人事制度検討資料/014_窪さん打ち合わせ",
+    "type": "folder"
+  },
+  {
+    "name": "013_コンサル部（事業計画）",
+    "path": "/02_MINAGINE/01_人事制度検討資料/013_コンサル部（事業計画）",
+    "type": "folder"
+  },
+  {
+    "name": "001_営業資料",
+    "path": "/02_MINAGINE/01_人事制度検討資料/001_営業資料",
+    "type": "folder"
+  },
+  {
+    "name": "006_研修サービス",
+    "path": "/02_MINAGINE/01_人事制度検討資料/006_研修サービス",
+    "type": "folder"
+  },
+  {
+    "name": "010_クライアント履歴",
+    "path": "/02_MINAGINE/01_人事制度検討資料/010_クライアント履歴",
+    "type": "folder"
+  },
+  {
+    "name": "003_運用支援パック",
+    "path": "/02_MINAGINE/01_人事制度検討資料/003_運用支援パック",
+    "type": "folder"
+  },
+  {
+    "name": "005_議事録（アジェンダ）",
+    "path": "/02_MINAGINE/01_人事制度検討資料/005_議事録（アジェンダ）",
+    "type": "folder"
+  },
+  {
+    "name": "015_他社事業計画資料",
+    "path": "/02_MINAGINE/01_人事制度検討資料/015_他社事業計画資料",
+    "type": "folder"
+  },
+  {
+    "name": "004_マニュアル類",
+    "path": "/02_MINAGINE/01_人事制度検討資料/004_マニュアル類",
+    "type": "folder"
+  },
+  {
+    "name": "009_運用サポート",
+    "path": "/02_MINAGINE/01_人事制度検討資料/009_運用サポート",
+    "type": "folder"
+  },
+  {
+    "name": "012_目標添削事例",
+    "path": "/02_MINAGINE/01_人事制度検討資料/012_目標添削事例",
+    "type": "folder"
+  },
+  {
+    "name": "008_みんなの人事評価（共有フォルダ）",
+    "path": "/02_MINAGINE/01_人事制度検討資料/008_みんなの人事評価（共有フォルダ）",
+    "type": "folder"
+  },
+  {
+    "name": "個人の特性_アッテル.pdf",
+    "path": "/02_MINAGINE/01_人事制度検討資料/個人の特性_アッテル.pdf",
+    "type": "file",
+    "size_kb": 340.1,
+    "modified": "2021-08-04T00:20:13",
+    "extension": ".pdf"
+  },
+  {
+    "name": "変革実行プランの要素.xlsx",
+    "path": "/02_MINAGINE/01_人事制度検討資料/変革実行プランの要素.xlsx",
+    "type": "file",
+    "size_kb": 13.7,
+    "modified": "2021-02-12T09:36:48",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "ペルソナ用.xlsx",
+    "path": "/02_MINAGINE/01_人事制度検討資料/ペルソナ用.xlsx",
+    "type": "file",
+    "size_kb": 22.4,
+    "modified": "2018-12-03T07:15:37",
+    "extension": ".xlsx"
+  },
+  {
+    "name": "SFリスト.xlsx",
+    "path": "/02_MINAGINE/01_人事制度検討資料/SFリスト.xlsx",
+    "type": "file",
+    "size_kb": 33.5,
+    "modified": "2024-02-28T06:30:11",
+    "extension": ".xlsx"
+  }
+]

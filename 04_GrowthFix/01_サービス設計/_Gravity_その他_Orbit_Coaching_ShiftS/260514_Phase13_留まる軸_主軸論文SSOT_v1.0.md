@@ -1,4 +1,4 @@
-# Phase 13：留まる軸 主軸論文 SSOT v1.0（260514）
+# Phase 13：留まる軸 主軸論文 SSOT v1.0.1（260514・Phase 14-A 誤訳訂正反映済）
 
 > **位置づけ：** Phase 12 で「留まる軸主軸候補」として特定された 3 論文系列（Rousseau 心理的契約 / Meyer-Allen 三成分コミットメント / Crossley グローバル Job Embeddedness 短縮尺度）の原典精査結果。**書籍『引力経営』2027 Q1 第 6 章「継続引力」の執筆素材 SSOT** 兼 **Orbit v3.1 → v3.2 への学術 BB 強化基盤**。Phase 12 確定書 v1.0 → v1.1 の精度向上箇所も特定。
 >
@@ -946,6 +946,7 @@ Job Embeddedness 月次推移 — Crossley Global 7 項目（α=.88）
 | 版 | 日付 | 内容 |
 |---|---|---|
 | **v1.0** | **2026-05-14** | **Phase 13 初版確定**。Rousseau 1989/1995/2001（被引用 7,483 + 10,000+ + 2,500） / Meyer-Allen 1991/1993/1997 + Meyer 2002 meta（被引用 13,000 + 3,351） / Crossley 2007（被引用 1,501）の主軸 3 論文系列原典精査完了 / 心理的契約 3 類型の Gravity サービス接続マップ確定 / Breach-Violation 区別 + Tomprou 2015 修復モデル追加 / Meyer-Allen 1993 改訂 18 項目尺度の日本語版整理 / 月次運用 9 項目短縮案提示 / Continuance × 業績 r=-.07 / × ストレス r=+.20 等の数値根拠で識学差別化を学術強化 / Crossley 7 項目英語原文 + Phase 12 暫定訳の精緻化（項目 6 逆転誤訳修正）/ Phase 12 → v1.1 反映必要箇所 P0/P1/P2 分類 / 書籍第 6 章 5 節構成案 + 経営者向け平易翻訳 4 原則確定 / Phase 14 追加調査論文 5 件と日本固有変形検証論点 3 件特定 |
+| **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正反映**：§1.4.3 を「4 段階修復モデル（Discovery → Sensemaking → Renegotiation → Repair/Disengagement）」から **「Post-Violation Model（4 outcomes 結果分類モデル）」**に全文置換訂正。正式構造は **Violation → VRBs（Violation Resolution Beliefs）3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive: Sensemaking-Reframing-Recontracting / Affective: 抑制-回避-Rumination）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Hansen-Tomprou 2018 動的位相モデル（被引用 488・親論文 277 を上回る）をセット引用として併記。Orbit Quarterly Page 6 の学術的役割を「段階 3 制度化」から **「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving / Reactivation outcome 誘導装置」**に再定義。Tomprou 2015 + 2018 セット引用で書籍出版時の学術整合性を確保（誤訳混入リスク完全解消）。詳細は `260514_Phase14_Tomprou2015_原典精査_v1.0.md` 参照。|
 
 ---
 

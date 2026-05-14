@@ -1,4 +1,4 @@
-# Phase 12：Orbit 継続引力（Embedded Self）学術 BB 確定 v1.2（260514 P0+P1+P2 反映済）
+# Phase 12：Orbit 継続引力（Embedded Self）学術 BB 確定 v1.2.1（260514 P0+P1+P2+Phase14A 訂正反映済）
 
 > **位置づけ：** Phase 11（CODE 個人引力 / SCAN 組織引力）に続く **Gravity 第 3 引力 = Orbit 継続引力（Embedded Self）の学術的バックボーン確定**。Gravity サービス群を 3 軸（集まる / 躍動 / 留まる）の独立 3 得意技に再整理する設計判断の前提となる SSOT。書籍『引力経営』2027 Q1 出版時の中核理論 3 引力統合の完成形。
 >
@@ -501,6 +501,7 @@ Orbit は **Affective Commitment（愛着）を主軸**に設計する。Phase 1
 | **v1.1** | **2026-05-14 夕** | **Phase 13 SSOT v1.0 完成後の P0 即時反映 3 箇所**：(1) **§1-2 Rousseau** に Breach（認知）/ Violation（感情）の正確な学術的区別を追加（Morrison-Robinson 1997）+ Zhao 2007 PsycRev meta（被引用 4,500+）の因果連鎖具体相関値（Breach → AC r=-.45 → 離職意図 r=+.42 → 実離職 r=+.21）+ Tomprou-Rousseau-Hansen 2015 4 段階修復モデル統合 (2) **§1-3 Meyer-Allen** に Meyer 2002 メタ（n=50,146）の具体相関値（Affective × 業績 r=+.16 / × OCB r=+.32 / × 離職意図 r=-.56 / Continuance × 業績 r=-.07 / × ストレス r=+.20）+ 識学差別化の学術根拠 + 商談用 1 文 (3) **§4-2 Crossley 7 項目日本語訳** の致命的誤訳修正（項目 6 が逆転項目 (R) を順転で誤訳されていた事故予防）+ 残り 6 項目の精緻化 + Crossley 2007 Study 3 増分妥当性（Mitchell 40 項目統制下で ΔR²=.05*）追加。被引用数記録：Rousseau 7,483 / Meyer-Allen 系列 13,777 / Meyer 2002 meta 3,351 / Crossley 1,501 / **計 25,000+**（書籍出版耐性確保）|
 | **v1.1+P1** | **2026-05-14 夕** | **P1 運用詳細独立化**：§4-3 / §5.2 に運用ドキュメント別ファイル参照リンク追加。Quarterly Page 6 A4 5 枚セット運用テンプレ v1.0（`260514_P1_QuarterlyPage6_心理的契約再校正_運用テンプレ_v1.0.md`）+ 競合比較表 v1.1 学術根拠付き（`260514_P1_競合比較表_留まる軸学術根拠付き_v1.1.md`・5 競合 × 8 軸 + 商談 1 文武装 8 件）を独立 SSOT 化。本ファイルは学術 BB SSOT 専念へ。|
 | **v1.2** | **2026-05-14 夜** | **P2 数値閾値正式化**：§6.3 を抽象記述から **17 項目スコア構造 + Affective 推移 4 段階閾値 + Continuance/Affective 比率 4 段階閾値 + Normative 過剰依存警告 + 運用禁則 NG 例**の数値閾値正式化版に置換。比率 > 1.0 = 識学的状態警告（Meyer 2002 r=-.07/+.20 根拠）/ 比率 > 1.5 = 緊急介入（給料スパイラル）/ Affective 4 ヶ月連続 0.5 低下 = 石井登壇緊急セッション等の **運用判断 SSOT** を確立。Continuance 偏重検出時の 4 段階介入プロトコル（原因診断 → 3 類型確認 → Affective 強化 3 件設計 → 30 日後フォロー）を制度化。|
+| **v1.2.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による Tomprou 2015 誤訳訂正反映**：§1-2 v1.1 反映時に追記した「Tomprou 2015 4 段階修復モデル（発覚 → 理解 → 再交渉 → 修復 or 離脱）の段階 3 制度化」を **「Tomprou 2015 Post-Violation Model + Hansen-Tomprou 2018 動的位相モデル」のセット引用**に訂正。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路 → 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Orbit Quarterly Page 6 の学術的役割を **「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving / Reactivation outcome 誘導装置」**として再定義。Hansen-Tomprou 2018 被引用 488（親論文 277 を上回る）を併用追記で学術重量を +500 確保（留まる軸累積被引用 25,000+ → 25,500+）。詳細：`260514_Phase14_Tomprou2015_原典精査_v1.0.md`。|
 
 ---
 
