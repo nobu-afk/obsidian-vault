@@ -498,6 +498,99 @@ else
 fi
 
 # ----------------------------------------------------------------------
+# [11] 思想語彙過剰露出チェック（堀田フレーム #41 直接訴求禁則・260514 実装）
+# 対象：LP Body 以降（head メタタグ除外）/ 営業資料 MD（参考警告）
+# 許容回数：
+#   引力施策・組織土壌・Embedded Self・Continuous EC・VRBs・Authentic Self  → LP 1 回
+#   グラウンディング・Cognitive Regulation → LP 0 回（社内用語）
+#   営業資料（MD）は全語彙 0 回（発見時は参考警告 / WARNING +1）
+# 判定方法：<body> タグ以降の行のみカウント（title/og/JSON-LD 除外で false positive 防止）
+# 参考：堀田フレーム #41 / 09_会社OS/非公開/機能/営業_運用詳細.md §#41 節
+# ----------------------------------------------------------------------
+echo ""
+echo "[11] 思想語彙過剰露出チェック（堀田フレーム #41 直接訴求禁則）"
+
+S11_WARNINGS=0
+
+# --- 11.1 LP チェック ---
+# 語彙定義：term|LP許容回数
+LP_TERM_LIMITS=(
+  "引力施策|1"
+  "組織土壌|1"
+  "グラウンディング|0"
+  "Embedded Self|1"
+  "Continuous EC|1"
+  "VRBs|1"
+  "Cognitive Regulation|0"
+  "Authentic Self|1"
+)
+
+LP_FILES=(
+  "Gravity/Recruit/LP/index.html|Recruit LP"
+  "Gravity/Cultivate/LP/index.html|Cultivate LP"
+  "Gravity/Orbit/LP/index.html|Orbit LP"
+  "Gravity/_ブランド/LP/index.html|Hub LP"
+)
+
+for lp_entry in "${LP_FILES[@]}"; do
+  IFS='|' read -r lp_rel lp_label <<< "$lp_entry"
+  lp_file="$ROOT/$lp_rel"
+  [ -f "$lp_file" ] || continue
+
+  # <body> タグの行番号を取得（body 以降のみカウント対象）
+  body_line=$(grep -n "<body" "$lp_file" | head -1 | cut -d: -f1)
+  [ -z "$body_line" ] && body_line=0
+
+  for term_entry in "${LP_TERM_LIMITS[@]}"; do
+    IFS='|' read -r term limit <<< "$term_entry"
+    # <body> 以降の行のみ・HTML コメント行（<!-- 始まり）を除外してカウント
+    body_count=$(tail -n +$((body_line + 1)) "$lp_file" 2>/dev/null | grep -v '^\s*<!--' | grep -F "$term" | wc -l | tr -d ' ')
+    body_count=${body_count:-0}
+
+    if [ "$body_count" -gt "$limit" ]; then
+      over=$((body_count - limit))
+      printf "${YEL}⚠ %s「%s」過剰露出${NC}（body 内 %d 件 / 許容 %d 件 / +%d 件）\n" \
+        "$lp_label" "$term" "$body_count" "$limit" "$over"
+      WARNINGS=$((WARNINGS + 1))
+      S11_WARNINGS=$((S11_WARNINGS + 1))
+    fi
+  done
+done
+
+# --- 11.2 営業資料 MD チェック（参考警告：許容 0 件）---
+SALES_MD_FILES=(
+  "09_会社OS/非公開/機能/営業_運用詳細.md|営業_運用詳細.md"
+  "04_GrowthFix/00_営業/_営業プレイブック/260512_反論処理50問_v0.1.md|反論処理50問"
+  "04_GrowthFix/00_営業/_営業プレイブック/260512_商談スクリプト30シナリオ_v0.1.md|商談スクリプト30シナリオ"
+  "04_GrowthFix/00_営業/_営業プレイブック/260512_ロールプレシナリオ30本_v0.1.md|ロールプレシナリオ30本"
+  "04_GrowthFix/00_営業/_営業プレイブック/260512_営業プレイブック_v1.0.md|営業プレイブック"
+)
+
+VAULT_ROOT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
+SALES_TERMS=("引力施策" "組織土壌" "グラウンディング" "Embedded Self" "Continuous EC" "VRBs" "Cognitive Regulation" "Authentic Self")
+
+for sales_entry in "${SALES_MD_FILES[@]}"; do
+  IFS='|' read -r sales_rel sales_label <<< "$sales_entry"
+  sales_file="$VAULT_ROOT/$sales_rel"
+  [ -f "$sales_file" ] || continue
+
+  for term in "${SALES_TERMS[@]}"; do
+    hit_count=$(grep -F "$term" "$sales_file" 2>/dev/null | wc -l | tr -d ' ')
+    hit_count=${hit_count:-0}
+    if [ "$hit_count" -gt 0 ]; then
+      printf "${YEL}⚠ [参考] %s に思想語彙「%s」%d 件（#41 禁則確認推奨）${NC}\n" \
+        "$sales_label" "$term" "$hit_count"
+      WARNINGS=$((WARNINGS + 1))
+      S11_WARNINGS=$((S11_WARNINGS + 1))
+    fi
+  done
+done
+
+if [ "$S11_WARNINGS" -eq 0 ]; then
+  printf "${GRN}✓${NC} 思想語彙過剰露出なし（LP body 内 + 営業資料全件）\n"
+fi
+
+# ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
 echo ""
