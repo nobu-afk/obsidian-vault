@@ -1,0 +1,117 @@
+# GrowthFix LP 禁止語辞書（lint_consistency.sh が参照）
+# 形式: section<TAB>level<TAB>term<TAB>reason<TAB>replace<TAB>extra_exclude
+# section: "1" / "1.5" / "7.1"（出力先セクション）
+# level:   "error" = ERRORS カウント / "warning" = WARNINGS カウント
+# extra_exclude: 任意・個別ファイル除外パターン（glob）。空欄可
+# 順序: 既存 lint_consistency.sh の check_forbidden* 呼び出し順を厳守
+1	error	ホームドクター	旧Orbit positioning	共鳴の参謀
+1	error	セラピスト	旧医療メタファー	心の参謀
+1	error	外科医	旧医療メタファー	変革の参謀
+1	error	Gravity Light	廃止サービス	（言及不要）
+1	error	Gravity Core	廃止サービス	（言及不要）
+1	error	月5-15万	Coaching旧価格	38万・6ヶ月
+1	error	月15万・継続対話	Coaching旧表記	38万・6ヶ月
+1	error	月15/25万	Orbit旧表記（スラッシュ）	月15-25万
+1	error	13 ページ	WP旧ページ数	25 ページ
+1	error	13ページ	WP旧ページ数	25 ページ
+1	error	12 ページ	WP旧ページ数	25 ページ
+1	error	12ページ	WP旧ページ数	25 ページ
+1	error	5サービス体系	260430で6サービス相当（Shift 2パッケージ化）	6 サービス相当
+1	error	6サービス体系	260422→260430移行期の旧表記	6 サービス相当
+1	error	Gravity Blueprint	260430 夕 Scan リブート	Gravity Scan
+1	error	設計の参謀	260430 夕 Blueprint→Scan リブート（Scan は引力の参謀（組織軸））	引力の参謀（組織軸）
+1	error	採用口説きブループリント	260430 夕 主成果物移管	面接ブループリント 5 要素（Shift R Week 1-2 納品物）
+1	error	Shift 60万	旧Shift価格	Shift R/C 各 80 万
+1	error	採用に強い会社をつくる	260430 タグライン進化	優秀人材が躍動する会社をつくる(会社思想) or 組織に、引力を。(プロダクト思想)	*seminar-acting*
+1	error	人材磁場 × 躍動設計	260430 夕 撤回	(コピーから削除)
+1	error	Recruit 60万	Recruit 価格 SSOT 違反（正：80 万）	Gravity Recruit 80 万・3 ヶ月
+1	error	Cultivate 60万	Cultivate 価格 SSOT 違反（正：150 万・6 ヶ月）	Gravity Cultivate 150 万・6 ヶ月
+1	error	Cultivate 80万	Cultivate 旧価格（260511 拡張・正：150 万・6 ヶ月）	Gravity Cultivate 150 万・6 ヶ月
+1	error	Cultivate・80 万・3 ヶ月	Cultivate 旧価格・期間（260511 拡張・正：150 万・6 ヶ月）	Gravity Cultivate 150 万・6 ヶ月
+1	error	Coaching 月	Coaching 旧 月額制（正：38 万・6 ヶ月一括）	Gravity Coaching 38 万・6 ヶ月
+1	error	Orbit 38万	Orbit 価格混同（正：月 5 万・最低 6 ヶ月）	Gravity Orbit 月 5 万・最低 6 ヶ月
+1	error	Shift 100万	旧 Shift 価格（260511 拡張・正：R+C 複合 220 万・9 ヶ月）	Gravity Shift 220 万・9 ヶ月
+1	error	Shift 150万・6 ヶ月	Shift 旧価格・期間（260511 R+C 拡張・正：220 万・9 ヶ月）	Gravity Shift 220 万・9 ヶ月
+1	error	CODE 10万	CODE 価格 SSOT 違反（正：5 万・60 分）	Gravity CODE 5 万・60 分
+1	error	Scan 10万	260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）	Gravity Scan 無料 Web 診断 v2
+1	error	Scan 10 万	260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）	Gravity Scan 無料 Web 診断 v2
+1	error	Scan 5万	Scan 価格 SSOT 違反（260514 朝 無料化済み・正：無料 Web 診断 v2）	Gravity Scan 無料 Web 診断 v2
+1	error	Scan・10 万	260514 朝 SCAN 10 万廃止	Gravity Scan 無料 Web 診断 v2
+1	error	10 万・60 分	260514 朝 SCAN 10 万 60 分対話廃止	無料 Web 診断 v2（18 問 3 軸 3 分 + 30 分セッション同梱）
+1	error	10万・60分	260514 朝 SCAN 10 万 60 分対話廃止	無料 Web 診断 v2
+1	error	SCAN 10 万	260514 朝 SCAN 10 万廃止（FAQ Q2 等の残骸）	Gravity Scan 無料 Web 診断 v2
+1	warning	月 15 万	260514 夜 Orbit 月 15 万 → 月 5 万に値下げ（v3.0）	月 5 万（Orbit v3.0）
+1	warning	プロコーチ束ね運用	260514 夜 Orbit v3.0 でコーチング廃止	（Orbit はコーチング外し・個別コーチングは Cultivate に集約）
+1	warning	3 ヶ月予言の書	260514 夜 Recruit v2.0 で内部資産化（LP・営業資料から削除）	集まる力メソッド 6 本（月次レポート型）
+1	warning	Week 1-2 共同制作	260514 夜 R/C v2.0 で廃止（Week 1 オンボ 90 分のみに圧縮）	Week 1 オンボ 90 分 + 月次運用サイクル
+1	warning	採用基盤実装書 12 要素	260514 夜 Recruit v2.0 で内部資産化（LP・営業資料から削除）	集まる力メソッド 6 本
+1	warning	CU-1	260514 夜 Orbit AI エージェント命名統一（CU- → OT-）	OT-1〜OT-6（Orbit Tools）
+1	warning	CU-2	260514 夜 Orbit AI エージェント命名統一（CU- → OT-）	OT-2（Orbit Tools）
+1	warning	CU-3	260514 夜 Orbit AI エージェント命名統一（CU- → OT-）	OT-3（Orbit Tools）
+1	error	80 万・3 ヶ月	260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）	月 35 万・最低 6 ヶ月
+1	error	80 万円 ／ 3 ヶ月	260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）	月 35 万・最低 6 ヶ月
+1	error	80 万 ／ 3 ヶ月	260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）	月 35 万・最低 6 ヶ月
+1	error	3 ヶ月 80 万	260514 v5.0 価格体系移行（Recruit 旧プロジェクト型）	月 35 万・最低 6 ヶ月
+1	error	3 ヶ月総額 80 万	260514 v5.0 過渡期 R5 表記廃止	月 35 万・最低 6 ヶ月
+1	error	月 26.7 万	260514 v5.0 過渡期 R5 表記廃止	月 35 万
+1	error	月 27 万	260514 v5.0 過渡期 R5 表記廃止	月 35 万
+1	error	150 万・6 ヶ月	260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）	月 50 万・最低 6 ヶ月
+1	error	150 万円 ／ 6 ヶ月	260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）	月 50 万・最低 6 ヶ月
+1	error	150 万 ／ 6 ヶ月	260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）	月 50 万・最低 6 ヶ月
+1	error	6 ヶ月 150 万	260514 v5.0 価格体系移行（Cultivate 旧プロジェクト型）	月 50 万・最低 6 ヶ月
+1	error	6 ヶ月総額 150 万	260514 v5.0 過渡期 R5 表記廃止	月 50 万・最低 6 ヶ月
+1	error	月 25 万・6 ヶ月	260514 v5.0 過渡期 R5 表記廃止（Cultivate）	月 50 万・最低 6 ヶ月
+1	error	220 万・9 ヶ月	260514 v5.0 価格体系移行（R+C 複合旧プロジェクト型）	R+C 月 85 万・段階移行型
+1	error	220 万円・9 ヶ月	260514 v5.0 価格体系移行（R+C 複合旧プロジェクト型）	R+C 月 85 万・段階移行型
+1	error	9 ヶ月総額 220 万	260514 v5.0 過渡期 R5 表記廃止	R+C 月 85 万・段階移行型
+1	error	9 ヶ月 220 万	260514 v5.0 過渡期 R5 表記廃止	R+C 月 85 万・段階移行型
+1	error	月 24.4 万	260514 v5.0 過渡期 R5 表記廃止（Shift）	R+C 月 85 万・段階移行型
+1	error	10 万割引	260514 v5.0 価格体系移行（R+C 旧 10 万割引運用廃止）	段階移行型・最低 6 ヶ月
+1	error	10 万円割引	260514 v5.0 価格体系移行（R+C 旧 10 万割引運用廃止）	段階移行型・最低 6 ヶ月
+1	error	C-5 中判定	v0.4 で覚悟確認 4 象限化（B 結論先送り型 / C 単線思考型）	覚悟確認 B 型 / C 型
+1	error	C-5 高判定	v0.4 で覚悟確認 4 象限化（A 完全覚悟型）	覚悟確認 A 型
+1	error	C-5 低判定	v0.4 で覚悟確認 4 象限化（D 完全 have to 型）	覚悟確認 D 型
+1	error	引力 7 項目	v0.4 で 8 項目化（PO Fit 認識・心理的安全性 4 行動追加）	引力 8 項目
+1	error	引力7項目	v0.4 で 8 項目化	引力 8 項目
+1	error	Why × 動詞 × 環境	260430 公開語彙統一で廃止	Why × 才能 × 偏愛
+1	error	Why×動詞×環境	260430 公開語彙統一で廃止	Why × 才能 × 偏愛
+1	error	環境ズレ型	260430 4 型再設計で廃止	才能ズレ型 / 偏愛ズレ型
+1	error	動詞ズレ型	260430 4 型再設計で廃止	才能ズレ型 / 偏愛ズレ型
+1	error	32 年	経験年数の創作表記（幼稚園起点計算）禁止	30 年以上
+1	error	辞退理由の事前ブロック	260501 改名（症状起点 → 構造起点）	期待値ギャップの事前握り
+1	error	辞退ブロック	260501 改名	期待値ギャップの事前握り
+1	error	磁化する	260501 一般語化（Shift R 動詞）	吸い寄せられる
+1	error	躍動する OS を実装する	260501 OS 過多回避（Shift C 動詞）	躍動する土壌を実装する
+1	error	躍動するOSを実装する	260501 OS 過多回避	躍動する土壌を実装する
+1	error	口説きフレーズ 3 種	260430 BP 主成果物 5 種化	口説きフレーズ 5 種
+1	error	ハンバーガー型 1on1	260509 JAFCO 反映時 業界一般用語化（カンリー固有語）	謝罪 → 指摘 → 感謝の 1on1 構造
+1	error	リレーションアセット	260509 JAFCO 反映時 業界一般用語化（VC 用語寄り）	採用接続資産
+1	error	採用骨格	260508 夜 業界一般用語化（人体メタファー禁則）	採用基盤
+1	error	動く採用骨格	260508 夜 業界一般用語化	動く採用基盤
+1	error	引力場	260508 夜 業界一般用語化（経営者認知負荷軽減）	採用基盤／組織の魅力
+1	error	会社の Why × 才能 × 偏愛	Why × 才能 × 偏愛 は社長個人の引力源 → 会社には適用できない（SSOT §2 違反）	社長の引力（Why × 才能 × 偏愛）に共鳴する人材 + 会社の Why と整合
+1	error	会社のWhy × 才能 × 偏愛	SSOT §2 違反（個人軸専用）	社長の引力（Why × 才能 × 偏愛）
+1	error	組織の Why × 才能 × 偏愛	SSOT §2 違反（個人軸専用）	社長の引力（Why × 才能 × 偏愛）
+1	error	組織のWhy × 才能 × 偏愛	SSOT §2 違反（個人軸専用）	社長の引力（Why × 才能 × 偏愛）
+1.5	warning	Why × 動詞 × 環境	260430 公開語彙統一で廃止	Why × 才能 × 偏愛
+1.5	warning	環境ズレ型	260430 4 型再設計	才能ズレ型
+1.5	warning	動詞ズレ型	260430 4 型再設計	偏愛ズレ型
+1.5	warning	Gravity Shift R	260503 二層命名運用（対外）	Gravity Recruit
+1.5	warning	Gravity Shift C	260503 二層命名運用（対外）	Gravity Cultivate
+1.5	warning	Shift R	260503 二層命名運用（対外・社内呼称）	Gravity Recruit
+1.5	warning	Shift C	260503 二層命名運用（対外・社内呼称）	Gravity Cultivate
+1.5	warning	Shift Full	260503 二層命名運用（対外・社内呼称）	Gravity Shift（R+A 複合）
+1.5	warning	/gravity-shift-a/	260503 β 並列型 URL 構造	/gravity-cultivate/
+1.5	warning	Gravity Activate	260505 外的命名変更（Activate→Cultivate）	Gravity Cultivate
+1.5	warning	/gravity-activate/	260505 外的命名変更（URL 変更・旧 URL は 301 リダイレクト）	/gravity-cultivate/
+1.5	warning	Activate	260505 外的命名変更（介入主義 Activate を撤廃・思想整合は Cultivate）	Cultivate
+1.5	warning	Shift A	260505 内的呼称も Shift C に統一済（Cultivate 命名変更時）	Shift C（社内）or Gravity Cultivate（対外）
+1.5	error	／A（躍動	260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）	／Gravity Cultivate（躍動組織）
+1.5	error	／ A（躍動	260506 Scan LP bug 再発防止（Cultivate 命名統一漏れ検出）	／ Gravity Cultivate（躍動組織）
+1.5	warning	ジャイアニズム	P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）	（対外コピーから削除）
+1.5	warning	カリスマ採用	P0-3 適合外ペルソナ語彙（対外 LP / WP に出すと不適合層を引き寄せる）	（対外コピーから削除）
+1.5	warning	我々 GrowthFix	P5 声トーンガイド §2.2 違反（複数形は石井 ≠ GrowthFix の印象を作る・権威希薄化）	GrowthFix（私）は or GrowthFix の Gravity シリーズは
+1.5	warning	弊社の Gravity	P5 声トーンガイド §2.2 違反（同上）	GrowthFix の Gravity
+1.5	warning	組織の問題を解決	P5 声トーンガイド §3 主語チェック違反（堀田 #10・経営者は組織課題に金を出さない）	事業の成長 / 採用基盤 / 優秀人材獲得
+7.1	warning	他人の組織のことしか考えていない	P2 旧自己紹介文体（260506 B 版に統合済）	30 年以上、組織の引力 ── 人が集まり、活きる力を追いかけてきた
+7.1	warning	本音で生きられていない自分に絶望した。<br>その原体験	P2 旧自己紹介文体（260506 B 版本文と原体験 1 行に統合済）	B 版 + 原体験 1 行（260506 SSOT 整合形）
