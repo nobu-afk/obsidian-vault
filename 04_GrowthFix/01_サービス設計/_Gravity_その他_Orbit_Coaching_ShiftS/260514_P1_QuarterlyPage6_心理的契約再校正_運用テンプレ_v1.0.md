@@ -1,4 +1,4 @@
-# P1：Orbit Quarterly Page 6「心理的契約再校正」運用テンプレ v1.2（260514 夜・Mitchell JE 6 領域 × DMM 20 変数測定モジュール追加版）
+# P1：Orbit Quarterly Page 6「心理的契約再校正」運用テンプレ v1.3（260514 夜・H6+H7 完走後 P3 反映版・VRBs 月次測定 + Agency 強制開示 + Impairment 検出 + 片道流路→循環転換装置）
 
 > **位置づけ：** Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 の運用詳細化。Orbit Quarterly 4 型再判定書 A4 6 ページのうち、Phase 12 で新規追加された Page 6「心理的契約再校正」セッションを**現場運用ドキュメント完成形（クライアント配布可能状態）** として確立する。
 >
