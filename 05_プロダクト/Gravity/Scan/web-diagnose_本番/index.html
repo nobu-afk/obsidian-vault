@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断</title>
-<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 12 問・約 2 分で診断できる無料 Web 版。集まる軸（採用基盤）× 躍動軸（躍動組織）の 2 マトリクスで自社の引力タイプを判定し、Gravity Recruit／Cultivate／Shift のどれが効くかを確認できます。">
-<meta property="og:title" content="Gravity Scan 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断">
-<meta property="og:description" content="組織の引力タイプを 12 問・約 2 分で診断できる無料 Web 版。整合型・拡散型・渇望型・不毛型のどの型かを確認し、推奨サービスの方角を知る。">
+<title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断</title>
+<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、Gravity Recruit／Cultivate／Orbit のどれが効くかを確認できます。">
+<meta property="og:title" content="Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断">
+<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで整合型・拡散型・渇望型・不毛型のどの型かを確認し、推奨サービス（Recruit／Cultivate／Orbit）の方角を知る。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://growthfix.jp/gravity-scan/web-diagnose/">
 <meta property="og:image" content="https://growthfix.jp/gravity/ogp.png">
@@ -997,7 +997,7 @@ body {
   <div class="hero-inner">
     <div class="hero-free-tag">無料 Web 診断</div>
     <h1 class="hero-h1">
-      組織の<em>引力タイプ</em>を、<em>2 分で。</em>
+      組織の<em>引力タイプ</em>を、<em>3 分で。</em>
     </h1>
     <button class="btn-primary" onclick="ScanApp.startDiagnosis()" style="font-size:17px;padding:20px 52px;">
       診断を開始する
@@ -1461,7 +1461,7 @@ const TYPE_DEFS = {
    ============================================================ */
 const ScanApp = (() => {
   let current = 0;           // 現在の質問インデックス（0-11）
-  let answers = new Array(12).fill(null);  // 各問の選択スコア（null=未回答・v0.2 12 問版）
+  let answers = new Array(18).fill(null);  // 各問の選択スコア（null=未回答・v0.3 18 問 3 軸版・260514）
   let userData = {};         // フォーム入力値
   let resultData = {};       // 判定結果
 

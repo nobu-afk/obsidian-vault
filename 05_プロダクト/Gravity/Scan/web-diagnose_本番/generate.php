@@ -66,6 +66,7 @@ if (!is_array($input)) {
 // ========================================
 // 2. 必須項目バリデーション
 // ========================================
+// v0.3 18 問 3 軸版（260514 朝）：retain は後方互換のためオプショナル扱い
 $required = ['name', 'company', 'email', 'industry', 'size', 'type', 'collect', 'vitality', 'answers'];
 foreach ($required as $key) {
     if (!array_key_exists($key, $input)) {
@@ -101,11 +102,16 @@ if (!in_array($type_in, $valid_types, true)) {
 }
 
 $answers = $input['answers'];
-if (!is_array($answers) || count($answers) !== 12) {
+// v0.3 18 問 3 軸版（260514 朝）: 18 問必須・v0.2 12 問版は後方互換で許容
+$answer_count = count((array)$answers);
+if (!is_array($answers) || ($answer_count !== 18 && $answer_count !== 12)) {
     http_response_code(400);
-    echo json_encode(['error' => '回答は 12 問必要です'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['error' => '回答は 18 問必要です（v0.3 3 軸対応版）'], JSON_UNESCAPED_UNICODE);
     exit;
 }
+// retain スコアの取得（後方互換：旧 v0.2 ペイロードでは未送信のため 0 既定）
+$retain = isset($input['retain']) ? (int)$input['retain'] : 0;
+$version = isset($input['version']) ? mb_substr(trim((string)$input['version']), 0, 30) : 'v0.2-12q';
 $ans_int = [];
 foreach ($answers as $v) {
     if (!is_numeric($v)) {
@@ -123,9 +129,10 @@ foreach ($answers as $v) {
 }
 
 // ========================================
-// 3. PHP 側スコア再計算（フロント改ざん対策・SSOT 準拠）
-//    集まる軸：answers[0..5]、躍動軸：answers[6..11]
+// 3. PHP 側スコア再計算（フロント改ざん対策・SSOT 準拠・v0.3 18 問 3 軸対応）
+//    集まる軸：answers[0..5]、躍動軸：answers[6..11]、留まる軸：answers[12..17]
 //    正規化：(sum - 6) / 24 × 100
+//    型判定：集まる × 躍動 の 2 マトリクスで確定（留まる軸は補助スコア）
 // ========================================
 function calc_axis_score(array $a, int $start, int $end): int {
     $sum = 0;
@@ -145,6 +152,8 @@ function judge_type(int $g, int $t): string {
 
 $gather_score = calc_axis_score($ans_int, 0, 5);
 $thrive_score = calc_axis_score($ans_int, 6, 11);
+// v0.3：留まる軸スコア（18 問版のときのみ計算）
+$retain_score = ($answer_count === 18) ? calc_axis_score($ans_int, 12, 17) : 0;
 $type_php     = judge_type($gather_score, $thrive_score);
 $type_match   = ($type_php === $type_in) ? 'OK' : 'MISMATCH';
 
@@ -167,8 +176,10 @@ $row = [
     $type_php,
     (string)$gather_score,
     (string)$thrive_score,
+    (string)$retain_score,
     implode(',', $ans_int),
     $type_match,
+    $version,
     $_SERVER['REMOTE_ADDR'] ?? 'unknown',
 ];
 $fp = @fopen($log_file, 'a');
@@ -176,7 +187,7 @@ if ($fp) {
     if ($is_new) {
         fputcsv($fp, [
             'timestamp', 'name', 'company', 'email', 'industry', 'size',
-            'type', 'gather', 'thrive', 'answers', 'type_match', 'ip'
+            'type', 'gather', 'thrive', 'retain', 'answers', 'type_match', 'version', 'ip'
         ]);
     }
     fputcsv($fp, $row);
@@ -192,7 +203,7 @@ $mail_sent = false;
 // 5-1. 内部通知メール
 $internal_to      = 'nobuyuki08@gmail.com';
 $internal_subject = '【Gravity Scan】Web 診断完了：' . $type_php . '型（' . $company . '）';
-$internal_body    = "Gravity Scan Web 無料診断（12 問版）が完了しました。\n\n";
+$internal_body    = "Gravity Scan Web 無料診断（{$version}）が完了しました。\n\n";
 $internal_body   .= "■ 経営者情報\n";
 $internal_body   .= "氏名：{$name}\n";
 $internal_body   .= "会社：{$company}\n";
@@ -203,6 +214,7 @@ $internal_body   .= "■ 診断結果（PHP 側再計算）\n";
 $internal_body   .= "型：{$type_php}型\n";
 $internal_body   .= "集まる軸：{$gather_score}/100\n";
 $internal_body   .= "躍動軸：{$thrive_score}/100\n";
+$internal_body   .= "留まる軸：{$retain_score}/100\n";
 $internal_body   .= "回答列：" . implode(',', $ans_int) . "\n\n";
 $internal_body   .= "フロント / PHP 型一致：{$type_match}\n";
 $internal_body   .= "受診日時：" . date('Y-m-d H:i:s') . " (JST)\n";

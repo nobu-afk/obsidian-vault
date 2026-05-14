@@ -141,7 +141,10 @@ check_forbidden "Orbit 38万" "Orbit 価格混同（正：月 15 万・最低 6 
 check_forbidden "Shift 100万" "旧 Shift 価格（260511 拡張・正：R+C 複合 220 万・9 ヶ月）" "Gravity Shift 220 万・9 ヶ月"
 check_forbidden "Shift 150万・6 ヶ月" "Shift 旧価格・期間（260511 R+C 拡張・正：220 万・9 ヶ月）" "Gravity Shift 220 万・9 ヶ月"
 check_forbidden "CODE 10万" "CODE 価格 SSOT 違反（正：5 万・60 分）" "Gravity CODE 5 万・60 分"
-check_forbidden "Scan 5万" "Scan 価格 SSOT 違反（正：10 万・60 分）" "Gravity Scan 10 万・60 分"
+# 260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化（10 万 60 分対話廃止）
+check_forbidden "Scan 10万" "260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）" "Gravity Scan 無料 Web 診断 v2"
+check_forbidden "Scan 10 万" "260514 朝 SCAN 10 万廃止（正：無料 Web 診断 v2・18 問 3 軸 3 分 + 30 分説明セッション同梱）" "Gravity Scan 無料 Web 診断 v2"
+check_forbidden "Scan 5万" "Scan 価格 SSOT 違反（260514 朝 無料化済み・正：無料 Web 診断 v2）" "Gravity Scan 無料 Web 診断 v2"
 # 260509 v0.4 旧用語検出（C-5 高/中/低 → A/B/C/D 4 象限）
 check_forbidden "C-5 中判定" "v0.4 で覚悟確認 4 象限化（B 結論先送り型 / C 単線思考型）" "覚悟確認 B 型 / C 型"
 check_forbidden "C-5 高判定" "v0.4 で覚悟確認 4 象限化（A 完全覚悟型）" "覚悟確認 A 型"
