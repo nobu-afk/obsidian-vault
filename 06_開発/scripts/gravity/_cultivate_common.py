@@ -12,6 +12,7 @@ CT-1 / CT-2 / CT-3 から import して使う共通処理：
 """
 
 import os
+import re
 import sys
 import json
 import hashlib
@@ -48,6 +49,13 @@ def load_config() -> dict:
         ) from e
     except json.JSONDecodeError as e:
         raise ValueError(f"config_claude.json の JSON が不正です: {e}") from e
+
+
+def parse_claude_json(raw: str) -> dict:
+    match = re.search(r"```json\s*(.*?)\s*```", raw, re.DOTALL)
+    if match:
+        return json.loads(match.group(1))
+    return json.loads(raw)
 
 
 def load_input_json(path: str) -> dict:

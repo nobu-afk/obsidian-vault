@@ -385,10 +385,11 @@ def main() -> None:
             print("[INFO] --input 未指定のため同梱デモ CSV を使用します", file=sys.stderr)
             data = fetch_from_demo(client_id, month, args.mask)
         else:
-            if not os.path.exists(csv_path):
+            try:
+                data = fetch_from_csv(csv_path, client_id, month, args.mask)
+            except FileNotFoundError:
                 print(f"[ERROR] CSV ファイルが見つかりません: {csv_path}", file=sys.stderr)
                 sys.exit(1)
-            data = fetch_from_csv(csv_path, client_id, month, args.mask)
     elif args.source == "wevox":
         data = fetch_from_wevox_mock(client_id, month, api_key, args.mask)
     elif args.source == "kaonavi":

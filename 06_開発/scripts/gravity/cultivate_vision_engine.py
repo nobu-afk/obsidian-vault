@@ -33,7 +33,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 from _cultivate_common import (
     call_claude, load_input_json, save_output, save_json,
-    mask_name, now_jst_str, md_h1, md_h2, md_h3,
+    mask_name, now_jst_str, parse_claude_json, md_h1, md_h2, md_h3,
     md_table, md_blockquote, md_footer,
 )
 
@@ -162,14 +162,6 @@ def _mock_output(data: dict, masked_name: str) -> dict:
     }
 
 
-def _parse_claude_json(raw: str) -> dict:
-    import re
-    match = re.search(r"```json\s*(.*?)\s*```", raw, re.DOTALL)
-    if match:
-        return json.loads(match.group(1))
-    return json.loads(raw)
-
-
 def _build_markdown(data: dict, result: dict, masked_name: str, is_dry_run: bool) -> str:
     company = data.get("company", "")
     lines = []
@@ -264,7 +256,7 @@ def main() -> None:
         user_prompt = _build_user_prompt(data, masked_name)
         raw = call_claude(SYSTEM_PROMPT, user_prompt, dry_run=False, max_tokens=4096)
         try:
-            result = _parse_claude_json(raw)
+            result = parse_claude_json(raw)
         except (json.JSONDecodeError, ValueError) as e:
             print(f"[WARN] JSON パース失敗: {e}。mock 出力にフォールバック。", file=sys.stderr)
             result = _mock_output(data, masked_name)

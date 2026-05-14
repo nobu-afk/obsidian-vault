@@ -29,12 +29,34 @@ AUTH="${FTP_USER}:${FTP_PASS}"
 # Vaultルート
 VAULT="/Users/ishiinobuyuki/Documents/Obsidian Vault"
 
-# === ヘルパー：FTPアップロード（バックグラウンド実行）===
+# === ヘルパー：FTPアップロード（バックグラウンド実行・PID と label を回収）===
+declare -a PIDS=()
+declare -a LABELS=()
+FAILED=0
+
 upload() {
   local local_path="$1"
   local remote_path="$2"
   local label="$3"
-  curl -T "$local_path" "${FTP_BASE}/${remote_path}" --user "$AUTH" --ftp-create-dirs -s -w "${label}: %{http_code}\n" &
+  # -f: HTTP/FTP エラー時に non-zero exit（curl デフォルトは 4xx/5xx でも exit 0）
+  curl -f -T "$local_path" "${FTP_BASE}/${remote_path}" --user "$AUTH" --ftp-create-dirs -s -w "${label}: %{http_code}\n" &
+  PIDS+=("$!")
+  LABELS+=("$label")
+}
+
+# === ヘルパー：背景 upload の exit code を個別回収 ===
+# 旧: 素の `wait` は集計しないため、認証失敗・転送失敗が握り潰されていた
+wait_all() {
+  local rc
+  for i in "${!PIDS[@]}"; do
+    if ! wait "${PIDS[$i]}"; then
+      rc=$?
+      echo "[FAIL] ${LABELS[$i]} (exit=$rc)" >&2
+      FAILED=$((FAILED + 1))
+    fi
+  done
+  PIDS=()
+  LABELS=()
 }
 
 # === グループ別デプロイ ===
@@ -45,7 +67,7 @@ deploy_shared() {
   upload "$VAULT/_assets/css/lp-base.css"          "assets/css/lp-base.css"           "lp-base.css"
   upload "$VAULT/_assets/css/lp-scan-extras.css"   "assets/css/lp-scan-extras.css"    "lp-scan-extras.css"
   upload "$VAULT/05_プロダクト/_共通/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
-  wait
+  wait_all
   echo "[共通アセット完了]"
   echo ""
 }
@@ -72,7 +94,7 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/index.html"  "gravity-recruit/index.html"   "Recruit LP"
   # Cultivate LP（260513 仮説 E v0.2・躍動する軸・変革の参謀（躍動）・月 50 万・260514 22-DH 追加）
   upload "$VAULT/05_プロダクト/Gravity/Cultivate/LP/index.html" "gravity-cultivate/index.html" "Cultivate LP"
-  wait
+  wait_all
   echo "[LP完了]"
   echo ""
 }
@@ -83,7 +105,7 @@ deploy_wp() {
   upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/style.css"            "whitepaper/style.css"            "WP V9 style.css"
   upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/gravity_map.svg" "whitepaper/images/gravity_map.svg" "WP V9 gravity_map.svg"
   upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/loop_chart.svg"  "whitepaper/images/loop_chart.svg"  "WP V9 loop_chart.svg"
-  wait
+  wait_all
   echo "[WhitePaper V9 完了]"
   echo ""
 }
@@ -111,7 +133,7 @@ deploy_diagnose() {
   upload "$VAULT/05_プロダクト/Gravity/Code/診断_executive_本番/index.html"    "gravity-code/executive/index.html"    "Code Executive index.html"
 
   # ※ config.php（APIキー）は手動デプロイのみ（セキュリティのためスクリプト対象外）
-  wait
+  wait_all
   echo "[診断ツール完了]"
   echo ""
 }
@@ -134,4 +156,8 @@ case "${1:-all}" in
     ;;
 esac
 
+if [ "$FAILED" -gt 0 ]; then
+  echo "[ERROR] デプロイ完了（$FAILED 件失敗）" >&2
+  exit 1
+fi
 echo "全デプロイ完了"

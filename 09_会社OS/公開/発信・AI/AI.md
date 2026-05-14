@@ -444,6 +444,7 @@ skill 別・業務別に以下を実行：
 | `audit_mobile_sync.py` | mobile.css 同期 | ✅ 稼働中 |
 | `token_usage.py` | Claude Code 使用量月次集計 | ✅ 稼働中（260429 実装） |
 | **`~/.claude/agents/*.md`** | **モデル + system prompt + tools + ハーネス装置の 1 ファイルパッケージ化（lp-implementer / script-writer）** | **✅ 稼働中（260503 開始）** |
+| **🆕 22-EH 8 エージェント MVP**（OT-1/2/3 + RT-4/5 + CT-1/2/3・計 3,412 行）| `06_開発/scripts/orbit\|recruit\|cultivate/*.py` × --mask フラグ統一（argparse.BooleanOptionalAction default True / SHA-256 ハッシュ）| ✅ 稼働中（260514 v3.0 命名再編完了・詳細：AI_自動化群.md「22-EH」セクション） |
 | AI 文体検出／人格表出スコア | GPT 臭検出・偏愛語密度 | 📝 将来候補（1-3 ヶ月運用後判断） |
 
 ### 操電検証 260512 追補：AI スカウト Gem 求人ポジション別量産戦略

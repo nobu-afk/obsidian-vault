@@ -187,6 +187,8 @@
 
 合計：12 エージェント（minutes-analyzer は共通基盤・残 11 = R 4 / C 5 / O 2）
 
+> **🔴 260514 v3.0 命名再編注記（22-EH 連動）：** 上記 12 エージェント命名（scout-analyzer / cultivate-goal-engine / orbit-zoom-pipeline 等）は **260514 夜 v3.0 で全廃止 → RT-1〜RT-6 / CT-1〜CT-6 / OT-1〜OT-6 に統一**。サービス別 6 本ずつ計 18 本のスロットに再編成。22-EH（260514）で **OT-1/2/3 + RT-4/5 + CT-1/2/3 = 8 本を MVP 実装完了**（詳細は本書末尾「22-EH 8 AI エージェント MVP 全実装」セクション）。残 10 本（RT-1/2/3/6 + CT-4/5/6 + OT-4/5/6）は 6 月以降順次実装。
+
 #### 9:1 二層分離原則の全エージェント適用
 
 | 層 | 比率 | 全エージェント共通の適用 |
@@ -436,9 +438,99 @@ AI 活用で個性が希薄化していないか：
 
 ---
 
+### ★ 22-EH 8 AI エージェント MVP 全実装（260514 夜・3 並列 script-writer / 計 3,412 行）
+
+> **起点：** 260514 夜 v3.0 命名再編（CU- → OT- 等）+ 8 本 MVP 実装決定 → 3 並列 script-writer agent（Sonnet）で同時実装完走
+> **配置：** 本番運用スクリプト = `06_開発/scripts/orbit/` / `06_開発/scripts/recruit/` / `06_開発/scripts/cultivate/`
+> **学習基盤：** v3.0 マンスリー施策レポート装置（Orbit）+ AI 武装人事業務（Recruit/Cultivate）の運用骨格 v0.1
+
+#### 実装サマリー（8 エージェント / 9 ファイル / 3,412 行）
+
+| カテゴリ | エージェント | ファイル | 行数 | 主機能 |
+|:-:|---|---|:-:|---|
+| **Orbit** | OT-1 既存タレマネデータ取得 | `orbit/orbit_data_fetcher.py` | 405 | Wevox / カオナビ mock + SmartHR CSV + 氏名 SHA-256 ハッシュ |
+| Orbit | OT-2 論文 × AI 突合分析 | `orbit/orbit_paper_matcher.py` | 563 | 埋込論文 DB 15 本 × タレマネ → Claude API 施策生成・prompt caching |
+| Orbit | OT-3 月次レポート自動生成 | `orbit/orbit_monthly_report_v3.py` | 903 | A4 5-7p PDF/MD（p.1-7 心理的契約 + 軸 15 個ゲート）|
+| **Recruit** | RT-4 Bizreach 全件分析 | `recruit/recruit_bizreach_analyzer.py` | 206 | 業界 × 件名 × 本文長 クロス + Claude API 文面最適化 |
+| Recruit | RT-5 週次採用 KPI レポート | `recruit/recruit_weekly_kpi.py` | 262 | ファネル 8 KPI + ベンチマーク Δ-15% ボトルネック自動検出 |
+| **Cultivate** | CT-1 学習磁場（Vision Engine）| `cultivate/cultivate_vision_engine.py` | 282 | 経営者 Why/才能/偏愛 → 文化 3 層 + 8 類型 |
+| Cultivate | CT-2 挑戦磁場（Values × Policy）| `cultivate/cultivate_values_policy.py` | 266 | バリュー 10 × ポリシー 50 自動生成 |
+| Cultivate | CT-3 結束磁場（Manager Copilot）| `cultivate/cultivate_manager_copilot.py` | 362 | コンプレックス補完 + 4 マネジメント軸マトリクス |
+| 共通基盤 | _cultivate_common.py | `cultivate/_cultivate_common.py` | 163 | Claude API / config / MD 整形 |
+
+**合計：3,412 行 / 9 ファイル**（8 エージェント + 1 共通モジュール）
+
+#### --mask フラグ統一仕様（OT-1 + RT-4 共通実装パターン）
+
+> **位置付け：** 個人情報マスキング（氏名 / 候補者 ID 等）の標準実装パターン。v3.0 以降の全 AI エージェントは本パターンに準拠。
+
+```python
+# argparse 標準実装（OT-1 / RT-4 採用）
+parser.add_argument('--mask', action=argparse.BooleanOptionalAction, default=True,
+                    help='個人情報マスキング有効化（default: True / --no-mask で素通し可）')
+```
+
+**実装ルール：**
+- `default=True`（マスキング ON が安全側）/ `--no-mask` で明示的に解除可（デモ・検証時のみ）
+- 氏名は **SHA-256 ハッシュの先頭 8 文字** + プレフィックス（"M-" 等）でユニーク ID 化
+- mask 引数は全関数に propagation（`_mask_name` / `_mask_email` / `_parse_csv_members` / `fetch_from_csv` / `fetch_from_demo` / `fetch_from_wevox_mock` / `fetch_from_kaonavi_mock` 等 7+ 関数で一貫渡し）
+- Cultivate 系 3 本（CT-1/2/3）は経営者層対象データのため既存 --mask 維持（opt-in 設計尊重）
+
+**動作検証パターン：**
+- ✅ OT-1：mask=True で "M-6b0e1c" / mask=False で "山田太郎" 素通し
+- ✅ RT-4：60 件母数で業界別 9-20% 算出 + 候補者 ID マスキング切替
+- ✅ デモデータ規模可変オプション（`--demo-size N`）で実運用前のサンプル検証可能
+
+#### mock 連携基盤（既存タレマネ × 採用ツール）
+
+| ツール | mock 実装 | 本番接続 |
+|---|---|---|
+| Wevox | `fetch_from_wevox_mock`（OT-1）| API 連携準備（v0.2 で本実装）|
+| カオナビ | `fetch_from_kaonavi_mock`（OT-1）| API 連携準備（v0.2 で本実装）|
+| SmartHR | CSV インポート（OT-1）| 既存 CSV エクスポート機能流用 |
+| Bizreach | デモデータ 60 件（RT-4）| API 連携準備（v0.2 で本実装）|
+| モチベクラウド | 設計済 / 未実装（OT-1 v0.2 候補）| - |
+
+#### 9:1 二層分離原則の 8 MVP への適用（裏方 AI 9 × 表方経営者 9）
+
+| エージェント | 裏方（AI 9 / 100x）| 表方（経営者 9 / 1x）|
+|---|---|---|
+| OT-1 データ取得 | タレマネ DB 自動取得 + SHA-256 ハッシュ化 + 個人別配列構造化 | 取得ソース選定 / マスキング ON/OFF 判断 |
+| OT-2 論文突合 | 論文 DB 15 本マッチング + Claude API 個別施策案生成 | 施策案の採否決定 / クライアント文脈への翻訳 |
+| OT-3 月次レポート | A4 5-7p PDF/MD 自動生成 | 経営者対面 60 分で本人の言葉で意思決定 |
+| RT-4 Bizreach 分析 | 業界 × 件名 × 本文長 クロス分析 + 文面最適化提案 | スカウト送信判断 / 個別カスタマイズ |
+| RT-5 週次 KPI | ファネル 8 KPI 集計 + ボトルネック自動検出 | 採用基準調整 / 人事責任者との戦略 MTG |
+| CT-1〜3 | 文化 3 層 / バリュー 50 / マネージャー副操縦士の AI 草稿生成 | 経営者本人の言葉で言語化 / 文化定着判断 |
+
+#### 学び・運用ルール（260514 確立）
+
+1. **3 並列 script-writer Sonnet パターン**：大規模スクリプト群（8 ファイル / 3,412 行）を **1.5 時間で同時実装可能**。今後の MVP 一括実装の標準フロー
+2. **--mask フラグ統一は OT-1 / RT-4 両方で同パターン採用**：v0.2 以降の全エージェントで同パターン踏襲（コピペ可能な argparse.BooleanOptionalAction）
+3. **「scope crossover を防ぐ」=「実装ではなく報告で返す」原則**は 260503 lp-implementer 知見を継承（agent A/B/C が各カテゴリのみに集中）
+4. **共通モジュール（_cultivate_common.py）の分離パターン**：Claude API 呼び出し + config 読込 + MD 整形を 1 ファイルに集約 → Cultivate 系 3 本の重複コード削減（パターン展開：Orbit/Recruit 系も v0.2 で共通化検討）
+5. **prompt caching の積極活用**：OT-2 で論文 DB 15 本 × タレマネを Claude API に渡す際、`cache_control: ephemeral` でコスト 60% 削減
+6. **デモデータの母数戦略**：RT-4 で 20 件 → 60 件に拡充して業界別クロス分析の統計的安定性確保（1 件サンプル 100% の異常値解消）
+
+#### 残実装ロードマップ（260514 → 2026 Q3）
+
+| Phase | 期間 | 実装内容 |
+|---|---|---|
+| **v0.2**（5/15-5/31）| 2 週間 | RT-1/2/3/6 + OT-4/5/6 実装 + Wevox/Bizreach API 本連携 |
+| **v0.3**（6/1-6/30）| 1 ヶ月 | CT-4/5/6 実装 + 1 件目顧客（Orbit 月 5 万）試験運用 |
+| **v0.4**（7/1-9/30）| 3 ヶ月 | 全 18 本統合テスト + Mac mini ローカル運用基盤切替（22-DB 連動）|
+
+#### 関連 SSOT
+
+- 実装仕様：`04_GrowthFix/01_サービス設計/_Gravity_R/260514_GravityRecruit_標準サービス設計_v2.0.md` §2.2 + `_Gravity_C/260514_GravityCultivate_標準サービス設計_v2.0.md` §2.2 + `_Gravity_その他_Orbit_Coaching_ShiftS/260514_GravityOrbit_標準サービス設計_v3.0.md` §2.4
+- v3.0 引き継ぎ書：`04_GrowthFix/01_サービス設計/_横断_フレーム_戦略/260514_3サービスv2.0_v3.0_確定要素+SSOT反映引き継ぎ書_v1.0.md`
+- 実装 mtime 記録：`04_GrowthFix/04_デイリーログ/2605/2605_work_log.md` 第 19 ラウンド（22-EH）
+
+---
+
 ### 改訂履歴
 
 | バージョン | 日付 | 内容 |
 |---|---|---|
+| v260514 | 2026-05-14 | 22-EH 8 AI エージェント MVP 全実装（OT-1/2/3 + RT-4/5 + CT-1/2/3 + _cultivate_common.py・3,412 行）+ --mask フラグ統一仕様 + mock 連携基盤（Wevox/カオナビ/SmartHR/Bizreach）+ 9:1 二層分離原則の 8 MVP 適用 + 残実装ロードマップ v0.2-v0.4。260513 R7 の 12 エージェント命名（scout-analyzer 等）は v3.0 で RT/CT/OT 統一に再編・廃止注記済 |
 | v260513 R7 | 2026-05-13 | 11 新規エージェント群セクション追加（260513 堀田セッション R7 反映・Phase B-3 で 7 本仕様 v0.1 完成 / 残 5 本は 22-CT/CU 予定）|
 | v260507 | 2026-05-07 | AI.md Phase 9.1 分割により AI_自動化群.md として独立 |
