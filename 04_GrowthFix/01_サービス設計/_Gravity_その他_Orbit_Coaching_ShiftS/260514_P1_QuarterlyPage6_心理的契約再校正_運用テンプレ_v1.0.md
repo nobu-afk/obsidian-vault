@@ -280,7 +280,8 @@ _____________________________________________________________
 
 | 版 | 日付 | 内容 |
 |---|---|---|
-| v1.0 | 2026-05-14 夕 | 初版確定。Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 を現場運用ドキュメント完成形に展開。A4 5 枚セット（本紙 + 記入ガイド 2 + 突合マトリクス + 集計手順）を確定。Tomprou 2015 4 段階修復モデルの段階 3「再交渉」を制度化する装置として位置付け。|
+| v1.0 | 2026-05-14 夕 | 初版確定。Phase 12 v1.1 §4-3 + Phase 13 SSOT v1.0 §1.5 を現場運用ドキュメント完成形に展開。A4 5 枚セット（本紙 + 記入ガイド 2 + 突合マトリクス + 集計手順）を確定。Tomprou 2015 4 段階修復モデルの段階 3「再交渉」を制度化する装置として位置付け（🔴 誤訳・v1.0.1 で訂正）。|
+| **v1.0.1** | **2026-05-14 夜** | **🔴 Phase 14-A 原典精査による誤訳訂正（4 箇所）**：Tomprou 2015 は段階モデルではなく **「Post-Violation Model（結果分類モデル）」**。正式構造は **Violation → VRBs 3 次元（Probability/Timing/Agency）→ Self-Regulation 2 経路（Cognitive/Affective）→ 4 outcomes（Thriving / Reactivation / Impairment / Dissolution）**。Page 6 は「段階 3 制度化」ではなく「VRBs 高水準維持 + Cognitive Regulation 経路で Thriving 誘導装置」として再定義。Hansen-Tomprou 2018 動的位相モデル（被引用 488）を併用引用。v1.1 で VRBs 3 次元測定 / 予測 outcome 欄 / outcome 別介入アクションの実装追加予定（Phase 14-A §6.2 P0 反映）|
 
 ---
 
