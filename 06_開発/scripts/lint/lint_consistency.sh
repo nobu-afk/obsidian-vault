@@ -207,7 +207,8 @@ VAULT_ROOT="$(dirname "$ROOT")"
 for term in "Why × 才能 × 偏愛" "Why ズレ" "才能ズレ"; do
   hits=$(grep -rn "$term" "$VAULT_ROOT/05_プロダクト" "$VAULT_ROOT/09_会社OS" "$VAULT_ROOT/03_コンテンツ" 2>/dev/null \
     --include="*.html" --include="*.md" --include="*.sh" \
-    | grep -v "_history/" | grep -v "_archive" | grep -v "260515_CODE_3軸B案_実行計画" \
+    | grep -v "_history/" | grep -v "_archive" | grep -v "_素材ストック" | grep -v "_backup_" \
+    | grep -v "260515_CODE_3軸B案_実行計画" \
     | grep -v "lint_consistency.sh" | wc -l)
   if [ "$hits" -gt 0 ]; then
     printf "${YEL}⚠ CODE B 案 廃止用語残存「%s」: %s 件${NC}（260515 移行で 強み × 想い × 偏愛 / 想いズレ / 強みズレ に置換）\n" "$term" "$hits"
