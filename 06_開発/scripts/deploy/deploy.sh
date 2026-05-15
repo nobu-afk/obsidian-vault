@@ -116,6 +116,11 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/index.html"  "gravity/index.html"           "Hub LP"
   upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/styles.css"  "gravity/styles.css"           "Hub CSS"
   upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/script.js"   "gravity/script.js"            "Hub script.js"
+  # コーポレート top + service（本番 URL: https://growthfix.jp/ + /service/・260515 deploy.sh lp 漏れ修正で追加）
+  upload "$VAULT/05_プロダクト/コーポレート/top_本番/index.html"     "index.html"          "コーポレート top"
+  upload "$VAULT/05_プロダクト/コーポレート/service_本番/index.html" "service/index.html"  "コーポレート service"
+  # Scan web-diagnose（本番 URL: https://growthfix.jp/gravity-scan/web-diagnose/・260515 deploy.sh lp 漏れ修正で追加）
+  upload "$VAULT/05_プロダクト/Gravity/Scan/web-diagnose_本番/index.html" "gravity-scan/web-diagnose/index.html" "Scan web-diagnose"
   wait_all
   echo "[LP完了]"
   echo ""
