@@ -2,6 +2,9 @@
 
 GrowthFix の AI ネイティブ経営の実装ノウハウ。本「09_会社OS/」フォルダ自体が、最大の実装証拠であり、最強の発信資産。
 
+> **★ 8 ページピボット反映注記（260515 確定）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。本ファイル内の 5 サービス言及は **内部参考値**として温存。本番 LP マッピングは 8 ページ構造。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
+
 ---
 
 ## Part 1: 思想層
