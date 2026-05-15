@@ -1,0 +1,9 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/gravity-coaching/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-coaching/  → 新 URL: https://growthfix.jp/gravity/coaching/
+#
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §6
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/coaching/ [R=301,L]

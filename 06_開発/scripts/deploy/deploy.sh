@@ -185,8 +185,9 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/Shift/LP/index.html"    "gravity-shift/index.html"     "Shift LP"
   # Orbit LP（260515 8 ページピボットで 301 リダイレクト先 = /gravity/）
   upload "$VAULT/05_プロダクト/Gravity/Orbit/LP/index.html"    "gravity-orbit/index.html"     "Orbit LP"
-  # Coaching LP（260515 段階 2 で /gravity/coaching/ に移動予定）
-  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/index.html" "gravity-coaching/index.html"  "Coaching LP"
+  # Coaching LP（260515 8 ページピボット：/gravity-coaching/ → /gravity/coaching/ に物理移動）
+  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/index.html" "gravity/coaching/index.html"  "Coaching LP (new)"
+  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/.htaccess"  "gravity-coaching/.htaccess"   "Coaching 301"
   # Code LP（260515 8 ページピボット：/gravity-code/ → /gravity/code/ に物理移動）
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"     "gravity/code/index.html"      "Code LP (new)"
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"      "gravity/code/script.js"       "Code script.js (new)"
