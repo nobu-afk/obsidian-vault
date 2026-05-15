@@ -220,39 +220,18 @@ done
 
 # ----------------------------------------------------------------------
 echo ""
-echo "[1.7] 月額表記必須語チェック（v5.0・260514 月額制）"
-
-check_monthly_pricing() {
-  local lp_path="$1"
-  local label="$2"
-  local pattern="$3"  # 「月 X 万」の検出パターン（egrep 形式）
-  local f="$ROOT/$lp_path"
-  if [ ! -f "$f" ]; then
-    printf "${YEL}⚠${NC} %s ── LP ファイル不在（%s）\n" "$label" "$lp_path"
-    WARNINGS=$((WARNINGS + 1))
-    return
-  fi
-  local monthly_count
-  monthly_count=$(grep -cE "$pattern" "$f" 2>/dev/null)
-  monthly_count=${monthly_count:-0}
-  if [ "$monthly_count" -eq 0 ]; then
-    printf "${YEL}⚠ %s 月額表記なし${NC}（v5.0 SSOT: 月額制 + 最低 6 ヶ月）\n" "$label"
-    WARNINGS=$((WARNINGS + 1))
-  else
-    printf "${GRN}✓${NC} %s 月額表記あり（%s 件）\n" "$label" "$monthly_count"
-  fi
-}
-
-check_monthly_pricing "Gravity/Recruit/LP/index.html" "Recruit（月 35 万・最低 6 ヶ月）" "月 ?35 *万"
-check_monthly_pricing "Gravity/Cultivate/LP/index.html" "Cultivate（月 50 万・最低 6 ヶ月）" "月 ?50 *万"
-check_monthly_pricing "Gravity/Orbit/LP/index.html" "Orbit（月 5 万・最低 6 ヶ月）" "月 ?5 *万"
-check_monthly_pricing "Gravity/Shift/LP/index.html" "Shift（R+C 月 85 万・段階移行型）" "月 ?85 *万|段階移行"
+echo "[1.7] 月額表記必須語チェック（260515 8 ページピボットで LP 料金非公開化のため SKIP）"
+# 260515 8 ページピボット確定により LP 側は料金完全非公開化（堀田流・問い合わせベース）。
+# check_monthly_pricing 関数および 4 LP（Recruit/Cultivate/Orbit/Shift）への呼び出しを削除。
+# 料金は内部参考値として SSOT_用語と定義.md / 09_会社OS/商品.md / 営業資料 に温存。
+# 旧 LP（Recruit/Cultivate/Orbit/Shift/Scan）は 301 リダイレクトで /gravity/ 系へ転送。
+echo -e "${GRN}✓${NC} LP 料金非公開化（260515 8 ページピボット）"
 
 # ----------------------------------------------------------------------
 # 2. 各サービスLPに参謀名タグラインがあるか
 # ----------------------------------------------------------------------
 echo ""
-echo "[2] 5サービスLPの参謀名タグライン整合"
+echo "[2] 統合プログラム + 個人軸 2 LP の参謀名タグライン整合（260515 8 ページピボット後）"
 
 check_required "Gravity/Code/LP/index.html" "引力の参謀"
 check_required "Gravity/Scan/LP/index.html" "引力の参謀（組織軸）"
@@ -298,33 +277,11 @@ done
 [ "$top_link_missing" -eq 0 ] && echo -e "${GRN}✓${NC} 全 LP（CODE/Scan/Recruit/Cultivate）に TOP 導線あり ／ GravityShift/Orbit/Coaching は minimal LP 運用のため対象外"
 
 # ----------------------------------------------------------------------
-# 5.5 Gravity Shift minimal LP 運用チェック（260503 確定・Orbit パターン）
-# Hub / コーポレート / 各 LP フッターに Gravity Shift カード/リンクが載っていたら警告
+# 5.5 削除（260515 8 ページピボット反映）
+# 旧：Gravity Shift minimal LP 運用チェック（gravity-shift href 検出）
+# 削除理由：260515 8 ページピボットで /gravity-shift/ は 301 リダイレクトで /gravity/ へ転送。
+#           gravity-shift 単独 URL は廃止済のため、href チェックは不要。
 # ----------------------------------------------------------------------
-echo ""
-echo "[5.5] Gravity Shift minimal LP 運用（Hub/コーポレート/Footer に展開禁止）"
-
-check_shift_minimal() {
-  local file="$1"
-  local label="$2"
-  # Footer の Gravity Shift（R+A 複合）リンク or Hub/コーポレートの Shift カード言及を検出
-  local count
-  count=$(grep -cE 'href="https://growthfix\.jp/gravity-shift/"[^>]*>Gravity Shift' "$ROOT/$file" 2>/dev/null)
-  count=${count:-0}
-  if [ "$count" -gt 0 ]; then
-    printf "${YEL}⚠${NC} %s に Gravity Shift リンク／カードが %s 件残存（minimal LP 運用違反）\n" "$label" "$count"
-    WARNINGS=$((WARNINGS + 1))
-    return 1
-  fi
-  return 0
-}
-
-shift_minimal_clean=1
-for entry in "Gravity/_ブランド/LP/index.html|Hub /gravity/" "コーポレート/top_本番/index.html|コーポレート top" "コーポレート/service_本番/index.html|コーポレート service" "Gravity/Code/LP/index.html|GravityCode" "Gravity/Scan/LP/index.html|GravityScan" "Gravity/Coaching/LP/index.html|GravityCoaching" "Gravity/Orbit/LP/index.html|GravityOrbit" "Gravity/Recruit/LP/index.html|GravityRecruit" "Gravity/Cultivate/LP/index.html|GravityCultivate"; do
-  IFS='|' read -r f label <<< "$entry"
-  check_shift_minimal "$f" "$label" || shift_minimal_clean=0
-done
-[ "$shift_minimal_clean" -eq 1 ] && echo -e "${GRN}✓${NC} Gravity Shift は全 LP / コーポレートで minimal LP 運用整合"
 
 # ----------------------------------------------------------------------
 # 5.6 廃止（260503 夜・Pull 型 minimal → funnel 内側型 minimal に統合）
@@ -627,6 +584,48 @@ done
 
 if [ "$S11_WARNINGS" -eq 0 ]; then
   printf "${GRN}✓${NC} 思想語彙過剰露出なし（LP body 内 + 営業資料全件）\n"
+fi
+
+# ----------------------------------------------------------------------
+# [12] 8 ページピボット URL チェック（260515 確定・LP HTML 内の旧 URL 残存検出）
+# 8 ページピボットで /gravity-{recruit,cultivate,orbit,shift,scan,code,coaching}/ /academy-wl/
+# は 301 リダイレクトで /gravity/ 系へ転送済。LP HTML 側に旧 URL 直リンクが残存していたら警告。
+# 例外：.htaccess（リダイレクト定義側）は除外。_archive 配下も除外。
+# ----------------------------------------------------------------------
+echo ""
+echo "[12] 8 ページピボット URL チェック（LP HTML 内の旧 URL 残存検出）"
+
+OLD_URL_PATTERN='gravity-recruit|gravity-cultivate|gravity-orbit|gravity-shift|gravity-scan|gravity-code|gravity-coaching|academy-wl'
+
+old_url_hits=$(grep -rEn "$OLD_URL_PATTERN" "$ROOT" --include="*.html" 2>/dev/null \
+  | grep -v "_archive" | grep -v "/.htaccess" | wc -l | tr -d ' ')
+
+if [ "$old_url_hits" -gt 0 ]; then
+  printf "${YEL}⚠ 旧 LP URL の残存：%s 件${NC}（8 ページ構造へ更新要・/gravity/ /gravity/code/ /gravity/coaching/ /gravity/diagnose/）\n" "$old_url_hits"
+  WARNINGS=$((WARNINGS + 1))
+else
+  printf "${GRN}✓${NC} 旧 LP URL 残存なし（8 ページピボット URL チェック PASS）\n"
+fi
+
+# ----------------------------------------------------------------------
+# [13] LP 料金完全非公開チェック（260515 8 ページピボット・堀田流）
+# LP HTML（/gravity/ /gravity/code/ /gravity/coaching/ /profile/ 等）に料金記述が残存していないか検出。
+# 検出パターン：月 35 万 / 月 50 万 / 月 5 万 / 月 85 万 / 38 万 / 5 万円
+# 例外：_archive / _history 配下は除外
+# ----------------------------------------------------------------------
+echo ""
+echo "[13] LP 料金完全非公開チェック（260515 8 ページピボット・堀田流）"
+
+PRICE_PATTERN='月 ?35 ?万|月 ?50 ?万|月 ?5 ?万|月 ?85 ?万|38 ?万|5 ?万円'
+
+price_hits=$(grep -rEn "$PRICE_PATTERN" "$ROOT/Gravity" "$ROOT/コーポレート" --include="*.html" 2>/dev/null \
+  | grep -v "_archive" | grep -v "_history" | wc -l | tr -d ' ')
+
+if [ "$price_hits" -gt 0 ]; then
+  printf "${RED}✗ LP HTML 内に料金記述：%s 件${NC}（260515 8 ページピボット・堀田流の完全非公開ルール違反）\n" "$price_hits"
+  ERRORS=$((ERRORS + 1))
+else
+  printf "${GRN}✓${NC} LP 料金完全非公開チェック PASS\n"
 fi
 
 # ----------------------------------------------------------------------

@@ -5,6 +5,9 @@
 > **親 MD に残置：** Part 1 思想層（四春期戦略 / 速度非対称性 / ハーネスエンジニアリング核）+ Part 2 中核（実績 / AI 戦略的 3 役割 / Obsidian Vault 構造 / Claude memory システム / モデル選択経済）+ Part 3 ハーネス層。
 > **本書の範囲：** Skill 自動化群（GrowthFix 専用）/ 自動化スクリプト群 / LP 共通基盤アセット / サブエージェント分離パターン / RECODE Agent 並列実行パターン / ウニ丼理論の進化 / 09_会社OS/ 自体の実装証拠。
 
+> **★ 8 ページピボット反映注記（260515 確定）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田流・問い合わせベース）。本ファイル内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）および旧 LP URL（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **内部参考値**（営業資料 / 提案書 / 商談スクリプト作成時の参照用）として温存。本番 LP マッピングは 8 ページ構造（`/` `/profile/` `/achievement/` `/knowledge/` `/news/` `/gravity/` `/gravity/code/` `/gravity/coaching/`）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
+
 ---
 
 ### Skill 自動化群（GrowthFix 専用）

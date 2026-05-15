@@ -76,20 +76,33 @@ WHITELIST_PATHS = {
     # （必要に応じて追加）
 }
 
-# 検査対象 LP（正本ディレクトリ）
+# 検査対象 LP（正本ディレクトリ・260515 8 ページピボット後）
 TARGET_LPS = [
-    "GravityRecruit/LP/index.html",
-    "GravityCultivate/LP/index.html",
-    "GravityCoaching/LP/index.html",
-    "GravityCode/LP/index.html",
-    "GravityScan/LP/index.html",
-    "GravityOrbit/LP/index.html",
-    "GravityShift/LP/index.html",
-    "Gravity/LP/index.html",
-    "top_本番/index.html",
-    "service_本番/index.html",
-    "profile_本番/index.html",
+    "Gravity/_ブランド/LP/index.html",       # /gravity/ メイン
+    "Gravity/Code/LP/index.html",            # /gravity/code/（個人軸）
+    "Gravity/Coaching/LP/index.html",        # /gravity/coaching/（個人軸）
+    "Gravity/Scan/web-diagnose_本番/index.html",  # /gravity/diagnose/（無料 Web 診断）
+    "コーポレート/top_本番/index.html",
+    "コーポレート/service_本番/index.html",
+    "コーポレート/profile_本番/index.html",
+    "コーポレート/achievement_本番/index.html",
+    "コーポレート/knowledge_本番/index.html",
+    "コーポレート/news_本番/index.html",
 ]
+
+# 260515 8 ページピボット：4 型修飾語必須チェック対象
+# /gravity/code/ LP では「個人」修飾必須（個人整合型 / 個人想いズレ型 / 個人強みズレ型 / 個人偏愛ズレ型）
+# /gravity/diagnose/ LP では「組織」修飾必須（組織整合型 / 組織拡散型 / 組織渇望型 / 組織不毛型）
+# 修飾語なしの「整合型」「拡散型」「渇望型」「不毛型」「想いズレ型」「強みズレ型」「偏愛ズレ型」が
+# 単独で出る場合は警告（ただし「CODE 4 型 / Scan 4 型」と並列の対称構造表現は許容）
+CODE_4TYPES_MUST_INDIVIDUAL = ["整合型", "想いズレ型", "強みズレ型", "偏愛ズレ型"]
+SCAN_4TYPES_MUST_ORGANIZATIONAL = ["整合型", "拡散型", "渇望型", "不毛型"]
+PARALLEL_CONTEXT_HINTS = ["CODE 4 型", "Scan 4 型", "CODE × Scan", "CODE と Scan", "CODE ／", "／ Scan"]
+
+LP_4TYPE_CHECKS = {
+    "Gravity/Code/LP/index.html": ("個人", CODE_4TYPES_MUST_INDIVIDUAL),
+    "Gravity/Scan/web-diagnose_本番/index.html": ("組織", SCAN_4TYPES_MUST_ORGANIZATIONAL),
+}
 
 
 # ─────────────────────────────────────────────────────────────
@@ -153,6 +166,58 @@ def lint_file(path: Path) -> list[dict]:
                 "line": line_no,
                 "match": m.group(0),
                 "hint": hint,
+                "context": line_text[:140],
+            })
+    return hits
+
+
+def check_4type_modifiers(path: Path, lp_rel_path: str) -> list[dict]:
+    """4 型修飾語必須チェック（260515 8 ページピボット）
+
+    /gravity/code/ LP では「個人」修飾必須 / /gravity/diagnose/ LP では「組織」修飾必須。
+    修飾語なしの 4 型表記が単独で出現した場合は警告（並列対称構造表現は許容）。
+    """
+    if not path.exists():
+        return []
+
+    # LP_4TYPE_CHECKS に登録されたパスのみ対象
+    check_config = None
+    for target_rel, config in LP_4TYPE_CHECKS.items():
+        if lp_rel_path.endswith(target_rel) or target_rel in lp_rel_path:
+            check_config = config
+            break
+    if check_config is None:
+        return []
+
+    required_modifier, type_keywords = check_config
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    excluded = collect_excluded_ranges(content)
+    hits: list[dict] = []
+
+    for type_kw in type_keywords:
+        for m in re.finditer(re.escape(type_kw), content):
+            if is_inside_excluded(m.start(), excluded):
+                continue
+            # 文脈チェック：マッチ位置の直前 10 文字に required_modifier が含まれているか
+            before = content[max(0, m.start() - 10):m.start()]
+            if required_modifier in before:
+                continue  # 修飾語付きで OK
+            # 並列対称構造表現の許容：マッチ位置の前後 100 文字以内に PARALLEL_CONTEXT_HINTS のいずれかが出現
+            context_window = content[max(0, m.start() - 100):min(len(content), m.end() + 100)]
+            if any(hint in context_window for hint in PARALLEL_CONTEXT_HINTS):
+                continue  # 対称構造表現として許容
+            line_no = content[:m.start()].count("\n") + 1
+            line_start = content.rfind("\n", 0, m.start()) + 1
+            line_end = content.find("\n", m.end())
+            line_text = content[line_start:line_end if line_end != -1 else None].strip()
+            hits.append({
+                "severity": "MEDIUM",
+                "category": "4 型修飾語必須",
+                "line": line_no,
+                "match": type_kw,
+                "hint": f"「{required_modifier}{type_kw}」と修飾語付きで表記（260515 8 ページピボット確定）",
                 "context": line_text[:140],
             })
     return hits
@@ -222,6 +287,8 @@ def main() -> int:
     for path in targets:
         rel = str(path.relative_to(vault)) if vault in path.parents or vault == path.parent else str(path)
         results[rel] = lint_file(path)
+        # 260515 8 ページピボット：4 型修飾語必須チェック追加
+        results[rel].extend(check_4type_modifiers(path, rel))
 
     if args.json:
         print(json.dumps(results, ensure_ascii=False, indent=2))
