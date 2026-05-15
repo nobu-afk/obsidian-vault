@@ -1,0 +1,12 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/gravity-scan/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-scan/  → 新 URL: https://growthfix.jp/gravity/
+# 例外：/gravity-scan/web-diagnose/ は無料 Web 診断 UI として残置（将来 /gravity/diagnose/ に移動予定）
+#
+# 経緯：「組織の引力設計プログラム」1 商品化（集まる × 躍動 × 留まる 統合）
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §6
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/gravity-scan/web-diagnose/
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/ [R=301,L]

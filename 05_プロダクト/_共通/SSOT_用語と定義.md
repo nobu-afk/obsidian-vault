@@ -10,6 +10,9 @@
 整合性チェックは `06_開発/scripts/lint_consistency.sh` を実行。
 詳細な改訂履歴は本ファイル末尾 §改訂履歴を参照。
 
+> **🎯 260515 夜 8 ページピボット（最重要・読み替え原則）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田 hajime.institute 流・問い合わせベース）、本 SSOT 内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）は **内部参考値**として温存（社内営業資料・提案書・商談スクリプト作成時の参照用）。旧 LP（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **.htaccess 301 リダイレクト**で `/gravity/` に統合済（`/gravity-scan/web-diagnose/` のみ例外残置）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`
+
 > **🎯 260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化（重要・読み替え原則）：**
 > 以降の本 SSOT 内の Scan / SCAN 記述で「10 万」「60 分対話」「Pre-Shift 適合診断（10 万）」と書かれた箇所は **無料 Web 診断 v2（18 問 3 軸 3 分・自動 PDF + 30 分説明セッション同梱）** + **R/C/Orbit 月額契約 Week 1 オンボ内包** に読み替える。価格 ROI 表の「Scan 10 万 + R 月 35 万」等は「Recruit 月 35 万」のみ表記に簡素化。詳細：`memory/project_scan_abolish_260514.md` / `04_GrowthFix/00_統合タスクマスター_v1.1.md` v2.8 §3.5。波及反映は W22-W23（22-DI〜DO）で順次実施。
 

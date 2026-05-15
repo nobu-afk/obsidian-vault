@@ -1,0 +1,11 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/gravity-cultivate/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-cultivate/
+# 新 URL: https://growthfix.jp/gravity/
+#
+# 経緯：「組織の引力設計プログラム」1 商品化（集まる × 躍動 × 留まる 統合）
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §6
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/ [R=301,L]

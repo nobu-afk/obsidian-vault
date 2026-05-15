@@ -164,6 +164,12 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/コーポレート/profile_本番/index.html" "profile/index.html"  "コーポレート profile"
   # Scan web-diagnose（本番 URL: https://growthfix.jp/gravity-scan/web-diagnose/・260515 deploy.sh lp 漏れ修正で追加）
   upload "$VAULT/05_プロダクト/Gravity/Scan/web-diagnose_本番/index.html" "gravity-scan/web-diagnose/index.html" "Scan web-diagnose"
+  # 8 ページピボット 301 リダイレクト（260515 追加・旧 5 LP → /gravity/ 統合）
+  upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/.htaccess"   "gravity-recruit/.htaccess"   "Recruit 301"
+  upload "$VAULT/05_プロダクト/Gravity/Cultivate/LP/.htaccess" "gravity-cultivate/.htaccess" "Cultivate 301"
+  upload "$VAULT/05_プロダクト/Gravity/Orbit/LP/.htaccess"     "gravity-orbit/.htaccess"     "Orbit 301"
+  upload "$VAULT/05_プロダクト/Gravity/Shift/LP/.htaccess"     "gravity-shift/.htaccess"     "Shift 301"
+  upload "$VAULT/05_プロダクト/Gravity/Scan/LP/.htaccess"      "gravity-scan/.htaccess"      "Scan 301"
   wait_all
   echo "[LP完了]"
   echo ""
