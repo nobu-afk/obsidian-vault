@@ -204,6 +204,8 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/コーポレート/top_本番/index.html"     "index.html"          "コーポレート top"
   upload "$VAULT/05_プロダクト/コーポレート/service_本番/index.html" "service/index.html"  "コーポレート service"
   upload "$VAULT/05_プロダクト/コーポレート/profile_本番/index.html" "profile/index.html"  "コーポレート profile"
+  # academy-wl 301（260515 8 ページピボットでアーカイブ化・/gravity/ にリダイレクト）
+  upload "$VAULT/05_プロダクト/コーポレート/academy-wl_本番/.htaccess" "academy-wl/.htaccess" "academy-wl 301"
   # Scan web-diagnose → /gravity/diagnose/ 物理移動（260515 8 ページピボット）
   upload "$VAULT/05_プロダクト/Gravity/Scan/web-diagnose_本番/index.html"          "gravity/diagnose/index.html"          "Diagnose LP (new)"
   upload "$VAULT/05_プロダクト/Gravity/Scan/web-diagnose_本番/generate.php"        "gravity/diagnose/generate.php"        "Diagnose generate.php (new)"

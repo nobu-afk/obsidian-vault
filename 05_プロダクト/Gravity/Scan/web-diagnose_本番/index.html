@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断</title>
-<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、組織の引力設計プログラムの最適な焦点を確認できます。">
+<meta name="description" content="組織の引力タイプ診断（組織整合型・組織拡散型・組織渇望型・組織不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、組織の引力設計プログラムの最適な焦点を確認できます。">
 <meta property="og:title" content="Gravity 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断">
-<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで整合型・拡散型・渇望型・不毛型のどの型かを確認し、組織の引力設計プログラムの焦点を知る。">
+<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで組織整合型・組織拡散型・組織渇望型・組織不毛型のどの型かを確認し、組織の引力設計プログラムの焦点を知る。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://growthfix.jp/gravity/diagnose/">
 <meta property="og:image" content="https://growthfix.jp/gravity/ogp.png">
@@ -1156,7 +1156,7 @@ body {
   <!-- 4-1. 型宣言ビジュアル（JS で .type-整合 / .type-拡散 / .type-渇望 / .type-不毛 を動的付与） -->
   <div class="result-hero" id="result-hero">
     <div class="result-type-badge" id="result-badge">TYPE 1</div>
-    <div class="result-type-name" id="result-type-name">整合型</div>
+    <div class="result-type-name" id="result-type-name">組織整合型</div>
     <div class="result-type-en" id="result-type-en">COHERENT TYPE</div>
     <p class="result-type-desc" id="result-type-desc"></p>
   </div>
@@ -1797,7 +1797,7 @@ const ScanApp = (() => {
     const en    = document.getElementById('result-type-en');
     const desc  = document.getElementById('result-type-desc');
     if (badge) badge.textContent = def.badge;
-    if (name)  name.textContent  = type + '型';
+    if (name)  name.textContent  = '組織' + type + '型';
     if (en)    en.textContent    = def.en;
     if (desc)  desc.textContent  = def.desc;
 

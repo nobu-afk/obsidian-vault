@@ -14,7 +14,7 @@
     <meta name="twitter:image" content="https://growthfix.jp/gravity/ogp.png" />
     <link rel="canonical" href="https://growthfix.jp/gravity/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231b1b1b'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23b8a88a'>G</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=20260515a">
+    <link rel="stylesheet" href="styles.css?v=20260515b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -156,13 +156,13 @@
                     <div class="b-gravity-map-row-label b-gravity-map-row-label-top">組織 強い</div>
                     <div class="b-gravity-map-cell b-gravity-map-cell-q3">
                         <div class="b-gravity-map-cell-num">❸</div>
-                        <div class="b-gravity-map-cell-name">渇望型</div>
+                        <div class="b-gravity-map-cell-name">組織渇望型</div>
                         <div class="b-gravity-map-cell-desc">組織は強いが、採用が追いつかない状態</div>
                         <span class="b-gravity-map-cell-service">焦点：集まる</span>
                     </div>
                     <div class="b-gravity-map-cell b-gravity-map-cell-q4 b-gravity-map-cell-hl">
                         <div class="b-gravity-map-cell-num">❹</div>
-                        <div class="b-gravity-map-cell-name">整合型</div>
+                        <div class="b-gravity-map-cell-name">組織整合型</div>
                         <div class="b-gravity-map-cell-desc">採用も組織も整い、引力が持続している状態</div>
                         <span class="b-gravity-map-cell-service">焦点：留まる（継続強化）</span>
                         <p class="b-gravity-map-cell-hl-quote">— 引力が全てを引き寄せるかのように。</p>
@@ -171,13 +171,13 @@
                     <div class="b-gravity-map-row-label b-gravity-map-row-label-bottom">組織 弱い</div>
                     <div class="b-gravity-map-cell b-gravity-map-cell-q1">
                         <div class="b-gravity-map-cell-num">❶</div>
-                        <div class="b-gravity-map-cell-name">不毛型</div>
+                        <div class="b-gravity-map-cell-name">組織不毛型</div>
                         <div class="b-gravity-map-cell-desc">採用も組織も、引力が立っていない状態</div>
                         <span class="b-gravity-map-cell-service">焦点：全軸スタート</span>
                     </div>
                     <div class="b-gravity-map-cell b-gravity-map-cell-q2">
                         <div class="b-gravity-map-cell-num">❷</div>
-                        <div class="b-gravity-map-cell-name">拡散型</div>
+                        <div class="b-gravity-map-cell-name">組織拡散型</div>
                         <div class="b-gravity-map-cell-desc">採用は強いが、組織に引力が立たない状態</div>
                         <span class="b-gravity-map-cell-service">焦点：躍動 × 留まる</span>
                     </div>
@@ -401,14 +401,14 @@
             </div>
         </section>
 
-        <!-- ===== SECTION 7：60分診断 CTA + FAQ ===== -->
+        <!-- ===== SECTION 7：診断 CTA + iframe 埋め込み（260515 β 案）===== -->
         <section id="trial" class="b-section b-trial-section">
             <div class="container">
-                <h2 class="b-section-title text-center reveal">あなたの現在地に合う診断を<br>60分で</h2>
+                <h2 class="b-section-title text-center reveal">組織の引力を、<br>18 問 3 分で診断</h2>
                 <div class="b-trial-value reveal">
                     <div class="b-trial-value-item">
-                        <strong>あなたの"引力タイプ"が、構造で見える</strong>
-                        <p>無料 Web 診断（18 問 3 分）なら組織の引力を 4 つのタイプ（整合 / 拡散 / 渇望 / 不毛）で診断し、集まる × 躍動 × 留まる 3 軸スコアで症状の根を確定。CODE なら経営者個人の「本来の使い方」を 4 つのタイプ（整合 / 想いズレ / 強みズレ / 偏愛ズレ）で解剖します。</p>
+                        <strong>あなたの組織の"引力タイプ"が、構造で見える</strong>
+                        <p>無料 Web 診断（18 問 3 分）で組織の引力を 4 つのタイプ（組織整合型 / 組織拡散型 / 組織渇望型 / 組織不毛型）で診断し、集まる × 躍動 × 留まる 3 軸スコアで症状の根を確定します。</p>
                     </div>
                     <div class="b-trial-value-item">
                         <strong>「最初に手をつけるべき1つ」が明確になる</strong>
@@ -420,11 +420,27 @@
                     </div>
                 </div>
                 <div class="b-trial-copy text-center">
-                    <p>準備は一切不要です──ただ現状をお話しください<br><strong>60分後、「こういうことだったのか」がわかります</strong></p>
+                    <p>準備は一切不要です──18 問の質問に答えるだけ<br><strong>3 分後、組織の引力タイプ（4 型）が分かります</strong></p>
                 </div>
 
-                <!-- 診断2択 CTA -->
-                <div class="b-trial-branch">
+                <!-- 診断 iframe 埋め込み（260515 8 ページピボット・β 案）-->
+                <div class="b-diagnose-iframe-wrap reveal">
+                    <iframe
+                        src="https://growthfix.jp/gravity/diagnose/"
+                        class="b-diagnose-iframe"
+                        title="Gravity 無料 Web 診断（18 問 3 分）"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+
+                <!-- 個人軸 CODE は別途案内 -->
+                <div class="b-trial-branch-single reveal">
+                    <p class="b-trial-branch-note">経営者個人の引力タイプ（強み × 想い × 偏愛）を解剖したい方は</p>
+                    <a href="https://growthfix.jp/gravity/code/" class="b-cta-secondary">Gravity CODE（60 分セッション）→</a>
+                </div>
+
+                <!-- 旧 2 択カードを温存（フォールバック）-->
+                <div class="b-trial-branch" style="display:none;">
                     <a href="https://growthfix.jp/gravity/code/" class="b-trial-branch-card">
                         <div class="b-trial-branch-card-tag">個人軸 / 引力タイプ解剖</div>
                         <h3 class="b-trial-branch-card-title">Gravity CODE</h3>

@@ -1,0 +1,11 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/academy-wl/.htaccess
+#
+# 旧 URL: https://growthfix.jp/academy-wl/  → 新 URL: https://growthfix.jp/gravity/
+#
+# 経緯：Gravity Academy ウェイトリスト LP（260330 構想・凍結中）は 8 ページピボットでアーカイブ化
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §5.4
+# アーカイブ先：05_プロダクト/_archive_8pages_pivot_260515/academy-wl_本番/
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/ [R=301,L]
