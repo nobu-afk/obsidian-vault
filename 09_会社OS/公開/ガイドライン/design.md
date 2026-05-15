@@ -121,6 +121,29 @@ GrowthFix のデザインは、**経営者を引き止める引力場**として
 **プレースホルダ：**
 `{{PRODUCT_NAME}}` `{{LOGO_HREF}}` `{{NAV_ITEMS}}` `{{MOBILE_NAV_ITEMS}}` `{{CTA_LABEL}}` `{{CTA_ANCHOR}}` `{{PRODUCT_SLUG}}`
 
+### footer SSOT 統一運用（260515 確立・LP / コーポレート完全同一化）
+
+site-chrome.js が動的注入する footer は LP / コーポレート両方で **完全同一**を保つ。SSOT は `site-chrome-footer.css` 1 ファイル。
+
+**実装メカニズム：**
+- LP 系（footer-only モード）：`site-chrome-footer.css` のみ読み込み（独自 header 維持）
+- コーポレート系（full モード）：`site-chrome.css`（header / overlay / sp-menu 用）+ `site-chrome-footer.css`（footer 用）の両方を読み込み（後勝ち優先で footer の見た目が必ず統一される）
+- `site-chrome.js` の `mount()` 関数で両モードに `loadStylesheet(FOOTER_STYLE_HREF)` を実行（260515 改修）
+
+**運用ルール：**
+1. footer レイアウト変更は `06_開発/site-chrome/site-chrome-footer.css` **1 ファイルの修正**で全 LP / コーポレートに反映
+2. 各 LP の `styles.css` に `.b-footer-*` セレクタを書かない（site-chrome-footer.css と競合・260515 Gravity TOP styles.css から footer 関連 CSS 全削除済）
+3. キャッシュバスター bump 時は `site-chrome.js` 内の `FOOTER_STYLE_HREF` の `?v=` を更新
+
+**SSOT：**
+| 対象 | ファイル |
+|---|---|
+| footer レイアウト CSS | `06_開発/site-chrome/site-chrome-footer.css` |
+| footer HTML 構造 | `06_開発/site-chrome/site-chrome.js`（FOOTER 変数）|
+| 配信パス | `https://growthfix.jp/gravity/site-chrome-footer.css` |
+
+**デプロイ：** `bash 06_開発/scripts/deploy/deploy.sh shared`（260515 deploy_shared 関数に site-chrome.js / site-chrome.css / site-chrome-footer.css 3 件を恒久登録済）
+
 ### LP 共通アセット運用標準（260509 確立）
 
 LP 5 ページ（Gravity TOP / CODE / Recruit / Cultivate / Coaching）で重複していた CSS / JS を集約：
