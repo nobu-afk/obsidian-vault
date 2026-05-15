@@ -69,7 +69,7 @@
           '<span class="b-footer-tagline-sub">組織に、引力を。</span>' +
         '</div>' +
         '<div class="b-footer-profile">' +
-          '<p class="b-footer-profile-name"><strong>石井伸幸</strong> ── 引力経営提唱者 ／ 引力の参謀</p>' +
+          '<p class="b-footer-profile-name"><strong>石井伸幸</strong> ── 組織の引力設計者 ／ 引力の参謀</p>' +
           '<p class="b-footer-profile-desc">人事16年（DMM50事業／MOON-X 30→120人）× プロコーチ（MCA 2期）× Claude Code開発実装（AIで、チーム8人分の仕事を1人で回している・2026年4月実績）</p>' +
           '<p class="b-footer-profile-link"><a href="https://growthfix.jp/profile/">プロフィール詳細 →</a></p>' +
         '</div>' +
