@@ -1,0 +1,8 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト（旧パス用）
+# 配置先（FTP）: growthfix.jp/public_html/gravity-scan/web-diagnose/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-scan/web-diagnose/ → 新 URL: https://growthfix.jp/gravity/diagnose/
+# サブパスも統一して /gravity/diagnose/ 配下へ転送（例：generate.php へのアクセスも新パスへ）
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/diagnose/$1 [R=301,L]

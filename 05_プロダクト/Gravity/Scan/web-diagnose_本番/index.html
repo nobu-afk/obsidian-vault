@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断</title>
-<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、Gravity Recruit／Cultivate／Orbit のどれが効くかを確認できます。">
-<meta property="og:title" content="Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断">
-<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで整合型・拡散型・渇望型・不毛型のどの型かを確認し、推奨サービス（Recruit／Cultivate／Orbit）の方角を知る。">
+<meta name="description" content="組織の引力タイプ診断（整合型・拡散型・渇望型・不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、組織の引力設計プログラムの最適な焦点を確認できます。">
+<meta property="og:title" content="Gravity 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断">
+<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで整合型・拡散型・渇望型・不毛型のどの型かを確認し、組織の引力設計プログラムの焦点を知る。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://growthfix.jp/gravity-scan/web-diagnose/">
+<meta property="og:url" content="https://growthfix.jp/gravity/diagnose/">
 <meta property="og:image" content="https://growthfix.jp/gravity/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://growthfix.jp/gravity/ogp.png">
-<link rel="canonical" href="https://growthfix.jp/gravity-scan/web-diagnose/">
+<link rel="canonical" href="https://growthfix.jp/gravity/diagnose/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' fill='%23fff'>G</text></svg>">
 <!-- GA4 + GTM + Meta Pixel via /assets/js/tracking.js -->
 <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
@@ -1334,20 +1334,8 @@ body {
       数分以内に届かない場合は迷惑メールフォルダをご確認ください。
     </p>
     <nav class="done-links" aria-label="次のアクション">
-      <a href="https://growthfix.jp/gravity-recruit/" class="done-link">
-        <span>Gravity Recruit（集まる軸・月 35 万・最低 3 ヶ月 + 月次更新）へ</span>
-        <span class="done-link-arrow" aria-hidden="true">→</span>
-      </a>
-      <a href="https://growthfix.jp/gravity-cultivate/" class="done-link">
-        <span>Gravity Cultivate（躍動する軸・月 50 万・最低 6 ヶ月コミット）へ</span>
-        <span class="done-link-arrow" aria-hidden="true">→</span>
-      </a>
-      <a href="https://growthfix.jp/gravity-orbit/" class="done-link">
-        <span>Gravity Orbit（留まる軸・月 5 万・最低 1 ヶ月 + 月次更新）へ</span>
-        <span class="done-link-arrow" aria-hidden="true">→</span>
-      </a>
       <a href="https://growthfix.jp/gravity/" class="done-link">
-        <span>Gravity シリーズ TOP へ</span>
+        <span>組織の引力設計プログラム（集まる × 躍動 × 留まる）へ</span>
         <span class="done-link-arrow" aria-hidden="true">→</span>
       </a>
     </nav>
@@ -1360,12 +1348,12 @@ body {
    12 問 Likert（5 段階）・約 2 分で完了
    localStorage 中断保存・復帰対応
    集まる軸 6 問・躍動軸 6 問 → 4 型判定
-   POST /gravity-scan/diagnose/generate.php（並列実装中・フォールバックあり）
+   POST /gravity/diagnose/generate.php（260515 8 ページピボットで新パス）
    ============================================================ */
 
 const STORAGE_KEY = 'gravity-scan-web-v1-answers';
 const STORAGE_META = 'gravity-scan-web-v1-meta';
-const API_ENDPOINT = '/gravity-scan/web-diagnose/generate.php';
+const API_ENDPOINT = '/gravity/diagnose/generate.php';
 
 /* --- 質問定義（v0.3 18 問版・260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化反映）---
    各質問は axis（collect = 集まる軸 / vitality = 躍動軸 / retain = 留まる軸）を保持。
@@ -1470,14 +1458,14 @@ const TYPE_DEFS = {
   '整合': {
     en: 'COHERENT TYPE',
     badge: 'TYPE 1',
-    desc: '集まる軸・躍動軸ともに機能している状態。優秀人材が集まり、入社後も活躍しています。Orbit（月次継続運用）でさらなる引力強化を。',
+    desc: '集まる軸・躍動軸ともに機能している状態。優秀人材が集まり、入社後も活躍しています。組織の引力設計プログラム（焦点：留まる）でさらなる引力強化を。',
     ce_title: '整合型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '組織全体に「自分たちならできる」という集合的効力感（Collective Efficacy）が高く形成されています。このパターンは感情伝染（Barsade 2002）を通じて採用・定着の両面に好循環をもたらします。',
     next_label: '次の一手',
-    next_title: 'Gravity Orbit（月次継続運用）',
-    next_desc: 'Recruit / Cultivate で耕した土台の上で引力を月次強化する Gravity 型成長加速装置。',
-    next_price: '月 5 万円',
-    next_url: 'https://growthfix.jp/gravity-orbit/',
+    next_title: '組織の引力設計プログラム（焦点：留まる・継続強化）',
+    next_desc: '集まる × 躍動 × 留まる の 3 軸統合プログラムで、留まる軸を焦点に継続強化。耕した土台の上で引力を月次強化する成長加速装置。',
+    next_price: '',
+    next_url: 'https://growthfix.jp/gravity/',
     collect_note: '採用パイプライン・会社引力・P-O Fit の三軸が機能しています。',
     vitality_note: 'エンゲージメント・心理的安全性・集合的効力感が高水準です。',
   },
@@ -1488,10 +1476,10 @@ const TYPE_DEFS = {
     ce_title: '拡散型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '採用段階では引力が機能していますが、入社後の集合的効力感（Collective Efficacy）が低下しています。感情伝染（Barsade 2002）がネガティブ方向に働いており、幹部離脱の連鎖が起きやすい状態です。',
     next_label: '次の一手',
-    next_title: 'Gravity Cultivate（躍動する軸・継続実装）',
-    next_desc: '既存 SaaS（Slack / Wevox 等）× 250 本論文 × AI 分析で、ドラムビート設計（高頻度介入装置）／エフィカシー設計（TOMO 指標計測 + 発火点提案）／レコグニション設計（集合的物語化）の 3 設計を組織に常駐させる。月 50 万・最低 6 ヶ月コミット。',
-    next_price: '月 50 万・最低 6 ヶ月コミット',
-    next_url: 'https://growthfix.jp/gravity-cultivate/',
+    next_title: '組織の引力設計プログラム（焦点：躍動 × 留まる）',
+    next_desc: '集まる × 躍動 × 留まる の 3 軸統合プログラムで、躍動軸を焦点に既存 SaaS（Slack / Wevox 等）× 250 本論文 × AI 分析で、ドラムビート設計（高頻度介入装置）／エフィカシー設計（TOMO 指標計測 + 発火点提案）／レコグニション設計（集合的物語化）の 3 設計を組織に常駐させる。',
+    next_price: '',
+    next_url: 'https://growthfix.jp/gravity/',
     collect_note: '採用パイプラインは機能しています。',
     vitality_note: '躍動軸の強化が急務です。',
   },
@@ -1502,10 +1490,10 @@ const TYPE_DEFS = {
     ce_title: '渇望型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '組織内の集合的効力感は高く躍動しています。しかし外部への引力発信が弱く、Person-Organization Fit（Cable-Judge）のミスマッチが採用段階で起きています。',
     next_label: '次の一手',
-    next_title: 'Gravity Recruit（集まる軸・継続実装）',
-    next_desc: '優秀人材が自然に集まる採用基盤を継続実装。採用力の構造改革。',
-    next_price: '月 35 万・最低 3 ヶ月 + 月次更新',
-    next_url: 'https://growthfix.jp/gravity-recruit/',
+    next_title: '組織の引力設計プログラム（焦点：集まる）',
+    next_desc: '集まる × 躍動 × 留まる の 3 軸統合プログラムで、集まる軸を焦点に優秀人材が自然に集まる採用基盤を継続実装。採用業務 × AI エージェントで 9 割自動化。',
+    next_price: '',
+    next_url: 'https://growthfix.jp/gravity/',
     collect_note: '採用パイプの強化が急務です。',
     vitality_note: '躍動軸は機能しています。',
   },
@@ -1516,10 +1504,10 @@ const TYPE_DEFS = {
     ce_title: '不毛型の集合的効力感パターン（Bandura 2000）',
     ce_desc: '集合的効力感（Collective Efficacy）が組織全体で低下しています。採用段階の引力不足と入社後の感情伝染（Barsade 2002）のネガティブ連鎖が重なっている最も緊急度が高い状態です。',
     next_label: '次の一手',
-    next_title: 'Gravity Shift（R+C 複合・段階移行型）',
-    next_desc: 'Recruit + Cultivate の両軸を段階移行型で統合実装。両軸を順次立て直す複合パッケージ（商談時案内）。',
-    next_price: '月 85 万・段階移行型',
-    next_url: 'https://growthfix.jp/gravity-shift/',
+    next_title: '組織の引力設計プログラム（焦点：全軸スタート）',
+    next_desc: '集まる × 躍動 × 留まる の 3 軸統合プログラムで、3 軸を段階移行型で統合実装。集まる軸と躍動軸を順次立て直す（詳細は商談時にご案内）。',
+    next_price: '',
+    next_url: 'https://growthfix.jp/gravity/',
     collect_note: '採用パイプの構造改革が必要です。',
     vitality_note: '躍動軸の構造改革が必要です。',
   },

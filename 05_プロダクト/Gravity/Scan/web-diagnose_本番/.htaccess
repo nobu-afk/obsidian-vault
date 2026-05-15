@@ -1,8 +1,8 @@
-# Gravity Scan Web 無料診断 — 内部リソース保護
-# 設計 SSOT 配下と同等のセキュリティ方針を適用
+# Gravity 無料 Web 診断 — 内部リソース保護（260515 8 ページピボットで新パス）
+# 配置先（FTP）: growthfix.jp/public_html/gravity/diagnose/.htaccess
 
 # logs/ ディレクトリは完全アクセス禁止（CSV は内部運用のみ）
-RedirectMatch 403 ^/gravity-scan/web-diagnose/logs(/|$)
+RedirectMatch 403 ^/gravity/diagnose/logs(/|$)
 
 # .md / .txt / .bak / .sql / .log は直接アクセス禁止
 <FilesMatch "\.(md|txt|bak|sql|log)$">
@@ -15,5 +15,4 @@ RedirectMatch 403 ^/gravity-scan/web-diagnose/logs(/|$)
 </Files>
 
 # index.html / generate.php は通常公開
-# index.html → デフォルト DirectoryIndex に依存
 DirectoryIndex index.html
