@@ -81,24 +81,35 @@
   color: #fff;
 }
 
+/* 260515 改修：grid → flex 中央寄せ（旧 Gravity TOP styles.css のレイアウト復元）*/
 .b-footer-links {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px 48px;
-  margin: 24px 0;
+  display: flex;
+  gap: 32px 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+}
+
+.b-footer-links .b-footer-col {
+  min-width: 180px;
+  text-align: left;
 }
 
 @media (max-width: 1020px) {
   .b-footer-links {
-    grid-template-columns: repeat(2, 1fr);
     gap: 24px 40px;
   }
 }
 
 @media (max-width: 640px) {
   .b-footer-links {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 24px;
+  }
+  .b-footer-links .b-footer-col {
+    min-width: 140px;
   }
 }
 

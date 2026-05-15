@@ -292,27 +292,27 @@ done
 # ----------------------------------------------------------------------
 
 # ----------------------------------------------------------------------
-# 6. コーポレート（top/service/news）参謀名展開チェック
+# 6. コーポレート（top/news）参謀名展開チェック（260515 8 ページピボット後）
+# 260513 Phase 3 でサブフォルダ化（コーポレート/）+ 260515 8 ページピボットで service_本番 廃止
 # ----------------------------------------------------------------------
 echo ""
-echo "[6] コーポレートページの参謀名展開"
+echo "[6] コーポレートページの参謀名展開（260515 8 ページピボット後）"
 corporate_missing=0
 # 「共鳴の参謀」(Orbit) は意図的に除外：継続運用サービスで入口商材ではないため
 # 詳細：memory/feedback_corporate_lp_sambou_orbit_excluded.md
+# 260515 8 ページピボット：service_本番 は /service/ → /gravity/ 301 リダイレクトでチェック対象外
 for term in "引力の参謀" "心の参謀" "変革の参謀"; do
-  count_top=$(grep -c "$term" "$ROOT/top_本番/index.html" 2>/dev/null)
+  count_top=$(grep -c "$term" "$ROOT/コーポレート/top_本番/index.html" 2>/dev/null)
   count_top=${count_top:-0}
-  count_svc=$(grep -c "$term" "$ROOT/service_本番/index.html" 2>/dev/null)
-  count_svc=${count_svc:-0}
-  count_news=$(grep -c "$term" "$ROOT/news_本番/gravity-release/index.html" 2>/dev/null)
+  count_news=$(grep -c "$term" "$ROOT/コーポレート/news_本番/gravity-release/index.html" 2>/dev/null)
   count_news=${count_news:-0}
-  if [ "$count_top" -eq 0 ] || [ "$count_svc" -eq 0 ] || [ "$count_news" -eq 0 ]; then
-    printf "${YEL}⚠${NC} 「%s」 top=%s svc=%s news=%s\n" "$term" "$count_top" "$count_svc" "$count_news"
+  if [ "$count_top" -eq 0 ] || [ "$count_news" -eq 0 ]; then
+    printf "${YEL}⚠${NC} 「%s」 top=%s news=%s\n" "$term" "$count_top" "$count_news"
     WARNINGS=$((WARNINGS + 1))
     corporate_missing=$((corporate_missing + 1))
   fi
 done
-[ "$corporate_missing" -eq 0 ] && echo -e "${GRN}✓${NC} 3 参謀名（CODE/Scan の『引力の参謀』・心・変革）が top / service / news に展開済み（Orbit『共鳴の参謀』は継続運用サービスのため意図的に除外）"
+[ "$corporate_missing" -eq 0 ] && echo -e "${GRN}✓${NC} 3 参謀名（CODE/Scan の『引力の参謀』・心・変革）が top / news に展開済み（Orbit『共鳴の参謀』は継続運用サービスのため意図的に除外・service_本番 は 8 ページピボット後 /gravity/ 301 リダイレクトでチェック対象外）"
 
 # ----------------------------------------------------------------------
 # 7. 自己紹介ストーリー SSOT 整合（260506 P2 物語アーク統一）
@@ -600,7 +600,8 @@ fi
 echo ""
 echo "[12] 8 ページピボット URL チェック（公開 8 LP HTML 内の旧 URL 残存検出）"
 
-OLD_URL_PATTERN='gravity-recruit|gravity-cultivate|gravity-orbit|gravity-shift|gravity-scan|gravity-code|gravity-coaching|academy-wl'
+# パターン：URL の前後に / または " が来るもののみ検出（CSS asset・JS storage key の誤検知排除）
+OLD_URL_PATTERN='/gravity-recruit/|/gravity-cultivate/|/gravity-orbit/|/gravity-shift/|/gravity-scan/|/gravity-code/|/gravity-coaching/|/academy-wl/'
 
 PUBLIC_8_LPS=(
   "Gravity/_ブランド/LP/index.html"

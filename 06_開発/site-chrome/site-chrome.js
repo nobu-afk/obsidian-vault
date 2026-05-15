@@ -10,7 +10,7 @@
   'use strict';
 
   var STYLE_HREF = 'https://growthfix.jp/gravity/site-chrome.css?v=20260427g';
-  var FOOTER_STYLE_HREF = 'https://growthfix.jp/gravity/site-chrome-footer.css?v=20260515c';
+  var FOOTER_STYLE_HREF = 'https://growthfix.jp/gravity/site-chrome-footer.css?v=20260515d';
 
   var MAIL_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none"><g clip-path="url(#clip0_0_116)"><path d="M15.5176 0H0.482376C0.35438 0.00018278 0.231688 0.0524685 0.141244 0.145374C0.0508 0.23828 -1.24026e-07 0.36421 0 0.495507L0 1.46974L8 6.96883L16 1.46905V0.495507C16 0.36421 15.9492 0.23828 15.8588 0.145374C15.7683 0.0524685 15.6456 0.00018278 15.5176 0Z" fill="white"/><path d="M5.21272e-08 3.50028V10.02C-5.88738e-05 10.2801 0.0498413 10.5376 0.146849 10.7779C0.243857 11.0182 0.38607 11.2365 0.565363 11.4204C0.744655 11.6043 0.957513 11.7501 1.19177 11.8495C1.42603 11.949 1.6771 12.0001 1.93062 12H14.0694C14.3229 12.0001 14.574 11.949 14.8082 11.8495C15.0425 11.7501 15.2553 11.6043 15.4346 11.4204C15.6139 11.2365 15.7561 11.0182 15.8532 10.7779C15.9502 10.5376 16.0001 10.2801 16 10.02V3.49959L8 8.99937L5.21272e-08 3.50028Z" fill="white"/></g><defs><clipPath id="clip0_0_116"><rect width="16" height="12" fill="white"/></clipPath></defs></svg>';
 
