@@ -34,7 +34,7 @@ Stajkovic & Luthans（1998）の Psychological Bulletin 論文（被引用 2,210
 | Gravity 概念 | Bandura 理論 |
 |---|---|
 | **経営者の引力（個人軸）** | 経営者個人の Self-Efficacy の高さ |
-| **CODE 診断** | 経営者の Self-Efficacy 解読（Why × 才能 × 偏愛 × 4 型）|
+| **CODE 診断** | 経営者の Self-Efficacy 解読（強み × 想い × 偏愛 × 4 型）|
 | **Coaching 6 ヶ月伴走** | Self-Efficacy 4 源泉を経営者個人に適用 |
 | **Shift R Week 7-12** | 採用後新人の Self-Efficacy 制度的構築 |
 
@@ -320,7 +320,7 @@ Phase 9 で Bandura 効力感理論を Gravity の思想層バックボーンと
 
 ```
 ┌─ 個人レベル（CODE）────────────────────────┐
-│ 個人引力 = Authentic Self（Why × 才能 × 偏愛）│
+│ 個人引力 = Authentic Self（強み × 想い × 偏愛）│
 │            × Emotional Contagion              │
 │         → 他者を引きつける力                 │
 │ 学術裏付け：                                   │

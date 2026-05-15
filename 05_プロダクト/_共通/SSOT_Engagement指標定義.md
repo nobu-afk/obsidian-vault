@@ -94,7 +94,7 @@ Engagement が高まると以下 4 つの帰結が生まれる：
 ### 4.5 Coaching（経営者個人）
 - 経営者自身の Job Engagement vs Organization Engagement を 6 ヶ月伴走で診る
 - 経営者が **Job Engagement 低（仕事に飽きている）** = 事業中心人事の根本問題 → Coaching で核心
-- 経営者が **Organization Engagement 低（自社への帰属薄）** = 引力源（Why × 才能 × 偏愛）の再発見が必要
+- 経営者が **Organization Engagement 低（自社への帰属薄）** = 引力源（強み × 想い × 偏愛）の再発見が必要
 
 ### 4.6 商談資料 R / C
 - Engagement の 2 軸分離 + 6 前提条件 + 4 帰結を **商談時の理論的フレーム**として活用

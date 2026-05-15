@@ -201,6 +201,24 @@ done
 
 # ----------------------------------------------------------------------
 echo ""
+echo "[1.7c] CODE 3軸 B 案 廃止用語チェック（260515 強み × 想い × 偏愛 移行）"
+code_b_obsolete_total=0
+VAULT_ROOT="$(dirname "$ROOT")"
+for term in "Why × 才能 × 偏愛" "Why ズレ" "才能ズレ"; do
+  hits=$(grep -rn "$term" "$VAULT_ROOT/05_プロダクト" "$VAULT_ROOT/09_会社OS" "$VAULT_ROOT/03_コンテンツ" 2>/dev/null \
+    --include="*.html" --include="*.md" --include="*.sh" \
+    | grep -v "_history/" | grep -v "_archive" | grep -v "260515_CODE_3軸B案_実行計画" \
+    | grep -v "lint_consistency.sh" | wc -l)
+  if [ "$hits" -gt 0 ]; then
+    printf "${YEL}⚠ CODE B 案 廃止用語残存「%s」: %s 件${NC}（260515 移行で 強み × 想い × 偏愛 / 想いズレ / 強みズレ に置換）\n" "$term" "$hits"
+    WARNINGS=$((WARNINGS + 1))
+    code_b_obsolete_total=$((code_b_obsolete_total + hits))
+  fi
+done
+[ "$code_b_obsolete_total" -eq 0 ] && echo -e "${GRN}✓${NC} CODE 3軸 B 案 廃止用語チェック PASS（旧表記ゼロ）"
+
+# ----------------------------------------------------------------------
+echo ""
 echo "[1.7] 月額表記必須語チェック（v5.0・260514 月額制）"
 
 check_monthly_pricing() {
