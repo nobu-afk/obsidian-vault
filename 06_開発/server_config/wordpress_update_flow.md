@@ -143,7 +143,7 @@ curl -u "xs992119:${FTP_PASS}" "ftp://sv16489.xserver.jp/growthfix.jp/public_htm
 ## 🔗 関連ローカルファイル（更新済）
 
 - `05_プロダクト/Gravity/LP/growthfix-top-index.html`（260420 Blueprint命名反映・Footer軸分離）
-- `05_プロダクト/Gravity/LP/growthfix-profile-index.html`（260420 G-1 3点セット追加・「組織の引力研究の人」統一）
+- `05_プロダクト/Gravity/LP/growthfix-profile-index.html`（260420 G-1 3点セット追加・「組織の引力設計者」統一）
 - `05_プロダクト/Gravity/LP/growthfix-service-index.html`（260420 Blueprint新規追加・Scan再定義）
 - `05_プロダクト/Gravity/LP/gf-footer.php`（260420 G-3 軸分離）
 - `05_プロダクト/Gravity/LP/gf-footer-contact.php`（260420 G-3 軸分離）

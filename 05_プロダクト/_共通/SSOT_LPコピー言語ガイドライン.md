@@ -50,7 +50,7 @@ Gravity CODE / Gravity Scan / Gravity Recruit / Gravity Cultivate / Gravity Shif
 
 ```
 組織に、引力を。
-優秀人材が躍動する会社をつくる
+優秀人材が集まり、辞めない会社をつくる
 経営者の引力を、組織の求心力に翻訳する
 優秀人材が吸い寄せられる
 優秀人材が躍動する土壌

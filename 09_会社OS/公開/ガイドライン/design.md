@@ -53,7 +53,7 @@ GrowthFix のデザインは、**経営者を引き止める引力場**として
 
 | 層 | 名称 | 配置 |
 |---|---|---|
-| **存在層**（アイデンティティ） | **組織の引力研究の人 ／ 引力の参謀** | profile / achievement / top / WP / whitepaper_optin / seminar-acting |
+| **存在層**（アイデンティティ） | **組織の引力設計者 ／ 引力の参謀** | profile / achievement / top / WP / whitepaper_optin / seminar-acting |
 | **機能層**（5 サービス完全分化・260426） | サービス毎の固有参謀名 | 各 LP の hero-eyebrow |
 
 5 サービス参謀名（機能層）：
@@ -89,7 +89,7 @@ GrowthFix のデザインは、**経営者を引き止める引力場**として
 
 | 用途 | 配置語彙 |
 |---|---|
-| **profile / achievement / top / WP** | 「組織の引力研究の人」「引力の参謀」（存在層） |
+| **profile / achievement / top / WP** | 「組織の引力設計者」「引力の参謀」（存在層） |
 | **CODE LP hero-eyebrow** | 「引力の参謀」（機能層・存在層と同語だがレイヤー違い） |
 | **Scan LP hero-eyebrow** | 「引力の参謀（組織軸）」 |
 | **Coaching LP hero-eyebrow** | 「心の参謀」 |

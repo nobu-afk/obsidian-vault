@@ -289,7 +289,7 @@ whitepaper/ に反映する。
 
 ### Step 4: バナー（トップ画像）セミナー感向上・A+B合わせ技
 - ✅ 🔴`LIVE WEBINAR` パルスアニメ追加（1.6s周期・box-shadow ring expansion）
-- ✅ 登壇者クレジットカード追加（`/gravity/image.jpeg` 円形＋ネーム＋「組織の引力研究の人／引力の参謀」）
+- ✅ 登壇者クレジットカード追加（`/gravity/image.jpeg` 円形＋ネーム＋「組織の引力設計者／引力の参謀」）
 - ✅ 縦積み中央揃え統一（`display:flex` + `margin auto` で横並び非対称を解消）
 - ✅ 定員10名・先着順バッジ（gold文字で強調）
 - ✅ モバイル対応（顔写真40px／padding縮小）

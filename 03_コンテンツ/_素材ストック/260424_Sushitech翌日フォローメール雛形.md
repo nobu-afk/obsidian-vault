@@ -102,7 +102,7 @@ Sushitech でお会いした方には、
 
 ---
 石井 伸幸
-組織の引力研究の人 ／ 引力の参謀
+組織の引力設計者 ／ 引力の参謀
 GrowthFix 代表
 
 Web:  https://growthfix.jp/

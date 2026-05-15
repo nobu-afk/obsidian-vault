@@ -1332,7 +1332,7 @@ AI 時代の幹部 ＝ AI agent 化に対応する第 2 シリーズ構想。既
 
 # GrowthFix プロフィール
 
-GrowthFix 株式会社は **「優秀人材が躍動する会社をつくる」** をアンブレラタグラインに掲げる、引力経営の専門会社である。
+GrowthFix 株式会社は **「優秀人材が集まり、辞めない会社をつくる」** をアンブレラタグラインに掲げる、引力経営の専門会社である。
 
 - 中核サービス：Gravity Recruit（Shift R・採用基盤・80 万）/ Gravity Cultivate（Shift C・躍動組織・150 万）/ Gravity Orbit（月 15 万・留まる軸月次伴走）/ Gravity Coaching（38 万）
 - 入口診断：CODE（個人引力タイプ診断・5 万）/ Scan（組織引力タイプ診断・10 万）
