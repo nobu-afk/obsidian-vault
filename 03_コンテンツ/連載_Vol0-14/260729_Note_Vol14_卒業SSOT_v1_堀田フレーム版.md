@@ -216,7 +216,7 @@ Gravity マップ、個人引力 3 要素 × 4 型、組織引力の 4 STEP、Ca
 
 伴走の継続を検討している経営者へ。
 
-Orbit は、Recruit / Cultivate で耕した土壌の上に、月次で引力を強化し続けるサービスだ。月 15 万・最低 6 ヶ月・3 ヶ月前通告で卒業可能。「続けるか終わるか」を最初から対等に話せる関係を、設計に組み込んでいる。
+Orbit は、Recruit / Cultivate で耕した土壌の上に、月次で引力を強化し続けるサービスだ。月 5 万・最低 1 ヶ月 + 月次更新（1 ヶ月前通知で解約可・マルゴト人事方式の月次自由度）。「続けるか終わるか」を最初から対等に話せる関係を、設計に組み込んでいる。
 
 > **Gravity Orbit**
 > [https://growthfix.jp/gravity-orbit/](https://growthfix.jp/gravity-orbit/)
