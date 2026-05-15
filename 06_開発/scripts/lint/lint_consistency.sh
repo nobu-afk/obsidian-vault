@@ -665,6 +665,47 @@ else
 fi
 
 # ----------------------------------------------------------------------
+# [14] 肩書き運用ルールチェック（260516 確立・堀田グラウンディング観点）
+# 「引力経営提唱者」表記は書籍刊行（2027 Q1〜）後に格上げ予定
+# 現在のメイン肩書きは「組織の引力設計者」
+# 例外：SSOT_用語と定義.md 内の運用ルール記述・将来格上げ予定の素材ストック
+# ----------------------------------------------------------------------
+echo ""
+echo "[14] 肩書き運用ルールチェック（260516 確立・「組織の引力設計者」統一）"
+
+title_hits=0
+TITLE_TARGETS=(
+  "05_プロダクト/コーポレート/top_本番/index.html"
+  "05_プロダクト/コーポレート/profile_本番/index.html"
+  "05_プロダクト/コーポレート/achievement_本番/index.html"
+  "05_プロダクト/コーポレート/knowledge_本番/index.html"
+  "05_プロダクト/コーポレート/news_本番/index.html"
+  "05_プロダクト/Gravity/_ブランド/LP/index.html"
+  "05_プロダクト/Gravity/Code/LP/index.html"
+  "05_プロダクト/Gravity/Coaching/LP/index.html"
+  "05_プロダクト/Gravity/WhitePaper/V9/index.html"
+  "05_プロダクト/コーポレート/whitepaper_optin_本番/index.html"
+)
+
+for f in "${TITLE_TARGETS[@]}"; do
+  [ -f "$f" ] || continue
+  hits=$(grep -c "引力経営提唱者" "$f" 2>/dev/null)
+  hits=${hits:-0}
+  if [ "$hits" -gt 0 ]; then
+    name=$(basename $(dirname $(dirname "$f")))/$(basename $(dirname "$f"))
+    printf "${RED}✗ %s 内に「引力経営提唱者」：%s 件${NC}\n" "$name" "$hits"
+    title_hits=$((title_hits + hits))
+  fi
+done
+
+if [ "$title_hits" -gt 0 ]; then
+  printf "${YEL}⚠ 対外発信 LP 内「引力経営提唱者」残存：%s 件${NC}（260516 堀田グラウンディング・「組織の引力設計者」へ統一要・書籍刊行 2027 Q1 後に格上げ予定）\n" "$title_hits"
+  WARNINGS=$((WARNINGS + 1))
+else
+  printf "${GRN}✓${NC} 肩書き運用ルールチェック PASS（「組織の引力設計者」で統一済）\n"
+fi
+
+# ----------------------------------------------------------------------
 # 結果サマリー
 # ----------------------------------------------------------------------
 echo ""

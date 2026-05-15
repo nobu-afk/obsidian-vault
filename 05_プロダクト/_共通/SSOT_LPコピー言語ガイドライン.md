@@ -66,7 +66,7 @@ Gravity CODE / Gravity Scan / Gravity Recruit / Gravity Cultivate / Gravity Shif
 引力の参謀（CODE / Scan・個人軸 / 組織軸）
 変革の参謀（Recruit / Cultivate）
 共鳴の参謀（Orbit）
-引力経営提唱者
+組織の引力設計者
 ```
 
 ### コンセプト訴求語
