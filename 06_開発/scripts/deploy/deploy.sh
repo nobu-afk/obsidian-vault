@@ -47,9 +47,16 @@ fi
 FTP_BASE="ftp://${FTP_HOST}/growthfix.jp/public_html"
 AUTH="${FTP_USER}:${FTP_PASS}"
 
+# === 並列度制限（260515 改修・race condition 対策）===
+# 旧：無制限並列で FTP 530（Not logged in）が race condition で発生
+# 新：MAX_PARALLEL（既定 5）でジョブ数制限 + wait_all で失敗自動リトライ
+MAX_PARALLEL="${MAX_PARALLEL:-5}"
+
 # === ヘルパー：FTPアップロード（バックグラウンド実行・PID と label を回収）===
 declare -a PIDS=()
 declare -a LABELS=()
+declare -a LOCALS=()    # 260515 追加：リトライ用にローカルパス保存
+declare -a REMOTES=()   # 260515 追加：リトライ用にリモートパス保存
 FAILED=0
 
 upload() {
@@ -98,25 +105,63 @@ upload() {
     return 1
   fi
 
+  # === 並列度制限（260515 改修）===
+  # MAX_PARALLEL（既定 5）以上ジョブが走っていれば待機。FTP サーバーの同時接続制限回避。
+  while [[ "$(jobs -rp | wc -l | tr -d ' ')" -ge "${MAX_PARALLEL}" ]]; do
+    sleep 0.2
+  done
+
   # -f: HTTP/FTP エラー時に non-zero exit（curl デフォルトは 4xx/5xx でも exit 0）
   curl -f -T "$local_path" "${FTP_BASE}/${remote_path}" --user "$AUTH" --ftp-create-dirs -s -w "${label}: %{http_code}\n" &
   PIDS+=("$!")
   LABELS+=("$label")
+  LOCALS+=("$local_path")    # 260515 追加：リトライ用
+  REMOTES+=("$remote_path")  # 260515 追加：リトライ用
 }
 
-# === ヘルパー：背景 upload の exit code を個別回収 ===
+# === ヘルパー：背景 upload の exit code を個別回収 + 自動リトライ ===
 # 旧: 素の `wait` は集計しないため、認証失敗・転送失敗が握り潰されていた
+# 260515 改修：失敗 upload を直列で最大 2 回リトライ（race condition による 530 対策）
 wait_all() {
   local rc
+  local -a failed_indices=()
   for i in "${!PIDS[@]}"; do
     if ! wait "${PIDS[$i]}"; then
       rc=$?
       echo "[FAIL] ${LABELS[$i]} (exit=$rc)" >&2
-      FAILED=$((FAILED + 1))
+      failed_indices+=("$i")
     fi
   done
+
+  # === 失敗 upload の自動リトライ（260515 追加・直列・最大 2 回）===
+  if [[ ${#failed_indices[@]} -gt 0 ]]; then
+    echo "🔁 失敗 ${#failed_indices[@]} 件を自動リトライ（直列・最大 2 回）" >&2
+    for retry in 1 2; do
+      local -a still_failed=()
+      for i in "${failed_indices[@]}"; do
+        if curl -f -T "${LOCALS[$i]}" "${FTP_BASE}/${REMOTES[$i]}" --user "$AUTH" --ftp-create-dirs -s -w "  [retry $retry] ${LABELS[$i]}: %{http_code}\n" 2>&1; then
+          : # 成功
+        else
+          still_failed+=("$i")
+        fi
+        sleep 0.3  # FTP セッションクールダウン
+      done
+      failed_indices=("${still_failed[@]}")
+      [[ ${#failed_indices[@]} -eq 0 ]] && break
+    done
+
+    # リトライ後も失敗したものを FAILED にカウント
+    for i in "${failed_indices[@]}"; do
+      echo "❌ リトライ後も失敗：${LABELS[$i]}" >&2
+      FAILED=$((FAILED + 1))
+    done
+  fi
+
+  # 配列クリア
   PIDS=()
   LABELS=()
+  LOCALS=()
+  REMOTES=()
 }
 
 # === グループ別デプロイ ===
@@ -134,21 +179,16 @@ deploy_shared() {
 
 deploy_lp() {
   echo "[LP並列アップロード]"
-  # Scan LP（新Scan・旧DEEP統合版／styles.css は共通CSS使用）
+  # Scan LP（260515 8 ページピボットで 301 リダイレクト先 = /gravity/。旧 LP は .htaccess が優先される）
   upload "$VAULT/05_プロダクト/Gravity/Scan/LP/index.html"     "gravity-scan/index.html"      "Scan LP"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/LP/script.js"      "gravity-scan/script.js"       "Scan script.js"
-  # Shift LP（styles.css は共通CSS使用のため対象外）
+  # Shift LP（260515 8 ページピボットで 301 リダイレクト先 = /gravity/。旧 LP は .htaccess が優先される）
   upload "$VAULT/05_プロダクト/Gravity/Shift/LP/index.html"    "gravity-shift/index.html"     "Shift LP"
-  upload "$VAULT/05_プロダクト/Gravity/Shift/LP/script.js"     "gravity-shift/script.js"      "Shift script.js"
-  # Orbit LP（260513 HR Team 仮説E採用でロールバック・Orbit 復元）
+  # Orbit LP（260515 8 ページピボットで 301 リダイレクト先 = /gravity/）
   upload "$VAULT/05_プロダクト/Gravity/Orbit/LP/index.html"    "gravity-orbit/index.html"     "Orbit LP"
-  # Coaching LP
+  # Coaching LP（260515 段階 2 で /gravity/coaching/ に移動予定）
   upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/index.html" "gravity-coaching/index.html"  "Coaching LP"
-  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/styles.css" "gravity-coaching/styles.css"  "Coaching CSS"
-  upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/script.js"  "gravity-coaching/script.js"   "Coaching script.js"
   # Code LP
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"     "gravity-code/index.html"      "Code LP"
-  upload "$VAULT/05_プロダクト/Gravity/Code/LP/styles.css"     "gravity-code/styles.css"      "Code CSS"
   upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"      "gravity-code/script.js"       "Code script.js"
   # Recruit LP（260513 仮説 E v0.2・集める軸・引力の参謀（採用）・月 35 万・260514 22-DH 追加）
   upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/index.html"  "gravity-recruit/index.html"   "Recruit LP"
