@@ -126,7 +126,9 @@
       return;
     }
     // full モード（コーポレート系）：site-chrome.css 読み込み + header / overlay / sp-menu / footer 全注入
+    // 260515 追加：footer は LP 系と完全同期させるため site-chrome-footer.css も読み込む（後勝ち優先）
     loadStylesheet(STYLE_HREF);
+    loadStylesheet(FOOTER_STYLE_HREF);
     document.body.insertAdjacentHTML('afterbegin', OVERLAY + HEADER);
     document.body.insertAdjacentHTML('beforeend', FOOTER + SP_MENU);
 
