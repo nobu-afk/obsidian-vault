@@ -56,6 +56,48 @@ upload() {
   local local_path="$1"
   local remote_path="$2"
   local label="$3"
+
+  # ====================================================================
+  # Layer 4 ガード（260515 追加・WP 事故 4 件 構造防止）
+  # 危険な local→remote 組み合わせを upload 前に検知して reject
+  # 詳細：memory/feedback_wp_v9_v10_deploy_path_distinction_260515.md
+  # ====================================================================
+
+  # ガード 1: WP V9 本体を /whitepaper/ に送る → オプトイン LP 破壊（過去 3 回事故）
+  if [[ "$local_path" == *"WhitePaper/V9"* && "$remote_path" == "whitepaper/"* ]]; then
+    echo "🚨 [BLOCKED] WP V9 本体を /whitepaper/ に送ろうとしています。" >&2
+    echo "   正しい送り先：/whitepaper-read/（オプトイン LP 保護）" >&2
+    echo "   ローカル：$local_path" >&2
+    echo "   リモート：$remote_path（拒否）" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
+  # ガード 2: WP V10（草案）を本番に送る → 未完成 v 公開
+  if [[ "$local_path" == *"WhitePaper/V10"* ]]; then
+    echo "🚨 [BLOCKED] WP V10 は本番未投入の草案です。本来 04_GrowthFix/02_マーケティング/_WP_V10_草案_本番未投入/ に隔離されているはず。" >&2
+    echo "   ローカル：$local_path" >&2
+    echo "   再投入手順：04_GrowthFix/02_マーケティング/_WP_V10_草案_本番未投入/_README.md 参照" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
+  # ガード 3: オプトイン LP を /whitepaper-read/ に送る → WP 本体上書き
+  if [[ "$local_path" == *"whitepaper_optin"* && "$remote_path" == "whitepaper-read/"* ]]; then
+    echo "🚨 [BLOCKED] オプトイン LP を /whitepaper-read/ に送ろうとしています。" >&2
+    echo "   正しい送り先：/whitepaper/" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
+  # ガード 4: アーカイブ・草案系の本番 upload を全面拒否
+  if [[ "$local_path" == *"_archive"* || "$local_path" == *"_history"* || "$local_path" == *"_素材ストック"* || "$local_path" == *"_草案_本番未投入"* || "$local_path" == *"_DRAFT_DO_NOT_DEPLOY"* ]]; then
+    echo "🚨 [BLOCKED] アーカイブ/草案ディレクトリからの upload は禁止されています。" >&2
+    echo "   ローカル：$local_path" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
   # -f: HTTP/FTP エラー時に non-zero exit（curl デフォルトは 4xx/5xx でも exit 0）
   curl -f -T "$local_path" "${FTP_BASE}/${remote_path}" --user "$AUTH" --ftp-create-dirs -s -w "${label}: %{http_code}\n" &
   PIDS+=("$!")
