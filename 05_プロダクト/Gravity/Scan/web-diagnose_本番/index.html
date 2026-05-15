@@ -516,6 +516,33 @@ body {
   .likert-option.selected.is-advancing { animation: none; }
   .quiz-fade-in { animation: none; }
 }
+
+/* クリアボタン（260516・旧版「入力をクリア」由来）*/
+.btn-clear {
+  background: none;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s;
+}
+.btn-clear:hover:not(:disabled) {
+  border-color: #94a3b8;
+  background: #f8fafc;
+  color: #334155;
+}
+.btn-clear:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+.btn-clear:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
 .likert-dot {
   width: 20px;
   height: 20px;
@@ -1088,6 +1115,9 @@ body {
       <button class="btn-secondary" id="btn-back" onclick="ScanApp.goBack()" disabled>
         戻る
       </button>
+      <button class="btn-clear" id="btn-clear" onclick="ScanApp.clearCurrent()" disabled aria-label="この質問の選択をクリア">
+        選択をクリア
+      </button>
       <button class="btn-primary" id="btn-next" onclick="ScanApp.goNext()" disabled>
         次へ
       </button>
@@ -1655,10 +1685,14 @@ const ScanApp = (() => {
 
     // ナビボタン
     const btnBack = document.getElementById('btn-back');
+    const btnClear = document.getElementById('btn-clear');
     const btnNext = document.getElementById('btn-next');
     if (btnBack) {
       btnBack.disabled = idx === 0;
       btnBack.textContent = idx === 0 ? '戻る' : '前の質問へ';
+    }
+    if (btnClear) {
+      btnClear.disabled = answers[idx] === null;
     }
     if (btnNext) {
       btnNext.disabled = answers[idx] === null;
@@ -1676,19 +1710,18 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- 選択肢クリック（260516・旧有料 SCAN 由来 autoAdvance 反映）---
-     - 初回回答時のみ 800ms 後に自動遷移（修正回答時は遷移しない＝ユーザーが見直し中）
-     - 最終問題は autoAdvance しない（フォーム遷移は明示的に「情報入力へ」ボタン押下で）
-     - 戻る／次へボタン押下 or 質問切替時に必ずキャンセル
+  /* --- 選択肢クリック（260516・autoAdvance 全選択肢対応）---
+     - 選択肢クリックで常に 800ms 後に自動遷移（初回・修正回答 共通）
+     - 最終問題のみ autoAdvance しない（フォーム遷移は明示的に「情報入力へ」ボタン押下で）
+     - 戻る／次へボタン押下 or 質問切替時に必ずキャンセル（修正連打しても最後のクリックの 800ms 後に遷移）
      - prefers-reduced-motion 配慮：CSS 側の advanceBar アニメーションは無効化される
   */
   function selectAnswer(idx, score) {
-    const wasAnswered = answers[idx] !== null;
     answers[idx] = score;
     saveProgress();
     renderQuestion(idx);
 
-    if (!wasAnswered && idx < QUESTIONS.length - 1) {
+    if (idx < QUESTIONS.length - 1) {
       // 選択した likert-option に進行インジケータクラス付与
       const container = document.getElementById('likert-container');
       if (container) {
@@ -1709,6 +1742,17 @@ const ScanApp = (() => {
   function goBack() {
     cancelAutoAdvance();
     if (current > 0) renderQuestion(current - 1);
+  }
+
+  /* --- 選択をクリア（260516・旧版「入力をクリア」由来）---
+     現在の質問の選択を null に戻す + autoAdvance キャンセル + 再レンダー
+     クリア後は「次へ」ボタン disabled に戻り、autoAdvance も発火しない（answers[idx] === null のため）
+  */
+  function clearCurrent() {
+    cancelAutoAdvance();
+    answers[current] = null;
+    saveProgress();
+    renderQuestion(current);
   }
 
   function goNext() {
