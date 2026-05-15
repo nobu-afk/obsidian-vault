@@ -139,16 +139,11 @@ deploy_wp() {
 
 deploy_diagnose() {
   echo "[診断ツール並列アップロード]"
-  # === Scan 診断（260508 Shift診断UI統合廃止後の単一ファイル構成・260513 deploy.sh 実態同期）===
-  #   旧 multi-step UI（hearing-ceo / hearing-exec / integrate / analyze / api/*4本）は廃止
-  #   現行：app.js + generate.php + index.html + style.css + web-diagnose.html + system_prompt.txt + jargon_map.json
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/index.html"          "gravity-scan/diagnose/index.html"          "Scan index"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/app.js"              "gravity-scan/diagnose/app.js"              "Scan app.js"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/generate.php"        "gravity-scan/diagnose/generate.php"        "Scan generate.php"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/style.css"           "gravity-scan/diagnose/style.css"           "Scan style.css"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/web-diagnose.html"   "gravity-scan/diagnose/web-diagnose.html"   "Scan web-diagnose"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/system_prompt.txt"   "gravity-scan/diagnose/system_prompt.txt"   "Scan system prompt"
-  upload "$VAULT/05_プロダクト/Gravity/Scan/診断_本番/jargon_map.json"     "gravity-scan/diagnose/jargon_map.json"     "Scan jargon map"
+  # === 旧有料版 Scan 診断（260515 完全廃止・アーカイブ化）===
+  #   260514 22-DJ Scan 無料化決定 → 260515 サービスピボット最終締めで _archive_有料Scan_260515/ に移動
+  #   現行運用は web-diagnose_本番/ → /gravity-scan/web-diagnose/（deploy.sh lp で deploy 済）
+  #   旧 deploy 対象 7 ファイル（index.html / app.js / generate.php / style.css / web-diagnose.html / system_prompt.txt / jargon_map.json）は廃止
+  #   本番サーバー側 /gravity-scan/diagnose/ は 301 リダイレクト → /gravity-scan/web-diagnose/ 統一が推奨（別途対応）
 
   # === CODE 一般診断（ペンディング中）===
   upload "$VAULT/05_プロダクト/Gravity/Code/診断_本番/app.js"        "gravity-code/diagnose/app.js"        "Code app.js"
