@@ -1,0 +1,13 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/gravity-code/.htaccess
+#
+# 旧 URL: https://growthfix.jp/gravity-code/  → 新 URL: https://growthfix.jp/gravity/code/
+# 例外：/gravity-code/diagnose/（CODE 診断 UI）と /gravity-code/executive/（CODE 診断 UI v5.2）は除外残置
+#       これらは将来 /gravity/code/diagnose/ /gravity/code/executive/ への移動を段階 3 で実施予定
+#
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §6
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/gravity-code/diagnose/
+RewriteCond %{REQUEST_URI} !^/gravity-code/executive/
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/code/ [R=301,L]
