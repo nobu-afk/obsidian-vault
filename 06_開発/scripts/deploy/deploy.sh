@@ -105,6 +105,29 @@ upload() {
     return 1
   fi
 
+  # ガード 5: 営業資料マスター → 公開 8 LP URL への upload 拒否（260515 8 ページピボット §7）
+  # sales_本番/master/ の中身を /gravity/ や / や /profile/ 等に送ろうとした場合を BLOCK
+  # 正規ルート：sales_本番/master/* → sales/master-{HASH}/*  のみ
+  if [[ "$local_path" == *"sales_本番"* && "$remote_path" != "sales/master-"* ]]; then
+    echo "🚨 [BLOCKED] 営業資料マスター（限定公開）を公開 URL に送ろうとしています。" >&2
+    echo "   ローカル：$local_path" >&2
+    echo "   リモート：$remote_path（拒否）" >&2
+    echo "   正しい送り先：sales/master-{HASH}/* のみ（限定公開・URL ハッシュ秘匿）" >&2
+    echo "   詳細：04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §7" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
+  # ガード 6: 公開 LP HTML / 共通 asset → sales/master-{HASH}/ への upload 拒否
+  # 営業資料マスターの場所に他のファイルが混入しないよう防御
+  if [[ "$remote_path" == "sales/master-"* && "$local_path" != *"sales_本番"* ]]; then
+    echo "🚨 [BLOCKED] 営業資料マスター（限定公開）の場所に sales_本番/ 配下以外のファイルを送ろうとしています。" >&2
+    echo "   ローカル：$local_path（拒否）" >&2
+    echo "   リモート：$remote_path" >&2
+    FAILED=$((FAILED + 1))
+    return 1
+  fi
+
   # === 並列度制限（260515 改修）===
   # MAX_PARALLEL（既定 5）以上ジョブが走っていれば待機。FTP サーバーの同時接続制限回避。
   while [[ "$(jobs -rp | wc -l | tr -d ' ')" -ge "${MAX_PARALLEL}" ]]; do
