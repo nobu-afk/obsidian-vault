@@ -61,7 +61,7 @@ Tier 2：Why（個人内部の駆動源）
 個人 SE（Bandura 1977・49,507 cites）→ 組織 CE（Bandura 2000・1,721 cites）→ コミュニティ CE（Sampson 1997 Science・8,583 cites）
 ```
 
-GrowthFix の Why「経営者を本来の自分に戻す」は学術的に **Bandura SE 4 源泉の再起動**（①成功体験 ②代理経験 ③言語的説得 ④情動的覚醒）。Why × 才能 × 偏愛の言語化は SE 4 源泉のうち①と②の引き出し作業に直結。和歌山（45 年人口流出）vs 流山（6 年流入 1 位）の差はコミュニティ CE で学術的に説明可能。
+GrowthFix の Why「経営者を本来の自分に戻す」は学術的に **Bandura SE 4 源泉の再起動**（①成功体験 ②代理経験 ③言語的説得 ④情動的覚醒）。強み × 想い × 偏愛の言語化は SE 4 源泉のうち①と②の引き出し作業に直結。和歌山（45 年人口流出）vs 流山（6 年流入 1 位）の差はコミュニティ CE で学術的に説明可能。
 
 | GrowthFix Why | Bandura 翻訳 |
 |---|---|
@@ -75,7 +75,7 @@ GrowthFix の Why「経営者を本来の自分に戻す」は学術的に **Ban
 効力感（Bandura）= **土台**／Authentic Self × Emotional Contagion = **発現メカニズム**（双子概念）。
 
 ```
-個人引力 = Authentic Self（Why × 才能 × 偏愛）× Emotional Contagion → 他者を引きつける力
+個人引力 = Authentic Self（強み × 想い × 偏愛）× Emotional Contagion → 他者を引きつける力
 組織引力 = 集合的 Authentic Org（集まる × 躍動）× Collective Emotional Contagion → 組織の引きつけ力
 ```
 
