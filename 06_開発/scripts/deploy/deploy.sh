@@ -128,13 +128,24 @@ deploy_lp() {
 }
 
 deploy_wp() {
-  echo "[WhitePaper V9 アップロード]"
-  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/index.html"           "whitepaper/index.html"           "WP V9 index.html"
-  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/style.css"            "whitepaper/style.css"            "WP V9 style.css"
-  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/gravity_map.svg" "whitepaper/images/gravity_map.svg" "WP V9 gravity_map.svg"
-  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/loop_chart.svg"  "whitepaper/images/loop_chart.svg"  "WP V9 loop_chart.svg"
+  echo "[WhitePaper V9 → /whitepaper-read/ アップロード（260515 オプトイン保護のためパス修正）]"
+  # ⚠️ 不可侵：WP V9 本体は /whitepaper-read/ にのみ送る。/whitepaper/ はオプトイン LP の URL。
+  # 詳細：memory/reference_whitepaper_url_structure.md / memory/feedback_wp_v9_v10_deploy_path_distinction_260515.md
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/index.html"           "whitepaper-read/index.html"           "WP V9 index.html"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/style.css"            "whitepaper-read/style.css"            "WP V9 style.css"
+  upload "$VAULT/05_プロダクト/Gravity/WhitePaper/V9/images/gravity_map.svg" "whitepaper-read/images/gravity_map.svg" "WP V9 gravity_map.svg"
+  # loop_chart.svg はローカル不在のため除外（260515）
   wait_all
   echo "[WhitePaper V9 完了]"
+  echo ""
+}
+
+deploy_optin() {
+  echo "[WhitePaper オプトイン LP → /whitepaper/ アップロード]"
+  # ⚠️ 不可侵：オプトイン LP は /whitepaper/ にのみ送る。WP V9 本体と混同禁止。
+  upload "$VAULT/05_プロダクト/コーポレート/whitepaper_optin_本番/index.html" "whitepaper/index.html" "WP オプトイン LP"
+  wait_all
+  echo "[WhitePaper オプトイン LP 完了]"
   echo ""
 }
 
@@ -167,20 +178,45 @@ case "${1:-all}" in
   lp)       deploy_lp ;;
   diagnose) deploy_diagnose ;;
   wp)       deploy_wp ;;
+  optin)    deploy_optin ;;
   all)
     deploy_shared
     deploy_lp
     deploy_diagnose
     deploy_wp
+    deploy_optin
     ;;
   *)
-    echo "Usage: $0 [shared|lp|diagnose|wp|all]"
+    echo "Usage: $0 [shared|lp|diagnose|wp|optin|all]"
     exit 1
     ;;
 esac
 
 if [ "$FAILED" -gt 0 ]; then
-  echo "[ERROR] デプロイ完了（$FAILED 件失敗）" >&2
+  echo "[WARNING] デプロイ完了（$FAILED 件失敗）── verify は継続実行" >&2
+fi
+
+# ====================================================================
+# 自動 verify_deployment.sh 実行（260515 WP オプトイン破壊事故防止）
+# 環境変数 SKIP_VERIFY=1 で抑制可能。upload FAIL があっても本番健全性検証は必ず実行
+# ====================================================================
+if [ "${SKIP_VERIFY:-0}" != "1" ]; then
+  echo ""
+  echo "🔒 verify_deployment.sh 自動実行（WP オプトイン保護等の本番健全性検証）"
+  VERIFY_SCRIPT="$(dirname "${BASH_SOURCE[0]}")/verify_deployment.sh"
+  if [ -f "$VERIFY_SCRIPT" ]; then
+    if ! bash "$VERIFY_SCRIPT"; then
+      echo "" >&2
+      echo "🚨 [CRITICAL] verify_deployment.sh が異常を検知しました。本番事故の可能性。即時対応してください。" >&2
+      exit 2
+    fi
+  else
+    echo "⚠ verify_deployment.sh が見つかりません: $VERIFY_SCRIPT" >&2
+  fi
+fi
+
+if [ "$FAILED" -gt 0 ]; then
+  echo "[ERROR] アップロード $FAILED 件失敗（verify は通過）" >&2
   exit 1
 fi
 echo "全デプロイ完了"
