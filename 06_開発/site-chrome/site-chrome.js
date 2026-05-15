@@ -80,7 +80,7 @@
             '<a href="https://growthfix.jp/gravity/coaching/">Gravity Coaching</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
-            '<p class="b-footer-col-label">組織軸（集まる × 躍動する × 留まる 統合）</p>' +
+            '<p class="b-footer-col-label">組織軸（集まる × 躍動する × 留まる）</p>' +
             '<a href="https://growthfix.jp/gravity/">組織の引力設計プログラム</a>' +
             '<a href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（18 問 3 分）</a>' +
           '</div>' +

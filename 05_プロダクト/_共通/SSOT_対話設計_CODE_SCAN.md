@@ -1,5 +1,8 @@
 # SSOT ── CODE / SCAN 対話設計フレーム
 
+> **★ 8 ページピボット反映注記（260515 確定）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田流・問い合わせベース）。本ファイル内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）および旧 LP URL（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **内部参考値**（営業資料 / 提案書 / 商談スクリプト作成時の参照用）として温存。本番 LP マッピングは 8 ページ構造（`/` `/profile/` `/achievement/` `/knowledge/` `/news/` `/gravity/` `/gravity/code/` `/gravity/coaching/`）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
+
 > **位置付け：** CODE（個人軸の引力解読・60 分）と SCAN（組織軸の引力タイプ判定・60 分）の **対話プロトコル SSOT**。クライアント別マニュアル（長谷さん版・森さん版・長島さん版 etc）はこの SSOT を参照する DRY 構造。
 > **作成：** 2026-05-08（260508 SCAN マニュアル v1.0 作成と同時に SSOT 化）
 > **連動：** `09_会社OS/非公開/ガイド/カスタマー.md` Part 3 ハーネス層 / `09_会社OS/公開/ガイドライン/商品.md` CODE/SCAN 仕様 / `01_石井伸幸/260404_コーチング特性分析.md` 7 特徴

@@ -1,5 +1,8 @@
 # SSOT：Gravity のコア主張（Phase 1 → 260509 拡張）
 
+> **★ 8 ページピボット反映注記（260515 確定）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田流・問い合わせベース）。本ファイル内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）および旧 LP URL（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **内部参考値**（営業資料 / 提案書 / 商談スクリプト作成時の参照用）として温存。本番 LP マッピングは 8 ページ構造（`/` `/profile/` `/achievement/` `/knowledge/` `/news/` `/gravity/` `/gravity/code/` `/gravity/coaching/`）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
+
 > **目的：** Gravity シリーズ（CODE / Scan / Recruit / Cultivate / Shift / Coaching / Orbit）の **思想的・理論的なコア主張 12 件**を 1 ファイルに集約。今後の論文リサーチ（Phase 2-5）の出発点・LP / WhitePaper / 書籍 2027 / 認定コーチ研修教材の SSOT。
 > **作成：** 2026-05-08（金）夜（v1.0・10 件）／ **拡張：** 2026-05-09（土）（v1.1・JAFCO 反映で #11 中間経営職 + #12 採用 PMF + 採用接続資産 を追加 + 全主張に学術領域マッピング併記）
 > **背景：** 260508 長谷さんモニターで「どういう理論をベースに作ってるか見えるとよい」というフィードバックを受領。レポート theory-background-box（5 項目固定）で初期対応 → Phase 2-5 で世界中の論文を引いて権威性訴求を完成させる前段の SSOT 化。

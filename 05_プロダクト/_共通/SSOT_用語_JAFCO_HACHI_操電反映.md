@@ -1,5 +1,8 @@
 # SSOT_用語_JAFCO + HACHI + 操電 反映 SSOT（260512 分離）
 
+> **★ 8 ページピボット反映注記（260515 確定）：**
+> 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田流・問い合わせベース）。本ファイル内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）および旧 LP URL（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **内部参考値**（営業資料 / 提案書 / 商談スクリプト作成時の参照用）として温存。本番 LP マッピングは 8 ページ構造（`/` `/profile/` `/achievement/` `/knowledge/` `/news/` `/gravity/` `/gravity/code/` `/gravity/coaching/`）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
+
 > **親 SSOT：** `05_プロダクト/_共通/SSOT_用語と定義.md`
 > **分離日：** 2026-05-12（Phase 8 ルール準拠・親 SSOT 1,025 行から圧縮）
 > **内容：** §10-12（JAFCO 反映）+ §14（HACHI 検証）+ §15（操電検証）の集約
