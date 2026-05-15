@@ -21,7 +21,7 @@
       '<div class="overlay-links">' +
         '<div class="overlay-links__group">' +
           '<a href="https://growthfix.jp/profile" class="overlay-links__lead d-flex flex-center">代表者プロフィール</a>' +
-          '<a href="https://growthfix.jp/service" class="overlay-links__lead d-flex flex-center">サービス</a>' +
+          '<a href="https://growthfix.jp/gravity/" class="overlay-links__lead d-flex flex-center">サービス</a>' +
           '<a href="https://growthfix.jp/achievement" class="overlay-links__lead d-flex flex-center">事例・実績</a>' +
           '<a href="https://growthfix.jp/knowledge" class="overlay-links__lead d-flex flex-center">ナレッジ</a>' +
           '<a href="https://growthfix.jp/news" class="overlay-links__lead d-flex flex-center">お知らせ</a>' +
@@ -39,7 +39,7 @@
       '<a href="https://growthfix.jp/" class="header-logo"><span class="header-logo__text">GrowthFix</span></a>' +
       '<ul class="link d-flex flex-row align-center">' +
         '<li><a href="https://growthfix.jp/profile" class="link_btn"><span>代表者プロフィール</span></a></li>' +
-        '<li><a href="https://growthfix.jp/service" class="link_btn"><span>サービス</span></a></li>' +
+        '<li><a href="https://growthfix.jp/gravity/" class="link_btn"><span>サービス</span></a></li>' +
         '<li><a href="https://growthfix.jp/achievement" class="link_btn"><span>事例・実績</span></a></li>' +
         '<li><a href="https://growthfix.jp/knowledge" class="link_btn"><span>ナレッジ</span></a></li>' +
         '<li><a href="https://growthfix.jp/news" class="link_btn"><span>お知らせ</span></a></li>' +

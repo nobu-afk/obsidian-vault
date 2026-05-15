@@ -1,0 +1,11 @@
+# 260515 8 ページピボットに伴う 301 リダイレクト
+# 配置先（FTP）: growthfix.jp/public_html/service/.htaccess
+#
+# 旧 URL: https://growthfix.jp/service/  → 新 URL: https://growthfix.jp/gravity/
+#
+# 経緯：8 ページピボットで /service/ はサービス一覧ページとしての役割を /gravity/ に統合
+# 仕様書: 04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §5.2
+# アーカイブ先：05_プロダクト/_archive_8pages_pivot_260515/service_本番/
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://growthfix.jp/gravity/ [R=301,L]

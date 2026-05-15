@@ -229,7 +229,8 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/_ブランド/LP/script.js"   "gravity/script.js"            "Hub script.js"
   # コーポレート top + service + profile（本番 URL: https://growthfix.jp/ + /service/ + /profile/・260515 deploy.sh lp 漏れ修正で追加）
   upload "$VAULT/05_プロダクト/コーポレート/top_本番/index.html"     "index.html"          "コーポレート top"
-  upload "$VAULT/05_プロダクト/コーポレート/service_本番/index.html" "service/index.html"  "コーポレート service"
+  # service 301（260515 8 ページピボットでアーカイブ化・/gravity/ にリダイレクト）
+  upload "$VAULT/05_プロダクト/コーポレート/service_本番/.htaccess" "service/.htaccess" "service 301"
   upload "$VAULT/05_プロダクト/コーポレート/profile_本番/index.html" "profile/index.html"  "コーポレート profile"
   # コーポレート achievement（本番 URL: https://growthfix.jp/achievement/・260515 8 ページピボット SSOT 反映で追加）
   upload "$VAULT/05_プロダクト/コーポレート/achievement_本番/index.html" "achievement/index.html" "コーポレート achievement"
