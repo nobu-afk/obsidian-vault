@@ -76,18 +76,16 @@
         '<div class="b-footer-links">' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">個人軸（経営者自身）</p>' +
-            '<a href="https://growthfix.jp/gravity-code/">Gravity CODE</a>' +
-            '<a href="https://growthfix.jp/gravity-coaching/">Gravity Coaching</a>' +
+            '<a href="https://growthfix.jp/gravity/code/">Gravity CODE</a>' +
+            '<a href="https://growthfix.jp/gravity/coaching/">Gravity Coaching</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
-            '<p class="b-footer-col-label">組織軸（集まる × 躍動する × 留まる）</p>' +
-            '<a href="https://growthfix.jp/gravity-recruit/">Gravity Recruit（集まる）</a>' +
-            '<a href="https://growthfix.jp/gravity-cultivate/">Gravity Cultivate（躍動する）</a>' +
-            '<a href="https://growthfix.jp/gravity-orbit/">Gravity Orbit（留まる）</a>' +
+            '<p class="b-footer-col-label">組織軸（集まる × 躍動する × 留まる 統合）</p>' +
+            '<a href="https://growthfix.jp/gravity/">組織の引力設計プログラム</a>' +
+            '<a href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（18 問 3 分）</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">会社・サイト</p>' +
-            '<a href="https://growthfix.jp/gravity/">シリーズTOP</a>' +
             '<a href="https://growthfix.jp/">運営会社</a>' +
             '<a href="https://growthfix.jp/profile/">プロフィール</a>' +
             '<a href="https://growthfix.jp/contact/">お問い合わせ</a>' +

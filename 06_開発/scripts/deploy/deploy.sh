@@ -172,6 +172,8 @@ deploy_shared() {
   upload "$VAULT/_assets/css/lp-base.css"          "assets/css/lp-base.css"           "lp-base.css"
   upload "$VAULT/_assets/css/lp-scan-extras.css"   "assets/css/lp-scan-extras.css"    "lp-scan-extras.css"
   upload "$VAULT/05_プロダクト/_共通/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
+  # site-chrome.js（260515 追加・footer 動的注入 SSOT・全 LP から参照）
+  upload "$VAULT/06_開発/site-chrome/site-chrome.js" "gravity/site-chrome.js" "site-chrome.js"
   wait_all
   echo "[共通アセット完了]"
   echo ""
