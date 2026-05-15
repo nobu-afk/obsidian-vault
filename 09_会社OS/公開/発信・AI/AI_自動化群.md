@@ -187,7 +187,7 @@
 
 合計：12 エージェント（minutes-analyzer は共通基盤・残 11 = R 4 / C 5 / O 2）
 
-> **🔴 260514 v3.0 命名再編注記（22-EH 連動）：** 上記 12 エージェント命名（scout-analyzer / cultivate-goal-engine / orbit-zoom-pipeline 等）は **260514 夜 v3.0 で全廃止 → RT-1〜RT-6 / CT-1〜CT-6 / OT-1〜OT-6 に統一**。サービス別 6 本ずつ計 18 本のスロットに再編成。22-EH（260514）で **OT-1/2/3 + RT-4/5 + CT-1/2/3 = 8 本を MVP 実装完了**（詳細は本書末尾「22-EH 8 AI エージェント MVP 全実装」セクション）。残 10 本（RT-1/2/3/6 + CT-4/5/6 + OT-4/5/6）は 6 月以降順次実装。
+> **🔴 260514 v3.0 命名再編注記（22-EH 連動）：** 上記 12 エージェント命名（scout-analyzer / cultivate-goal-engine / orbit-zoom-pipeline 等）は **260514 夜 v3.0 で全廃止 → RT-1〜RT-6 / CT-1〜CT-6 / OT-1〜OT-6 に統一**。サービス別 6 本ずつ計 18 本のスロットに再編成。22-EH（260514）で **OT-1/2/3 + RT-4/5 + CT-1/2/3 = 8 本を MVP 実装完了**（詳細は本書末尾「22-EH 8 AI エージェント MVP 全実装」セクション）。残 10 本（RT-1/2/3/6 + CT-4/5/6 + OT-4/5/6）は 6 月以降順次実装。**🔴 260515 v3.0 Cultivate 命名再編注記：** CT-1〜CT-3 の磁場名称を v3.0 3 設計に更新（CT-1 既存 SaaS データ統合エンジン / CT-2 論文 × AI 介入提案エンジン / CT-3 半期物語化エンジン）。スクリプトファイル名（cultivate_vision_engine.py 等）は実装整合のため温存。
 
 #### 9:1 二層分離原則の全エージェント適用
 
@@ -453,9 +453,9 @@ AI 活用で個性が希薄化していないか：
 | Orbit | OT-3 月次レポート自動生成 | `orbit/orbit_monthly_report_v3.py` | 903 | A4 5-7p PDF/MD（p.1-7 心理的契約 + 軸 15 個ゲート）|
 | **Recruit** | RT-4 Bizreach 全件分析 | `recruit/recruit_bizreach_analyzer.py` | 206 | 業界 × 件名 × 本文長 クロス + Claude API 文面最適化 |
 | Recruit | RT-5 週次採用 KPI レポート | `recruit/recruit_weekly_kpi.py` | 262 | ファネル 8 KPI + ベンチマーク Δ-15% ボトルネック自動検出 |
-| **Cultivate** | CT-1 学習磁場（Vision Engine）| `cultivate/cultivate_vision_engine.py` | 282 | 経営者 Why/才能/偏愛 → 文化 3 層 + 8 類型 |
-| Cultivate | CT-2 挑戦磁場（Values × Policy）| `cultivate/cultivate_values_policy.py` | 266 | バリュー 10 × ポリシー 50 自動生成 |
-| Cultivate | CT-3 結束磁場（Manager Copilot）| `cultivate/cultivate_manager_copilot.py` | 362 | コンプレックス補完 + 4 マネジメント軸マトリクス |
+| **Cultivate** | CT-1 既存 SaaS データ統合エンジン（Vision Engine）| `cultivate/cultivate_vision_engine.py` | 282 | 経営者 Why/才能/偏愛 → 文化 3 層 + 8 類型 |
+| Cultivate | CT-2 論文 × AI 介入提案エンジン（Values × Policy）| `cultivate/cultivate_values_policy.py` | 266 | バリュー 10 × ポリシー 50 自動生成 |
+| Cultivate | CT-3 半期物語化エンジン（Manager Copilot）| `cultivate/cultivate_manager_copilot.py` | 362 | コンプレックス補完 + 4 マネジメント軸マトリクス |
 | 共通基盤 | claude_client.py | `scripts/_common/claude_client.py` | 200 | Claude API / config / MD 整形 / mask（260514 _cultivate_common.py から昇格・recruit/orbit 共有化）|
 
 **合計：3,412 行 / 9 ファイル**（8 エージェント + 1 共通モジュール）
