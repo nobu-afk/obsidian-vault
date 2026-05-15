@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断</title>
-<meta name="description" content="組織の引力タイプ診断（組織整合型・組織拡散型・組織渇望型・組織不毛型）を 18 問・約 3 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、組織の引力設計プログラムの最適な焦点を確認できます。">
-<meta property="og:title" content="Gravity 無料 Web 診断｜組織の引力タイプを 18 問・3 分で診断">
-<meta property="og:description" content="組織の引力タイプを 18 問・約 3 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで組織整合型・組織拡散型・組織渇望型・組織不毛型のどの型かを確認し、組織の引力設計プログラムの焦点を知る。">
+<title>Gravity Scan 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断</title>
+<meta name="description" content="組織の引力タイプ診断（組織整合型・組織拡散型・組織渇望型・組織不毛型）を 12 問・約 2 分で診断できる無料 Web 版。集まる軸 × 躍動軸 × 留まる軸の 3 軸スコアで自社の引力タイプを判定し、組織の引力設計プログラムの最適な焦点を確認できます。">
+<meta property="og:title" content="Gravity 無料 Web 診断｜組織の引力タイプを 12 問・2 分で診断">
+<meta property="og:description" content="組織の引力タイプを 12 問・約 2 分で診断できる無料 Web 版。集まる × 躍動 × 留まる 3 軸スコアで組織整合型・組織拡散型・組織渇望型・組織不毛型のどの型かを確認し、組織の引力設計プログラムの焦点を知る。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://growthfix.jp/gravity/diagnose/">
 <meta property="og:image" content="https://growthfix.jp/gravity/ogp.png">
@@ -1344,10 +1344,10 @@ body {
 
 <script>
 /* ============================================================
-   Gravity Scan Web 無料診断 — App Logic（v0.2 12 問版・260512）
+   Gravity Scan Web 無料診断 — App Logic（v0.4 12 問 3 軸版・260516）
    12 問 Likert（5 段階）・約 2 分で完了
    localStorage 中断保存・復帰対応
-   集まる軸 6 問・躍動軸 6 問 → 4 型判定
+   集まる軸 4 問・躍動軸 4 問・留まる軸 4 問 → 4 型判定（集まる × 躍動 マトリクス）
    POST /gravity/diagnose/generate.php（260515 8 ページピボットで新パス）
    ============================================================ */
 
@@ -1355,18 +1355,21 @@ const STORAGE_KEY = 'gravity-scan-web-v1-answers';
 const STORAGE_META = 'gravity-scan-web-v1-meta';
 const API_ENDPOINT = '/gravity/diagnose/generate.php';
 
-/* --- 質問定義（v0.3 18 問版・260514 朝 SCAN 廃止 → 無料 Web 診断 v2 化反映）---
+/* --- 質問定義（v0.4 12 問 3 軸版・260516 案 A 短縮版）---
    各質問は axis（collect = 集まる軸 / vitality = 躍動軸 / retain = 留まる軸）を保持。
    逆転項目は v0.2 で廃止（全質問が正方向・経営者の負担最小化）。
-   集計式：(各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化（3 軸並列）
-   留まる軸（Q13-Q18）は Phase 13 学術 BB 準拠：
-     - Mitchell 2001 JE 3 次元（Fit / Links / Sacrifice）
+   集計式：(各軸 4 問合計 - 4) / 16 × 100 → 0-100 正規化（3 軸並列）
+   留まる軸（Q09-Q12）は Phase 13 学術 BB 準拠（Sacrifice/Psychological Contract は v0.4 で削除）：
+     - Mitchell 2001 JE 2 次元（Fit / Links）
      - Meyer-Allen 1991 Affective Commitment
-     - Rousseau 1995 / Tomprou 2015 Psychological Contract
      - Phase 12 Orbit BB Continuous Emotional Contagion
+   v0.3 18 問版からの短縮：
+     - 集まる軸：旧 Q03 リファラル / 旧 Q04 選抜整合 削除
+     - 躍動軸：旧 Q11 中間経営職翻訳 / 旧 Q12 離脱予兆察知 削除
+     - 留まる軸：旧 Q15 JE Sacrifice / 旧 Q17 Psychological Contract 削除
 */
 const QUESTIONS = [
-  /* ===== 集まる軸 6 問（Q01〜Q06）===== */
+  /* ===== 集まる軸 4 問（Q01〜Q04）===== */
   {
     id: 'Q01', axis: 'collect', reverse: false, section: '集まる軸 / 採用市場認知',
     text: '【Q01】採用市場で「あの会社は採用が強い」と認知されている。',
@@ -1376,72 +1379,48 @@ const QUESTIONS = [
     text: '【Q02】過去 1 年の内定承諾率は業界平均より高い。',
   },
   {
-    id: 'Q03', axis: 'collect', reverse: false, section: '集まる軸 / リファラル',
-    text: '【Q03】社員のリファラル経由応募が月 1 件以上ある。',
+    id: 'Q03', axis: 'collect', reverse: false, section: '集まる軸 / 採用責任者言語化',
+    text: '【Q03】「なぜうちに来てほしいか」を社長が 30 秒で語れる。',
   },
   {
-    id: 'Q04', axis: 'collect', reverse: false, section: '集まる軸 / 選抜整合',
-    text: '【Q04】採用ペルソナと内定者のスキル・志向が一致している。',
-  },
-  {
-    id: 'Q05', axis: 'collect', reverse: false, section: '集まる軸 / 採用責任者言語化',
-    text: '【Q05】「なぜうちに来てほしいか」を社長が 30 秒で語れる。',
-  },
-  {
-    id: 'Q06', axis: 'collect', reverse: false, section: '集まる軸 / 離脱予兆',
-    text: '【Q06】優秀人材の早期離職(1 年以内)が起きていない。',
+    id: 'Q04', axis: 'collect', reverse: false, section: '集まる軸 / 離脱予兆',
+    text: '【Q04】優秀人材の早期離職(1 年以内)が起きていない。',
   },
 
-  /* ===== 躍動軸 6 問（Q07〜Q12）===== */
+  /* ===== 躍動軸 4 問（Q05〜Q08）===== */
   {
-    id: 'Q07', axis: 'vitality', reverse: false, section: '躍動軸 / Job Engagement',
-    text: '【Q07】社員が自分の仕事に没入している瞬間を頻繁に見る。',
+    id: 'Q05', axis: 'vitality', reverse: false, section: '躍動軸 / Job Engagement',
+    text: '【Q05】社員が自分の仕事に没入している瞬間を頻繁に見る。',
   },
   {
-    id: 'Q08', axis: 'vitality', reverse: false, section: '躍動軸 / Org Engagement',
-    text: '【Q08】社員が会社の将来を自分ごととして語る。',
+    id: 'Q06', axis: 'vitality', reverse: false, section: '躍動軸 / Org Engagement',
+    text: '【Q06】社員が会社の将来を自分ごととして語る。',
   },
   {
-    id: 'Q09', axis: 'vitality', reverse: false, section: '躍動軸 / Collective Efficacy',
-    text: '【Q09】「自分たちはやれる」と本気で信じているチームがある。',
+    id: 'Q07', axis: 'vitality', reverse: false, section: '躍動軸 / Collective Efficacy',
+    text: '【Q07】「自分たちはやれる」と本気で信じているチームがある。',
   },
   {
-    id: 'Q10', axis: 'vitality', reverse: false, section: '躍動軸 / 心理的安全性',
-    text: '【Q10】会議で「反対意見」が出る頻度が月 1 回以上ある。',
-  },
-  {
-    id: 'Q11', axis: 'vitality', reverse: false, section: '躍動軸 / 中間経営職翻訳',
-    text: '【Q11】中間経営職が経営者の言葉を現場の言葉に翻訳している。',
-  },
-  {
-    id: 'Q12', axis: 'vitality', reverse: false, section: '躍動軸 / 離脱予兆察知',
-    text: '【Q12】離職する社員の予兆を 1 ヶ月以上前に察知できる。',
+    id: 'Q08', axis: 'vitality', reverse: false, section: '躍動軸 / 心理的安全性',
+    text: '【Q08】会議で「反対意見」が出る頻度が月 1 回以上ある。',
   },
 
-  /* ===== 留まる軸 6 問（Q13〜Q18・260514 朝 Phase 13 学術 BB 準拠）===== */
+  /* ===== 留まる軸 4 問（Q09〜Q12・Phase 13 学術 BB 準拠）===== */
   {
-    id: 'Q13', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Fit',
-    text: '【Q13】うちの組織風土と「合う」と感じている社員が大多数だ。',
+    id: 'Q09', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Fit',
+    text: '【Q09】うちの組織風土と「合う」と感じている社員が大多数だ。',
   },
   {
-    id: 'Q14', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Links',
-    text: '【Q14】社員同士の組織内ネットワークが密で、人が抜けると影響が大きい。',
+    id: 'Q10', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Links',
+    text: '【Q10】社員同士の組織内ネットワークが密で、人が抜けると影響が大きい。',
   },
   {
-    id: 'Q15', axis: 'retain', reverse: false, section: '留まる軸 / Job Embeddedness Sacrifice',
-    text: '【Q15】辞めると失うもの（人間関係・キャリア・成長機会）が大きいと社員が感じている。',
+    id: 'Q11', axis: 'retain', reverse: false, section: '留まる軸 / Affective Commitment',
+    text: '【Q11】社員が「この会社に居続けたい」と感情的に語ることがある。',
   },
   {
-    id: 'Q16', axis: 'retain', reverse: false, section: '留まる軸 / Affective Commitment',
-    text: '【Q16】社員が「この会社に居続けたい」と感情的に語ることがある。',
-  },
-  {
-    id: 'Q17', axis: 'retain', reverse: false, section: '留まる軸 / Psychological Contract',
-    text: '【Q17】入社時に約束した条件・期待が現在も果たされている。',
-  },
-  {
-    id: 'Q18', axis: 'retain', reverse: false, section: '留まる軸 / Continuous Emotional Contagion',
-    text: '【Q18】月次の全社会議・チーム MTG で「この場にいたい」というポジティブな空気が継続している。',
+    id: 'Q12', axis: 'retain', reverse: false, section: '留まる軸 / Continuous Emotional Contagion',
+    text: '【Q12】月次の全社会議・チーム MTG で「この場にいたい」というポジティブな空気が継続している。',
   },
 ];
 
@@ -1518,7 +1497,7 @@ const TYPE_DEFS = {
    ============================================================ */
 const ScanApp = (() => {
   let current = 0;           // 現在の質問インデックス（0-11）
-  let answers = new Array(18).fill(null);  // 各問の選択スコア（null=未回答・v0.3 18 問 3 軸版・260514）
+  let answers = new Array(12).fill(null);  // 各問の選択スコア（null=未回答・v0.4 12 問 3 軸版・260516）
   let userData = {};         // フォーム入力値
   let resultData = {};       // 判定結果
 
@@ -1672,7 +1651,7 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- スコア計算（v0.3 18 問版・3 軸並列・正規化 0-100）--- */
+  /* --- スコア計算（v0.4 12 問 3 軸版・3 軸並列・正規化 0-100）--- */
   function calcScores() {
     let collectRaw = 0, vitalityRaw = 0, retainRaw = 0;
     QUESTIONS.forEach((q, i) => {
@@ -1681,15 +1660,15 @@ const ScanApp = (() => {
       else if (q.axis === 'vitality') vitalityRaw += raw;
       else if (q.axis === 'retain') retainRaw += raw;
     });
-    // (各軸 6 問合計 - 6) / 24 × 100 → 0-100 正規化
-    const collect  = Math.round((collectRaw  - 6) / 24 * 100);
-    const vitality = Math.round((vitalityRaw - 6) / 24 * 100);
-    const retain   = Math.round((retainRaw   - 6) / 24 * 100);
+    // (各軸 4 問合計 - 4) / 16 × 100 → 0-100 正規化
+    const collect  = Math.round((collectRaw  - 4) / 16 * 100);
+    const vitality = Math.round((vitalityRaw - 4) / 16 * 100);
+    const retain   = Math.round((retainRaw   - 4) / 16 * 100);
     return { collect, vitality, retain, collectRaw, vitalityRaw, retainRaw };
   }
 
-  /* --- 4 型判定（v0.3 18 問版・集まる × 躍動 の 2 マトリクスで型判定、留まる軸は補助スコアとして表示）---
-     集まる軸 6 問 × max 5 = 30pt 生スコア → 0-100 正規化
+  /* --- 4 型判定（v0.4 12 問版・集まる × 躍動 の 2 マトリクスで型判定、留まる軸は補助スコアとして表示）---
+     集まる軸 4 問 × max 5 = 20pt 生スコア → 0-100 正規化
      閾値：50（中央値）
      4 型は集まる × 躍動の 2 マトリクスで確定（既存ロジック維持）
      留まる軸スコアは「次の一手」判定で Orbit 推奨の補助に使う：
@@ -1760,7 +1739,7 @@ const ScanApp = (() => {
     try {
       const payload = {
         source:   'web-diagnose',
-        version:  'v0.3-18q-3axis',
+        version:  'v0.4-12q-3axis',
         name:     data.userData.name,
         company:  data.userData.company,
         email:    data.userData.email,

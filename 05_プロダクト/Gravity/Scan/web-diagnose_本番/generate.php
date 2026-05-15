@@ -1,6 +1,6 @@
 <?php
 /**
- * Gravity Scan 4 型 + 3 軸 Web 無料診断 — generate.php (v0.3 18 問 3 軸版・260514 朝)
+ * Gravity Scan 4 型 + 3 軸 Web 無料診断 — generate.php (v0.4 12 問 3 軸版・260516)
  *
  * 役割：
  *  1. POST JSON 受信（リード情報 + 12 問回答 + フロント計算済スコア）
@@ -11,10 +11,10 @@
  *  6. JSON 返却（success / type / scores / message）
  *
  * 設計 SSOT：
- *  - 05_プロダクト/GravityScan/診断_設計/260512_4型判定エンジン_PHP設計_v0.2_12問版.md
- *  - 05_プロダクト/GravityScan/診断_設計/260512_4型Web診断UI_仕様書_v0.2_12問版.md
+ *  - 260515 8 ページピボット v1.0 仕様書 §無料 Web 診断
+ *  - 260516 案 A 短縮版（3 軸 × 4 問 = 12 問）：対称構造維持・学術武装維持
  *
- * 配置先：/gravity-scan/web-diagnose/generate.php
+ * 配置先：/gravity/diagnose/generate.php（260515 8 ページピボットで新パス）
  */
 
 declare(strict_types=1);
@@ -66,8 +66,8 @@ if (!is_array($input)) {
 // ========================================
 // 2. 必須項目バリデーション
 // ========================================
-// v0.3 18 問 3 軸版（260514 朝）：retain は後方互換のためオプショナル扱い
-$required = ['name', 'company', 'email', 'industry', 'size', 'type', 'collect', 'vitality', 'answers'];
+// v0.4 12 問 3 軸版（260516）：3 軸 × 4 問 = 12 問・retain は必須
+$required = ['name', 'company', 'email', 'industry', 'size', 'type', 'collect', 'vitality', 'retain', 'answers'];
 foreach ($required as $key) {
     if (!array_key_exists($key, $input)) {
         http_response_code(400);
@@ -102,16 +102,15 @@ if (!in_array($type_in, $valid_types, true)) {
 }
 
 $answers = $input['answers'];
-// v0.3 18 問 3 軸版（260514 朝）: 18 問必須・v0.2 12 問版は後方互換で許容
+// v0.4 12 問 3 軸版（260516）：3 軸 × 4 問 = 12 問必須
 $answer_count = count((array)$answers);
-if (!is_array($answers) || ($answer_count !== 18 && $answer_count !== 12)) {
+if (!is_array($answers) || $answer_count !== 12) {
     http_response_code(400);
-    echo json_encode(['error' => '回答は 18 問必要です（v0.3 3 軸対応版）'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['error' => '回答は 12 問必要です（v0.4 3 軸対応版）'], JSON_UNESCAPED_UNICODE);
     exit;
 }
-// retain スコアの取得（後方互換：旧 v0.2 ペイロードでは未送信のため 0 既定）
-$retain = isset($input['retain']) ? (int)$input['retain'] : 0;
-$version = isset($input['version']) ? mb_substr(trim((string)$input['version']), 0, 30) : 'v0.2-12q';
+$retain = (int)$input['retain'];
+$version = isset($input['version']) ? mb_substr(trim((string)$input['version']), 0, 30) : 'v0.4-12q-3axis';
 $ans_int = [];
 foreach ($answers as $v) {
     if (!is_numeric($v)) {
@@ -129,9 +128,9 @@ foreach ($answers as $v) {
 }
 
 // ========================================
-// 3. PHP 側スコア再計算（フロント改ざん対策・SSOT 準拠・v0.3 18 問 3 軸対応）
-//    集まる軸：answers[0..5]、躍動軸：answers[6..11]、留まる軸：answers[12..17]
-//    正規化：(sum - 6) / 24 × 100
+// 3. PHP 側スコア再計算（フロント改ざん対策・SSOT 準拠・v0.4 12 問 3 軸対応）
+//    集まる軸：answers[0..3]、躍動軸：answers[4..7]、留まる軸：answers[8..11]
+//    正規化：(sum - 4) / 16 × 100（4 問 × min 1 = 4 / 4 問 × max 5 = 20）
 //    型判定：集まる × 躍動 の 2 マトリクスで確定（留まる軸は補助スコア）
 // ========================================
 function calc_axis_score(array $a, int $start, int $end): int {
@@ -139,7 +138,7 @@ function calc_axis_score(array $a, int $start, int $end): int {
     for ($i = $start; $i <= $end; $i++) {
         $sum += $a[$i];
     }
-    return (int)round(($sum - 6) / 24 * 100);
+    return (int)round(($sum - 4) / 16 * 100);
 }
 function judge_type(int $g, int $t): string {
     $hg = $g >= 50;
@@ -150,10 +149,9 @@ function judge_type(int $g, int $t): string {
     return '不毛';
 }
 
-$gather_score = calc_axis_score($ans_int, 0, 5);
-$thrive_score = calc_axis_score($ans_int, 6, 11);
-// v0.3：留まる軸スコア（18 問版のときのみ計算）
-$retain_score = ($answer_count === 18) ? calc_axis_score($ans_int, 12, 17) : 0;
+$gather_score = calc_axis_score($ans_int, 0, 3);
+$thrive_score = calc_axis_score($ans_int, 4, 7);
+$retain_score = calc_axis_score($ans_int, 8, 11);
 $type_php     = judge_type($gather_score, $thrive_score);
 $type_match   = ($type_php === $type_in) ? 'OK' : 'MISMATCH';
 
@@ -225,16 +223,16 @@ $internal_body   .= "https://growthfix.jp/contact/\n";
 $internal_headers  = "From: Gravity Scan <no-reply@growthfix.jp>\r\n";
 $internal_headers .= "Reply-To: {$email}\r\n";
 $internal_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$internal_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.2\r\n";
+$internal_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.4-12q-3axis\r\n";
 
 if (@mb_send_mail($internal_to, $internal_subject, $internal_body, $internal_headers)) {
     $mail_sent = true;
 }
 
 // 5-2. 経営者向けお礼メール
-$user_subject = '【Gravity Scan】無料診断完了：' . $type_php . '型診断結果のご案内';
+$user_subject = '【Gravity 無料 Web 診断】完了：' . $type_php . '型診断結果のご案内';
 $user_body    = "{$name} 様\n\n";
-$user_body   .= "Gravity Scan 無料 Web 診断（18 問 3 軸版）にご回答いただきありがとうございました。\n";
+$user_body   .= "Gravity 無料 Web 診断（12 問 3 軸版）にご回答いただきありがとうございました。\n";
 $user_body   .= "{$company} 様の組織の引力タイプを診断いたしました。\n\n";
 $user_body   .= "■ 診断結果\n";
 $user_body   .= "組織の引力タイプ：{$type_php}型\n";
@@ -242,19 +240,18 @@ $user_body   .= "集まる軸（採用基盤）：{$gather_score}/100\n";
 $user_body   .= "躍動軸（躍動組織）：{$thrive_score}/100\n";
 $user_body   .= "留まる軸（月次強化）：{$retain_score}/100\n\n";
 $user_body   .= "結果の詳細は受診画面でご確認いただけます（PDF レポートのダウンロードも可能です）。\n\n";
-$user_body   .= "■ 次の一手：30 分解説セッション（無料・Zoom）\n";
-$user_body   .= "18 問 3 軸の Web 診断結果を、「引力の参謀（組織軸）」石井が直接 30 分で解説します。\n";
+$user_body   .= "■ 次の一手：30 分解説セッション（無料・Google Meet）\n";
+$user_body   .= "12 問 3 軸の Web 診断結果を、「引力の参謀（組織軸）」石井が直接 30 分で解説します。\n";
 $user_body   .= "・型 × 3 軸スコアの読み解き方\n";
-$user_body   .= "・Gravity Recruit / Cultivate / Orbit のどれが効くかの方角\n";
-$user_body   .= "・組織横断ヒアリング + Pre-Shift 適合判定は月額契約 Week 1 オンボに内包されます\n\n";
+$user_body   .= "・組織の引力設計プログラム（集まる × 躍動 × 留まる 統合）の焦点軸の確認\n";
+$user_body   .= "・組織横断ヒアリング + 個社最適化のご提案\n\n";
 $user_body   .= "勧誘なし・経営者ご本人限定・6 週間先まで予約可能：\n";
 $user_body   .= "▼ 予約フォーム\n";
 $user_body   .= "https://utage-system.com/event/gcfmTRLg7lAq/register\n\n";
-$user_body   .= "■ Gravity 月額契約サービス（解説セッション後、必要に応じてご案内）\n";
-$user_body   .= "・Gravity Recruit（採用基盤・月 35 万・カウンターパート：人事部）\n";
-$user_body   .= "・Gravity Cultivate（躍動組織・月 50 万・カウンターパート：事業部）\n";
-$user_body   .= "・Gravity Orbit（月次強化・月 15 万・カウンターパート：経営）\n";
-$user_body   .= "詳細：https://growthfix.jp/gravity-scan/\n\n";
+$user_body   .= "■ 組織の引力設計プログラム（解説セッション後、必要に応じてご案内）\n";
+$user_body   .= "・1 商品（集まる × 躍動する × 留まる 3 軸統合）\n";
+$user_body   .= "・期間 / 投資レンジは個社状況に合わせてご提案します\n";
+$user_body   .= "詳細：https://growthfix.jp/gravity/\n\n";
 $user_body   .= "──\n";
 $user_body   .= "GrowthFix 株式会社\n";
 $user_body   .= "代表 石井伸幸（引力の参謀）\n";
@@ -263,7 +260,7 @@ $user_body   .= "https://growthfix.jp/\n";
 $user_headers  = "From: 石井伸幸 (GrowthFix) <no-reply@growthfix.jp>\r\n";
 $user_headers .= "Reply-To: nobuyuki08@gmail.com\r\n";
 $user_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$user_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.3-18q-3axis\r\n";
+$user_headers .= "X-Mailer: GravityScan-WebDiagnose/v0.4-12q-3axis\r\n";
 
 @mb_send_mail($email, $user_subject, $user_body, $user_headers);
 
