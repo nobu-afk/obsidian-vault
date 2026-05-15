@@ -492,6 +492,30 @@ body {
   outline: 3px solid #3b82f6;
   outline-offset: 2px;
 }
+
+/* autoAdvance 中の selected 状態に進行インジケータを薄く重ねる（260516・旧有料 SCAN UX 由来）*/
+.likert-option.selected.is-advancing {
+  background: linear-gradient(90deg, #dbeafe 0%, #eff6ff 100%);
+  background-size: 200% 100%;
+  animation: advanceBar 0.8s ease-out forwards;
+}
+@keyframes advanceBar {
+  from { background-position: 100% 0; }
+  to   { background-position: 0 0; }
+}
+
+/* 質問切替時の fadeIn アニメーション（260516・旧有料 SCAN UX 由来）*/
+.quiz-fade-in {
+  animation: quizFadeIn 0.35s ease-out;
+}
+@keyframes quizFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .likert-option.selected.is-advancing { animation: none; }
+  .quiz-fade-in { animation: none; }
+}
 .likert-dot {
   width: 20px;
   height: 20px;
@@ -1498,6 +1522,8 @@ const TYPE_DEFS = {
 const ScanApp = (() => {
   let current = 0;           // 現在の質問インデックス（0-11）
   let answers = new Array(12).fill(null);  // 各問の選択スコア（null=未回答・v0.4 12 問 3 軸版・260516）
+  let _autoAdvanceTimer = null;  // 260516：旧有料 SCAN UX 由来 autoAdvance タイマー（800ms 後に次問題へ自動遷移）
+  const AUTO_ADVANCE_MS = 800;
   let userData = {};         // フォーム入力値
   let resultData = {};       // 判定結果
 
@@ -1569,8 +1595,18 @@ const ScanApp = (() => {
     showScreen('screen-quiz');
   }
 
+  /* --- autoAdvance キャンセル（260516・旧有料 SCAN 由来）--- */
+  function cancelAutoAdvance() {
+    if (_autoAdvanceTimer) {
+      clearTimeout(_autoAdvanceTimer);
+      _autoAdvanceTimer = null;
+    }
+  }
+
   /* --- レンダリング --- */
   function renderQuestion(idx) {
+    cancelAutoAdvance(); // 質問切替時は必ず autoAdvance をキャンセル
+
     const q = QUESTIONS[idx];
     const total = QUESTIONS.length;
 
@@ -1607,6 +1643,7 @@ const ScanApp = (() => {
       btn.setAttribute('role', 'radio');
       btn.setAttribute('aria-checked', answers[idx] === opt.score ? 'true' : 'false');
       btn.setAttribute('aria-label', opt.label + '（スコア ' + opt.score + '）');
+      btn.dataset.score = String(opt.score);
       btn.innerHTML = `
         <span class="likert-dot" aria-hidden="true"></span>
         <span class="likert-score" aria-hidden="true">${opt.score}</span>
@@ -1629,24 +1666,58 @@ const ScanApp = (() => {
     }
 
     current = idx;
+
+    // 質問切替時の fadeIn アニメーション（260516・旧有料 SCAN UX 由来）
+    const qBody = document.getElementById('quiz-body');
+    if (qBody) {
+      qBody.classList.remove('quiz-fade-in');
+      void qBody.offsetWidth; // reflow trigger（アニメーション再起動のため）
+      qBody.classList.add('quiz-fade-in');
+    }
   }
 
+  /* --- 選択肢クリック（260516・旧有料 SCAN 由来 autoAdvance 反映）---
+     - 初回回答時のみ 800ms 後に自動遷移（修正回答時は遷移しない＝ユーザーが見直し中）
+     - 最終問題は autoAdvance しない（フォーム遷移は明示的に「情報入力へ」ボタン押下で）
+     - 戻る／次へボタン押下 or 質問切替時に必ずキャンセル
+     - prefers-reduced-motion 配慮：CSS 側の advanceBar アニメーションは無効化される
+  */
   function selectAnswer(idx, score) {
+    const wasAnswered = answers[idx] !== null;
     answers[idx] = score;
     saveProgress();
     renderQuestion(idx);
+
+    if (!wasAnswered && idx < QUESTIONS.length - 1) {
+      // 選択した likert-option に進行インジケータクラス付与
+      const container = document.getElementById('likert-container');
+      if (container) {
+        const selectedBtn = container.querySelector(`.likert-option[data-score="${score}"]`);
+        if (selectedBtn) selectedBtn.classList.add('is-advancing');
+      }
+      cancelAutoAdvance();
+      _autoAdvanceTimer = setTimeout(() => {
+        _autoAdvanceTimer = null;
+        // current 整合性チェック：戻るボタン等で別問題に移動していたら遷移しない
+        if (current === idx && answers[idx] === score) {
+          renderQuestion(idx + 1);
+        }
+      }, AUTO_ADVANCE_MS);
+    }
   }
 
   function goBack() {
+    cancelAutoAdvance();
     if (current > 0) renderQuestion(current - 1);
   }
 
   function goNext() {
+    cancelAutoAdvance();
     if (answers[current] === null) return;
     if (current < QUESTIONS.length - 1) {
       renderQuestion(current + 1);
     } else {
-      // 全問完了 → フォームへ
+      // 全問完了 → フォームへ（最終問題は autoAdvance しないため明示遷移）
       showScreen('screen-form');
     }
   }
