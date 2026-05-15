@@ -102,7 +102,7 @@ Gravity Recruit（80 万・集まる軸）
 Gravity Cultivate（80 万・躍動する軸）　← 本資料の対象
 Gravity Shift（150 万・両軸）
   ↓
-Gravity Orbit（月 15 万・月次引力強化）
+Gravity Orbit（月 5 万・月次更新・最低 1 ヶ月）
 ```
 
 Coaching（38 万）は個人軸・並走可能
