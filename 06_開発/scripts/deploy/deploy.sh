@@ -273,6 +273,21 @@ deploy_diagnose() {
   echo ""
 }
 
+deploy_sales() {
+  echo "[営業資料マスター 限定公開アップロード（260515 8 ページピボット §7）]"
+  # 限定公開：URL ハッシュ秘匿 + noindex + Options -Indexes
+  # ハッシュ：a896fc2ead339724（260515 初版・rotation 推奨：半年 1 回）
+  # 詳細：04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §7 / memory/project_8pages_pivot_ssot_reflection_260515.md
+  SALES_HASH="a896fc2ead339724"
+  upload "$VAULT/05_プロダクト/コーポレート/sales_本番/master/index.html"  "sales/master-${SALES_HASH}/index.html"  "Sales master index.html"
+  upload "$VAULT/05_プロダクト/コーポレート/sales_本番/master/styles.css"  "sales/master-${SALES_HASH}/styles.css"  "Sales master styles.css"
+  upload "$VAULT/05_プロダクト/コーポレート/sales_本番/master/.htaccess"   "sales/master-${SALES_HASH}/.htaccess"   "Sales master .htaccess"
+  wait_all
+  echo "[営業資料マスター 完了]"
+  echo "本番 URL: https://growthfix.jp/sales/master-${SALES_HASH}/"
+  echo ""
+}
+
 # === メイン ===
 case "${1:-all}" in
   shared)   deploy_shared ;;
@@ -280,15 +295,17 @@ case "${1:-all}" in
   diagnose) deploy_diagnose ;;
   wp)       deploy_wp ;;
   optin)    deploy_optin ;;
+  sales)    deploy_sales ;;
   all)
     deploy_shared
     deploy_lp
     deploy_diagnose
     deploy_wp
     deploy_optin
+    # sales は all から除外（限定公開・明示起動のみ）
     ;;
   *)
-    echo "Usage: $0 [shared|lp|diagnose|wp|optin|all]"
+    echo "Usage: $0 [shared|lp|diagnose|wp|optin|sales|all]"
     exit 1
     ;;
 esac

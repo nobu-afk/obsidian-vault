@@ -1,0 +1,154 @@
+/* GrowthFix 営業資料マスター v0.1 — 限定公開・印刷想定 */
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  margin: 0;
+  color: #1a1a1a;
+  background: #fafafa;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.sales-header {
+  padding: 16px 32px;
+  background: #1a1a1a;
+  color: #fff;
+  border-bottom: 2px solid #d4af37;
+}
+.sales-doc-id { margin: 0; font-size: 12px; opacity: 0.8; letter-spacing: 0.05em; }
+.sales-doc-date { margin: 4px 0 0; font-size: 13px; }
+
+.sales-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  page-break-after: always;
+}
+.sales-section h2 {
+  font-size: 28px;
+  border-left: 6px solid #d4af37;
+  padding-left: 16px;
+  margin: 0 0 24px;
+}
+.sales-section h3 {
+  font-size: 18px;
+  margin: 24px 0 12px;
+  color: #444;
+}
+
+.sales-cover {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 120px 40px;
+}
+.sales-cover h1 {
+  font-size: 44px;
+  margin: 0 0 16px;
+  letter-spacing: 0.05em;
+}
+.cover-tagline { font-size: 20px; opacity: 0.9; margin: 0 0 48px; }
+.cover-by { font-size: 18px; margin: 32px 0 8px; color: #d4af37; }
+.cover-meta { font-size: 13px; opacity: 0.6; margin: 32px 0 0; }
+
+.pain-list, .deliv-list, .flow-list { padding-left: 24px; }
+.pain-list li, .deliv-list li, .flow-list li { margin: 12px 0; }
+
+.position-matrix, .wbs-table, .invest-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+.position-matrix th, .position-matrix td,
+.wbs-table th, .wbs-table td,
+.invest-table th, .invest-table td {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.position-matrix th, .wbs-table th, .invest-table th {
+  background: #f5f5f0;
+  font-weight: bold;
+}
+
+.axes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+.axis-card {
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fafaf6;
+}
+.axis-card h3 {
+  margin: 0 0 8px;
+  color: #1a1a1a;
+}
+.axis-desc { margin: 8px 0; font-size: 14px; }
+.axis-academic { margin: 8px 0 0; font-size: 12px; color: #666; }
+
+.continuous-list, .profile-list {
+  padding-left: 0;
+  list-style: none;
+}
+.continuous-list li, .profile-list li {
+  margin: 12px 0;
+  padding: 12px 16px;
+  background: #fafaf6;
+  border-left: 4px solid #d4af37;
+}
+
+.flow-cta {
+  margin: 24px 0 0;
+  padding: 16px;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+}
+.flow-cta a { color: #d4af37; }
+
+.invest-note {
+  font-size: 12px;
+  color: #888;
+  margin: 12px 0 0;
+}
+
+.sales-footer {
+  padding: 32px 40px;
+  background: #1a1a1a;
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+}
+.sales-footer p { margin: 4px 0; }
+.sales-version { font-size: 11px; opacity: 0.6; }
+
+/* 印刷時 */
+@media print {
+  body { background: #fff; font-size: 12px; }
+  .sales-header, .sales-footer { background: #fff !important; color: #1a1a1a !important; }
+  .sales-section { padding: 32px 24px; box-shadow: none; }
+  .sales-cover { background: #1a1a1a !important; color: #fff !important; }
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+  .sales-section { padding: 32px 16px; }
+  .sales-section h2 { font-size: 22px; }
+  .sales-cover h1 { font-size: 28px; }
+  .axes-grid { grid-template-columns: 1fr; }
+  .position-matrix, .wbs-table, .invest-table { font-size: 12px; }
+  .position-matrix th, .position-matrix td,
+  .wbs-table th, .wbs-table td,
+  .invest-table th, .invest-table td { padding: 6px 8px; }
+}

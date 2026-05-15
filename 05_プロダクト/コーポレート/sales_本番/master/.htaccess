@@ -1,0 +1,23 @@
+# GrowthFix 営業資料マスター — 限定公開（260515）
+# 本ディレクトリは URL ハッシュ秘匿 + ディレクトリリスト禁止 + robots noindex で限定公開
+# 詳細：04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md §7
+
+# ディレクトリリスト禁止（インデックス無効化）
+Options -Indexes
+
+# X-Robots-Tag（HTTP ヘッダで noindex を強制・<meta robots> と二重防御）
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet, noimageindex"
+</IfModule>
+
+# キャッシュ抑制（限定公開資料のため）
+<IfModule mod_headers.c>
+  Header set Cache-Control "private, no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+</IfModule>
+
+# .htaccess / .DS_Store / Thumbs.db アクセス禁止
+<FilesMatch "^\.(htaccess|DS_Store)$|Thumbs\.db">
+  Require all denied
+</FilesMatch>
