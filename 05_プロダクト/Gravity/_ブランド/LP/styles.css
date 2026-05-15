@@ -42,6 +42,59 @@
 .b-axis-group--mt-sm { margin-top: 32px; }
 .b-axis-group--mt-lg { margin-top: 48px; }
 
+/* axis-label / axis-sub —— サービスグループ見出し（260515 追加） */
+.b-axis-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 0 0 6px;
+}
+.b-axis-sub {
+  font-size: 12.5px;
+  color: #64748b;
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.7;
+}
+
+/* program-axes —— 組織の引力設計プログラム 3 軸提供物（260515 追加） */
+.b-program-axes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+.b-program-axis {
+  padding: 16px 14px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 6px;
+  border-top: 3px solid #1e40af;
+}
+.b-program-axis-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.b-program-axis-desc {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.75;
+}
+.b-program-axis-desc strong {
+  color: #1e40af;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .b-program-axes {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 /* series-card-header（flex 設定） */
 .b-series-card-header {
   display: flex;
