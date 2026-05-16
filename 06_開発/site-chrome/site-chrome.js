@@ -65,7 +65,7 @@
     '<footer class="b-footer">' +
       '<div class="container b-footer-inner">' +
         '<div class="b-brand">GrowthFix<br>' +
-          '<span class="b-footer-tagline">優秀人材が、躍動する会社をつくる。</span><br>' +
+          '<span class="b-footer-tagline">優秀人材が集まり、躍動する会社をつくる。</span><br>' +
           '<span class="b-footer-tagline-sub">組織に、引力を。</span>' +
         '</div>' +
         '<div class="b-footer-profile">' +
