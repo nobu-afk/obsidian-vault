@@ -48,8 +48,12 @@
         letter-spacing: 0.02em;
       }
       /* h1 を確実に 2 行で表示（br ではなく span ブロック化）*/
+      .code-v2-hero h1 {
+        font-size: clamp(20px, 4.5vw, 32px);
+      }
       .code-v2-hero h1 .h1-line {
         display: block;
+        white-space: nowrap;
       }
     </style>
     <script defer src="script.js?v=20260414a"></script>
