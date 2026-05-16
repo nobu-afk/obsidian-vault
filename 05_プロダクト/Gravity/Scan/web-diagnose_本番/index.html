@@ -1224,8 +1224,8 @@ body {
       <button class="btn-secondary" id="btn-back" onclick="ScanApp.goBack()" disabled>
         戻る
       </button>
-      <button class="btn-clear" id="btn-clear" onclick="ScanApp.clearCurrent()" disabled aria-label="この質問の選択をクリア">
-        選択をクリア
+      <button class="btn-clear" id="btn-clear" onclick="ScanApp.clearAll()" disabled aria-label="すべての選択をクリアして最初の質問に戻る">
+        最初からやり直す
       </button>
       <button class="btn-primary" id="btn-next" onclick="ScanApp.goNext()" disabled>
         次へ
@@ -1801,7 +1801,8 @@ const ScanApp = (() => {
       btnBack.textContent = idx === 0 ? '戻る' : '前の質問へ';
     }
     if (btnClear) {
-      btnClear.disabled = answers[idx] === null;
+      // いずれか 1 つでも回答済みなら enable（全クリア対象を判定）
+      btnClear.disabled = !answers.some(a => a !== null);
     }
     if (btnNext) {
       btnNext.disabled = answers[idx] === null;
@@ -1853,15 +1854,18 @@ const ScanApp = (() => {
     if (current > 0) renderQuestion(current - 1);
   }
 
-  /* --- 選択をクリア（260516・旧版「入力をクリア」由来）---
-     現在の質問の選択を null に戻す + autoAdvance キャンセル + 再レンダー
-     クリア後は「次へ」ボタン disabled に戻り、autoAdvance も発火しない（answers[idx] === null のため）
+  /* --- 最初からやり直す（260516）---
+     全選択肢を null に戻す + Q01 へ戻る + localStorage もクリア
+     誤タップ防止のため confirm() で意思確認
   */
-  function clearCurrent() {
+  function clearAll() {
+    // 何も回答していない場合はそもそも disabled で来ない想定だが防御
+    if (!answers.some(a => a !== null)) return;
+    if (!confirm('すべての選択をクリアして最初の質問に戻りますか？')) return;
     cancelAutoAdvance();
-    answers[current] = null;
-    saveProgress();
-    renderQuestion(current);
+    answers = new Array(QUESTIONS.length).fill(null);
+    clearProgress();
+    renderQuestion(0);
   }
 
   function goNext() {
@@ -2125,7 +2129,7 @@ const ScanApp = (() => {
     bindForm();
   }
 
-  return { startDiagnosis, goBack, clearCurrent, goNext, goToDetail, downloadPdf, init };
+  return { startDiagnosis, goBack, clearAll, goNext, goToDetail, downloadPdf, init };
 })();
 
 document.addEventListener('DOMContentLoaded', () => ScanApp.init());
