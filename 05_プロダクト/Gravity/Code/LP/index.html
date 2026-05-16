@@ -27,32 +27,25 @@
     <link rel="stylesheet" href="/assets/css/lp-base.css?v=20260414c" />
     <link rel="stylesheet" href="/assets/css/gravity-code-page.css?v=20260504a" />
     <style>
-      /* 5 万円アンカリング表記用（260516・user 判断「5 万円を無料で実施するマーケ手法」）*/
-      .code-v2-hero-meta-badge--accent {
-        background: linear-gradient(135deg, #C5A880 0%, #b8a070 100%);
-        color: #1a1a1a !important;
-        font-weight: 800;
-        border: 1px solid #b8a070;
-        box-shadow: 0 2px 6px rgba(197,168,128,0.3);
-      }
-      .code-cta-proof-accent {
-        background: #C5A880;
-        color: #1a1a1a !important;
-        font-weight: 800;
-        padding: 6px 14px;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(197,168,128,0.25);
-      }
-      .form-cta-subnote {
-        text-align: center;
-        font-size: 14px;
-        color: #475569;
-        margin: 12px 0 4px;
+      /* 通常価格 5 万円表記（260516・hero h1 直下に独立配置・アンカリング用）*/
+      .code-v2-hero-price {
+        display: inline-block;
+        margin: 18px 0 22px;
+        padding: 8px 22px;
+        background: rgba(197, 168, 128, 0.12);
+        border: 1px solid rgba(197, 168, 128, 0.45);
+        border-radius: 100px;
+        color: #C5A880;
+        font-size: 15px;
         font-weight: 600;
+        letter-spacing: 0.04em;
       }
-      .form-cta-subnote strong {
-        color: #b8860b;
+      .code-v2-hero-price strong {
+        color: #C5A880;
+        font-size: 17px;
         font-weight: 800;
+        margin-left: 4px;
+        letter-spacing: 0.02em;
       }
     </style>
     <script defer src="script.js?v=20260414a"></script>
@@ -122,6 +115,7 @@
           <h1>
             自分の<em>引力源</em>を、<br />60 分で<em>丸裸にする</em>。
           </h1>
+          <p class="code-v2-hero-price">通常価格 <strong>税別 5 万円</strong></p>
           <p class="code-v2-hero-sub">
             経営者の引力源（<strong>強み × 想い × 偏愛</strong>）は、<strong>採用・組織・発信のすべて</strong>を変える ──<br />
             50 事業の経営者と関わって見えた構造を、60 分の対話で解剖します。
@@ -129,7 +123,6 @@
           <div class="code-v2-hero-meta">
             <span class="code-v2-hero-meta-badge">Zoom 60分</span>
             <span class="code-v2-hero-meta-badge">経営者1人で受講</span>
-            <span class="code-v2-hero-meta-badge code-v2-hero-meta-badge--accent">通常 ¥50,000 → 現在無料</span>
           </div>
           <a class="btn btn-primary btn-lg" href="#apply">
             CODE 60分セッションに申し込む<i class="ri-arrow-right-s-line" aria-hidden="true"></i>
