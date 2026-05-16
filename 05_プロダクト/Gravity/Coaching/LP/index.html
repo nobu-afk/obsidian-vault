@@ -45,6 +45,89 @@
       .shift-v2-hero-note { border-left-color: #0f172a !important; }
     </style>
 
+    <!-- Coaching LP カードグリッド（260516 装飾強化）-->
+    <style>
+      .coaching-service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 18px 0 0;
+      }
+      .coaching-service-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 22px 20px;
+        transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+      }
+      .coaching-service-card:hover {
+        border-color: #C5A880;
+        box-shadow: 0 4px 12px rgba(197,168,128,0.12);
+        transform: translateY(-2px);
+      }
+      .coaching-service-icon {
+        display: inline-block;
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+      .coaching-service-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0 0 8px;
+        line-height: 1.5;
+      }
+      .coaching-service-desc {
+        font-size: 13.5px;
+        color: #475569;
+        line-height: 1.75;
+        margin: 0;
+      }
+
+      .coaching-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 18px 0 0;
+      }
+      .coaching-feature-card {
+        background: linear-gradient(180deg, #fafaf6 0%, #ffffff 100%);
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 28px 22px;
+        text-align: center;
+        position: relative;
+      }
+      .coaching-feature-num {
+        display: inline-block;
+        font-size: 32px;
+        font-weight: 900;
+        color: #C5A880;
+        letter-spacing: 0.04em;
+        margin-bottom: 8px;
+        line-height: 1;
+      }
+      .coaching-feature-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0 0 10px;
+        line-height: 1.5;
+      }
+      .coaching-feature-desc {
+        font-size: 13px;
+        color: #475569;
+        line-height: 1.75;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .coaching-service-grid { grid-template-columns: 1fr; gap: 12px; }
+        .coaching-feature-grid { grid-template-columns: 1fr; gap: 12px; }
+        .coaching-feature-card { padding: 22px 18px; }
+      }
+    </style>
+
     <!-- Service Schema (Schema.org) -->
     <script type="application/ld+json">
 {
@@ -123,20 +206,57 @@
             経営者個人を <strong>月 1 × 90 分 × 6 ヶ月の継続対話</strong>で伴走し、社会から埋め込まれた "have to" を抜いて、本来の判断軸（<strong>強み × 想い × 偏愛</strong>）を取り戻す。<br />
             「頭が良い × 顔色が悪い」経営者・本音を話せる相手がいない経営者の <strong>心の参謀</strong>として並走します。
           </p>
-          <ul class="lp-list-15" style="margin-top:32px;">
-            <li class="lp-mb-14"><strong>月 1 × 90 分セッション × 6 ヶ月（全 6 回）</strong>── 80 分の対話 ＋ 最後の 10 分で要点 3 行・決定事項 5 件・次回までの問いを言語化。</li>
-            <li class="lp-mb-14"><strong>対話手法を場面に応じて切り替え</strong>── 聴く（コーチング）と提示する（コンサル）、身体で感じる（ソマティック）を場面別に使い分けます。</li>
-            <li class="lp-mb-14"><strong>セッション前の事前分析</strong>── 経営者の発話傾向を踏まえ、次回の内省素材を準備します。</li>
-            <li class="lp-mb-14"><strong>Slack でのサポート</strong>── 期間中の実装ブロッカー相談に対応します。</li>
-            <li class="lp-mb-14"><strong>Gravity CODE 付属</strong>── 経営者の引力タイプを 4 つのタイプで解読する 40 分 Coaching 体験版セッション(通常 税別 5,000 円)が含まれます。</li>
-            <li class="lp-mb-14"><strong>24 時間以内に Slack で要点共有</strong>── 各セッション後に要点メモを送付し、次回までの内省素材としてご活用いただけます。</li>
-          </ul>
-          <h3 class="lp-section-h3">石井コーチングの特徴（3 点）</h3>
-          <ul class="lp-list-14">
-            <li><strong>① 問題の再定義力</strong>── 表面の問題ではなく、その奥にある経営者本人の判断軸のズレを言語化します。</li>
-            <li><strong>② 90 分での深掘り</strong>── 表面で終わらせず、対話手法を切り替えながら構造的に解読します。</li>
-            <li><strong>③ 言語化と再現</strong>── 判断軸を言語化し、次回までの問いと決定事項を毎回明文化します。</li>
-          </ul>
+          <h3 class="lp-section-h3" style="margin-top:36px;">サービス内容（6 項目）</h3>
+          <div class="coaching-service-grid">
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">📅</span>
+              <h4 class="coaching-service-title">月 1 × 90 分 × 全 6 回</h4>
+              <p class="coaching-service-desc">80 分の対話 ＋ 最後の 10 分で要点 3 行・決定事項 5 件・次回までの問いを言語化。</p>
+            </div>
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">🔄</span>
+              <h4 class="coaching-service-title">対話手法の使い分け</h4>
+              <p class="coaching-service-desc">聴く（コーチング）／ 提示する（コンサル）／ 身体で感じる（ソマティック）を場面別に切り替え。</p>
+            </div>
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">🔍</span>
+              <h4 class="coaching-service-title">セッション前の事前分析</h4>
+              <p class="coaching-service-desc">経営者の発話傾向を踏まえ、次回の内省素材を準備します。</p>
+            </div>
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">💬</span>
+              <h4 class="coaching-service-title">Slack でのサポート</h4>
+              <p class="coaching-service-desc">期間中の実装ブロッカー相談に対応します。</p>
+            </div>
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">🎁</span>
+              <h4 class="coaching-service-title">Gravity CODE 付属</h4>
+              <p class="coaching-service-desc">経営者の引力タイプを 4 つで解読する 40 分 Coaching 体験版（通常 税別 5,000 円）が含まれます。</p>
+            </div>
+            <div class="coaching-service-card">
+              <span class="coaching-service-icon">📝</span>
+              <h4 class="coaching-service-title">24 時間以内に要点共有</h4>
+              <p class="coaching-service-desc">各セッション後に要点メモを Slack で送付。次回までの内省素材としてご活用いただけます。</p>
+            </div>
+          </div>
+          <h3 class="lp-section-h3" style="margin-top:48px;">石井コーチングの特徴（3 点）</h3>
+          <div class="coaching-feature-grid">
+            <div class="coaching-feature-card">
+              <span class="coaching-feature-num">01</span>
+              <h4 class="coaching-feature-title">問題の再定義力</h4>
+              <p class="coaching-feature-desc">表面の問題ではなく、その奥にある経営者本人の判断軸のズレを言語化します。</p>
+            </div>
+            <div class="coaching-feature-card">
+              <span class="coaching-feature-num">02</span>
+              <h4 class="coaching-feature-title">90 分での深掘り</h4>
+              <p class="coaching-feature-desc">表面で終わらせず、対話手法を切り替えながら構造的に解読します。</p>
+            </div>
+            <div class="coaching-feature-card">
+              <span class="coaching-feature-num">03</span>
+              <h4 class="coaching-feature-title">言語化と再現</h4>
+              <p class="coaching-feature-desc">判断軸を言語化し、次回までの問いと決定事項を毎回明文化します。</p>
+            </div>
+          </div>
           <p class="sv2-note">★ サービス詳細・契約条件は、お話を伺ったうえで<strong>口頭でお伝えします</strong>（LP からの直接申込はできません）。</p>
         </div>
       </section>
