@@ -76,13 +76,13 @@
         '<div class="b-footer-links">' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">個人軸</p>' +
-            '<a target="_blank" rel="noopener noreferrer" href="https://growthfix.jp/gravity/code/">Gravity CODE</a>' +
-            '<a target="_blank" rel="noopener noreferrer" href="https://growthfix.jp/gravity/coaching/">Gravity Coaching</a>' +
+            '<a href="https://growthfix.jp/gravity/code/">Gravity CODE</a>' +
+            '<a href="https://growthfix.jp/gravity/coaching/">Gravity Coaching</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">組織軸</p>' +
-            '<a target="_blank" rel="noopener noreferrer" href="https://growthfix.jp/gravity/">組織の引力設計プログラム</a>' +
-            '<a target="_blank" rel="noopener noreferrer" href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（18 問 3 分）</a>' +
+            '<a href="https://growthfix.jp/gravity/">組織の引力設計プログラム</a>' +
+            '<a href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（18 問 3 分）</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">会社・サイト</p>' +
