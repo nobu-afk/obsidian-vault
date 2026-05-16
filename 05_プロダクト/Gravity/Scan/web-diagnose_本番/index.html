@@ -314,6 +314,89 @@ body {
   margin: 6px 0 0 0;
   text-align: center;
 }
+/* ========================================
+   HERO 4 象限マップ（260516 案 D 1FV 密度型・新規）
+   ======================================== */
+.hero-quadrant {
+  margin: 8px auto 28px;
+  max-width: 480px;
+  width: 100%;
+}
+.hq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.hq-cell {
+  padding: 18px 12px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.04);
+  transition: background 0.2s, transform 0.2s;
+}
+.hq-cell:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+.hq-label {
+  display: block;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.hq-desc {
+  display: block;
+  font-size: 11px;
+  color: #cbd5e1;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.hq-cell.hq-coherent  { background: rgba(74,222,128,0.14); border-color: rgba(74,222,128,0.4); }
+.hq-cell.hq-coherent  .hq-label { color: #86efac; }
+.hq-cell.hq-diffuse   { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.36); }
+.hq-cell.hq-diffuse   .hq-label { color: #fcd34d; }
+.hq-cell.hq-yearning  { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.36); }
+.hq-cell.hq-yearning  .hq-label { color: #fcd34d; }
+.hq-cell.hq-barren    { background: rgba(248,113,113,0.14); border-color: rgba(248,113,113,0.4); }
+.hq-cell.hq-barren    .hq-label { color: #fca5a5; }
+.hq-axis-note {
+  margin-top: 12px;
+  font-size: 11px;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+/* CTA + 学術武装ライナー（260516 案 D）*/
+.hero-cta {
+  font-size: 17px;
+  padding: 20px 52px;
+  min-width: 280px;
+}
+.hero-academic {
+  margin-top: 28px;
+  font-size: 11px;
+  line-height: 1.85;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+.hero-academic-cites {
+  display: inline-block;
+  margin-top: 4px;
+  color: #C5A880;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 24px; line-height: 1.5; }
+  .hq-cell { padding: 14px 8px; }
+  .hq-label { font-size: 17px; }
+  .hq-desc { font-size: 10px; }
+  .hero-cta { padding: 18px 36px; min-width: auto; width: 100%; }
+}
+
 .hero-voice {
   margin-top: 20px;
   padding: 14px 18px;
@@ -1074,22 +1157,48 @@ body {
 <div id="toast" class="toast" role="alert" aria-live="polite"></div>
 
 <!-- ============================================================
-     SECTION 1: HERO
+     SECTION 1: HERO（260516 案 D 1FV 密度型・全面改修）
      ============================================================ -->
-<div id="screen-hero" class="screen active" role="main" id="main-content">
+<div id="screen-hero" class="screen active" role="main">
   <div class="hero-inner">
-    <div class="hero-free-tag">無料 Web 診断</div>
+    <div class="hero-free-tag">無料・12 問・約 2 分</div>
     <h1 class="hero-h1">
-      組織の<em>引力タイプ</em>を、<em>2 分で。</em>
+      経営者が見落とす<br>
+      組織の<em>引力タイプ 4 型</em>を、<br>
+      2 分で診断する。
     </h1>
-    <button class="btn-primary" onclick="ScanApp.startDiagnosis()" style="font-size:17px;padding:20px 52px;">
-      診断を開始する
+    <p class="hero-sub">あなたの組織は、下の 4 象限のどれですか？</p>
+
+    <div class="hero-quadrant" aria-label="組織の引力 4 型マップ">
+      <div class="hq-grid">
+        <div class="hq-cell hq-coherent">
+          <span class="hq-label">整合</span>
+          <span class="hq-desc">集まる ○ × 躍動 ○</span>
+        </div>
+        <div class="hq-cell hq-diffuse">
+          <span class="hq-label">拡散</span>
+          <span class="hq-desc">集まる ○ × 躍動 ×</span>
+        </div>
+        <div class="hq-cell hq-yearning">
+          <span class="hq-label">渇望</span>
+          <span class="hq-desc">集まる × × 躍動 ○</span>
+        </div>
+        <div class="hq-cell hq-barren">
+          <span class="hq-label">不毛</span>
+          <span class="hq-desc">集まる × × 躍動 ×</span>
+        </div>
+      </div>
+      <p class="hq-axis-note">＋ 留まる軸スコアで継続強化の焦点も同時診断</p>
+    </div>
+
+    <button class="btn-primary hero-cta" onclick="ScanApp.startDiagnosis()">
+      診断を開始する <span aria-hidden="true">→</span>
     </button>
 
-    <div class="hero-voice">
-      <p class="hero-voice-quote">「『これでいいんだろうか』と感じた夜に受診して、予想せぬ型だった。」</p>
-      <p class="hero-voice-author">── IT スタートアップ代表・30 代</p>
-    </div>
+    <p class="hero-academic">
+      Bandura SE/CE ・ Edmondson PS ・ Mitchell JE ・ Meyer-Allen AC<br>
+      <span class="hero-academic-cites">累計 350,000+ cites の学術武装で 3 軸スコア化</span>
+    </p>
   </div>
 </div>
 
