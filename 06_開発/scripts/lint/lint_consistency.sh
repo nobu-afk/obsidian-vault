@@ -639,9 +639,13 @@ fi
 # 検査対象：公開 8 LP HTML のみ（[12] と同じ）
 # 旧 LP（301 リダイレクト稼働中）は検査対象外
 # 検出パターン：月 35 万 / 月 50 万 / 月 5 万 / 月 85 万 / 38 万 / 5 万円
+#
+# 例外（260516 user 判断）：
+#   - Gravity/Code/LP/index.html：「5 万円」「¥50,000」アンカリング表記許容
+#     （マーケ手法「通常 5 万円 → 現在無料」価値訴求のため・hero badge + apply CTA 配置）
 # ----------------------------------------------------------------------
 echo ""
-echo "[13] LP 料金完全非公開チェック（公開 8 LP HTML のみ・260515 堀田流）"
+echo "[13] LP 料金完全非公開チェック（公開 8 LP HTML のみ・260515 堀田流・CODE LP は 5 万円アンカリング例外）"
 
 PRICE_PATTERN='月 ?35 ?万|月 ?50 ?万|月 ?5 ?万|月 ?85 ?万|38 ?万|5 ?万円'
 
@@ -649,6 +653,15 @@ price_hits_total=0
 for lp in "${PUBLIC_8_LPS[@]}"; do
   f="$ROOT/$lp"
   [ -f "$f" ] || continue
+  # CODE LP は「5 万円」「¥50,000」アンカリング許容のためスキップ（260516 user 判断）
+  if [[ "$lp" == "Gravity/Code/LP/index.html" ]]; then
+    code_hits=$(grep -cE "$PRICE_PATTERN" "$f" 2>/dev/null)
+    code_hits=${code_hits:-0}
+    if [ "$code_hits" -gt 0 ]; then
+      printf "${GRN}✓${NC} %s：料金記述 %s 件（5 万円アンカリング例外として許容）\n" "$lp" "$code_hits"
+    fi
+    continue
+  fi
   hits=$(grep -cE "$PRICE_PATTERN" "$f" 2>/dev/null)
   hits=${hits:-0}
   if [ "$hits" -gt 0 ]; then
