@@ -199,6 +199,9 @@ deploy_shared() {
   upload "$VAULT/06_開発/site-chrome/site-chrome.js"          "gravity/site-chrome.js"          "site-chrome.js"
   upload "$VAULT/06_開発/site-chrome/site-chrome.css"         "gravity/site-chrome.css"         "site-chrome.css"
   upload "$VAULT/06_開発/site-chrome/site-chrome-footer.css"  "gravity/site-chrome-footer.css"  "site-chrome-footer.css"
+  # クライアント事例写真（260516 追加・Coaching LP CLIENT CASES セクションで使用）
+  upload "$VAULT/_assets/images/cases/coaching-case-hachi-hase.jpg"     "assets/images/cases/coaching-case-hachi-hase.jpg"     "case photo: HACHI 長谷氏"
+  upload "$VAULT/_assets/images/cases/coaching-case-instate-yasui.jpg"  "assets/images/cases/coaching-case-instate-yasui.jpg"  "case photo: インステイト 安井氏"
   wait_all
   echo "[共通アセット完了]"
   echo ""
