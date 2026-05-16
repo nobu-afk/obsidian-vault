@@ -196,3 +196,24 @@
 
 /* text-align utilities */
 .lp-text-center { text-align:center; }
+
+/* hero price badge */
+.code-v2-hero-price {
+  display: inline-block;
+  margin: 18px 0 22px;
+  padding: 8px 22px;
+  background: rgba(197, 168, 128, 0.12);
+  border: 1px solid rgba(197, 168, 128, 0.45);
+  border-radius: 100px;
+  color: #C5A880;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.code-v2-hero-price strong {
+  color: #C5A880;
+  font-size: 17px;
+  font-weight: 800;
+  margin-left: 4px;
+  letter-spacing: 0.02em;
+}

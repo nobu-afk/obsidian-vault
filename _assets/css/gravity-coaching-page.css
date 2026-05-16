@@ -194,3 +194,82 @@
 .lp-consult-kicker { font-size:11px; font-weight:700; color:#0f172a; letter-spacing:0.16em; margin:0 0 10px; }
 .lp-consult-h3 { font-size:19px; font-weight:900; color:#0f172a; line-height:1.6; margin:0 0 12px; }
 .lp-consult-body { font-size:13.5px; color:#475569; line-height:1.85; margin:0 0 22px; }
+
+/* service / feature card grids */
+.coaching-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 18px 0 0;
+}
+.coaching-service-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 22px 20px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+.coaching-service-card:hover {
+  border-color: #C5A880;
+  box-shadow: 0 4px 12px rgba(197,168,128,0.12);
+  transform: translateY(-2px);
+}
+.coaching-service-icon {
+  display: inline-block;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.coaching-service-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+.coaching-service-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+.coaching-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 18px 0 0;
+}
+.coaching-feature-card {
+  background: linear-gradient(180deg, #fafaf6 0%, #ffffff 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 28px 22px;
+  text-align: center;
+  position: relative;
+}
+.coaching-feature-num {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 900;
+  color: #C5A880;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.coaching-feature-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+.coaching-feature-desc {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .coaching-service-grid { grid-template-columns: 1fr; gap: 12px; }
+  .coaching-feature-grid { grid-template-columns: 1fr; gap: 12px; }
+  .coaching-feature-card { padding: 22px 18px; }
+}
