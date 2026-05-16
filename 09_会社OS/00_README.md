@@ -5,6 +5,9 @@
 > **★ 8 ページピボット反映注記（260515 確定）：**
 > 旧 5 サービス（Recruit / Cultivate / Orbit / Coaching / CODE）→ **「組織の引力設計プログラム」1 商品**（集まる × 躍動する × 留まる 統合）+ **個人軸 2**（CODE / Coaching）の 2 階層構造に統合。**LP 側は料金完全非公開化**（堀田流・問い合わせベース）。本ファイル内の料金記述（月 35 万 / 月 50 万 / 月 5 万 / 38 万 等）および旧 LP URL（`/gravity-recruit/` `/gravity-cultivate/` `/gravity-orbit/` `/gravity-shift/` `/gravity-scan/`）は **内部参考値**（営業資料 / 提案書 / 商談スクリプト作成時の参照用）として温存。本番 LP マッピングは 8 ページ構造（`/` `/profile/` `/achievement/` `/knowledge/` `/news/` `/gravity/` `/gravity/code/` `/gravity/coaching/`）。詳細：`04_GrowthFix/02_マーケティング/260515_8pages_pivot_v1.0_仕様書.md` / `memory/project_8pages_pivot_implementation_260515.md`。
 
+> **🆕 CODE リブランド v2 注記（260516 第 6 ラウンド確定・商品.md + SSOT_用語と定義.md 反映済）：**
+> **CODE = Coaching 体験版** に役割再定義。価格：5 万円 → **5,000 円**。時間：60 分 → **40 分**。レポート：PDF 手動 → **AI 自動生成・即時メール送付**（ウニ丼モデル整合）。Coaching 提示：暗示 → **明示**（セッション末尾 5 分で Coaching 6 ヶ月 38 万 を案内・押し売りなし）。申込率目標：**20%**（堀田流ファネル典型値）。hero h1：「コーチとの 40 分対話で、あなたに人が集まる理由がレポートで届く。」（28 件 SME 経営者バカウケベストセラー網羅調査から抽出・案 D「経営者の核」+ 案 E「人が集まる経営者」融合）。詳細：`04_GrowthFix/02_マーケティング/260516_CODE_ベネフィットコピー_ベストセラー網羅調査_v1.0.md` / 商品.md（Part 1 §3 サービス月額制 / Part 2 §CODE × Scan の対比構造 / §40 分セッション配分） / SSOT_用語と定義.md（§Hero タグライン B1 / §URL マッピング / §Coaching 付属表記 / §サービス定義テーブル CODE 行）。lint [13] CODE LP のみ料金記述例外稼働中。中残課題：接続装置.md / culture.md / design.md / 営業.md / カスタマー.md は次回 `/company-os` で順次反映。
+
 ---
 
 ## 目的（C+D 併用）
