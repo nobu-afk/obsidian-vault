@@ -71,42 +71,26 @@
         .purpose-box .headline { font-size: 17px; font-weight: 800; color: #0f172a; line-height: 1.6; margin: 0 0 10px; }
         .purpose-box p { font-size: 13.5px; color: #475569; line-height: 1.9; margin: 0; }
 
-        .cta-section { padding: 80px 0 96px; background: #0f172a; color: #ffffff; }
-        .cta-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-
-        /* CTA STAGES 洗練版 (260517) */
-        .cta-section h2 { font-size: 26px; font-weight: 900; margin: 0 0 12px; letter-spacing: 0.02em; }
-        .cta-lead { font-size: 14px; color: #94a3b8; margin: 0 auto 56px; }
-        .cta-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 980px; margin: 0 auto; text-align: left; }
-        .cta-stage { position: relative; padding: 38px 26px 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 10px; display: flex; flex-direction: column; transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease; }
-        .cta-stage:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); transform: translateY(-3px); }
-        .cta-stage-badge { position: absolute; top: -18px; left: 22px; width: 36px; height: 36px; background: #0f172a; border: 2px solid rgba(255,255,255,0.22); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: #ffffff; letter-spacing: 0.04em; }
-        .cta-stage-emphasis { border-color: rgba(184,168,138,0.45); background: rgba(184,168,138,0.06); }
-        .cta-stage-emphasis:hover { border-color: rgba(184,168,138,0.70); background: rgba(184,168,138,0.10); }
-        .cta-stage-emphasis .cta-stage-badge { background: #b8a88a; border-color: #b8a88a; color: #0f172a; }
-        .cta-stage-title { font-size: 17px; font-weight: 800; color: #ffffff; margin: 0 0 10px; letter-spacing: 0.01em; }
-        .cta-stage-desc { font-size: 13px; color: #cbd5e1; line-height: 1.85; margin: 0 0 22px; flex-grow: 1; }
-        .cta-stage .cta-btn { display: block; padding: 11px 16px; font-size: 12.5px; font-weight: 700; border-radius: 5px; text-decoration: none; margin-top: 8px; text-align: center; letter-spacing: 0.03em; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
-        .cta-stage .cta-btn-primary { background: #ffffff; color: #0f172a; }
-        .cta-stage .cta-btn-primary:hover { background: #f1f5f9; transform: translateY(-1px); }
-        .cta-stage .cta-btn-ghost { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.35); }
-        .cta-stage .cta-btn-ghost:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.55); }
-        .cta-btn-gold { background: #b8a88a; color: #0f172a; }
-        .cta-btn-gold:hover { background: #d4c4a4; transform: translateY(-1px); }
+        .values-section { padding: 64px 0; }
+        .values-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .value-item { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 28px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; }
+        .value-num { font-size: 26px; font-weight: 900; color: #b8a88a; letter-spacing: 0; line-height: 1; }
+        .value-body .v-title { font-size: 17px; font-weight: 800; color: #0f172a; line-height: 1.4; margin: 0 0 4px; }
+        .value-body .v-en { font-size: 12px; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; margin: 0 0 12px; }
+        .value-body .v-text { font-size: 13.5px; color: #475569; line-height: 1.9; margin: 0; }
 
         @media (max-width: 900px) {
             .profile-intro { grid-template-columns: 1fr; }
             .profile-portrait { max-width: 240px; margin: 0 auto; }
             .media-grid { grid-template-columns: repeat(2, 1fr); }
             .sns-grid { grid-template-columns: repeat(2, 1fr); }
-            .cta-stages { grid-template-columns: 1fr; gap: 32px; }
         }
         @media (max-width: 640px) {
             .sub-hero { padding: 56px 0 36px; }
             .sub-hero h1 { font-size: 22px; }
             .career-list li strong { display: block; min-width: 0; margin-bottom: 4px; }
             .company-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
-            .cta-section h2 { font-size: 22px; }
+            .value-item { grid-template-columns: 1fr; gap: 10px; padding: 20px 22px; }
         }
     </style>
 <!-- 共通モバイル最適化パッチ（260427）-->
@@ -268,33 +252,39 @@
             </div>
         </section>
 
-        <section class="cta-section">
-            <div class="cta-inner">
-                <h2>あなたの引力を、一緒に設計しませんか</h2>
-                <p class="cta-lead">検討の段階に合わせて、3 つの入口があります。</p>
-                <div class="cta-stages">
-                    <div class="cta-stage">
-                        <div class="cta-stage-badge">01</div>
-                        <p class="cta-stage-title">まず読みたい</p>
-                        <p class="cta-stage-desc">「引力経営」の全体像を 25 ページ PDF で。</p>
-                        <a class="cta-btn cta-btn-primary" href="https://growthfix.jp/whitepaper/">White Paper を読む →</a>
+        <section class="values-section">
+            <div class="container">
+                <p class="section-label" style="text-align: center;">VALUES</p>
+                <h2 class="section-title" style="text-align: center;">GrowthFix Value</h2>
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-num">01</div>
+                        <div class="value-body">
+                            <p class="v-title">成長にレバレッジをかける</p>
+                            <p class="v-en">LEVERAGE GROWTH</p>
+                            <p class="v-text">変化の本質を見極め、仕組みや知恵を活用して、組織全体の成長を加速させる。自分たちだけでなく、クライアントや社会の「次の成長」を最大化することにこだわります。</p>
+                        </div>
                     </div>
-                    <div class="cta-stage">
-                        <div class="cta-stage-badge">02</div>
-                        <p class="cta-stage-title">自社の状態を知りたい</p>
-                        <p class="cta-stage-desc">18 問 3 分の組織診断、または 40 分の経営者個人診断。</p>
-                        <a target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-ghost" href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（18 問・3 分）</a>
-                        <a target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-ghost" href="https://growthfix.jp/gravity/code/">CODE 診断（40 分）</a>
+                    <div class="value-item">
+                        <div class="value-num">02</div>
+                        <div class="value-body">
+                            <p class="v-title">構造化し、仕組みに落とし込む</p>
+                            <p class="v-en">FIX IT</p>
+                            <p class="v-text">カオスや曖昧さに直面したときこそ、問題の本質を見極め、最適な形に Fix させることを徹底します。現場で機能する構造・プロセス・ナレッジに変換し、再現性ある解決策を生み出します。</p>
+                        </div>
                     </div>
-                    <div class="cta-stage cta-stage-emphasis">
-                        <div class="cta-stage-badge">03</div>
-                        <p class="cta-stage-title">直接相談したい</p>
-                        <p class="cta-stage-desc">引力経営の個社設計を、まずはお問い合わせから。</p>
-                        <a class="cta-btn cta-btn-gold" href="https://growthfix.jp/contact/">お問い合わせ →</a>
+                    <div class="value-item">
+                        <div class="value-num">03</div>
+                        <div class="value-body">
+                            <p class="v-title">共に創る</p>
+                            <p class="v-en">CO-CREATE</p>
+                            <p class="v-text">答えのない時代だからこそ、多様な知恵と視点を掛け合わせて "共創" することを大切にします。クライアントと伴走しながら、ともに考え、ともに成長するパートナーであり続けます。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
 
