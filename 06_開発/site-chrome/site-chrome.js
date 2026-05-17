@@ -68,11 +68,6 @@
           '<span class="b-footer-tagline">優秀人材が集まり、躍動する会社をつくる。</span><br>' +
           '<span class="b-footer-tagline-sub">組織に、引力を。</span>' +
         '</div>' +
-        '<div class="b-footer-profile">' +
-          '<p class="b-footer-profile-name"><strong>石井伸幸</strong> ── 組織の引力設計者</p>' +
-          '<p class="b-footer-profile-desc">30 年、組織の引力を追いかけてきた。</p>' +
-          '<p class="b-footer-profile-link"><a href="https://growthfix.jp/profile/">プロフィール詳細 →</a></p>' +
-        '</div>' +
         '<div class="b-footer-links">' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">個人軸</p>' +
