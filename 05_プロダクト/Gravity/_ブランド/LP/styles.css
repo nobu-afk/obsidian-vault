@@ -2433,3 +2433,29 @@ img { max-width: 100%; display: block; }
     .b-trust-academic { padding: 22px 20px; }
     .b-trust-academic-body { font-size: 13.5px; }
 }
+
+/* ============================================================
+   260517 案 B 折衷案 + WP コンパクト化 + プロフィール充実版
+   ============================================================ */
+
+/* 思想層 Chapter 1 末尾の WP 中間導線リンク（堀田 #13） */
+.b-chapter-wp-link { margin-top: 32px; padding-top: 20px; border-top: 1px dashed #cbd5e1; text-align: center; font-size: 14px; color: #475569; line-height: 1.8; }
+.b-chapter-wp-link a { font-weight: 700; }
+
+/* Bio ハイライト（インライン抽出） */
+.b-bio-highlight { background: linear-gradient(transparent 70%, #fef3c7 70%); padding: 4px 2px; }
+
+/* PROFILE 内 学術 6 系列ブロック（旧 trust-academic を PROFILE 内に併設） */
+.b-cred-academic { max-width: 840px; margin: 36px auto 0; padding: 28px 36px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; }
+.b-cred-academic-label { font-size: 13px; letter-spacing: 0.15em; color: #1e40af; margin: 0 0 16px; font-weight: 700; }
+.b-cred-academic-intro { font-size: 14px; line-height: 1.95; color: #475569; margin: 0 0 16px; }
+.b-cred-academic-intro strong { color: #0f172a; }
+.b-cred-academic-list { list-style: disc; padding-left: 22px; margin: 0 0 16px; font-size: 14px; line-height: 2; color: #475569; }
+.b-cred-academic-list strong { color: #0f172a; }
+.b-cred-academic-link { font-size: 13.5px; margin: 0; text-align: center; }
+
+@media (max-width: 720px) {
+    .b-cred-academic { padding: 22px 20px; }
+    .b-cred-academic-intro, .b-cred-academic-list { font-size: 13.5px; }
+    .b-chapter-wp-link { font-size: 13px; padding-top: 16px; margin-top: 24px; }
+}
