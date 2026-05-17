@@ -59,6 +59,20 @@
         .cta-section { padding: 72px 0 88px; background: #0f172a; color: #ffffff; text-align: center; }
         .cta-inner { max-width: 760px; margin: 0 auto; }
 
+        /* PAIN LIST (260517 ペアA 追加) */
+        .pain-list { margin: 0 0 18px; padding: 18px 20px; background: #f8fafc; border-left: 3px solid #b8a88a; border-radius: 4px; }
+        .pain-label { font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.12em; margin: 0 0 12px; }
+        .pain-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
+        .pain-list ul li { font-size: 13.5px; color: #334155; line-height: 1.75; padding-left: 18px; position: relative; }
+        .pain-list ul li::before { content: '●'; position: absolute; left: 0; top: 0; color: #b8a88a; font-size: 9px; line-height: 2.05; }
+
+        /* EXAMPLE B/A/違い 3行構造 (260517 ペアB 追加) */
+        .example-baf { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 9px; }
+        .example-baf li { font-size: 12.5px; color: #475569; line-height: 1.7; padding-left: 64px; position: relative; }
+        .baf-label { position: absolute; left: 0; top: 1px; display: inline-block; min-width: 52px; padding: 1px 6px; font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-align: center; line-height: 1.7; border-radius: 3px; border: 1px solid #e5e7eb; background: #f8fafc; color: #64748b; }
+        .example-baf li:nth-child(2) .baf-label { color: #0f172a; border-color: #cbd5e1; }
+        .example-baf li:nth-child(3) .baf-label { color: #8a7855; background: rgba(184,168,138,0.10); border-color: rgba(184,168,138,0.35); }
+
         @media (max-width: 900px) {
             .pick-card { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
             .examples-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -97,19 +111,13 @@
                     <img src="https://growthfix.jp/assets/img/achievement/coaching-detail.jpg" alt="HACHI 事例" loading="eager" fetchpriority="high">
                     <div class="pick-card-body">
                         <p class="lead">経営者の引力を、組織の求心力に翻訳する<br>── 組織の引力設計者</p>
-                        <div class="pick-stats">
-                            <div class="pick-stat">
-                                <p class="num">50+</p>
-                                <p class="lbl">診断実績（社）</p>
-                            </div>
-                            <div class="pick-stat">
-                                <p class="num">16年</p>
-                                <p class="lbl">人事キャリア</p>
-                            </div>
-                            <div class="pick-stat">
-                                <p class="num">30→120</p>
-                                <p class="lbl">組織拡大（名）</p>
-                            </div>
+                        <div class="pain-list">
+                            <p class="pain-label">私が向き合ってきた 3 大採用ペイン</p>
+                            <ul>
+                                <li>採用基準が曖昧で、面接で候補者を口説けない</li>
+                                <li>優秀な幹部から先に離脱していく</li>
+                                <li>カリスマ依存で、経営者が抜けると組織が崩れる</li>
+                            </ul>
                         </div>
                         <p class="desc">GrowthFix は、変化の激しいスタートアップ・成長企業の現場に深く入り込み、事業の成長を止めている構造を見抜き、社長がいなくても事業が伸び続ける状態をつくる支援をしてきました。</p>
                         <a href="https://note.com/nobu_inseki/n/n4a65070519e2" class="pick-more" target="_blank" rel="noopener">View more ／ Note で読む →</a>
@@ -124,9 +132,14 @@
                 <h2 class="section-title">導入事例</h2>
                 <div class="examples-grid">
                     <a class="example-card" href="https://note.com/nobu_inseki/n/n227c0dcdb4b4" target="_blank" rel="noopener">
-                        <img src="https://growthfix.jp/assets/img/achievement/have-to-want-to.jpg" alt="「have to」から「want to」へ" loading="lazy">
+                        <img src="https://growthfix.jp/assets/img/achievement/have-to-want-to.jpg" alt="have to から want to へ" loading="lazy">
                         <div class="example-card-body">
-                            <h3 class="example-title">「have to」から「want to」へ。経営者という "鎧" を脱ぎ捨て、本当の自分らしさを手にいれるまで</h3>
+                            <h3 class="example-title">「have to」から「want to」へ</h3>
+                            <ul class="example-baf">
+                                <li><span class="baf-label">Before</span>「やらねば」のプレッシャーで自分を見失った経営者</li>
+                                <li><span class="baf-label">After</span>"鎧"を脱ぎ、本当の自分らしさを取り戻す</li>
+                                <li><span class="baf-label">違い</span>手触り感ある対話で、自己開示が自然に起きる</li>
+                            </ul>
                             <span class="example-link">事例を見る →</span>
                         </div>
                     </a>
@@ -134,7 +147,12 @@
                     <a class="example-card" href="https://note.com/nobu_inseki/n/n4a65070519e2" target="_blank" rel="noopener">
                         <img src="https://growthfix.jp/assets/img/achievement/coaching-detail.jpg" alt="手触り感のあるコーチング" loading="lazy">
                         <div class="example-card-body">
-                            <h3 class="example-title">理論だけじゃない、手触り感のあるコーチング。創業経営者が思わず自己開示したくなる理由とは</h3>
+                            <h3 class="example-title">手触り感のあるコーチング</h3>
+                            <ul class="example-baf">
+                                <li><span class="baf-label">Before</span>理論先行で、現場で動かないコーチング</li>
+                                <li><span class="baf-label">After</span>創業経営者が思わず自己開示したくなる場</li>
+                                <li><span class="baf-label">違い</span>理論ではなく、経営者の手触り感に焦点を置く</li>
+                            </ul>
                             <span class="example-link">事例を見る →</span>
                         </div>
                     </a>
@@ -167,7 +185,7 @@
             <div class="container">
                 <div class="cta-inner">
                     <h2>あなたの組織の引力を、一緒に設計しませんか</h2>
-                    <p>無料 Web 診断（18 問 3 軸 3 分）で組織の引力 4 型を診断 →<br>「組織の引力設計プログラム」（集まる × 躍動する × 留まる 統合）で組織実装に伴走します。詳細はお問い合わせください。</p>
+                    <p>無料 Web 診断（12 問 3 軸 2 分）で組織の引力 4 型を診断 →<br>「組織の引力設計プログラム」（集まる × 躍動する × 留まる 統合）で組織実装に伴走します。詳細はお問い合わせください。</p>
                     <div class="cta-btns">
                         <a target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-primary" href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断を始める →</a>
                         <a target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-ghost" href="https://growthfix.jp/gravity/">組織の引力設計プログラム</a>
