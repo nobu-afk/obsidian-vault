@@ -239,6 +239,12 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/コーポレート/profile_本番/index.html" "profile/index.html"  "コーポレート profile"
   # コーポレート achievement（本番 URL: https://growthfix.jp/achievement/・260515 8 ページピボット SSOT 反映で追加）
   upload "$VAULT/05_プロダクト/コーポレート/achievement_本番/index.html" "achievement/index.html" "コーポレート achievement"
+  # コーポレート news + 個別記事 2 件（本番 URL: https://growthfix.jp/news/・260517 R3 改修で追加）
+  upload "$VAULT/05_プロダクト/コーポレート/news_本番/index.html"                  "news/index.html"                  "コーポレート news"
+  upload "$VAULT/05_プロダクト/コーポレート/news_本番/gravity-release/index.html"  "news/gravity-release/index.html"  "コーポレート news gravity-release"
+  upload "$VAULT/05_プロダクト/コーポレート/news_本番/site-renewal/index.html"     "news/site-renewal/index.html"     "コーポレート news site-renewal"
+  # コーポレート knowledge（本番 URL: https://growthfix.jp/knowledge/・260517 R3 改修で追加）
+  upload "$VAULT/05_プロダクト/コーポレート/knowledge_本番/index.html" "knowledge/index.html" "コーポレート knowledge"
   # academy-wl 301（260515 8 ページピボットでアーカイブ化・/gravity/ にリダイレクト）
   upload "$VAULT/05_プロダクト/コーポレート/academy-wl_本番/.htaccess" "academy-wl/.htaccess" "academy-wl 301"
   # Scan web-diagnose → /gravity/diagnose/ 物理移動（260515 8 ページピボット）
