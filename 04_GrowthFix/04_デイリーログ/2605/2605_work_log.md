@@ -3995,3 +3995,13 @@ CODE 戦略を「自分の引力源を知る」（顕在ニーズなし）→「
 | 63 | 開発 | WP V9 本体 ch04 subtitle 整合（「R / C 共通の実装単位」→「採用基盤と躍動組織共通の実装単位」section-heading とオプトイン目次に合わせる）+ R/C 表記残存ゼロ grep 確認 + deploy.sh wp + verify PASS 18/FAIL 0 + 本番 `/whitepaper-read/` grep で新 subtitle 反映確認 | 45 分 | 4 分 | 41 分 |
 
 **2026-05-17 第 4 ラウンド小計：** **3 タスク**・手作業 **195 分（3.25 時間相当）**・AI 実績 **16 分（0.27 時間）**・削減 **179 分（2.98 時間）**・削減率 **91.8%**
+
+### 2026-05-17 第 5 ラウンド（Citations LP `/citations/` 網羅 SSOT 整合化 + 廃止サービス・廃止 URL・廃止用語・3 軸統一）
+
+| # | カテゴリ | タスク概要 | 手作業見積 | AI実績 | 削減時間 |
+|---|---|---|---|---|---|
+| 64 | 設計 | `/citations/` 網羅調査（1,438 行 HTML 全文走査 + 本番 diff 確認 + SSOT_用語と定義 v5.4 + memory `feedback_lp_improvement_add_remove_pair_260517`（Orbit 260517 廃止）+ Apple モデル化（「Gravity シリーズ」廃止）読み込み）→ 改修候補リストを A1 必須 / B1-B7 廃止 URL・用語・価格 / 案 α-γ Scan タグ / C1-C5 Orbit / D1-D3 軽微 / 不要変更 の 6 群に整理して user 承認フロー提示（足す＋消すペア運用ルール準拠）| 90 分 | 8 分 | 82 分 |
+| 65 | 開発 | Citations LP 全 36 編集適用：A1 診断ボタン href → `/gravity/diagnose/` / B 群 7 件（ナビ Scan 削除・CODE href `/gravity/code/` 化・CTA「無料 Web 診断を受ける」化で `10万円` 撤去・「Gravity シリーズを見る」→「Gravity を見る」・コメント / フィルター表示更新）/ 案 β 一括（service-tag・td-axis 列の `Scan` → `組織引力` 27 件）/ C 群一括（`Orbit` → `留まる軸` 18 件・data-filter="orbit" 内部 key 保持）/ D1 hero-lead を SSOT 3 軸版「集まり、躍動し、留まる」に統一 | 120 分 | 10 分 | 110 分 |
+| 66 | 開発 | 検証 & デプロイ：lint_consistency.sh（Citations 編集起因のエラーなし）/ post_lp_edit hook（mobile audit + 社内用語 lint）全 PASS / `/citations/` は deploy.sh 対象外のため個別 curl で FTP upload（CLAUDE.md 例外手順準拠：URL マッピング照合済）/ verify_deployment.sh PASS 18 WARN 9 FAIL 0 / 本番 grep で旧パターン 0 件・新パターン 27 件反映確認 | 30 分 | 4 分 | 26 分 |
+
+**2026-05-17 第 5 ラウンド小計：** **3 タスク**・手作業 **240 分（4.0 時間相当）**・AI 実績 **22 分（0.37 時間）**・削減 **218 分（3.63 時間）**・削減率 **90.8%**
