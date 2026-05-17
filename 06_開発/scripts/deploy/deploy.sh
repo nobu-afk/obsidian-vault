@@ -221,9 +221,10 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/index.html" "gravity/coaching/index.html"  "Coaching LP (new)"
   upload "$VAULT/05_プロダクト/Gravity/Coaching/LP/.htaccess"  "gravity-coaching/.htaccess"   "Coaching 301"
   # Code LP（260515 8 ページピボット：/gravity-code/ → /gravity/code/ に物理移動）
-  upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"     "gravity/code/index.html"      "Code LP (new)"
-  upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"      "gravity/code/script.js"       "Code script.js (new)"
-  upload "$VAULT/05_プロダクト/Gravity/Code/LP/.htaccess"      "gravity-code/.htaccess"       "Code 301"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/index.html"        "gravity/code/index.html"         "Code LP (new)"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/script.js"         "gravity/code/script.js"          "Code script.js (new)"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/sample-report.html" "gravity/code/sample-report.html" "Code sample-report"
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/.htaccess"         "gravity-code/.htaccess"          "Code 301"
   # Recruit LP（260513 仮説 E v0.2・集める軸・引力の参謀（採用）・月 35 万・260514 22-DH 追加）
   upload "$VAULT/05_プロダクト/Gravity/Recruit/LP/index.html"  "gravity-recruit/index.html"   "Recruit LP"
   # Cultivate LP（260513 仮説 E v0.2・躍動する軸・変革の参謀（躍動）・月 50 万・260514 22-DH 追加）
