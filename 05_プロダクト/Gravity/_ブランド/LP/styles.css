@@ -2339,3 +2339,97 @@ img { max-width: 100%; display: block; }
     .b-gravity-map-cell-service { font-size: 11px; }
     .b-gravity-map-cell-hl-quote { font-size: 11px; }
 }
+
+/* ============================================================
+   260517 堀田フレーム最適化（インラインスタイル → class 化）
+   - Hero CTA 1 つに集約
+   - Chapter 1 思想層を class 化
+   - WhitePaper CTA セクションを class 化
+   - SOLUTION 内インライン抽出
+   - TRUST セクション統合（プロフィール + 学術）
+   ============================================================ */
+
+/* Header CTA */
+.b-header-btn { font-weight: 700; }
+
+/* Hero CTA single（旧 cta-group） */
+.b-hero-eyebrow { font-size: 14px; font-weight: 700; color: #475569; letter-spacing: 0.08em; margin-bottom: 16px; }
+.b-hero-cta-single { display: flex; gap: 12px; justify-content: center; margin-top: 8px; }
+
+/* Section alt 背景 */
+.b-section-alt { background: #fafaf8; border-top: 1px solid #e5e7eb; }
+
+/* PROBLEM タイトル幅制限 */
+.b-problem-title { max-width: 28em; margin-left: auto; margin-right: auto; }
+
+/* Chapter 1 思想層（class 化） */
+.b-chapter-narrow { max-width: 720px; margin: 0 auto; }
+.b-chapter-intro-large { font-size: clamp(22px, 3.5vw, 28px); font-weight: 900; line-height: 1.6; letter-spacing: 0.04em; color: #0f172a; text-align: center; margin-bottom: 32px; }
+.b-chapter-h2-center { font-size: 32px; font-weight: 900; line-height: 1.6; letter-spacing: 0.02em; color: #0f172a; text-align: center; margin-bottom: 40px; }
+.b-chapter-body { font-size: 16px; line-height: 2.2; color: #1e293b; }
+.b-chapter-body p { margin-bottom: 28px; }
+.b-chapter-body p:last-child { margin-bottom: 0; }
+.b-chapter-highlight { font-weight: 700; background: linear-gradient(transparent 70%, #fef3c7 70%); padding: 4px 0; }
+.b-chapter-highlight--last { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+    .b-chapter-h2-center { font-size: 24px; margin-bottom: 28px; }
+    .b-chapter-intro-large { font-size: 20px; margin-bottom: 24px; }
+    .b-chapter-body { font-size: 15px; line-height: 2; }
+    .b-chapter-body p { margin-bottom: 22px; }
+}
+
+/* WhitePaper CTA セクション（class 化） */
+.b-wp-cta-section { padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; text-align: center; }
+.b-wp-cta-label { font-size: 13px; letter-spacing: 0.2em; color: #94a3b8; margin-bottom: 16px; font-weight: 700; }
+.b-wp-cta-h2 { font-size: 28px; font-weight: 900; line-height: 1.6; letter-spacing: 0.02em; margin-bottom: 24px; }
+.b-wp-cta-accent { color: #fbbf24; }
+.b-wp-cta-lead { font-size: 15px; line-height: 1.9; color: #cbd5e1; margin-bottom: 32px; }
+.b-wp-cta-lead strong { color: #fff; }
+.b-wp-cta-btn { display: inline-block; background: #fbbf24; color: #0f172a; padding: 18px 40px; text-decoration: none; font-size: 15px; letter-spacing: 0.04em; font-weight: 800; border-radius: 4px; transition: transform 0.2s ease, opacity 0.2s ease; }
+.b-wp-cta-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+.b-wp-cta-note { font-size: 12px; color: #64748b; margin-top: 20px; }
+
+@media (max-width: 720px) {
+    .b-wp-cta-section { padding: 56px 0; }
+    .b-wp-cta-h2 { font-size: 22px; }
+    .b-wp-cta-btn { padding: 14px 28px; font-size: 14px; }
+}
+
+/* SOLUTION セクション内（インライン抽出） */
+.b-solution-card-wrap { max-width: 780px; margin: 0 auto; }
+.b-series-card-desc-strong { display: block; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+.b-series-card-desc-sub { display: block; font-size: 13px; color: #475569; }
+
+/* PROCESS 6 ステップ（折りたたみ details/summary） */
+.b-process-6step { max-width: 780px; margin: 32px auto 0; padding: 0; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+.b-process-6step[open] { padding: 0 0 24px; }
+.b-process-6step-summary { padding: 18px 28px; font-size: 14px; letter-spacing: 0.05em; color: #0f172a; font-weight: 700; cursor: pointer; list-style: none; position: relative; text-align: center; }
+.b-process-6step-summary::-webkit-details-marker { display: none; }
+.b-process-6step-summary::after { content: "+"; position: absolute; right: 22px; top: 14px; font-size: 22px; color: #1e40af; font-weight: 300; }
+.b-process-6step[open] .b-process-6step-summary::after { content: "−"; }
+.b-process-6step-ol { list-style: none; padding: 0 36px; margin: 0; font-size: 14px; line-height: 2.1; color: #1e293b; }
+.b-process-6step-ol li { padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+.b-process-6step-ol li:last-child { border-bottom: none; }
+.b-process-6step-ol li strong { color: #0f172a; }
+
+@media (max-width: 720px) {
+    .b-process-6step-ol { padding: 0 22px; font-size: 13px; }
+    .b-process-6step-summary { padding: 14px 22px; font-size: 13px; }
+}
+
+/* TRUST セクション（プロフィール圧縮 + 学術圧縮） */
+.b-trust-profile-link { margin-top: 16px; font-size: 13.5px; color: #475569; }
+.b-link-blue { color: #1e40af; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.b-link-blue:hover { color: #1e3a8a; }
+
+.b-trust-academic { max-width: 780px; margin: 36px auto 0; padding: 28px 32px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; }
+.b-trust-academic-label { font-size: 13px; letter-spacing: 0.15em; color: #1e40af; margin: 0 0 14px; font-weight: 700; }
+.b-trust-academic-body { font-size: 14px; line-height: 1.95; color: #334155; margin: 0 0 14px; }
+.b-trust-academic-body strong { color: #0f172a; }
+.b-trust-academic-link { font-size: 13.5px; margin: 0; }
+
+@media (max-width: 720px) {
+    .b-trust-academic { padding: 22px 20px; }
+    .b-trust-academic-body { font-size: 13.5px; }
+}
