@@ -3,7 +3,7 @@
  * top_本番/index.html から外部化。WP テーマ自動生成 <style> とは独立。
  */
 
-/* Gravityシリーズセクション：item 行のレイアウト統一 */
+/* Gravity セクション：item 行のレイアウト統一 */
 .service .item {
     gap: 48px;
     margin-bottom: 24px;
