@@ -76,7 +76,7 @@
           '</div>' +
           '<div class="b-footer-col">' +
             '<p class="b-footer-col-label">組織軸</p>' +
-            '<a href="https://growthfix.jp/gravity/">Gravity</a>' +
+            '<a href="https://growthfix.jp/gravity/">Gravity（組織の引力設計プログラム）</a>' +
             '<a href="https://growthfix.jp/gravity/diagnose/">無料 Web 診断（12 問 2 分）</a>' +
           '</div>' +
           '<div class="b-footer-col">' +
