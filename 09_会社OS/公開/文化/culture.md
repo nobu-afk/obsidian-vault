@@ -2,6 +2,9 @@
 
 GrowthFix の文化・行動基準。尖り路線4.3／批判覚悟（美輪明宏メンタル）／主軸先行（AIブレストで個性を希薄化させない）／自社ドッグフードの単一情報源。
 
+> **🍎 260517 Gravity ブランド Apple モデル化（命名 SSOT）：**
+> Gravity ブランド = **Gravity（組織軸メイン = 組織の引力設計プログラム）+ Gravity CODE（個人軸入口）+ Gravity Coaching（個人軸伴走）** の Apple モデル。「Gravity」単独 = 組織軸メイン商品 / 個人軸はフルネーム必須 /「Gravity シリーズ」廃止。Note・FB・WP・Twitter 等の対外発信物すべてで本運用ルールを適用。詳細：`memory/project_gravity_brand_apple_model_260517.md`
+
 ---
 
 ## Part 1: 思想層
