@@ -6,7 +6,7 @@
  *   <script src="/assets/js/tracking.js" defer></script>
  *
  * 設置対象LP（URLは改名後も維持）:
- *   - https://growthfix.jp/gravity/            (Gravity シリーズTOP)
+ *   - https://growthfix.jp/gravity/            (Gravity TOP)
  *   - https://growthfix.jp/gravity-scan/       (Gravity Blueprint ※改名後もURLは gravity-scan)
  *   - https://growthfix.jp/gravity-shift/      (Gravity Shift)
  *   - https://growthfix.jp/gravity-orbit/      (Gravity Orbit)

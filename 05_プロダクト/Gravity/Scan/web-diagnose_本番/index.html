@@ -537,7 +537,16 @@ body {
   font-weight: 700;
   color: #1e293b;
   line-height: 1.65;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+/* 260517 マイクロコピー（中立逃避抑止・直感選択誘導） */
+.quiz-instruction {
+  font-size: 13px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 /* Likert scale */
@@ -648,16 +657,12 @@ body {
   background: #fff;
   border-radius: 50%;
 }
+/* 260517 スコア数字撤去（中央値視覚意識の抑制・型判定 UI として直感選択へ集中させる） */
 .likert-score {
-  font-size: 12px;
-  font-weight: 700;
-  color: #94a3b8;
-  flex-shrink: 0;
-  width: 18px;
-  text-align: center;
+  display: none;
 }
 .likert-option.selected .likert-score {
-  color: #1e40af;
+  display: none;
 }
 .likert-label {
   font-size: 14px;
@@ -1229,6 +1234,7 @@ body {
   <div class="quiz-body" id="quiz-body">
     <div class="quiz-section-label" id="section-label" aria-label="現在のセクション"></div>
     <h2 class="quiz-question" id="question-text"></h2>
+    <p class="quiz-instruction">正解はありません。直感で当てはまる方を選んでください。</p>
     <div class="likert-wrap" id="likert-container" role="radiogroup" aria-labelledby="question-text"></div>
     <div class="quiz-nav">
       <button class="btn-secondary" id="btn-back" onclick="ScanApp.goBack()" disabled>
@@ -1526,8 +1532,8 @@ body {
 
 <script>
 /* ============================================================
-   Gravity Scan Web 無料診断 — App Logic（v0.4 12 問 3 軸版・260516）
-   12 問 Likert（5 段階）・約 2 分で完了
+   Gravity Scan Web 無料診断 — App Logic（v0.5 12 問 3 軸版・260517 4 段階強制選択化）
+   12 問 Likert（4 段階・当てはまる/やや当てはまる/あまり当てはまらない/当てはまらない）・約 2 分で完了
    localStorage 中断保存・復帰対応
    集まる軸 4 問・躍動軸 4 問・留まる軸 4 問 → 4 型判定（集まる × 躍動 マトリクス）
    POST /gravity/diagnose/generate.php（260515 8 ページピボットで新パス）
@@ -1606,12 +1612,17 @@ const QUESTIONS = [
   },
 ];
 
+/* 260517 4 段階強制選択化（中立逃避ブロック・事実観察語彙へ統一）
+   旧：強く同意/同意/中立/反対/強く反対（5 段階・スコア 5-1）
+   新：当てはまる/やや当てはまる/あまり当てはまらない/当てはまらない（4 段階・スコア 4-1）
+   理由：①設問は事実観察系のため「同意/反対」より「当てはまる」が整合
+         ②4 段階で中央値選択バイアスを物理ブロック（型判定ツール特性に最適）
+         ③否定側の心理ハードル低減で全レンジ活用率向上 */
 const LIKERT = [
-  { label: '強く同意', score: 5 },
-  { label: '同意',     score: 4 },
-  { label: '中立',     score: 3 },
-  { label: '反対',     score: 2 },
-  { label: '強く反対', score: 1 },
+  { label: '当てはまる',         score: 4 },
+  { label: 'やや当てはまる',     score: 3 },
+  { label: 'あまり当てはまらない', score: 2 },
+  { label: '当てはまらない',     score: 1 },
 ];
 
 /* ---- 4 型定義 ---- */
@@ -1898,19 +1909,24 @@ const ScanApp = (() => {
     }
   }
 
-  /* --- スコア計算（v0.4 12 問 3 軸版・3 軸並列・正規化 0-100）--- */
+  /* --- スコア計算（v0.5 12 問 3 軸版・4 段階強制選択化対応・正規化 0-100）---
+     260517 4 段階化（1-4）に伴い正規化式更新：
+       旧：(raw合計 - 4) / 16 × 100（5 段階 1-5・range 16）
+       新：(raw合計 - 4) / 12 × 100（4 段階 1-4・range 12）
+     未回答 fallback：旧 3（中立）→ 2.5（4 段階の中央点・どちらにも寄せない安全値）
+     判定閾値 50（0-100 正規化スケールの中央値）は維持 */
   function calcScores() {
     let collectRaw = 0, vitalityRaw = 0, retainRaw = 0;
     QUESTIONS.forEach((q, i) => {
-      const raw = answers[i] || 3; // 未回答は中立 3
+      const raw = answers[i] || 2.5; // 未回答は中央点 2.5（4 段階強制選択のため通常は発生しない）
       if (q.axis === 'collect') collectRaw += raw;
       else if (q.axis === 'vitality') vitalityRaw += raw;
       else if (q.axis === 'retain') retainRaw += raw;
     });
-    // (各軸 4 問合計 - 4) / 16 × 100 → 0-100 正規化
-    const collect  = Math.round((collectRaw  - 4) / 16 * 100);
-    const vitality = Math.round((vitalityRaw - 4) / 16 * 100);
-    const retain   = Math.round((retainRaw   - 4) / 16 * 100);
+    // (各軸 4 問合計 - 4) / 12 × 100 → 0-100 正規化
+    const collect  = Math.round((collectRaw  - 4) / 12 * 100);
+    const vitality = Math.round((vitalityRaw - 4) / 12 * 100);
+    const retain   = Math.round((retainRaw   - 4) / 12 * 100);
     return { collect, vitality, retain, collectRaw, vitalityRaw, retainRaw };
   }
 
