@@ -4107,3 +4107,20 @@ CODE 戦略を「自分の引力源を知る」（顕在ニーズなし）→「
 **推奨アクション：**
 - 中：今週中に `/company-os 商品.md カスタマー.md` で実装、または次の `/weekly-close` の差分点検でまとめて
 - 低：四半期レビュー（`/company-os-review`）でまとめて対応
+
+---
+
+### 2026-05-17 第 10 ラウンド（grep 漏れ補正：スペースなし「Gravityシリーズ」+ 大文字「GRAVITY シリーズ」+ Hero CTA 整合）
+
+| # | カテゴリ | タスク概要 | 手作業見積 | AI実績 | 削減時間 |
+|---|---|---|---|---|---|
+| 98 | 設計 | 📝ネタ user 指摘「コーポレートトップ + フッターが変わっていない」を契機に、半角スペース付き「Gravity シリーズ」のみ grep していた前回 Phase 7 / 8 の盲点を発見。スペースなし版「Gravityシリーズ」を grep -i で全公開対象（LP / コーポレート / アセット / 旧テンプレ）に対して再精査 → 8 ファイル分布把握（top L156/355 / news L6/9 / _ブランド LP L33 / tokens.css L19 / styles-top.css L6 / b-footer + b-header テンプレ）| 30 分 | 4 分 | 26 分 |
+| 99 | 開発 | 9 件並列 Edit：top L156（サービス紹介セクション見出し → Gravity ブランド）/ top L355（news カードタイトル → Gravity 組織の引力設計プログラム リリースのお知らせ・gravity-release ページタイトルと一致）/ _ブランド LP L33（ヘッダーブランド → Gravity）/ news L6+L9（meta description → Gravity ブランドリリース情報）/ tokens.css L19 + styles-top.css L6（CSS コメント整合化）/ b-footer + b-header_template.html（旧テンプレ：site-chrome.js 移行後の遺物だが整合化のため修正）+ post_lp_edit hook 全 PASS | 30 分 | 4 分 | 26 分 |
+| 100 | 開発 | deploy.sh all + verify_deployment.sh PASS 18 WARN 9 FAIL 0 + 本番 curl 検証で全 6 ページ「Gravityシリーズ」残存 0 件確認 + assets/css/tokens.css の「Gravity ブランド：ブルー」反映確認 | 30 分 | 3 分 | 27 分 |
+| 101 | 設計 | 📝ネタ user スクショ「`/gravity/` ヘッダー一番上に GRAVITY シリーズ」指摘で **3 ラウンド連続の grep 漏れ**（半角スペース付き → スペースなし → 大文字）を発見。大文字小文字無視 + スペース可変 `grep -niE "gravity\s*シリーズ"` で全公開対象再精査 → hero-eyebrow L51（letter-spacing:0.08em の英字スタイルラベル）1 件特定 → ユーザーの認知形成原則「Gravity（組織の引力設計プログラム）と表現しないと意味不明」を適用して `GRAVITY 組織の引力設計プログラム` 提示 | 30 分 | 3 分 | 27 分 |
+| 102 | 開発 | _ブランド LP `/gravity/` hero-eyebrow L51 修正（GRAVITY シリーズ → GRAVITY 組織の引力設計プログラム）+ post_lp_edit hook PASS | 15 分 | 2 分 | 13 分 |
+| 103 | 設計 | user 質問「`/` トップ Hero CTA『あなたの"引力タイプ"を解剖する』『組織の"引力タイプ"を診断する』もこれで良い？」で改善余地分析 → 課題 3 点抽出（① サービス名明示なし / ② 「無料」表記なし / ③ `/gravity/` Hero CTA と不整合）→ 改善案 3 件提示（案 A：/gravity/ と完全同一統一 / 案 B：引力タイプキーワード温存 + 修飾追加 / 案 C：現状温存）→ user 案 A 採択 | 30 分 | 4 分 | 26 分 |
+| 104 | 開発 | top L62/63 Hero CTA 2 件修正（あなたの"引力タイプ"を解剖する → 個人の引力を 40 分で言語化（CODE）/ 組織の"引力タイプ"を診断する → 組織の引力を診断する（無料））+ post_lp_edit hook PASS | 30 分 | 3 分 | 27 分 |
+| 105 | 開発 | deploy.sh all + verify_deployment.sh PASS 18 WARN 9 FAIL 0 + 本番 curl 検証で / トップ Hero CTA 反映 + /gravity/ hero-eyebrow 反映確認 + 3 ラウンド連続 grep 漏れの学び言語化（lint_consistency.sh への大文字小文字無視 + スペース可変パターン追加候補） | 30 分 | 3 分 | 27 分 |
+
+**2026-05-17 第 10 ラウンド小計：** **8 タスク**・手作業 **225 分（3.75 時間相当）**・AI 実績 **26 分（0.43 時間）**・削減 **199 分（3.32 時間）**・削減率 **88.4%**

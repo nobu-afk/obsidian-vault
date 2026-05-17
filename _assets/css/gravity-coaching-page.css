@@ -14,13 +14,34 @@
 .hero-highlight { color: #b8a88a; }
 
 /* Coaching v2 LP 専用追加スタイル（CODE v2 と同じ黒+茶色・個人軸） */
-.coaching-v2-hero { padding: 80px 0 60px; text-align: center; }
-.coaching-v2-hero h1 { font-size: clamp(22px, 5vw, 48px); font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 28px; word-break: keep-all; overflow-wrap: anywhere; }
+.coaching-v2-hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.coaching-v2-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://growthfix.jp/gravity/images/space_bg.jpg'); background-size: cover; background-position: center; opacity: 0.22; mix-blend-mode: multiply; pointer-events: none; z-index: 0; }
+.coaching-v2-hero > * { position: relative; z-index: 1; }
+.coaching-v2-hero h1 { font-size: clamp(22px, 5vw, 48px); font-weight: 900; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 22px; word-break: keep-all; overflow-wrap: anywhere; }
 .coaching-v2-hero h1 em { font-style:normal; background:linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
+.coaching-v2-hero-eyebrow { display: inline-block; font-size: 12px; letter-spacing: 0.15em; color: #b8a88a; font-weight: 700; margin-bottom: 18px; padding: 6px 16px; background: #fff; border: 1px solid #e2e8f0; border-radius: 100px; }
 .coaching-v2-hero-sub { font-size: clamp(15px, 2.2vw, 18px); line-height: 1.9; color:#334155; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto; }
 .coaching-v2-hero-meta { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:28px; font-size:12px; color:#64748b; }
 .coaching-v2-hero-meta-badge { background:#f1f5f9; padding:6px 14px; border-radius:100px; font-weight:700; }
 .coaching-v2-hero-note { font-size:13px; color:#64748b; line-height:1.7; margin-top:20px; padding:14px 20px; background:#f8fafc; border-left:3px solid #b8a88a; border-radius:8px; text-align:left; max-width:600px; margin-left:auto; margin-right:auto; }
+
+/* 🌟 北極星コンセプト引用ブロック（Hero h1 直下・「自分を取り戻すと、人生が動き出す」） */
+.coaching-hero-concept {
+  display: inline-block;
+  margin: 0 auto 28px;
+  padding: 16px 36px;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 700;
+  font-style: italic;
+  color: #78350f;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 8px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  border: none;
+  quotes: none;
+}
+.coaching-hero-concept::before, .coaching-hero-concept::after { content: none; }
 
 .coaching-v2-section { padding: 80px 0; }
 .coaching-v2-section-alt { background:#f8fafc; }
@@ -29,6 +50,67 @@
 .coaching-v2-section h2 em { font-style:normal; background:linear-gradient(transparent 62%, #fde68a 62%); padding: 0 4px; }
 .coaching-v2-section h3 { font-size:18px; font-weight:800; margin: 24px 0 12px; color:#0f172a; }
 .coaching-v2-lead { font-size:16px; line-height:1.9; color:#334155; margin-bottom:24px; }
+.coaching-v2-note { font-size: 13.5px; color: #64748b; line-height: 1.85; margin-top: 24px; padding: 12px 18px; background: #f8fafc; border-left: 3px solid #b8a88a; border-radius: 4px; }
+.coaching-v2-note strong { color: #0f172a; }
+
+/* have to カード（Service セクション内） */
+.coaching-haveto-card { max-width: 680px; margin: 24px auto 0; padding: 20px 28px; background: #fafaf8; border-left: 3px solid #0f172a; border-radius: 4px; }
+.coaching-haveto-label { font-size: 13px; letter-spacing: 0.1em; color: #0f172a; font-weight: 700; margin: 0 0 12px; }
+.coaching-haveto-list { list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2; color: #1e293b; }
+
+/* 🆕 グラウンディング両面ペアブロック（堀田 #38 #41 対応） */
+.coaching-grounding-h3 { font-size: 18px; font-weight: 800; margin: 40px 0 20px; color: #0f172a; text-align: center; }
+.coaching-grounding-grid { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 760px; margin: 0 auto; }
+.coaching-grounding-pair { display: grid; grid-template-columns: 1fr 32px 1fr; gap: 12px; align-items: stretch; }
+.coaching-grounding-soil, .coaching-grounding-yield { padding: 18px 22px; border-radius: 10px; }
+.coaching-grounding-soil { background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); border-left: 3px solid #64748b; }
+.coaching-grounding-yield { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 3px solid #b8a88a; }
+.coaching-grounding-label { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; color: #fff; }
+.coaching-grounding-soil .coaching-grounding-label { background: #64748b; }
+.coaching-grounding-yield .coaching-grounding-label { background: #b8a88a; }
+.coaching-grounding-soil p, .coaching-grounding-yield p { font-size: 15px; font-weight: 700; color: #0f172a; line-height: 1.6; margin: 0; }
+.coaching-grounding-arrow { display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #0f172a; }
+
+/* サービス内容リスト（圧縮版） */
+.coaching-service-h3 { font-size: 18px; font-weight: 800; margin: 40px 0 16px; color: #0f172a; }
+.coaching-service-list { list-style: none; padding: 0; margin: 0; }
+.coaching-service-list li { padding: 16px 0; border-bottom: 1px solid #f1f5f9; }
+.coaching-service-list li:last-child { border-bottom: none; }
+.coaching-service-list .coaching-service-title { font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 4px; }
+.coaching-service-list .coaching-service-desc { font-size: 13px; color: #64748b; line-height: 1.75; margin: 0; }
+
+/* PROCESS 3 ステップ */
+.coaching-process-3step { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 32px; }
+.coaching-process-card { padding: 24px 22px; background: #ffffff; border-top: 4px solid #0f172a; border-radius: 6px; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04); }
+.coaching-process-month { font-size: 11px; letter-spacing: 0.15em; color: #0f172a; font-weight: 700; margin: 0 0 8px; }
+.coaching-process-title { font-size: 16px; font-weight: 800; color: #0f172a; margin: 0 0 10px; line-height: 1.5; }
+.coaching-process-desc { font-size: 13.5px; color: #475569; line-height: 1.8; margin: 0; }
+.coaching-process-note { text-align: center; margin-top: 28px; }
+
+/* CASES（受講者の声） */
+.coaching-cases-lead { text-align: center; margin-bottom: 36px; }
+.coaching-cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 780px; margin: 0 auto; }
+.coaching-case-card { display: block; text-decoration: none; color: inherit; }
+.coaching-case-img-wrap { aspect-ratio: 1280 / 670; overflow: hidden; border-radius: 8px; background: #f1f5f9; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
+.coaching-case-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.coaching-case-title { font-size: 14px; color: #0f172a; font-weight: 800; margin: 0 0 4px; line-height: 1.6; }
+.coaching-case-result { font-size: 12.5px; color: #475569; margin: 0 0 6px; line-height: 1.7; font-weight: 500; }
+.coaching-case-attr { font-size: 11.5px; color: #94a3b8; margin: 0; letter-spacing: 0.04em; }
+.coaching-cases-note { text-align: center; font-size: 12px; color: #94a3b8; margin: 24px auto 0; }
+
+/* CTA セクション補助 */
+.coaching-cta-label { color: #b8a88a !important; }
+
+/* Citations link（独立配置） */
+.coaching-citations-link { text-align: center; margin: 0 auto 48px; font-size: 14px; color: #64748b; }
+
+@media (max-width: 720px) {
+  .coaching-grounding-pair { grid-template-columns: 1fr; gap: 8px; }
+  .coaching-grounding-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .coaching-cases-grid { grid-template-columns: 1fr; gap: 20px; }
+  .coaching-hero-concept { padding: 14px 22px; }
+  .coaching-process-card { padding: 20px 18px; }
+}
 
 .paradox-box { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:32px 36px; margin:28px 0; box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05); }
 .paradox-a { font-size:14px; color:#64748b; margin-bottom:6px; letter-spacing:0.05em; font-weight:700; }
