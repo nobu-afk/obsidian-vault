@@ -2459,3 +2459,71 @@ img { max-width: 100%; display: block; }
     .b-cred-academic-intro, .b-cred-academic-list { font-size: 13.5px; }
     .b-chapter-wp-link { font-size: 13px; padding-top: 16px; margin-top: 24px; }
 }
+
+/* ============================================================
+   260517 天プロフレーム改善（#1 #2 #3 #4 採用）
+   ============================================================ */
+
+/* #2: 翻訳メカニズム（内的 → 外的 橋渡し） */
+.b-bridge-section { padding: 56px 0; background: #ffffff; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+.b-bridge-label { display: inline-block; font-size: 13px; letter-spacing: 0.15em; color: #1e40af; font-weight: 700; margin-bottom: 12px; text-align: center; width: 100%; }
+.b-bridge-h2 { font-size: clamp(20px, 3.2vw, 28px); font-weight: 900; line-height: 1.5; color: #0f172a; text-align: center; margin-bottom: 18px; }
+.b-bridge-intro { font-size: 14.5px; line-height: 1.9; color: #475569; text-align: center; max-width: 620px; margin: 0 auto 36px; }
+.b-bridge-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 0 auto; max-width: 720px; }
+.b-bridge-item { padding: 22px 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; }
+.b-bridge-pair { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: center; margin-bottom: 12px; }
+.b-bridge-internal { padding: 10px 14px; background: #f1f5f9; border-left: 3px solid #64748b; border-radius: 6px; font-size: 14px; font-weight: 700; color: #0f172a; text-align: center; }
+.b-bridge-external { padding: 10px 14px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 3px solid #b8a88a; border-radius: 6px; font-size: 14px; font-weight: 700; color: #78350f; text-align: center; }
+.b-bridge-arrow { font-size: 18px; font-weight: 700; color: #0f172a; text-align: center; }
+.b-bridge-desc { font-size: 13.5px; line-height: 1.8; color: #475569; margin: 0; }
+
+@media (max-width: 720px) {
+    .b-bridge-section { padding: 44px 0; }
+    .b-bridge-h2 { font-size: 18px; }
+    .b-bridge-intro { font-size: 13.5px; }
+    .b-bridge-pair { grid-template-columns: 1fr; gap: 6px; }
+    .b-bridge-arrow { transform: rotate(90deg); padding: 4px 0; }
+    .b-bridge-internal, .b-bridge-external { font-size: 13.5px; }
+    .b-bridge-item { padding: 18px 20px; }
+}
+
+/* #3: リスク言及（逆説提示） */
+.b-risk-callout { max-width: 720px; margin: 32px auto 0; padding: 24px 28px; background: #fef2f2; border-left: 4px solid #dc2626; border-radius: 0 8px 8px 0; }
+.b-risk-callout-label { font-size: 13px; letter-spacing: 0.12em; color: #991b1b; font-weight: 700; margin: 0 0 14px; }
+.b-risk-callout-list { list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.95; color: #334155; }
+.b-risk-callout-list li { padding-left: 22px; position: relative; margin-bottom: 8px; }
+.b-risk-callout-list li:last-child { margin-bottom: 0; }
+.b-risk-callout-list li::before { content: "⚠"; position: absolute; left: 0; top: 0; color: #dc2626; font-weight: 700; }
+
+@media (max-width: 720px) {
+    .b-risk-callout { padding: 20px 22px; margin-top: 24px; }
+    .b-risk-callout-list { font-size: 13.5px; }
+}
+
+/* #4: Before → After ストーリー（Solution 3 軸カード内） */
+.b-program-axis-ba { display: grid; grid-template-columns: 1fr 24px 1fr; gap: 8px; align-items: center; margin: 8px 0 12px; padding: 10px 12px; background: rgba(255, 255, 255, 0.08); border-radius: 6px; }
+.b-program-axis-ba-before { font-size: 12.5px; color: rgba(255, 255, 255, 0.7); font-weight: 600; text-align: center; line-height: 1.5; }
+.b-program-axis-ba-after { font-size: 12.5px; color: #fde68a; font-weight: 800; text-align: center; line-height: 1.5; }
+.b-program-axis-ba-arrow { font-size: 14px; font-weight: 700; color: #fde68a; text-align: center; }
+
+@media (max-width: 720px) {
+    .b-program-axis-ba { grid-template-columns: 1fr; gap: 4px; padding: 10px 14px; }
+    .b-program-axis-ba-arrow { transform: rotate(90deg); padding: 2px 0; }
+    .b-program-axis-ba-before, .b-program-axis-ba-after { font-size: 12px; }
+}
+
+/* #1: 自社 AI 武装実証ブロック（PROFILE 内） */
+.b-cred-proof { max-width: 840px; margin: 36px auto 0; padding: 32px 36px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 10px; }
+.b-cred-proof-label { font-size: 13px; letter-spacing: 0.15em; color: #fbbf24; font-weight: 700; margin: 0 0 12px; }
+.b-cred-proof-lead { font-size: 14.5px; line-height: 1.85; color: #cbd5e1; margin: 0 0 24px; }
+.b-cred-proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.b-cred-proof-item { padding: 20px 22px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; }
+.b-cred-proof-item strong { display: block; font-size: 19px; font-weight: 900; color: #fbbf24; letter-spacing: 0.02em; margin-bottom: 8px; line-height: 1.3; }
+.b-cred-proof-item span { display: block; font-size: 12.5px; line-height: 1.75; color: #cbd5e1; }
+
+@media (max-width: 720px) {
+    .b-cred-proof { padding: 24px 22px; }
+    .b-cred-proof-grid { grid-template-columns: 1fr; gap: 12px; }
+    .b-cred-proof-item { padding: 16px 18px; }
+    .b-cred-proof-item strong { font-size: 17px; }
+}
