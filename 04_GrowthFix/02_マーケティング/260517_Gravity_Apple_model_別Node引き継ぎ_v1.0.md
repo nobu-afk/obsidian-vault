@@ -246,3 +246,92 @@ done
 **最後に**：このタスクは Vault 全体の構造変更を伴う **大規模リブランド**。慎重さと網羅性が両立必要。「**Gravity シリーズ → Gravity**」の表記変更は機械的だが、文脈整合性（個人軸 vs 組織軸の判別）は人間判断が必要。
 
 成功条件：**完了後、全 LP・SSOT・memory で「Gravity = 組織軸メイン商品」「Gravity CODE / Coaching = 個人軸サブ」の階層が完全に統一**されていること。
+
+---
+
+## 11. 完了サマリ（2026-05-17 別 Node 実装完了）
+
+### 11.1 実施 Phase 概要
+
+| Phase | 内容 | 結果 |
+|---|---|---|
+| 1 | 影響範囲調査・パターン分類 | 「Gravity シリーズ」53 ファイル / 「組織の引力設計プログラム」78 ファイル → 5 パターン（A 核心 SSOT / B 公開 LP / C WP V9 系 / D 履歴系 / E 共通アセット）に分類 |
+| 2 | 核心 SSOT 6 件訂正 | SSOT_用語と定義 + 商品.md + SSOT_Gravity_コア主張 + 引力.md + 接続装置.md + culture.md ── 全件に🍎 Apple モデル注記追加 |
+| 3 | 機能 MD 6 件訂正 | 法務.md（L49 + 注記）+ 営業 / 採用 / カスタマー / 翻訳 / 判断基準（注記） |
+| 4 | LP 13 件訂正 | 7 サービス LP（Citations/Coaching/Code/Cultivate/Orbit/Recruit/Scan）+ コーポレート 5（top/profile/privacy-policy/news 2）+ tracking.js。post_lp_edit hook（audit_mobile_sync + lint_lp_internal_terms）全 PASS |
+| 5 | WP V9 整合性確認 | 本体 index.html は既に「Gravity シリーズ」ゼロ件 + Apple モデル整合構造（Gravity 全体像 / 2 階層構造 / Gravity CODE + Gravity Coaching フルネーム）→ 追加修正不要 |
+| 6 | memory 更新 | 新規 `project_gravity_brand_apple_model_260517.md` 作成 + MEMORY.md 先頭索引（🍎）+ 既存 memory 8 件の表記訂正 |
+| 7 | 本番デプロイ + 検証 | `deploy.sh all` user 明示承認後実行 → verify PASS 18 / WARN 9（既知）/ FAIL 0 → privacy-policy のみ deploy.sh 対象外で個別 curl 補完 → **全 14 公開 LP で「Gravity シリーズ」残存 0 件達成** |
+| 8 | work-log 統合 + 引き継ぎ書末尾追記 | 2605_work_log.md 第 7 ラウンド追記（8 タスク・削減 456 分・削減率 89.4%）+ 本書 §11 完了サマリ追記 |
+
+### 11.2 成功条件達成確認
+
+- ✅ memory 新規（`project_gravity_brand_apple_model_260517.md`）+ MEMORY.md 索引追加完了
+- ✅ 全 14 公開 LP 本番反映で「Gravity シリーズ」残存 **0 件**（curl 検証済）
+- ✅ lint_consistency.sh 通過（警告 20 / エラー 0）
+- ✅ work-log 第 7 ラウンド追加 + デイリー集計再計算
+- ✅ 本書末尾に完了サマリ（§11）追記
+
+### 11.3 本番反映確認結果（curl 検証）
+
+| URL | Gravity シリーズ残存 |
+|---|---:|
+| `/` | 0 |
+| `/profile/` | 0 |
+| `/achievement/` | 0 |
+| `/news/` | 0 |
+| `/news/gravity-release/` | 0 |
+| `/news/site-renewal/` | 0 |
+| `/knowledge/` | 0 |
+| `/privacy-policy/` | 0（個別 curl 補完後）|
+| `/gravity/` | 0 |
+| `/gravity/code/` | 0 |
+| `/gravity/coaching/` | 0 |
+| `/gravity/diagnose/` | 0 |
+| `/whitepaper-read/` | 0 |
+| `/whitepaper/` | 0 |
+| `/assets/js/tracking.js` | 0 |
+
+### 11.4 温存対象（履歴・草稿・戦略 MD）
+
+引き継ぎ書 §5 誤訂正リスク 3 ルールに従い、以下は **温存**：
+- `_archive` / `_history` / `_素材ストック` 配下
+- `.bak` ファイル（pre-upgrade / pre-zerobased / index_backup）
+- 04_デイリーログ系（時系列記録）
+- 02_セッション記録（堀田壁打ち履歴）
+- 03_コンテンツ Note 草稿（連載 Vol3 / Vol5）
+- 戦略 MD（260424 / 260429 / 260506 / 260508 / 260509 / 260511 / 260512）
+- WP V10 草案（`_WP_V10_草案_本番未投入/`）
+- 営業 LP 詳細アーカイブ（`_LP詳細アーカイブ_260508/`）
+- 引き継ぎ書類（本書 + `260517_Gravity_Apple_model_貼り付けプロンプト.md`）
+
+### 11.5 関連 SSOT（更新済）
+
+- `05_プロダクト/_共通/SSOT_用語と定義.md`（Apple モデル注記新規追加）
+- `09_会社OS/公開/ガイドライン/商品.md`（Apple モデル注記 + L3 サブタイトル更新）
+- `05_プロダクト/_共通/SSOT_Gravity_コア主張.md`（Apple モデル注記 + L6 訂正）
+- `09_会社OS/公開/経営思想/引力.md`（注記 + L119 訂正）
+- `09_会社OS/公開/経営思想/接続装置.md`（注記）
+- `09_会社OS/公開/文化/culture.md`（注記）
+- `09_会社OS/公開/文化/判断基準.md`（注記）
+- `09_会社OS/公開/ガイドライン/翻訳.md`（注記）
+- `09_会社OS/非公開/機能/営業.md` / `採用.md` / `法務.md`（注記 + 法務 L49 訂正）
+- `09_会社OS/非公開/ガイド/カスタマー.md`（注記）
+- `memory/project_gravity_brand_apple_model_260517.md`（新規・Apple モデル SSOT）
+- `memory/MEMORY.md`（🍎 索引先頭追加）
+
+### 11.6 ROI（11.6 期待 ROI セクション §7 への実証）
+
+| 項目 | 実現状況 |
+|---|---|
+| 認知価格設計 | 一語ブランド「Gravity」が組織軸メイン商品として全公開 LP で統一・覚えやすさ最大化 ✓ |
+| ブランド一貫性 | Apple モデル明示で個人軸 / 組織軸の階層が SSOT レベルで確定 ✓ |
+| LP メインキャッチ | 「Gravity ── 組織の引力設計プログラム」型を top tagline + profile + news で実装 ✓ |
+| 商談 / 営業 | 営業.md / 採用.md / カスタマー.md に Apple モデル注記反映で運用準備完了 ✓ |
+| Note / FB / 対外発信 | culture.md / 翻訳.md / 発信系 MD に注記反映 ✓ |
+
+---
+
+**本タスク完走時刻：** 2026-05-17 23:00 頃 JST（別 Node 実装）
+**実装者：** Claude Opus 4.7（1M context）
+**承認者：** GrowthFix・石井伸幸（Phase 7 デプロイ承認・明示テキスト承認）

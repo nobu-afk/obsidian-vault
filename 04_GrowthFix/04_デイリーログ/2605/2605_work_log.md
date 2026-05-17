@@ -4017,3 +4017,18 @@ CODE 戦略を「自分の引力源を知る」（顕在ニーズなし）→「
 | 71 | 開発 | `deploy.sh lp` 実行（diagnose を含む LP 群全体デプロイ）+ verify_deployment.sh 自動連鎖 PASS 18 / WARN 9（既知別件 seminar-bar.js）/ FAIL 0 確認 + 本番 `/gravity/diagnose/` curl grep で新ラベル 4 種 + マイクロコピー + v0.5 ヘッダ反映確認 | 45 分 | 4 分 | 41 分 |
 
 **2026-05-17 第 6 ラウンド小計：** **5 タスク**・手作業 **270 分（4.5 時間相当）**・AI 実績 **26 分（0.43 時間）**・削減 **244 分（4.07 時間）**・削減率 **90.4%**
+
+### 2026-05-17 第 7 ラウンド（Gravity ブランド Apple モデル化・全 Vault 反映完走）
+
+| # | カテゴリ | タスク概要 | 手作業見積 | AI実績 | 削減時間 |
+|---|---|---|---|---|---|
+| 72 | 設計 | 引き継ぎ書 `260517_Gravity_Apple_model_別Node引き継ぎ_v1.0.md` Read（全 10 セクション）+ 主要 SSOT 5 件 Read（MEMORY.md / project_8pages_pivot_implementation_260515 / project_gravity_identity_triple_layer / feedback_lp_improvement_add_remove_pair_260517 / feedback_gravity_terminology_isolation_260517）+ Phase 1 影響範囲調査 grep（「Gravity シリーズ」53 ファイル /「組織の引力設計プログラム」78 ファイル）+ 5 パターン分類（A 核心 SSOT 5 / B 公開 LP 13 / C WP V9 系 4 / D 履歴系 25 / E 共通アセット 1）| 30 分 | 6 分 | 24 分 |
+| 73 | 設計 | Phase 2 核心 SSOT 6 件訂正：SSOT_用語と定義（先頭 Apple モデル注記追加 + L480 + L676）/ 商品.md（先頭注記 + L3 サブタイトル更新）/ SSOT_Gravity_コア主張（先頭注記 + L6）/ 引力.md（注記 + L119）/ 接続装置.md（注記）/ culture.md（注記） | 90 分 | 8 分 | 82 分 |
+| 74 | 設計 | Phase 3 機能 MD 6 件訂正：法務.md（注記 + L49 訂正）+ 営業 / 採用 / カスタマー / 翻訳 / 判断基準（注記のみ）。Apple モデル注記の文言は MD 種類に応じてカスタマイズ（営業 → 商談コンテキスト / 採用 → 業務委託教材 / カスタマー → 顧客対応 / 翻訳 → 出力物 / 判断基準 → 意思決定）| 60 分 | 6 分 | 54 分 |
+| 75 | 開発 | Phase 4 LP 13 件並列訂正：7 サービス LP（Citations / Coaching / Code / Cultivate / Orbit / Recruit / Scan）の FAQ リンク文を Apple モデル整合化（「Gravity シリーズ TOP のよくある質問」→「Gravity TOP」/ 列挙列の Apple モデル準拠表記化）+ コーポレート 5（top L22/29/34/40/60 + profile L6/9/124/142/237 + privacy-policy L101/118 + news/gravity-release L6/62 + news/site-renewal L63）+ _assets/js/tracking.js コメント。post_lp_edit hook（audit_mobile_sync + lint_lp_internal_terms）全 PASS（HIT 0）| 150 分 | 14 分 | 136 分 |
+| 76 | 設計 | Phase 5 WP V9 整合性確認：本体 index.html 802 行を「Gravity シリーズ」grep → 0 件確認（既にクリーン）。L497-556 で Apple モデル整合構造（Gravity 全体像 / 2 階層構造 / Gravity CODE / Gravity Coaching フルネーム / 組織の引力設計プログラムコンセプト名温存）を確認・追加修正不要判定 | 30 分 | 3 分 | 27 分 |
+| 77 | 設計 | Phase 6 memory 更新：新規 `project_gravity_brand_apple_model_260517.md` 作成（Apple モデル構造 + 運用ルール + 堀田フレーム 5 件根拠 + Phase 別実施内容 + How to apply）+ MEMORY.md 先頭索引追加（🍎 アイコン）+ 既存 memory 8 件の「Gravity シリーズ」訂正（feedback_personal_org_axis_button_color / project_competitor_analysis_v1 / project_gravity_identity_gravitational / project_growthfix_company_positioning / project_internal_external_concept / project_session_learnings_260430_pivot / project_shift_s_succession / project_strategy_lock）| 60 分 | 8 分 | 52 分 |
+| 78 | 開発 | Phase 7 本番デプロイ + 検証：`deploy.sh all` user 明示承認後実行（共通アセット 10 件 + LP 並列 19 件 + 診断ツール 5 件 + WP V9 + オプトイン）/ verify_deployment.sh 自動連鎖 PASS 18 WARN 9（既知 seminar-bar.js）FAIL 0 / 公開 13 LP curl 検証で「Gravity シリーズ」残存 0 件確認 → privacy-policy のみ 2 件残存検出 → 個別 curl で privacy-policy アップロード（CLAUDE.md 例外手順準拠：URL マッピング照合済・Layer 4 ガード対象外確認）→ 全 14 LP で残存 0 件達成 | 60 分 | 5 分 | 55 分 |
+| 79 | 開発 | Phase 8 work-log 統合 + 引き継ぎ書 §10 完了サマリ追記 + lint_consistency.sh 最終確認（警告 20 / エラー 0）| 30 分 | 4 分 | 26 分 |
+
+**2026-05-17 第 7 ラウンド小計：** **8 タスク**・手作業 **510 分（8.5 時間相当）**・AI 実績 **54 分（0.9 時間）**・削減 **456 分（7.6 時間）**・削減率 **89.4%**
