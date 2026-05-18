@@ -1970,6 +1970,8 @@ const ScanApp = (() => {
       showScreen('screen-result');
       // POST to API（並列実装中 generate.php が稼働時に処理）
       postToApi(resultData);
+      // 裏で Utage にもリード送信（260518 追加・診断結果表示は継続）
+      postToUtage(userData);
     });
   }
 
@@ -2021,6 +2023,28 @@ const ScanApp = (() => {
       });
     } catch(e) {
       // API 未稼働時はサイレント失敗（結果表示は継続）
+    }
+  }
+
+  /* --- Utage リード送信（260518 追加・既存診断フローは継続・裏で並行送信） ---
+   * Utage form QEnHFeHzrTtj に no-cors fetch で POST
+   * field mapping: name→name / company→free14 / email→mail / industry→free15 / size→free16
+   * 失敗してもサイレント（診断結果表示には影響しない） */
+  async function postToUtage(userData) {
+    try {
+      const fd = new FormData();
+      fd.append('name',   userData.name || '');
+      fd.append('free14', userData.company || '');
+      fd.append('mail',   userData.email || '');
+      fd.append('free15', userData.industry || '');
+      fd.append('free16', userData.size || '');
+      await fetch('https://utage-system.com/r/QEnHFeHzrTtj/store', {
+        method: 'POST',
+        mode:   'no-cors',
+        body:   fd,
+      });
+    } catch(e) {
+      // Utage 連携失敗時もサイレント（診断結果表示は継続）
     }
   }
 
