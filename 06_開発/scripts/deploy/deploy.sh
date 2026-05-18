@@ -251,6 +251,10 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/コーポレート/knowledge_本番/index.html" "knowledge/index.html" "コーポレート knowledge"
   # コーポレート contact（本番 URL: https://growthfix.jp/contact/・260518 Utage 連動修正で追加・field name 完全一致版）
   upload "$VAULT/05_プロダクト/コーポレート/contact_本番/index.html" "contact/index.html" "コーポレート contact"
+  # コーポレート contact-thanks（本番 URL: https://growthfix.jp/contact-thanks/・260518 新規・問い合わせ送信後リダイレクト先）
+  upload "$VAULT/05_プロダクト/コーポレート/contact-thanks_本番/index.html" "contact-thanks/index.html" "コーポレート contact-thanks (260518 新規)"
+  # Code LP thanks（本番 URL: https://growthfix.jp/gravity/code/thanks/・260518 新規・CODE 申込送信後リダイレクト先）
+  upload "$VAULT/05_プロダクト/Gravity/Code/LP/thanks/index.html" "gravity/code/thanks/index.html" "Code LP thanks (260518 新規)"
   # academy-wl 301（260515 8 ページピボットでアーカイブ化・/gravity/ にリダイレクト）
   upload "$VAULT/05_プロダクト/コーポレート/academy-wl_本番/.htaccess" "academy-wl/.htaccess" "academy-wl 301"
   # Scan web-diagnose → /gravity/diagnose/ 物理移動（260515 8 ページピボット）
