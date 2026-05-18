@@ -309,6 +309,17 @@ deploy_diagnose() {
   echo ""
 }
 
+deploy_citations() {
+  echo "[Citations LP → /citations/ アップロード（学術引用 LP・260518 5 領域再構成版）]"
+  # 公開 URL：https://growthfix.jp/citations/
+  # ローカル：05_プロダクト/Gravity/Citations/LP/index.html
+  # 用途：5 領域学術基盤（集まる軸 / 躍動軸 / 留まる軸 / 個人軸 / 思想層）= 公開 LP / 3 引力対称構造 = 内部 SSOT
+  upload "$VAULT/05_プロダクト/Gravity/Citations/LP/index.html" "citations/index.html" "Citations LP"
+  wait_all
+  echo "[Citations LP 完了]"
+  echo ""
+}
+
 deploy_sales() {
   echo "[営業資料マスター 限定公開アップロード（260515 8 ページピボット §7）]"
   # 限定公開：URL ハッシュ秘匿 + noindex + Options -Indexes
@@ -326,22 +337,24 @@ deploy_sales() {
 
 # === メイン ===
 case "${1:-all}" in
-  shared)   deploy_shared ;;
-  lp)       deploy_lp ;;
-  diagnose) deploy_diagnose ;;
-  wp)       deploy_wp ;;
-  optin)    deploy_optin ;;
-  sales)    deploy_sales ;;
+  shared)    deploy_shared ;;
+  lp)        deploy_lp ;;
+  diagnose)  deploy_diagnose ;;
+  wp)        deploy_wp ;;
+  optin)     deploy_optin ;;
+  citations) deploy_citations ;;
+  sales)     deploy_sales ;;
   all)
     deploy_shared
     deploy_lp
     deploy_diagnose
     deploy_wp
     deploy_optin
+    deploy_citations
     # sales は all から除外（限定公開・明示起動のみ）
     ;;
   *)
-    echo "Usage: $0 [shared|lp|diagnose|wp|optin|sales|all]"
+    echo "Usage: $0 [shared|lp|diagnose|wp|optin|citations|sales|all]"
     exit 1
     ;;
 esac
