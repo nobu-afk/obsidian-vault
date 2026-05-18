@@ -197,6 +197,8 @@ deploy_shared() {
   upload "$VAULT/_assets/css/gravity-code-page.css"     "assets/css/gravity-code-page.css"      "gravity-code-page.css"
   upload "$VAULT/_assets/css/gravity-coaching-page.css" "assets/css/gravity-coaching-page.css"  "gravity-coaching-page.css"
   upload "$VAULT/_assets/css/corporate-page.css"        "assets/css/corporate-page.css"         "corporate-page.css (260518 contact checkbox 追加)"
+  # top-page.css は top_本番/_assets/css/ 配下にローカル保管（260518 ハーネス漏れ修復で追加・MD5 一致確認済）
+  upload "$VAULT/05_プロダクト/コーポレート/top_本番/_assets/css/top-page.css" "assets/css/top-page.css" "top-page.css (260518 ハーネス漏れ修復)"
   upload "$VAULT/05_プロダクト/_共通/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
   # site-chrome.js + 関連 CSS（260515 追加・footer 動的注入 SSOT・全 LP から参照）
   upload "$VAULT/06_開発/site-chrome/site-chrome.js"          "gravity/site-chrome.js"          "site-chrome.js"
