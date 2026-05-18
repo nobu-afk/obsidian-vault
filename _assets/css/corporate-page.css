@@ -360,3 +360,45 @@
     line-height: 1.7;
     margin: 18px 0 0;
 }
+
+
+/* ============================================================
+   Form Checkbox Group（260518 contact Utage 連動・お問い合わせ種別）
+   対象: contact（free11[] 複数選択フィールド）
+   ============================================================ */
+.form-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+
+.form-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+.form-checkbox-item input[type="checkbox"] {
+    margin: 4px 0 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.form-checkbox-item span {
+    user-select: none;
+}
+
+.form-checkbox-item:hover span {
+    color: #0f172a;
+}

@@ -196,6 +196,7 @@ deploy_shared() {
   upload "$VAULT/_assets/css/lp-scan-extras.css"   "assets/css/lp-scan-extras.css"    "lp-scan-extras.css"
   upload "$VAULT/_assets/css/gravity-code-page.css"     "assets/css/gravity-code-page.css"      "gravity-code-page.css"
   upload "$VAULT/_assets/css/gravity-coaching-page.css" "assets/css/gravity-coaching-page.css"  "gravity-coaching-page.css"
+  upload "$VAULT/_assets/css/corporate-page.css"        "assets/css/corporate-page.css"         "corporate-page.css (260518 contact checkbox 追加)"
   upload "$VAULT/05_プロダクト/_共通/question_block_styles.php" "shared/question_block_styles.php" "question_block_styles.php"
   # site-chrome.js + 関連 CSS（260515 追加・footer 動的注入 SSOT・全 LP から参照）
   upload "$VAULT/06_開発/site-chrome/site-chrome.js"          "gravity/site-chrome.js"          "site-chrome.js"
@@ -246,6 +247,8 @@ deploy_lp() {
   upload "$VAULT/05_プロダクト/コーポレート/news_本番/site-renewal/index.html"     "news/site-renewal/index.html"     "コーポレート news site-renewal"
   # コーポレート knowledge（本番 URL: https://growthfix.jp/knowledge/・260517 R3 改修で追加）
   upload "$VAULT/05_プロダクト/コーポレート/knowledge_本番/index.html" "knowledge/index.html" "コーポレート knowledge"
+  # コーポレート contact（本番 URL: https://growthfix.jp/contact/・260518 Utage 連動修正で追加・field name 完全一致版）
+  upload "$VAULT/05_プロダクト/コーポレート/contact_本番/index.html" "contact/index.html" "コーポレート contact"
   # academy-wl 301（260515 8 ページピボットでアーカイブ化・/gravity/ にリダイレクト）
   upload "$VAULT/05_プロダクト/コーポレート/academy-wl_本番/.htaccess" "academy-wl/.htaccess" "academy-wl 301"
   # Scan web-diagnose → /gravity/diagnose/ 物理移動（260515 8 ページピボット）

@@ -18,7 +18,7 @@
     <script src="https://growthfix.jp/assets/js/tracking.js" defer></script>
     <link rel="stylesheet" href="https://growthfix.jp/assets/css/wp-theme-purged.css?v=20260425a">
     <link rel="stylesheet" href="https://growthfix.jp/gravity/styles.css?v=20260424">
-    <link rel="stylesheet" href="/assets/css/corporate-page.css?v=20260512c">
+    <link rel="stylesheet" href="/assets/css/corporate-page.css?v=20260518a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -49,36 +49,56 @@
 
         <section class="contact-section">
             <div class="contact-form-wrap">
-                <form action="https://utage-system.com/r/Mbii5hPchyIQ/store" method="post">
+                <form action="https://utage-system.com/r/Mbii5hPchyIQ/store" method="post" id="contactForm">
                     <div class="form-group">
-                        <label class="form-label" for="your-name">お名前 <span class="required">必須</span></label>
-                        <input type="text" id="your-name" name="your-name" class="form-input" required>
+                        <label class="form-label" for="name">お名前 <span class="required">必須</span></label>
+                        <input type="text" id="name" name="name" class="form-input" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="your-company">会社名</label>
-                        <input type="text" id="your-company" name="your-company" class="form-input">
+                        <label class="form-label" for="mail">メールアドレス <span class="required">必須</span></label>
+                        <input type="email" id="mail" name="mail" class="form-input" required autocomplete="email">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="your-email">メールアドレス <span class="required">必須</span></label>
-                        <input type="email" id="your-email" name="your-email" class="form-input" required>
+                        <label class="form-label" for="free10">会社名 <span class="required">必須</span></label>
+                        <input type="text" id="free10" name="free10" class="form-input" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="your-subject">お問い合わせ種別</label>
-                        <select id="your-subject" name="your-subject" class="form-select">
-                            <option value="サービスについて">サービスについて</option>
-                            <option value="取材・メディア掲載依頼">取材・メディア掲載依頼</option>
-                            <option value="講演・セミナー依頼">講演・セミナー依頼</option>
-                            <option value="協業・パートナーシップ">協業・パートナーシップ</option>
-                            <option value="その他">その他</option>
-                        </select>
+                        <label class="form-label" for="phone">電話番号 <span class="required">必須</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required autocomplete="tel">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="your-message">お問い合わせ内容 <span class="required">必須</span></label>
-                        <textarea id="your-message" name="your-message" class="form-textarea" required placeholder="ご相談内容を具体的にお書きください。"></textarea>
+                        <span class="form-label">お問い合わせ種別 <span class="required">必須</span></span>
+                        <div class="form-checkbox-group">
+                            <label class="form-checkbox-item">
+                                <input type="checkbox" name="free11[]" value="サービスについて" class="js-subject-check">
+                                <span>サービスについて</span>
+                            </label>
+                            <label class="form-checkbox-item">
+                                <input type="checkbox" name="free11[]" value="取材・メディア掲載依頼" class="js-subject-check">
+                                <span>取材・メディア掲載依頼</span>
+                            </label>
+                            <label class="form-checkbox-item">
+                                <input type="checkbox" name="free11[]" value="講演・セミナー依頼" class="js-subject-check">
+                                <span>講演・セミナー依頼</span>
+                            </label>
+                            <label class="form-checkbox-item">
+                                <input type="checkbox" name="free11[]" value="協業・パートナーシップ" class="js-subject-check">
+                                <span>協業・パートナーシップ</span>
+                            </label>
+                            <label class="form-checkbox-item">
+                                <input type="checkbox" name="free11[]" value="その他" class="js-subject-check">
+                                <span>その他</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="free3">お問い合わせ内容 <span class="required">必須</span></label>
+                        <textarea id="free3" name="free3" class="form-textarea" required placeholder="ご相談内容を具体的にお書きください。"></textarea>
                     </div>
 
                     <div class="form-submit-wrap">
@@ -92,5 +112,22 @@
 
     <script src="https://growthfix.jp/gravity/site-chrome.js?v=20260511b" defer></script>
     <script src="https://growthfix.jp/gravity/script.js?v=20260409" defer></script>
+    <script>
+        // お問い合わせ種別 checkbox group の最低1つ選択バリデーション（260518 Utage 連動）
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('contactForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+                var checks = form.querySelectorAll('.js-subject-check');
+                var anyChecked = Array.prototype.some.call(checks, function(c) { return c.checked; });
+                if (!anyChecked) {
+                    e.preventDefault();
+                    alert('お問い合わせ種別を 1 つ以上選択してください。');
+                    if (checks[0]) checks[0].focus();
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
