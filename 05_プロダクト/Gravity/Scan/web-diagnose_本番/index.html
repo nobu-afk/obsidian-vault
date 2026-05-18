@@ -841,6 +841,14 @@ body {
 .type-不毛 .result-type-name { color: #fca5a5; }
 .type-不毛 .result-type-icon { color: #fca5a5; }
 
+/* PDF 出力モード（260518 追加・html2canvas が linear-gradient を描画できない問題への対応）
+ * downloadPdf() 内で screen-result に .pdf-mode を一時付与 → 単色背景に強制 → 解除
+ * 画面表示には影響しない */
+.pdf-mode.type-整合 .result-hero { background: #0f172a !important; }
+.pdf-mode.type-拡散 .result-hero { background: #1e3a5f !important; }
+.pdf-mode.type-渇望 .result-hero { background: #2d1810 !important; }
+.pdf-mode.type-不毛 .result-hero { background: #200e0e !important; }
+
 /* TYPE MEANING — 4 型別 B/A/U（260517 ペア A 後半・天プロ T08 由来） */
 .type-meaning { display: none; padding: 24px 28px; background: #fafaf8; border-left: 3px solid #0f172a; border-radius: 6px; margin-bottom: 24px; }
 .type-meaning p { margin: 0 0 12px; font-size: 14px; line-height: 1.9; color: #1e293b; }
@@ -2166,18 +2174,28 @@ const ScanApp = (() => {
       (userData.company || '組織') + '_' +
       new Date().toISOString().slice(0, 10) + '.pdf';
     const element = document.getElementById('screen-result');
+    // 260518 修正：html2canvas が linear-gradient を描画できない問題への対応
+    // .pdf-mode 一時付与で hero 背景を単色 dark に強制
+    element.classList.add('pdf-mode');
     const opt = {
       margin:       [10, 10, 10, 10],
       filename:     filename,
       image:        { type: 'jpeg', quality: 0.95 },
-      html2canvas:  { scale: 2, useCORS: true, logging: false },
+      html2canvas:  {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#f8fafc',  // screen-result 背景と一致（gradient 失敗時の fallback）
+      },
       jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
       pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] },
     };
     html2pdf().set(opt).from(element).save().then(() => {
+      element.classList.remove('pdf-mode');
       if (btn) btn.disabled = false;
       toast('PDF をダウンロードしました');
     }).catch((e) => {
+      element.classList.remove('pdf-mode');
       if (btn) btn.disabled = false;
       toast('PDF 生成に失敗しました。ブラウザを更新して再試行してください。');
     });
