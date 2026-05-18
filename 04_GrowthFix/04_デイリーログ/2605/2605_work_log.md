@@ -4124,3 +4124,32 @@ CODE 戦略を「自分の引力源を知る」（顕在ニーズなし）→「
 | 105 | 開発 | deploy.sh all + verify_deployment.sh PASS 18 WARN 9 FAIL 0 + 本番 curl 検証で / トップ Hero CTA 反映 + /gravity/ hero-eyebrow 反映確認 + 3 ラウンド連続 grep 漏れの学び言語化（lint_consistency.sh への大文字小文字無視 + スペース可変パターン追加候補） | 30 分 | 3 分 | 27 分 |
 
 **2026-05-17 第 10 ラウンド小計：** **8 タスク**・手作業 **225 分（3.75 時間相当）**・AI 実績 **26 分（0.43 時間）**・削減 **199 分（3.32 時間）**・削減率 **88.4%**
+
+---
+
+### 2026-05-18 第 1 ラウンド（5 軸 SSOT 確定 + Citations LP 5 領域再構成 + sync-knowledge）
+
+| # | カテゴリ | タスク概要 | 手作業見積 | AI実績 | 削減時間 |
+|---|---|---|---|---|---|
+| 1 | 設計 | 既存 SSOT 探索（5 軸 × 論文 × 示唆）+ 260514_3軸マッピング棚卸し v0.1（364 行・36KB）評価・10 軸 vs 3 軸構造解明 / 留まる軸最大欠落特定の v0.1 内容把握 + Phase 1-14 反映 253 件 + Citations LP 263 件のカタログ作成 | 60 分 | 4 分 | 56 分 |
+| 2 | 設計 | 📝ネタ 新規 SSOT MD `260518_3軸論文マッピング_v1.0.md` 作成（約 420 行・5 軸 × 263 論文 × 示唆 × サービス機能反映の網羅マッピング・集まる軸 14 論文 + 躍動軸 20 論文 + 留まる軸 3 本柱 + 19 補強 + 個人軸 CODE/Coaching + 思想層 = Citations LP Pillar 1-10 と完全整合・規模別 3 段階 × 3 軸の論文配分マップ・v0.1 → v1.0 で「留まる軸 △ 部分充足 → ◎ 独立 SSOT 化完了」「3 引力対称構造 未確立 → 完成」差分明示） | 720 分 | 15 分 | 705 分 |
+| 3 | 設計 | 📝ネタ user 確認質問「個人引力＝集まる / 組織引力＝躍動 / 継続引力＝留まる の 1:1 対応か？」の構造的誤認識を整理：個人引力 = 経営者個人軸（CODE）= 3 軸の前提条件（採用フェーズではない）/ 組織引力 = 集まる + 躍動の 2 軸を内包 / 継続引力 = 留まる の 1:1 のみ。「3 引力 = 主体軸」vs「3 軸 = 機能フェーズ軸」の別レイヤー説明で解消 | 60 分 | 3 分 | 57 分 |
+| 4 | 設計 | A-1（5 分類 + Tier 1 見出し改修・用語完全統一）採用判断 → 「足す＋消す」ペア運用ルールに従って追加 / 削除 / 温存マトリクス提示（追加 = 5 軸統一タグ + data-filter 新値 / 削除 = 3 引力対称構造表現 + Recruit R-/Cultivate C- タグ + 個別フィルター / 温存 = CODE/Coaching 商品名 + 横断テーマタグ + cites 数値）| 60 分 | 3 分 | 57 分 |
+| 5 | 開発 | 📝ネタ lp-implementer 委譲で Citations LP（148KB・260517 版）5 領域再構成：Tier 1 h2「Gravity の学術基盤 ── 10 本柱」+ subtitle 5 領域 + meta/OG/hero/supplement 5 領域更新 + Pillar 8-10 num「留まる軸 1/3 / 2/3 / 3/3」+ Tier 2 フィルター 5 ボタン（attract/thrive/stay/personal/thought）+ service-tag 59 件（集まる軸 12 / 躍動軸 20 / 留まる軸 13 / 個人軸 7 / 思想層 7）+ data-filter 値変換 + Tier 3 axis 列 263 件 5 領域圧縮 + JS フィルター動作確認 | 720 分 | 8 分 | 712 分 |
+| 6 | 設計 | SSOT MD v1.0 → v1.0.1 更新（§0 サマリ差分表 + 「3 引力対称構造（内部 SSOT）= 5 領域学術基盤（公開 LP）」2 層対応関係明示 + §7.1 Tier 1 軸対応表 5 領域化 + §7.2 6 ボタン構造に更新 + §10 残課題 1 完了化 + §12 v1.0.1 改訂履歴）| 60 分 | 3 分 | 57 分 |
+| 7 | 管理 | audit_mobile_sync.py（mobile.css 未カバー 0 / インライン懸念 0）+ lint_consistency.sh（警告 21 / エラー 0・全て既存）実行 PASS | 5 分 | 1 分 | 4 分 |
+| 8 | 開発 | 📝ネタ 個別 curl 拒否（CLAUDE.md 禁則）→ deploy.sh に `deploy_citations()` 関数 + `citations` ケース + `all` 組み込み追加（正規ルート化・将来発生事故予防）| 30 分 | 3 分 | 27 分 |
+| 9 | 開発 | bash deploy.sh citations 実行 + verify_deployment.sh 自動連鎖（PASS 18 / WARN 9 / FAIL 0）+ 本番反映確認（h2 / subtitle / Pillar 8-10 num / Tier 2 6 ボタン / 旧「3 引力対称構造」残存 0 件）| 30 分 | 2 分 | 28 分 |
+| 10 | 管理 | 本番 grep で 5 領域反映確認（Gravity の学術基盤 / 集まる軸 等の主要要素全件確認）| 10 分 | 1 分 | 9 分 |
+| 11 | 設計 | 📝ネタ user 質問「思想層 = 引力経営思想・WP V9・09_会社OS・コーポレート LP コア論理 で合ってる?」の微調整 2 点：(1) コーポレート LP h1 = 思想層の表現アウトプット（思想層自体ではない）/ (2) 思想層 = Bandura SE/CE + Sampson 1997 + Wrzesniewski Calling + Aoki + Luthans PsyCap 等の 3 層効力感階層論バックボーン | 30 分 | 3 分 | 27 分 |
+| 12 | 設計 | 📝ネタ user 質問「Supplement 補完軸 ── 産業界・公的機関の一次データレポート このパート必要か?」レビュー → 削除推奨理由 4 点（カード 1 件のみ / 旧タグ未修正 / 補完軸ラベルが 3 引力時代の遺物 / Tier 1+2+3 で十分完結）+ 「足す＋消す」ペア提案（追加 = S1 を Tier 2 統合 / 削除 = Supplement section）| 20 分 | 2 分 | 18 分 |
+| 13 | 開発 | 📝ネタ JS multi-axis filter 対応（1 行変更：`if(s === f)` → `if(s.split(' ').indexOf(f) !== -1)`）+ Supplement section 完全削除（28 行）+ S1 Anthropic Economic Index 2026 を Tier 2 躍動軸末尾に paper-item 形式で統合（data-service="thrive attract" 多軸 + service-tag 躍動軸 + 集まる軸 + AI ネイティブ + 一次データ）+ proposition 内容をタイトル 1 行に圧縮（「AI 露出度高職種で新規採用 14% 減速・中間経営職の時代的必然性 一次データ実証」）| 90 分 | 5 分 | 85 分 |
+| 14 | 開発 | bash deploy.sh citations 再実行 + verify PASS 18 WARN 9 FAIL 0 + 本番 grep で Supplement 残存 0 件 / S1 Tier 2 統合確認 / JS multi-axis 反映確認 | 30 分 | 2 分 | 28 分 |
+| 15 | 管理 | /sync-knowledge --days 1 skill 実行（直近 1 日コミット 30+ 件収集 + 編集 memory 16 件 + SSOT 4 件 + 09_会社OS 15 件 + audit_knowledge_sync.py MEDIUM 1 件 検出 + Type 別分類で 4 件 propagation 候補抽出）| 30 分 | 4 分 | 26 分 |
+| 16 | 設計 | 商品.md L179-188 5 軸構造整合化：旧「Gravity 3 軸構造（260510-514 確立・3 引力対称構造完成）」「集まる（Recruit）× 躍動する（Cultivate）× 留まる（Orbit）の 3 引力対称構造」→ 5 軸構造（3 軸 + 個人軸 + 思想層）+ ワンパッケージ規模別 3 段階仮価格反映 + 「公開物 = 5 軸 / 内部 SSOT = 3 引力対称構造」2 層対応関係明示 + 5 軸 SSOT pointer 追記 | 45 分 | 3 分 | 42 分 |
+| 17 | 設計 | 商品.md L477 NG 例「3 引力対称構造の混同」を 260518 5 軸統一補強で表現更新（公開物の表現は 5 軸統一・3 引力対称構造は内部 SSOT のみ で使用 を明文化）| 15 分 | 1 分 | 14 分 |
+| 18 | 管理 | MEMORY.md に orphan 2 件 index 追加（feedback_3axes_mapping_priority_over_size_tier_260518.md = A2 提案 + feedback_code_4types_retained_260518.md = 別セッション orphan のクリーンアップ）→ audit_knowledge_sync.py MEDIUM 0 件化 | 20 分 | 2 分 | 18 分 |
+| 19 | 管理 | project_5axes_mapping_ssot_260518.md 関連 SSOT セクションに 2 ポインタ追加（260518_3軸論文マッピング_v1.0.md v1.0.1 + 公開 LP /citations/ 5 領域再構成）→ 逆参照 0 件解消・将来発見性確保 | 15 分 | 1 分 | 14 分 |
+| 20 | 管理 | 最終整合性確認（audit_knowledge_sync.py: MEDIUM 0 / HIGH 0 + lint_consistency.sh: 警告 21 / エラー 0）+ /sync-knowledge 完了報告 | 10 分 | 1 分 | 9 分 |
+
+**2026-05-18 第 1 ラウンド小計：** **20 タスク**・手作業 **2,060 分（34.33 時間相当）**・AI 実績 **67 分（1.12 時間）**・削減 **1,993 分（33.22 時間）**・削減率 **96.7%**
